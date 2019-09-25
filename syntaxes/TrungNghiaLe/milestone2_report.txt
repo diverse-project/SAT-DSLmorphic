@@ -1,0 +1,9 @@
+1. There are no rules that are worth checking and not expressed in the grammar yet so far.
+
+2. Metamodel comparison (milestone 1's vs xtext generated's):
+- No SuperType relationships between classes.
+- There are no links between UnOp, BiOp and Formula class for some reasons. 
+- However, there is a composition and 0 to many reference relationships between Variable class and Formula class.
+- Presence of Model class, linked to Formula class by 0 to many reference relationships.
+- Additionally, a 0 to many reference relationships from Formula class to itself.
+- Absence of UnOpType and BiOpType Enumaration. UnOp's and BiOp's attributes type have been replaced by String instead.

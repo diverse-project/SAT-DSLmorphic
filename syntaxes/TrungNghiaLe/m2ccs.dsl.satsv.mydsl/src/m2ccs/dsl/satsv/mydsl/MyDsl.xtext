@@ -1,0 +1,29 @@
+grammar m2ccs.dsl.satsv.mydsl.MyDsl with org.eclipse.xtext.common.Terminals
+
+generate myDsl "http://www.dsl.m2ccs/satsv/mydsl/MyDsl"
+
+Model:
+	formula+=Formula*;
+	
+Formula:
+	var+=Variable | "(" op+=UnOp arg+=Formula ")" | "(" arg1+=Formula op+=BiOp arg2+=Formula ")";
+
+Variable:
+	id = ID
+;
+
+UnOp:
+	type = UnOpType
+;
+
+UnOpType:
+	"!"
+;
+
+BiOp:
+	type = BiOpType
+;
+
+BiOpType:
+	"&&" | "||" | "->" | "<->" | "!&"
+;

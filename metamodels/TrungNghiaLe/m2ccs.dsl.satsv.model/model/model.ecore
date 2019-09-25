@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="model" nsURI="http://www.example.org/model" nsPrefix="model">
+  <eClassifiers xsi:type="ecore:EClass" name="UnOp" eSuperTypes="#//Formula">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="#//UnOpType"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Arg" lowerBound="1" eType="#//Formula"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Variable" eSuperTypes="#//Formula">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="BiOp" eSuperTypes="#//Formula">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="#//BiOpType"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Arg2" lowerBound="1" eType="#//Formula"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Arg1" lowerBound="1" eType="#//Formula"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="UnOpType">
+    <eLiterals name="NOT"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="BiOpType">
+    <eLiterals name="AND"/>
+    <eLiterals name="OR" value="1"/>
+    <eLiterals name="CONDITIONAL" value="2"/>
+    <eLiterals name="BICONDITIONAL" value="3"/>
+    <eLiterals name="NAND" value="4"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Formula"/>
+</ecore:EPackage>
