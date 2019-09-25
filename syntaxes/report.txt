@@ -27,7 +27,8 @@ Table of Contents
 2 Comparison of MM2 & MM1
 ═════════════════════════
 
-  MM1 here : [link] MM2 here : [link]
+  MM1 here : https://github.com/garandria/SAT-DSLmorphic/blob/master/metamodels/MM1_MetaModel.png
+  MM2 here : https://github.com/garandria/SAT-DSLmorphic/blob/master/syntaxes/MM2_MetaModel.png
 
   We guess that the general structure of the metamodel are similar. But
   there are some differences :
