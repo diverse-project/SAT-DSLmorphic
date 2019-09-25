@@ -1,0 +1,6 @@
+ø
+((p AND q) AND r) // p and q and r
+((((p OR q) AND (q OR (NOT q))) AND ((NOT q) OR q)) AND ((NOT p) OR (NOT q)))
+// (p V q) ^ (q V ~q) ^ (~q V q) ^ (~p or ~q)
+((p IMPLIES q) AND TRUE)
+(p BIIMPLIES (q EXCLUDES (NOT r)))
