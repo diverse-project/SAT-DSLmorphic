@@ -12,7 +12,7 @@ Table of Contents
 2 Comparison of MM2 & MM1
 
 
-
+You can see examples of programs here : https://github.com/garandria/SAT-DSLmorphic/tree/master/syntaxes/Sample
 
 
 1 Well-formed rules not expressed in the grammar (and worth checking)
