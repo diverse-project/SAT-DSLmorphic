@@ -24,6 +24,15 @@ public interface SatFactory extends EFactory
   SatFactory eINSTANCE = org.xtext.example.sat.impl.SatFactoryImpl.init();
 
   /**
+   * Returns a new object of class '<em>File</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>File</em>'.
+   * @generated
+   */
+  File createFile();
+
+  /**
    * Returns a new object of class '<em>Formula</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->

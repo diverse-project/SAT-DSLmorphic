@@ -23,6 +23,21 @@ import org.eclipse.xtext.service.GrammarProvider;
 @Singleton
 public class SatGrammarAccess extends AbstractGrammarElementFinder {
 	
+	public class FileElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.Sat.File");
+		private final Assignment cFileAssignment = (Assignment)rule.eContents().get(1);
+		private final RuleCall cFileFormulaParserRuleCall_0 = (RuleCall)cFileAssignment.eContents().get(0);
+		
+		//File:
+		//	file+=Formula*;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//file+=Formula*
+		public Assignment getFileAssignment() { return cFileAssignment; }
+		
+		//Formula
+		public RuleCall getFileFormulaParserRuleCall_0() { return cFileFormulaParserRuleCall_0; }
+	}
 	public class FormulaElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.Sat.Formula");
 		private final Group cGroup = (Group)rule.eContents().get(1);
@@ -271,6 +286,7 @@ public class SatGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	
+	private final FileElements pFile;
 	private final FormulaElements pFormula;
 	private final ExprElements pExpr;
 	private final ExprBinElements pExprBin;
@@ -291,6 +307,7 @@ public class SatGrammarAccess extends AbstractGrammarElementFinder {
 			TerminalsGrammarAccess gaTerminals) {
 		this.grammar = internalFindGrammar(grammarProvider);
 		this.gaTerminals = gaTerminals;
+		this.pFile = new FileElements();
 		this.pFormula = new FormulaElements();
 		this.pExpr = new ExprElements();
 		this.pExprBin = new ExprBinElements();
@@ -329,6 +346,16 @@ public class SatGrammarAccess extends AbstractGrammarElementFinder {
 		return gaTerminals;
 	}
 
+	
+	//File:
+	//	file+=Formula*;
+	public FileElements getFileAccess() {
+		return pFile;
+	}
+	
+	public ParserRule getFileRule() {
+		return getFileAccess().getRule();
+	}
 	
 	//Formula:
 	//	{Formula} (form=Expr | Void);

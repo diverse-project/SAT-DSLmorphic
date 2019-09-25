@@ -43,7 +43,7 @@ import org.xtext.example.services.SatGrammarAccess;
 
     @Override
     protected String getFirstRuleName() {
-    	return "Formula";
+    	return "File";
    	}
 
    	@Override
@@ -59,6 +59,42 @@ import org.xtext.example.services.SatGrammarAccess;
         appendSkippedTokens();
     }
 }
+
+// Entry rule entryRuleFile
+entryRuleFile returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getFileRule()); }
+	iv_ruleFile=ruleFile
+	{ $current=$iv_ruleFile.current; }
+	EOF;
+
+// Rule File
+ruleFile returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		(
+			{
+				newCompositeNode(grammarAccess.getFileAccess().getFileFormulaParserRuleCall_0());
+			}
+			lv_file_0_0=ruleFormula
+			{
+				if ($current==null) {
+					$current = createModelElementForParent(grammarAccess.getFileRule());
+				}
+				add(
+					$current,
+					"file",
+					lv_file_0_0,
+					"org.xtext.example.Sat.Formula");
+				afterParserOrEnumRuleCall();
+			}
+		)
+	)*
+;
 
 // Entry rule entryRuleFormula
 entryRuleFormula returns [EObject current=null]:

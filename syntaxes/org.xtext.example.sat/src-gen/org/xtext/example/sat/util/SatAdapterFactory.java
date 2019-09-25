@@ -76,6 +76,11 @@ public class SatAdapterFactory extends AdapterFactoryImpl
     new SatSwitch<Adapter>()
     {
       @Override
+      public Adapter caseFile(File object)
+      {
+        return createFileAdapter();
+      }
+      @Override
       public Adapter caseFormula(Formula object)
       {
         return createFormulaAdapter();
@@ -126,6 +131,21 @@ public class SatAdapterFactory extends AdapterFactoryImpl
     return modelSwitch.doSwitch((EObject)target);
   }
 
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.example.sat.File <em>File</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.example.sat.File
+   * @generated
+   */
+  public Adapter createFileAdapter()
+  {
+    return null;
+  }
 
   /**
    * Creates a new adapter for an object of class '{@link org.xtext.example.sat.Formula <em>Formula</em>}'.

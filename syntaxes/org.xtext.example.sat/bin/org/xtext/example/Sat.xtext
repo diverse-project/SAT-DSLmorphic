@@ -2,6 +2,9 @@ grammar org.xtext.example.Sat with org.eclipse.xtext.common.Terminals
 
 generate sat "http://www.xtext.org/example/Sat"
 
+File : 
+	(file+=Formula)*;
+
 Formula:
 	{Formula} (form = Expr | Void);
 	

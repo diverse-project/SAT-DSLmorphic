@@ -6,6 +6,9 @@
     copyrightFields="false" runtimeVersion="2.18">
   <genPackages prefix="Sat" basePackage="org.xtext.example" disposableProviderFactory="true"
       fileExtensions="sat" ecorePackage="Sat.ecore#/">
+    <genClasses ecoreClass="Sat.ecore#//File">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Sat.ecore#//File/file"/>
+    </genClasses>
     <genClasses ecoreClass="Sat.ecore#//Formula">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Sat.ecore#//Formula/form"/>
     </genClasses>

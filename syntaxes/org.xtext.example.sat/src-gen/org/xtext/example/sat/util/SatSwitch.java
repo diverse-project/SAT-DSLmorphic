@@ -73,6 +73,13 @@ public class SatSwitch<T> extends Switch<T>
   {
     switch (classifierID)
     {
+      case SatPackage.FILE:
+      {
+        File file = (File)theEObject;
+        T result = caseFile(file);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       case SatPackage.FORMULA:
       {
         Formula formula = (Formula)theEObject;
@@ -120,6 +127,22 @@ public class SatSwitch<T> extends Switch<T>
       }
       default: return defaultCase(theEObject);
     }
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>File</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>File</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseFile(File object)
+  {
+    return null;
   }
 
   /**

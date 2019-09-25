@@ -65,6 +65,7 @@ public class SatFactoryImpl extends EFactoryImpl implements SatFactory
   {
     switch (eClass.getClassifierID())
     {
+      case SatPackage.FILE: return createFile();
       case SatPackage.FORMULA: return createFormula();
       case SatPackage.EXPR: return createExpr();
       case SatPackage.EXPR_BIN: return createExprBin();
@@ -74,6 +75,18 @@ public class SatFactoryImpl extends EFactoryImpl implements SatFactory
       default:
         throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
     }
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public File createFile()
+  {
+    FileImpl file = new FileImpl();
+    return file;
   }
 
   /**

@@ -14,6 +14,7 @@ import org.xtext.example.sat.Atom;
 import org.xtext.example.sat.Expr;
 import org.xtext.example.sat.ExprBin;
 import org.xtext.example.sat.ExprUn;
+import org.xtext.example.sat.File;
 import org.xtext.example.sat.Formula;
 import org.xtext.example.sat.SatFactory;
 import org.xtext.example.sat.SatPackage;
@@ -27,6 +28,13 @@ import org.xtext.example.sat.Var;
  */
 public class SatPackageImpl extends EPackageImpl implements SatPackage
 {
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass fileEClass = null;
+
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -130,6 +138,28 @@ public class SatPackageImpl extends EPackageImpl implements SatPackage
     // Update the registry and return the package
     EPackage.Registry.INSTANCE.put(SatPackage.eNS_URI, theSatPackage);
     return theSatPackage;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getFile()
+  {
+    return fileEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getFile_File()
+  {
+    return (EReference)fileEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -328,6 +358,9 @@ public class SatPackageImpl extends EPackageImpl implements SatPackage
     isCreated = true;
 
     // Create classes and their features
+    fileEClass = createEClass(FILE);
+    createEReference(fileEClass, FILE__FILE);
+
     formulaEClass = createEClass(FORMULA);
     createEReference(formulaEClass, FORMULA__FORM);
 
@@ -384,6 +417,9 @@ public class SatPackageImpl extends EPackageImpl implements SatPackage
     varEClass.getESuperTypes().add(this.getExpr());
 
     // Initialize classes and features; add operations and parameters
+    initEClass(fileEClass, File.class, "File", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getFile_File(), this.getFormula(), null, "file", null, 0, -1, File.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
     initEClass(formulaEClass, Formula.class, "Formula", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getFormula_Form(), this.getExpr(), null, "form", null, 0, 1, Formula.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 

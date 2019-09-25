@@ -17,6 +17,7 @@ import org.eclipse.xtext.serializer.sequencer.ITransientValueService.ValueTransi
 import org.xtext.example.sat.Atom;
 import org.xtext.example.sat.ExprBin;
 import org.xtext.example.sat.ExprUn;
+import org.xtext.example.sat.File;
 import org.xtext.example.sat.Formula;
 import org.xtext.example.sat.SatPackage;
 import org.xtext.example.sat.Var;
@@ -44,6 +45,9 @@ public class SatSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 				return; 
 			case SatPackage.EXPR_UN:
 				sequence_ExprUn(context, (ExprUn) semanticObject); 
+				return; 
+			case SatPackage.FILE:
+				sequence_File(context, (File) semanticObject); 
 				return; 
 			case SatPackage.FORMULA:
 				sequence_Formula(context, (Formula) semanticObject); 
@@ -118,6 +122,18 @@ public class SatSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 		feeder.accept(grammarAccess.getExprUnAccess().getOpUnOpParserRuleCall_1_0(), semanticObject.getOp());
 		feeder.accept(grammarAccess.getExprUnAccess().getExprExprParserRuleCall_2_0(), semanticObject.getExpr());
 		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     File returns File
+	 *
+	 * Constraint:
+	 *     file+=Formula+
+	 */
+	protected void sequence_File(ISerializationContext context, File semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	

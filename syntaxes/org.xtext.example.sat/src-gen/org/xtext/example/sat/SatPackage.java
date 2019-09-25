@@ -58,6 +58,34 @@ public interface SatPackage extends EPackage
   SatPackage eINSTANCE = org.xtext.example.sat.impl.SatPackageImpl.init();
 
   /**
+   * The meta object id for the '{@link org.xtext.example.sat.impl.FileImpl <em>File</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.example.sat.impl.FileImpl
+   * @see org.xtext.example.sat.impl.SatPackageImpl#getFile()
+   * @generated
+   */
+  int FILE = 0;
+
+  /**
+   * The feature id for the '<em><b>File</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int FILE__FILE = 0;
+
+  /**
+   * The number of structural features of the '<em>File</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int FILE_FEATURE_COUNT = 1;
+
+  /**
    * The meta object id for the '{@link org.xtext.example.sat.impl.FormulaImpl <em>Formula</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -65,7 +93,7 @@ public interface SatPackage extends EPackage
    * @see org.xtext.example.sat.impl.SatPackageImpl#getFormula()
    * @generated
    */
-  int FORMULA = 0;
+  int FORMULA = 1;
 
   /**
    * The feature id for the '<em><b>Form</b></em>' containment reference.
@@ -93,7 +121,7 @@ public interface SatPackage extends EPackage
    * @see org.xtext.example.sat.impl.SatPackageImpl#getExpr()
    * @generated
    */
-  int EXPR = 1;
+  int EXPR = 2;
 
   /**
    * The number of structural features of the '<em>Expr</em>' class.
@@ -112,7 +140,7 @@ public interface SatPackage extends EPackage
    * @see org.xtext.example.sat.impl.SatPackageImpl#getExprBin()
    * @generated
    */
-  int EXPR_BIN = 2;
+  int EXPR_BIN = 3;
 
   /**
    * The feature id for the '<em><b>Expr L</b></em>' containment reference.
@@ -158,7 +186,7 @@ public interface SatPackage extends EPackage
    * @see org.xtext.example.sat.impl.SatPackageImpl#getExprUn()
    * @generated
    */
-  int EXPR_UN = 3;
+  int EXPR_UN = 4;
 
   /**
    * The feature id for the '<em><b>Op</b></em>' attribute.
@@ -195,7 +223,7 @@ public interface SatPackage extends EPackage
    * @see org.xtext.example.sat.impl.SatPackageImpl#getVar()
    * @generated
    */
-  int VAR = 4;
+  int VAR = 5;
 
   /**
    * The feature id for the '<em><b>Atom</b></em>' containment reference.
@@ -232,7 +260,7 @@ public interface SatPackage extends EPackage
    * @see org.xtext.example.sat.impl.SatPackageImpl#getAtom()
    * @generated
    */
-  int ATOM = 5;
+  int ATOM = 6;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -252,6 +280,27 @@ public interface SatPackage extends EPackage
    */
   int ATOM_FEATURE_COUNT = 1;
 
+
+  /**
+   * Returns the meta object for class '{@link org.xtext.example.sat.File <em>File</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>File</em>'.
+   * @see org.xtext.example.sat.File
+   * @generated
+   */
+  EClass getFile();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link org.xtext.example.sat.File#getFile <em>File</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>File</em>'.
+   * @see org.xtext.example.sat.File#getFile()
+   * @see #getFile()
+   * @generated
+   */
+  EReference getFile_File();
 
   /**
    * Returns the meta object for class '{@link org.xtext.example.sat.Formula <em>Formula</em>}'.
@@ -435,6 +484,24 @@ public interface SatPackage extends EPackage
    */
   interface Literals
   {
+    /**
+     * The meta object literal for the '{@link org.xtext.example.sat.impl.FileImpl <em>File</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.example.sat.impl.FileImpl
+     * @see org.xtext.example.sat.impl.SatPackageImpl#getFile()
+     * @generated
+     */
+    EClass FILE = eINSTANCE.getFile();
+
+    /**
+     * The meta object literal for the '<em><b>File</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference FILE__FILE = eINSTANCE.getFile_File();
+
     /**
      * The meta object literal for the '{@link org.xtext.example.sat.impl.FormulaImpl <em>Formula</em>}' class.
      * <!-- begin-user-doc -->
