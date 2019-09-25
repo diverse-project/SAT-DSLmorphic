@@ -12,7 +12,6 @@
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="dSL_SAT_Project.ecore#//Value">
       <genEnumLiterals ecoreEnumLiteral="dSL_SAT_Project.ecore#//Value/TRUE"/>
       <genEnumLiterals ecoreEnumLiteral="dSL_SAT_Project.ecore#//Value/FALSE"/>
-      <genEnumLiterals ecoreEnumLiteral="dSL_SAT_Project.ecore#//Value/UNKNOWN"/>
     </genEnums>
     <genClasses image="false" ecoreClass="dSL_SAT_Project.ecore#//BinOp">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference dSL_SAT_Project.ecore#//BinOp/expr"/>

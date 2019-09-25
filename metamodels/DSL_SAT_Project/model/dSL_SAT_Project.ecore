@@ -5,7 +5,6 @@
   <eClassifiers xsi:type="ecore:EEnum" name="Value" instanceTypeName="Value">
     <eLiterals name="TRUE" value="1"/>
     <eLiterals name="FALSE"/>
-    <eLiterals name="UNKNOWN" value="2"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="BinOp" abstract="true" interface="true">
     <eStructuralFeatures xsi:type="ecore:EReference" name="expr" lowerBound="2" upperBound="2"
