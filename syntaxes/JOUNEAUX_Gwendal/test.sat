@@ -1,0 +1,13 @@
+// VALID
+P;
+!P AND Q;
+P || Q;
+NOT A -> B <=> NOT A IMPLIES B;
+F !& G EQUIV F NAND G;
+!((A && B) OR (C AND D));
+
+// NOT VALID
+NOT;
+A AND;
+OR B;
+-> B;
