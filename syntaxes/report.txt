@@ -12,7 +12,8 @@ Table of Contents
 2 Comparison of MM2 & MM1
 
 
-You can see examples of programs here : https://github.com/garandria/SAT-DSLmorphic/tree/master/syntaxes/Sample
+You can see examples of programs here :
+https://github.com/garandria/SAT-DSLmorphic/tree/master/syntaxes/Sample
 
 
 1 Well-formed rules not expressed in the grammar (and worth checking)
@@ -27,8 +28,10 @@ You can see examples of programs here : https://github.com/garandria/SAT-DSLmorp
 2 Comparison of MM2 & MM1
 ═════════════════════════
 
-  MM1 here : https://github.com/garandria/SAT-DSLmorphic/blob/master/metamodels/MM1_MetaModel.png
-  MM2 here : https://github.com/garandria/SAT-DSLmorphic/blob/master/syntaxes/MM2_MetaModel.png
+  MM1 here :
+  https://github.com/garandria/SAT-DSLmorphic/blob/master/metamodels/MM1_MetaModel.png
+  MM2 here :
+  https://github.com/garandria/SAT-DSLmorphic/blob/master/syntaxes/MM2_MetaModel.png
 
   We guess that the general structure of the metamodel are similar. But
   there are some differences :
