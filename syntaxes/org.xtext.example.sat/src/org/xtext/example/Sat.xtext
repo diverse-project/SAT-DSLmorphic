@@ -1,0 +1,33 @@
+grammar org.xtext.example.Sat with org.eclipse.xtext.common.Terminals
+
+generate sat "http://www.xtext.org/example/Sat"
+
+Formula:
+	{Formula} (form = Expr | Void);
+	
+Expr:
+	ExprBin | ExprUn | Var ;
+
+ExprBin:
+	'(' exprL=Expr op=BinOp exprR=Expr ')';
+
+ExprUn:
+	'(' op=UnOp expr=Expr ')';
+	
+BinOp:	
+	'AND' | 'OR' | 'IMPLIES' | 'BIIMPLIES' | 'EXCLUDES';
+
+UnOp:
+	'NOT';
+
+Var: 
+	atom=Atom | val=Val;
+
+Atom:
+	name=ID;
+
+Val:
+	'TRUE' | 'FALSE';
+	
+Void: 
+	'ø';
