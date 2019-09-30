@@ -27,6 +27,28 @@ class Simplifier {
 		val lhsReplacement = simplify(e.left)
 		val rhsReplacement = simplify(e.right)
 		
+		e.left = lhsReplacement
+		e.right = rhsReplacement
+		
+		if(e.left.^val != null){
+			if(e.left.^val == "true"){
+				return e.right
+			} else {
+				val not = SatFactory.eINSTANCE.createNot
+				not.expression = e.right
+				return not
+			}
+		}
+		if(e.right.^val != null){
+			if(e.right.^val == "true"){
+				return e.left
+			} else {
+				val not = SatFactory.eINSTANCE.createNot
+				not.expression = e.left
+				return not
+			}
+		}
+		
 		val andTrue   = SatFactory.eINSTANCE.createAnd
 		val andFalse  = SatFactory.eINSTANCE.createAnd
 		val notLeft   = SatFactory.eINSTANCE.createNot
@@ -52,6 +74,30 @@ class Simplifier {
 		val lhsReplacement = simplify(e.left)
 		val rhsReplacement = simplify(e.right)
 		
+		e.left = lhsReplacement
+		e.right = rhsReplacement
+		
+		if(e.left.^val != null){
+			if(e.left.^val == "true"){
+				return e.right
+			} else {
+				val exp = SatFactory.eINSTANCE.createExpression
+				exp.^val = "true"
+				return exp
+			}
+		}
+		if(e.right.^val != null){
+			if(e.right.^val == "true"){
+				val exp = SatFactory.eINSTANCE.createExpression
+				exp.^val = "true"
+				return exp
+			} else {
+				val not = SatFactory.eINSTANCE.createNot
+				not.expression = e.left
+				return not
+			}
+		}
+		
 		val or  = SatFactory.eINSTANCE.createOr
 		val not = SatFactory.eINSTANCE.createNot
 		
@@ -67,6 +113,24 @@ class Simplifier {
 		val lhsReplacement = simplify(e.left)
 		val rhsReplacement = simplify(e.right)
 		
+		e.left = lhsReplacement
+		e.right = rhsReplacement
+		
+		if(e.left.^val != null){
+			if(e.left.^val == "true"){
+				return e.right
+			} else {
+				return e.left
+			}
+		}
+		if(e.right.^val != null){
+			if(e.right.^val == "true"){
+				return e.left
+			} else {
+				return e.right
+			}
+		}
+		
 		val and = SatFactory.eINSTANCE.createAnd
 		val not = SatFactory.eINSTANCE.createNot
 		
@@ -78,14 +142,67 @@ class Simplifier {
 	}
 	
 	static def Expression simplify(And e){
+		val lhsReplacement = simplify(e.left)
+		val rhsReplacement = simplify(e.right)
+		
+		e.left = lhsReplacement
+		e.right = rhsReplacement
+		
+		if(e.left.^val != null){
+			if(e.left.^val == "true"){
+				return e.right
+			} else {
+				return e.left
+			}
+		}
+		if(e.right.^val != null){
+			if(e.right.^val == "true"){
+				return e.left
+			} else {
+				return e.right
+			}
+		}
 		e
 	}
 	
 	static def Expression simplify(Or e){
+		val lhsReplacement = simplify(e.left)
+		val rhsReplacement = simplify(e.right)
+		
+		e.left = lhsReplacement
+		e.right = rhsReplacement
+		
+		if(e.left.^val != null){
+			if(e.left.^val == "true"){
+				return e.left
+			} else {
+				return e.right
+			}
+		}
+		if(e.right.^val != null){
+			if(e.right.^val == "true"){
+				return e.right
+			} else {
+				return e.left
+			}
+		}
 		e
 	}
 	
 	static def Expression simplify(Not e){
+		val expReplacement = simplify(e.expression)
+		
+		e.expression = expReplacement
+
+		if(e.expression.^val != null){
+			val exp = SatFactory.eINSTANCE.createExpression
+			if(e.expression.^val == "true"){
+				exp.^val="false"
+			} else {
+				exp.^val="true"
+			}
+			return exp
+		}
 		e
 	}
 }
