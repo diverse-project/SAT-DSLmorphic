@@ -2,6 +2,7 @@ package org.xtext.example.mydsl.generator;
 
 import com.google.common.base.Objects;
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.xtext.EcoreUtil2;
 import org.xtext.example.mydsl.sat.And;
 import org.xtext.example.mydsl.sat.BiImpl;
 import org.xtext.example.mydsl.sat.Expression;
@@ -88,10 +89,10 @@ public class Simplifier {
     final Not notLeft = SatFactory.eINSTANCE.createNot();
     final Not notRight = SatFactory.eINSTANCE.createNot();
     final Or or = SatFactory.eINSTANCE.createOr();
-    andTrue.setLeft(lhsReplacement);
-    andTrue.setRight(rhsReplacement);
-    notLeft.setExpression(lhsReplacement);
-    notRight.setExpression(rhsReplacement);
+    andTrue.setLeft(EcoreUtil2.<Expression>copy(lhsReplacement));
+    andTrue.setRight(EcoreUtil2.<Expression>copy(rhsReplacement));
+    notLeft.setExpression(EcoreUtil2.<Expression>copy(lhsReplacement));
+    notRight.setExpression(EcoreUtil2.<Expression>copy(rhsReplacement));
     andFalse.setLeft(notLeft);
     andFalse.setRight(notRight);
     or.setLeft(andTrue);

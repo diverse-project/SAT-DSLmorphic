@@ -9,6 +9,7 @@ import org.xtext.example.mydsl.sat.Nand
 import org.xtext.example.mydsl.sat.Not
 import org.xtext.example.mydsl.sat.Or
 import org.xtext.example.mydsl.sat.SatFactory
+import org.eclipse.xtext.EcoreUtil2
 
 class Simplifier {
 	static def Expression simplify(EObject e){
@@ -55,11 +56,11 @@ class Simplifier {
 		val notRight  = SatFactory.eINSTANCE.createNot
 		val or        = SatFactory.eINSTANCE.createOr
 		
-		andTrue.left = lhsReplacement
-		andTrue.right = rhsReplacement
+		andTrue.left  = EcoreUtil2.copy(lhsReplacement)
+		andTrue.right = EcoreUtil2.copy(rhsReplacement)
 		
-		notLeft.expression  = lhsReplacement
-		notRight.expression = rhsReplacement
+		notLeft.expression  = EcoreUtil2.copy(lhsReplacement)
+		notRight.expression = EcoreUtil2.copy(rhsReplacement)
 		
 		andFalse.left = notLeft
 		andFalse.right = notRight

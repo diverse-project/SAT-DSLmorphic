@@ -8,8 +8,10 @@ import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.xtext.generator.AbstractGenerator;
 import org.eclipse.xtext.generator.IFileSystemAccess2;
 import org.eclipse.xtext.generator.IGeneratorContext;
+import org.xtext.example.mydsl.generator.ConjunctiveNormalForm;
 import org.xtext.example.mydsl.generator.PrettyPrinter;
 import org.xtext.example.mydsl.generator.Simplifier;
+import org.xtext.example.mydsl.sat.Expression;
 
 /**
  * Generates code from your model files on save.
@@ -20,13 +22,18 @@ import org.xtext.example.mydsl.generator.Simplifier;
 public class SatGenerator extends AbstractGenerator {
   @Override
   public void doGenerate(final Resource resource, final IFileSystemAccess2 fsa, final IGeneratorContext context) {
-    final EObject simplifiedExpression = this.simplify(resource.getContents().get(0));
-    final String content = this.prettyPrint(simplifiedExpression);
+    final Expression simplifiedExpression = this.simplify(resource.getContents().get(0));
+    final Expression cnfExpression = this.toCNF(simplifiedExpression);
+    final String content = this.prettyPrint(cnfExpression);
     fsa.generateFile("sat.cnf", content);
   }
   
-  public EObject simplify(final EObject e) {
+  public Expression simplify(final EObject e) {
     return Simplifier.simplify(e);
+  }
+  
+  public Expression toCNF(final EObject e) {
+    return ConjunctiveNormalForm.toCNF(e);
   }
   
   public String prettyPrint(final EObject e) {
