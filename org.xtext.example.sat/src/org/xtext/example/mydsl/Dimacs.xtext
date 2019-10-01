@@ -1,0 +1,21 @@
+grammar org.xtext.example.mydsl.Dimacs with org.eclipse.xtext.common.Terminals
+
+generate dimacs "http://www.xtext.org/example/mydsl/Dimacs"
+
+
+Model:
+	ligne+=LigneProbleme '\n' clauses+=LigneClause*	
+;
+	
+LigneProbleme:
+	'p' 'cnf' nb_variables+=INT nb_clauses+=INT
+;
+
+LigneClause:
+	litteraux+=litteral+
+;
+
+litteral : 
+	val=INT
+;
+	
