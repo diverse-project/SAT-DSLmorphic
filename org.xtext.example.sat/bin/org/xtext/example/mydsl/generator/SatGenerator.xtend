@@ -7,6 +7,7 @@ import org.eclipse.emf.ecore.resource.Resource
 import org.eclipse.xtext.generator.AbstractGenerator
 import org.eclipse.xtext.generator.IFileSystemAccess2
 import org.eclipse.xtext.generator.IGeneratorContext
+import org.xtext.example.mydsl.sat.Expression
 
 /**
  * Generates code from your model files on save.
@@ -21,5 +22,9 @@ class SatGenerator extends AbstractGenerator {
 //				.filter(Greeting)
 //				.map[name]
 //				.join(', '))
+	//println( PrettyPrinter.PrettyPrint(resource.contents.get(0) as Expression))
+	//println( DIMACSConverter.toDIMACS(resource.contents.get(0) as Expression))
+	
+	println( PrettyPrinter.PrettyPrint(CNFConverter.CNFConvert(resource.contents.get(0) as Expression)))
 	}
 }
