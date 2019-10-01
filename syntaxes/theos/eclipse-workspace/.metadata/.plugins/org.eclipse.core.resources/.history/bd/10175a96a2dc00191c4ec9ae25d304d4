@@ -1,0 +1,18 @@
+grammar org.xtext.example.mydsl.Sattl with org.eclipse.xtext.common.Terminals
+
+generate sattl "http://www.xtext.org/example/mydsl/Sattl"
+
+Document:
+	Formulae*
+;
+
+Formulae:
+	
+	'('  form_left+=Formulae binop+=Binop form_right+=Formulae ')' | '(' unop+=Unop form+=Formulae ')' | atom+=Atom;
+
+Atom : 
+	name=ID;
+	
+Binop : 'OR' | 'AND' | 'NAND' | 'IMPLIES' | 'BIIMPLIES'  ;
+
+Unop : 'NOT' ; 

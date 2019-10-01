@@ -1,0 +1,35 @@
+grammar fr.m1sif.dsl.Sat with org.eclipse.xtext.common.Terminals
+
+generate sat "http://www.m1sif.fr/dsl/Sat"
+
+Expressions:
+	(Exprs += Expression ";")*
+;
+
+Expression returns Expression:
+	Atom | Unop | Binop
+;
+
+Unop returns Unop:
+	op=UnopType Param=Expression
+;
+
+Binop returns Binop:
+	"(" LeftParam=Expression op=BinopType RightParam=Expression ")"
+;
+
+Atom returns Atom:
+  Id=ID
+;
+
+UnopType:
+	"!"
+;
+
+BinopType:
+	"&&"  | 
+	"||"  | 
+	"!&"  | 
+	"==>" | 
+	"<=>"
+;
