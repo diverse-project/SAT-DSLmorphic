@@ -29,6 +29,6 @@ class SatGenerator extends AbstractGenerator {
 	def Expression simplify(EObject e){ Simplifier.           simplify   (e) }
 	def Expression    toCNF(EObject e){ ConjunctiveNormalForm.toCleanCNF (e) }
 	def String  prettyPrint(EObject e){ PrettyPrinter.        prettyPrint(e) }
-	def String  dimacsPrint(EObject e){ DIMACSPrinter.        dimacsPrint(e) }
+	def String  dimacsPrint(EObject e){ DIMACSPrinter.        dimacsFile (e) }
 		
 }

@@ -42,6 +42,6 @@ public class SatGenerator extends AbstractGenerator {
   }
   
   public String dimacsPrint(final EObject e) {
-    return DIMACSPrinter.dimacsPrint(e);
+    return DIMACSPrinter.dimacsFile(e);
   }
 }

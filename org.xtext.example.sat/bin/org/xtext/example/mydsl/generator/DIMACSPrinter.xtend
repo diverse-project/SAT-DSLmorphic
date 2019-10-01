@@ -10,6 +10,17 @@ class DIMACSPrinter {
 	
 	//HashTable<String,Integer> numberIds = new HashTable<String, Integer>();
 	static val numberIds = newHashMap();
+	static var nbClauses = 1;
+	
+	static def String dimacsFile(EObject e){
+		val dimacsClauses = dimacsPrint(e)
+		val fileCore = "p cnf " +
+						numberIds.size.toString() + " " +
+						nbClauses + "\n" +
+						dimacsClauses.substring(0,dimacsClauses.length-1);
+		val ppExpression = PrettyPrinter.prettyPrint(e)
+		"c\nc " + ppExpression + "\nc\n" + fileCore
+	}
 	
 	static def String dimacsPrint(EObject e){
 		switch e{
@@ -26,13 +37,30 @@ class DIMACSPrinter {
 		}
 	}
 	static def String dimacsPrintAnd(And e){
-		return dimacsPrint(e.getLeft())+" 0\n"+dimacsPrint(e.getRight())+ " 0";	
+		var out = ""
+		
+		val clauses = SATUtils.getClauses(e)
+		nbClauses = clauses.size
+		
+		for(clause : clauses){
+			out += dimacsPrint(clause) + "0\n"
+		}
+		
+		return out;	
 	}
 	static def String dimacsPrintOr(Or e){
 		//val leftLitteral = e.getLeft(); //necessarily litteral in CNF
 		//val rightExpression = e.getRight();
 		
-		return dimacsPrint(e.getLeft())+" "+dimacsPrint(e.getRight());
+		var out = ""
+		
+		val atoms = SATUtils.getAtoms(e)
+		
+		for(atom : atoms){
+			out += dimacsPrint(atom) + " "
+		}
+		
+		return out;
 	}
 	static def String dimacsPrintNot(Not e){
 		return "-"+dimacsPrint(e.getExpression());

@@ -2,8 +2,11 @@ package org.xtext.example.mydsl.generator;
 
 import com.google.common.base.Objects;
 import java.util.HashMap;
+import java.util.List;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.xtext.xbase.lib.CollectionLiterals;
+import org.xtext.example.mydsl.generator.PrettyPrinter;
+import org.xtext.example.mydsl.generator.SATUtils;
 import org.xtext.example.mydsl.sat.And;
 import org.xtext.example.mydsl.sat.Expression;
 import org.xtext.example.mydsl.sat.Not;
@@ -12,6 +15,28 @@ import org.xtext.example.mydsl.sat.Or;
 @SuppressWarnings("all")
 public class DIMACSPrinter {
   private static final HashMap<Object, Object> numberIds = CollectionLiterals.<Object, Object>newHashMap();
+  
+  private static int nbClauses = 1;
+  
+  public static String dimacsFile(final EObject e) {
+    String _xblockexpression = null;
+    {
+      final String dimacsClauses = DIMACSPrinter.dimacsPrint(e);
+      String _string = Integer.valueOf(DIMACSPrinter.numberIds.size()).toString();
+      String _plus = ("p cnf " + _string);
+      String _plus_1 = (_plus + " ");
+      String _plus_2 = (_plus_1 + 
+        Integer.valueOf(DIMACSPrinter.nbClauses));
+      String _plus_3 = (_plus_2 + "\n");
+      int _length = dimacsClauses.length();
+      int _minus = (_length - 1);
+      String _substring = dimacsClauses.substring(0, _minus);
+      final String fileCore = (_plus_3 + _substring);
+      final String ppExpression = PrettyPrinter.prettyPrint(e);
+      _xblockexpression = ((("c\nc " + ppExpression) + "\nc\n") + fileCore);
+    }
+    return _xblockexpression;
+  }
   
   public static String dimacsPrint(final EObject e) {
     boolean _matched = false;
@@ -41,18 +66,28 @@ public class DIMACSPrinter {
   }
   
   public static String dimacsPrintAnd(final And e) {
-    String _dimacsPrint = DIMACSPrinter.dimacsPrint(e.getLeft());
-    String _plus = (_dimacsPrint + " 0\n");
-    String _dimacsPrint_1 = DIMACSPrinter.dimacsPrint(e.getRight());
-    String _plus_1 = (_plus + _dimacsPrint_1);
-    return (_plus_1 + " 0");
+    String out = "";
+    final List<Expression> clauses = SATUtils.getClauses(e);
+    DIMACSPrinter.nbClauses = clauses.size();
+    for (final Expression clause : clauses) {
+      String _out = out;
+      String _dimacsPrint = DIMACSPrinter.dimacsPrint(clause);
+      String _plus = (_dimacsPrint + "0\n");
+      out = (_out + _plus);
+    }
+    return out;
   }
   
   public static String dimacsPrintOr(final Or e) {
-    String _dimacsPrint = DIMACSPrinter.dimacsPrint(e.getLeft());
-    String _plus = (_dimacsPrint + " ");
-    String _dimacsPrint_1 = DIMACSPrinter.dimacsPrint(e.getRight());
-    return (_plus + _dimacsPrint_1);
+    String out = "";
+    final List<Expression> atoms = SATUtils.getAtoms(e);
+    for (final Expression atom : atoms) {
+      String _out = out;
+      String _dimacsPrint = DIMACSPrinter.dimacsPrint(atom);
+      String _plus = (_dimacsPrint + " ");
+      out = (_out + _plus);
+    }
+    return out;
   }
   
   public static String dimacsPrintNot(final Not e) {

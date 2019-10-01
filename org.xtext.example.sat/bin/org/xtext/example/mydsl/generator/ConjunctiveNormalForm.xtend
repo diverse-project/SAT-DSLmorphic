@@ -51,8 +51,8 @@ class ConjunctiveNormalForm {
 	static def Expression toCNF(Or e){
 		val lhsReplacement = toCNF(e.left)
 		val rhsReplacement = toCNF(e.right)
-		val clausesP = getClauses(lhsReplacement)
-		val clausesQ = getClauses(rhsReplacement)
+		val clausesP = SATUtils.getClauses(lhsReplacement)
+		val clausesQ = SATUtils.getClauses(rhsReplacement)
 		
 		val generatedClauses = new ArrayList<Expression>()
 		
@@ -113,48 +113,10 @@ class ConjunctiveNormalForm {
 		e
 	}
 	
-	static def List<Expression> getClauses(Expression e){
-		var out = new ArrayList()
-		if(!(e instanceof And)){
-			out.add(e)
-			return out
-		}
-		val and = e as And
-		out.addAll(getClauses(and.left))
-		out.addAll(getClauses(and.right))
-		out
-	}
-	
-	static def List<Expression> getAtoms(Expression e){
-		var out = new ArrayList()
-		if(e instanceof Not){
-			if(e.expression instanceof Expression){
-				out.add(e)
-				return out
-			}
-			out.addAll(getAtoms(e.expression))
-			return out
-		}
-		if(e instanceof And){
-			val binop = e as And
-			out.addAll(getAtoms(binop.left))
-			out.addAll(getAtoms(binop.right))
-			return out
-		}
-		if(e instanceof Or){
-			val binop = e as Or
-			out.addAll(getAtoms(binop.left))
-			out.addAll(getAtoms(binop.right))
-			return out
-		}
-		out.add(e)
-		return out
-	}
-	
 	static def Expression cleanDouble(Expression e){
 		if(e instanceof And){
 			
-			val clauses = getClauses(e)
+			val clauses = SATUtils.getClauses(e)
 			for(var i = 0; i < clauses.length; i++){
 				clauses.set(i,cleanDouble(clauses.get(i)))
 			}
@@ -181,7 +143,7 @@ class ConjunctiveNormalForm {
 			return clauses.head
 		}
 		if(e instanceof Or){			
-			val atoms = getAtoms(e)
+			val atoms = SATUtils.getAtoms(e)
 			
 			for(var i = 0; i < atoms.length; i++){
 				for(var j = i+1; j < atoms.length; j++){
