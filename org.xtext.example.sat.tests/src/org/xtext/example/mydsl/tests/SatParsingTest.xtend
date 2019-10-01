@@ -29,4 +29,16 @@ class SatParsingTest {
 		
 		println("model=" + result)
 	}
+	
+	@Test
+	def void testModelTransformation1() {
+		val result = parseHelper.parse('''
+			A v B => C
+		''')
+		Assertions.assertTrue(false)
+		val errors = result.eResource.errors
+		Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
+		
+		println("model=" + result)
+	}
 }

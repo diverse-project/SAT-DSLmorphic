@@ -19,10 +19,13 @@ import org.eclipse.xtext.validation.IResourceValidator;
 import org.eclipse.xtext.validation.Issue;
 import org.xtext.example.mydsl.SatStandaloneSetup;
 
-public class Main {
+public class Main 
+{
 
-	public static void main(String[] args) {
-		if (args.length == 0) {
+	public static void main(String[] args)
+	{
+		if (args.length == 0) 
+		{
 			System.err.println("Aborting: no path to EMF resource provided!");
 			return;
 		}
@@ -43,15 +46,18 @@ public class Main {
 	@Inject 
 	private JavaIoFileSystemAccess fileAccess;
 
-	protected void runGenerator(String string) {
+	protected void runGenerator(String string) 
+	{
 		// Load the resource
 		ResourceSet set = resourceSetProvider.get();
 		Resource resource = set.getResource(URI.createFileURI(string), true);
 
 		// Validate the resource
 		List<Issue> list = validator.validate(resource, CheckMode.ALL, CancelIndicator.NullImpl);
-		if (!list.isEmpty()) {
-			for (Issue issue : list) {
+		if (!list.isEmpty())
+		{
+			for (Issue issue : list) 
+			{
 				System.err.println(issue);
 			}
 			return;

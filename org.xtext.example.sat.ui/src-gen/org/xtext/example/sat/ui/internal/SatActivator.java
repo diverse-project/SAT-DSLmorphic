@@ -13,7 +13,9 @@ import org.eclipse.ui.plugin.AbstractUIPlugin;
 import org.eclipse.xtext.ui.shared.SharedStateModule;
 import org.eclipse.xtext.util.Modules2;
 import org.osgi.framework.BundleContext;
+import org.xtext.example.mydsl.DimacsRuntimeModule;
 import org.xtext.example.mydsl.SatRuntimeModule;
+import org.xtext.example.mydsl.ui.DimacsUiModule;
 import org.xtext.example.mydsl.ui.SatUiModule;
 
 /**
@@ -24,6 +26,7 @@ public class SatActivator extends AbstractUIPlugin {
 
 	public static final String PLUGIN_ID = "org.xtext.example.sat.ui";
 	public static final String ORG_XTEXT_EXAMPLE_MYDSL_SAT = "org.xtext.example.mydsl.Sat";
+	public static final String ORG_XTEXT_EXAMPLE_MYDSL_DIMACS = "org.xtext.example.mydsl.Dimacs";
 	
 	private static final Logger logger = Logger.getLogger(SatActivator.class);
 	
@@ -76,12 +79,18 @@ public class SatActivator extends AbstractUIPlugin {
 		if (ORG_XTEXT_EXAMPLE_MYDSL_SAT.equals(grammar)) {
 			return new SatRuntimeModule();
 		}
+		if (ORG_XTEXT_EXAMPLE_MYDSL_DIMACS.equals(grammar)) {
+			return new DimacsRuntimeModule();
+		}
 		throw new IllegalArgumentException(grammar);
 	}
 	
 	protected com.google.inject.Module getUiModule(String grammar) {
 		if (ORG_XTEXT_EXAMPLE_MYDSL_SAT.equals(grammar)) {
 			return new SatUiModule(this);
+		}
+		if (ORG_XTEXT_EXAMPLE_MYDSL_DIMACS.equals(grammar)) {
+			return new DimacsUiModule(this);
 		}
 		throw new IllegalArgumentException(grammar);
 	}

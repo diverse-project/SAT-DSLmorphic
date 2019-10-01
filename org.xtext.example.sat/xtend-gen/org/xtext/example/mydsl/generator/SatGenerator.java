@@ -3,10 +3,22 @@
  */
 package org.xtext.example.mydsl.generator;
 
+import com.google.common.collect.Iterators;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.xtext.generator.AbstractGenerator;
 import org.eclipse.xtext.generator.IFileSystemAccess2;
 import org.eclipse.xtext.generator.IGeneratorContext;
+import org.eclipse.xtext.xbase.lib.Functions.Function1;
+import org.eclipse.xtext.xbase.lib.InputOutput;
+import org.eclipse.xtext.xbase.lib.IteratorExtensions;
+import org.xtext.example.mydsl.sat.And;
+import org.xtext.example.mydsl.sat.BiImpl;
+import org.xtext.example.mydsl.sat.Expression;
+import org.xtext.example.mydsl.sat.Impl;
+import org.xtext.example.mydsl.sat.Nand;
+import org.xtext.example.mydsl.sat.Not;
+import org.xtext.example.mydsl.sat.Or;
 
 /**
  * Generates code from your model files on save.
@@ -17,5 +29,91 @@ import org.eclipse.xtext.generator.IGeneratorContext;
 public class SatGenerator extends AbstractGenerator {
   @Override
   public void doGenerate(final Resource resource, final IFileSystemAccess2 fsa, final IGeneratorContext context) {
+    final Function1<Expression, String> _function = (Expression it) -> {
+      return it.getVal();
+    };
+    String variable = IteratorExtensions.join(IteratorExtensions.<Expression, String>map(Iterators.<Expression>filter(resource.getAllContents(), Expression.class), _function), ", ");
+    EObject expression = resource.getContents().get(0);
+    this.pretty_print(expression);
+    InputOutput.<String>print("\n");
+  }
+  
+  public EObject prop_to_dimacs(final EObject formule) {
+    return null;
+  }
+  
+  public void pretty_print(final EObject formule) {
+    boolean _matched = false;
+    if ((formule instanceof BiImpl)) {
+      _matched=true;
+      InputOutput.<String>print("(");
+      this.pretty_print(((BiImpl) formule).getLeft());
+      InputOutput.<String>print(" <-> ");
+      this.pretty_print(((BiImpl) formule).getRight());
+      InputOutput.<String>print(")");
+    }
+    if (!_matched) {
+      if ((formule instanceof Impl)) {
+        _matched=true;
+        InputOutput.<String>print("(");
+        this.pretty_print(((Impl) formule).getLeft());
+        InputOutput.<String>print(" -> ");
+        this.pretty_print(((Impl) formule).getRight());
+        InputOutput.<String>print(")");
+      }
+    }
+    if (!_matched) {
+      if ((formule instanceof Or)) {
+        _matched=true;
+        InputOutput.<String>print("(");
+        this.pretty_print(((Or) formule).getLeft());
+        InputOutput.<String>print(" OR ");
+        this.pretty_print(((Or) formule).getRight());
+        InputOutput.<String>print(")");
+      }
+    }
+    if (!_matched) {
+      if ((formule instanceof And)) {
+        _matched=true;
+        InputOutput.<String>print("(");
+        this.pretty_print(((And) formule).getLeft());
+        InputOutput.<String>print(" AND ");
+        this.pretty_print(((And) formule).getRight());
+        InputOutput.<String>print(")");
+      }
+    }
+    if (!_matched) {
+      if ((formule instanceof Nand)) {
+        _matched=true;
+        InputOutput.<String>print("(");
+        this.pretty_print(((Nand) formule).getLeft());
+        InputOutput.<String>print(" NAND ");
+        this.pretty_print(((Nand) formule).getRight());
+        InputOutput.<String>print(")");
+      }
+    }
+    if (!_matched) {
+      if ((formule instanceof Not)) {
+        _matched=true;
+        InputOutput.<String>print("(");
+        InputOutput.<String>print(" NOT ");
+        this.pretty_print(((Not) formule).getExpression());
+        InputOutput.<String>print(")");
+      }
+    }
+    if (!_matched) {
+      {
+        String _id = ((Expression) formule).getId();
+        boolean _tripleNotEquals = (_id != null);
+        if (_tripleNotEquals) {
+          InputOutput.<String>print(((Expression) formule).getId());
+        }
+        String _val = ((Expression) formule).getVal();
+        boolean _tripleNotEquals_1 = (_val != null);
+        if (_tripleNotEquals_1) {
+          InputOutput.<String>print(((Expression) formule).getVal());
+        }
+      }
+    }
   }
 }

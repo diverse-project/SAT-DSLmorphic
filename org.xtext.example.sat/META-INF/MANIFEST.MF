@@ -26,5 +26,8 @@ Export-Package: org.xtext.example.mydsl.sat.impl,
  org.xtext.example.mydsl.sat.util,
  org.xtext.example.mydsl,
  org.xtext.example.mydsl.serializer,
- org.xtext.example.mydsl.parser.antlr
+ org.xtext.example.mydsl.parser.antlr,
+ org.xtext.example.mydsl.dimacs,
+ org.xtext.example.mydsl.dimacs.impl,
+ org.xtext.example.mydsl.dimacs.util
 Import-Package: org.apache.log4j
