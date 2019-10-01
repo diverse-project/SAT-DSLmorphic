@@ -21,13 +21,14 @@ class SatGenerator extends AbstractGenerator {
 		
 		val simplifiedExpression = resource.contents.get(0).simplify()
 		val cnfExpression = simplifiedExpression.toCNF()
-		val content = cnfExpression.prettyPrint()
+		val content = cnfExpression.dimacsPrint()
 		
 		fsa.generateFile('sat.cnf', content)
 	}
 		
 	def Expression simplify(EObject e){ Simplifier.           simplify   (e) }
-	def Expression    toCNF(EObject e){ ConjunctiveNormalForm.toCNF      (e) }
+	def Expression    toCNF(EObject e){ ConjunctiveNormalForm.toCleanCNF (e) }
 	def String  prettyPrint(EObject e){ PrettyPrinter.        prettyPrint(e) }
+	def String  dimacsPrint(EObject e){ DIMACSPrinter.        dimacsPrint(e) }
 		
 }

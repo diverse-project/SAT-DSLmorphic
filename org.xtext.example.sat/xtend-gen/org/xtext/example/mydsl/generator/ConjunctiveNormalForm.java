@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.xtext.EcoreUtil2;
+import org.eclipse.xtext.xbase.lib.Conversions;
 import org.eclipse.xtext.xbase.lib.IterableExtensions;
 import org.xtext.example.mydsl.sat.And;
 import org.xtext.example.mydsl.sat.BiImpl;
@@ -16,6 +17,10 @@ import org.xtext.example.mydsl.sat.SatFactory;
 
 @SuppressWarnings("all")
 public class ConjunctiveNormalForm {
+  public static Expression toCleanCNF(final EObject e) {
+    return ConjunctiveNormalForm.cleanDouble(ConjunctiveNormalForm.toCNF(e));
+  }
+  
   public static Expression toCNF(final EObject e) {
     boolean _matched = false;
     if ((e instanceof BiImpl)) {
@@ -163,5 +168,89 @@ public class ConjunctiveNormalForm {
       _xblockexpression = out;
     }
     return _xblockexpression;
+  }
+  
+  public static List<Expression> getAtoms(final Expression e) {
+    ArrayList<Expression> out = new ArrayList<Expression>();
+    if ((e instanceof Not)) {
+      Expression _expression = ((Not)e).getExpression();
+      if ((_expression instanceof Expression)) {
+        out.add(e);
+        return out;
+      }
+      out.addAll(ConjunctiveNormalForm.getAtoms(((Not)e).getExpression()));
+      return out;
+    }
+    if ((e instanceof And)) {
+      final And binop = ((And) e);
+      out.addAll(ConjunctiveNormalForm.getAtoms(binop.getLeft()));
+      out.addAll(ConjunctiveNormalForm.getAtoms(binop.getRight()));
+      return out;
+    }
+    if ((e instanceof Or)) {
+      final Or binop_1 = ((Or) e);
+      out.addAll(ConjunctiveNormalForm.getAtoms(binop_1.getLeft()));
+      out.addAll(ConjunctiveNormalForm.getAtoms(binop_1.getRight()));
+      return out;
+    }
+    out.add(e);
+    return out;
+  }
+  
+  public static Expression cleanDouble(final Expression e) {
+    if ((e instanceof And)) {
+      final List<Expression> clauses = ConjunctiveNormalForm.getClauses(e);
+      for (int i = 0; (i < ((Object[])Conversions.unwrapArray(clauses, Object.class)).length); i++) {
+        clauses.set(i, ConjunctiveNormalForm.cleanDouble(clauses.get(i)));
+      }
+      for (int i = 0; (i < ((Object[])Conversions.unwrapArray(clauses, Object.class)).length); i++) {
+        for (int j = (i + 1); (j < ((Object[])Conversions.unwrapArray(clauses, Object.class)).length); j++) {
+          boolean _equals = EcoreUtil2.equals(clauses.get(i), clauses.get(j));
+          if (_equals) {
+            clauses.remove(j);
+            j--;
+          }
+        }
+      }
+      while ((clauses.size() > 1)) {
+        {
+          final Expression p = IterableExtensions.<Expression>head(clauses);
+          clauses.remove(0);
+          final Expression q = IterableExtensions.<Expression>head(clauses);
+          clauses.remove(0);
+          And and = SatFactory.eINSTANCE.createAnd();
+          and.setLeft(p);
+          and.setRight(q);
+          clauses.add(and);
+        }
+      }
+      return IterableExtensions.<Expression>head(clauses);
+    }
+    if ((e instanceof Or)) {
+      final List<Expression> atoms = ConjunctiveNormalForm.getAtoms(e);
+      for (int i = 0; (i < ((Object[])Conversions.unwrapArray(atoms, Object.class)).length); i++) {
+        for (int j = (i + 1); (j < ((Object[])Conversions.unwrapArray(atoms, Object.class)).length); j++) {
+          boolean _equals = EcoreUtil2.equals(atoms.get(i), atoms.get(j));
+          if (_equals) {
+            atoms.remove(j);
+            j--;
+          }
+        }
+      }
+      while ((atoms.size() > 1)) {
+        {
+          final Expression p = IterableExtensions.<Expression>head(atoms);
+          atoms.remove(0);
+          final Expression q = IterableExtensions.<Expression>head(atoms);
+          atoms.remove(0);
+          Or or = SatFactory.eINSTANCE.createOr();
+          or.setLeft(p);
+          or.setRight(q);
+          atoms.add(or);
+        }
+      }
+      return IterableExtensions.<Expression>head(atoms);
+    }
+    return null;
   }
 }

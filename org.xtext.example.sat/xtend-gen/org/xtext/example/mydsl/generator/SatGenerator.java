@@ -9,6 +9,7 @@ import org.eclipse.xtext.generator.AbstractGenerator;
 import org.eclipse.xtext.generator.IFileSystemAccess2;
 import org.eclipse.xtext.generator.IGeneratorContext;
 import org.xtext.example.mydsl.generator.ConjunctiveNormalForm;
+import org.xtext.example.mydsl.generator.DIMACSPrinter;
 import org.xtext.example.mydsl.generator.PrettyPrinter;
 import org.xtext.example.mydsl.generator.Simplifier;
 import org.xtext.example.mydsl.sat.Expression;
@@ -24,7 +25,7 @@ public class SatGenerator extends AbstractGenerator {
   public void doGenerate(final Resource resource, final IFileSystemAccess2 fsa, final IGeneratorContext context) {
     final Expression simplifiedExpression = this.simplify(resource.getContents().get(0));
     final Expression cnfExpression = this.toCNF(simplifiedExpression);
-    final String content = this.prettyPrint(cnfExpression);
+    final String content = this.dimacsPrint(cnfExpression);
     fsa.generateFile("sat.cnf", content);
   }
   
@@ -33,10 +34,14 @@ public class SatGenerator extends AbstractGenerator {
   }
   
   public Expression toCNF(final EObject e) {
-    return ConjunctiveNormalForm.toCNF(e);
+    return ConjunctiveNormalForm.toCleanCNF(e);
   }
   
   public String prettyPrint(final EObject e) {
     return PrettyPrinter.prettyPrint(e);
+  }
+  
+  public String dimacsPrint(final EObject e) {
+    return DIMACSPrinter.dimacsPrint(e);
   }
 }
