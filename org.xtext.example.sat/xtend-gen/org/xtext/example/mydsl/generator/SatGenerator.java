@@ -3,14 +3,18 @@
  */
 package org.xtext.example.mydsl.generator;
 
-import com.google.common.collect.Iterators;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.xtext.generator.AbstractGenerator;
 import org.eclipse.xtext.generator.IFileSystemAccess2;
 import org.eclipse.xtext.generator.IGeneratorContext;
-import org.eclipse.xtext.xbase.lib.Functions.Function1;
-import org.eclipse.xtext.xbase.lib.IteratorExtensions;
+import org.xtext.example.mydsl.sat.And;
+import org.xtext.example.mydsl.sat.BiImpl;
 import org.xtext.example.mydsl.sat.Expression;
+import org.xtext.example.mydsl.sat.Impl;
+import org.xtext.example.mydsl.sat.Nand;
+import org.xtext.example.mydsl.sat.Not;
+import org.xtext.example.mydsl.sat.Or;
 
 /**
  * Generates code from your model files on save.
@@ -21,11 +25,72 @@ import org.xtext.example.mydsl.sat.Expression;
 public class SatGenerator extends AbstractGenerator {
   @Override
   public void doGenerate(final Resource resource, final IFileSystemAccess2 fsa, final IGeneratorContext context) {
-    final Function1<Expression, String> _function = (Expression it) -> {
-      return it.getVal();
-    };
-    String _join = IteratorExtensions.join(IteratorExtensions.<Expression, String>map(Iterators.<Expression>filter(resource.getAllContents(), Expression.class), _function), ", ");
-    String _plus = ("formula: " + _join);
-    fsa.generateFile("sat.txt", _plus);
+    fsa.generateFile("sat.txt", SatGenerator.prettyPrinter(resource.getContents().get(0)));
+  }
+  
+  public static String prettyPrinter(final EObject ast) {
+    String res = "";
+    if ((ast instanceof And)) {
+      String _res = res;
+      String _prettyPrinter = SatGenerator.prettyPrinter(((And)ast).getLeft());
+      String _plus = ("( AND" + _prettyPrinter);
+      String _prettyPrinter_1 = SatGenerator.prettyPrinter(((And)ast).getRight());
+      String _plus_1 = (_plus + _prettyPrinter_1);
+      String _plus_2 = (_plus_1 + ")");
+      res = (_res + _plus_2);
+    }
+    if ((ast instanceof BiImpl)) {
+      String _res_1 = res;
+      String _prettyPrinter_2 = SatGenerator.prettyPrinter(((BiImpl)ast).getLeft());
+      String _plus_3 = ("( BIIMPL" + _prettyPrinter_2);
+      String _prettyPrinter_3 = SatGenerator.prettyPrinter(((BiImpl)ast).getRight());
+      String _plus_4 = (_plus_3 + _prettyPrinter_3);
+      String _plus_5 = (_plus_4 + ")");
+      res = (_res_1 + _plus_5);
+    }
+    if ((ast instanceof Impl)) {
+      String _res_2 = res;
+      String _prettyPrinter_4 = SatGenerator.prettyPrinter(((Impl)ast).getLeft());
+      String _plus_6 = ("( IMPL" + _prettyPrinter_4);
+      String _prettyPrinter_5 = SatGenerator.prettyPrinter(((Impl)ast).getRight());
+      String _plus_7 = (_plus_6 + _prettyPrinter_5);
+      String _plus_8 = (_plus_7 + ")");
+      res = (_res_2 + _plus_8);
+    }
+    if ((ast instanceof Nand)) {
+      String _res_3 = res;
+      String _prettyPrinter_6 = SatGenerator.prettyPrinter(((Nand)ast).getLeft());
+      String _plus_9 = ("( NAND" + _prettyPrinter_6);
+      String _prettyPrinter_7 = SatGenerator.prettyPrinter(((Nand)ast).getRight());
+      String _plus_10 = (_plus_9 + _prettyPrinter_7);
+      String _plus_11 = (_plus_10 + ")");
+      res = (_res_3 + _plus_11);
+    }
+    if ((ast instanceof Not)) {
+      String _res_4 = res;
+      String _prettyPrinter_8 = SatGenerator.prettyPrinter(((Not)ast).getExpression());
+      String _plus_12 = ("( NOT" + _prettyPrinter_8);
+      String _plus_13 = (_plus_12 + ")");
+      res = (_res_4 + _plus_13);
+    }
+    if ((ast instanceof Expression)) {
+      String _res_5 = res;
+      String _id = ((Expression)ast).getId();
+      String _plus_14 = (" " + _id);
+      String _plus_15 = (_plus_14 + "=");
+      String _val = ((Expression)ast).getVal();
+      String _plus_16 = (_plus_15 + _val);
+      res = (_res_5 + _plus_16);
+    }
+    if ((ast instanceof Or)) {
+      String _res_6 = res;
+      String _prettyPrinter_9 = SatGenerator.prettyPrinter(((Or)ast).getLeft());
+      String _plus_17 = ("( OR" + _prettyPrinter_9);
+      String _prettyPrinter_10 = SatGenerator.prettyPrinter(((Or)ast).getRight());
+      String _plus_18 = (_plus_17 + _prettyPrinter_10);
+      String _plus_19 = (_plus_18 + ")");
+      res = (_res_6 + _plus_19);
+    }
+    return res;
   }
 }
