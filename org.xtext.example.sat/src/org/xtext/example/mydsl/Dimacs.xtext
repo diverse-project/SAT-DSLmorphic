@@ -3,16 +3,20 @@ grammar org.xtext.example.mydsl.Dimacs with org.eclipse.xtext.common.Terminals
 generate dimacs "http://www.xtext.org/example/mydsl/Dimacs"
 
 
-Model:
-	ligne+=LigneProbleme '\n' clauses+=LigneClause*	
+CNF:
+	comments+=Commentaire* '\n' problem+=LigneProbleme '\n' clauses+=LigneClause*	
+;
+
+Commentaire:
+	'c' content=STRING '\n'
 ;
 	
 LigneProbleme:
-	'p' 'cnf' nb_variables+=INT nb_clauses+=INT
+	'p' 'cnf' nb_variables+=INT nb_clauses+=INT '\n'
 ;
 
 LigneClause:
-	litteraux+=litteral+
+	litteraux+=litteral+ '0'
 ;
 
 litteral : 

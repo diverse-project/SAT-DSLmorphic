@@ -27,7 +27,7 @@ public class DimacsParser extends AbstractAntlrParser {
 
 	@Override 
 	protected String getDefaultRuleName() {
-		return "Model";
+		return "CNF";
 	}
 
 	public DimacsGrammarAccess getGrammarAccess() {

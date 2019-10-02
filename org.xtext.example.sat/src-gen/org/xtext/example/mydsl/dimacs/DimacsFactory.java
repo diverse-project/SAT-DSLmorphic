@@ -24,13 +24,22 @@ public interface DimacsFactory extends EFactory
   DimacsFactory eINSTANCE = org.xtext.example.mydsl.dimacs.impl.DimacsFactoryImpl.init();
 
   /**
-   * Returns a new object of class '<em>Model</em>'.
+   * Returns a new object of class '<em>CNF</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Model</em>'.
+   * @return a new object of class '<em>CNF</em>'.
    * @generated
    */
-  Model createModel();
+  CNF createCNF();
+
+  /**
+   * Returns a new object of class '<em>Commentaire</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Commentaire</em>'.
+   * @generated
+   */
+  Commentaire createCommentaire();
 
   /**
    * Returns a new object of class '<em>Ligne Probleme</em>'.

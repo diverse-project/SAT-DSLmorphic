@@ -58,23 +58,32 @@ public interface DimacsPackage extends EPackage
   DimacsPackage eINSTANCE = org.xtext.example.mydsl.dimacs.impl.DimacsPackageImpl.init();
 
   /**
-   * The meta object id for the '{@link org.xtext.example.mydsl.dimacs.impl.ModelImpl <em>Model</em>}' class.
+   * The meta object id for the '{@link org.xtext.example.mydsl.dimacs.impl.CNFImpl <em>CNF</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see org.xtext.example.mydsl.dimacs.impl.ModelImpl
-   * @see org.xtext.example.mydsl.dimacs.impl.DimacsPackageImpl#getModel()
+   * @see org.xtext.example.mydsl.dimacs.impl.CNFImpl
+   * @see org.xtext.example.mydsl.dimacs.impl.DimacsPackageImpl#getCNF()
    * @generated
    */
-  int MODEL = 0;
+  int CNF = 0;
 
   /**
-   * The feature id for the '<em><b>Ligne</b></em>' containment reference list.
+   * The feature id for the '<em><b>Comments</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int MODEL__LIGNE = 0;
+  int CNF__COMMENTS = 0;
+
+  /**
+   * The feature id for the '<em><b>Problem</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CNF__PROBLEM = 1;
 
   /**
    * The feature id for the '<em><b>Clauses</b></em>' containment reference list.
@@ -83,16 +92,44 @@ public interface DimacsPackage extends EPackage
    * @generated
    * @ordered
    */
-  int MODEL__CLAUSES = 1;
+  int CNF__CLAUSES = 2;
 
   /**
-   * The number of structural features of the '<em>Model</em>' class.
+   * The number of structural features of the '<em>CNF</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int MODEL_FEATURE_COUNT = 2;
+  int CNF_FEATURE_COUNT = 3;
+
+  /**
+   * The meta object id for the '{@link org.xtext.example.mydsl.dimacs.impl.CommentaireImpl <em>Commentaire</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.example.mydsl.dimacs.impl.CommentaireImpl
+   * @see org.xtext.example.mydsl.dimacs.impl.DimacsPackageImpl#getCommentaire()
+   * @generated
+   */
+  int COMMENTAIRE = 1;
+
+  /**
+   * The feature id for the '<em><b>Content</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int COMMENTAIRE__CONTENT = 0;
+
+  /**
+   * The number of structural features of the '<em>Commentaire</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int COMMENTAIRE_FEATURE_COUNT = 1;
 
   /**
    * The meta object id for the '{@link org.xtext.example.mydsl.dimacs.impl.LigneProblemeImpl <em>Ligne Probleme</em>}' class.
@@ -102,7 +139,7 @@ public interface DimacsPackage extends EPackage
    * @see org.xtext.example.mydsl.dimacs.impl.DimacsPackageImpl#getLigneProbleme()
    * @generated
    */
-  int LIGNE_PROBLEME = 1;
+  int LIGNE_PROBLEME = 2;
 
   /**
    * The feature id for the '<em><b>Nb variables</b></em>' attribute list.
@@ -139,7 +176,7 @@ public interface DimacsPackage extends EPackage
    * @see org.xtext.example.mydsl.dimacs.impl.DimacsPackageImpl#getLigneClause()
    * @generated
    */
-  int LIGNE_CLAUSE = 2;
+  int LIGNE_CLAUSE = 3;
 
   /**
    * The feature id for the '<em><b>Litteraux</b></em>' containment reference list.
@@ -167,7 +204,7 @@ public interface DimacsPackage extends EPackage
    * @see org.xtext.example.mydsl.dimacs.impl.DimacsPackageImpl#getlitteral()
    * @generated
    */
-  int LITTERAL = 3;
+  int LITTERAL = 4;
 
   /**
    * The feature id for the '<em><b>Val</b></em>' attribute.
@@ -189,36 +226,68 @@ public interface DimacsPackage extends EPackage
 
 
   /**
-   * Returns the meta object for class '{@link org.xtext.example.mydsl.dimacs.Model <em>Model</em>}'.
+   * Returns the meta object for class '{@link org.xtext.example.mydsl.dimacs.CNF <em>CNF</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Model</em>'.
-   * @see org.xtext.example.mydsl.dimacs.Model
+   * @return the meta object for class '<em>CNF</em>'.
+   * @see org.xtext.example.mydsl.dimacs.CNF
    * @generated
    */
-  EClass getModel();
+  EClass getCNF();
 
   /**
-   * Returns the meta object for the containment reference list '{@link org.xtext.example.mydsl.dimacs.Model#getLigne <em>Ligne</em>}'.
+   * Returns the meta object for the containment reference list '{@link org.xtext.example.mydsl.dimacs.CNF#getComments <em>Comments</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Ligne</em>'.
-   * @see org.xtext.example.mydsl.dimacs.Model#getLigne()
-   * @see #getModel()
+   * @return the meta object for the containment reference list '<em>Comments</em>'.
+   * @see org.xtext.example.mydsl.dimacs.CNF#getComments()
+   * @see #getCNF()
    * @generated
    */
-  EReference getModel_Ligne();
+  EReference getCNF_Comments();
 
   /**
-   * Returns the meta object for the containment reference list '{@link org.xtext.example.mydsl.dimacs.Model#getClauses <em>Clauses</em>}'.
+   * Returns the meta object for the containment reference list '{@link org.xtext.example.mydsl.dimacs.CNF#getProblem <em>Problem</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Problem</em>'.
+   * @see org.xtext.example.mydsl.dimacs.CNF#getProblem()
+   * @see #getCNF()
+   * @generated
+   */
+  EReference getCNF_Problem();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link org.xtext.example.mydsl.dimacs.CNF#getClauses <em>Clauses</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the containment reference list '<em>Clauses</em>'.
-   * @see org.xtext.example.mydsl.dimacs.Model#getClauses()
-   * @see #getModel()
+   * @see org.xtext.example.mydsl.dimacs.CNF#getClauses()
+   * @see #getCNF()
    * @generated
    */
-  EReference getModel_Clauses();
+  EReference getCNF_Clauses();
+
+  /**
+   * Returns the meta object for class '{@link org.xtext.example.mydsl.dimacs.Commentaire <em>Commentaire</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Commentaire</em>'.
+   * @see org.xtext.example.mydsl.dimacs.Commentaire
+   * @generated
+   */
+  EClass getCommentaire();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.xtext.example.mydsl.dimacs.Commentaire#getContent <em>Content</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Content</em>'.
+   * @see org.xtext.example.mydsl.dimacs.Commentaire#getContent()
+   * @see #getCommentaire()
+   * @generated
+   */
+  EAttribute getCommentaire_Content();
 
   /**
    * Returns the meta object for class '{@link org.xtext.example.mydsl.dimacs.LigneProbleme <em>Ligne Probleme</em>}'.
@@ -318,22 +387,30 @@ public interface DimacsPackage extends EPackage
   interface Literals
   {
     /**
-     * The meta object literal for the '{@link org.xtext.example.mydsl.dimacs.impl.ModelImpl <em>Model</em>}' class.
+     * The meta object literal for the '{@link org.xtext.example.mydsl.dimacs.impl.CNFImpl <em>CNF</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see org.xtext.example.mydsl.dimacs.impl.ModelImpl
-     * @see org.xtext.example.mydsl.dimacs.impl.DimacsPackageImpl#getModel()
+     * @see org.xtext.example.mydsl.dimacs.impl.CNFImpl
+     * @see org.xtext.example.mydsl.dimacs.impl.DimacsPackageImpl#getCNF()
      * @generated
      */
-    EClass MODEL = eINSTANCE.getModel();
+    EClass CNF = eINSTANCE.getCNF();
 
     /**
-     * The meta object literal for the '<em><b>Ligne</b></em>' containment reference list feature.
+     * The meta object literal for the '<em><b>Comments</b></em>' containment reference list feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference MODEL__LIGNE = eINSTANCE.getModel_Ligne();
+    EReference CNF__COMMENTS = eINSTANCE.getCNF_Comments();
+
+    /**
+     * The meta object literal for the '<em><b>Problem</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference CNF__PROBLEM = eINSTANCE.getCNF_Problem();
 
     /**
      * The meta object literal for the '<em><b>Clauses</b></em>' containment reference list feature.
@@ -341,7 +418,25 @@ public interface DimacsPackage extends EPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference MODEL__CLAUSES = eINSTANCE.getModel_Clauses();
+    EReference CNF__CLAUSES = eINSTANCE.getCNF_Clauses();
+
+    /**
+     * The meta object literal for the '{@link org.xtext.example.mydsl.dimacs.impl.CommentaireImpl <em>Commentaire</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.example.mydsl.dimacs.impl.CommentaireImpl
+     * @see org.xtext.example.mydsl.dimacs.impl.DimacsPackageImpl#getCommentaire()
+     * @generated
+     */
+    EClass COMMENTAIRE = eINSTANCE.getCommentaire();
+
+    /**
+     * The meta object literal for the '<em><b>Content</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute COMMENTAIRE__CONTENT = eINSTANCE.getCommentaire_Content();
 
     /**
      * The meta object literal for the '{@link org.xtext.example.mydsl.dimacs.impl.LigneProblemeImpl <em>Ligne Probleme</em>}' class.

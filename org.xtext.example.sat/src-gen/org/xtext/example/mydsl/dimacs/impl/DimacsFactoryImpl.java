@@ -65,7 +65,8 @@ public class DimacsFactoryImpl extends EFactoryImpl implements DimacsFactory
   {
     switch (eClass.getClassifierID())
     {
-      case DimacsPackage.MODEL: return createModel();
+      case DimacsPackage.CNF: return createCNF();
+      case DimacsPackage.COMMENTAIRE: return createCommentaire();
       case DimacsPackage.LIGNE_PROBLEME: return createLigneProbleme();
       case DimacsPackage.LIGNE_CLAUSE: return createLigneClause();
       case DimacsPackage.LITTERAL: return createlitteral();
@@ -80,10 +81,22 @@ public class DimacsFactoryImpl extends EFactoryImpl implements DimacsFactory
    * @generated
    */
   @Override
-  public Model createModel()
+  public CNF createCNF()
   {
-    ModelImpl model = new ModelImpl();
-    return model;
+    CNFImpl cnf = new CNFImpl();
+    return cnf;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Commentaire createCommentaire()
+  {
+    CommentaireImpl commentaire = new CommentaireImpl();
+    return commentaire;
   }
 
   /**

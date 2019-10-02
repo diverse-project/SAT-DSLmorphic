@@ -6,9 +6,13 @@
     complianceLevel="6.0" copyrightFields="false" runtimeVersion="2.19">
   <genPackages prefix="Dimacs" basePackage="org.xtext.example.mydsl" disposableProviderFactory="true"
       fileExtensions="sat" ecorePackage="Dimacs.ecore#/">
-    <genClasses ecoreClass="Dimacs.ecore#//Model">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Dimacs.ecore#//Model/ligne"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Dimacs.ecore#//Model/clauses"/>
+    <genClasses ecoreClass="Dimacs.ecore#//CNF">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Dimacs.ecore#//CNF/comments"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Dimacs.ecore#//CNF/problem"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Dimacs.ecore#//CNF/clauses"/>
+    </genClasses>
+    <genClasses ecoreClass="Dimacs.ecore#//Commentaire">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Dimacs.ecore#//Commentaire/content"/>
     </genClasses>
     <genClasses ecoreClass="Dimacs.ecore#//LigneProbleme">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Dimacs.ecore#//LigneProbleme/nb_variables"/>

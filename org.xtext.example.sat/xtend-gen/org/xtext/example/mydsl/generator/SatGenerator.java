@@ -3,15 +3,13 @@
  */
 package org.xtext.example.mydsl.generator;
 
-import com.google.common.collect.Iterators;
+import java.util.ArrayList;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.xtext.generator.AbstractGenerator;
 import org.eclipse.xtext.generator.IFileSystemAccess2;
 import org.eclipse.xtext.generator.IGeneratorContext;
-import org.eclipse.xtext.xbase.lib.Functions.Function1;
 import org.eclipse.xtext.xbase.lib.InputOutput;
-import org.eclipse.xtext.xbase.lib.IteratorExtensions;
 import org.xtext.example.mydsl.sat.And;
 import org.xtext.example.mydsl.sat.BiImpl;
 import org.xtext.example.mydsl.sat.Expression;
@@ -29,17 +27,139 @@ import org.xtext.example.mydsl.sat.Or;
 public class SatGenerator extends AbstractGenerator {
   @Override
   public void doGenerate(final Resource resource, final IFileSystemAccess2 fsa, final IGeneratorContext context) {
-    final Function1<Expression, String> _function = (Expression it) -> {
-      return it.getVal();
-    };
-    String variable = IteratorExtensions.join(IteratorExtensions.<Expression, String>map(Iterators.<Expression>filter(resource.getAllContents(), Expression.class), _function), ", ");
     EObject expression = resource.getContents().get(0);
     this.pretty_print(expression);
     InputOutput.<String>print("\n");
+    fsa.generateFile("formula.cnf", this.prop_to_dimacs(expression));
   }
   
-  public EObject prop_to_dimacs(final EObject formule) {
-    return null;
+  public String prop_to_dimacs(final EObject formule) {
+    String _xblockexpression = null;
+    {
+      this.tab_symb.clear();
+      this.populate_tab_symb(formule);
+      int _size = this.tab_symb.size();
+      String _plus = ("p cnf " + Integer.valueOf(_size));
+      String _plus_1 = (_plus + " ");
+      int _count_clauses = this.count_clauses(formule);
+      String _plus_2 = (_plus_1 + Integer.valueOf(_count_clauses));
+      String _plus_3 = (_plus_2 + "\n");
+      String _write_clauses = this.write_clauses(formule);
+      String _plus_4 = (_plus_3 + _write_clauses);
+      _xblockexpression = (_plus_4 + " 0");
+    }
+    return _xblockexpression;
+  }
+  
+  public String write_clauses(final EObject formule) {
+    String _switchResult = null;
+    boolean _matched = false;
+    if ((formule instanceof Or)) {
+      _matched=true;
+      String _write_clauses = this.write_clauses(((Or) formule).getLeft());
+      String _plus = (_write_clauses + " ");
+      String _write_clauses_1 = this.write_clauses(((Or) formule).getRight());
+      _switchResult = (_plus + _write_clauses_1);
+    }
+    if (!_matched) {
+      if ((formule instanceof And)) {
+        _matched=true;
+        String _write_clauses_2 = this.write_clauses(((And) formule).getLeft());
+        String _plus_1 = (_write_clauses_2 + " 0\n");
+        String _write_clauses_3 = this.write_clauses(((And) formule).getRight());
+        _switchResult = (_plus_1 + _write_clauses_3);
+      }
+    }
+    if (!_matched) {
+      if ((formule instanceof Not)) {
+        _matched=true;
+        String _write_clauses_4 = this.write_clauses(((Not) formule).getExpression());
+        _switchResult = ("-" + _write_clauses_4);
+      }
+    }
+    if (!_matched) {
+      String _xifexpression = null;
+      String _id = ((Expression) formule).getId();
+      boolean _tripleNotEquals = (_id != null);
+      if (_tripleNotEquals) {
+        int _indexOf = this.tab_symb.indexOf(((Expression) formule).getId());
+        int _plus_2 = (_indexOf + 1);
+        _xifexpression = ("" + Integer.valueOf(_plus_2));
+      } else {
+        _xifexpression = "ERROR";
+      }
+      _switchResult = _xifexpression;
+    }
+    return _switchResult;
+  }
+  
+  private ArrayList<String> tab_symb = new ArrayList<String>();
+  
+  public int populate_tab_symb(final EObject formule) {
+    int _switchResult = (int) 0;
+    boolean _matched = false;
+    if ((formule instanceof Or)) {
+      _matched=true;
+      int _populate_tab_symb = this.populate_tab_symb(((Or) formule).getLeft());
+      int _populate_tab_symb_1 = this.populate_tab_symb(((Or) formule).getRight());
+      _switchResult = (_populate_tab_symb + _populate_tab_symb_1);
+    }
+    if (!_matched) {
+      if ((formule instanceof And)) {
+        _matched=true;
+        int _populate_tab_symb_2 = this.populate_tab_symb(((And) formule).getLeft());
+        int _populate_tab_symb_3 = this.populate_tab_symb(((And) formule).getRight());
+        _switchResult = (_populate_tab_symb_2 + _populate_tab_symb_3);
+      }
+    }
+    if (!_matched) {
+      if ((formule instanceof Not)) {
+        _matched=true;
+        _switchResult = this.populate_tab_symb(((Not) formule).getExpression());
+      }
+    }
+    if (!_matched) {
+      int _xifexpression = (int) 0;
+      String _id = ((Expression) formule).getId();
+      boolean _tripleNotEquals = (_id != null);
+      if (_tripleNotEquals) {
+        int _xblockexpression = (int) 0;
+        {
+          String id = ((Expression) formule).getId();
+          int _xifexpression_1 = (int) 0;
+          boolean _contains = this.tab_symb.contains(id);
+          boolean _not = (!_contains);
+          if (_not) {
+            int _xblockexpression_1 = (int) 0;
+            {
+              this.tab_symb.add(id);
+              _xblockexpression_1 = 1;
+            }
+            _xifexpression_1 = _xblockexpression_1;
+          } else {
+            _xifexpression_1 = 0;
+          }
+          _xblockexpression = _xifexpression_1;
+        }
+        _xifexpression = _xblockexpression;
+      } else {
+        _xifexpression = 0;
+      }
+      _switchResult = _xifexpression;
+    }
+    return _switchResult;
+  }
+  
+  public int count_clauses(final EObject formule) {
+    int _xifexpression = (int) 0;
+    if ((formule instanceof And)) {
+      int _count_clauses = this.count_clauses(((And) formule).getRight());
+      int _count_clauses_1 = this.count_clauses(((And) formule).getLeft());
+      _xifexpression = (_count_clauses + _count_clauses_1);
+    } else {
+      _xifexpression = 1;
+    }
+    return _xifexpression;
   }
   
   public void pretty_print(final EObject formule) {
@@ -96,7 +216,7 @@ public class SatGenerator extends AbstractGenerator {
       if ((formule instanceof Not)) {
         _matched=true;
         InputOutput.<String>print("(");
-        InputOutput.<String>print(" NOT ");
+        InputOutput.<String>print("NOT ");
         this.pretty_print(((Not) formule).getExpression());
         InputOutput.<String>print(")");
       }

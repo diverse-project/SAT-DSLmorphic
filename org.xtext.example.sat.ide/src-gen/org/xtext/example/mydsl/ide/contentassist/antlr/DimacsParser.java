@@ -31,13 +31,17 @@ public class DimacsParser extends AbstractContentAssistParser {
 		}
 		
 		private static void init(ImmutableMap.Builder<AbstractElement, String> builder, DimacsGrammarAccess grammarAccess) {
-			builder.put(grammarAccess.getModelAccess().getGroup(), "rule__Model__Group__0");
+			builder.put(grammarAccess.getCNFAccess().getGroup(), "rule__CNF__Group__0");
+			builder.put(grammarAccess.getCommentaireAccess().getGroup(), "rule__Commentaire__Group__0");
 			builder.put(grammarAccess.getLigneProblemeAccess().getGroup(), "rule__LigneProbleme__Group__0");
-			builder.put(grammarAccess.getModelAccess().getLigneAssignment_0(), "rule__Model__LigneAssignment_0");
-			builder.put(grammarAccess.getModelAccess().getClausesAssignment_2(), "rule__Model__ClausesAssignment_2");
+			builder.put(grammarAccess.getLigneClauseAccess().getGroup(), "rule__LigneClause__Group__0");
+			builder.put(grammarAccess.getCNFAccess().getCommentsAssignment_0(), "rule__CNF__CommentsAssignment_0");
+			builder.put(grammarAccess.getCNFAccess().getProblemAssignment_2(), "rule__CNF__ProblemAssignment_2");
+			builder.put(grammarAccess.getCNFAccess().getClausesAssignment_4(), "rule__CNF__ClausesAssignment_4");
+			builder.put(grammarAccess.getCommentaireAccess().getContentAssignment_1(), "rule__Commentaire__ContentAssignment_1");
 			builder.put(grammarAccess.getLigneProblemeAccess().getNb_variablesAssignment_2(), "rule__LigneProbleme__Nb_variablesAssignment_2");
 			builder.put(grammarAccess.getLigneProblemeAccess().getNb_clausesAssignment_3(), "rule__LigneProbleme__Nb_clausesAssignment_3");
-			builder.put(grammarAccess.getLigneClauseAccess().getLitterauxAssignment(), "rule__LigneClause__LitterauxAssignment");
+			builder.put(grammarAccess.getLigneClauseAccess().getLitterauxAssignment_0(), "rule__LigneClause__LitterauxAssignment_0");
 			builder.put(grammarAccess.getLitteralAccess().getValAssignment(), "rule__Litteral__ValAssignment");
 		}
 	}

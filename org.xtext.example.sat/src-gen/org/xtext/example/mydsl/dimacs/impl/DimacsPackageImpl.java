@@ -10,11 +10,11 @@ import org.eclipse.emf.ecore.EReference;
 
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 
+import org.xtext.example.mydsl.dimacs.Commentaire;
 import org.xtext.example.mydsl.dimacs.DimacsFactory;
 import org.xtext.example.mydsl.dimacs.DimacsPackage;
 import org.xtext.example.mydsl.dimacs.LigneClause;
 import org.xtext.example.mydsl.dimacs.LigneProbleme;
-import org.xtext.example.mydsl.dimacs.Model;
 import org.xtext.example.mydsl.dimacs.litteral;
 
 /**
@@ -30,7 +30,14 @@ public class DimacsPackageImpl extends EPackageImpl implements DimacsPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass modelEClass = null;
+  private EClass cnfEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass commentaireEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -122,9 +129,9 @@ public class DimacsPackageImpl extends EPackageImpl implements DimacsPackage
    * @generated
    */
   @Override
-  public EClass getModel()
+  public EClass getCNF()
   {
-    return modelEClass;
+    return cnfEClass;
   }
 
   /**
@@ -133,9 +140,9 @@ public class DimacsPackageImpl extends EPackageImpl implements DimacsPackage
    * @generated
    */
   @Override
-  public EReference getModel_Ligne()
+  public EReference getCNF_Comments()
   {
-    return (EReference)modelEClass.getEStructuralFeatures().get(0);
+    return (EReference)cnfEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -144,9 +151,42 @@ public class DimacsPackageImpl extends EPackageImpl implements DimacsPackage
    * @generated
    */
   @Override
-  public EReference getModel_Clauses()
+  public EReference getCNF_Problem()
   {
-    return (EReference)modelEClass.getEStructuralFeatures().get(1);
+    return (EReference)cnfEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getCNF_Clauses()
+  {
+    return (EReference)cnfEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getCommentaire()
+  {
+    return commentaireEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getCommentaire_Content()
+  {
+    return (EAttribute)commentaireEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -257,9 +297,13 @@ public class DimacsPackageImpl extends EPackageImpl implements DimacsPackage
     isCreated = true;
 
     // Create classes and their features
-    modelEClass = createEClass(MODEL);
-    createEReference(modelEClass, MODEL__LIGNE);
-    createEReference(modelEClass, MODEL__CLAUSES);
+    cnfEClass = createEClass(CNF);
+    createEReference(cnfEClass, CNF__COMMENTS);
+    createEReference(cnfEClass, CNF__PROBLEM);
+    createEReference(cnfEClass, CNF__CLAUSES);
+
+    commentaireEClass = createEClass(COMMENTAIRE);
+    createEAttribute(commentaireEClass, COMMENTAIRE__CONTENT);
 
     ligneProblemeEClass = createEClass(LIGNE_PROBLEME);
     createEAttribute(ligneProblemeEClass, LIGNE_PROBLEME__NB_VARIABLES);
@@ -303,9 +347,13 @@ public class DimacsPackageImpl extends EPackageImpl implements DimacsPackage
     // Add supertypes to classes
 
     // Initialize classes and features; add operations and parameters
-    initEClass(modelEClass, Model.class, "Model", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getModel_Ligne(), this.getLigneProbleme(), null, "ligne", null, 0, -1, Model.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getModel_Clauses(), this.getLigneClause(), null, "clauses", null, 0, -1, Model.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEClass(cnfEClass, org.xtext.example.mydsl.dimacs.CNF.class, "CNF", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getCNF_Comments(), this.getCommentaire(), null, "comments", null, 0, -1, org.xtext.example.mydsl.dimacs.CNF.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getCNF_Problem(), this.getLigneProbleme(), null, "problem", null, 0, -1, org.xtext.example.mydsl.dimacs.CNF.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getCNF_Clauses(), this.getLigneClause(), null, "clauses", null, 0, -1, org.xtext.example.mydsl.dimacs.CNF.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(commentaireEClass, Commentaire.class, "Commentaire", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getCommentaire_Content(), ecorePackage.getEString(), "content", null, 0, 1, Commentaire.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(ligneProblemeEClass, LigneProbleme.class, "LigneProbleme", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getLigneProbleme_Nb_variables(), ecorePackage.getEInt(), "nb_variables", null, 0, -1, LigneProbleme.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

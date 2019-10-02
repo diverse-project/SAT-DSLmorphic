@@ -76,9 +76,14 @@ public class DimacsAdapterFactory extends AdapterFactoryImpl
     new DimacsSwitch<Adapter>()
     {
       @Override
-      public Adapter caseModel(Model object)
+      public Adapter caseCNF(CNF object)
       {
-        return createModelAdapter();
+        return createCNFAdapter();
+      }
+      @Override
+      public Adapter caseCommentaire(Commentaire object)
+      {
+        return createCommentaireAdapter();
       }
       @Override
       public Adapter caseLigneProbleme(LigneProbleme object)
@@ -118,16 +123,31 @@ public class DimacsAdapterFactory extends AdapterFactoryImpl
 
 
   /**
-   * Creates a new adapter for an object of class '{@link org.xtext.example.mydsl.dimacs.Model <em>Model</em>}'.
+   * Creates a new adapter for an object of class '{@link org.xtext.example.mydsl.dimacs.CNF <em>CNF</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see org.xtext.example.mydsl.dimacs.Model
+   * @see org.xtext.example.mydsl.dimacs.CNF
    * @generated
    */
-  public Adapter createModelAdapter()
+  public Adapter createCNFAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.example.mydsl.dimacs.Commentaire <em>Commentaire</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.example.mydsl.dimacs.Commentaire
+   * @generated
+   */
+  public Adapter createCommentaireAdapter()
   {
     return null;
   }

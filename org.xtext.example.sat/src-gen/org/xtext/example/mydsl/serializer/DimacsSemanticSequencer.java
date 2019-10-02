@@ -14,10 +14,11 @@ import org.eclipse.xtext.serializer.ISerializationContext;
 import org.eclipse.xtext.serializer.acceptor.SequenceFeeder;
 import org.eclipse.xtext.serializer.sequencer.AbstractDelegatingSemanticSequencer;
 import org.eclipse.xtext.serializer.sequencer.ITransientValueService.ValueTransient;
+import org.xtext.example.mydsl.dimacs.CNF;
+import org.xtext.example.mydsl.dimacs.Commentaire;
 import org.xtext.example.mydsl.dimacs.DimacsPackage;
 import org.xtext.example.mydsl.dimacs.LigneClause;
 import org.xtext.example.mydsl.dimacs.LigneProbleme;
-import org.xtext.example.mydsl.dimacs.Model;
 import org.xtext.example.mydsl.dimacs.litteral;
 import org.xtext.example.mydsl.services.DimacsGrammarAccess;
 
@@ -35,14 +36,17 @@ public class DimacsSemanticSequencer extends AbstractDelegatingSemanticSequencer
 		Set<Parameter> parameters = context.getEnabledBooleanParameters();
 		if (epackage == DimacsPackage.eINSTANCE)
 			switch (semanticObject.eClass().getClassifierID()) {
+			case DimacsPackage.CNF:
+				sequence_CNF(context, (CNF) semanticObject); 
+				return; 
+			case DimacsPackage.COMMENTAIRE:
+				sequence_Commentaire(context, (Commentaire) semanticObject); 
+				return; 
 			case DimacsPackage.LIGNE_CLAUSE:
 				sequence_LigneClause(context, (LigneClause) semanticObject); 
 				return; 
 			case DimacsPackage.LIGNE_PROBLEME:
 				sequence_LigneProbleme(context, (LigneProbleme) semanticObject); 
-				return; 
-			case DimacsPackage.MODEL:
-				sequence_Model(context, (Model) semanticObject); 
 				return; 
 			case DimacsPackage.LITTERAL:
 				sequence_litteral(context, (litteral) semanticObject); 
@@ -51,6 +55,36 @@ public class DimacsSemanticSequencer extends AbstractDelegatingSemanticSequencer
 		if (errorAcceptor != null)
 			errorAcceptor.accept(diagnosticProvider.createInvalidContextOrTypeDiagnostic(semanticObject, context));
 	}
+	
+	/**
+	 * Contexts:
+	 *     CNF returns CNF
+	 *
+	 * Constraint:
+	 *     (comments+=Commentaire* problem+=LigneProbleme clauses+=LigneClause*)
+	 */
+	protected void sequence_CNF(ISerializationContext context, CNF semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     Commentaire returns Commentaire
+	 *
+	 * Constraint:
+	 *     content=STRING
+	 */
+	protected void sequence_Commentaire(ISerializationContext context, Commentaire semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, DimacsPackage.Literals.COMMENTAIRE__CONTENT) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DimacsPackage.Literals.COMMENTAIRE__CONTENT));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getCommentaireAccess().getContentSTRINGTerminalRuleCall_1_0(), semanticObject.getContent());
+		feeder.finish();
+	}
+	
 	
 	/**
 	 * Contexts:
@@ -72,18 +106,6 @@ public class DimacsSemanticSequencer extends AbstractDelegatingSemanticSequencer
 	 *     (nb_variables+=INT nb_clauses+=INT)
 	 */
 	protected void sequence_LigneProbleme(ISerializationContext context, LigneProbleme semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Contexts:
-	 *     Model returns Model
-	 *
-	 * Constraint:
-	 *     (ligne+=LigneProbleme clauses+=LigneClause*)
-	 */
-	protected void sequence_Model(ISerializationContext context, Model semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	

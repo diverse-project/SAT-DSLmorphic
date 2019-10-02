@@ -21,36 +21,75 @@ import org.eclipse.xtext.service.GrammarProvider;
 @Singleton
 public class DimacsGrammarAccess extends AbstractGrammarElementFinder {
 	
-	public class ModelElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.mydsl.Dimacs.Model");
+	public class CNFElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.mydsl.Dimacs.CNF");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Assignment cLigneAssignment_0 = (Assignment)cGroup.eContents().get(0);
-		private final RuleCall cLigneLigneProblemeParserRuleCall_0_0 = (RuleCall)cLigneAssignment_0.eContents().get(0);
+		private final Assignment cCommentsAssignment_0 = (Assignment)cGroup.eContents().get(0);
+		private final RuleCall cCommentsCommentaireParserRuleCall_0_0 = (RuleCall)cCommentsAssignment_0.eContents().get(0);
 		private final Keyword cLineFeedKeyword_1 = (Keyword)cGroup.eContents().get(1);
-		private final Assignment cClausesAssignment_2 = (Assignment)cGroup.eContents().get(2);
-		private final RuleCall cClausesLigneClauseParserRuleCall_2_0 = (RuleCall)cClausesAssignment_2.eContents().get(0);
+		private final Assignment cProblemAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cProblemLigneProblemeParserRuleCall_2_0 = (RuleCall)cProblemAssignment_2.eContents().get(0);
+		private final Keyword cLineFeedKeyword_3 = (Keyword)cGroup.eContents().get(3);
+		private final Assignment cClausesAssignment_4 = (Assignment)cGroup.eContents().get(4);
+		private final RuleCall cClausesLigneClauseParserRuleCall_4_0 = (RuleCall)cClausesAssignment_4.eContents().get(0);
 		
-		//Model:
-		//	ligne+=LigneProbleme '\n' clauses+=LigneClause*;
+		//CNF:
+		//	comments+=Commentaire* '\n' problem+=LigneProbleme '\n' clauses+=LigneClause*;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//ligne+=LigneProbleme '\n' clauses+=LigneClause*
+		//comments+=Commentaire* '\n' problem+=LigneProbleme '\n' clauses+=LigneClause*
 		public Group getGroup() { return cGroup; }
 		
-		//ligne+=LigneProbleme
-		public Assignment getLigneAssignment_0() { return cLigneAssignment_0; }
+		//comments+=Commentaire*
+		public Assignment getCommentsAssignment_0() { return cCommentsAssignment_0; }
 		
-		//LigneProbleme
-		public RuleCall getLigneLigneProblemeParserRuleCall_0_0() { return cLigneLigneProblemeParserRuleCall_0_0; }
+		//Commentaire
+		public RuleCall getCommentsCommentaireParserRuleCall_0_0() { return cCommentsCommentaireParserRuleCall_0_0; }
 		
 		//'\n'
 		public Keyword getLineFeedKeyword_1() { return cLineFeedKeyword_1; }
 		
+		//problem+=LigneProbleme
+		public Assignment getProblemAssignment_2() { return cProblemAssignment_2; }
+		
+		//LigneProbleme
+		public RuleCall getProblemLigneProblemeParserRuleCall_2_0() { return cProblemLigneProblemeParserRuleCall_2_0; }
+		
+		//'\n'
+		public Keyword getLineFeedKeyword_3() { return cLineFeedKeyword_3; }
+		
 		//clauses+=LigneClause*
-		public Assignment getClausesAssignment_2() { return cClausesAssignment_2; }
+		public Assignment getClausesAssignment_4() { return cClausesAssignment_4; }
 		
 		//LigneClause
-		public RuleCall getClausesLigneClauseParserRuleCall_2_0() { return cClausesLigneClauseParserRuleCall_2_0; }
+		public RuleCall getClausesLigneClauseParserRuleCall_4_0() { return cClausesLigneClauseParserRuleCall_4_0; }
+	}
+	public class CommentaireElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.mydsl.Dimacs.Commentaire");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cCKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Assignment cContentAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cContentSTRINGTerminalRuleCall_1_0 = (RuleCall)cContentAssignment_1.eContents().get(0);
+		private final Keyword cLineFeedKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		
+		//Commentaire:
+		//	'c' content=STRING '\n';
+		@Override public ParserRule getRule() { return rule; }
+		
+		//'c' content=STRING '\n'
+		public Group getGroup() { return cGroup; }
+		
+		//'c'
+		public Keyword getCKeyword_0() { return cCKeyword_0; }
+		
+		//content=STRING
+		public Assignment getContentAssignment_1() { return cContentAssignment_1; }
+		
+		//STRING
+		public RuleCall getContentSTRINGTerminalRuleCall_1_0() { return cContentSTRINGTerminalRuleCall_1_0; }
+		
+		//'\n'
+		public Keyword getLineFeedKeyword_2() { return cLineFeedKeyword_2; }
 	}
 	public class LigneProblemeElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.mydsl.Dimacs.LigneProbleme");
@@ -61,12 +100,13 @@ public class DimacsGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cNb_variablesINTTerminalRuleCall_2_0 = (RuleCall)cNb_variablesAssignment_2.eContents().get(0);
 		private final Assignment cNb_clausesAssignment_3 = (Assignment)cGroup.eContents().get(3);
 		private final RuleCall cNb_clausesINTTerminalRuleCall_3_0 = (RuleCall)cNb_clausesAssignment_3.eContents().get(0);
+		private final Keyword cLineFeedKeyword_4 = (Keyword)cGroup.eContents().get(4);
 		
 		//LigneProbleme:
-		//	'p' 'cnf' nb_variables+=INT nb_clauses+=INT;
+		//	'p' 'cnf' nb_variables+=INT nb_clauses+=INT '\n';
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'p' 'cnf' nb_variables+=INT nb_clauses+=INT
+		//'p' 'cnf' nb_variables+=INT nb_clauses+=INT '\n'
 		public Group getGroup() { return cGroup; }
 		
 		//'p'
@@ -86,21 +126,32 @@ public class DimacsGrammarAccess extends AbstractGrammarElementFinder {
 		
 		//INT
 		public RuleCall getNb_clausesINTTerminalRuleCall_3_0() { return cNb_clausesINTTerminalRuleCall_3_0; }
+		
+		//'\n'
+		public Keyword getLineFeedKeyword_4() { return cLineFeedKeyword_4; }
 	}
 	public class LigneClauseElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.mydsl.Dimacs.LigneClause");
-		private final Assignment cLitterauxAssignment = (Assignment)rule.eContents().get(1);
-		private final RuleCall cLitterauxLitteralParserRuleCall_0 = (RuleCall)cLitterauxAssignment.eContents().get(0);
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Assignment cLitterauxAssignment_0 = (Assignment)cGroup.eContents().get(0);
+		private final RuleCall cLitterauxLitteralParserRuleCall_0_0 = (RuleCall)cLitterauxAssignment_0.eContents().get(0);
+		private final Keyword cDigitZeroKeyword_1 = (Keyword)cGroup.eContents().get(1);
 		
 		//LigneClause:
-		//	litteraux+=litteral+;
+		//	litteraux+=litteral+ '0';
 		@Override public ParserRule getRule() { return rule; }
 		
+		//litteraux+=litteral+ '0'
+		public Group getGroup() { return cGroup; }
+		
 		//litteraux+=litteral+
-		public Assignment getLitterauxAssignment() { return cLitterauxAssignment; }
+		public Assignment getLitterauxAssignment_0() { return cLitterauxAssignment_0; }
 		
 		//litteral
-		public RuleCall getLitterauxLitteralParserRuleCall_0() { return cLitterauxLitteralParserRuleCall_0; }
+		public RuleCall getLitterauxLitteralParserRuleCall_0_0() { return cLitterauxLitteralParserRuleCall_0_0; }
+		
+		//'0'
+		public Keyword getDigitZeroKeyword_1() { return cDigitZeroKeyword_1; }
 	}
 	public class LitteralElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.mydsl.Dimacs.litteral");
@@ -119,7 +170,8 @@ public class DimacsGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	
-	private final ModelElements pModel;
+	private final CNFElements pCNF;
+	private final CommentaireElements pCommentaire;
 	private final LigneProblemeElements pLigneProbleme;
 	private final LigneClauseElements pLigneClause;
 	private final LitteralElements pLitteral;
@@ -133,7 +185,8 @@ public class DimacsGrammarAccess extends AbstractGrammarElementFinder {
 			TerminalsGrammarAccess gaTerminals) {
 		this.grammar = internalFindGrammar(grammarProvider);
 		this.gaTerminals = gaTerminals;
-		this.pModel = new ModelElements();
+		this.pCNF = new CNFElements();
+		this.pCommentaire = new CommentaireElements();
 		this.pLigneProbleme = new LigneProblemeElements();
 		this.pLigneClause = new LigneClauseElements();
 		this.pLitteral = new LitteralElements();
@@ -166,18 +219,28 @@ public class DimacsGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	
-	//Model:
-	//	ligne+=LigneProbleme '\n' clauses+=LigneClause*;
-	public ModelElements getModelAccess() {
-		return pModel;
+	//CNF:
+	//	comments+=Commentaire* '\n' problem+=LigneProbleme '\n' clauses+=LigneClause*;
+	public CNFElements getCNFAccess() {
+		return pCNF;
 	}
 	
-	public ParserRule getModelRule() {
-		return getModelAccess().getRule();
+	public ParserRule getCNFRule() {
+		return getCNFAccess().getRule();
+	}
+	
+	//Commentaire:
+	//	'c' content=STRING '\n';
+	public CommentaireElements getCommentaireAccess() {
+		return pCommentaire;
+	}
+	
+	public ParserRule getCommentaireRule() {
+		return getCommentaireAccess().getRule();
 	}
 	
 	//LigneProbleme:
-	//	'p' 'cnf' nb_variables+=INT nb_clauses+=INT;
+	//	'p' 'cnf' nb_variables+=INT nb_clauses+=INT '\n';
 	public LigneProblemeElements getLigneProblemeAccess() {
 		return pLigneProbleme;
 	}
@@ -187,7 +250,7 @@ public class DimacsGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//LigneClause:
-	//	litteraux+=litteral+;
+	//	litteraux+=litteral+ '0';
 	public LigneClauseElements getLigneClauseAccess() {
 		return pLigneClause;
 	}

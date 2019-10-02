@@ -3,6 +3,9 @@
  */
 package org.xtext.example.mydsl.generator
 
+import java.util.ArrayList;
+
+
 import org.eclipse.emf.ecore.EObject
 import org.eclipse.emf.ecore.resource.Resource
 import org.eclipse.xtext.generator.AbstractGenerator
@@ -26,26 +29,124 @@ class SatGenerator extends AbstractGenerator
 
 	override void doGenerate(Resource resource, IFileSystemAccess2 fsa, IGeneratorContext context)
 	{	
-		var variable = resource.allContents.filter(Expression).map[^val ].join(', ');
+		//var variable = resource.allContents.filter(Expression).map[^val ].join(', ');
 		//println(variable);
 		
 		var expression = resource.contents.get(0);
 		pretty_print(expression)
 		print("\n")
+		//print(count_clauses(expression))
+		//print("\n")
+		//populate_tab_symb(expression)
+		//for(String symb: tab_symb) print(symb)
+		//print("\n")
+		//print(prop_to_dimacs(expression))
+		//print("\n")
 		
 		//println(expression);
 		
-//		fsa.generateFile('greetings.txt', 'People to greet: ' + 
-//			resource.allContents
-//				.filter(Expression)
-//				.map[name]
-//				.join(', '))
+		fsa.generateFile('formula.cnf', prop_to_dimacs(expression))
 	}
 	
-	def EObject prop_to_dimacs(EObject formule)
+	def String prop_to_dimacs(EObject formule)
 	{
+		tab_symb.clear()
+		populate_tab_symb(formule)
 		
-	} 
+		"p cnf " + tab_symb.size() + " " + count_clauses(formule) + "\n"
+		+
+		write_clauses(formule) + " 0"
+	}
+	
+	def String write_clauses(EObject formule)
+	{
+		switch formule
+		{
+			case formule instanceof Or : 
+			{	
+				write_clauses( (formule as Or).left ) + " "
+				+
+				write_clauses((formule as Or).right)
+			} 
+			case formule instanceof And : 
+			{	
+				write_clauses((formule as And).left ) + " 0\n"
+				+
+				write_clauses((formule as And).right)
+			}
+			case formule instanceof Not : 
+			{	
+				"-" + write_clauses((formule as Not).expression)
+			} 
+			default : 
+			{
+				if((formule as Expression).id !== null)
+				{
+					"" + (tab_symb.indexOf((formule as Expression).id) + 1)
+				}
+				else
+				{
+					"ERROR"
+				}
+			}
+		}
+	}
+	
+	ArrayList<String> tab_symb = new ArrayList<String>();
+	def int populate_tab_symb(EObject formule)
+	{
+		switch formule
+		{
+			case formule instanceof Or : 
+			{	
+				populate_tab_symb( (formule as Or).left )
+				+
+				populate_tab_symb((formule as Or).right)
+			} 
+			case formule instanceof And : 
+			{	
+				populate_tab_symb( (formule as And).left )
+				+
+				populate_tab_symb((formule as And).right)
+			}
+			case formule instanceof Not : 
+			{	
+				populate_tab_symb((formule as Not).expression)
+			} 
+			default : 
+			{
+				if((formule as Expression).id !== null)
+				{
+					var id = (formule as Expression).id
+					if(!tab_symb.contains(id))
+					{
+						tab_symb.add(id)
+						1
+					}
+					else
+					{
+						0
+					}
+				}
+				else
+				{
+					0
+				}
+			}
+		}
+	}
+	
+	def int count_clauses(EObject formule)
+	{
+		if(formule instanceof And)
+		{
+			count_clauses((formule as And).right) + count_clauses((formule as And).left)
+		}
+		else
+		{
+			1
+		}
+	}
 	
 	def void pretty_print(EObject formule)
 	{
@@ -96,7 +197,7 @@ class SatGenerator extends AbstractGenerator
 			case formule instanceof Not : 
 			{	
 				print("(" )
-				print(" NOT " );
+				print("NOT " );
 				pretty_print((formule as Not).expression)
 				print(")" )
 			} 

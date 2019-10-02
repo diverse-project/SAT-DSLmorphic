@@ -43,7 +43,7 @@ import org.xtext.example.mydsl.services.DimacsGrammarAccess;
 
     @Override
     protected String getFirstRuleName() {
-    	return "Model";
+    	return "CNF";
    	}
 
    	@Override
@@ -60,15 +60,15 @@ import org.xtext.example.mydsl.services.DimacsGrammarAccess;
     }
 }
 
-// Entry rule entryRuleModel
-entryRuleModel returns [EObject current=null]:
-	{ newCompositeNode(grammarAccess.getModelRule()); }
-	iv_ruleModel=ruleModel
-	{ $current=$iv_ruleModel.current; }
+// Entry rule entryRuleCNF
+entryRuleCNF returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getCNFRule()); }
+	iv_ruleCNF=ruleCNF
+	{ $current=$iv_ruleCNF.current; }
 	EOF;
 
-// Rule Model
-ruleModel returns [EObject current=null]
+// Rule CNF
+ruleCNF returns [EObject current=null]
 @init {
 	enterRule();
 }
@@ -79,45 +79,113 @@ ruleModel returns [EObject current=null]
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getModelAccess().getLigneLigneProblemeParserRuleCall_0_0());
+					newCompositeNode(grammarAccess.getCNFAccess().getCommentsCommentaireParserRuleCall_0_0());
 				}
-				lv_ligne_0_0=ruleLigneProbleme
+				lv_comments_0_0=ruleCommentaire
 				{
 					if ($current==null) {
-						$current = createModelElementForParent(grammarAccess.getModelRule());
+						$current = createModelElementForParent(grammarAccess.getCNFRule());
 					}
 					add(
 						$current,
-						"ligne",
-						lv_ligne_0_0,
+						"comments",
+						lv_comments_0_0,
+						"org.xtext.example.mydsl.Dimacs.Commentaire");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)*
+		otherlv_1='\n'
+		{
+			newLeafNode(otherlv_1, grammarAccess.getCNFAccess().getLineFeedKeyword_1());
+		}
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getCNFAccess().getProblemLigneProblemeParserRuleCall_2_0());
+				}
+				lv_problem_2_0=ruleLigneProbleme
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getCNFRule());
+					}
+					add(
+						$current,
+						"problem",
+						lv_problem_2_0,
 						"org.xtext.example.mydsl.Dimacs.LigneProbleme");
 					afterParserOrEnumRuleCall();
 				}
 			)
 		)
-		otherlv_1='\n'
+		otherlv_3='\n'
 		{
-			newLeafNode(otherlv_1, grammarAccess.getModelAccess().getLineFeedKeyword_1());
+			newLeafNode(otherlv_3, grammarAccess.getCNFAccess().getLineFeedKeyword_3());
 		}
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getModelAccess().getClausesLigneClauseParserRuleCall_2_0());
+					newCompositeNode(grammarAccess.getCNFAccess().getClausesLigneClauseParserRuleCall_4_0());
 				}
-				lv_clauses_2_0=ruleLigneClause
+				lv_clauses_4_0=ruleLigneClause
 				{
 					if ($current==null) {
-						$current = createModelElementForParent(grammarAccess.getModelRule());
+						$current = createModelElementForParent(grammarAccess.getCNFRule());
 					}
 					add(
 						$current,
 						"clauses",
-						lv_clauses_2_0,
+						lv_clauses_4_0,
 						"org.xtext.example.mydsl.Dimacs.LigneClause");
 					afterParserOrEnumRuleCall();
 				}
 			)
 		)*
+	)
+;
+
+// Entry rule entryRuleCommentaire
+entryRuleCommentaire returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getCommentaireRule()); }
+	iv_ruleCommentaire=ruleCommentaire
+	{ $current=$iv_ruleCommentaire.current; }
+	EOF;
+
+// Rule Commentaire
+ruleCommentaire returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		otherlv_0='c'
+		{
+			newLeafNode(otherlv_0, grammarAccess.getCommentaireAccess().getCKeyword_0());
+		}
+		(
+			(
+				lv_content_1_0=RULE_STRING
+				{
+					newLeafNode(lv_content_1_0, grammarAccess.getCommentaireAccess().getContentSTRINGTerminalRuleCall_1_0());
+				}
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getCommentaireRule());
+					}
+					setWithLastConsumed(
+						$current,
+						"content",
+						lv_content_1_0,
+						"org.eclipse.xtext.common.Terminals.STRING");
+				}
+			)
+		)
+		otherlv_2='\n'
+		{
+			newLeafNode(otherlv_2, grammarAccess.getCommentaireAccess().getLineFeedKeyword_2());
+		}
 	)
 ;
 
@@ -181,6 +249,10 @@ ruleLigneProbleme returns [EObject current=null]
 				}
 			)
 		)
+		otherlv_4='\n'
+		{
+			newLeafNode(otherlv_4, grammarAccess.getLigneProblemeAccess().getLineFeedKeyword_4());
+		}
 	)
 ;
 
@@ -201,23 +273,29 @@ ruleLigneClause returns [EObject current=null]
 }:
 	(
 		(
-			{
-				newCompositeNode(grammarAccess.getLigneClauseAccess().getLitterauxLitteralParserRuleCall_0());
-			}
-			lv_litteraux_0_0=rulelitteral
-			{
-				if ($current==null) {
-					$current = createModelElementForParent(grammarAccess.getLigneClauseRule());
+			(
+				{
+					newCompositeNode(grammarAccess.getLigneClauseAccess().getLitterauxLitteralParserRuleCall_0_0());
 				}
-				add(
-					$current,
-					"litteraux",
-					lv_litteraux_0_0,
-					"org.xtext.example.mydsl.Dimacs.litteral");
-				afterParserOrEnumRuleCall();
-			}
-		)
-	)+
+				lv_litteraux_0_0=rulelitteral
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getLigneClauseRule());
+					}
+					add(
+						$current,
+						"litteraux",
+						lv_litteraux_0_0,
+						"org.xtext.example.mydsl.Dimacs.litteral");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)+
+		otherlv_1='0'
+		{
+			newLeafNode(otherlv_1, grammarAccess.getLigneClauseAccess().getDigitZeroKeyword_1());
+		}
+	)
 ;
 
 // Entry rule entryRulelitteral

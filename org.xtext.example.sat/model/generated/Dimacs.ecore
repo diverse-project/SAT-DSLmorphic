@@ -1,11 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="dimacs" nsURI="http://www.xtext.org/example/mydsl/Dimacs" nsPrefix="dimacs">
-  <eClassifiers xsi:type="ecore:EClass" name="Model">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="ligne" upperBound="-1"
+  <eClassifiers xsi:type="ecore:EClass" name="CNF">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="comments" upperBound="-1"
+        eType="#//Commentaire" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="problem" upperBound="-1"
         eType="#//LigneProbleme" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="clauses" upperBound="-1"
         eType="#//LigneClause" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Commentaire">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="content" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="LigneProbleme">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="nb_variables" unique="false"

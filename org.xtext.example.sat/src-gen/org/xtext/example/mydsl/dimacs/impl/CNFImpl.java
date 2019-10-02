@@ -17,36 +17,48 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
+import org.xtext.example.mydsl.dimacs.CNF;
+import org.xtext.example.mydsl.dimacs.Commentaire;
 import org.xtext.example.mydsl.dimacs.DimacsPackage;
 import org.xtext.example.mydsl.dimacs.LigneClause;
 import org.xtext.example.mydsl.dimacs.LigneProbleme;
-import org.xtext.example.mydsl.dimacs.Model;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Model</b></em>'.
+ * An implementation of the model object '<em><b>CNF</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.xtext.example.mydsl.dimacs.impl.ModelImpl#getLigne <em>Ligne</em>}</li>
- *   <li>{@link org.xtext.example.mydsl.dimacs.impl.ModelImpl#getClauses <em>Clauses</em>}</li>
+ *   <li>{@link org.xtext.example.mydsl.dimacs.impl.CNFImpl#getComments <em>Comments</em>}</li>
+ *   <li>{@link org.xtext.example.mydsl.dimacs.impl.CNFImpl#getProblem <em>Problem</em>}</li>
+ *   <li>{@link org.xtext.example.mydsl.dimacs.impl.CNFImpl#getClauses <em>Clauses</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class ModelImpl extends MinimalEObjectImpl.Container implements Model
+public class CNFImpl extends MinimalEObjectImpl.Container implements CNF
 {
   /**
-   * The cached value of the '{@link #getLigne() <em>Ligne</em>}' containment reference list.
+   * The cached value of the '{@link #getComments() <em>Comments</em>}' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getLigne()
+   * @see #getComments()
    * @generated
    * @ordered
    */
-  protected EList<LigneProbleme> ligne;
+  protected EList<Commentaire> comments;
+
+  /**
+   * The cached value of the '{@link #getProblem() <em>Problem</em>}' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getProblem()
+   * @generated
+   * @ordered
+   */
+  protected EList<LigneProbleme> problem;
 
   /**
    * The cached value of the '{@link #getClauses() <em>Clauses</em>}' containment reference list.
@@ -63,7 +75,7 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
    * <!-- end-user-doc -->
    * @generated
    */
-  protected ModelImpl()
+  protected CNFImpl()
   {
     super();
   }
@@ -76,7 +88,7 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
   @Override
   protected EClass eStaticClass()
   {
-    return DimacsPackage.Literals.MODEL;
+    return DimacsPackage.Literals.CNF;
   }
 
   /**
@@ -85,13 +97,28 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
    * @generated
    */
   @Override
-  public EList<LigneProbleme> getLigne()
+  public EList<Commentaire> getComments()
   {
-    if (ligne == null)
+    if (comments == null)
     {
-      ligne = new EObjectContainmentEList<LigneProbleme>(LigneProbleme.class, this, DimacsPackage.MODEL__LIGNE);
+      comments = new EObjectContainmentEList<Commentaire>(Commentaire.class, this, DimacsPackage.CNF__COMMENTS);
     }
-    return ligne;
+    return comments;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EList<LigneProbleme> getProblem()
+  {
+    if (problem == null)
+    {
+      problem = new EObjectContainmentEList<LigneProbleme>(LigneProbleme.class, this, DimacsPackage.CNF__PROBLEM);
+    }
+    return problem;
   }
 
   /**
@@ -104,7 +131,7 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
   {
     if (clauses == null)
     {
-      clauses = new EObjectContainmentEList<LigneClause>(LigneClause.class, this, DimacsPackage.MODEL__CLAUSES);
+      clauses = new EObjectContainmentEList<LigneClause>(LigneClause.class, this, DimacsPackage.CNF__CLAUSES);
     }
     return clauses;
   }
@@ -119,9 +146,11 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
   {
     switch (featureID)
     {
-      case DimacsPackage.MODEL__LIGNE:
-        return ((InternalEList<?>)getLigne()).basicRemove(otherEnd, msgs);
-      case DimacsPackage.MODEL__CLAUSES:
+      case DimacsPackage.CNF__COMMENTS:
+        return ((InternalEList<?>)getComments()).basicRemove(otherEnd, msgs);
+      case DimacsPackage.CNF__PROBLEM:
+        return ((InternalEList<?>)getProblem()).basicRemove(otherEnd, msgs);
+      case DimacsPackage.CNF__CLAUSES:
         return ((InternalEList<?>)getClauses()).basicRemove(otherEnd, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
@@ -137,9 +166,11 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
   {
     switch (featureID)
     {
-      case DimacsPackage.MODEL__LIGNE:
-        return getLigne();
-      case DimacsPackage.MODEL__CLAUSES:
+      case DimacsPackage.CNF__COMMENTS:
+        return getComments();
+      case DimacsPackage.CNF__PROBLEM:
+        return getProblem();
+      case DimacsPackage.CNF__CLAUSES:
         return getClauses();
     }
     return super.eGet(featureID, resolve, coreType);
@@ -156,11 +187,15 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
   {
     switch (featureID)
     {
-      case DimacsPackage.MODEL__LIGNE:
-        getLigne().clear();
-        getLigne().addAll((Collection<? extends LigneProbleme>)newValue);
+      case DimacsPackage.CNF__COMMENTS:
+        getComments().clear();
+        getComments().addAll((Collection<? extends Commentaire>)newValue);
         return;
-      case DimacsPackage.MODEL__CLAUSES:
+      case DimacsPackage.CNF__PROBLEM:
+        getProblem().clear();
+        getProblem().addAll((Collection<? extends LigneProbleme>)newValue);
+        return;
+      case DimacsPackage.CNF__CLAUSES:
         getClauses().clear();
         getClauses().addAll((Collection<? extends LigneClause>)newValue);
         return;
@@ -178,10 +213,13 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
   {
     switch (featureID)
     {
-      case DimacsPackage.MODEL__LIGNE:
-        getLigne().clear();
+      case DimacsPackage.CNF__COMMENTS:
+        getComments().clear();
         return;
-      case DimacsPackage.MODEL__CLAUSES:
+      case DimacsPackage.CNF__PROBLEM:
+        getProblem().clear();
+        return;
+      case DimacsPackage.CNF__CLAUSES:
         getClauses().clear();
         return;
     }
@@ -198,12 +236,14 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
   {
     switch (featureID)
     {
-      case DimacsPackage.MODEL__LIGNE:
-        return ligne != null && !ligne.isEmpty();
-      case DimacsPackage.MODEL__CLAUSES:
+      case DimacsPackage.CNF__COMMENTS:
+        return comments != null && !comments.isEmpty();
+      case DimacsPackage.CNF__PROBLEM:
+        return problem != null && !problem.isEmpty();
+      case DimacsPackage.CNF__CLAUSES:
         return clauses != null && !clauses.isEmpty();
     }
     return super.eIsSet(featureID);
   }
 
-} //ModelImpl
+} //CNFImpl
