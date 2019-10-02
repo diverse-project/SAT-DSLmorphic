@@ -166,5 +166,6 @@ class ConjunctiveNormalForm {
 			}
 			return atoms.head
 		}
+		e
 	}
 }

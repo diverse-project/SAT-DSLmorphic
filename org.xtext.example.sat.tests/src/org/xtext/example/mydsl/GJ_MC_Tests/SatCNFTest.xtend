@@ -10,11 +10,11 @@ import org.eclipse.xtext.testing.util.ParseHelper
 import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.^extension.ExtendWith
-import org.xtext.example.mydsl.generator.PrettyPrinter
+import org.xtext.example.mydsl.generator.ConjunctiveNormalForm
 import org.xtext.example.mydsl.generator.SATUtils
-import org.xtext.example.mydsl.generator.Simplifier
 import org.xtext.example.mydsl.sat.Expression
 import org.xtext.example.mydsl.tests.SatInjectorProvider
+import org.xtext.example.mydsl.generator.PrettyPrinter
 
 @ExtendWith(InjectionExtension)
 @InjectWith(SatInjectorProvider)
@@ -23,172 +23,105 @@ class SatCNFTest {
 	ParseHelper<Expression> parseHelper
 	
 	@Test
-	def void basicImpliesTest() {
+	def void basicNotTest() {
 		val result = parseHelper.parse('''
-			A => B
+			!A
 		''')
-		val simplified = Simplifier.simplify(result)
+		val cnf = ConjunctiveNormalForm.toCleanCNF(result)
 		
 		val oracle = parseHelper.parse('''
-			!A v B
+			!A
 		''')
 		Assertions.assertNotNull(result)
 		val errors = result.eResource.errors
 		Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
-		
-		Assertions.assertTrue(SATUtils.equals(simplified, oracle))
+
+		Assertions.assertTrue(SATUtils.equals(cnf, oracle))
 	}
 	
 	@Test
-	def void basicBiImplTest() {
+	def void basicOrTest() {
 		val result = parseHelper.parse('''
-			A <=> B
+			A v B
 		''')
-		val simplified = Simplifier.simplify(result)
+		val cnf = ConjunctiveNormalForm.toCleanCNF(result)
 		
 		val oracle = parseHelper.parse('''
-			A ^ B v !A ^ !B
+			A v B
 		''')
 		Assertions.assertNotNull(result)
 		val errors = result.eResource.errors
 		Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
 		
-		Assertions.assertTrue(SATUtils.equals(simplified, oracle))
+		Assertions.assertTrue(SATUtils.equals(cnf, oracle))
 	}
 	
 	@Test
-	def void basicNandTest() {
+	def void basicAndTest() {
 		val result = parseHelper.parse('''
-			A | B
+			A ^ B
 		''')
-		val simplified = Simplifier.simplify(result)
+		val cnf = ConjunctiveNormalForm.toCleanCNF(result)
 		
 		val oracle = parseHelper.parse('''
-			!(A ^ B)
+			A ^ B
 		''')
 		Assertions.assertNotNull(result)
 		val errors = result.eResource.errors
 		Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
-		
-		Assertions.assertTrue(SATUtils.equals(simplified, oracle))
+
+		Assertions.assertTrue(SATUtils.equals(cnf, oracle))
 	}
 	
 	@Test
-	def void basicNotConstantTest() {
+	def void basicDNFFormTest() {
 		val result = parseHelper.parse('''
-			!true
+			A ^ B v C ^ D
 		''')
-		val simplified = Simplifier.simplify(result)
+		val cnf = ConjunctiveNormalForm.toCleanCNF(result)
 		
 		val oracle = parseHelper.parse('''
-			false
+			((A v C) ^ (A v D)) ^ ((B v C) ^ (B v D))
 		''')
 		Assertions.assertNotNull(result)
 		val errors = result.eResource.errors
 		Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
 		
-		Assertions.assertTrue(SATUtils.equals(simplified, oracle))
+		Assertions.assertTrue(SATUtils.equals(cnf, oracle))
 	}
 	
 	@Test
-	def void basicAndTrueConstantTest() {
+	def void basicCNFFormTest() {
 		val result = parseHelper.parse('''
-			A ^ true
+			(A v B) ^ (C v D)
 		''')
-		val simplified = Simplifier.simplify(result)
+		val cnf = ConjunctiveNormalForm.toCleanCNF(result)
 		
 		val oracle = parseHelper.parse('''
-			A
+			(A v B) ^ (C v D)
 		''')
 		Assertions.assertNotNull(result)
 		val errors = result.eResource.errors
 		Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
 		
-		Assertions.assertTrue(SATUtils.equals(simplified, oracle))
+		Assertions.assertTrue(SATUtils.equals(cnf, oracle))
 	}
 	
 	@Test
-	def void basicAndFalseConstantTest() {
+	def void ComplexExpressionTest() {
 		val result = parseHelper.parse('''
-			A ^ false
+			!A v B ^ (!C v D) v E
 		''')
-		val simplified = Simplifier.simplify(result)
+		val cnf = ConjunctiveNormalForm.toCleanCNF(result)
 		
 		val oracle = parseHelper.parse('''
-			false
+			(E v (!A v B)) ^ ((!A v !C) v (D v E))
 		''')
 		Assertions.assertNotNull(result)
 		val errors = result.eResource.errors
 		Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
 		
-		Assertions.assertTrue(SATUtils.equals(simplified, oracle))
+		Assertions.assertTrue(SATUtils.equals(cnf, oracle))
 	}
 	
-	@Test
-	def void basicOrTrueConstantTest() {
-		val result = parseHelper.parse('''
-			A v true
-		''')
-		val simplified = Simplifier.simplify(result)
-		
-		val oracle = parseHelper.parse('''
-			true
-		''')
-		Assertions.assertNotNull(result)
-		val errors = result.eResource.errors
-		Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
-		
-		Assertions.assertTrue(SATUtils.equals(simplified, oracle))
-	}
-	
-	@Test
-	def void basicOrFalseConstantTest() {
-		val result = parseHelper.parse('''
-			A v false
-		''')
-		val simplified = Simplifier.simplify(result)
-		
-		val oracle = parseHelper.parse('''
-			A
-		''')
-		Assertions.assertNotNull(result)
-		val errors = result.eResource.errors
-		Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
-		
-		Assertions.assertTrue(SATUtils.equals(simplified, oracle))
-	}
-	
-	@Test
-	def void ComplexTransformationTest() {
-		val result = parseHelper.parse('''
-			(A | B) => (C <=> D)
-		''')
-		val simplified = Simplifier.simplify(result)
-		
-		val oracle = parseHelper.parse('''
-			!!(A ^ B) v ((C ^ D) v (!C ^ !D))
-		''')
-		Assertions.assertNotNull(result)
-		val errors = result.eResource.errors
-		Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
-		
-		Assertions.assertTrue(SATUtils.equals(simplified, oracle))
-	}
-	
-	@Test
-	def void ComplexTransformationWithConstantTest() {
-		val result = parseHelper.parse('''
-			(false | B) <=> (C => true)
-		''')
-		val simplified = Simplifier.simplify(result)
-		
-		val oracle = parseHelper.parse('''
-			true
-		''')
-		Assertions.assertNotNull(result)
-		val errors = result.eResource.errors
-		Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
-		
-		Assertions.assertTrue(SATUtils.equals(simplified, oracle))//, PrettyPrinter.prettyPrint(simplified))
-	}
-}
+} // 		println("AND : " + PrettyPrinter.prettyPrint(cnf))

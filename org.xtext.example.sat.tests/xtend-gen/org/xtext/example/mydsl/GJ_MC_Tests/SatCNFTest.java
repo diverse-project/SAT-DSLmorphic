@@ -15,8 +15,8 @@ import org.eclipse.xtext.xbase.lib.IterableExtensions;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
+import org.xtext.example.mydsl.generator.ConjunctiveNormalForm;
 import org.xtext.example.mydsl.generator.SATUtils;
-import org.xtext.example.mydsl.generator.Simplifier;
 import org.xtext.example.mydsl.sat.Expression;
 import org.xtext.example.mydsl.tests.SatInjectorProvider;
 
@@ -28,15 +28,15 @@ public class SatCNFTest {
   private ParseHelper<Expression> parseHelper;
   
   @Test
-  public void basicImpliesTest() {
+  public void basicNotTest() {
     try {
       StringConcatenation _builder = new StringConcatenation();
-      _builder.append("A => B");
+      _builder.append("!A");
       _builder.newLine();
       final Expression result = this.parseHelper.parse(_builder);
-      final Expression simplified = Simplifier.simplify(result);
+      final Expression cnf = ConjunctiveNormalForm.toCleanCNF(result);
       StringConcatenation _builder_1 = new StringConcatenation();
-      _builder_1.append("!A v B");
+      _builder_1.append("!A");
       _builder_1.newLine();
       final Expression oracle = this.parseHelper.parse(_builder_1);
       Assertions.assertNotNull(result);
@@ -47,22 +47,22 @@ public class SatCNFTest {
       String _join = IterableExtensions.join(errors, ", ");
       _builder_2.append(_join);
       Assertions.assertTrue(_isEmpty, _builder_2.toString());
-      Assertions.assertTrue(SATUtils.equals(simplified, oracle));
+      Assertions.assertTrue(SATUtils.equals(cnf, oracle));
     } catch (Throwable _e) {
       throw Exceptions.sneakyThrow(_e);
     }
   }
   
   @Test
-  public void basicBiImplTest() {
+  public void basicOrTest() {
     try {
       StringConcatenation _builder = new StringConcatenation();
-      _builder.append("A <=> B");
+      _builder.append("A v B");
       _builder.newLine();
       final Expression result = this.parseHelper.parse(_builder);
-      final Expression simplified = Simplifier.simplify(result);
+      final Expression cnf = ConjunctiveNormalForm.toCleanCNF(result);
       StringConcatenation _builder_1 = new StringConcatenation();
-      _builder_1.append("A ^ B v !A ^ !B");
+      _builder_1.append("A v B");
       _builder_1.newLine();
       final Expression oracle = this.parseHelper.parse(_builder_1);
       Assertions.assertNotNull(result);
@@ -73,22 +73,22 @@ public class SatCNFTest {
       String _join = IterableExtensions.join(errors, ", ");
       _builder_2.append(_join);
       Assertions.assertTrue(_isEmpty, _builder_2.toString());
-      Assertions.assertTrue(SATUtils.equals(simplified, oracle));
+      Assertions.assertTrue(SATUtils.equals(cnf, oracle));
     } catch (Throwable _e) {
       throw Exceptions.sneakyThrow(_e);
     }
   }
   
   @Test
-  public void basicNandTest() {
+  public void basicAndTest() {
     try {
       StringConcatenation _builder = new StringConcatenation();
-      _builder.append("A | B");
+      _builder.append("A ^ B");
       _builder.newLine();
       final Expression result = this.parseHelper.parse(_builder);
-      final Expression simplified = Simplifier.simplify(result);
+      final Expression cnf = ConjunctiveNormalForm.toCleanCNF(result);
       StringConcatenation _builder_1 = new StringConcatenation();
-      _builder_1.append("!(A ^ B)");
+      _builder_1.append("A ^ B");
       _builder_1.newLine();
       final Expression oracle = this.parseHelper.parse(_builder_1);
       Assertions.assertNotNull(result);
@@ -99,22 +99,22 @@ public class SatCNFTest {
       String _join = IterableExtensions.join(errors, ", ");
       _builder_2.append(_join);
       Assertions.assertTrue(_isEmpty, _builder_2.toString());
-      Assertions.assertTrue(SATUtils.equals(simplified, oracle));
+      Assertions.assertTrue(SATUtils.equals(cnf, oracle));
     } catch (Throwable _e) {
       throw Exceptions.sneakyThrow(_e);
     }
   }
   
   @Test
-  public void basicNotConstantTest() {
+  public void basicDNFFormTest() {
     try {
       StringConcatenation _builder = new StringConcatenation();
-      _builder.append("!true");
+      _builder.append("A ^ B v C ^ D");
       _builder.newLine();
       final Expression result = this.parseHelper.parse(_builder);
-      final Expression simplified = Simplifier.simplify(result);
+      final Expression cnf = ConjunctiveNormalForm.toCleanCNF(result);
       StringConcatenation _builder_1 = new StringConcatenation();
-      _builder_1.append("false");
+      _builder_1.append("((A v C) ^ (A v D)) ^ ((B v C) ^ (B v D))");
       _builder_1.newLine();
       final Expression oracle = this.parseHelper.parse(_builder_1);
       Assertions.assertNotNull(result);
@@ -125,22 +125,22 @@ public class SatCNFTest {
       String _join = IterableExtensions.join(errors, ", ");
       _builder_2.append(_join);
       Assertions.assertTrue(_isEmpty, _builder_2.toString());
-      Assertions.assertTrue(SATUtils.equals(simplified, oracle));
+      Assertions.assertTrue(SATUtils.equals(cnf, oracle));
     } catch (Throwable _e) {
       throw Exceptions.sneakyThrow(_e);
     }
   }
   
   @Test
-  public void basicAndTrueConstantTest() {
+  public void basicCNFFormTest() {
     try {
       StringConcatenation _builder = new StringConcatenation();
-      _builder.append("A ^ true");
+      _builder.append("(A v B) ^ (C v D)");
       _builder.newLine();
       final Expression result = this.parseHelper.parse(_builder);
-      final Expression simplified = Simplifier.simplify(result);
+      final Expression cnf = ConjunctiveNormalForm.toCleanCNF(result);
       StringConcatenation _builder_1 = new StringConcatenation();
-      _builder_1.append("A");
+      _builder_1.append("(A v B) ^ (C v D)");
       _builder_1.newLine();
       final Expression oracle = this.parseHelper.parse(_builder_1);
       Assertions.assertNotNull(result);
@@ -151,22 +151,22 @@ public class SatCNFTest {
       String _join = IterableExtensions.join(errors, ", ");
       _builder_2.append(_join);
       Assertions.assertTrue(_isEmpty, _builder_2.toString());
-      Assertions.assertTrue(SATUtils.equals(simplified, oracle));
+      Assertions.assertTrue(SATUtils.equals(cnf, oracle));
     } catch (Throwable _e) {
       throw Exceptions.sneakyThrow(_e);
     }
   }
   
   @Test
-  public void basicAndFalseConstantTest() {
+  public void ComplexExpressionTest() {
     try {
       StringConcatenation _builder = new StringConcatenation();
-      _builder.append("A ^ false");
+      _builder.append("!A v B ^ (!C v D) v E");
       _builder.newLine();
       final Expression result = this.parseHelper.parse(_builder);
-      final Expression simplified = Simplifier.simplify(result);
+      final Expression cnf = ConjunctiveNormalForm.toCleanCNF(result);
       StringConcatenation _builder_1 = new StringConcatenation();
-      _builder_1.append("false");
+      _builder_1.append("(E v (!A v B)) ^ ((!A v !C) v (D v E))");
       _builder_1.newLine();
       final Expression oracle = this.parseHelper.parse(_builder_1);
       Assertions.assertNotNull(result);
@@ -177,111 +177,7 @@ public class SatCNFTest {
       String _join = IterableExtensions.join(errors, ", ");
       _builder_2.append(_join);
       Assertions.assertTrue(_isEmpty, _builder_2.toString());
-      Assertions.assertTrue(SATUtils.equals(simplified, oracle));
-    } catch (Throwable _e) {
-      throw Exceptions.sneakyThrow(_e);
-    }
-  }
-  
-  @Test
-  public void basicOrTrueConstantTest() {
-    try {
-      StringConcatenation _builder = new StringConcatenation();
-      _builder.append("A v true");
-      _builder.newLine();
-      final Expression result = this.parseHelper.parse(_builder);
-      final Expression simplified = Simplifier.simplify(result);
-      StringConcatenation _builder_1 = new StringConcatenation();
-      _builder_1.append("true");
-      _builder_1.newLine();
-      final Expression oracle = this.parseHelper.parse(_builder_1);
-      Assertions.assertNotNull(result);
-      final EList<Resource.Diagnostic> errors = result.eResource().getErrors();
-      boolean _isEmpty = errors.isEmpty();
-      StringConcatenation _builder_2 = new StringConcatenation();
-      _builder_2.append("Unexpected errors: ");
-      String _join = IterableExtensions.join(errors, ", ");
-      _builder_2.append(_join);
-      Assertions.assertTrue(_isEmpty, _builder_2.toString());
-      Assertions.assertTrue(SATUtils.equals(simplified, oracle));
-    } catch (Throwable _e) {
-      throw Exceptions.sneakyThrow(_e);
-    }
-  }
-  
-  @Test
-  public void basicOrFalseConstantTest() {
-    try {
-      StringConcatenation _builder = new StringConcatenation();
-      _builder.append("A v false");
-      _builder.newLine();
-      final Expression result = this.parseHelper.parse(_builder);
-      final Expression simplified = Simplifier.simplify(result);
-      StringConcatenation _builder_1 = new StringConcatenation();
-      _builder_1.append("A");
-      _builder_1.newLine();
-      final Expression oracle = this.parseHelper.parse(_builder_1);
-      Assertions.assertNotNull(result);
-      final EList<Resource.Diagnostic> errors = result.eResource().getErrors();
-      boolean _isEmpty = errors.isEmpty();
-      StringConcatenation _builder_2 = new StringConcatenation();
-      _builder_2.append("Unexpected errors: ");
-      String _join = IterableExtensions.join(errors, ", ");
-      _builder_2.append(_join);
-      Assertions.assertTrue(_isEmpty, _builder_2.toString());
-      Assertions.assertTrue(SATUtils.equals(simplified, oracle));
-    } catch (Throwable _e) {
-      throw Exceptions.sneakyThrow(_e);
-    }
-  }
-  
-  @Test
-  public void ComplexTransformationTest() {
-    try {
-      StringConcatenation _builder = new StringConcatenation();
-      _builder.append("(A | B) => (C <=> D)");
-      _builder.newLine();
-      final Expression result = this.parseHelper.parse(_builder);
-      final Expression simplified = Simplifier.simplify(result);
-      StringConcatenation _builder_1 = new StringConcatenation();
-      _builder_1.append("!!(A ^ B) v ((C ^ D) v (!C ^ !D))");
-      _builder_1.newLine();
-      final Expression oracle = this.parseHelper.parse(_builder_1);
-      Assertions.assertNotNull(result);
-      final EList<Resource.Diagnostic> errors = result.eResource().getErrors();
-      boolean _isEmpty = errors.isEmpty();
-      StringConcatenation _builder_2 = new StringConcatenation();
-      _builder_2.append("Unexpected errors: ");
-      String _join = IterableExtensions.join(errors, ", ");
-      _builder_2.append(_join);
-      Assertions.assertTrue(_isEmpty, _builder_2.toString());
-      Assertions.assertTrue(SATUtils.equals(simplified, oracle));
-    } catch (Throwable _e) {
-      throw Exceptions.sneakyThrow(_e);
-    }
-  }
-  
-  @Test
-  public void ComplexTransformationWithConstantTest() {
-    try {
-      StringConcatenation _builder = new StringConcatenation();
-      _builder.append("(false | B) <=> (C => true)");
-      _builder.newLine();
-      final Expression result = this.parseHelper.parse(_builder);
-      final Expression simplified = Simplifier.simplify(result);
-      StringConcatenation _builder_1 = new StringConcatenation();
-      _builder_1.append("true");
-      _builder_1.newLine();
-      final Expression oracle = this.parseHelper.parse(_builder_1);
-      Assertions.assertNotNull(result);
-      final EList<Resource.Diagnostic> errors = result.eResource().getErrors();
-      boolean _isEmpty = errors.isEmpty();
-      StringConcatenation _builder_2 = new StringConcatenation();
-      _builder_2.append("Unexpected errors: ");
-      String _join = IterableExtensions.join(errors, ", ");
-      _builder_2.append(_join);
-      Assertions.assertTrue(_isEmpty, _builder_2.toString());
-      Assertions.assertTrue(SATUtils.equals(simplified, oracle));
+      Assertions.assertTrue(SATUtils.equals(cnf, oracle));
     } catch (Throwable _e) {
       throw Exceptions.sneakyThrow(_e);
     }

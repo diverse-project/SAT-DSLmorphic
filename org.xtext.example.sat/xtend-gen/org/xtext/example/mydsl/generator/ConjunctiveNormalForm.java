@@ -156,59 +156,63 @@ public class ConjunctiveNormalForm {
   }
   
   public static Expression cleanDouble(final Expression e) {
-    if ((e instanceof And)) {
-      final List<Expression> clauses = SATUtils.getClauses(e);
-      for (int i = 0; (i < ((Object[])Conversions.unwrapArray(clauses, Object.class)).length); i++) {
-        clauses.set(i, ConjunctiveNormalForm.cleanDouble(clauses.get(i)));
-      }
-      for (int i = 0; (i < ((Object[])Conversions.unwrapArray(clauses, Object.class)).length); i++) {
-        for (int j = (i + 1); (j < ((Object[])Conversions.unwrapArray(clauses, Object.class)).length); j++) {
-          boolean _equals = EcoreUtil2.equals(clauses.get(i), clauses.get(j));
-          if (_equals) {
-            clauses.remove(j);
-            j--;
+    Expression _xblockexpression = null;
+    {
+      if ((e instanceof And)) {
+        final List<Expression> clauses = SATUtils.getClauses(e);
+        for (int i = 0; (i < ((Object[])Conversions.unwrapArray(clauses, Object.class)).length); i++) {
+          clauses.set(i, ConjunctiveNormalForm.cleanDouble(clauses.get(i)));
+        }
+        for (int i = 0; (i < ((Object[])Conversions.unwrapArray(clauses, Object.class)).length); i++) {
+          for (int j = (i + 1); (j < ((Object[])Conversions.unwrapArray(clauses, Object.class)).length); j++) {
+            boolean _equals = EcoreUtil2.equals(clauses.get(i), clauses.get(j));
+            if (_equals) {
+              clauses.remove(j);
+              j--;
+            }
           }
         }
-      }
-      while ((clauses.size() > 1)) {
-        {
-          final Expression p = IterableExtensions.<Expression>head(clauses);
-          clauses.remove(0);
-          final Expression q = IterableExtensions.<Expression>head(clauses);
-          clauses.remove(0);
-          And and = SatFactory.eINSTANCE.createAnd();
-          and.setLeft(p);
-          and.setRight(q);
-          clauses.add(and);
-        }
-      }
-      return IterableExtensions.<Expression>head(clauses);
-    }
-    if ((e instanceof Or)) {
-      final List<Expression> atoms = SATUtils.getAtoms(e);
-      for (int i = 0; (i < ((Object[])Conversions.unwrapArray(atoms, Object.class)).length); i++) {
-        for (int j = (i + 1); (j < ((Object[])Conversions.unwrapArray(atoms, Object.class)).length); j++) {
-          boolean _equals = EcoreUtil2.equals(atoms.get(i), atoms.get(j));
-          if (_equals) {
-            atoms.remove(j);
-            j--;
+        while ((clauses.size() > 1)) {
+          {
+            final Expression p = IterableExtensions.<Expression>head(clauses);
+            clauses.remove(0);
+            final Expression q = IterableExtensions.<Expression>head(clauses);
+            clauses.remove(0);
+            And and = SatFactory.eINSTANCE.createAnd();
+            and.setLeft(p);
+            and.setRight(q);
+            clauses.add(and);
           }
         }
+        return IterableExtensions.<Expression>head(clauses);
       }
-      while ((atoms.size() > 1)) {
-        {
-          final Expression p = IterableExtensions.<Expression>head(atoms);
-          atoms.remove(0);
-          final Expression q = IterableExtensions.<Expression>head(atoms);
-          atoms.remove(0);
-          Or or = SatFactory.eINSTANCE.createOr();
-          or.setLeft(p);
-          or.setRight(q);
-          atoms.add(or);
+      if ((e instanceof Or)) {
+        final List<Expression> atoms = SATUtils.getAtoms(e);
+        for (int i = 0; (i < ((Object[])Conversions.unwrapArray(atoms, Object.class)).length); i++) {
+          for (int j = (i + 1); (j < ((Object[])Conversions.unwrapArray(atoms, Object.class)).length); j++) {
+            boolean _equals = EcoreUtil2.equals(atoms.get(i), atoms.get(j));
+            if (_equals) {
+              atoms.remove(j);
+              j--;
+            }
+          }
         }
+        while ((atoms.size() > 1)) {
+          {
+            final Expression p = IterableExtensions.<Expression>head(atoms);
+            atoms.remove(0);
+            final Expression q = IterableExtensions.<Expression>head(atoms);
+            atoms.remove(0);
+            Or or = SatFactory.eINSTANCE.createOr();
+            or.setLeft(p);
+            or.setRight(q);
+            atoms.add(or);
+          }
+        }
+        return IterableExtensions.<Expression>head(atoms);
       }
-      return IterableExtensions.<Expression>head(atoms);
+      _xblockexpression = e;
     }
-    return null;
+    return _xblockexpression;
   }
 }
