@@ -35,8 +35,10 @@ public class SatGenerator extends AbstractGenerator {
     InputOutput.println();
     HashMap<String, Integer> literal_ids = new HashMap<String, Integer>();
     this.parse_cnf_literals(head, literal_ids);
-    InputOutput.<HashMap<String, Integer>>println(literal_ids);
-    InputOutput.<CharSequence>println(this.toDIMACS(head, literal_ids));
+    String _lastSegment = resource.getURI().lastSegment();
+    String _plus = (_lastSegment + ".dimacs");
+    fsa.generateFile(_plus, 
+      this.toDIMACS(head, literal_ids));
   }
   
   public Object parse_cnf_literals(final Expression e, final HashMap<String, Integer> literal_ids) {
@@ -190,13 +192,11 @@ public class SatGenerator extends AbstractGenerator {
     return _xblockexpression;
   }
   
-  public String prettyPrint(final Not e) {
-    String _xblockexpression = null;
+  public Object prettyPrint(final Not e) {
+    Object _xblockexpression = null;
     {
-      InputOutput.<String>print("(");
       InputOutput.<String>print("~");
-      this.prettyPrint(e.getExpression());
-      _xblockexpression = InputOutput.<String>print(")");
+      _xblockexpression = this.prettyPrint(e.getExpression());
     }
     return _xblockexpression;
   }
@@ -213,24 +213,24 @@ public class SatGenerator extends AbstractGenerator {
     return _xblockexpression;
   }
   
-  public String prettyPrint(final Expression e) {
-    String _xifexpression = null;
+  public Object prettyPrint(final Expression e) {
+    Object _xifexpression = null;
     if ((e instanceof And)) {
       _xifexpression = this.prettyPrint(((And) e));
     } else {
-      String _xifexpression_1 = null;
+      Object _xifexpression_1 = null;
       if ((e instanceof BiImpl)) {
         _xifexpression_1 = this.prettyPrint(((BiImpl) e));
       } else {
-        String _xifexpression_2 = null;
+        Object _xifexpression_2 = null;
         if ((e instanceof Impl)) {
           _xifexpression_2 = this.prettyPrint(((Impl) e));
         } else {
-          String _xifexpression_3 = null;
+          Object _xifexpression_3 = null;
           if ((e instanceof Nand)) {
             _xifexpression_3 = this.prettyPrint(((Nand) e));
           } else {
-            String _xifexpression_4 = null;
+            Object _xifexpression_4 = null;
             if ((e instanceof Not)) {
               _xifexpression_4 = this.prettyPrint(((Not) e));
             } else {

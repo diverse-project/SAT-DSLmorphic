@@ -12,12 +12,14 @@ import org.xtext.example.mydsl.sat.*
 import org.eclipse.emf.ecore.EObject
 import java.util.HashMap
 
+
 /**
  * Generates code from your model files on save.
  * 
  * See https://www.eclipse.org/Xtext/documentation/303_runtime_concepts.html#code-generation
  */
 class SatGenerator extends AbstractGenerator {
+
 
 	override void doGenerate(Resource resource, IFileSystemAccess2 fsa, IGeneratorContext context) {
 		var Expression head = resource.contents.head as Expression;
@@ -27,8 +29,9 @@ class SatGenerator extends AbstractGenerator {
 		
 		var HashMap<String, Integer> literal_ids = new HashMap<String, Integer>();
 		head.parse_cnf_literals(literal_ids);
-		println(literal_ids);
-		println(head.toDIMACS(literal_ids));
+		fsa.generateFile(
+            resource.URI.lastSegment() + ".dimacs",
+            head.toDIMACS(literal_ids));
 	}
 	
 	def parse_cnf_literals(Expression e, HashMap<String, Integer> literal_ids) {
@@ -58,17 +61,7 @@ class SatGenerator extends AbstractGenerator {
 		return count;
 	}
 	
-	def cnfToDIMACS(Expression e, HashMap<String, Integer> literal_ids)
-	/*'''
-		«IF e instanceof Or»
-			«e.getLeft().clauseToDIMACS(literal_ids)»«e.getRight().clauseToDIMACS(literal_ids)»
-		«ELSEIF e instanceof Not»
-			-«literal_ids.get(e.getExpression().getId())» 
-		«ELSEIF e.getId() !== null»
-			«literal_ids.get(e.getId())» 
-		«ENDIF»
-	''' */
-	{
+	def cnfToDIMACS(Expression e, HashMap<String, Integer> literal_ids) {
 		if (e instanceof Or) {
 			return(e.getLeft().cnfToDIMACS(literal_ids) + " " + e.getRight().cnfToDIMACS(literal_ids));
 		} else if(e instanceof And) {
@@ -124,10 +117,8 @@ class SatGenerator extends AbstractGenerator {
 	}
 	
 	def prettyPrint(Not e) {
-		print("(");
 		print("~");
 		e.getExpression().prettyPrint;
-		print(")");
 	}
 	
 	def prettyPrint(Or e) {
