@@ -2,7 +2,6 @@ package org.xtext.example.mydsl.generator;
 
 import com.google.common.base.Objects;
 import org.eclipse.emf.ecore.EObject;
-import org.xtext.example.mydsl.generator.Simplifier;
 import org.xtext.example.mydsl.sat.And;
 import org.xtext.example.mydsl.sat.BiImpl;
 import org.xtext.example.mydsl.sat.Expression;
@@ -61,7 +60,7 @@ public class PrettyPrinter {
   public static String prettyPrintAnd(final And e) {
     String _prettyPrint = PrettyPrinter.prettyPrint(e.getLeft());
     String _plus = ("(" + _prettyPrint);
-    String _plus_1 = (_plus + ")^(");
+    String _plus_1 = (_plus + "^");
     String _prettyPrint_1 = PrettyPrinter.prettyPrint(e.getRight());
     String _plus_2 = (_plus_1 + _prettyPrint_1);
     return (_plus_2 + ")");
@@ -69,26 +68,44 @@ public class PrettyPrinter {
   
   public static String prettyPrintOr(final Or e) {
     String _prettyPrint = PrettyPrinter.prettyPrint(e.getLeft());
-    String _plus = (_prettyPrint + " v ");
+    String _plus = ("(" + _prettyPrint);
+    String _plus_1 = (_plus + "v");
     String _prettyPrint_1 = PrettyPrinter.prettyPrint(e.getRight());
-    return (_plus + _prettyPrint_1);
+    String _plus_2 = (_plus_1 + _prettyPrint_1);
+    return (_plus_2 + ")");
   }
   
   public static String prettyPrintNot(final Not e) {
     String _prettyPrint = PrettyPrinter.prettyPrint(e.getExpression());
-    return ("!" + _prettyPrint);
+    String _plus = ("(!" + _prettyPrint);
+    return (_plus + ")");
   }
   
   public static String prettyPrintBiImpl(final BiImpl e) {
-    return PrettyPrinter.prettyPrint(Simplifier.simplify(e));
+    String _prettyPrint = PrettyPrinter.prettyPrint(e.getLeft());
+    String _plus = ("(" + _prettyPrint);
+    String _plus_1 = (_plus + "<=>");
+    String _prettyPrint_1 = PrettyPrinter.prettyPrint(e.getRight());
+    String _plus_2 = (_plus_1 + _prettyPrint_1);
+    return (_plus_2 + ")");
   }
   
   public static String prettyPrintImpl(final Impl e) {
-    return PrettyPrinter.prettyPrint(Simplifier.simplify(e));
+    String _prettyPrint = PrettyPrinter.prettyPrint(e.getLeft());
+    String _plus = ("(" + _prettyPrint);
+    String _plus_1 = (_plus + "=>");
+    String _prettyPrint_1 = PrettyPrinter.prettyPrint(e.getRight());
+    String _plus_2 = (_plus_1 + _prettyPrint_1);
+    return (_plus_2 + ")");
   }
   
   public static String prettyPrintNand(final Nand e) {
-    return PrettyPrinter.prettyPrint(Simplifier.simplify(e));
+    String _prettyPrint = PrettyPrinter.prettyPrint(e.getLeft());
+    String _plus = ("(" + _prettyPrint);
+    String _plus_1 = (_plus + "|");
+    String _prettyPrint_1 = PrettyPrinter.prettyPrint(e.getRight());
+    String _plus_2 = (_plus_1 + _prettyPrint_1);
+    return (_plus_2 + ")");
   }
   
   public static String prettyPrintExpression(final Expression e) {

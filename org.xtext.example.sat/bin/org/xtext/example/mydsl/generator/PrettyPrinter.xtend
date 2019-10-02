@@ -23,22 +23,22 @@ class PrettyPrinter {
 		}
 	}
 	static def String prettyPrintAnd(And e){
-		return "("+prettyPrint(e.getLeft())+")^("+prettyPrint(e.getRight())+")";	
+		return "("+prettyPrint(e.getLeft())+"^"+prettyPrint(e.getRight())+")";	
 	}
 	static def String prettyPrintOr(Or e){
-		return prettyPrint(e.getLeft())+" v "+prettyPrint(e.getRight());
+		return "("+prettyPrint(e.getLeft())+"v"+prettyPrint(e.getRight())+")";
 	}
 	static def String prettyPrintNot(Not e){
-		return "!"+prettyPrint(e.getExpression());
+		return "(!"+prettyPrint(e.getExpression())+")";
 	}
 	static def String prettyPrintBiImpl(BiImpl e){
-		return prettyPrint( Simplifier.simplify(e) );
+		return "("+prettyPrint(e.getLeft())+"<=>"+prettyPrint(e.getRight())+")";
 	}
 	static def String prettyPrintImpl(Impl e){
-		return prettyPrint( Simplifier.simplify(e) );
+		return "("+prettyPrint(e.getLeft())+"=>"+prettyPrint(e.getRight())+")";
 	}
 	static def String prettyPrintNand(Nand e){
-		return prettyPrint( Simplifier.simplify(e) );
+		return "("+prettyPrint(e.getLeft())+"|"+prettyPrint(e.getRight())+")";
 	}
 	
 	static def String prettyPrintExpression(Expression e){
