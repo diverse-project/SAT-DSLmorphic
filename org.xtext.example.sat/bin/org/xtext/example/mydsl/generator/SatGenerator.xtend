@@ -15,6 +15,8 @@ import org.xtext.example.mydsl.sat.Impl
 import org.xtext.example.mydsl.sat.Nand
 import org.xtext.example.mydsl.sat.Not
 import org.xtext.example.mydsl.sat.Or
+import java.util.Map
+import java.util.HashMap
 
 /**
  * Generates code from your model files on save.
@@ -32,7 +34,39 @@ class SatGenerator extends AbstractGenerator {
 			
 		fsa.generateFile('sat.txt', prettyPrinter(resource.getContents().get(0)));
 		
+		fsa.generateFile('sat.cnf', dimacsPrinter(resource.getContents().get(0)));
+		
 	}
+		
+		def dimacsPrinter(EObject object) {
+			return dimacsPrinterAux(object) + " 0\n";
+		}
+		
+		def dimacsPrinterAux(EObject object){
+		var res = "";
+		var Map<String, Integer> map = new HashMap<String, Integer>();
+		var int count = 01;
+		if (object instanceof And) {
+			res += dimacsPrinterAux(object.getLeft());
+			res += " 0\n";
+			res += dimacsPrinterAux(object.getRight());
+		}
+		if (object instanceof Or) {
+			res += dimacsPrinterAux(object.getLeft());
+			res += " ";
+			res += dimacsPrinterAux(object.getRight());
+		}
+		if (object instanceof Not)
+			res += "-" + dimacsPrinterAux(object.getExpression());
+		if (object instanceof Expression) {
+			if (!map.containsKey((object.getId()))){
+				map.put(object.getId(), count);
+				count = count + 01;
+			}
+			res += map.get(object.getId());
+		}
+		return res;
+		}
 
 
 static def String prettyPrinter(EObject ast){
@@ -61,6 +95,4 @@ static def String prettyPrinter(EObject ast){
 	}	
 	return res;
 }
-
-	
 }
