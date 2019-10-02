@@ -98,6 +98,34 @@ public class SatGenerator extends AbstractGenerator {
     return count;
   }
   
+  public Object cnfToDIMACS(final Expression e, final HashMap<String, Integer> literal_ids) {
+    if ((e instanceof Or)) {
+      Object _cnfToDIMACS = this.cnfToDIMACS(((Or)e).getLeft(), literal_ids);
+      String _plus = (_cnfToDIMACS + " ");
+      Object _cnfToDIMACS_1 = this.cnfToDIMACS(((Or)e).getRight(), literal_ids);
+      return (_plus + _cnfToDIMACS_1);
+    } else {
+      if ((e instanceof And)) {
+        Object _cnfToDIMACS_2 = this.cnfToDIMACS(((And)e).getRight(), literal_ids);
+        String _plus_1 = (_cnfToDIMACS_2 + " 0\n");
+        Object _cnfToDIMACS_3 = this.cnfToDIMACS(((And)e).getLeft(), literal_ids);
+        return (_plus_1 + _cnfToDIMACS_3);
+      } else {
+        if ((e instanceof Not)) {
+          Integer _get = literal_ids.get(((Not)e).getExpression().getId());
+          return ("-" + _get);
+        } else {
+          String _id = e.getId();
+          boolean _tripleNotEquals = (_id != null);
+          if (_tripleNotEquals) {
+            return literal_ids.get(e.getId());
+          }
+        }
+      }
+    }
+    return null;
+  }
+  
   public CharSequence toDIMACS(final Expression e, final HashMap<String, Integer> literal_ids) {
     StringConcatenation _builder = new StringConcatenation();
     _builder.append("p cnf ");
@@ -106,6 +134,10 @@ public class SatGenerator extends AbstractGenerator {
     _builder.append(" ");
     int _size = literal_ids.size();
     _builder.append(_size);
+    _builder.newLineIfNotEmpty();
+    Object _cnfToDIMACS = this.cnfToDIMACS(e, literal_ids);
+    _builder.append(_cnfToDIMACS);
+    _builder.append(" 0");
     _builder.newLineIfNotEmpty();
     return _builder;
   }

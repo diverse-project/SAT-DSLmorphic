@@ -58,12 +58,38 @@ class SatGenerator extends AbstractGenerator {
 		return count;
 	}
 	
-	
+	def cnfToDIMACS(Expression e, HashMap<String, Integer> literal_ids)
+	/*'''
+		«IF e instanceof Or»
+			«e.getLeft().clauseToDIMACS(literal_ids)»«e.getRight().clauseToDIMACS(literal_ids)»
+		«ELSEIF e instanceof Not»
+			-«literal_ids.get(e.getExpression().getId())» 
+		«ELSEIF e.getId() !== null»
+			«literal_ids.get(e.getId())» 
+		«ENDIF»
+	''' */
+	{
+		if (e instanceof Or) {
+			return(e.getLeft().cnfToDIMACS(literal_ids) + " " + e.getRight().cnfToDIMACS(literal_ids));
+		} else if(e instanceof And) {
+			return(e.getRight().cnfToDIMACS(literal_ids) + " 0\n" + e.getLeft().cnfToDIMACS(literal_ids));
+		} else if (e instanceof Not) {
+			return("-" + literal_ids.get(e.getExpression().getId()));
+		} else if(e.getId() !== null) {
+			return(literal_ids.get(e.getId()));
+		}
+	}
+		
 	
 	def toDIMACS(Expression e, HashMap<String, Integer> literal_ids) '''
 		p cnf «e.count_cnf_clause» «literal_ids.size()»
+		«e.cnfToDIMACS(literal_ids)» 0
 	'''
-	
+	// -> print right with printclause
+	//
+	// -> parse the left
+	// while we find a ^ we printclause the right
+	// if we don't find a ^ we printclause the current expression
 	
 	def prettyPrint(And e) {
 		print("(");
