@@ -3,10 +3,13 @@
  */
 package org.xtext.example.mydsl.generator;
 
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.xtext.generator.AbstractGenerator;
 import org.eclipse.xtext.generator.IFileSystemAccess2;
 import org.eclipse.xtext.generator.IGeneratorContext;
+import org.xtext.example.mydsl.generator.DimacsPrinter;
+import org.xtext.example.mydsl.generator.PrettyPrinter;
 
 /**
  * Generates code from your model files on save.
@@ -17,5 +20,16 @@ import org.eclipse.xtext.generator.IGeneratorContext;
 public class SatGenerator extends AbstractGenerator {
   @Override
   public void doGenerate(final Resource resource, final IFileSystemAccess2 fsa, final IGeneratorContext context) {
+    final EObject content = resource.getContents().get(0);
+    fsa.generateFile("sat.txt", this.prettyPrint(content));
+    fsa.generateFile("sat.cnf", this.dimacsPrint(content));
+  }
+  
+  public String prettyPrint(final EObject e) {
+    return PrettyPrinter.print(e);
+  }
+  
+  public String dimacsPrint(final EObject e) {
+    return DimacsPrinter.print(e);
   }
 }

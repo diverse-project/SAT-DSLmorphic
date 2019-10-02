@@ -7,6 +7,7 @@ import org.eclipse.emf.ecore.resource.Resource
 import org.eclipse.xtext.generator.AbstractGenerator
 import org.eclipse.xtext.generator.IFileSystemAccess2
 import org.eclipse.xtext.generator.IGeneratorContext
+import org.eclipse.emf.ecore.EObject
 
 /**
  * Generates code from your model files on save.
@@ -16,10 +17,17 @@ import org.eclipse.xtext.generator.IGeneratorContext
 class SatGenerator extends AbstractGenerator {
 
 	override void doGenerate(Resource resource, IFileSystemAccess2 fsa, IGeneratorContext context) {
-//		fsa.generateFile('greetings.txt', 'People to greet: ' + 
+//		fsa.generateFile('sat.txt', 'formula: ' + 
 //			resource.allContents
-//				.filter(Greeting)
-//				.map[name]
+//				.filter(Expression)
+//				.map[id]
 //				.join(', '))
+
+		val content = resource.getContents().get(0);
+		fsa.generateFile('sat.txt', prettyPrint(content));
+		fsa.generateFile('sat.cnf', dimacsPrint(content));
 	}
+	
+	def String  prettyPrint(EObject e){ PrettyPrinter.print(e) }
+	def String  dimacsPrint(EObject e){ DimacsPrinter.print(e) }
 }
