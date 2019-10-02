@@ -1,5 +1,5 @@
 c
-c ((A v !A v !B)^(B v !A v !B))^((!A v A v B)^(!B v A v B))
+c (((A v ((!A) v (!B))) ^ (B v ((!A) v (!B)))) ^ (((!A) v (A v B)) ^ ((!B) v (A v B))))
 c
 p cnf 2 4
 1 -1 -2 0

@@ -60,7 +60,7 @@ public class PrettyPrinter {
   public static String prettyPrintAnd(final And e) {
     String _prettyPrint = PrettyPrinter.prettyPrint(e.getLeft());
     String _plus = ("(" + _prettyPrint);
-    String _plus_1 = (_plus + "^");
+    String _plus_1 = (_plus + " ^ ");
     String _prettyPrint_1 = PrettyPrinter.prettyPrint(e.getRight());
     String _plus_2 = (_plus_1 + _prettyPrint_1);
     return (_plus_2 + ")");
@@ -69,7 +69,7 @@ public class PrettyPrinter {
   public static String prettyPrintOr(final Or e) {
     String _prettyPrint = PrettyPrinter.prettyPrint(e.getLeft());
     String _plus = ("(" + _prettyPrint);
-    String _plus_1 = (_plus + "v");
+    String _plus_1 = (_plus + " v ");
     String _prettyPrint_1 = PrettyPrinter.prettyPrint(e.getRight());
     String _plus_2 = (_plus_1 + _prettyPrint_1);
     return (_plus_2 + ")");
@@ -84,7 +84,7 @@ public class PrettyPrinter {
   public static String prettyPrintBiImpl(final BiImpl e) {
     String _prettyPrint = PrettyPrinter.prettyPrint(e.getLeft());
     String _plus = ("(" + _prettyPrint);
-    String _plus_1 = (_plus + "<=>");
+    String _plus_1 = (_plus + " <=> ");
     String _prettyPrint_1 = PrettyPrinter.prettyPrint(e.getRight());
     String _plus_2 = (_plus_1 + _prettyPrint_1);
     return (_plus_2 + ")");
@@ -93,7 +93,7 @@ public class PrettyPrinter {
   public static String prettyPrintImpl(final Impl e) {
     String _prettyPrint = PrettyPrinter.prettyPrint(e.getLeft());
     String _plus = ("(" + _prettyPrint);
-    String _plus_1 = (_plus + "=>");
+    String _plus_1 = (_plus + " => ");
     String _prettyPrint_1 = PrettyPrinter.prettyPrint(e.getRight());
     String _plus_2 = (_plus_1 + _prettyPrint_1);
     return (_plus_2 + ")");
@@ -102,7 +102,7 @@ public class PrettyPrinter {
   public static String prettyPrintNand(final Nand e) {
     String _prettyPrint = PrettyPrinter.prettyPrint(e.getLeft());
     String _plus = ("(" + _prettyPrint);
-    String _plus_1 = (_plus + "|");
+    String _plus_1 = (_plus + " | ");
     String _prettyPrint_1 = PrettyPrinter.prettyPrint(e.getRight());
     String _plus_2 = (_plus_1 + _prettyPrint_1);
     return (_plus_2 + ")");

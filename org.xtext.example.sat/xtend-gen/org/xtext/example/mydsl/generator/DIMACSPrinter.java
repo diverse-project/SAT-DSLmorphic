@@ -1,11 +1,9 @@
 package org.xtext.example.mydsl.generator;
 
-import com.google.common.base.Objects;
 import java.util.HashMap;
 import java.util.List;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.xtext.xbase.lib.CollectionLiterals;
-import org.xtext.example.mydsl.generator.PrettyPrinter;
 import org.xtext.example.mydsl.generator.SATUtils;
 import org.xtext.example.mydsl.sat.And;
 import org.xtext.example.mydsl.sat.Expression;
@@ -21,19 +19,25 @@ public class DIMACSPrinter {
   public static String dimacsFile(final EObject e) {
     String _xblockexpression = null;
     {
-      final String dimacsClauses = DIMACSPrinter.dimacsPrint(e);
+      DIMACSPrinter.numberIds.clear();
+      DIMACSPrinter.nbClauses = 1;
+      String dimacsClauses = DIMACSPrinter.dimacsPrint(e);
+      if (((e instanceof Not) || (e instanceof Or))) {
+        String _dimacsClauses = dimacsClauses;
+        dimacsClauses = (_dimacsClauses + "0");
+      } else {
+        int _length = dimacsClauses.length();
+        int _minus = (_length - 1);
+        dimacsClauses = dimacsClauses.substring(0, _minus);
+      }
       String _string = Integer.valueOf(DIMACSPrinter.numberIds.size()).toString();
       String _plus = ("p cnf " + _string);
       String _plus_1 = (_plus + " ");
       String _plus_2 = (_plus_1 + 
         Integer.valueOf(DIMACSPrinter.nbClauses));
       String _plus_3 = (_plus_2 + "\n");
-      int _length = dimacsClauses.length();
-      int _minus = (_length - 1);
-      String _substring = dimacsClauses.substring(0, _minus);
-      final String fileCore = (_plus_3 + _substring);
-      final String ppExpression = PrettyPrinter.prettyPrint(e);
-      _xblockexpression = ((("c\nc " + ppExpression) + "\nc\n") + fileCore);
+      final String fileCore = (_plus_3 + dimacsClauses);
+      _xblockexpression = fileCore;
     }
     return _xblockexpression;
   }
@@ -84,8 +88,7 @@ public class DIMACSPrinter {
     for (final Expression atom : atoms) {
       String _out = out;
       String _dimacsPrint = DIMACSPrinter.dimacsPrint(atom);
-      String _plus = (_dimacsPrint + " ");
-      out = (_out + _plus);
+      out = (_out + _dimacsPrint);
     }
     return out;
   }
@@ -107,10 +110,11 @@ public class DIMACSPrinter {
    * }
    */
   public static String dimacsPrintExpression(final Expression e) {
-    if (((!Objects.equal(e.getId(), null)) && Objects.equal(e.getVal(), null))) {
-      return DIMACSPrinter.getIdNumber(e.getId());
+    if (((e.getId() != null) && (e.getVal() == null))) {
+      String _idNumber = DIMACSPrinter.getIdNumber(e.getId());
+      return (_idNumber + " ");
     } else {
-      if ((Objects.equal(e.getId(), null) && (!Objects.equal(e.getVal(), null)))) {
+      if (((e.getId() == null) && (e.getVal() != null))) {
         return "const";
       } else {
         return "Error";

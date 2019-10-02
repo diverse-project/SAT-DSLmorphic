@@ -8,11 +8,11 @@ import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.^extension.ExtendWith
 import org.xtext.example.mydsl.generator.PrettyPrinter
-import org.xtext.example.mydsl.generator.SATUtils
-import org.xtext.example.mydsl.generator.Simplifier
 import org.xtext.example.mydsl.sat.Expression
 import org.xtext.example.mydsl.tests.SatInjectorProvider
 
+@ExtendWith(InjectionExtension)
+@InjectWith(SatInjectorProvider)
 class SatPrettyPrinterTest {
 	@Inject
 	ParseHelper<Expression> parseHelper
@@ -23,7 +23,6 @@ class SatPrettyPrinterTest {
 			A
 		''')
 		val prettyPrinted = PrettyPrinter.prettyPrint(result)
-		System.out.println(prettyPrinted)
 		
 		val oracle = "A"
 		
@@ -41,7 +40,7 @@ class SatPrettyPrinterTest {
 		''')
 		val prettyPrinted = PrettyPrinter.prettyPrint(result)
 		
-		val oracle = "(A^B)"
+		val oracle = "(A ^ B)"
 		
 		Assertions.assertNotNull(result)
 		val errors = result.eResource.errors
@@ -73,7 +72,7 @@ class SatPrettyPrinterTest {
 		''')
 		val prettyPrinted = PrettyPrinter.prettyPrint(result)
 		
-		val oracle = "(A=>B)"
+		val oracle = "(A => B)"
 		
 		Assertions.assertNotNull(result)
 		val errors = result.eResource.errors
@@ -89,7 +88,7 @@ class SatPrettyPrinterTest {
 		''')
 		val prettyPrinted = PrettyPrinter.prettyPrint(result)
 		
-		val oracle = "(A<=>B)"
+		val oracle = "(A <=> B)"
 		
 		Assertions.assertNotNull(result)
 		val errors = result.eResource.errors
@@ -105,7 +104,7 @@ class SatPrettyPrinterTest {
 		''')
 		val prettyPrinted = PrettyPrinter.prettyPrint(result)
 		
-		val oracle = "(A|B)"
+		val oracle = "(A | B)"
 		
 		Assertions.assertNotNull(result)
 		val errors = result.eResource.errors
@@ -122,7 +121,7 @@ class SatPrettyPrinterTest {
 		''')
 		val prettyPrinted = PrettyPrinter.prettyPrint(result)
 		
-		val oracle = "(A => ((B^C)vD))"
+		val oracle = "(A => ((B ^ C) v D))"
 			
 		Assertions.assertNotNull(result)
 		val errors = result.eResource.errors

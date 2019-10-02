@@ -5,14 +5,20 @@ import com.google.inject.Inject;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.xtend2.lib.StringConcatenation;
+import org.eclipse.xtext.testing.InjectWith;
+import org.eclipse.xtext.testing.extensions.InjectionExtension;
 import org.eclipse.xtext.testing.util.ParseHelper;
 import org.eclipse.xtext.xbase.lib.Exceptions;
 import org.eclipse.xtext.xbase.lib.IterableExtensions;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.xtext.example.mydsl.generator.PrettyPrinter;
 import org.xtext.example.mydsl.sat.Expression;
+import org.xtext.example.mydsl.tests.SatInjectorProvider;
 
+@ExtendWith(InjectionExtension.class)
+@InjectWith(SatInjectorProvider.class)
 @SuppressWarnings("all")
 public class SatPrettyPrinterTest {
   @Inject
@@ -26,7 +32,6 @@ public class SatPrettyPrinterTest {
       _builder.newLine();
       final Expression result = this.parseHelper.parse(_builder);
       final String prettyPrinted = PrettyPrinter.prettyPrint(result);
-      System.out.println(prettyPrinted);
       final String oracle = "A";
       Assertions.assertNotNull(result);
       final EList<Resource.Diagnostic> errors = result.eResource().getErrors();
@@ -51,7 +56,7 @@ public class SatPrettyPrinterTest {
       _builder.newLine();
       final Expression result = this.parseHelper.parse(_builder);
       final String prettyPrinted = PrettyPrinter.prettyPrint(result);
-      final String oracle = "(A^B)";
+      final String oracle = "(A ^ B)";
       Assertions.assertNotNull(result);
       final EList<Resource.Diagnostic> errors = result.eResource().getErrors();
       boolean _isEmpty = errors.isEmpty();
@@ -99,7 +104,7 @@ public class SatPrettyPrinterTest {
       _builder.newLine();
       final Expression result = this.parseHelper.parse(_builder);
       final String prettyPrinted = PrettyPrinter.prettyPrint(result);
-      final String oracle = "(A=>B)";
+      final String oracle = "(A => B)";
       Assertions.assertNotNull(result);
       final EList<Resource.Diagnostic> errors = result.eResource().getErrors();
       boolean _isEmpty = errors.isEmpty();
@@ -123,7 +128,7 @@ public class SatPrettyPrinterTest {
       _builder.newLine();
       final Expression result = this.parseHelper.parse(_builder);
       final String prettyPrinted = PrettyPrinter.prettyPrint(result);
-      final String oracle = "(A<=>B)";
+      final String oracle = "(A <=> B)";
       Assertions.assertNotNull(result);
       final EList<Resource.Diagnostic> errors = result.eResource().getErrors();
       boolean _isEmpty = errors.isEmpty();
@@ -147,7 +152,7 @@ public class SatPrettyPrinterTest {
       _builder.newLine();
       final Expression result = this.parseHelper.parse(_builder);
       final String prettyPrinted = PrettyPrinter.prettyPrint(result);
-      final String oracle = "(A|B)";
+      final String oracle = "(A | B)";
       Assertions.assertNotNull(result);
       final EList<Resource.Diagnostic> errors = result.eResource().getErrors();
       boolean _isEmpty = errors.isEmpty();
@@ -170,7 +175,7 @@ public class SatPrettyPrinterTest {
       _builder.newLine();
       final Expression result = this.parseHelper.parse(_builder);
       final String prettyPrinted = PrettyPrinter.prettyPrint(result);
-      final String oracle = "(A => ((B^C)vD))";
+      final String oracle = "(A => ((B ^ C) v D))";
       Assertions.assertNotNull(result);
       final EList<Resource.Diagnostic> errors = result.eResource().getErrors();
       boolean _isEmpty = errors.isEmpty();

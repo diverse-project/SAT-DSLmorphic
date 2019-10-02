@@ -25,7 +25,9 @@ public class SatGenerator extends AbstractGenerator {
   public void doGenerate(final Resource resource, final IFileSystemAccess2 fsa, final IGeneratorContext context) {
     final Expression simplifiedExpression = this.simplify(resource.getContents().get(0));
     final Expression cnfExpression = this.toCNF(simplifiedExpression);
-    final String content = this.dimacsPrint(cnfExpression);
+    final String ppExpression = this.prettyPrint(cnfExpression);
+    String _dimacsPrint = this.dimacsPrint(cnfExpression);
+    final String content = ((("c\nc " + ppExpression) + "\nc\n") + _dimacsPrint);
     fsa.generateFile("sat.cnf", content);
   }
   
