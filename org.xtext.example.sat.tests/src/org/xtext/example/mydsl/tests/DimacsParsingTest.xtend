@@ -10,13 +10,13 @@ import org.eclipse.xtext.testing.util.ParseHelper
 import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.^extension.ExtendWith
-import org.xtext.example.mydsl.dimacs.Model
+import org.xtext.example.mydsl.dimacs.CNF
 
 @ExtendWith(InjectionExtension)
 @InjectWith(DimacsInjectorProvider)
 class DimacsParsingTest {
 	@Inject
-	ParseHelper<Model> parseHelper
+	ParseHelper<CNF> parseHelper
 	
 	@Test
 	def void loadModel() {

@@ -48,7 +48,7 @@ class SatGenerator extends AbstractGenerator
 		fsa.generateFile('formula.cnf', prop_to_dimacs(expression))
 	}
 	
-	def String prop_to_dimacs(EObject formule)
+	static def String prop_to_dimacs(EObject formule)
 	{
 		tab_symb.clear()
 		populate_tab_symb(formule)
@@ -58,7 +58,7 @@ class SatGenerator extends AbstractGenerator
 		write_clauses(formule) + " 0"
 	}
 	
-	def String write_clauses(EObject formule)
+	static def String write_clauses(EObject formule)
 	{
 		switch formule
 		{
@@ -92,8 +92,8 @@ class SatGenerator extends AbstractGenerator
 		}
 	}
 	
-	ArrayList<String> tab_symb = new ArrayList<String>();
-	def int populate_tab_symb(EObject formule)
+	static ArrayList<String> tab_symb = new ArrayList<String>();
+	static def int populate_tab_symb(EObject formule)
 	{
 		switch formule
 		{
@@ -136,7 +136,7 @@ class SatGenerator extends AbstractGenerator
 		}
 	}
 	
-	def int count_clauses(EObject formule)
+	static def int count_clauses(EObject formule)
 	{
 		if(formule instanceof And)
 		{
@@ -148,7 +148,7 @@ class SatGenerator extends AbstractGenerator
 		}
 	}
 	
-	def void pretty_print(EObject formule)
+	static def void pretty_print(EObject formule)
 	{
 		switch formule
 		{
