@@ -3,10 +3,22 @@
  */
 package org.xtext.example.mydsl.generator;
 
+import java.util.HashMap;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
+import org.eclipse.xtend2.lib.StringConcatenation;
 import org.eclipse.xtext.generator.AbstractGenerator;
 import org.eclipse.xtext.generator.IFileSystemAccess2;
 import org.eclipse.xtext.generator.IGeneratorContext;
+import org.eclipse.xtext.xbase.lib.InputOutput;
+import org.eclipse.xtext.xbase.lib.IterableExtensions;
+import org.xtext.example.mydsl.sat.And;
+import org.xtext.example.mydsl.sat.BiImpl;
+import org.xtext.example.mydsl.sat.Expression;
+import org.xtext.example.mydsl.sat.Impl;
+import org.xtext.example.mydsl.sat.Nand;
+import org.xtext.example.mydsl.sat.Not;
+import org.xtext.example.mydsl.sat.Or;
 
 /**
  * Generates code from your model files on save.
@@ -17,5 +29,201 @@ import org.eclipse.xtext.generator.IGeneratorContext;
 public class SatGenerator extends AbstractGenerator {
   @Override
   public void doGenerate(final Resource resource, final IFileSystemAccess2 fsa, final IGeneratorContext context) {
+    EObject _head = IterableExtensions.<EObject>head(resource.getContents());
+    Expression head = ((Expression) _head);
+    this.prettyPrint(head);
+    InputOutput.println();
+    HashMap<String, Integer> literal_ids = new HashMap<String, Integer>();
+    this.parse_cnf_literals(head, literal_ids);
+    InputOutput.<HashMap<String, Integer>>println(literal_ids);
+    InputOutput.<CharSequence>println(this.toDIMACS(head, literal_ids));
+  }
+  
+  public Object parse_cnf_literals(final Expression e, final HashMap<String, Integer> literal_ids) {
+    Object _xifexpression = null;
+    String _id = e.getId();
+    boolean _tripleNotEquals = (_id != null);
+    if (_tripleNotEquals) {
+      Integer _xifexpression_1 = null;
+      boolean _containsKey = literal_ids.containsKey(e.getId());
+      boolean _not = (!_containsKey);
+      if (_not) {
+        String _id_1 = e.getId();
+        int _size = literal_ids.size();
+        int _plus = (_size + 1);
+        _xifexpression_1 = literal_ids.put(_id_1, Integer.valueOf(_plus));
+      }
+      _xifexpression = _xifexpression_1;
+    } else {
+      Object _xifexpression_2 = null;
+      if ((e instanceof And)) {
+        Object _xblockexpression = null;
+        {
+          this.parse_cnf_literals(((And)e).getLeft(), literal_ids);
+          _xblockexpression = this.parse_cnf_literals(((And)e).getRight(), literal_ids);
+        }
+        _xifexpression_2 = _xblockexpression;
+      } else {
+        Object _xifexpression_3 = null;
+        if ((e instanceof Not)) {
+          _xifexpression_3 = this.parse_cnf_literals(((Not)e).getExpression(), literal_ids);
+        } else {
+          Object _xifexpression_4 = null;
+          if ((e instanceof Or)) {
+            Object _xblockexpression_1 = null;
+            {
+              this.parse_cnf_literals(((Or)e).getLeft(), literal_ids);
+              _xblockexpression_1 = this.parse_cnf_literals(((Or)e).getRight(), literal_ids);
+            }
+            _xifexpression_4 = _xblockexpression_1;
+          }
+          _xifexpression_3 = _xifexpression_4;
+        }
+        _xifexpression_2 = _xifexpression_3;
+      }
+      _xifexpression = _xifexpression_2;
+    }
+    return _xifexpression;
+  }
+  
+  public int count_cnf_clause(final Expression e) {
+    Expression current = e;
+    int count = 1;
+    while ((current instanceof And)) {
+      {
+        count++;
+        current = ((And)current).getLeft();
+      }
+    }
+    return count;
+  }
+  
+  public CharSequence toDIMACS(final Expression e, final HashMap<String, Integer> literal_ids) {
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("p cnf ");
+    int _count_cnf_clause = this.count_cnf_clause(e);
+    _builder.append(_count_cnf_clause);
+    _builder.append(" ");
+    int _size = literal_ids.size();
+    _builder.append(_size);
+    _builder.newLineIfNotEmpty();
+    return _builder;
+  }
+  
+  public String prettyPrint(final And e) {
+    String _xblockexpression = null;
+    {
+      InputOutput.<String>print("(");
+      this.prettyPrint(e.getLeft());
+      InputOutput.<String>print(" ^ ");
+      this.prettyPrint(e.getRight());
+      _xblockexpression = InputOutput.<String>print(")");
+    }
+    return _xblockexpression;
+  }
+  
+  public String prettyPrint(final BiImpl e) {
+    String _xblockexpression = null;
+    {
+      InputOutput.<String>print("(");
+      this.prettyPrint(e.getLeft());
+      InputOutput.<String>print(" <=> ");
+      this.prettyPrint(e.getRight());
+      _xblockexpression = InputOutput.<String>print(")");
+    }
+    return _xblockexpression;
+  }
+  
+  public String prettyPrint(final Impl e) {
+    String _xblockexpression = null;
+    {
+      InputOutput.<String>print("(");
+      this.prettyPrint(e.getLeft());
+      InputOutput.<String>print(" => ");
+      this.prettyPrint(e.getRight());
+      _xblockexpression = InputOutput.<String>print(")");
+    }
+    return _xblockexpression;
+  }
+  
+  public String prettyPrint(final Nand e) {
+    String _xblockexpression = null;
+    {
+      InputOutput.<String>print("(");
+      this.prettyPrint(e.getLeft());
+      InputOutput.<String>print(" | ");
+      this.prettyPrint(e.getRight());
+      _xblockexpression = InputOutput.<String>print(")");
+    }
+    return _xblockexpression;
+  }
+  
+  public String prettyPrint(final Not e) {
+    String _xblockexpression = null;
+    {
+      InputOutput.<String>print("(");
+      InputOutput.<String>print("~");
+      this.prettyPrint(e.getExpression());
+      _xblockexpression = InputOutput.<String>print(")");
+    }
+    return _xblockexpression;
+  }
+  
+  public String prettyPrint(final Or e) {
+    String _xblockexpression = null;
+    {
+      InputOutput.<String>print("(");
+      this.prettyPrint(e.getLeft());
+      InputOutput.<String>print(" v ");
+      this.prettyPrint(e.getRight());
+      _xblockexpression = InputOutput.<String>print(")");
+    }
+    return _xblockexpression;
+  }
+  
+  public String prettyPrint(final Expression e) {
+    String _xifexpression = null;
+    if ((e instanceof And)) {
+      _xifexpression = this.prettyPrint(((And) e));
+    } else {
+      String _xifexpression_1 = null;
+      if ((e instanceof BiImpl)) {
+        _xifexpression_1 = this.prettyPrint(((BiImpl) e));
+      } else {
+        String _xifexpression_2 = null;
+        if ((e instanceof Impl)) {
+          _xifexpression_2 = this.prettyPrint(((Impl) e));
+        } else {
+          String _xifexpression_3 = null;
+          if ((e instanceof Nand)) {
+            _xifexpression_3 = this.prettyPrint(((Nand) e));
+          } else {
+            String _xifexpression_4 = null;
+            if ((e instanceof Not)) {
+              _xifexpression_4 = this.prettyPrint(((Not) e));
+            } else {
+              String _xifexpression_5 = null;
+              if ((e instanceof Or)) {
+                _xifexpression_5 = this.prettyPrint(((Or) e));
+              } else {
+                String _xifexpression_6 = null;
+                String _id = e.getId();
+                boolean _tripleNotEquals = (_id != null);
+                if (_tripleNotEquals) {
+                  _xifexpression_6 = InputOutput.<String>print(e.getId());
+                }
+                _xifexpression_5 = _xifexpression_6;
+              }
+              _xifexpression_4 = _xifexpression_5;
+            }
+            _xifexpression_3 = _xifexpression_4;
+          }
+          _xifexpression_2 = _xifexpression_3;
+        }
+        _xifexpression_1 = _xifexpression_2;
+      }
+      _xifexpression = _xifexpression_1;
+    }
+    return _xifexpression;
   }
 }

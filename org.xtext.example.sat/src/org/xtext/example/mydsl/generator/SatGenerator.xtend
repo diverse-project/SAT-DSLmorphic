@@ -8,6 +8,10 @@ import org.eclipse.xtext.generator.AbstractGenerator
 import org.eclipse.xtext.generator.IFileSystemAccess2
 import org.eclipse.xtext.generator.IGeneratorContext
 
+import org.xtext.example.mydsl.sat.*
+import org.eclipse.emf.ecore.EObject
+import java.util.HashMap
+
 /**
  * Generates code from your model files on save.
  * 
@@ -16,10 +20,115 @@ import org.eclipse.xtext.generator.IGeneratorContext
 class SatGenerator extends AbstractGenerator {
 
 	override void doGenerate(Resource resource, IFileSystemAccess2 fsa, IGeneratorContext context) {
-//		fsa.generateFile('greetings.txt', 'People to greet: ' + 
-//			resource.allContents
-//				.filter(Greeting)
-//				.map[name]
-//				.join(', '))
+		var Expression head = resource.contents.head as Expression;
+		
+		head.prettyPrint;
+		println();
+		
+		var HashMap<String, Integer> literal_ids = new HashMap<String, Integer>();
+		head.parse_cnf_literals(literal_ids);
+		println(literal_ids);
+		println(head.toDIMACS(literal_ids));
 	}
+	
+	def parse_cnf_literals(Expression e, HashMap<String, Integer> literal_ids) {
+		if(e.getId() !== null)
+		{
+			if(!literal_ids.containsKey(e.getId()))
+				literal_ids.put(e.getId(), literal_ids.size() + 1); 
+		} else if(e instanceof And) {
+			e.getLeft().parse_cnf_literals(literal_ids);
+			e.getRight().parse_cnf_literals(literal_ids);
+		} else if (e instanceof Not) {
+			e.getExpression().parse_cnf_literals(literal_ids);
+		} else if (e instanceof Or) {
+			e.getLeft().parse_cnf_literals(literal_ids);
+			e.getRight().parse_cnf_literals(literal_ids);
+		} 		
+	}
+	
+	def count_cnf_clause(Expression e) {
+		var Expression current = e;
+		var int count = 1;
+		while(current instanceof And)
+		{
+			count++;
+			current = current.getLeft();
+		}
+		return count;
+	}
+	
+	
+	
+	def toDIMACS(Expression e, HashMap<String, Integer> literal_ids) '''
+		p cnf «e.count_cnf_clause» «literal_ids.size()»
+	'''
+	
+	
+	def prettyPrint(And e) {
+		print("(");
+		e.getLeft().prettyPrint;
+		print(" ^ ")
+		e.getRight().prettyPrint;
+		print(")");
+	}
+	
+	def prettyPrint(BiImpl e) {
+		print("(");
+		e.getLeft().prettyPrint;
+		print(" <=> ")
+		e.getRight().prettyPrint;
+		print(")");
+	}
+	
+	def prettyPrint(Impl e) {
+		print("(");
+		e.getLeft().prettyPrint;
+		print(" => ")
+		e.getRight().prettyPrint;
+		print(")");
+	}
+	
+	def prettyPrint(Nand e) {
+		print("(");
+		e.getLeft().prettyPrint;
+		print(" | ")
+		e.getRight().prettyPrint;
+		print(")");
+	}
+	
+	def prettyPrint(Not e) {
+		print("(");
+		print("~");
+		e.getExpression().prettyPrint;
+		print(")");
+	}
+	
+	def prettyPrint(Or e) {
+		print("(");
+		e.getLeft().prettyPrint;
+		print(" v ")
+		e.getRight().prettyPrint;
+		print(")");
+	}
+	
+	def prettyPrint(Expression e) {
+		if(e instanceof And) {
+			prettyPrint(e as And);
+		} else if (e instanceof BiImpl) {
+			prettyPrint(e as BiImpl);	
+		} else if (e instanceof Impl) {
+			prettyPrint(e as Impl);	
+		} else if (e instanceof Nand) {
+			prettyPrint(e as Nand);
+		} else if (e instanceof Not) {
+			prettyPrint(e as Not);
+		} else if (e instanceof Or) {
+			prettyPrint(e as Or);
+		} else if(e.getId() !== null) {
+			print(e.getId());
+		}
+	}
+	
+	
 }
