@@ -1,0 +1,15 @@
+grammar org.xtext.sat.dsl.Dsl with org.eclipse.xtext.common.Terminals
+
+generate dsl "http://www.xtext.org/sat/dsl/Dsl"
+
+Expression:
+	{Expression} AXIOM | BinOp | UnOp;
+
+terminal AXIOM:
+	STRING;
+	
+BinOp:
+	'(' L=Expression ('AND' | 'OR' | 'NAND' | '=>' | '<=>') R=Expression ')';
+
+UnOp:
+	'NOT' expression=Expression;
