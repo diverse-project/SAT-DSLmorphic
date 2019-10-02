@@ -16,9 +16,6 @@ import org.eclipse.xtext.xbase.lib.IterableExtensions;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
-import org.xtext.example.mydsl.generator.CNFConverter;
-import org.xtext.example.mydsl.generator.DIMACSConverter;
-import org.xtext.example.mydsl.generator.PrettyPrinter;
 import org.xtext.example.mydsl.sat.Expression;
 import org.xtext.example.mydsl.tests.SatInjectorProvider;
 
@@ -44,103 +41,6 @@ public class SatParsingTest {
       String _join = IterableExtensions.join(errors, ", ");
       _builder_1.append(_join);
       Assertions.assertTrue(_isEmpty, _builder_1.toString());
-      InputOutput.<String>println(("model=" + result));
-    } catch (Throwable _e) {
-      throw Exceptions.sneakyThrow(_e);
-    }
-  }
-  
-  @Test
-  public void loadModel2() {
-    try {
-      StringConcatenation _builder = new StringConcatenation();
-      _builder.append("!( A <=> ((B ^ C v A ) | !(C => D)))");
-      _builder.newLine();
-      final Expression result = this.parseHelper.parse(_builder);
-      Assertions.assertNotNull(result);
-      final EList<Resource.Diagnostic> errors = result.eResource().getErrors();
-      boolean _isEmpty = errors.isEmpty();
-      StringConcatenation _builder_1 = new StringConcatenation();
-      _builder_1.append("Unexpected errors: ");
-      String _join = IterableExtensions.join(errors, ", ");
-      _builder_1.append(_join);
-      Assertions.assertTrue(_isEmpty, _builder_1.toString());
-      InputOutput.<String>println(("model=" + result));
-    } catch (Throwable _e) {
-      throw Exceptions.sneakyThrow(_e);
-    }
-  }
-  
-  @Test
-  public void loadModel3() {
-    try {
-      StringConcatenation _builder = new StringConcatenation();
-      _builder.append("!(!A v B)");
-      _builder.newLine();
-      final Expression result = this.parseHelper.parse(_builder);
-      Assertions.assertNotNull(result);
-      final EList<Resource.Diagnostic> errors = result.eResource().getErrors();
-      boolean _isEmpty = errors.isEmpty();
-      StringConcatenation _builder_1 = new StringConcatenation();
-      _builder_1.append("Unexpected errors: ");
-      String _join = IterableExtensions.join(errors, ", ");
-      _builder_1.append(_join);
-      Assertions.assertTrue(_isEmpty, _builder_1.toString());
-      InputOutput.<String>println(PrettyPrinter.PrettyPrint(CNFConverter.CNFConvert_Simpl(result)));
-      Assertions.assertTrue(PrettyPrinter.PrettyPrint(CNFConverter.CNFConvert_Simpl(result)).equals("!!A v B"));
-      Assertions.assertTrue(PrettyPrinter.PrettyPrint(CNFConverter.CNFConvert_Neg(CNFConverter.CNFConvert_Simpl(result))).equals("A ^ !B"));
-      Assertions.assertTrue(PrettyPrinter.PrettyPrint(CNFConverter.CNFConvert(result)).equals("A ^ !B"));
-      InputOutput.<String>println(("model=" + result));
-    } catch (Throwable _e) {
-      throw Exceptions.sneakyThrow(_e);
-    }
-  }
-  
-  @Test
-  public void loadModel4() {
-    try {
-      StringConcatenation _builder = new StringConcatenation();
-      _builder.append("(A v B v C) ^ (B v !D)");
-      _builder.newLine();
-      final Expression result = this.parseHelper.parse(_builder);
-      Assertions.assertNotNull(result);
-      final EList<Resource.Diagnostic> errors = result.eResource().getErrors();
-      boolean _isEmpty = errors.isEmpty();
-      StringConcatenation _builder_1 = new StringConcatenation();
-      _builder_1.append("Unexpected errors: ");
-      String _join = IterableExtensions.join(errors, ", ");
-      _builder_1.append(_join);
-      Assertions.assertTrue(_isEmpty, _builder_1.toString());
-      InputOutput.<String>println(PrettyPrinter.PrettyPrint(CNFConverter.CNFConvert_Simpl(result)));
-      Assertions.assertTrue(PrettyPrinter.PrettyPrint(CNFConverter.CNFConvert_Simpl(result)).equals("A v B v C ^ B v !D"));
-      Assertions.assertTrue(PrettyPrinter.PrettyPrint(CNFConverter.CNFConvert_Neg(CNFConverter.CNFConvert_Simpl(result))).equals("A v B v C ^ B v !D"));
-      Assertions.assertTrue(PrettyPrinter.PrettyPrint(CNFConverter.CNFConvert(result)).equals("A v B v C ^ B v !D"));
-      Assertions.assertTrue(DIMACSConverter.toDIMACS(CNFConverter.CNFConvert(result)).equals("p cnf 4 2\n1 2 3 0\n2 -4 0"));
-      InputOutput.<String>println(("model=" + result));
-    } catch (Throwable _e) {
-      throw Exceptions.sneakyThrow(_e);
-    }
-  }
-  
-  @Test
-  public void loadModel5() {
-    try {
-      StringConcatenation _builder = new StringConcatenation();
-      _builder.append("A <=> !B");
-      _builder.newLine();
-      final Expression result = this.parseHelper.parse(_builder);
-      Assertions.assertNotNull(result);
-      final EList<Resource.Diagnostic> errors = result.eResource().getErrors();
-      boolean _isEmpty = errors.isEmpty();
-      StringConcatenation _builder_1 = new StringConcatenation();
-      _builder_1.append("Unexpected errors: ");
-      String _join = IterableExtensions.join(errors, ", ");
-      _builder_1.append(_join);
-      Assertions.assertTrue(_isEmpty, _builder_1.toString());
-      InputOutput.<String>println(PrettyPrinter.PrettyPrint(CNFConverter.CNFConvert_Simpl(result)));
-      Assertions.assertTrue(PrettyPrinter.PrettyPrint(CNFConverter.CNFConvert_Simpl(result)).equals("!A v !B ^ !!B v A"));
-      Assertions.assertTrue(PrettyPrinter.PrettyPrint(CNFConverter.CNFConvert_Neg(CNFConverter.CNFConvert_Simpl(result))).equals("!A v !B ^ B v A"));
-      Assertions.assertTrue(PrettyPrinter.PrettyPrint(CNFConverter.CNFConvert(result)).equals("!A v !B ^ B v A"));
       InputOutput.<String>println(("model=" + result));
     } catch (Throwable _e) {
       throw Exceptions.sneakyThrow(_e);

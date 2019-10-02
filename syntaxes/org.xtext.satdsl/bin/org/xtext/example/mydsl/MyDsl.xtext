@@ -1,0 +1,35 @@
+grammar org.xtext.example.mydsl.MyDsl with org.eclipse.xtext.common.Terminals
+
+generate myDsl "http://www.xtext.org/example/mydsl/MyDsl"
+
+Expression:
+	expr+=BinExpr | UnExpr | Literal
+;
+	
+BinExpr:
+	'(' leftexpr+=Expression op+=BinOp rightexpr+=Expression ')'
+;
+
+BinOp:
+	'^' | 'v' | "->" | "<->" | "|"
+;
+
+UnExpr:
+	'(' op+=UnOp expr+=Expression  ')'
+;
+
+UnOp:
+	'!'
+;
+
+Literal:
+	lit_atom+=Atom | lit_const=Const
+;
+
+Atom:
+	name=ID
+;
+
+Const:
+	'#t' | '#f'
+;

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel"
+    modelDirectory="/SAT_Metamodel/src-gen" creationIcons="false" editDirectory="/SAT_Metamodel.edit/src-gen"
+    editorDirectory="/SAT_Metamodel.editor/src-gen" modelPluginID="SAT_Metamodel"
+    modelName="SAT_Metamodel" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
+    codeFormatting="true" importerID="org.eclipse.emf.importer.ecore" complianceLevel="8.0"
+    copyrightFields="false" operationReflection="true" importOrganizing="true">
+  <foreignModel>sAT_Metamodel.ecore</foreignModel>
+  <testsDirectory xsi:nil="true"/>
+  <genPackages prefix="SAT_Metamodel" disposableProviderFactory="true" ecorePackage="sAT_Metamodel.ecore#/">
+    <genClasses ecoreClass="sAT_Metamodel.ecore#//Expression">
+      <genOperations ecoreOperation="sAT_Metamodel.ecore#//Expression/eval"/>
+    </genClasses>
+    <genClasses ecoreClass="sAT_Metamodel.ecore#//BinOp">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference sAT_Metamodel.ecore#//BinOp/L"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference sAT_Metamodel.ecore#//BinOp/R"/>
+    </genClasses>
+    <genClasses ecoreClass="sAT_Metamodel.ecore#//And"/>
+    <genClasses ecoreClass="sAT_Metamodel.ecore#//Or"/>
+    <genClasses ecoreClass="sAT_Metamodel.ecore#//Implies"/>
+    <genClasses ecoreClass="sAT_Metamodel.ecore#//UnOp">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference sAT_Metamodel.ecore#//UnOp/expression"/>
+    </genClasses>
+    <genClasses ecoreClass="sAT_Metamodel.ecore#//Nand"/>
+    <genClasses ecoreClass="sAT_Metamodel.ecore#//BiImplies"/>
+    <genClasses ecoreClass="sAT_Metamodel.ecore#//Not"/>
+    <genClasses ecoreClass="sAT_Metamodel.ecore#//Axiom"/>
+  </genPackages>
+</genmodel:GenModel>
