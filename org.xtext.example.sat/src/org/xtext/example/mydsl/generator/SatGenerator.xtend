@@ -25,9 +25,13 @@ class SatGenerator extends AbstractGenerator {
 	//println( PrettyPrinter.PrettyPrint(resource.contents.get(0) as Expression))
 	//println( DIMACSConverter.toDIMACS(resource.contents.get(0) as Expression))
 	var e = resource.contents.get(0) as Expression;
-	var e1 = CNFConverter.CNFConvert_Distrib(e);
+	var e1 = CNFConverter.CNFConvert_Simpl(e);
+	println( PrettyPrinter.PrettyPrint(e1));
 	var e2 = CNFConverter.CNFConvert_Neg( e1);
-	var e3 = CNFConverter.CNFConvert_Simpl( e2);
-	println( PrettyPrinter.PrettyPrint(e));
+	println( PrettyPrinter.PrettyPrint(e2));
+	var e3 = CNFConverter.CNFConvert_Distrib( e2);
+	println( PrettyPrinter.Simpl_Print_CNF(e3));
+	var tdm = DIMACSConverter.toDIMACS(e3);
+	println(tdm);
 	}
 }

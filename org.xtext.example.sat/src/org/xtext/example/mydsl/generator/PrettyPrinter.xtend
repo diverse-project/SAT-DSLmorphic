@@ -32,17 +32,42 @@ class PrettyPrinter {
 				return PrettyPrint( (e as Nand).getLeft) + " ↑ " + PrettyPrint( (e as Nand).getRight)
 				
 			case e instanceof Not :
-				return " ! " + PrettyPrint( (e as Not).getExpression)
+				return "!" + PrettyPrint( (e as Not).getExpression)
 			
 			default : if (e.getId() === null) e.getVal.toString else e.getId.toString
-				
-				
-			
-			
 			
 		}
-
-		
-
+	}
+	
+	 static def String PrettyPrintCNF(Expression e) {
+	 	
+		switch e {
+			case e instanceof BiImpl : 
+				return PrettyPrintCNF( (e as BiImpl).getLeft) + " <=> " + PrettyPrintCNF( (e as BiImpl).getRight)
+				
+			case e instanceof Impl : 
+				return PrettyPrintCNF( (e as Impl).getLeft) + " => " + PrettyPrintCNF( (e as Impl).getRight)
+				
+			case e instanceof Or : 
+				return PrettyPrintCNF( (e as Or).getLeft) + " v " + PrettyPrintCNF( (e as Or).getRight)
+				
+			case e instanceof And : 
+				return "(" + PrettyPrintCNF( (e as And).getLeft) + ") ^ (" + PrettyPrintCNF( (e as And).getRight) + ")"
+				
+			case e instanceof Nand : 
+				return PrettyPrintCNF( (e as Nand).getLeft) + " ↑ " + PrettyPrintCNF( (e as Nand).getRight)
+				
+			case e instanceof Not :
+				return "!" + PrettyPrintCNF( (e as Not).getExpression)
+			
+			default : if (e.getId() === null) e.getVal.toString else e.getId.toString
+			
+		}
+	}
+	
+	static def String Simpl_Print_CNF( Expression e){
+		var s = PrettyPrintCNF(e);
+		var s1 = s.replaceAll("[(]+","(");
+		return s1.replaceAll("[)]+",")");
 	}
 }

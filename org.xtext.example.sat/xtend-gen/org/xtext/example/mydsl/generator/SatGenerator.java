@@ -10,6 +10,7 @@ import org.eclipse.xtext.generator.IFileSystemAccess2;
 import org.eclipse.xtext.generator.IGeneratorContext;
 import org.eclipse.xtext.xbase.lib.InputOutput;
 import org.xtext.example.mydsl.generator.CNFConverter;
+import org.xtext.example.mydsl.generator.DIMACSConverter;
 import org.xtext.example.mydsl.generator.PrettyPrinter;
 import org.xtext.example.mydsl.sat.Expression;
 
@@ -24,9 +25,13 @@ public class SatGenerator extends AbstractGenerator {
   public void doGenerate(final Resource resource, final IFileSystemAccess2 fsa, final IGeneratorContext context) {
     EObject _get = resource.getContents().get(0);
     Expression e = ((Expression) _get);
-    Expression e1 = CNFConverter.CNFConvert_Distrib(e);
+    Expression e1 = CNFConverter.CNFConvert_Simpl(e);
+    InputOutput.<String>println(PrettyPrinter.PrettyPrint(e1));
     Expression e2 = CNFConverter.CNFConvert_Neg(e1);
-    Expression e3 = CNFConverter.CNFConvert_Simpl(e2);
-    InputOutput.<String>println(PrettyPrinter.PrettyPrint(e));
+    InputOutput.<String>println(PrettyPrinter.PrettyPrint(e2));
+    Expression e3 = CNFConverter.CNFConvert_Distrib(e2);
+    InputOutput.<String>println(PrettyPrinter.Simpl_Print_CNF(e3));
+    String tdm = DIMACSConverter.toDIMACS(e3);
+    InputOutput.<String>println(tdm);
   }
 }
