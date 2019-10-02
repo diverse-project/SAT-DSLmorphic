@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel"
+    modelDirectory="/sat-dsl/src-gen" creationIcons="false" editDirectory="/sat-dsl.edit/src-gen"
+    editorDirectory="/sat-dsl.editor/src-gen" modelPluginID="sat-dsl" modelName="Satdsl"
+    rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container" codeFormatting="true"
+    importerID="org.eclipse.emf.importer.ecore" complianceLevel="8.0" copyrightFields="false"
+    operationReflection="true" importOrganizing="true">
+  <foreignModel>satdsl.ecore</foreignModel>
+  <testsDirectory xsi:nil="true"/>
+  <genPackages prefix="Satdsl" basePackage="sat-dsl" disposableProviderFactory="true"
+      ecorePackage="satdsl.ecore#/">
+    <genClasses ecoreClass="satdsl.ecore#//Expression">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference satdsl.ecore#//Expression/binexpr"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference satdsl.ecore#//Expression/unexpr"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference satdsl.ecore#//Expression/atom"/>
+    </genClasses>
+    <genClasses ecoreClass="satdsl.ecore#//BinExpr">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference satdsl.ecore#//BinExpr/expressions"/>
+    </genClasses>
+    <genClasses ecoreClass="satdsl.ecore#//UnExpr">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference satdsl.ecore#//UnExpr/expression"/>
+    </genClasses>
+    <genClasses ecoreClass="satdsl.ecore#//BinOp"/>
+    <genClasses ecoreClass="satdsl.ecore#//UnOp"/>
+    <genClasses ecoreClass="satdsl.ecore#//AND"/>
+    <genClasses ecoreClass="satdsl.ecore#//OR"/>
+    <genClasses ecoreClass="satdsl.ecore#//NOT"/>
+    <genClasses ecoreClass="satdsl.ecore#//NAND"/>
+    <genClasses ecoreClass="satdsl.ecore#//IMPLIES"/>
+    <genClasses ecoreClass="satdsl.ecore#//BIIMPLIES"/>
+    <genClasses ecoreClass="satdsl.ecore#//Literal">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference satdsl.ecore#//Literal/const"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference satdsl.ecore#//Literal/atom"/>
+    </genClasses>
+    <genClasses ecoreClass="satdsl.ecore#//Atom">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute satdsl.ecore#//Atom/name"/>
+    </genClasses>
+    <genClasses ecoreClass="satdsl.ecore#//Const">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute satdsl.ecore#//Const/value"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>
