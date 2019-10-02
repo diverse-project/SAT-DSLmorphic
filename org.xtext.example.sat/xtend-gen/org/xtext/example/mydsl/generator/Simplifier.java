@@ -154,6 +154,8 @@ public class Simplifier {
       if (_equals) {
         return e.getRight();
       } else {
+        Expression _left = e.getLeft();
+        _left.setVal("true");
         return e.getLeft();
       }
     }
@@ -165,6 +167,8 @@ public class Simplifier {
       if (_equals_1) {
         return e.getLeft();
       } else {
+        Expression _right = e.getRight();
+        _right.setVal("true");
         return e.getRight();
       }
     }

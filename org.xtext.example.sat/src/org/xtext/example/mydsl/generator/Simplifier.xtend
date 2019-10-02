@@ -121,6 +121,7 @@ class Simplifier {
 			if(e.left.^val == "true"){
 				return e.right
 			} else {
+				e.left.^val = "true"
 				return e.left
 			}
 		}
@@ -128,6 +129,7 @@ class Simplifier {
 			if(e.right.^val == "true"){
 				return e.left
 			} else {
+				e.right.^val = "true"
 				return e.right
 			}
 		}

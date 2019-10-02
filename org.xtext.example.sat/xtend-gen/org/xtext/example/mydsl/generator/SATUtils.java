@@ -2,6 +2,8 @@ package org.xtext.example.mydsl.generator;
 
 import java.util.ArrayList;
 import java.util.List;
+import org.eclipse.emf.ecore.EObject;
+import org.eclipse.xtext.EcoreUtil2;
 import org.xtext.example.mydsl.sat.And;
 import org.xtext.example.mydsl.sat.Expression;
 import org.xtext.example.mydsl.sat.Not;
@@ -50,5 +52,9 @@ public class SATUtils {
     }
     out.add(e);
     return out;
+  }
+  
+  public static boolean equals(final EObject e1, final EObject e2) {
+    return EcoreUtil2.equals(e1, e2);
   }
 }
