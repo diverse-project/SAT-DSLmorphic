@@ -11,6 +11,7 @@ import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.^extension.ExtendWith
 import org.xtext.example.mydsl.sat.Expression
+import org.xtext.example.mydsl.generator.SatGenerator
 
 @ExtendWith(InjectionExtension)
 @InjectWith(SatInjectorProvider)
@@ -28,5 +29,13 @@ class SatParsingTest {
 		Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
 		
 		println("model=" + result)
+	}
+	
+	@Test
+	def void test1(){
+		val result = parseHelper.parse('''
+			(A v ! B) ^ (B v C v ! A)
+		''')
+		Assertions.assertTrue(SatGenerator.dimacsPrinter(result).equals("1 -111 0\n1 11 -1111 0\n"));
 	}
 }

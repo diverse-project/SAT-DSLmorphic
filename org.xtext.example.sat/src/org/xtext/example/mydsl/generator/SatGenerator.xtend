@@ -38,14 +38,14 @@ class SatGenerator extends AbstractGenerator {
 		
 	}
 		
-		def dimacsPrinter(EObject object) {
+		def static dimacsPrinter(EObject object) {
 			return dimacsPrinterAux(object) + " 0\n";
 		}
 		
-		def dimacsPrinterAux(EObject object){
+		def static dimacsPrinterAux(EObject object){
 		var res = "";
 		var Map<String, Integer> map = new HashMap<String, Integer>();
-		var int count = 01;
+		var int count = 1;
 		if (object instanceof And) {
 			res += dimacsPrinterAux(object.getLeft());
 			res += " 0\n";
@@ -61,7 +61,7 @@ class SatGenerator extends AbstractGenerator {
 		if (object instanceof Expression) {
 			if (!map.containsKey((object.getId()))){
 				map.put(object.getId(), count);
-				count = count + 01;
+				count = count + 1;
 			}
 			res += map.get(object.getId());
 		}

@@ -28,41 +28,41 @@ public class SatGenerator extends AbstractGenerator {
   @Override
   public void doGenerate(final Resource resource, final IFileSystemAccess2 fsa, final IGeneratorContext context) {
     fsa.generateFile("sat.txt", SatGenerator.prettyPrinter(resource.getContents().get(0)));
-    fsa.generateFile("sat.cnf", this.dimacsPrinter(resource.getContents().get(0)));
+    fsa.generateFile("sat.cnf", SatGenerator.dimacsPrinter(resource.getContents().get(0)));
   }
   
-  public String dimacsPrinter(final EObject object) {
-    String _dimacsPrinterAux = this.dimacsPrinterAux(object);
+  public static String dimacsPrinter(final EObject object) {
+    String _dimacsPrinterAux = SatGenerator.dimacsPrinterAux(object);
     return (_dimacsPrinterAux + " 0\n");
   }
   
-  public String dimacsPrinterAux(final EObject object) {
+  public static String dimacsPrinterAux(final EObject object) {
     String res = "";
     Map<String, Integer> map = new HashMap<String, Integer>();
     int count = 1;
     if ((object instanceof And)) {
       String _res = res;
-      Object _dimacsPrinterAux = this.dimacsPrinterAux(((And)object).getLeft());
+      Object _dimacsPrinterAux = SatGenerator.dimacsPrinterAux(((And)object).getLeft());
       res = (_res + _dimacsPrinterAux);
       String _res_1 = res;
       res = (_res_1 + " 0\n");
       String _res_2 = res;
-      Object _dimacsPrinterAux_1 = this.dimacsPrinterAux(((And)object).getRight());
+      Object _dimacsPrinterAux_1 = SatGenerator.dimacsPrinterAux(((And)object).getRight());
       res = (_res_2 + _dimacsPrinterAux_1);
     }
     if ((object instanceof Or)) {
       String _res_3 = res;
-      Object _dimacsPrinterAux_2 = this.dimacsPrinterAux(((Or)object).getLeft());
+      Object _dimacsPrinterAux_2 = SatGenerator.dimacsPrinterAux(((Or)object).getLeft());
       res = (_res_3 + _dimacsPrinterAux_2);
       String _res_4 = res;
       res = (_res_4 + " ");
       String _res_5 = res;
-      Object _dimacsPrinterAux_3 = this.dimacsPrinterAux(((Or)object).getRight());
+      Object _dimacsPrinterAux_3 = SatGenerator.dimacsPrinterAux(((Or)object).getRight());
       res = (_res_5 + _dimacsPrinterAux_3);
     }
     if ((object instanceof Not)) {
       String _res_6 = res;
-      Object _dimacsPrinterAux_4 = this.dimacsPrinterAux(((Not)object).getExpression());
+      Object _dimacsPrinterAux_4 = SatGenerator.dimacsPrinterAux(((Not)object).getExpression());
       String _plus = ("-" + _dimacsPrinterAux_4);
       res = (_res_6 + _plus);
     }
