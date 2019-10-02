@@ -17,5 +17,6 @@ import org.eclipse.xtext.generator.IGeneratorContext;
 public class SattlGenerator extends AbstractGenerator {
   @Override
   public void doGenerate(final Resource resource, final IFileSystemAccess2 fsa, final IGeneratorContext context) {
+    System.out.println("Hello World");
   }
 }

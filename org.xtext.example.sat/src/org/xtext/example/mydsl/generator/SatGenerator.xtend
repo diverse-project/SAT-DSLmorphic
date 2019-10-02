@@ -7,6 +7,8 @@ import org.eclipse.emf.ecore.resource.Resource
 import org.eclipse.xtext.generator.AbstractGenerator
 import org.eclipse.xtext.generator.IFileSystemAccess2
 import org.eclipse.xtext.generator.IGeneratorContext
+import org.xtext.example.mydsl.sat.Expression
+import org.eclipse.emf.ecore.EObject
 
 /**
  * Generates code from your model files on save.
@@ -16,10 +18,17 @@ import org.eclipse.xtext.generator.IGeneratorContext
 class SatGenerator extends AbstractGenerator {
 
 	override void doGenerate(Resource resource, IFileSystemAccess2 fsa, IGeneratorContext context) {
-//		fsa.generateFile('greetings.txt', 'People to greet: ' + 
-//			resource.allContents
-//				.filter(Greeting)
-//				.map[name]
-//				.join(', '))
+		fsa.generateFile('sat.txt', 'formula: ' + 
+			resource.allContents
+				.filter(Expression)
+				.map[^val]
+				.join(', '))
 	}
+	
 }
+
+	public  String prettyPrinter(EObject ast){
+		String res = "";
+		
+		return res;
+	}

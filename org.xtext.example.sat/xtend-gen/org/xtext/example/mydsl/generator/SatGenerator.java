@@ -3,10 +3,14 @@
  */
 package org.xtext.example.mydsl.generator;
 
+import com.google.common.collect.Iterators;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.xtext.generator.AbstractGenerator;
 import org.eclipse.xtext.generator.IFileSystemAccess2;
 import org.eclipse.xtext.generator.IGeneratorContext;
+import org.eclipse.xtext.xbase.lib.Functions.Function1;
+import org.eclipse.xtext.xbase.lib.IteratorExtensions;
+import org.xtext.example.mydsl.sat.Expression;
 
 /**
  * Generates code from your model files on save.
@@ -17,5 +21,11 @@ import org.eclipse.xtext.generator.IGeneratorContext;
 public class SatGenerator extends AbstractGenerator {
   @Override
   public void doGenerate(final Resource resource, final IFileSystemAccess2 fsa, final IGeneratorContext context) {
+    final Function1<Expression, String> _function = (Expression it) -> {
+      return it.getVal();
+    };
+    String _join = IteratorExtensions.join(IteratorExtensions.<Expression, String>map(Iterators.<Expression>filter(resource.getAllContents(), Expression.class), _function), ", ");
+    String _plus = ("formula: " + _join);
+    fsa.generateFile("sat.txt", _plus);
   }
 }
