@@ -4,3 +4,9 @@
 /.PrettyPrinter.java._trace
 /.DIMACSConverter.java._trace
 /.CNFConverter.java._trace
+/.CNFConverter.xtendbin
+/.DIMACSConverter.xtendbin
+/.PrettyPrinter.xtendbin
+/CNFConverter.java
+/DIMACSConverter.java
+/PrettyPrinter.java

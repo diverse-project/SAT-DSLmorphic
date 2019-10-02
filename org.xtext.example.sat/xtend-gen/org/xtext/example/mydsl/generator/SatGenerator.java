@@ -23,6 +23,10 @@ public class SatGenerator extends AbstractGenerator {
   @Override
   public void doGenerate(final Resource resource, final IFileSystemAccess2 fsa, final IGeneratorContext context) {
     EObject _get = resource.getContents().get(0);
-    InputOutput.<String>println(PrettyPrinter.PrettyPrint(CNFConverter.CNFConvert(((Expression) _get))));
+    Expression e = ((Expression) _get);
+    Expression e1 = CNFConverter.CNFConvert_Distrib(e);
+    Expression e2 = CNFConverter.CNFConvert_Neg(e1);
+    Expression e3 = CNFConverter.CNFConvert_Simpl(e2);
+    InputOutput.<String>println(PrettyPrinter.PrettyPrint(e));
   }
 }
