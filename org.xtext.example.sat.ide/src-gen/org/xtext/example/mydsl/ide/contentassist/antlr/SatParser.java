@@ -53,6 +53,7 @@ public class SatParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getNandAccess().getGroup_1(), "rule__Nand__Group_1__0");
 			builder.put(grammarAccess.getPrimaryAccess().getGroup_0(), "rule__Primary__Group_0__0");
 			builder.put(grammarAccess.getNotAccess().getGroup(), "rule__Not__Group__0");
+			builder.put(grammarAccess.getInstructionAccess().getSolverAssignment_0(), "rule__Instruction__SolverAssignment_0");
 			builder.put(grammarAccess.getInstructionAccess().getExprAssignment_1_0_1(), "rule__Instruction__ExprAssignment_1_0_1");
 			builder.put(grammarAccess.getInstructionAccess().getPathAssignment_1_1_1(), "rule__Instruction__PathAssignment_1_1_1");
 			builder.put(grammarAccess.getSolverAccess().getStrAssignment(), "rule__Solver__StrAssignment");

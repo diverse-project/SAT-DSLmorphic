@@ -10,6 +10,10 @@ import org.eclipse.xtext.generator.IGeneratorContext
 import org.xtext.example.mydsl.sat.Expression
 import org.xtext.example.mydsl.sat.Instruction
 import org.xtext.example.mydsl.sat.SatFactory
+import java.io.BufferedReader
+import java.io.FileReader
+import java.io.PrintStream
+import java.io.File
 
 /**
  * Generates code from your model files on save.
@@ -24,17 +28,40 @@ class SatGenerator extends AbstractGenerator {
 //				.filter(Greeting)
 //				.map[name]
 //				.join(', '))
-	var e = SatFactory.eINSTANCE.createExpression;
-	if(resource.contents.get(0) instanceof Instruction){
-		e = CNFConverter.CNFConvert((resource.contents.get(0) as Instruction).expr);
-		var b = Solver.Solve_jar(e);
-		println("RESULT : " + b);
+
+	var path = "/home/yarduoc/ENS_INFO/M1/DSL/dimacs.cnf"
+	if( resource.contents.get(0) instanceof Instruction){
+		
+		var ct = resource.contents.get(0) as Instruction
+		
+		if(ct.expr === null){
+			path = ct.path;
+		}
+		else{
+			println("DIMACS")
+			var str = DIMACSConverter.toDIMACS(CNFConverter.CNFConvert(ct.expr));
+			val fout = new PrintStream(new File(path))
+			fout.println(str)
+			fout.close;
+			
+		}
+		
+		if( ct.solver.str.equals("sat4j-java")){
+			Solver.solveJava(path);		
+		}
+		else if( ct.solver.str.equals("sat4j-jar")){
+			Solver.solveJar(path);
+		}
+		else{ 
+			var BufferedReader br = new BufferedReader(new FileReader(path));
+			var String line = null;
+			while ((line = br.readLine()) !== null) {
+				println(line);
+			}
+		}
 	}
 	else {
-		e = (resource.contents.get(0) as Expression);
+		println(PrettyPrinter.PrettyPrint((resource.contents.get(0) as Expression)));
 	}
-	println("Current formula: \n" + PrettyPrinter.PrettyPrint(e));
-	var tdm = DIMACSConverter.toDIMACS(e);
-	println("DIMACS format: \n" + tdm);
 	}
 }

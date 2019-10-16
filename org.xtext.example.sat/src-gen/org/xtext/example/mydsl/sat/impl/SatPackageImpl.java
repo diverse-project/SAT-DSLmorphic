@@ -192,7 +192,7 @@ public class SatPackageImpl extends EPackageImpl implements SatPackage
    * @generated
    */
   @Override
-  public EReference getInstruction_Expr()
+  public EReference getInstruction_Solver()
   {
     return (EReference)instructionEClass.getEStructuralFeatures().get(0);
   }
@@ -203,9 +203,20 @@ public class SatPackageImpl extends EPackageImpl implements SatPackage
    * @generated
    */
   @Override
+  public EReference getInstruction_Expr()
+  {
+    return (EReference)instructionEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public EAttribute getInstruction_Path()
   {
-    return (EAttribute)instructionEClass.getEStructuralFeatures().get(1);
+    return (EAttribute)instructionEClass.getEStructuralFeatures().get(2);
   }
 
   /**
@@ -484,6 +495,7 @@ public class SatPackageImpl extends EPackageImpl implements SatPackage
     formulaEClass = createEClass(FORMULA);
 
     instructionEClass = createEClass(INSTRUCTION);
+    createEReference(instructionEClass, INSTRUCTION__SOLVER);
     createEReference(instructionEClass, INSTRUCTION__EXPR);
     createEAttribute(instructionEClass, INSTRUCTION__PATH);
 
@@ -548,7 +560,6 @@ public class SatPackageImpl extends EPackageImpl implements SatPackage
 
     // Add supertypes to classes
     instructionEClass.getESuperTypes().add(this.getFormula());
-    solverEClass.getESuperTypes().add(this.getInstruction());
     expressionEClass.getESuperTypes().add(this.getFormula());
     biImplEClass.getESuperTypes().add(this.getExpression());
     implEClass.getESuperTypes().add(this.getExpression());
@@ -561,6 +572,7 @@ public class SatPackageImpl extends EPackageImpl implements SatPackage
     initEClass(formulaEClass, Formula.class, "Formula", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
     initEClass(instructionEClass, Instruction.class, "Instruction", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getInstruction_Solver(), this.getSolver(), null, "solver", null, 0, 1, Instruction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getInstruction_Expr(), this.getExpression(), null, "expr", null, 0, 1, Instruction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getInstruction_Path(), ecorePackage.getEString(), "path", null, 0, 1, Instruction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 

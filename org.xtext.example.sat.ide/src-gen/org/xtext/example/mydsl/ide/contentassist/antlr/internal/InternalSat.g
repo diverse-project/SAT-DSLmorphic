@@ -557,9 +557,9 @@ rule__Instruction__Group__0__Impl
 	}
 :
 (
-	{ before(grammarAccess.getInstructionAccess().getSolverParserRuleCall_0()); }
-	(ruleSolver)?
-	{ after(grammarAccess.getInstructionAccess().getSolverParserRuleCall_0()); }
+	{ before(grammarAccess.getInstructionAccess().getSolverAssignment_0()); }
+	(rule__Instruction__SolverAssignment_0)?
+	{ after(grammarAccess.getInstructionAccess().getSolverAssignment_0()); }
 )
 ;
 finally {
@@ -1537,6 +1537,21 @@ finally {
 	restoreStackSize(stackSize);
 }
 
+
+rule__Instruction__SolverAssignment_0
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+	(
+		{ before(grammarAccess.getInstructionAccess().getSolverSolverParserRuleCall_0_0()); }
+		ruleSolver
+		{ after(grammarAccess.getInstructionAccess().getSolverSolverParserRuleCall_0_0()); }
+	)
+;
+finally {
+	restoreStackSize(stackSize);
+}
 
 rule__Instruction__ExprAssignment_1_0_1
 	@init {

@@ -87,13 +87,22 @@ public interface SatPackage extends EPackage
   int INSTRUCTION = 1;
 
   /**
+   * The feature id for the '<em><b>Solver</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int INSTRUCTION__SOLVER = FORMULA_FEATURE_COUNT + 0;
+
+  /**
    * The feature id for the '<em><b>Expr</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int INSTRUCTION__EXPR = FORMULA_FEATURE_COUNT + 0;
+  int INSTRUCTION__EXPR = FORMULA_FEATURE_COUNT + 1;
 
   /**
    * The feature id for the '<em><b>Path</b></em>' attribute.
@@ -102,7 +111,7 @@ public interface SatPackage extends EPackage
    * @generated
    * @ordered
    */
-  int INSTRUCTION__PATH = FORMULA_FEATURE_COUNT + 1;
+  int INSTRUCTION__PATH = FORMULA_FEATURE_COUNT + 2;
 
   /**
    * The number of structural features of the '<em>Instruction</em>' class.
@@ -111,7 +120,7 @@ public interface SatPackage extends EPackage
    * @generated
    * @ordered
    */
-  int INSTRUCTION_FEATURE_COUNT = FORMULA_FEATURE_COUNT + 2;
+  int INSTRUCTION_FEATURE_COUNT = FORMULA_FEATURE_COUNT + 3;
 
   /**
    * The meta object id for the '{@link org.xtext.example.mydsl.sat.impl.SolverImpl <em>Solver</em>}' class.
@@ -124,31 +133,13 @@ public interface SatPackage extends EPackage
   int SOLVER = 2;
 
   /**
-   * The feature id for the '<em><b>Expr</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int SOLVER__EXPR = INSTRUCTION__EXPR;
-
-  /**
-   * The feature id for the '<em><b>Path</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int SOLVER__PATH = INSTRUCTION__PATH;
-
-  /**
    * The feature id for the '<em><b>Str</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int SOLVER__STR = INSTRUCTION_FEATURE_COUNT + 0;
+  int SOLVER__STR = 0;
 
   /**
    * The number of structural features of the '<em>Solver</em>' class.
@@ -157,7 +148,7 @@ public interface SatPackage extends EPackage
    * @generated
    * @ordered
    */
-  int SOLVER_FEATURE_COUNT = INSTRUCTION_FEATURE_COUNT + 1;
+  int SOLVER_FEATURE_COUNT = 1;
 
   /**
    * The meta object id for the '{@link org.xtext.example.mydsl.sat.impl.ExpressionImpl <em>Expression</em>}' class.
@@ -539,6 +530,17 @@ public interface SatPackage extends EPackage
   EClass getInstruction();
 
   /**
+   * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl.sat.Instruction#getSolver <em>Solver</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Solver</em>'.
+   * @see org.xtext.example.mydsl.sat.Instruction#getSolver()
+   * @see #getInstruction()
+   * @generated
+   */
+  EReference getInstruction_Solver();
+
+  /**
    * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl.sat.Instruction#getExpr <em>Expr</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -836,6 +838,14 @@ public interface SatPackage extends EPackage
      * @generated
      */
     EClass INSTRUCTION = eINSTANCE.getInstruction();
+
+    /**
+     * The meta object literal for the '<em><b>Solver</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference INSTRUCTION__SOLVER = eINSTANCE.getInstruction_Solver();
 
     /**
      * The meta object literal for the '<em><b>Expr</b></em>' containment reference feature.

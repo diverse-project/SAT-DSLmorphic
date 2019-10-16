@@ -39,13 +39,20 @@ class Solver {
 	    return output.toString();
 	}
 
-	static def void Solve_java(Expression e) {
+	static def void saveDimacs(Expression e, String pth) {
+		var str = DIMACSConverter.toDIMACS(CNFConverter.CNFConvert(e));
+		val fout = new PrintStream(new File(pth))
+		fout.println(str)
+		fout.close
+	}
+
+	static def void solveJava(String e) {
 		var ISolver solver = SolverFactory.newDefault();
         solver.setTimeout(3600); // 1 hour timeout
         var Reader reader = new DimacsReader(solver);
         var PrintWriter out = new PrintWriter(System.out,true);
         try {
-            var IProblem problem = reader.parseInstance("");
+            var IProblem problem = reader.parseInstance(e);
             reader.decode(problem.model(), out);
         } catch (FileNotFoundException e0) {
             // TODO Auto-generated catch block
@@ -60,13 +67,9 @@ class Solver {
         }
 	}
 	
-	static def String Solve_jar(Expression e) {
-		var str = DIMACSConverter.toDIMACS(CNFConverter.CNFConvert(e));
-		val fout = new PrintStream(new File("/home/yarduoc/ENS_INFO/M1/DSL/dimacs.cnf"))
-		fout.println(str)
-		fout.close
-		var output = executeCommand("java -jar /home/yarduoc/ENS_INFO/M1/DSL/javalibs/org.sat4j.core.jar /home/yarduoc/ENS_INFO/M1/DSL/dimacs.cnf")
-		return output;
+	static def void solveJar(String e) {
+		var output = executeCommand("java -jar /home/yarduoc/ENS_INFO/M1/DSL/javalibs/org.sat4j.core.jar " + e);
+		println(output);
 	}
 	
 	static def Expression Solve_maven(Expression e) {}

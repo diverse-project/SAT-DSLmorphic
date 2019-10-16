@@ -405,10 +405,10 @@ public class InternalSatLexer extends Lexer {
         try {
             int _type = RULE_ID;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalSat.g:1691:9: ( ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )* )
-            // InternalSat.g:1691:11: ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
+            // InternalSat.g:1706:9: ( ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )* )
+            // InternalSat.g:1706:11: ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
             {
-            // InternalSat.g:1691:11: ( '^' )?
+            // InternalSat.g:1706:11: ( '^' )?
             int alt1=2;
             int LA1_0 = input.LA(1);
 
@@ -417,7 +417,7 @@ public class InternalSatLexer extends Lexer {
             }
             switch (alt1) {
                 case 1 :
-                    // InternalSat.g:1691:11: '^'
+                    // InternalSat.g:1706:11: '^'
                     {
                     match('^'); 
 
@@ -435,7 +435,7 @@ public class InternalSatLexer extends Lexer {
                 recover(mse);
                 throw mse;}
 
-            // InternalSat.g:1691:40: ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
+            // InternalSat.g:1706:40: ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
             loop2:
             do {
                 int alt2=2;
@@ -484,10 +484,10 @@ public class InternalSatLexer extends Lexer {
         try {
             int _type = RULE_INT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalSat.g:1693:10: ( ( '0' .. '9' )+ )
-            // InternalSat.g:1693:12: ( '0' .. '9' )+
+            // InternalSat.g:1708:10: ( ( '0' .. '9' )+ )
+            // InternalSat.g:1708:12: ( '0' .. '9' )+
             {
-            // InternalSat.g:1693:12: ( '0' .. '9' )+
+            // InternalSat.g:1708:12: ( '0' .. '9' )+
             int cnt3=0;
             loop3:
             do {
@@ -501,7 +501,7 @@ public class InternalSatLexer extends Lexer {
 
                 switch (alt3) {
             	case 1 :
-            	    // InternalSat.g:1693:13: '0' .. '9'
+            	    // InternalSat.g:1708:13: '0' .. '9'
             	    {
             	    matchRange('0','9'); 
 
@@ -533,10 +533,10 @@ public class InternalSatLexer extends Lexer {
         try {
             int _type = RULE_STRING;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalSat.g:1695:13: ( ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' ) )
-            // InternalSat.g:1695:15: ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
+            // InternalSat.g:1710:13: ( ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' ) )
+            // InternalSat.g:1710:15: ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
             {
-            // InternalSat.g:1695:15: ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
+            // InternalSat.g:1710:15: ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
             int alt6=2;
             int LA6_0 = input.LA(1);
 
@@ -554,10 +554,10 @@ public class InternalSatLexer extends Lexer {
             }
             switch (alt6) {
                 case 1 :
-                    // InternalSat.g:1695:16: '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"'
+                    // InternalSat.g:1710:16: '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"'
                     {
                     match('\"'); 
-                    // InternalSat.g:1695:20: ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )*
+                    // InternalSat.g:1710:20: ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )*
                     loop4:
                     do {
                         int alt4=3;
@@ -573,7 +573,7 @@ public class InternalSatLexer extends Lexer {
 
                         switch (alt4) {
                     	case 1 :
-                    	    // InternalSat.g:1695:21: '\\\\' .
+                    	    // InternalSat.g:1710:21: '\\\\' .
                     	    {
                     	    match('\\'); 
                     	    matchAny(); 
@@ -581,7 +581,7 @@ public class InternalSatLexer extends Lexer {
                     	    }
                     	    break;
                     	case 2 :
-                    	    // InternalSat.g:1695:28: ~ ( ( '\\\\' | '\"' ) )
+                    	    // InternalSat.g:1710:28: ~ ( ( '\\\\' | '\"' ) )
                     	    {
                     	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='!')||(input.LA(1)>='#' && input.LA(1)<='[')||(input.LA(1)>=']' && input.LA(1)<='\uFFFF') ) {
                     	        input.consume();
@@ -606,10 +606,10 @@ public class InternalSatLexer extends Lexer {
                     }
                     break;
                 case 2 :
-                    // InternalSat.g:1695:48: '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\''
+                    // InternalSat.g:1710:48: '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\''
                     {
                     match('\''); 
-                    // InternalSat.g:1695:53: ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )*
+                    // InternalSat.g:1710:53: ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )*
                     loop5:
                     do {
                         int alt5=3;
@@ -625,7 +625,7 @@ public class InternalSatLexer extends Lexer {
 
                         switch (alt5) {
                     	case 1 :
-                    	    // InternalSat.g:1695:54: '\\\\' .
+                    	    // InternalSat.g:1710:54: '\\\\' .
                     	    {
                     	    match('\\'); 
                     	    matchAny(); 
@@ -633,7 +633,7 @@ public class InternalSatLexer extends Lexer {
                     	    }
                     	    break;
                     	case 2 :
-                    	    // InternalSat.g:1695:61: ~ ( ( '\\\\' | '\\'' ) )
+                    	    // InternalSat.g:1710:61: ~ ( ( '\\\\' | '\\'' ) )
                     	    {
                     	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='&')||(input.LA(1)>='(' && input.LA(1)<='[')||(input.LA(1)>=']' && input.LA(1)<='\uFFFF') ) {
                     	        input.consume();
@@ -676,12 +676,12 @@ public class InternalSatLexer extends Lexer {
         try {
             int _type = RULE_ML_COMMENT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalSat.g:1697:17: ( '/*' ( options {greedy=false; } : . )* '*/' )
-            // InternalSat.g:1697:19: '/*' ( options {greedy=false; } : . )* '*/'
+            // InternalSat.g:1712:17: ( '/*' ( options {greedy=false; } : . )* '*/' )
+            // InternalSat.g:1712:19: '/*' ( options {greedy=false; } : . )* '*/'
             {
             match("/*"); 
 
-            // InternalSat.g:1697:24: ( options {greedy=false; } : . )*
+            // InternalSat.g:1712:24: ( options {greedy=false; } : . )*
             loop7:
             do {
                 int alt7=2;
@@ -706,7 +706,7 @@ public class InternalSatLexer extends Lexer {
 
                 switch (alt7) {
             	case 1 :
-            	    // InternalSat.g:1697:52: .
+            	    // InternalSat.g:1712:52: .
             	    {
             	    matchAny(); 
 
@@ -736,12 +736,12 @@ public class InternalSatLexer extends Lexer {
         try {
             int _type = RULE_SL_COMMENT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalSat.g:1699:17: ( '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )? )
-            // InternalSat.g:1699:19: '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )?
+            // InternalSat.g:1714:17: ( '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )? )
+            // InternalSat.g:1714:19: '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )?
             {
             match("//"); 
 
-            // InternalSat.g:1699:24: (~ ( ( '\\n' | '\\r' ) ) )*
+            // InternalSat.g:1714:24: (~ ( ( '\\n' | '\\r' ) ) )*
             loop8:
             do {
                 int alt8=2;
@@ -754,7 +754,7 @@ public class InternalSatLexer extends Lexer {
 
                 switch (alt8) {
             	case 1 :
-            	    // InternalSat.g:1699:24: ~ ( ( '\\n' | '\\r' ) )
+            	    // InternalSat.g:1714:24: ~ ( ( '\\n' | '\\r' ) )
             	    {
             	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='\t')||(input.LA(1)>='\u000B' && input.LA(1)<='\f')||(input.LA(1)>='\u000E' && input.LA(1)<='\uFFFF') ) {
             	        input.consume();
@@ -774,7 +774,7 @@ public class InternalSatLexer extends Lexer {
                 }
             } while (true);
 
-            // InternalSat.g:1699:40: ( ( '\\r' )? '\\n' )?
+            // InternalSat.g:1714:40: ( ( '\\r' )? '\\n' )?
             int alt10=2;
             int LA10_0 = input.LA(1);
 
@@ -783,9 +783,9 @@ public class InternalSatLexer extends Lexer {
             }
             switch (alt10) {
                 case 1 :
-                    // InternalSat.g:1699:41: ( '\\r' )? '\\n'
+                    // InternalSat.g:1714:41: ( '\\r' )? '\\n'
                     {
-                    // InternalSat.g:1699:41: ( '\\r' )?
+                    // InternalSat.g:1714:41: ( '\\r' )?
                     int alt9=2;
                     int LA9_0 = input.LA(1);
 
@@ -794,7 +794,7 @@ public class InternalSatLexer extends Lexer {
                     }
                     switch (alt9) {
                         case 1 :
-                            // InternalSat.g:1699:41: '\\r'
+                            // InternalSat.g:1714:41: '\\r'
                             {
                             match('\r'); 
 
@@ -826,10 +826,10 @@ public class InternalSatLexer extends Lexer {
         try {
             int _type = RULE_WS;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalSat.g:1701:9: ( ( ' ' | '\\t' | '\\r' | '\\n' )+ )
-            // InternalSat.g:1701:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
+            // InternalSat.g:1716:9: ( ( ' ' | '\\t' | '\\r' | '\\n' )+ )
+            // InternalSat.g:1716:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
             {
-            // InternalSat.g:1701:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
+            // InternalSat.g:1716:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
             int cnt11=0;
             loop11:
             do {
@@ -883,8 +883,8 @@ public class InternalSatLexer extends Lexer {
         try {
             int _type = RULE_ANY_OTHER;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalSat.g:1703:16: ( . )
-            // InternalSat.g:1703:18: .
+            // InternalSat.g:1718:16: ( . )
+            // InternalSat.g:1718:18: .
             {
             matchAny(); 
 

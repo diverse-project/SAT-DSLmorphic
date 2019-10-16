@@ -113,14 +113,23 @@ ruleInstruction returns [EObject current=null]
 }:
 	(
 		(
-			{
-				newCompositeNode(grammarAccess.getInstructionAccess().getSolverParserRuleCall_0());
-			}
-			this_Solver_0=ruleSolver
-			{
-				$current = $this_Solver_0.current;
-				afterParserOrEnumRuleCall();
-			}
+			(
+				{
+					newCompositeNode(grammarAccess.getInstructionAccess().getSolverSolverParserRuleCall_0_0());
+				}
+				lv_solver_0_0=ruleSolver
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getInstructionRule());
+					}
+					set(
+						$current,
+						"solver",
+						lv_solver_0_0,
+						"org.xtext.example.mydsl.Sat.Solver");
+					afterParserOrEnumRuleCall();
+				}
+			)
 		)?
 		(
 			(

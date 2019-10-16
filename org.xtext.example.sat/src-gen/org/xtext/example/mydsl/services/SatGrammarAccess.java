@@ -45,7 +45,8 @@ public class SatGrammarAccess extends AbstractGrammarElementFinder {
 	public class InstructionElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.mydsl.Sat.Instruction");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final RuleCall cSolverParserRuleCall_0 = (RuleCall)cGroup.eContents().get(0);
+		private final Assignment cSolverAssignment_0 = (Assignment)cGroup.eContents().get(0);
+		private final RuleCall cSolverSolverParserRuleCall_0_0 = (RuleCall)cSolverAssignment_0.eContents().get(0);
 		private final Alternatives cAlternatives_1 = (Alternatives)cGroup.eContents().get(1);
 		private final Group cGroup_1_0 = (Group)cAlternatives_1.eContents().get(0);
 		private final Keyword cSatKeyword_1_0_0 = (Keyword)cGroup_1_0.eContents().get(0);
@@ -57,14 +58,17 @@ public class SatGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cPathSTRINGTerminalRuleCall_1_1_1_0 = (RuleCall)cPathAssignment_1_1_1.eContents().get(0);
 		
 		//Instruction:
-		//	Solver? ("sat" expr=Model | "load" path=STRING);
+		//	solver=Solver? ("sat" expr=Model | "load" path=STRING);
 		@Override public ParserRule getRule() { return rule; }
 		
-		//Solver? ("sat" expr=Model | "load" path=STRING)
+		//solver=Solver? ("sat" expr=Model | "load" path=STRING)
 		public Group getGroup() { return cGroup; }
 		
-		//Solver?
-		public RuleCall getSolverParserRuleCall_0() { return cSolverParserRuleCall_0; }
+		//solver=Solver?
+		public Assignment getSolverAssignment_0() { return cSolverAssignment_0; }
+		
+		//Solver
+		public RuleCall getSolverSolverParserRuleCall_0_0() { return cSolverSolverParserRuleCall_0_0; }
 		
 		//"sat" expr=Model | "load" path=STRING
 		public Alternatives getAlternatives_1() { return cAlternatives_1; }
@@ -500,7 +504,7 @@ public class SatGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//Instruction:
-	//	Solver? ("sat" expr=Model | "load" path=STRING);
+	//	solver=Solver? ("sat" expr=Model | "load" path=STRING);
 	public InstructionElements getInstructionAccess() {
 		return pInstruction;
 	}

@@ -9,7 +9,7 @@ Formula returns Formula:
 ;
 
 Instruction returns Instruction:
-	Solver ? (("sat" expr=Model) | ("load" path=STRING))
+	(solver = Solver)? (("sat" expr=Model) | ("load" path=STRING))
 ;
 
 Solver returns Solver:

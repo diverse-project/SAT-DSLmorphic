@@ -92,8 +92,6 @@ public class SatSwitch<T> extends Switch<T>
       {
         Solver solver = (Solver)theEObject;
         T result = caseSolver(solver);
-        if (result == null) result = caseInstruction(solver);
-        if (result == null) result = caseFormula(solver);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }

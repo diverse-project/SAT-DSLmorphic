@@ -89,16 +89,8 @@ public class SatSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 				sequence_Or(context, (Or) semanticObject); 
 				return; 
 			case SatPackage.SOLVER:
-				if (rule == grammarAccess.getFormulaRule()
-						|| rule == grammarAccess.getInstructionRule()) {
-					sequence_Instruction_Solver(context, (Solver) semanticObject); 
-					return; 
-				}
-				else if (rule == grammarAccess.getSolverRule()) {
-					sequence_Solver(context, (Solver) semanticObject); 
-					return; 
-				}
-				else break;
+				sequence_Solver(context, (Solver) semanticObject); 
+				return; 
 			}
 		if (errorAcceptor != null)
 			errorAcceptor.accept(diagnosticProvider.createInvalidContextOrTypeDiagnostic(semanticObject, context));
@@ -249,22 +241,9 @@ public class SatSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     Instruction returns Instruction
 	 *
 	 * Constraint:
-	 *     (expr=Model | path=STRING)
+	 *     (solver=Solver? (expr=Model | path=STRING))
 	 */
 	protected void sequence_Instruction(ISerializationContext context, Instruction semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Contexts:
-	 *     Formula returns Solver
-	 *     Instruction returns Solver
-	 *
-	 * Constraint:
-	 *     ((str='sat4j-java' | str='sat4j-jar' | str='sat4j-maven') (expr=Model | path=STRING))
-	 */
-	protected void sequence_Instruction_Solver(ISerializationContext context, Solver semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	

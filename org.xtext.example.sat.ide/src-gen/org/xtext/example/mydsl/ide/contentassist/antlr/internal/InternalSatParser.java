@@ -1736,20 +1736,20 @@ public class InternalSatParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Instruction__Group__0__Impl"
-    // InternalSat.g:554:1: rule__Instruction__Group__0__Impl : ( ( ruleSolver )? ) ;
+    // InternalSat.g:554:1: rule__Instruction__Group__0__Impl : ( ( rule__Instruction__SolverAssignment_0 )? ) ;
     public final void rule__Instruction__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSat.g:558:1: ( ( ( ruleSolver )? ) )
-            // InternalSat.g:559:1: ( ( ruleSolver )? )
+            // InternalSat.g:558:1: ( ( ( rule__Instruction__SolverAssignment_0 )? ) )
+            // InternalSat.g:559:1: ( ( rule__Instruction__SolverAssignment_0 )? )
             {
-            // InternalSat.g:559:1: ( ( ruleSolver )? )
-            // InternalSat.g:560:2: ( ruleSolver )?
+            // InternalSat.g:559:1: ( ( rule__Instruction__SolverAssignment_0 )? )
+            // InternalSat.g:560:2: ( rule__Instruction__SolverAssignment_0 )?
             {
-             before(grammarAccess.getInstructionAccess().getSolverParserRuleCall_0()); 
-            // InternalSat.g:561:2: ( ruleSolver )?
+             before(grammarAccess.getInstructionAccess().getSolverAssignment_0()); 
+            // InternalSat.g:561:2: ( rule__Instruction__SolverAssignment_0 )?
             int alt8=2;
             int LA8_0 = input.LA(1);
 
@@ -1758,10 +1758,10 @@ public class InternalSatParser extends AbstractInternalContentAssistParser {
             }
             switch (alt8) {
                 case 1 :
-                    // InternalSat.g:561:3: ruleSolver
+                    // InternalSat.g:561:3: rule__Instruction__SolverAssignment_0
                     {
                     pushFollow(FOLLOW_2);
-                    ruleSolver();
+                    rule__Instruction__SolverAssignment_0();
 
                     state._fsp--;
 
@@ -1771,7 +1771,7 @@ public class InternalSatParser extends AbstractInternalContentAssistParser {
 
             }
 
-             after(grammarAccess.getInstructionAccess().getSolverParserRuleCall_0()); 
+             after(grammarAccess.getInstructionAccess().getSolverAssignment_0()); 
 
             }
 
@@ -4686,18 +4686,59 @@ public class InternalSatParser extends AbstractInternalContentAssistParser {
     // $ANTLR end "rule__Not__Group__2__Impl"
 
 
+    // $ANTLR start "rule__Instruction__SolverAssignment_0"
+    // InternalSat.g:1541:1: rule__Instruction__SolverAssignment_0 : ( ruleSolver ) ;
+    public final void rule__Instruction__SolverAssignment_0() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalSat.g:1545:1: ( ( ruleSolver ) )
+            // InternalSat.g:1546:2: ( ruleSolver )
+            {
+            // InternalSat.g:1546:2: ( ruleSolver )
+            // InternalSat.g:1547:3: ruleSolver
+            {
+             before(grammarAccess.getInstructionAccess().getSolverSolverParserRuleCall_0_0()); 
+            pushFollow(FOLLOW_2);
+            ruleSolver();
+
+            state._fsp--;
+
+             after(grammarAccess.getInstructionAccess().getSolverSolverParserRuleCall_0_0()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__Instruction__SolverAssignment_0"
+
+
     // $ANTLR start "rule__Instruction__ExprAssignment_1_0_1"
-    // InternalSat.g:1541:1: rule__Instruction__ExprAssignment_1_0_1 : ( ruleModel ) ;
+    // InternalSat.g:1556:1: rule__Instruction__ExprAssignment_1_0_1 : ( ruleModel ) ;
     public final void rule__Instruction__ExprAssignment_1_0_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSat.g:1545:1: ( ( ruleModel ) )
-            // InternalSat.g:1546:2: ( ruleModel )
+            // InternalSat.g:1560:1: ( ( ruleModel ) )
+            // InternalSat.g:1561:2: ( ruleModel )
             {
-            // InternalSat.g:1546:2: ( ruleModel )
-            // InternalSat.g:1547:3: ruleModel
+            // InternalSat.g:1561:2: ( ruleModel )
+            // InternalSat.g:1562:3: ruleModel
             {
              before(grammarAccess.getInstructionAccess().getExprModelParserRuleCall_1_0_1_0()); 
             pushFollow(FOLLOW_2);
@@ -4728,17 +4769,17 @@ public class InternalSatParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Instruction__PathAssignment_1_1_1"
-    // InternalSat.g:1556:1: rule__Instruction__PathAssignment_1_1_1 : ( RULE_STRING ) ;
+    // InternalSat.g:1571:1: rule__Instruction__PathAssignment_1_1_1 : ( RULE_STRING ) ;
     public final void rule__Instruction__PathAssignment_1_1_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSat.g:1560:1: ( ( RULE_STRING ) )
-            // InternalSat.g:1561:2: ( RULE_STRING )
+            // InternalSat.g:1575:1: ( ( RULE_STRING ) )
+            // InternalSat.g:1576:2: ( RULE_STRING )
             {
-            // InternalSat.g:1561:2: ( RULE_STRING )
-            // InternalSat.g:1562:3: RULE_STRING
+            // InternalSat.g:1576:2: ( RULE_STRING )
+            // InternalSat.g:1577:3: RULE_STRING
             {
              before(grammarAccess.getInstructionAccess().getPathSTRINGTerminalRuleCall_1_1_1_0()); 
             match(input,RULE_STRING,FOLLOW_2); 
@@ -4765,21 +4806,21 @@ public class InternalSatParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Solver__StrAssignment"
-    // InternalSat.g:1571:1: rule__Solver__StrAssignment : ( ( rule__Solver__StrAlternatives_0 ) ) ;
+    // InternalSat.g:1586:1: rule__Solver__StrAssignment : ( ( rule__Solver__StrAlternatives_0 ) ) ;
     public final void rule__Solver__StrAssignment() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSat.g:1575:1: ( ( ( rule__Solver__StrAlternatives_0 ) ) )
-            // InternalSat.g:1576:2: ( ( rule__Solver__StrAlternatives_0 ) )
+            // InternalSat.g:1590:1: ( ( ( rule__Solver__StrAlternatives_0 ) ) )
+            // InternalSat.g:1591:2: ( ( rule__Solver__StrAlternatives_0 ) )
             {
-            // InternalSat.g:1576:2: ( ( rule__Solver__StrAlternatives_0 ) )
-            // InternalSat.g:1577:3: ( rule__Solver__StrAlternatives_0 )
+            // InternalSat.g:1591:2: ( ( rule__Solver__StrAlternatives_0 ) )
+            // InternalSat.g:1592:3: ( rule__Solver__StrAlternatives_0 )
             {
              before(grammarAccess.getSolverAccess().getStrAlternatives_0()); 
-            // InternalSat.g:1578:3: ( rule__Solver__StrAlternatives_0 )
-            // InternalSat.g:1578:4: rule__Solver__StrAlternatives_0
+            // InternalSat.g:1593:3: ( rule__Solver__StrAlternatives_0 )
+            // InternalSat.g:1593:4: rule__Solver__StrAlternatives_0
             {
             pushFollow(FOLLOW_2);
             rule__Solver__StrAlternatives_0();
@@ -4812,17 +4853,17 @@ public class InternalSatParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__BiImpl__RightAssignment_1_2"
-    // InternalSat.g:1586:1: rule__BiImpl__RightAssignment_1_2 : ( ruleImpl ) ;
+    // InternalSat.g:1601:1: rule__BiImpl__RightAssignment_1_2 : ( ruleImpl ) ;
     public final void rule__BiImpl__RightAssignment_1_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSat.g:1590:1: ( ( ruleImpl ) )
-            // InternalSat.g:1591:2: ( ruleImpl )
+            // InternalSat.g:1605:1: ( ( ruleImpl ) )
+            // InternalSat.g:1606:2: ( ruleImpl )
             {
-            // InternalSat.g:1591:2: ( ruleImpl )
-            // InternalSat.g:1592:3: ruleImpl
+            // InternalSat.g:1606:2: ( ruleImpl )
+            // InternalSat.g:1607:3: ruleImpl
             {
              before(grammarAccess.getBiImplAccess().getRightImplParserRuleCall_1_2_0()); 
             pushFollow(FOLLOW_2);
@@ -4853,17 +4894,17 @@ public class InternalSatParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Impl__RightAssignment_1_2"
-    // InternalSat.g:1601:1: rule__Impl__RightAssignment_1_2 : ( ruleOr ) ;
+    // InternalSat.g:1616:1: rule__Impl__RightAssignment_1_2 : ( ruleOr ) ;
     public final void rule__Impl__RightAssignment_1_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSat.g:1605:1: ( ( ruleOr ) )
-            // InternalSat.g:1606:2: ( ruleOr )
+            // InternalSat.g:1620:1: ( ( ruleOr ) )
+            // InternalSat.g:1621:2: ( ruleOr )
             {
-            // InternalSat.g:1606:2: ( ruleOr )
-            // InternalSat.g:1607:3: ruleOr
+            // InternalSat.g:1621:2: ( ruleOr )
+            // InternalSat.g:1622:3: ruleOr
             {
              before(grammarAccess.getImplAccess().getRightOrParserRuleCall_1_2_0()); 
             pushFollow(FOLLOW_2);
@@ -4894,17 +4935,17 @@ public class InternalSatParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Or__RightAssignment_1_2"
-    // InternalSat.g:1616:1: rule__Or__RightAssignment_1_2 : ( ruleAnd ) ;
+    // InternalSat.g:1631:1: rule__Or__RightAssignment_1_2 : ( ruleAnd ) ;
     public final void rule__Or__RightAssignment_1_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSat.g:1620:1: ( ( ruleAnd ) )
-            // InternalSat.g:1621:2: ( ruleAnd )
+            // InternalSat.g:1635:1: ( ( ruleAnd ) )
+            // InternalSat.g:1636:2: ( ruleAnd )
             {
-            // InternalSat.g:1621:2: ( ruleAnd )
-            // InternalSat.g:1622:3: ruleAnd
+            // InternalSat.g:1636:2: ( ruleAnd )
+            // InternalSat.g:1637:3: ruleAnd
             {
              before(grammarAccess.getOrAccess().getRightAndParserRuleCall_1_2_0()); 
             pushFollow(FOLLOW_2);
@@ -4935,17 +4976,17 @@ public class InternalSatParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__And__RightAssignment_1_2"
-    // InternalSat.g:1631:1: rule__And__RightAssignment_1_2 : ( ruleNand ) ;
+    // InternalSat.g:1646:1: rule__And__RightAssignment_1_2 : ( ruleNand ) ;
     public final void rule__And__RightAssignment_1_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSat.g:1635:1: ( ( ruleNand ) )
-            // InternalSat.g:1636:2: ( ruleNand )
+            // InternalSat.g:1650:1: ( ( ruleNand ) )
+            // InternalSat.g:1651:2: ( ruleNand )
             {
-            // InternalSat.g:1636:2: ( ruleNand )
-            // InternalSat.g:1637:3: ruleNand
+            // InternalSat.g:1651:2: ( ruleNand )
+            // InternalSat.g:1652:3: ruleNand
             {
              before(grammarAccess.getAndAccess().getRightNandParserRuleCall_1_2_0()); 
             pushFollow(FOLLOW_2);
@@ -4976,17 +5017,17 @@ public class InternalSatParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Nand__RightAssignment_1_2"
-    // InternalSat.g:1646:1: rule__Nand__RightAssignment_1_2 : ( rulePrimary ) ;
+    // InternalSat.g:1661:1: rule__Nand__RightAssignment_1_2 : ( rulePrimary ) ;
     public final void rule__Nand__RightAssignment_1_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSat.g:1650:1: ( ( rulePrimary ) )
-            // InternalSat.g:1651:2: ( rulePrimary )
+            // InternalSat.g:1665:1: ( ( rulePrimary ) )
+            // InternalSat.g:1666:2: ( rulePrimary )
             {
-            // InternalSat.g:1651:2: ( rulePrimary )
-            // InternalSat.g:1652:3: rulePrimary
+            // InternalSat.g:1666:2: ( rulePrimary )
+            // InternalSat.g:1667:3: rulePrimary
             {
              before(grammarAccess.getNandAccess().getRightPrimaryParserRuleCall_1_2_0()); 
             pushFollow(FOLLOW_2);
@@ -5017,17 +5058,17 @@ public class InternalSatParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Var__IdAssignment"
-    // InternalSat.g:1661:1: rule__Var__IdAssignment : ( RULE_ID ) ;
+    // InternalSat.g:1676:1: rule__Var__IdAssignment : ( RULE_ID ) ;
     public final void rule__Var__IdAssignment() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSat.g:1665:1: ( ( RULE_ID ) )
-            // InternalSat.g:1666:2: ( RULE_ID )
+            // InternalSat.g:1680:1: ( ( RULE_ID ) )
+            // InternalSat.g:1681:2: ( RULE_ID )
             {
-            // InternalSat.g:1666:2: ( RULE_ID )
-            // InternalSat.g:1667:3: RULE_ID
+            // InternalSat.g:1681:2: ( RULE_ID )
+            // InternalSat.g:1682:3: RULE_ID
             {
              before(grammarAccess.getVarAccess().getIdIDTerminalRuleCall_0()); 
             match(input,RULE_ID,FOLLOW_2); 
@@ -5054,21 +5095,21 @@ public class InternalSatParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Const__ValAssignment"
-    // InternalSat.g:1676:1: rule__Const__ValAssignment : ( ( rule__Const__ValAlternatives_0 ) ) ;
+    // InternalSat.g:1691:1: rule__Const__ValAssignment : ( ( rule__Const__ValAlternatives_0 ) ) ;
     public final void rule__Const__ValAssignment() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSat.g:1680:1: ( ( ( rule__Const__ValAlternatives_0 ) ) )
-            // InternalSat.g:1681:2: ( ( rule__Const__ValAlternatives_0 ) )
+            // InternalSat.g:1695:1: ( ( ( rule__Const__ValAlternatives_0 ) ) )
+            // InternalSat.g:1696:2: ( ( rule__Const__ValAlternatives_0 ) )
             {
-            // InternalSat.g:1681:2: ( ( rule__Const__ValAlternatives_0 ) )
-            // InternalSat.g:1682:3: ( rule__Const__ValAlternatives_0 )
+            // InternalSat.g:1696:2: ( ( rule__Const__ValAlternatives_0 ) )
+            // InternalSat.g:1697:3: ( rule__Const__ValAlternatives_0 )
             {
              before(grammarAccess.getConstAccess().getValAlternatives_0()); 
-            // InternalSat.g:1683:3: ( rule__Const__ValAlternatives_0 )
-            // InternalSat.g:1683:4: rule__Const__ValAlternatives_0
+            // InternalSat.g:1698:3: ( rule__Const__ValAlternatives_0 )
+            // InternalSat.g:1698:4: rule__Const__ValAlternatives_0
             {
             pushFollow(FOLLOW_2);
             rule__Const__ValAlternatives_0();
