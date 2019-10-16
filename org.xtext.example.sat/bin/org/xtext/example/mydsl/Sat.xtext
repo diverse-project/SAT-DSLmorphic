@@ -2,6 +2,20 @@ grammar org.xtext.example.mydsl.Sat with org.eclipse.xtext.common.Terminals
 
 generate sat "http://www.xtext.org/example/mydsl/Sat"
 
+
+
+Formula returns Formula:
+	Model | Instruction
+;
+
+Instruction returns Instruction:
+	Solver ? (("sat" expr=Model) | ("load" path=STRING))
+;
+
+Solver returns Solver:
+	str=("sat4j-java" | "sat4j-jar" | "sat4j-maven" )
+;
+
 Model returns Expression:
 	BiImpl
 ;

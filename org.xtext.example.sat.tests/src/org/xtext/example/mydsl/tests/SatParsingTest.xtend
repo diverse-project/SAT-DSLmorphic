@@ -11,6 +11,9 @@ import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.^extension.ExtendWith
 import org.xtext.example.mydsl.sat.Expression
+import org.xtext.example.mydsl.generator.CNFConverter
+import org.xtext.example.mydsl.generator.PrettyPrinter
+import org.xtext.example.mydsl.generator.DIMACSConverter
 
 @ExtendWith(InjectionExtension)
 @InjectWith(SatInjectorProvider)
@@ -26,6 +29,67 @@ class SatParsingTest {
 		Assertions.assertNotNull(result)
 		val errors = result.eResource.errors
 		Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
+		
+		println("model=" + result)
+	}
+	
+	@Test
+	def void loadModel2() {
+		val result = parseHelper.parse('''
+			!( A <=> ((B ^ C v A ) | !(C => D)))
+		''')
+		Assertions.assertNotNull(result)
+		val errors = result.eResource.errors
+		Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
+		
+		println("model=" + result)
+	}
+	
+	@Test
+	def void loadModel3() {
+		val result = parseHelper.parse('''
+			!(!A v B)
+		''')
+		Assertions.assertNotNull(result)
+		val errors = result.eResource.errors
+		Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
+		println(PrettyPrinter.PrettyPrint(CNFConverter.CNFConvert_Simpl(result)))
+		Assertions.assertTrue(PrettyPrinter.PrettyPrint(CNFConverter.CNFConvert_Simpl(result)).equals("!!A v B"))
+		Assertions.assertTrue(PrettyPrinter.PrettyPrint(CNFConverter.CNFConvert_Neg(CNFConverter.CNFConvert_Simpl(result))).equals("A ^ !B"))
+		Assertions.assertTrue(PrettyPrinter.PrettyPrint(CNFConverter.CNFConvert(result)).equals("A ^ !B"))
+		
+		println("model=" + result)
+	}
+	
+	@Test
+	def void loadModel4() {
+		val result = parseHelper.parse('''
+			(A v B v C) ^ (B v !D)
+		''')
+		Assertions.assertNotNull(result)
+		val errors = result.eResource.errors
+		Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
+		println(PrettyPrinter.PrettyPrint(CNFConverter.CNFConvert_Simpl(result)))
+		Assertions.assertTrue(PrettyPrinter.PrettyPrint(CNFConverter.CNFConvert_Simpl(result)).equals("A v B v C ^ B v !D"))
+		Assertions.assertTrue(PrettyPrinter.PrettyPrint(CNFConverter.CNFConvert_Neg(CNFConverter.CNFConvert_Simpl(result))).equals("A v B v C ^ B v !D"))
+		Assertions.assertTrue(PrettyPrinter.PrettyPrint(CNFConverter.CNFConvert(result)).equals("A v B v C ^ B v !D"))
+		Assertions.assertTrue(DIMACSConverter.toDIMACS(CNFConverter.CNFConvert(result)).equals("p cnf 4 2\n1 2 3 0\n2 -4 0"))
+		
+		println("model=" + result)
+	}
+	
+	@Test
+	def void loadModel5() {
+		val result = parseHelper.parse('''
+			A <=> !B
+		''')
+		Assertions.assertNotNull(result)
+		val errors = result.eResource.errors
+		Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
+		println(PrettyPrinter.PrettyPrint(CNFConverter.CNFConvert_Simpl(result)))
+		Assertions.assertTrue(PrettyPrinter.PrettyPrint(CNFConverter.CNFConvert_Simpl(result)).equals("!A v !B ^ !!B v A"))
+		Assertions.assertTrue(PrettyPrinter.PrettyPrint(CNFConverter.CNFConvert_Neg(CNFConverter.CNFConvert_Simpl(result))).equals("!A v !B ^ B v A"))
+		Assertions.assertTrue(PrettyPrinter.PrettyPrint(CNFConverter.CNFConvert(result)).equals("!A v !B ^ B v A"))
 		
 		println("model=" + result)
 	}

@@ -3,10 +3,19 @@
  */
 package org.xtext.example.mydsl.generator;
 
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.xtext.generator.AbstractGenerator;
 import org.eclipse.xtext.generator.IFileSystemAccess2;
 import org.eclipse.xtext.generator.IGeneratorContext;
+import org.eclipse.xtext.xbase.lib.InputOutput;
+import org.xtext.example.mydsl.generator.CNFConverter;
+import org.xtext.example.mydsl.generator.DIMACSConverter;
+import org.xtext.example.mydsl.generator.PrettyPrinter;
+import org.xtext.example.mydsl.generator.Solver;
+import org.xtext.example.mydsl.sat.Expression;
+import org.xtext.example.mydsl.sat.Instruction;
+import org.xtext.example.mydsl.sat.SatFactory;
 
 /**
  * Generates code from your model files on save.
@@ -17,5 +26,21 @@ import org.eclipse.xtext.generator.IGeneratorContext;
 public class SatGenerator extends AbstractGenerator {
   @Override
   public void doGenerate(final Resource resource, final IFileSystemAccess2 fsa, final IGeneratorContext context) {
+    Expression e = SatFactory.eINSTANCE.createExpression();
+    EObject _get = resource.getContents().get(0);
+    if ((_get instanceof Instruction)) {
+      EObject _get_1 = resource.getContents().get(0);
+      e = CNFConverter.CNFConvert(((Instruction) _get_1).getExpr());
+      String b = Solver.Solve_jar(e);
+      InputOutput.<String>println(("RESULT : " + b));
+    } else {
+      EObject _get_2 = resource.getContents().get(0);
+      e = ((Expression) _get_2);
+    }
+    String _PrettyPrint = PrettyPrinter.PrettyPrint(e);
+    String _plus = ("Current formula: \n" + _PrettyPrint);
+    InputOutput.<String>println(_plus);
+    String tdm = DIMACSConverter.toDIMACS(e);
+    InputOutput.<String>println(("DIMACS format: \n" + tdm));
   }
 }
