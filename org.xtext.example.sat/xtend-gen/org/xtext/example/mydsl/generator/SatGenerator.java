@@ -27,8 +27,6 @@ import org.xtext.example.mydsl.sat.Or;
 public class SatGenerator extends AbstractGenerator {
   @Override
   public void doGenerate(final Resource resource, final IFileSystemAccess2 fsa, final IGeneratorContext context) {
-    fsa.generateFile("sat.txt", SatGenerator.prettyPrinter(resource.getContents().get(0)));
-    fsa.generateFile("sat.cnf", SatGenerator.dimacsPrinter(resource.getContents().get(0)));
   }
   
   public static String dimacsPrinter(final EObject object) {
@@ -71,7 +69,7 @@ public class SatGenerator extends AbstractGenerator {
       boolean _not = (!_containsKey);
       if (_not) {
         map.put(((Expression)object).getId(), Integer.valueOf(count));
-        count = (count + 1);
+        count++;
       }
       String _res_7 = res;
       Integer _get = map.get(((Expression)object).getId());

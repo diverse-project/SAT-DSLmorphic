@@ -18,6 +18,11 @@ import org.xtext.example.mydsl.generator.SatGenerator
 class SatParsingTest {
 	@Inject
 	ParseHelper<Expression> parseHelper
+	// ParseHelper<SAT> parseHelper
+	
+	
+	// Files.writer(String, new File(String filename));
+	
 	
 	@Test
 	def void loadModel() {

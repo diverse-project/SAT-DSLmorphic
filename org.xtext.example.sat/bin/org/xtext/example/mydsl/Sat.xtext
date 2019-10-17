@@ -2,6 +2,15 @@ grammar org.xtext.example.mydsl.Sat with org.eclipse.xtext.common.Terminals
 
 generate sat "http://www.xtext.org/example/mydsl/Sat"
 
+SAT : sat=(File | Model) callMethod=SATCallMethod;
+
+enum SATCallMethod: 
+	SAT4J_JAVA='sat4j-java' 
+	| SAT4J_JAR='sat4J-jar'
+	| SAT4J_MAVEN='sat4j-maven';
+
+File : 'file:' dimacsFileName=STRING;
+
 Model returns Expression:
 	BiImpl
 ;

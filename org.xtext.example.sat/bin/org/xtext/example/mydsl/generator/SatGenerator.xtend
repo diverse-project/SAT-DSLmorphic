@@ -32,9 +32,10 @@ class SatGenerator extends AbstractGenerator {
 //				.map[id]
 //				.join(', '))
 			
-		fsa.generateFile('sat.txt', prettyPrinter(resource.getContents().get(0)));
+// TOUT METTRE DANS LES FICHIERS DE TEST
+//		fsa.generateFile('sat.txt', prettyPrinter(resource.getContents().get(0)));
 		
-		fsa.generateFile('sat.cnf', dimacsPrinter(resource.getContents().get(0)));
+//		fsa.generateFile('sat.cnf', dimacsPrinter(resource.getContents().get(0)));
 		
 	}
 		
@@ -61,7 +62,7 @@ class SatGenerator extends AbstractGenerator {
 		if (object instanceof Expression) {
 			if (!map.containsKey((object.getId()))){
 				map.put(object.getId(), count);
-				count = count + 1;
+				count++;
 			}
 			res += map.get(object.getId());
 		}
