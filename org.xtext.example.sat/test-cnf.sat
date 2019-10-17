@@ -1,1 +1,0 @@
-(a v b v c) ^ ((!a v c) ^ (!b)) ^ ((d v g v e v q v a v !f) ^ a)
