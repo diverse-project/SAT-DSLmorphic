@@ -41,6 +41,6 @@ class SatParsingTest {
 		val result = parseHelper.parse('''
 			(A v ! B) ^ (B v C v ! A)
 		''')
-		Assertions.assertTrue(SatGenerator.dimacsPrinter(result).equals("1 -111 0\n1 11 -1111 0\n"));
+		Assertions.assertTrue(Utils.dimacsPrinter(result).equals("1 -111 0\n1 11 -1111 0\n"));
 	}
 }
