@@ -11,9 +11,9 @@
       <genEnumLiterals ecoreEnumLiteral="Satt.ecore#//SATCallMethod/SAT4J_JAR"/>
       <genEnumLiterals ecoreEnumLiteral="Satt.ecore#//SATCallMethod/SAT4J_MAVEN"/>
     </genEnums>
-    <genClasses ecoreClass="Satt.ecore#//SAT">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Satt.ecore#//SAT/source"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Satt.ecore#//SAT/callMethod"/>
+    <genClasses ecoreClass="Satt.ecore#//Sat">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Satt.ecore#//Sat/source"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Satt.ecore#//Sat/callMethod"/>
     </genClasses>
     <genClasses ecoreClass="Satt.ecore#//FILE">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Satt.ecore#//FILE/file"/>

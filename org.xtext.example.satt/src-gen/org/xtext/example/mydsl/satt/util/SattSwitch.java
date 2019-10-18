@@ -75,8 +75,8 @@ public class SattSwitch<T> extends Switch<T>
     {
       case SattPackage.SAT:
       {
-        SAT sat = (SAT)theEObject;
-        T result = caseSAT(sat);
+        Sat sat = (Sat)theEObject;
+        T result = caseSat(sat);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -147,17 +147,17 @@ public class SattSwitch<T> extends Switch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>SAT</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Sat</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>SAT</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Sat</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseSAT(SAT object)
+  public T caseSat(Sat object)
   {
     return null;
   }

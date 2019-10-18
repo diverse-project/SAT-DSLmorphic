@@ -76,9 +76,9 @@ public class SattAdapterFactory extends AdapterFactoryImpl
     new SattSwitch<Adapter>()
     {
       @Override
-      public Adapter caseSAT(SAT object)
+      public Adapter caseSat(Sat object)
       {
-        return createSATAdapter();
+        return createSatAdapter();
       }
       @Override
       public Adapter caseFILE(FILE object)
@@ -143,16 +143,16 @@ public class SattAdapterFactory extends AdapterFactoryImpl
 
 
   /**
-   * Creates a new adapter for an object of class '{@link org.xtext.example.mydsl.satt.SAT <em>SAT</em>}'.
+   * Creates a new adapter for an object of class '{@link org.xtext.example.mydsl.satt.Sat <em>Sat</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see org.xtext.example.mydsl.satt.SAT
+   * @see org.xtext.example.mydsl.satt.Sat
    * @generated
    */
-  public Adapter createSATAdapter()
+  public Adapter createSatAdapter()
   {
     return null;
   }

@@ -158,9 +158,9 @@ ruleFILE returns [EObject current=null]
 		}
 		(
 			(
-				lv_file_1_0=RULE_ID
+				lv_file_1_0=RULE_STRING
 				{
-					newLeafNode(lv_file_1_0, grammarAccess.getFILEAccess().getFileIDTerminalRuleCall_1_0());
+					newLeafNode(lv_file_1_0, grammarAccess.getFILEAccess().getFileSTRINGTerminalRuleCall_1_0());
 				}
 				{
 					if ($current==null) {
@@ -170,7 +170,7 @@ ruleFILE returns [EObject current=null]
 						$current,
 						"file",
 						lv_file_1_0,
-						"org.eclipse.xtext.common.Terminals.ID");
+						"org.eclipse.xtext.common.Terminals.STRING");
 				}
 			)
 		)

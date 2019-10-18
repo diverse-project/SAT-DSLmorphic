@@ -59,11 +59,11 @@ public interface SattPackage extends EPackage
   SattPackage eINSTANCE = org.xtext.example.mydsl.satt.impl.SattPackageImpl.init();
 
   /**
-   * The meta object id for the '{@link org.xtext.example.mydsl.satt.impl.SATImpl <em>SAT</em>}' class.
+   * The meta object id for the '{@link org.xtext.example.mydsl.satt.impl.SatImpl <em>Sat</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see org.xtext.example.mydsl.satt.impl.SATImpl
-   * @see org.xtext.example.mydsl.satt.impl.SattPackageImpl#getSAT()
+   * @see org.xtext.example.mydsl.satt.impl.SatImpl
+   * @see org.xtext.example.mydsl.satt.impl.SattPackageImpl#getSat()
    * @generated
    */
   int SAT = 0;
@@ -87,7 +87,7 @@ public interface SattPackage extends EPackage
   int SAT__CALL_METHOD = 1;
 
   /**
-   * The number of structural features of the '<em>SAT</em>' class.
+   * The number of structural features of the '<em>Sat</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
@@ -493,36 +493,36 @@ public interface SattPackage extends EPackage
 
 
   /**
-   * Returns the meta object for class '{@link org.xtext.example.mydsl.satt.SAT <em>SAT</em>}'.
+   * Returns the meta object for class '{@link org.xtext.example.mydsl.satt.Sat <em>Sat</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for class '<em>SAT</em>'.
-   * @see org.xtext.example.mydsl.satt.SAT
+   * @return the meta object for class '<em>Sat</em>'.
+   * @see org.xtext.example.mydsl.satt.Sat
    * @generated
    */
-  EClass getSAT();
+  EClass getSat();
 
   /**
-   * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl.satt.SAT#getSource <em>Source</em>}'.
+   * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl.satt.Sat#getSource <em>Source</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the containment reference '<em>Source</em>'.
-   * @see org.xtext.example.mydsl.satt.SAT#getSource()
-   * @see #getSAT()
+   * @see org.xtext.example.mydsl.satt.Sat#getSource()
+   * @see #getSat()
    * @generated
    */
-  EReference getSAT_Source();
+  EReference getSat_Source();
 
   /**
-   * Returns the meta object for the attribute '{@link org.xtext.example.mydsl.satt.SAT#getCallMethod <em>Call Method</em>}'.
+   * Returns the meta object for the attribute '{@link org.xtext.example.mydsl.satt.Sat#getCallMethod <em>Call Method</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the attribute '<em>Call Method</em>'.
-   * @see org.xtext.example.mydsl.satt.SAT#getCallMethod()
-   * @see #getSAT()
+   * @see org.xtext.example.mydsl.satt.Sat#getCallMethod()
+   * @see #getSat()
    * @generated
    */
-  EAttribute getSAT_CallMethod();
+  EAttribute getSat_CallMethod();
 
   /**
    * Returns the meta object for class '{@link org.xtext.example.mydsl.satt.FILE <em>FILE</em>}'.
@@ -792,14 +792,14 @@ public interface SattPackage extends EPackage
   interface Literals
   {
     /**
-     * The meta object literal for the '{@link org.xtext.example.mydsl.satt.impl.SATImpl <em>SAT</em>}' class.
+     * The meta object literal for the '{@link org.xtext.example.mydsl.satt.impl.SatImpl <em>Sat</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see org.xtext.example.mydsl.satt.impl.SATImpl
-     * @see org.xtext.example.mydsl.satt.impl.SattPackageImpl#getSAT()
+     * @see org.xtext.example.mydsl.satt.impl.SatImpl
+     * @see org.xtext.example.mydsl.satt.impl.SattPackageImpl#getSat()
      * @generated
      */
-    EClass SAT = eINSTANCE.getSAT();
+    EClass SAT = eINSTANCE.getSat();
 
     /**
      * The meta object literal for the '<em><b>Source</b></em>' containment reference feature.
@@ -807,7 +807,7 @@ public interface SattPackage extends EPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference SAT__SOURCE = eINSTANCE.getSAT_Source();
+    EReference SAT__SOURCE = eINSTANCE.getSat_Source();
 
     /**
      * The meta object literal for the '<em><b>Call Method</b></em>' attribute feature.
@@ -815,7 +815,7 @@ public interface SattPackage extends EPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute SAT__CALL_METHOD = eINSTANCE.getSAT_CallMethod();
+    EAttribute SAT__CALL_METHOD = eINSTANCE.getSat_CallMethod();
 
     /**
      * The meta object literal for the '{@link org.xtext.example.mydsl.satt.impl.FILEImpl <em>FILE</em>}' class.

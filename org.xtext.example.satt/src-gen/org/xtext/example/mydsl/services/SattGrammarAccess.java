@@ -36,7 +36,7 @@ public class SattGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cCallMethodAssignment_1 = (Assignment)cGroup.eContents().get(1);
 		private final RuleCall cCallMethodSATCallMethodEnumRuleCall_1_0 = (RuleCall)cCallMethodAssignment_1.eContents().get(0);
 		
-		//SAT:
+		//SAT Sat:
 		//	source=(FILE | Model) callMethod=SATCallMethod;
 		@Override public ParserRule getRule() { return rule; }
 		
@@ -66,23 +66,23 @@ public class SattGrammarAccess extends AbstractGrammarElementFinder {
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Keyword cFileKeyword_0 = (Keyword)cGroup.eContents().get(0);
 		private final Assignment cFileAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cFileIDTerminalRuleCall_1_0 = (RuleCall)cFileAssignment_1.eContents().get(0);
+		private final RuleCall cFileSTRINGTerminalRuleCall_1_0 = (RuleCall)cFileAssignment_1.eContents().get(0);
 		
 		//FILE:
-		//	'file' file=ID;
+		//	'file' file=STRING;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'file' file=ID
+		//'file' file=STRING
 		public Group getGroup() { return cGroup; }
 		
 		//'file'
 		public Keyword getFileKeyword_0() { return cFileKeyword_0; }
 		
-		//file=ID
+		//file=STRING
 		public Assignment getFileAssignment_1() { return cFileAssignment_1; }
 		
-		//ID
-		public RuleCall getFileIDTerminalRuleCall_1_0() { return cFileIDTerminalRuleCall_1_0; }
+		//STRING
+		public RuleCall getFileSTRINGTerminalRuleCall_1_0() { return cFileSTRINGTerminalRuleCall_1_0; }
 	}
 	public class ModelElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.mydsl.Satt.Model");
@@ -488,7 +488,7 @@ public class SattGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	
-	//SAT:
+	//SAT Sat:
 	//	source=(FILE | Model) callMethod=SATCallMethod;
 	public SATElements getSATAccess() {
 		return pSAT;
@@ -499,7 +499,7 @@ public class SattGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//FILE:
-	//	'file' file=ID;
+	//	'file' file=STRING;
 	public FILEElements getFILEAccess() {
 		return pFILE;
 	}

@@ -60,7 +60,9 @@ public class SattParsingTest {
   public void transform() {
     try {
       StringConcatenation _builder = new StringConcatenation();
-      _builder.append("A ^ (B v C)");
+      _builder.append("A ^ (B v C) ^ (~A)");
+      _builder.newLine();
+      _builder.append("sat4j-java");
       _builder.newLine();
       final Expression expression = this.parseHelper.parse(_builder);
       SattParsingTest.pretty_print(expression);

@@ -1490,9 +1490,9 @@ rule__FILE__FileAssignment_1
 	}
 :
 	(
-		{ before(grammarAccess.getFILEAccess().getFileIDTerminalRuleCall_1_0()); }
-		RULE_ID
-		{ after(grammarAccess.getFILEAccess().getFileIDTerminalRuleCall_1_0()); }
+		{ before(grammarAccess.getFILEAccess().getFileSTRINGTerminalRuleCall_1_0()); }
+		RULE_STRING
+		{ after(grammarAccess.getFILEAccess().getFileSTRINGTerminalRuleCall_1_0()); }
 	)
 ;
 finally {

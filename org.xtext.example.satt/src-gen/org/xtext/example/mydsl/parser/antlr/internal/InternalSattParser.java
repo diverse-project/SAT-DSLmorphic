@@ -22,9 +22,9 @@ import java.util.ArrayList;
 @SuppressWarnings("all")
 public class InternalSattParser extends AbstractInternalAntlrParser {
     public static final String[] tokenNames = new String[] {
-        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_ID", "RULE_INT", "RULE_STRING", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'file'", "'<=>'", "'=>'", "'v'", "'^'", "'|'", "'\\u2191'", "'('", "')'", "'!'", "'~'", "'true'", "'false'", "'sat4j-java'", "'sat4j-jar'", "'sat4j-maven'"
+        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_STRING", "RULE_ID", "RULE_INT", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'file'", "'<=>'", "'=>'", "'v'", "'^'", "'|'", "'\\u2191'", "'('", "')'", "'!'", "'~'", "'true'", "'false'", "'sat4j-java'", "'sat4j-jar'", "'sat4j-maven'"
     };
-    public static final int RULE_STRING=6;
+    public static final int RULE_STRING=4;
     public static final int RULE_SL_COMMENT=8;
     public static final int T__19=19;
     public static final int T__15=15;
@@ -36,11 +36,11 @@ public class InternalSattParser extends AbstractInternalAntlrParser {
     public static final int T__13=13;
     public static final int T__14=14;
     public static final int EOF=-1;
-    public static final int RULE_ID=4;
+    public static final int RULE_ID=5;
     public static final int RULE_WS=9;
     public static final int RULE_ANY_OTHER=10;
     public static final int T__26=26;
-    public static final int RULE_INT=5;
+    public static final int RULE_INT=6;
     public static final int T__22=22;
     public static final int RULE_ML_COMMENT=7;
     public static final int T__23=23;
@@ -318,7 +318,7 @@ public class InternalSattParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleFILE"
-    // InternalSatt.g:147:1: ruleFILE returns [EObject current=null] : (otherlv_0= 'file' ( (lv_file_1_0= RULE_ID ) ) ) ;
+    // InternalSatt.g:147:1: ruleFILE returns [EObject current=null] : (otherlv_0= 'file' ( (lv_file_1_0= RULE_STRING ) ) ) ;
     public final EObject ruleFILE() throws RecognitionException {
         EObject current = null;
 
@@ -329,25 +329,25 @@ public class InternalSattParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalSatt.g:153:2: ( (otherlv_0= 'file' ( (lv_file_1_0= RULE_ID ) ) ) )
-            // InternalSatt.g:154:2: (otherlv_0= 'file' ( (lv_file_1_0= RULE_ID ) ) )
+            // InternalSatt.g:153:2: ( (otherlv_0= 'file' ( (lv_file_1_0= RULE_STRING ) ) ) )
+            // InternalSatt.g:154:2: (otherlv_0= 'file' ( (lv_file_1_0= RULE_STRING ) ) )
             {
-            // InternalSatt.g:154:2: (otherlv_0= 'file' ( (lv_file_1_0= RULE_ID ) ) )
-            // InternalSatt.g:155:3: otherlv_0= 'file' ( (lv_file_1_0= RULE_ID ) )
+            // InternalSatt.g:154:2: (otherlv_0= 'file' ( (lv_file_1_0= RULE_STRING ) ) )
+            // InternalSatt.g:155:3: otherlv_0= 'file' ( (lv_file_1_0= RULE_STRING ) )
             {
             otherlv_0=(Token)match(input,11,FOLLOW_4); 
 
             			newLeafNode(otherlv_0, grammarAccess.getFILEAccess().getFileKeyword_0());
             		
-            // InternalSatt.g:159:3: ( (lv_file_1_0= RULE_ID ) )
-            // InternalSatt.g:160:4: (lv_file_1_0= RULE_ID )
+            // InternalSatt.g:159:3: ( (lv_file_1_0= RULE_STRING ) )
+            // InternalSatt.g:160:4: (lv_file_1_0= RULE_STRING )
             {
-            // InternalSatt.g:160:4: (lv_file_1_0= RULE_ID )
-            // InternalSatt.g:161:5: lv_file_1_0= RULE_ID
+            // InternalSatt.g:160:4: (lv_file_1_0= RULE_STRING )
+            // InternalSatt.g:161:5: lv_file_1_0= RULE_STRING
             {
-            lv_file_1_0=(Token)match(input,RULE_ID,FOLLOW_2); 
+            lv_file_1_0=(Token)match(input,RULE_STRING,FOLLOW_2); 
 
-            					newLeafNode(lv_file_1_0, grammarAccess.getFILEAccess().getFileIDTerminalRuleCall_1_0());
+            					newLeafNode(lv_file_1_0, grammarAccess.getFILEAccess().getFileSTRINGTerminalRuleCall_1_0());
             				
 
             					if (current==null) {
@@ -357,7 +357,7 @@ public class InternalSattParser extends AbstractInternalAntlrParser {
             						current,
             						"file",
             						lv_file_1_0,
-            						"org.eclipse.xtext.common.Terminals.ID");
+            						"org.eclipse.xtext.common.Terminals.STRING");
             				
 
             }
@@ -2005,7 +2005,7 @@ public class InternalSattParser extends AbstractInternalAntlrParser {
     public static final BitSet FOLLOW_3 = new BitSet(new long[]{0x0000000007000000L});
     public static final BitSet FOLLOW_4 = new BitSet(new long[]{0x0000000000000010L});
     public static final BitSet FOLLOW_5 = new BitSet(new long[]{0x0000000000001002L});
-    public static final BitSet FOLLOW_6 = new BitSet(new long[]{0x0000000000F40010L});
+    public static final BitSet FOLLOW_6 = new BitSet(new long[]{0x0000000000F40020L});
     public static final BitSet FOLLOW_7 = new BitSet(new long[]{0x0000000000002002L});
     public static final BitSet FOLLOW_8 = new BitSet(new long[]{0x0000000000004002L});
     public static final BitSet FOLLOW_9 = new BitSet(new long[]{0x0000000000008002L});

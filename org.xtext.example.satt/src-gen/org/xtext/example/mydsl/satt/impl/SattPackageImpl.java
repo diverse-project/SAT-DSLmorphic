@@ -19,6 +19,7 @@ import org.xtext.example.mydsl.satt.Nand;
 import org.xtext.example.mydsl.satt.Not;
 import org.xtext.example.mydsl.satt.Or;
 import org.xtext.example.mydsl.satt.SATCallMethod;
+import org.xtext.example.mydsl.satt.Sat;
 import org.xtext.example.mydsl.satt.SattFactory;
 import org.xtext.example.mydsl.satt.SattPackage;
 
@@ -169,7 +170,7 @@ public class SattPackageImpl extends EPackageImpl implements SattPackage
    * @generated
    */
   @Override
-  public EClass getSAT()
+  public EClass getSat()
   {
     return satEClass;
   }
@@ -180,7 +181,7 @@ public class SattPackageImpl extends EPackageImpl implements SattPackage
    * @generated
    */
   @Override
-  public EReference getSAT_Source()
+  public EReference getSat_Source()
   {
     return (EReference)satEClass.getEStructuralFeatures().get(0);
   }
@@ -191,7 +192,7 @@ public class SattPackageImpl extends EPackageImpl implements SattPackage
    * @generated
    */
   @Override
-  public EAttribute getSAT_CallMethod()
+  public EAttribute getSat_CallMethod()
   {
     return (EAttribute)satEClass.getEStructuralFeatures().get(1);
   }
@@ -555,9 +556,9 @@ public class SattPackageImpl extends EPackageImpl implements SattPackage
     notEClass.getESuperTypes().add(this.getExpression());
 
     // Initialize classes and features; add operations and parameters
-    initEClass(satEClass, org.xtext.example.mydsl.satt.SAT.class, "SAT", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getSAT_Source(), ecorePackage.getEObject(), null, "source", null, 0, 1, org.xtext.example.mydsl.satt.SAT.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getSAT_CallMethod(), this.getSATCallMethod(), "callMethod", null, 0, 1, org.xtext.example.mydsl.satt.SAT.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEClass(satEClass, Sat.class, "Sat", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getSat_Source(), ecorePackage.getEObject(), null, "source", null, 0, 1, Sat.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getSat_CallMethod(), this.getSATCallMethod(), "callMethod", null, 0, 1, Sat.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(fileEClass, org.xtext.example.mydsl.satt.FILE.class, "FILE", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getFILE_File(), ecorePackage.getEString(), "file", null, 0, 1, org.xtext.example.mydsl.satt.FILE.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

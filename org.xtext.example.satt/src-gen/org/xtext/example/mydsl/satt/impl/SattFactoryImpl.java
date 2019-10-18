@@ -66,7 +66,7 @@ public class SattFactoryImpl extends EFactoryImpl implements SattFactory
   {
     switch (eClass.getClassifierID())
     {
-      case SattPackage.SAT: return createSAT();
+      case SattPackage.SAT: return createSat();
       case SattPackage.FILE: return createFILE();
       case SattPackage.EXPRESSION: return createExpression();
       case SattPackage.BI_IMPL: return createBiImpl();
@@ -120,9 +120,9 @@ public class SattFactoryImpl extends EFactoryImpl implements SattFactory
    * @generated
    */
   @Override
-  public SAT createSAT()
+  public Sat createSat()
   {
-    SATImpl sat = new SATImpl();
+    SatImpl sat = new SatImpl();
     return sat;
   }
 

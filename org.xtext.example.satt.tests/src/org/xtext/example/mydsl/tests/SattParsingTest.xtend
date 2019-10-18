@@ -45,7 +45,8 @@ class SattParsingTest {
 		//println(variable);
 		
 		val expression = parseHelper.parse('''
-				A ^ (B v C)
+				A ^ (B v C) ^ (~A)
+				sat4j-java
 		''')
 		
 		pretty_print(expression)

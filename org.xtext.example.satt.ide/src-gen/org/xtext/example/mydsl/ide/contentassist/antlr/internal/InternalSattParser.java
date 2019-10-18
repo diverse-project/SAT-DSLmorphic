@@ -22,9 +22,9 @@ import java.util.ArrayList;
 @SuppressWarnings("all")
 public class InternalSattParser extends AbstractInternalContentAssistParser {
     public static final String[] tokenNames = new String[] {
-        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_ID", "RULE_INT", "RULE_STRING", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'|'", "'\\u2191'", "'!'", "'~'", "'true'", "'false'", "'sat4j-java'", "'sat4j-jar'", "'sat4j-maven'", "'file'", "'<=>'", "'=>'", "'v'", "'^'", "'('", "')'"
+        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_STRING", "RULE_ID", "RULE_INT", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'|'", "'\\u2191'", "'!'", "'~'", "'true'", "'false'", "'sat4j-java'", "'sat4j-jar'", "'sat4j-maven'", "'file'", "'<=>'", "'=>'", "'v'", "'^'", "'('", "')'"
     };
-    public static final int RULE_STRING=6;
+    public static final int RULE_STRING=4;
     public static final int RULE_SL_COMMENT=8;
     public static final int T__19=19;
     public static final int T__15=15;
@@ -36,11 +36,11 @@ public class InternalSattParser extends AbstractInternalContentAssistParser {
     public static final int T__13=13;
     public static final int T__14=14;
     public static final int EOF=-1;
-    public static final int RULE_ID=4;
+    public static final int RULE_ID=5;
     public static final int RULE_WS=9;
     public static final int RULE_ANY_OTHER=10;
     public static final int T__26=26;
-    public static final int RULE_INT=5;
+    public static final int RULE_INT=6;
     public static final int T__22=22;
     public static final int RULE_ML_COMMENT=7;
     public static final int T__23=23;
@@ -4505,21 +4505,21 @@ public class InternalSattParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__FILE__FileAssignment_1"
-    // InternalSatt.g:1487:1: rule__FILE__FileAssignment_1 : ( RULE_ID ) ;
+    // InternalSatt.g:1487:1: rule__FILE__FileAssignment_1 : ( RULE_STRING ) ;
     public final void rule__FILE__FileAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSatt.g:1491:1: ( ( RULE_ID ) )
-            // InternalSatt.g:1492:2: ( RULE_ID )
+            // InternalSatt.g:1491:1: ( ( RULE_STRING ) )
+            // InternalSatt.g:1492:2: ( RULE_STRING )
             {
-            // InternalSatt.g:1492:2: ( RULE_ID )
-            // InternalSatt.g:1493:3: RULE_ID
+            // InternalSatt.g:1492:2: ( RULE_STRING )
+            // InternalSatt.g:1493:3: RULE_STRING
             {
-             before(grammarAccess.getFILEAccess().getFileIDTerminalRuleCall_1_0()); 
-            match(input,RULE_ID,FOLLOW_2); 
-             after(grammarAccess.getFILEAccess().getFileIDTerminalRuleCall_1_0()); 
+             before(grammarAccess.getFILEAccess().getFileSTRINGTerminalRuleCall_1_0()); 
+            match(input,RULE_STRING,FOLLOW_2); 
+             after(grammarAccess.getFILEAccess().getFileSTRINGTerminalRuleCall_1_0()); 
 
             }
 
@@ -4840,7 +4840,7 @@ public class InternalSattParser extends AbstractInternalContentAssistParser {
     public static final BitSet FOLLOW_4 = new BitSet(new long[]{0x0000000000000010L});
     public static final BitSet FOLLOW_5 = new BitSet(new long[]{0x0000000000200000L});
     public static final BitSet FOLLOW_6 = new BitSet(new long[]{0x0000000000200002L});
-    public static final BitSet FOLLOW_7 = new BitSet(new long[]{0x000000000201E010L});
+    public static final BitSet FOLLOW_7 = new BitSet(new long[]{0x000000000201E020L});
     public static final BitSet FOLLOW_8 = new BitSet(new long[]{0x0000000000400000L});
     public static final BitSet FOLLOW_9 = new BitSet(new long[]{0x0000000000400002L});
     public static final BitSet FOLLOW_10 = new BitSet(new long[]{0x0000000000800000L});

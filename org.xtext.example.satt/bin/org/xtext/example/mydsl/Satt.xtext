@@ -2,12 +2,12 @@ grammar org.xtext.example.mydsl.Satt with org.eclipse.xtext.common.Terminals
 
 generate satt "http://www.xtext.org/example/mydsl/Satt"
 
-SAT :
-	source=(FILE | Model) callMethod = SATCallMethod
+SAT returns Sat:
+	source=(FILE | Model) callMethod=SATCallMethod
 ;
 
-FILE : 
-	'file' file=ID
+FILE returns FILE: 
+	'file' file=STRING
 ;
 
 enum SATCallMethod :  SAT4J_JAVA='sat4j-java' | SAT4J_JAR = 'sat4j-jar' | SAT4J_MAVEN = 'sat4j-maven';

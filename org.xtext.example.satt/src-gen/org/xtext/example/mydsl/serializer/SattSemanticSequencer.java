@@ -22,7 +22,7 @@ import org.xtext.example.mydsl.satt.Impl;
 import org.xtext.example.mydsl.satt.Nand;
 import org.xtext.example.mydsl.satt.Not;
 import org.xtext.example.mydsl.satt.Or;
-import org.xtext.example.mydsl.satt.SAT;
+import org.xtext.example.mydsl.satt.Sat;
 import org.xtext.example.mydsl.satt.SattPackage;
 import org.xtext.example.mydsl.services.SattGrammarAccess;
 
@@ -88,7 +88,7 @@ public class SattSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 				sequence_Or(context, (Or) semanticObject); 
 				return; 
 			case SattPackage.SAT:
-				sequence_SAT(context, (SAT) semanticObject); 
+				sequence_SAT(context, (Sat) semanticObject); 
 				return; 
 			}
 		if (errorAcceptor != null)
@@ -202,7 +202,7 @@ public class SattSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     FILE returns FILE
 	 *
 	 * Constraint:
-	 *     file=ID
+	 *     file=STRING
 	 */
 	protected void sequence_FILE(ISerializationContext context, FILE semanticObject) {
 		if (errorAcceptor != null) {
@@ -210,7 +210,7 @@ public class SattSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, SattPackage.Literals.FILE__FILE));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getFILEAccess().getFileIDTerminalRuleCall_1_0(), semanticObject.getFile());
+		feeder.accept(grammarAccess.getFILEAccess().getFileSTRINGTerminalRuleCall_1_0(), semanticObject.getFile());
 		feeder.finish();
 	}
 	
@@ -347,12 +347,12 @@ public class SattSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	
 	/**
 	 * Contexts:
-	 *     SAT returns SAT
+	 *     SAT returns Sat
 	 *
 	 * Constraint:
 	 *     ((source=FILE | source=Model) callMethod=SATCallMethod)
 	 */
-	protected void sequence_SAT(ISerializationContext context, SAT semanticObject) {
+	protected void sequence_SAT(ISerializationContext context, Sat semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
