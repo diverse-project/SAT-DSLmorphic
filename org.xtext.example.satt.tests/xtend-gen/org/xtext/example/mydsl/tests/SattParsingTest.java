@@ -4,6 +4,8 @@
 package org.xtext.example.mydsl.tests;
 
 import com.google.inject.Inject;
+import java.io.File;
+import java.io.FileWriter;
 import java.util.ArrayList;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
@@ -55,10 +57,22 @@ public class SattParsingTest {
   }
   
   @Test
-  public Object transform() {
-    throw new Error("Unresolved compilation problems:"
-      + "\nThe method or field fsa is undefined"
-      + "\ngenerateFile cannot be resolved");
+  public void transform() {
+    try {
+      StringConcatenation _builder = new StringConcatenation();
+      _builder.append("A ^ (B v C)");
+      _builder.newLine();
+      final Expression expression = this.parseHelper.parse(_builder);
+      SattParsingTest.pretty_print(expression);
+      InputOutput.<String>print("\n");
+      final String filename = "wesh_la_jeunesse.txt";
+      File _file = new File(filename);
+      final FileWriter fileWriter = new FileWriter(_file);
+      fileWriter.write("poueeet");
+      fileWriter.close();
+    } catch (Throwable _e) {
+      throw Exceptions.sneakyThrow(_e);
+    }
   }
   
   public static String prop_to_dimacs(final EObject formule) {

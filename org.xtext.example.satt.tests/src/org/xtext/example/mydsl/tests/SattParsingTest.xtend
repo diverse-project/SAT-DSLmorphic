@@ -19,6 +19,8 @@ import org.xtext.example.mydsl.satt.Impl
 import org.xtext.example.mydsl.satt.Nand
 import org.xtext.example.mydsl.satt.Not
 import org.xtext.example.mydsl.satt.Or
+import java.io.File
+import java.io.FileWriter
 
 @ExtendWith(InjectionExtension)
 @InjectWith(SattInjectorProvider)
@@ -57,10 +59,14 @@ class SattParsingTest {
 		//print("\n")
 		
 		//println(expression);
-		
+		val filename= "wesh_la_jeunesse.txt"
+		val fileWriter = new FileWriter(new File(filename));
+		fileWriter.write("poueeet");
+		fileWriter.close();
 		//passer par fileWriter
-		fsa.generateFile('formula.cnf', prop_to_dimacs(expression))
+		//fsa.generateFile('formula.cnf', prop_to_dimacs(expression))
 	}
+
 	
 	static def String prop_to_dimacs(EObject formule)
 	{
