@@ -6,6 +6,18 @@
     complianceLevel="6.0" copyrightFields="false" runtimeVersion="2.19">
   <genPackages prefix="Satt" basePackage="org.xtext.example.mydsl" disposableProviderFactory="true"
       fileExtensions="theos" ecorePackage="Satt.ecore#/">
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="Satt.ecore#//SATCallMethod">
+      <genEnumLiterals ecoreEnumLiteral="Satt.ecore#//SATCallMethod/SAT4J_JAVA"/>
+      <genEnumLiterals ecoreEnumLiteral="Satt.ecore#//SATCallMethod/SAT4J_JAR"/>
+      <genEnumLiterals ecoreEnumLiteral="Satt.ecore#//SATCallMethod/SAT4J_MAVEN"/>
+    </genEnums>
+    <genClasses ecoreClass="Satt.ecore#//SAT">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Satt.ecore#//SAT/source"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Satt.ecore#//SAT/callMethod"/>
+    </genClasses>
+    <genClasses ecoreClass="Satt.ecore#//FILE">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Satt.ecore#//FILE/file"/>
+    </genClasses>
     <genClasses ecoreClass="Satt.ecore#//Expression">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Satt.ecore#//Expression/id"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Satt.ecore#//Expression/val"/>

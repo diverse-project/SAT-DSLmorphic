@@ -76,6 +76,16 @@ public class SattAdapterFactory extends AdapterFactoryImpl
     new SattSwitch<Adapter>()
     {
       @Override
+      public Adapter caseSAT(SAT object)
+      {
+        return createSATAdapter();
+      }
+      @Override
+      public Adapter caseFILE(FILE object)
+      {
+        return createFILEAdapter();
+      }
+      @Override
       public Adapter caseExpression(Expression object)
       {
         return createExpressionAdapter();
@@ -131,6 +141,36 @@ public class SattAdapterFactory extends AdapterFactoryImpl
     return modelSwitch.doSwitch((EObject)target);
   }
 
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.example.mydsl.satt.SAT <em>SAT</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.example.mydsl.satt.SAT
+   * @generated
+   */
+  public Adapter createSATAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.example.mydsl.satt.FILE <em>FILE</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.example.mydsl.satt.FILE
+   * @generated
+   */
+  public Adapter createFILEAdapter()
+  {
+    return null;
+  }
 
   /**
    * Creates a new adapter for an object of class '{@link org.xtext.example.mydsl.satt.Expression <em>Expression</em>}'.

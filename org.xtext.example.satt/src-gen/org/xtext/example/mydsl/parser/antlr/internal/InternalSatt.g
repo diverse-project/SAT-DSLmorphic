@@ -23,6 +23,7 @@ import org.eclipse.xtext.parser.*;
 import org.eclipse.xtext.parser.impl.*;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.common.util.Enumerator;
 import org.eclipse.xtext.parser.antlr.AbstractInternalAntlrParser;
 import org.eclipse.xtext.parser.antlr.XtextTokenStream;
 import org.eclipse.xtext.parser.antlr.XtextTokenStream.HiddenTokens;
@@ -43,7 +44,7 @@ import org.xtext.example.mydsl.services.SattGrammarAccess;
 
     @Override
     protected String getFirstRuleName() {
-    	return "Model";
+    	return "SAT";
    	}
 
    	@Override
@@ -59,6 +60,122 @@ import org.xtext.example.mydsl.services.SattGrammarAccess;
         appendSkippedTokens();
     }
 }
+
+// Entry rule entryRuleSAT
+entryRuleSAT returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getSATRule()); }
+	iv_ruleSAT=ruleSAT
+	{ $current=$iv_ruleSAT.current; }
+	EOF;
+
+// Rule SAT
+ruleSAT returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		(
+			(
+				(
+					{
+						newCompositeNode(grammarAccess.getSATAccess().getSourceFILEParserRuleCall_0_0_0());
+					}
+					lv_source_0_1=ruleFILE
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getSATRule());
+						}
+						set(
+							$current,
+							"source",
+							lv_source_0_1,
+							"org.xtext.example.mydsl.Satt.FILE");
+						afterParserOrEnumRuleCall();
+					}
+					    |
+					{
+						newCompositeNode(grammarAccess.getSATAccess().getSourceModelParserRuleCall_0_0_1());
+					}
+					lv_source_0_2=ruleModel
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getSATRule());
+						}
+						set(
+							$current,
+							"source",
+							lv_source_0_2,
+							"org.xtext.example.mydsl.Satt.Model");
+						afterParserOrEnumRuleCall();
+					}
+				)
+			)
+		)
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getSATAccess().getCallMethodSATCallMethodEnumRuleCall_1_0());
+				}
+				lv_callMethod_1_0=ruleSATCallMethod
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getSATRule());
+					}
+					set(
+						$current,
+						"callMethod",
+						lv_callMethod_1_0,
+						"org.xtext.example.mydsl.Satt.SATCallMethod");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)
+	)
+;
+
+// Entry rule entryRuleFILE
+entryRuleFILE returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getFILERule()); }
+	iv_ruleFILE=ruleFILE
+	{ $current=$iv_ruleFILE.current; }
+	EOF;
+
+// Rule FILE
+ruleFILE returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		otherlv_0='file'
+		{
+			newLeafNode(otherlv_0, grammarAccess.getFILEAccess().getFileKeyword_0());
+		}
+		(
+			(
+				lv_file_1_0=RULE_ID
+				{
+					newLeafNode(lv_file_1_0, grammarAccess.getFILEAccess().getFileIDTerminalRuleCall_1_0());
+				}
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getFILERule());
+					}
+					setWithLastConsumed(
+						$current,
+						"file",
+						lv_file_1_0,
+						"org.eclipse.xtext.common.Terminals.ID");
+				}
+			)
+		)
+	)
+;
 
 // Entry rule entryRuleModel
 entryRuleModel returns [EObject current=null]:
@@ -571,6 +688,41 @@ ruleConst returns [EObject current=null]
 					setWithLastConsumed($current, "val", lv_val_0_2, null);
 				}
 			)
+		)
+	)
+;
+
+// Rule SATCallMethod
+ruleSATCallMethod returns [Enumerator current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		(
+			enumLiteral_0='sat4j-java'
+			{
+				$current = grammarAccess.getSATCallMethodAccess().getSAT4J_JAVAEnumLiteralDeclaration_0().getEnumLiteral().getInstance();
+				newLeafNode(enumLiteral_0, grammarAccess.getSATCallMethodAccess().getSAT4J_JAVAEnumLiteralDeclaration_0());
+			}
+		)
+		    |
+		(
+			enumLiteral_1='sat4j-jar'
+			{
+				$current = grammarAccess.getSATCallMethodAccess().getSAT4J_JAREnumLiteralDeclaration_1().getEnumLiteral().getInstance();
+				newLeafNode(enumLiteral_1, grammarAccess.getSATCallMethodAccess().getSAT4J_JAREnumLiteralDeclaration_1());
+			}
+		)
+		    |
+		(
+			enumLiteral_2='sat4j-maven'
+			{
+				$current = grammarAccess.getSATCallMethodAccess().getSAT4J_MAVENEnumLiteralDeclaration_2().getEnumLiteral().getInstance();
+				newLeafNode(enumLiteral_2, grammarAccess.getSATCallMethodAccess().getSAT4J_MAVENEnumLiteralDeclaration_2());
+			}
 		)
 	)
 ;

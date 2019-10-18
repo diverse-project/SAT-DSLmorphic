@@ -27,7 +27,7 @@ public class SattParser extends AbstractAntlrParser {
 
 	@Override 
 	protected String getDefaultRuleName() {
-		return "Model";
+		return "SAT";
 	}
 
 	public SattGrammarAccess getGrammarAccess() {

@@ -9,6 +9,8 @@ import java.util.List;
 import org.eclipse.xtext.Action;
 import org.eclipse.xtext.Alternatives;
 import org.eclipse.xtext.Assignment;
+import org.eclipse.xtext.EnumLiteralDeclaration;
+import org.eclipse.xtext.EnumRule;
 import org.eclipse.xtext.Grammar;
 import org.eclipse.xtext.GrammarUtil;
 import org.eclipse.xtext.Group;
@@ -17,12 +19,71 @@ import org.eclipse.xtext.ParserRule;
 import org.eclipse.xtext.RuleCall;
 import org.eclipse.xtext.TerminalRule;
 import org.eclipse.xtext.common.services.TerminalsGrammarAccess;
+import org.eclipse.xtext.service.AbstractElementFinder.AbstractEnumRuleElementFinder;
 import org.eclipse.xtext.service.AbstractElementFinder.AbstractGrammarElementFinder;
 import org.eclipse.xtext.service.GrammarProvider;
 
 @Singleton
 public class SattGrammarAccess extends AbstractGrammarElementFinder {
 	
+	public class SATElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.mydsl.Satt.SAT");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Assignment cSourceAssignment_0 = (Assignment)cGroup.eContents().get(0);
+		private final Alternatives cSourceAlternatives_0_0 = (Alternatives)cSourceAssignment_0.eContents().get(0);
+		private final RuleCall cSourceFILEParserRuleCall_0_0_0 = (RuleCall)cSourceAlternatives_0_0.eContents().get(0);
+		private final RuleCall cSourceModelParserRuleCall_0_0_1 = (RuleCall)cSourceAlternatives_0_0.eContents().get(1);
+		private final Assignment cCallMethodAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cCallMethodSATCallMethodEnumRuleCall_1_0 = (RuleCall)cCallMethodAssignment_1.eContents().get(0);
+		
+		//SAT:
+		//	source=(FILE | Model) callMethod=SATCallMethod;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//source=(FILE | Model) callMethod=SATCallMethod
+		public Group getGroup() { return cGroup; }
+		
+		//source=(FILE | Model)
+		public Assignment getSourceAssignment_0() { return cSourceAssignment_0; }
+		
+		//(FILE | Model)
+		public Alternatives getSourceAlternatives_0_0() { return cSourceAlternatives_0_0; }
+		
+		//FILE
+		public RuleCall getSourceFILEParserRuleCall_0_0_0() { return cSourceFILEParserRuleCall_0_0_0; }
+		
+		//Model
+		public RuleCall getSourceModelParserRuleCall_0_0_1() { return cSourceModelParserRuleCall_0_0_1; }
+		
+		//callMethod=SATCallMethod
+		public Assignment getCallMethodAssignment_1() { return cCallMethodAssignment_1; }
+		
+		//SATCallMethod
+		public RuleCall getCallMethodSATCallMethodEnumRuleCall_1_0() { return cCallMethodSATCallMethodEnumRuleCall_1_0; }
+	}
+	public class FILEElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.mydsl.Satt.FILE");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cFileKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Assignment cFileAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cFileIDTerminalRuleCall_1_0 = (RuleCall)cFileAssignment_1.eContents().get(0);
+		
+		//FILE:
+		//	'file' file=ID;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//'file' file=ID
+		public Group getGroup() { return cGroup; }
+		
+		//'file'
+		public Keyword getFileKeyword_0() { return cFileKeyword_0; }
+		
+		//file=ID
+		public Assignment getFileAssignment_1() { return cFileAssignment_1; }
+		
+		//ID
+		public RuleCall getFileIDTerminalRuleCall_1_0() { return cFileIDTerminalRuleCall_1_0; }
+	}
 	public class ModelElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.mydsl.Satt.Model");
 		private final RuleCall cBiImplParserRuleCall = (RuleCall)rule.eContents().get(1);
@@ -326,7 +387,45 @@ public class SattGrammarAccess extends AbstractGrammarElementFinder {
 		public Keyword getValFalseKeyword_0_1() { return cValFalseKeyword_0_1; }
 	}
 	
+	public class SATCallMethodElements extends AbstractEnumRuleElementFinder {
+		private final EnumRule rule = (EnumRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.mydsl.Satt.SATCallMethod");
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final EnumLiteralDeclaration cSAT4J_JAVAEnumLiteralDeclaration_0 = (EnumLiteralDeclaration)cAlternatives.eContents().get(0);
+		private final Keyword cSAT4J_JAVASat4jJavaKeyword_0_0 = (Keyword)cSAT4J_JAVAEnumLiteralDeclaration_0.eContents().get(0);
+		private final EnumLiteralDeclaration cSAT4J_JAREnumLiteralDeclaration_1 = (EnumLiteralDeclaration)cAlternatives.eContents().get(1);
+		private final Keyword cSAT4J_JARSat4jJarKeyword_1_0 = (Keyword)cSAT4J_JAREnumLiteralDeclaration_1.eContents().get(0);
+		private final EnumLiteralDeclaration cSAT4J_MAVENEnumLiteralDeclaration_2 = (EnumLiteralDeclaration)cAlternatives.eContents().get(2);
+		private final Keyword cSAT4J_MAVENSat4jMavenKeyword_2_0 = (Keyword)cSAT4J_MAVENEnumLiteralDeclaration_2.eContents().get(0);
+		
+		//enum SATCallMethod:
+		//	SAT4J_JAVA='sat4j-java' | SAT4J_JAR='sat4j-jar' | SAT4J_MAVEN='sat4j-maven';
+		public EnumRule getRule() { return rule; }
+		
+		//SAT4J_JAVA='sat4j-java' | SAT4J_JAR='sat4j-jar' | SAT4J_MAVEN='sat4j-maven'
+		public Alternatives getAlternatives() { return cAlternatives; }
+		
+		//SAT4J_JAVA='sat4j-java'
+		public EnumLiteralDeclaration getSAT4J_JAVAEnumLiteralDeclaration_0() { return cSAT4J_JAVAEnumLiteralDeclaration_0; }
+		
+		//'sat4j-java'
+		public Keyword getSAT4J_JAVASat4jJavaKeyword_0_0() { return cSAT4J_JAVASat4jJavaKeyword_0_0; }
+		
+		//SAT4J_JAR='sat4j-jar'
+		public EnumLiteralDeclaration getSAT4J_JAREnumLiteralDeclaration_1() { return cSAT4J_JAREnumLiteralDeclaration_1; }
+		
+		//'sat4j-jar'
+		public Keyword getSAT4J_JARSat4jJarKeyword_1_0() { return cSAT4J_JARSat4jJarKeyword_1_0; }
+		
+		//SAT4J_MAVEN='sat4j-maven'
+		public EnumLiteralDeclaration getSAT4J_MAVENEnumLiteralDeclaration_2() { return cSAT4J_MAVENEnumLiteralDeclaration_2; }
+		
+		//'sat4j-maven'
+		public Keyword getSAT4J_MAVENSat4jMavenKeyword_2_0() { return cSAT4J_MAVENSat4jMavenKeyword_2_0; }
+	}
 	
+	private final SATElements pSAT;
+	private final FILEElements pFILE;
+	private final SATCallMethodElements eSATCallMethod;
 	private final ModelElements pModel;
 	private final BiImplElements pBiImpl;
 	private final ImplElements pImpl;
@@ -347,6 +446,9 @@ public class SattGrammarAccess extends AbstractGrammarElementFinder {
 			TerminalsGrammarAccess gaTerminals) {
 		this.grammar = internalFindGrammar(grammarProvider);
 		this.gaTerminals = gaTerminals;
+		this.pSAT = new SATElements();
+		this.pFILE = new FILEElements();
+		this.eSATCallMethod = new SATCallMethodElements();
 		this.pModel = new ModelElements();
 		this.pBiImpl = new BiImplElements();
 		this.pImpl = new ImplElements();
@@ -385,6 +487,36 @@ public class SattGrammarAccess extends AbstractGrammarElementFinder {
 		return gaTerminals;
 	}
 
+	
+	//SAT:
+	//	source=(FILE | Model) callMethod=SATCallMethod;
+	public SATElements getSATAccess() {
+		return pSAT;
+	}
+	
+	public ParserRule getSATRule() {
+		return getSATAccess().getRule();
+	}
+	
+	//FILE:
+	//	'file' file=ID;
+	public FILEElements getFILEAccess() {
+		return pFILE;
+	}
+	
+	public ParserRule getFILERule() {
+		return getFILEAccess().getRule();
+	}
+	
+	//enum SATCallMethod:
+	//	SAT4J_JAVA='sat4j-java' | SAT4J_JAR='sat4j-jar' | SAT4J_MAVEN='sat4j-maven';
+	public SATCallMethodElements getSATCallMethodAccess() {
+		return eSATCallMethod;
+	}
+	
+	public EnumRule getSATCallMethodRule() {
+		return getSATCallMethodAccess().getRule();
+	}
 	
 	//Model Expression:
 	//	BiImpl;

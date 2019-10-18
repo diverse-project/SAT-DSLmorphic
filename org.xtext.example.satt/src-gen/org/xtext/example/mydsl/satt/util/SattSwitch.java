@@ -73,6 +73,20 @@ public class SattSwitch<T> extends Switch<T>
   {
     switch (classifierID)
     {
+      case SattPackage.SAT:
+      {
+        SAT sat = (SAT)theEObject;
+        T result = caseSAT(sat);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case SattPackage.FILE:
+      {
+        FILE file = (FILE)theEObject;
+        T result = caseFILE(file);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       case SattPackage.EXPRESSION:
       {
         Expression expression = (Expression)theEObject;
@@ -130,6 +144,38 @@ public class SattSwitch<T> extends Switch<T>
       }
       default: return defaultCase(theEObject);
     }
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>SAT</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>SAT</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseSAT(SAT object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>FILE</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>FILE</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseFILE(FILE object)
+  {
+    return null;
   }
 
   /**

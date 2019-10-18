@@ -24,6 +24,24 @@ public interface SattFactory extends EFactory
   SattFactory eINSTANCE = org.xtext.example.mydsl.satt.impl.SattFactoryImpl.init();
 
   /**
+   * Returns a new object of class '<em>SAT</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>SAT</em>'.
+   * @generated
+   */
+  SAT createSAT();
+
+  /**
+   * Returns a new object of class '<em>FILE</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>FILE</em>'.
+   * @generated
+   */
+  FILE createFILE();
+
+  /**
    * Returns a new object of class '<em>Expression</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->

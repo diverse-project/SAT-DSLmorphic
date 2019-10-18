@@ -4,6 +4,7 @@
 package org.xtext.example.mydsl.satt.impl;
 
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 
@@ -65,6 +66,8 @@ public class SattFactoryImpl extends EFactoryImpl implements SattFactory
   {
     switch (eClass.getClassifierID())
     {
+      case SattPackage.SAT: return createSAT();
+      case SattPackage.FILE: return createFILE();
       case SattPackage.EXPRESSION: return createExpression();
       case SattPackage.BI_IMPL: return createBiImpl();
       case SattPackage.IMPL: return createImpl();
@@ -75,6 +78,64 @@ public class SattFactoryImpl extends EFactoryImpl implements SattFactory
       default:
         throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
     }
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Object createFromString(EDataType eDataType, String initialValue)
+  {
+    switch (eDataType.getClassifierID())
+    {
+      case SattPackage.SAT_CALL_METHOD:
+        return createSATCallMethodFromString(eDataType, initialValue);
+      default:
+        throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
+    }
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public String convertToString(EDataType eDataType, Object instanceValue)
+  {
+    switch (eDataType.getClassifierID())
+    {
+      case SattPackage.SAT_CALL_METHOD:
+        return convertSATCallMethodToString(eDataType, instanceValue);
+      default:
+        throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
+    }
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public SAT createSAT()
+  {
+    SATImpl sat = new SATImpl();
+    return sat;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public FILE createFILE()
+  {
+    FILEImpl file = new FILEImpl();
+    return file;
   }
 
   /**
@@ -159,6 +220,28 @@ public class SattFactoryImpl extends EFactoryImpl implements SattFactory
   {
     NotImpl not = new NotImpl();
     return not;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public SATCallMethod createSATCallMethodFromString(EDataType eDataType, String initialValue)
+  {
+    SATCallMethod result = SATCallMethod.get(initialValue);
+    if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+    return result;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public String convertSATCallMethodToString(EDataType eDataType, Object instanceValue)
+  {
+    return instanceValue == null ? null : instanceValue.toString();
   }
 
   /**

@@ -1,6 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="satt" nsURI="http://www.xtext.org/example/mydsl/Satt" nsPrefix="satt">
+  <eClassifiers xsi:type="ecore:EClass" name="SAT">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="source" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="callMethod" eType="#//SATCallMethod"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="FILE">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="file" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="SATCallMethod">
+    <eLiterals name="SAT4J_JAVA" literal="sat4j-java"/>
+    <eLiterals name="SAT4J_JAR" value="1" literal="sat4j-jar"/>
+    <eLiterals name="SAT4J_MAVEN" value="2" literal="sat4j-maven"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Expression">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="val" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>

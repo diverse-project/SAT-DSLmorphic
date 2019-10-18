@@ -5,6 +5,7 @@ package org.xtext.example.mydsl.satt.impl;
 
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EEnum;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 
@@ -17,6 +18,7 @@ import org.xtext.example.mydsl.satt.Impl;
 import org.xtext.example.mydsl.satt.Nand;
 import org.xtext.example.mydsl.satt.Not;
 import org.xtext.example.mydsl.satt.Or;
+import org.xtext.example.mydsl.satt.SATCallMethod;
 import org.xtext.example.mydsl.satt.SattFactory;
 import org.xtext.example.mydsl.satt.SattPackage;
 
@@ -28,6 +30,20 @@ import org.xtext.example.mydsl.satt.SattPackage;
  */
 public class SattPackageImpl extends EPackageImpl implements SattPackage
 {
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass satEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass fileEClass = null;
+
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -76,6 +92,13 @@ public class SattPackageImpl extends EPackageImpl implements SattPackage
    * @generated
    */
   private EClass notEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EEnum satCallMethodEEnum = null;
 
   /**
    * Creates an instance of the model <b>Package</b>, registered with
@@ -138,6 +161,61 @@ public class SattPackageImpl extends EPackageImpl implements SattPackage
     // Update the registry and return the package
     EPackage.Registry.INSTANCE.put(SattPackage.eNS_URI, theSattPackage);
     return theSattPackage;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getSAT()
+  {
+    return satEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getSAT_Source()
+  {
+    return (EReference)satEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getSAT_CallMethod()
+  {
+    return (EAttribute)satEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getFILE()
+  {
+    return fileEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getFILE_File()
+  {
+    return (EAttribute)fileEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -366,6 +444,17 @@ public class SattPackageImpl extends EPackageImpl implements SattPackage
    * @generated
    */
   @Override
+  public EEnum getSATCallMethod()
+  {
+    return satCallMethodEEnum;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public SattFactory getSattFactory()
   {
     return (SattFactory)getEFactoryInstance();
@@ -391,6 +480,13 @@ public class SattPackageImpl extends EPackageImpl implements SattPackage
     isCreated = true;
 
     // Create classes and their features
+    satEClass = createEClass(SAT);
+    createEReference(satEClass, SAT__SOURCE);
+    createEAttribute(satEClass, SAT__CALL_METHOD);
+
+    fileEClass = createEClass(FILE);
+    createEAttribute(fileEClass, FILE__FILE);
+
     expressionEClass = createEClass(EXPRESSION);
     createEAttribute(expressionEClass, EXPRESSION__ID);
     createEAttribute(expressionEClass, EXPRESSION__VAL);
@@ -417,6 +513,9 @@ public class SattPackageImpl extends EPackageImpl implements SattPackage
 
     notEClass = createEClass(NOT);
     createEReference(notEClass, NOT__EXPRESSION);
+
+    // Create enums
+    satCallMethodEEnum = createEEnum(SAT_CALL_METHOD);
   }
 
   /**
@@ -456,6 +555,13 @@ public class SattPackageImpl extends EPackageImpl implements SattPackage
     notEClass.getESuperTypes().add(this.getExpression());
 
     // Initialize classes and features; add operations and parameters
+    initEClass(satEClass, org.xtext.example.mydsl.satt.SAT.class, "SAT", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getSAT_Source(), ecorePackage.getEObject(), null, "source", null, 0, 1, org.xtext.example.mydsl.satt.SAT.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getSAT_CallMethod(), this.getSATCallMethod(), "callMethod", null, 0, 1, org.xtext.example.mydsl.satt.SAT.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(fileEClass, org.xtext.example.mydsl.satt.FILE.class, "FILE", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getFILE_File(), ecorePackage.getEString(), "file", null, 0, 1, org.xtext.example.mydsl.satt.FILE.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
     initEClass(expressionEClass, Expression.class, "Expression", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getExpression_Id(), ecorePackage.getEString(), "id", null, 0, 1, Expression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getExpression_Val(), ecorePackage.getEString(), "val", null, 0, 1, Expression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -482,6 +588,12 @@ public class SattPackageImpl extends EPackageImpl implements SattPackage
 
     initEClass(notEClass, Not.class, "Not", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getNot_Expression(), this.getExpression(), null, "expression", null, 0, 1, Not.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    // Initialize enums and add enum literals
+    initEEnum(satCallMethodEEnum, SATCallMethod.class, "SATCallMethod");
+    addEEnumLiteral(satCallMethodEEnum, SATCallMethod.SAT4J_JAVA);
+    addEEnumLiteral(satCallMethodEEnum, SATCallMethod.SAT4J_JAR);
+    addEEnumLiteral(satCallMethodEEnum, SATCallMethod.SAT4J_MAVEN);
 
     // Create resource
     createResource(eNS_URI);

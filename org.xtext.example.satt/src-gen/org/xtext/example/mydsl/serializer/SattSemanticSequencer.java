@@ -17,10 +17,12 @@ import org.eclipse.xtext.serializer.sequencer.ITransientValueService.ValueTransi
 import org.xtext.example.mydsl.satt.And;
 import org.xtext.example.mydsl.satt.BiImpl;
 import org.xtext.example.mydsl.satt.Expression;
+import org.xtext.example.mydsl.satt.FILE;
 import org.xtext.example.mydsl.satt.Impl;
 import org.xtext.example.mydsl.satt.Nand;
 import org.xtext.example.mydsl.satt.Not;
 import org.xtext.example.mydsl.satt.Or;
+import org.xtext.example.mydsl.satt.SAT;
 import org.xtext.example.mydsl.satt.SattPackage;
 import org.xtext.example.mydsl.services.SattGrammarAccess;
 
@@ -70,6 +72,9 @@ public class SattSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 					return; 
 				}
 				else break;
+			case SattPackage.FILE:
+				sequence_FILE(context, (FILE) semanticObject); 
+				return; 
 			case SattPackage.IMPL:
 				sequence_Impl(context, (Impl) semanticObject); 
 				return; 
@@ -81,6 +86,9 @@ public class SattSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 				return; 
 			case SattPackage.OR:
 				sequence_Or(context, (Or) semanticObject); 
+				return; 
+			case SattPackage.SAT:
+				sequence_SAT(context, (SAT) semanticObject); 
 				return; 
 			}
 		if (errorAcceptor != null)
@@ -186,6 +194,24 @@ public class SattSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 */
 	protected void sequence_Const_Var(ISerializationContext context, Expression semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     FILE returns FILE
+	 *
+	 * Constraint:
+	 *     file=ID
+	 */
+	protected void sequence_FILE(ISerializationContext context, FILE semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, SattPackage.Literals.FILE__FILE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, SattPackage.Literals.FILE__FILE));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getFILEAccess().getFileIDTerminalRuleCall_1_0(), semanticObject.getFile());
+		feeder.finish();
 	}
 	
 	
@@ -316,6 +342,18 @@ public class SattSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 		feeder.accept(grammarAccess.getOrAccess().getOrLeftAction_1_0(), semanticObject.getLeft());
 		feeder.accept(grammarAccess.getOrAccess().getRightAndParserRuleCall_1_2_0(), semanticObject.getRight());
 		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     SAT returns SAT
+	 *
+	 * Constraint:
+	 *     ((source=FILE | source=Model) callMethod=SATCallMethod)
+	 */
+	protected void sequence_SAT(ISerializationContext context, SAT semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
