@@ -68,7 +68,7 @@ public class SattParsingTest {
       final String filename = "wesh_la_jeunesse.txt";
       File _file = new File(filename);
       final FileWriter fileWriter = new FileWriter(_file);
-      fileWriter.write("poueeet");
+      fileWriter.write(SattParsingTest.prop_to_dimacs(expression));
       fileWriter.close();
     } catch (Throwable _e) {
       throw Exceptions.sneakyThrow(_e);

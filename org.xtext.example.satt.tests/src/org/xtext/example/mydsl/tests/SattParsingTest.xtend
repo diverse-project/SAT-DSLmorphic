@@ -61,7 +61,7 @@ class SattParsingTest {
 		//println(expression);
 		val filename= "wesh_la_jeunesse.txt"
 		val fileWriter = new FileWriter(new File(filename));
-		fileWriter.write("poueeet");
+		fileWriter.write(prop_to_dimacs(expression));
 		fileWriter.close();
 		//passer par fileWriter
 		//fsa.generateFile('formula.cnf', prop_to_dimacs(expression))
