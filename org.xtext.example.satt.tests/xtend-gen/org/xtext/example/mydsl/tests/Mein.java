@@ -78,7 +78,9 @@ public class Mein {
             _matched=true;
             InputStream _xblockexpression_1 = null;
             {
-              final String command = ("java -jar org.sat4j.core.jar " + filename_of_formula);
+              final String command = ("java -jar /home/jacob/Desktop/SAT-DSLmorphic/org.xtext.example.satt.tests/org.sat4j.core.jar " + filename_of_formula);
+              final ProcessBuilder pb = new ProcessBuilder(command);
+              final Process p = pb.start();
               final Process proc = Runtime.getRuntime().exec(command);
               final InputStream in = proc.getInputStream();
               final InputStream err = proc.getErrorStream();

@@ -84,7 +84,11 @@ class Mein
 			}
 			case call_method.equals("sat4j-jar") : 
 			{
-				val command = "java -jar org.sat4j.core.jar " + filename_of_formula
+				val command = "java -jar /home/jacob/Desktop/SAT-DSLmorphic/org.xtext.example.satt.tests/org.sat4j.core.jar " + filename_of_formula
+				
+				val pb = new ProcessBuilder(command);
+			//	pb.directory(new File("/home/jacob/Desktop/SAT-DSLmorphic/org.xtext.example.satt/"));
+				val p = pb.start();
 				
 				val proc = Runtime.getRuntime().exec(command);
 				// Then retreive the process output
