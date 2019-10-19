@@ -193,6 +193,23 @@ public class Utils {
             System.out.println("Timeout, sorry!");      
         }
 	}
-	
-	
+	/* Awser of the 3 point of the Milestone 4 
+	 * Take an AST and in function of it form make the right computation 
+	 * Return the result of the SAT problem.
+	 */
+	public static void InputHandler(EObject ast) { 
+		if(ast instanceof Model){
+			if(ast.SATCallMethod == 'sat4j-java') { 
+				LibrarySolving(ast);
+			}
+			if(ast.SATCallMethod == 'sat4j-jar') {
+				JarSolving(ast);
+			}
+		}
+		if (ast instanceof File) {
+			Sat4JLibrarySolver(ast.dimacsFileName);
+		}
+
+	}
+
 }

@@ -3,7 +3,6 @@
  */
 package projetDSL.ui;
 
-import org.eclipse.ui.plugin.AbstractUIPlugin;
 import org.eclipse.xtend.lib.annotations.FinalFieldsConstructor;
 import projetDSL.ui.AbstractSATLUiModule;
 
@@ -13,7 +12,4 @@ import projetDSL.ui.AbstractSATLUiModule;
 @FinalFieldsConstructor
 @SuppressWarnings("all")
 public class SATLUiModule extends AbstractSATLUiModule {
-  public SATLUiModule(final AbstractUIPlugin plugin) {
-    super(plugin);
-  }
 }

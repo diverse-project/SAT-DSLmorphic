@@ -3,7 +3,6 @@
  */
 package org.xtext.example.mydsl.generator;
 
-import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.xtext.generator.AbstractGenerator;
 import org.eclipse.xtext.generator.IFileSystemAccess2;
 import org.eclipse.xtext.generator.IGeneratorContext;
@@ -16,7 +15,7 @@ import org.eclipse.xtext.generator.IGeneratorContext;
 @SuppressWarnings("all")
 public class SattlGenerator extends AbstractGenerator {
   @Override
-  public void doGenerate(final Resource resource, final IFileSystemAccess2 fsa, final IGeneratorContext context) {
+  public void doGenerate(final /* Resource */Object resource, final IFileSystemAccess2 fsa, final IGeneratorContext context) {
     System.out.println("Hello World");
   }
 }

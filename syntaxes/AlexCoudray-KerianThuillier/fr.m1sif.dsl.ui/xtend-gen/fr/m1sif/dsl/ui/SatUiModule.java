@@ -3,8 +3,6 @@
  */
 package fr.m1sif.dsl.ui;
 
-import fr.m1sif.dsl.ui.AbstractSatUiModule;
-import org.eclipse.ui.plugin.AbstractUIPlugin;
 import org.eclipse.xtend.lib.annotations.FinalFieldsConstructor;
 
 /**
@@ -12,8 +10,5 @@ import org.eclipse.xtend.lib.annotations.FinalFieldsConstructor;
  */
 @FinalFieldsConstructor
 @SuppressWarnings("all")
-public class SatUiModule extends AbstractSatUiModule {
-  public SatUiModule(final AbstractUIPlugin plugin) {
-    super(plugin);
-  }
+public class SatUiModule /* implements AbstractSatUiModule  */{
 }

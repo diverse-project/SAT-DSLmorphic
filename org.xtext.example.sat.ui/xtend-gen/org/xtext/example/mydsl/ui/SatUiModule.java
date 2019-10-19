@@ -3,7 +3,6 @@
  */
 package org.xtext.example.mydsl.ui;
 
-import org.eclipse.ui.plugin.AbstractUIPlugin;
 import org.eclipse.xtend.lib.annotations.FinalFieldsConstructor;
 import org.xtext.example.mydsl.ui.AbstractSatUiModule;
 
@@ -13,7 +12,4 @@ import org.xtext.example.mydsl.ui.AbstractSatUiModule;
 @FinalFieldsConstructor
 @SuppressWarnings("all")
 public class SatUiModule extends AbstractSatUiModule {
-  public SatUiModule(final AbstractUIPlugin plugin) {
-    super(plugin);
-  }
 }

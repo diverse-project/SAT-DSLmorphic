@@ -4,21 +4,13 @@
 package org.xtext.example.mydsl.tests;
 
 import com.google.inject.Inject;
-import org.eclipse.emf.common.util.EList;
-import org.eclipse.emf.ecore.resource.Resource;
-import org.eclipse.xtend2.lib.StringConcatenation;
 import org.eclipse.xtext.testing.InjectWith;
 import org.eclipse.xtext.testing.extensions.InjectionExtension;
 import org.eclipse.xtext.testing.util.ParseHelper;
-import org.eclipse.xtext.xbase.lib.Exceptions;
-import org.eclipse.xtext.xbase.lib.InputOutput;
-import org.eclipse.xtext.xbase.lib.IterableExtensions;
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.xtext.example.mydsl.sat.Expression;
 import org.xtext.example.mydsl.tests.SatInjectorProvider;
-import org.xtext.example.mydsl.tests.Utils;
 
 @ExtendWith(InjectionExtension.class)
 @InjectWith(SatInjectorProvider.class)
@@ -29,35 +21,17 @@ public class SatParsingTest {
   
   @Test
   public void loadModel() {
-    try {
-      StringConcatenation _builder = new StringConcatenation();
-      _builder.append("A v B => C");
-      _builder.newLine();
-      final Expression result = this.parseHelper.parse(_builder);
-      Assertions.assertNotNull(result);
-      final EList<Resource.Diagnostic> errors = result.eResource().getErrors();
-      boolean _isEmpty = errors.isEmpty();
-      StringConcatenation _builder_1 = new StringConcatenation();
-      _builder_1.append("Unexpected errors: ");
-      String _join = IterableExtensions.join(errors, ", ");
-      _builder_1.append(_join);
-      Assertions.assertTrue(_isEmpty, _builder_1.toString());
-      InputOutput.<String>println(("model=" + result));
-    } catch (Throwable _e) {
-      throw Exceptions.sneakyThrow(_e);
-    }
+    throw new Error("Unresolved compilation problems:"
+      + "\nThe method or field eResource is undefined for the type Expression"
+      + "\nerrors cannot be resolved"
+      + "\nisEmpty cannot be resolved"
+      + "\njoin cannot be resolved");
   }
   
   @Test
   public void test1() {
-    try {
-      StringConcatenation _builder = new StringConcatenation();
-      _builder.append("(A v ! B) ^ (B v C v ! A)");
-      _builder.newLine();
-      final Expression result = this.parseHelper.parse(_builder);
-      Assertions.assertTrue(Utils.dimacsPrinter(result).equals("1 -111 0\n1 11 -1111 0\n"));
-    } catch (Throwable _e) {
-      throw Exceptions.sneakyThrow(_e);
-    }
+    throw new Error("Unresolved compilation problems:"
+      + "\nThe method dimacsPrinter(Expression) is undefined for the type Class<Utils>"
+      + "\nequals cannot be resolved");
   }
 }
