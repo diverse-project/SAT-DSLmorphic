@@ -84,7 +84,15 @@ class Mein
 			}
 			case call_method.equals("sat4j-jar") : 
 			{
+				val command = "java -jar org.sat4j.core.jar " + filename_of_formula
 				
+				val proc = Runtime.getRuntime().exec(command);
+				// Then retreive the process output
+				val in = proc.getInputStream();
+				val err = proc.getErrorStream();
+
+				println(in)
+				println(err)				
 			}
 			case call_method.equals("sat4j-maven") : 
 			{
@@ -92,7 +100,7 @@ class Mein
 			}
 		}
 		
-
+	
 		
 	}
 	

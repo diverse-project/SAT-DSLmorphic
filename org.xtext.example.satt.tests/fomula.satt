@@ -1,2 +1,2 @@
 model A ^ (B v C) ^ ~A
-sat4j-java
+sat4j-jar
