@@ -3,7 +3,6 @@ package org.xtext.example.mydsl.tests;
 import com.google.inject.Inject;
 import java.io.File;
 import java.io.FileWriter;
-import java.io.InputStream;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Paths;
@@ -26,6 +25,7 @@ import org.xtext.example.mydsl.satt.Not;
 import org.xtext.example.mydsl.satt.Or;
 import org.xtext.example.mydsl.satt.Sat;
 import org.xtext.example.mydsl.tests.Methode1;
+import org.xtext.example.mydsl.tests.Methode2;
 import org.xtext.example.mydsl.tests.SattInjectorProvider;
 
 @ExtendWith(InjectionExtension.class)
@@ -40,9 +40,9 @@ public class Mein {
     this.create_file();
   }
   
-  public InputStream create_file() {
+  public Object create_file() {
     try {
-      InputStream _xblockexpression = null;
+      Object _xblockexpression = null;
       {
         final String input = "fomula2.satt";
         byte[] _readAllBytes = Files.readAllBytes(Paths.get(input));
@@ -64,30 +64,20 @@ public class Mein {
         final FileWriter fileWriter = new FileWriter(_file);
         fileWriter.write(dimacs_formula);
         fileWriter.close();
-        InputStream _switchResult = null;
+        Object _switchResult = null;
         boolean _matched = false;
         boolean _equals = call_method.equals("sat4j-java");
         if (_equals) {
           _matched=true;
-          InputOutput.<String>println("calling sat4j in java.");
+          InputOutput.<String>println("calling sat4j from java code.");
           Methode1.DoIt(filename_of_formula);
         }
         if (!_matched) {
           boolean _equals_1 = call_method.equals("sat4j-jar");
           if (_equals_1) {
             _matched=true;
-            InputStream _xblockexpression_1 = null;
-            {
-              final String command = ("java -jar /home/jacob/Desktop/SAT-DSLmorphic/org.xtext.example.satt.tests/org.sat4j.core.jar " + filename_of_formula);
-              final ProcessBuilder pb = new ProcessBuilder(command);
-              final Process p = pb.start();
-              final Process proc = Runtime.getRuntime().exec(command);
-              final InputStream in = proc.getInputStream();
-              final InputStream err = proc.getErrorStream();
-              InputOutput.<InputStream>println(in);
-              _xblockexpression_1 = InputOutput.<InputStream>println(err);
-            }
-            _switchResult = _xblockexpression_1;
+            InputOutput.<String>println("calling sat4j from jar");
+            Methode2.DoIt(filename_of_formula);
           }
         }
         if (!_matched) {

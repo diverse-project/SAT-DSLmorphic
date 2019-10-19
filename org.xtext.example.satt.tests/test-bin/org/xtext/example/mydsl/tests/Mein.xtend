@@ -1,8 +1,10 @@
 package org.xtext.example.mydsl.tests
 
 import com.google.inject.Inject
+import java.io.BufferedReader
 import java.io.File
 import java.io.FileWriter
+import java.io.InputStreamReader
 import java.nio.charset.StandardCharsets
 import java.nio.file.Files
 import java.nio.file.Paths
@@ -79,24 +81,14 @@ class Mein
 		{
 			case call_method.equals("sat4j-java") : 
 			{
-				println("calling sat4j in java.")
+				println("calling sat4j from java code.")
 				Methode1.DoIt(filename_of_formula)
 			}
 			case call_method.equals("sat4j-jar") : 
 			{
-				val command = "java -jar /home/jacob/Desktop/SAT-DSLmorphic/org.xtext.example.satt.tests/org.sat4j.core.jar " + filename_of_formula
-				
-				val pb = new ProcessBuilder(command);
-			//	pb.directory(new File("/home/jacob/Desktop/SAT-DSLmorphic/org.xtext.example.satt/"));
-				val p = pb.start();
-				
-				val proc = Runtime.getRuntime().exec(command);
-				// Then retreive the process output
-				val in = proc.getInputStream();
-				val err = proc.getErrorStream();
-
-				println(in)
-				println(err)				
+				println("calling sat4j from jar")
+				Methode2.DoIt(filename_of_formula)
+			
 			}
 			case call_method.equals("sat4j-maven") : 
 			{
