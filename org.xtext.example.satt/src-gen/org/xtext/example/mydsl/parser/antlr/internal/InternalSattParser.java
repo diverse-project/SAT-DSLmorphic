@@ -22,7 +22,7 @@ import java.util.ArrayList;
 @SuppressWarnings("all")
 public class InternalSattParser extends AbstractInternalAntlrParser {
     public static final String[] tokenNames = new String[] {
-        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_STRING", "RULE_ID", "RULE_INT", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'file'", "'<=>'", "'=>'", "'v'", "'^'", "'|'", "'\\u2191'", "'('", "')'", "'!'", "'~'", "'true'", "'false'", "'sat4j-java'", "'sat4j-jar'", "'sat4j-maven'"
+        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_STRING", "RULE_ID", "RULE_INT", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'file'", "'model'", "'<=>'", "'=>'", "'v'", "'^'", "'|'", "'\\u2191'", "'('", "')'", "'!'", "'~'", "'true'", "'false'", "'sat4j-java'", "'sat4j-jar'", "'sat4j-maven'"
     };
     public static final int RULE_STRING=4;
     public static final int RULE_SL_COMMENT=8;
@@ -40,6 +40,7 @@ public class InternalSattParser extends AbstractInternalAntlrParser {
     public static final int RULE_WS=9;
     public static final int RULE_ANY_OTHER=10;
     public static final int T__26=26;
+    public static final int T__27=27;
     public static final int RULE_INT=6;
     public static final int T__22=22;
     public static final int RULE_ML_COMMENT=7;
@@ -159,7 +160,7 @@ public class InternalSattParser extends AbstractInternalAntlrParser {
             if ( (LA1_0==11) ) {
                 alt1=1;
             }
-            else if ( (LA1_0==RULE_ID||LA1_0==18||(LA1_0>=20 && LA1_0<=23)) ) {
+            else if ( (LA1_0==12) ) {
                 alt1=2;
             }
             else {
@@ -424,32 +425,43 @@ public class InternalSattParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleModel"
-    // InternalSatt.g:188:1: ruleModel returns [EObject current=null] : this_BiImpl_0= ruleBiImpl ;
+    // InternalSatt.g:188:1: ruleModel returns [EObject current=null] : (otherlv_0= 'model' this_BiImpl_1= ruleBiImpl ) ;
     public final EObject ruleModel() throws RecognitionException {
         EObject current = null;
 
-        EObject this_BiImpl_0 = null;
+        Token otherlv_0=null;
+        EObject this_BiImpl_1 = null;
 
 
 
         	enterRule();
 
         try {
-            // InternalSatt.g:194:2: (this_BiImpl_0= ruleBiImpl )
-            // InternalSatt.g:195:2: this_BiImpl_0= ruleBiImpl
+            // InternalSatt.g:194:2: ( (otherlv_0= 'model' this_BiImpl_1= ruleBiImpl ) )
+            // InternalSatt.g:195:2: (otherlv_0= 'model' this_BiImpl_1= ruleBiImpl )
             {
+            // InternalSatt.g:195:2: (otherlv_0= 'model' this_BiImpl_1= ruleBiImpl )
+            // InternalSatt.g:196:3: otherlv_0= 'model' this_BiImpl_1= ruleBiImpl
+            {
+            otherlv_0=(Token)match(input,12,FOLLOW_5); 
 
-            		newCompositeNode(grammarAccess.getModelAccess().getBiImplParserRuleCall());
-            	
+            			newLeafNode(otherlv_0, grammarAccess.getModelAccess().getModelKeyword_0());
+            		
+
+            			newCompositeNode(grammarAccess.getModelAccess().getBiImplParserRuleCall_1());
+            		
             pushFollow(FOLLOW_2);
-            this_BiImpl_0=ruleBiImpl();
+            this_BiImpl_1=ruleBiImpl();
 
             state._fsp--;
 
 
-            		current = this_BiImpl_0;
-            		afterParserOrEnumRuleCall();
-            	
+            			current = this_BiImpl_1;
+            			afterParserOrEnumRuleCall();
+            		
+
+            }
+
 
             }
 
@@ -470,7 +482,7 @@ public class InternalSattParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleBiImpl"
-    // InternalSatt.g:206:1: entryRuleBiImpl returns [EObject current=null] : iv_ruleBiImpl= ruleBiImpl EOF ;
+    // InternalSatt.g:212:1: entryRuleBiImpl returns [EObject current=null] : iv_ruleBiImpl= ruleBiImpl EOF ;
     public final EObject entryRuleBiImpl() throws RecognitionException {
         EObject current = null;
 
@@ -478,8 +490,8 @@ public class InternalSattParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalSatt.g:206:47: (iv_ruleBiImpl= ruleBiImpl EOF )
-            // InternalSatt.g:207:2: iv_ruleBiImpl= ruleBiImpl EOF
+            // InternalSatt.g:212:47: (iv_ruleBiImpl= ruleBiImpl EOF )
+            // InternalSatt.g:213:2: iv_ruleBiImpl= ruleBiImpl EOF
             {
              newCompositeNode(grammarAccess.getBiImplRule()); 
             pushFollow(FOLLOW_1);
@@ -506,7 +518,7 @@ public class InternalSattParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleBiImpl"
-    // InternalSatt.g:213:1: ruleBiImpl returns [EObject current=null] : (this_Impl_0= ruleImpl ( () otherlv_2= '<=>' ( (lv_right_3_0= ruleImpl ) ) )* ) ;
+    // InternalSatt.g:219:1: ruleBiImpl returns [EObject current=null] : (this_Impl_0= ruleImpl ( () otherlv_2= '<=>' ( (lv_right_3_0= ruleImpl ) ) )* ) ;
     public final EObject ruleBiImpl() throws RecognitionException {
         EObject current = null;
 
@@ -520,16 +532,16 @@ public class InternalSattParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalSatt.g:219:2: ( (this_Impl_0= ruleImpl ( () otherlv_2= '<=>' ( (lv_right_3_0= ruleImpl ) ) )* ) )
-            // InternalSatt.g:220:2: (this_Impl_0= ruleImpl ( () otherlv_2= '<=>' ( (lv_right_3_0= ruleImpl ) ) )* )
+            // InternalSatt.g:225:2: ( (this_Impl_0= ruleImpl ( () otherlv_2= '<=>' ( (lv_right_3_0= ruleImpl ) ) )* ) )
+            // InternalSatt.g:226:2: (this_Impl_0= ruleImpl ( () otherlv_2= '<=>' ( (lv_right_3_0= ruleImpl ) ) )* )
             {
-            // InternalSatt.g:220:2: (this_Impl_0= ruleImpl ( () otherlv_2= '<=>' ( (lv_right_3_0= ruleImpl ) ) )* )
-            // InternalSatt.g:221:3: this_Impl_0= ruleImpl ( () otherlv_2= '<=>' ( (lv_right_3_0= ruleImpl ) ) )*
+            // InternalSatt.g:226:2: (this_Impl_0= ruleImpl ( () otherlv_2= '<=>' ( (lv_right_3_0= ruleImpl ) ) )* )
+            // InternalSatt.g:227:3: this_Impl_0= ruleImpl ( () otherlv_2= '<=>' ( (lv_right_3_0= ruleImpl ) ) )*
             {
 
             			newCompositeNode(grammarAccess.getBiImplAccess().getImplParserRuleCall_0());
             		
-            pushFollow(FOLLOW_5);
+            pushFollow(FOLLOW_6);
             this_Impl_0=ruleImpl();
 
             state._fsp--;
@@ -538,23 +550,23 @@ public class InternalSattParser extends AbstractInternalAntlrParser {
             			current = this_Impl_0;
             			afterParserOrEnumRuleCall();
             		
-            // InternalSatt.g:229:3: ( () otherlv_2= '<=>' ( (lv_right_3_0= ruleImpl ) ) )*
+            // InternalSatt.g:235:3: ( () otherlv_2= '<=>' ( (lv_right_3_0= ruleImpl ) ) )*
             loop2:
             do {
                 int alt2=2;
                 int LA2_0 = input.LA(1);
 
-                if ( (LA2_0==12) ) {
+                if ( (LA2_0==13) ) {
                     alt2=1;
                 }
 
 
                 switch (alt2) {
             	case 1 :
-            	    // InternalSatt.g:230:4: () otherlv_2= '<=>' ( (lv_right_3_0= ruleImpl ) )
+            	    // InternalSatt.g:236:4: () otherlv_2= '<=>' ( (lv_right_3_0= ruleImpl ) )
             	    {
-            	    // InternalSatt.g:230:4: ()
-            	    // InternalSatt.g:231:5: 
+            	    // InternalSatt.g:236:4: ()
+            	    // InternalSatt.g:237:5: 
             	    {
 
             	    					current = forceCreateModelElementAndSet(
@@ -564,20 +576,20 @@ public class InternalSattParser extends AbstractInternalAntlrParser {
 
             	    }
 
-            	    otherlv_2=(Token)match(input,12,FOLLOW_6); 
+            	    otherlv_2=(Token)match(input,13,FOLLOW_5); 
 
             	    				newLeafNode(otherlv_2, grammarAccess.getBiImplAccess().getLessThanSignEqualsSignGreaterThanSignKeyword_1_1());
             	    			
-            	    // InternalSatt.g:241:4: ( (lv_right_3_0= ruleImpl ) )
-            	    // InternalSatt.g:242:5: (lv_right_3_0= ruleImpl )
+            	    // InternalSatt.g:247:4: ( (lv_right_3_0= ruleImpl ) )
+            	    // InternalSatt.g:248:5: (lv_right_3_0= ruleImpl )
             	    {
-            	    // InternalSatt.g:242:5: (lv_right_3_0= ruleImpl )
-            	    // InternalSatt.g:243:6: lv_right_3_0= ruleImpl
+            	    // InternalSatt.g:248:5: (lv_right_3_0= ruleImpl )
+            	    // InternalSatt.g:249:6: lv_right_3_0= ruleImpl
             	    {
 
             	    						newCompositeNode(grammarAccess.getBiImplAccess().getRightImplParserRuleCall_1_2_0());
             	    					
-            	    pushFollow(FOLLOW_5);
+            	    pushFollow(FOLLOW_6);
             	    lv_right_3_0=ruleImpl();
 
             	    state._fsp--;
@@ -631,7 +643,7 @@ public class InternalSattParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleImpl"
-    // InternalSatt.g:265:1: entryRuleImpl returns [EObject current=null] : iv_ruleImpl= ruleImpl EOF ;
+    // InternalSatt.g:271:1: entryRuleImpl returns [EObject current=null] : iv_ruleImpl= ruleImpl EOF ;
     public final EObject entryRuleImpl() throws RecognitionException {
         EObject current = null;
 
@@ -639,8 +651,8 @@ public class InternalSattParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalSatt.g:265:45: (iv_ruleImpl= ruleImpl EOF )
-            // InternalSatt.g:266:2: iv_ruleImpl= ruleImpl EOF
+            // InternalSatt.g:271:45: (iv_ruleImpl= ruleImpl EOF )
+            // InternalSatt.g:272:2: iv_ruleImpl= ruleImpl EOF
             {
              newCompositeNode(grammarAccess.getImplRule()); 
             pushFollow(FOLLOW_1);
@@ -667,7 +679,7 @@ public class InternalSattParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleImpl"
-    // InternalSatt.g:272:1: ruleImpl returns [EObject current=null] : (this_Or_0= ruleOr ( () otherlv_2= '=>' ( (lv_right_3_0= ruleOr ) ) )* ) ;
+    // InternalSatt.g:278:1: ruleImpl returns [EObject current=null] : (this_Or_0= ruleOr ( () otherlv_2= '=>' ( (lv_right_3_0= ruleOr ) ) )* ) ;
     public final EObject ruleImpl() throws RecognitionException {
         EObject current = null;
 
@@ -681,11 +693,11 @@ public class InternalSattParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalSatt.g:278:2: ( (this_Or_0= ruleOr ( () otherlv_2= '=>' ( (lv_right_3_0= ruleOr ) ) )* ) )
-            // InternalSatt.g:279:2: (this_Or_0= ruleOr ( () otherlv_2= '=>' ( (lv_right_3_0= ruleOr ) ) )* )
+            // InternalSatt.g:284:2: ( (this_Or_0= ruleOr ( () otherlv_2= '=>' ( (lv_right_3_0= ruleOr ) ) )* ) )
+            // InternalSatt.g:285:2: (this_Or_0= ruleOr ( () otherlv_2= '=>' ( (lv_right_3_0= ruleOr ) ) )* )
             {
-            // InternalSatt.g:279:2: (this_Or_0= ruleOr ( () otherlv_2= '=>' ( (lv_right_3_0= ruleOr ) ) )* )
-            // InternalSatt.g:280:3: this_Or_0= ruleOr ( () otherlv_2= '=>' ( (lv_right_3_0= ruleOr ) ) )*
+            // InternalSatt.g:285:2: (this_Or_0= ruleOr ( () otherlv_2= '=>' ( (lv_right_3_0= ruleOr ) ) )* )
+            // InternalSatt.g:286:3: this_Or_0= ruleOr ( () otherlv_2= '=>' ( (lv_right_3_0= ruleOr ) ) )*
             {
 
             			newCompositeNode(grammarAccess.getImplAccess().getOrParserRuleCall_0());
@@ -699,23 +711,23 @@ public class InternalSattParser extends AbstractInternalAntlrParser {
             			current = this_Or_0;
             			afterParserOrEnumRuleCall();
             		
-            // InternalSatt.g:288:3: ( () otherlv_2= '=>' ( (lv_right_3_0= ruleOr ) ) )*
+            // InternalSatt.g:294:3: ( () otherlv_2= '=>' ( (lv_right_3_0= ruleOr ) ) )*
             loop3:
             do {
                 int alt3=2;
                 int LA3_0 = input.LA(1);
 
-                if ( (LA3_0==13) ) {
+                if ( (LA3_0==14) ) {
                     alt3=1;
                 }
 
 
                 switch (alt3) {
             	case 1 :
-            	    // InternalSatt.g:289:4: () otherlv_2= '=>' ( (lv_right_3_0= ruleOr ) )
+            	    // InternalSatt.g:295:4: () otherlv_2= '=>' ( (lv_right_3_0= ruleOr ) )
             	    {
-            	    // InternalSatt.g:289:4: ()
-            	    // InternalSatt.g:290:5: 
+            	    // InternalSatt.g:295:4: ()
+            	    // InternalSatt.g:296:5: 
             	    {
 
             	    					current = forceCreateModelElementAndSet(
@@ -725,15 +737,15 @@ public class InternalSattParser extends AbstractInternalAntlrParser {
 
             	    }
 
-            	    otherlv_2=(Token)match(input,13,FOLLOW_6); 
+            	    otherlv_2=(Token)match(input,14,FOLLOW_5); 
 
             	    				newLeafNode(otherlv_2, grammarAccess.getImplAccess().getEqualsSignGreaterThanSignKeyword_1_1());
             	    			
-            	    // InternalSatt.g:300:4: ( (lv_right_3_0= ruleOr ) )
-            	    // InternalSatt.g:301:5: (lv_right_3_0= ruleOr )
+            	    // InternalSatt.g:306:4: ( (lv_right_3_0= ruleOr ) )
+            	    // InternalSatt.g:307:5: (lv_right_3_0= ruleOr )
             	    {
-            	    // InternalSatt.g:301:5: (lv_right_3_0= ruleOr )
-            	    // InternalSatt.g:302:6: lv_right_3_0= ruleOr
+            	    // InternalSatt.g:307:5: (lv_right_3_0= ruleOr )
+            	    // InternalSatt.g:308:6: lv_right_3_0= ruleOr
             	    {
 
             	    						newCompositeNode(grammarAccess.getImplAccess().getRightOrParserRuleCall_1_2_0());
@@ -792,7 +804,7 @@ public class InternalSattParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleOr"
-    // InternalSatt.g:324:1: entryRuleOr returns [EObject current=null] : iv_ruleOr= ruleOr EOF ;
+    // InternalSatt.g:330:1: entryRuleOr returns [EObject current=null] : iv_ruleOr= ruleOr EOF ;
     public final EObject entryRuleOr() throws RecognitionException {
         EObject current = null;
 
@@ -800,8 +812,8 @@ public class InternalSattParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalSatt.g:324:43: (iv_ruleOr= ruleOr EOF )
-            // InternalSatt.g:325:2: iv_ruleOr= ruleOr EOF
+            // InternalSatt.g:330:43: (iv_ruleOr= ruleOr EOF )
+            // InternalSatt.g:331:2: iv_ruleOr= ruleOr EOF
             {
              newCompositeNode(grammarAccess.getOrRule()); 
             pushFollow(FOLLOW_1);
@@ -828,7 +840,7 @@ public class InternalSattParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleOr"
-    // InternalSatt.g:331:1: ruleOr returns [EObject current=null] : (this_And_0= ruleAnd ( () otherlv_2= 'v' ( (lv_right_3_0= ruleAnd ) ) )* ) ;
+    // InternalSatt.g:337:1: ruleOr returns [EObject current=null] : (this_And_0= ruleAnd ( () otherlv_2= 'v' ( (lv_right_3_0= ruleAnd ) ) )* ) ;
     public final EObject ruleOr() throws RecognitionException {
         EObject current = null;
 
@@ -842,11 +854,11 @@ public class InternalSattParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalSatt.g:337:2: ( (this_And_0= ruleAnd ( () otherlv_2= 'v' ( (lv_right_3_0= ruleAnd ) ) )* ) )
-            // InternalSatt.g:338:2: (this_And_0= ruleAnd ( () otherlv_2= 'v' ( (lv_right_3_0= ruleAnd ) ) )* )
+            // InternalSatt.g:343:2: ( (this_And_0= ruleAnd ( () otherlv_2= 'v' ( (lv_right_3_0= ruleAnd ) ) )* ) )
+            // InternalSatt.g:344:2: (this_And_0= ruleAnd ( () otherlv_2= 'v' ( (lv_right_3_0= ruleAnd ) ) )* )
             {
-            // InternalSatt.g:338:2: (this_And_0= ruleAnd ( () otherlv_2= 'v' ( (lv_right_3_0= ruleAnd ) ) )* )
-            // InternalSatt.g:339:3: this_And_0= ruleAnd ( () otherlv_2= 'v' ( (lv_right_3_0= ruleAnd ) ) )*
+            // InternalSatt.g:344:2: (this_And_0= ruleAnd ( () otherlv_2= 'v' ( (lv_right_3_0= ruleAnd ) ) )* )
+            // InternalSatt.g:345:3: this_And_0= ruleAnd ( () otherlv_2= 'v' ( (lv_right_3_0= ruleAnd ) ) )*
             {
 
             			newCompositeNode(grammarAccess.getOrAccess().getAndParserRuleCall_0());
@@ -860,23 +872,23 @@ public class InternalSattParser extends AbstractInternalAntlrParser {
             			current = this_And_0;
             			afterParserOrEnumRuleCall();
             		
-            // InternalSatt.g:347:3: ( () otherlv_2= 'v' ( (lv_right_3_0= ruleAnd ) ) )*
+            // InternalSatt.g:353:3: ( () otherlv_2= 'v' ( (lv_right_3_0= ruleAnd ) ) )*
             loop4:
             do {
                 int alt4=2;
                 int LA4_0 = input.LA(1);
 
-                if ( (LA4_0==14) ) {
+                if ( (LA4_0==15) ) {
                     alt4=1;
                 }
 
 
                 switch (alt4) {
             	case 1 :
-            	    // InternalSatt.g:348:4: () otherlv_2= 'v' ( (lv_right_3_0= ruleAnd ) )
+            	    // InternalSatt.g:354:4: () otherlv_2= 'v' ( (lv_right_3_0= ruleAnd ) )
             	    {
-            	    // InternalSatt.g:348:4: ()
-            	    // InternalSatt.g:349:5: 
+            	    // InternalSatt.g:354:4: ()
+            	    // InternalSatt.g:355:5: 
             	    {
 
             	    					current = forceCreateModelElementAndSet(
@@ -886,15 +898,15 @@ public class InternalSattParser extends AbstractInternalAntlrParser {
 
             	    }
 
-            	    otherlv_2=(Token)match(input,14,FOLLOW_6); 
+            	    otherlv_2=(Token)match(input,15,FOLLOW_5); 
 
             	    				newLeafNode(otherlv_2, grammarAccess.getOrAccess().getVKeyword_1_1());
             	    			
-            	    // InternalSatt.g:359:4: ( (lv_right_3_0= ruleAnd ) )
-            	    // InternalSatt.g:360:5: (lv_right_3_0= ruleAnd )
+            	    // InternalSatt.g:365:4: ( (lv_right_3_0= ruleAnd ) )
+            	    // InternalSatt.g:366:5: (lv_right_3_0= ruleAnd )
             	    {
-            	    // InternalSatt.g:360:5: (lv_right_3_0= ruleAnd )
-            	    // InternalSatt.g:361:6: lv_right_3_0= ruleAnd
+            	    // InternalSatt.g:366:5: (lv_right_3_0= ruleAnd )
+            	    // InternalSatt.g:367:6: lv_right_3_0= ruleAnd
             	    {
 
             	    						newCompositeNode(grammarAccess.getOrAccess().getRightAndParserRuleCall_1_2_0());
@@ -953,7 +965,7 @@ public class InternalSattParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleAnd"
-    // InternalSatt.g:383:1: entryRuleAnd returns [EObject current=null] : iv_ruleAnd= ruleAnd EOF ;
+    // InternalSatt.g:389:1: entryRuleAnd returns [EObject current=null] : iv_ruleAnd= ruleAnd EOF ;
     public final EObject entryRuleAnd() throws RecognitionException {
         EObject current = null;
 
@@ -961,8 +973,8 @@ public class InternalSattParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalSatt.g:383:44: (iv_ruleAnd= ruleAnd EOF )
-            // InternalSatt.g:384:2: iv_ruleAnd= ruleAnd EOF
+            // InternalSatt.g:389:44: (iv_ruleAnd= ruleAnd EOF )
+            // InternalSatt.g:390:2: iv_ruleAnd= ruleAnd EOF
             {
              newCompositeNode(grammarAccess.getAndRule()); 
             pushFollow(FOLLOW_1);
@@ -989,7 +1001,7 @@ public class InternalSattParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleAnd"
-    // InternalSatt.g:390:1: ruleAnd returns [EObject current=null] : (this_Nand_0= ruleNand ( () otherlv_2= '^' ( (lv_right_3_0= ruleNand ) ) )* ) ;
+    // InternalSatt.g:396:1: ruleAnd returns [EObject current=null] : (this_Nand_0= ruleNand ( () otherlv_2= '^' ( (lv_right_3_0= ruleNand ) ) )* ) ;
     public final EObject ruleAnd() throws RecognitionException {
         EObject current = null;
 
@@ -1003,11 +1015,11 @@ public class InternalSattParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalSatt.g:396:2: ( (this_Nand_0= ruleNand ( () otherlv_2= '^' ( (lv_right_3_0= ruleNand ) ) )* ) )
-            // InternalSatt.g:397:2: (this_Nand_0= ruleNand ( () otherlv_2= '^' ( (lv_right_3_0= ruleNand ) ) )* )
+            // InternalSatt.g:402:2: ( (this_Nand_0= ruleNand ( () otherlv_2= '^' ( (lv_right_3_0= ruleNand ) ) )* ) )
+            // InternalSatt.g:403:2: (this_Nand_0= ruleNand ( () otherlv_2= '^' ( (lv_right_3_0= ruleNand ) ) )* )
             {
-            // InternalSatt.g:397:2: (this_Nand_0= ruleNand ( () otherlv_2= '^' ( (lv_right_3_0= ruleNand ) ) )* )
-            // InternalSatt.g:398:3: this_Nand_0= ruleNand ( () otherlv_2= '^' ( (lv_right_3_0= ruleNand ) ) )*
+            // InternalSatt.g:403:2: (this_Nand_0= ruleNand ( () otherlv_2= '^' ( (lv_right_3_0= ruleNand ) ) )* )
+            // InternalSatt.g:404:3: this_Nand_0= ruleNand ( () otherlv_2= '^' ( (lv_right_3_0= ruleNand ) ) )*
             {
 
             			newCompositeNode(grammarAccess.getAndAccess().getNandParserRuleCall_0());
@@ -1021,23 +1033,23 @@ public class InternalSattParser extends AbstractInternalAntlrParser {
             			current = this_Nand_0;
             			afterParserOrEnumRuleCall();
             		
-            // InternalSatt.g:406:3: ( () otherlv_2= '^' ( (lv_right_3_0= ruleNand ) ) )*
+            // InternalSatt.g:412:3: ( () otherlv_2= '^' ( (lv_right_3_0= ruleNand ) ) )*
             loop5:
             do {
                 int alt5=2;
                 int LA5_0 = input.LA(1);
 
-                if ( (LA5_0==15) ) {
+                if ( (LA5_0==16) ) {
                     alt5=1;
                 }
 
 
                 switch (alt5) {
             	case 1 :
-            	    // InternalSatt.g:407:4: () otherlv_2= '^' ( (lv_right_3_0= ruleNand ) )
+            	    // InternalSatt.g:413:4: () otherlv_2= '^' ( (lv_right_3_0= ruleNand ) )
             	    {
-            	    // InternalSatt.g:407:4: ()
-            	    // InternalSatt.g:408:5: 
+            	    // InternalSatt.g:413:4: ()
+            	    // InternalSatt.g:414:5: 
             	    {
 
             	    					current = forceCreateModelElementAndSet(
@@ -1047,15 +1059,15 @@ public class InternalSattParser extends AbstractInternalAntlrParser {
 
             	    }
 
-            	    otherlv_2=(Token)match(input,15,FOLLOW_6); 
+            	    otherlv_2=(Token)match(input,16,FOLLOW_5); 
 
             	    				newLeafNode(otherlv_2, grammarAccess.getAndAccess().getCircumflexAccentKeyword_1_1());
             	    			
-            	    // InternalSatt.g:418:4: ( (lv_right_3_0= ruleNand ) )
-            	    // InternalSatt.g:419:5: (lv_right_3_0= ruleNand )
+            	    // InternalSatt.g:424:4: ( (lv_right_3_0= ruleNand ) )
+            	    // InternalSatt.g:425:5: (lv_right_3_0= ruleNand )
             	    {
-            	    // InternalSatt.g:419:5: (lv_right_3_0= ruleNand )
-            	    // InternalSatt.g:420:6: lv_right_3_0= ruleNand
+            	    // InternalSatt.g:425:5: (lv_right_3_0= ruleNand )
+            	    // InternalSatt.g:426:6: lv_right_3_0= ruleNand
             	    {
 
             	    						newCompositeNode(grammarAccess.getAndAccess().getRightNandParserRuleCall_1_2_0());
@@ -1114,7 +1126,7 @@ public class InternalSattParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleNand"
-    // InternalSatt.g:442:1: entryRuleNand returns [EObject current=null] : iv_ruleNand= ruleNand EOF ;
+    // InternalSatt.g:448:1: entryRuleNand returns [EObject current=null] : iv_ruleNand= ruleNand EOF ;
     public final EObject entryRuleNand() throws RecognitionException {
         EObject current = null;
 
@@ -1122,8 +1134,8 @@ public class InternalSattParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalSatt.g:442:45: (iv_ruleNand= ruleNand EOF )
-            // InternalSatt.g:443:2: iv_ruleNand= ruleNand EOF
+            // InternalSatt.g:448:45: (iv_ruleNand= ruleNand EOF )
+            // InternalSatt.g:449:2: iv_ruleNand= ruleNand EOF
             {
              newCompositeNode(grammarAccess.getNandRule()); 
             pushFollow(FOLLOW_1);
@@ -1150,7 +1162,7 @@ public class InternalSattParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleNand"
-    // InternalSatt.g:449:1: ruleNand returns [EObject current=null] : (this_Primary_0= rulePrimary ( () (otherlv_2= '|' | otherlv_3= '\\u2191' ) ( (lv_right_4_0= rulePrimary ) ) )* ) ;
+    // InternalSatt.g:455:1: ruleNand returns [EObject current=null] : (this_Primary_0= rulePrimary ( () (otherlv_2= '|' | otherlv_3= '\\u2191' ) ( (lv_right_4_0= rulePrimary ) ) )* ) ;
     public final EObject ruleNand() throws RecognitionException {
         EObject current = null;
 
@@ -1165,11 +1177,11 @@ public class InternalSattParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalSatt.g:455:2: ( (this_Primary_0= rulePrimary ( () (otherlv_2= '|' | otherlv_3= '\\u2191' ) ( (lv_right_4_0= rulePrimary ) ) )* ) )
-            // InternalSatt.g:456:2: (this_Primary_0= rulePrimary ( () (otherlv_2= '|' | otherlv_3= '\\u2191' ) ( (lv_right_4_0= rulePrimary ) ) )* )
+            // InternalSatt.g:461:2: ( (this_Primary_0= rulePrimary ( () (otherlv_2= '|' | otherlv_3= '\\u2191' ) ( (lv_right_4_0= rulePrimary ) ) )* ) )
+            // InternalSatt.g:462:2: (this_Primary_0= rulePrimary ( () (otherlv_2= '|' | otherlv_3= '\\u2191' ) ( (lv_right_4_0= rulePrimary ) ) )* )
             {
-            // InternalSatt.g:456:2: (this_Primary_0= rulePrimary ( () (otherlv_2= '|' | otherlv_3= '\\u2191' ) ( (lv_right_4_0= rulePrimary ) ) )* )
-            // InternalSatt.g:457:3: this_Primary_0= rulePrimary ( () (otherlv_2= '|' | otherlv_3= '\\u2191' ) ( (lv_right_4_0= rulePrimary ) ) )*
+            // InternalSatt.g:462:2: (this_Primary_0= rulePrimary ( () (otherlv_2= '|' | otherlv_3= '\\u2191' ) ( (lv_right_4_0= rulePrimary ) ) )* )
+            // InternalSatt.g:463:3: this_Primary_0= rulePrimary ( () (otherlv_2= '|' | otherlv_3= '\\u2191' ) ( (lv_right_4_0= rulePrimary ) ) )*
             {
 
             			newCompositeNode(grammarAccess.getNandAccess().getPrimaryParserRuleCall_0());
@@ -1183,23 +1195,23 @@ public class InternalSattParser extends AbstractInternalAntlrParser {
             			current = this_Primary_0;
             			afterParserOrEnumRuleCall();
             		
-            // InternalSatt.g:465:3: ( () (otherlv_2= '|' | otherlv_3= '\\u2191' ) ( (lv_right_4_0= rulePrimary ) ) )*
+            // InternalSatt.g:471:3: ( () (otherlv_2= '|' | otherlv_3= '\\u2191' ) ( (lv_right_4_0= rulePrimary ) ) )*
             loop7:
             do {
                 int alt7=2;
                 int LA7_0 = input.LA(1);
 
-                if ( ((LA7_0>=16 && LA7_0<=17)) ) {
+                if ( ((LA7_0>=17 && LA7_0<=18)) ) {
                     alt7=1;
                 }
 
 
                 switch (alt7) {
             	case 1 :
-            	    // InternalSatt.g:466:4: () (otherlv_2= '|' | otherlv_3= '\\u2191' ) ( (lv_right_4_0= rulePrimary ) )
+            	    // InternalSatt.g:472:4: () (otherlv_2= '|' | otherlv_3= '\\u2191' ) ( (lv_right_4_0= rulePrimary ) )
             	    {
-            	    // InternalSatt.g:466:4: ()
-            	    // InternalSatt.g:467:5: 
+            	    // InternalSatt.g:472:4: ()
+            	    // InternalSatt.g:473:5: 
             	    {
 
             	    					current = forceCreateModelElementAndSet(
@@ -1209,14 +1221,14 @@ public class InternalSattParser extends AbstractInternalAntlrParser {
 
             	    }
 
-            	    // InternalSatt.g:473:4: (otherlv_2= '|' | otherlv_3= '\\u2191' )
+            	    // InternalSatt.g:479:4: (otherlv_2= '|' | otherlv_3= '\\u2191' )
             	    int alt6=2;
             	    int LA6_0 = input.LA(1);
 
-            	    if ( (LA6_0==16) ) {
+            	    if ( (LA6_0==17) ) {
             	        alt6=1;
             	    }
-            	    else if ( (LA6_0==17) ) {
+            	    else if ( (LA6_0==18) ) {
             	        alt6=2;
             	    }
             	    else {
@@ -1227,9 +1239,9 @@ public class InternalSattParser extends AbstractInternalAntlrParser {
             	    }
             	    switch (alt6) {
             	        case 1 :
-            	            // InternalSatt.g:474:5: otherlv_2= '|'
+            	            // InternalSatt.g:480:5: otherlv_2= '|'
             	            {
-            	            otherlv_2=(Token)match(input,16,FOLLOW_6); 
+            	            otherlv_2=(Token)match(input,17,FOLLOW_5); 
 
             	            					newLeafNode(otherlv_2, grammarAccess.getNandAccess().getVerticalLineKeyword_1_1_0());
             	            				
@@ -1237,9 +1249,9 @@ public class InternalSattParser extends AbstractInternalAntlrParser {
             	            }
             	            break;
             	        case 2 :
-            	            // InternalSatt.g:479:5: otherlv_3= '\\u2191'
+            	            // InternalSatt.g:485:5: otherlv_3= '\\u2191'
             	            {
-            	            otherlv_3=(Token)match(input,17,FOLLOW_6); 
+            	            otherlv_3=(Token)match(input,18,FOLLOW_5); 
 
             	            					newLeafNode(otherlv_3, grammarAccess.getNandAccess().getUpwardsArrowKeyword_1_1_1());
             	            				
@@ -1249,11 +1261,11 @@ public class InternalSattParser extends AbstractInternalAntlrParser {
 
             	    }
 
-            	    // InternalSatt.g:484:4: ( (lv_right_4_0= rulePrimary ) )
-            	    // InternalSatt.g:485:5: (lv_right_4_0= rulePrimary )
+            	    // InternalSatt.g:490:4: ( (lv_right_4_0= rulePrimary ) )
+            	    // InternalSatt.g:491:5: (lv_right_4_0= rulePrimary )
             	    {
-            	    // InternalSatt.g:485:5: (lv_right_4_0= rulePrimary )
-            	    // InternalSatt.g:486:6: lv_right_4_0= rulePrimary
+            	    // InternalSatt.g:491:5: (lv_right_4_0= rulePrimary )
+            	    // InternalSatt.g:492:6: lv_right_4_0= rulePrimary
             	    {
 
             	    						newCompositeNode(grammarAccess.getNandAccess().getRightPrimaryParserRuleCall_1_2_0());
@@ -1312,7 +1324,7 @@ public class InternalSattParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRulePrimary"
-    // InternalSatt.g:508:1: entryRulePrimary returns [EObject current=null] : iv_rulePrimary= rulePrimary EOF ;
+    // InternalSatt.g:514:1: entryRulePrimary returns [EObject current=null] : iv_rulePrimary= rulePrimary EOF ;
     public final EObject entryRulePrimary() throws RecognitionException {
         EObject current = null;
 
@@ -1320,8 +1332,8 @@ public class InternalSattParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalSatt.g:508:48: (iv_rulePrimary= rulePrimary EOF )
-            // InternalSatt.g:509:2: iv_rulePrimary= rulePrimary EOF
+            // InternalSatt.g:514:48: (iv_rulePrimary= rulePrimary EOF )
+            // InternalSatt.g:515:2: iv_rulePrimary= rulePrimary EOF
             {
              newCompositeNode(grammarAccess.getPrimaryRule()); 
             pushFollow(FOLLOW_1);
@@ -1348,7 +1360,7 @@ public class InternalSattParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "rulePrimary"
-    // InternalSatt.g:515:1: rulePrimary returns [EObject current=null] : ( (otherlv_0= '(' this_Model_1= ruleModel otherlv_2= ')' ) | this_Not_3= ruleNot | this_Const_4= ruleConst | this_Var_5= ruleVar ) ;
+    // InternalSatt.g:521:1: rulePrimary returns [EObject current=null] : ( (otherlv_0= '(' this_Model_1= ruleModel otherlv_2= ')' ) | this_Not_3= ruleNot | this_Const_4= ruleConst | this_Var_5= ruleVar ) ;
     public final EObject rulePrimary() throws RecognitionException {
         EObject current = null;
 
@@ -1367,25 +1379,25 @@ public class InternalSattParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalSatt.g:521:2: ( ( (otherlv_0= '(' this_Model_1= ruleModel otherlv_2= ')' ) | this_Not_3= ruleNot | this_Const_4= ruleConst | this_Var_5= ruleVar ) )
-            // InternalSatt.g:522:2: ( (otherlv_0= '(' this_Model_1= ruleModel otherlv_2= ')' ) | this_Not_3= ruleNot | this_Const_4= ruleConst | this_Var_5= ruleVar )
+            // InternalSatt.g:527:2: ( ( (otherlv_0= '(' this_Model_1= ruleModel otherlv_2= ')' ) | this_Not_3= ruleNot | this_Const_4= ruleConst | this_Var_5= ruleVar ) )
+            // InternalSatt.g:528:2: ( (otherlv_0= '(' this_Model_1= ruleModel otherlv_2= ')' ) | this_Not_3= ruleNot | this_Const_4= ruleConst | this_Var_5= ruleVar )
             {
-            // InternalSatt.g:522:2: ( (otherlv_0= '(' this_Model_1= ruleModel otherlv_2= ')' ) | this_Not_3= ruleNot | this_Const_4= ruleConst | this_Var_5= ruleVar )
+            // InternalSatt.g:528:2: ( (otherlv_0= '(' this_Model_1= ruleModel otherlv_2= ')' ) | this_Not_3= ruleNot | this_Const_4= ruleConst | this_Var_5= ruleVar )
             int alt8=4;
             switch ( input.LA(1) ) {
-            case 18:
+            case 19:
                 {
                 alt8=1;
                 }
                 break;
-            case 20:
             case 21:
+            case 22:
                 {
                 alt8=2;
                 }
                 break;
-            case 22:
             case 23:
+            case 24:
                 {
                 alt8=3;
                 }
@@ -1404,19 +1416,19 @@ public class InternalSattParser extends AbstractInternalAntlrParser {
 
             switch (alt8) {
                 case 1 :
-                    // InternalSatt.g:523:3: (otherlv_0= '(' this_Model_1= ruleModel otherlv_2= ')' )
+                    // InternalSatt.g:529:3: (otherlv_0= '(' this_Model_1= ruleModel otherlv_2= ')' )
                     {
-                    // InternalSatt.g:523:3: (otherlv_0= '(' this_Model_1= ruleModel otherlv_2= ')' )
-                    // InternalSatt.g:524:4: otherlv_0= '(' this_Model_1= ruleModel otherlv_2= ')'
+                    // InternalSatt.g:529:3: (otherlv_0= '(' this_Model_1= ruleModel otherlv_2= ')' )
+                    // InternalSatt.g:530:4: otherlv_0= '(' this_Model_1= ruleModel otherlv_2= ')'
                     {
-                    otherlv_0=(Token)match(input,18,FOLLOW_6); 
+                    otherlv_0=(Token)match(input,19,FOLLOW_11); 
 
                     				newLeafNode(otherlv_0, grammarAccess.getPrimaryAccess().getLeftParenthesisKeyword_0_0());
                     			
 
                     				newCompositeNode(grammarAccess.getPrimaryAccess().getModelParserRuleCall_0_1());
                     			
-                    pushFollow(FOLLOW_11);
+                    pushFollow(FOLLOW_12);
                     this_Model_1=ruleModel();
 
                     state._fsp--;
@@ -1425,7 +1437,7 @@ public class InternalSattParser extends AbstractInternalAntlrParser {
                     				current = this_Model_1;
                     				afterParserOrEnumRuleCall();
                     			
-                    otherlv_2=(Token)match(input,19,FOLLOW_2); 
+                    otherlv_2=(Token)match(input,20,FOLLOW_2); 
 
                     				newLeafNode(otherlv_2, grammarAccess.getPrimaryAccess().getRightParenthesisKeyword_0_2());
                     			
@@ -1436,7 +1448,7 @@ public class InternalSattParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // InternalSatt.g:542:3: this_Not_3= ruleNot
+                    // InternalSatt.g:548:3: this_Not_3= ruleNot
                     {
 
                     			newCompositeNode(grammarAccess.getPrimaryAccess().getNotParserRuleCall_1());
@@ -1454,7 +1466,7 @@ public class InternalSattParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 3 :
-                    // InternalSatt.g:551:3: this_Const_4= ruleConst
+                    // InternalSatt.g:557:3: this_Const_4= ruleConst
                     {
 
                     			newCompositeNode(grammarAccess.getPrimaryAccess().getConstParserRuleCall_2());
@@ -1472,7 +1484,7 @@ public class InternalSattParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 4 :
-                    // InternalSatt.g:560:3: this_Var_5= ruleVar
+                    // InternalSatt.g:566:3: this_Var_5= ruleVar
                     {
 
                     			newCompositeNode(grammarAccess.getPrimaryAccess().getVarParserRuleCall_3());
@@ -1512,7 +1524,7 @@ public class InternalSattParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleNot"
-    // InternalSatt.g:572:1: entryRuleNot returns [EObject current=null] : iv_ruleNot= ruleNot EOF ;
+    // InternalSatt.g:578:1: entryRuleNot returns [EObject current=null] : iv_ruleNot= ruleNot EOF ;
     public final EObject entryRuleNot() throws RecognitionException {
         EObject current = null;
 
@@ -1520,8 +1532,8 @@ public class InternalSattParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalSatt.g:572:44: (iv_ruleNot= ruleNot EOF )
-            // InternalSatt.g:573:2: iv_ruleNot= ruleNot EOF
+            // InternalSatt.g:578:44: (iv_ruleNot= ruleNot EOF )
+            // InternalSatt.g:579:2: iv_ruleNot= ruleNot EOF
             {
              newCompositeNode(grammarAccess.getNotRule()); 
             pushFollow(FOLLOW_1);
@@ -1548,7 +1560,7 @@ public class InternalSattParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleNot"
-    // InternalSatt.g:579:1: ruleNot returns [EObject current=null] : ( (otherlv_0= '!' | otherlv_1= '~' ) this_Primary_2= rulePrimary () ) ;
+    // InternalSatt.g:585:1: ruleNot returns [EObject current=null] : ( (otherlv_0= '!' | otherlv_1= '~' ) this_Primary_2= rulePrimary () ) ;
     public final EObject ruleNot() throws RecognitionException {
         EObject current = null;
 
@@ -1561,20 +1573,20 @@ public class InternalSattParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalSatt.g:585:2: ( ( (otherlv_0= '!' | otherlv_1= '~' ) this_Primary_2= rulePrimary () ) )
-            // InternalSatt.g:586:2: ( (otherlv_0= '!' | otherlv_1= '~' ) this_Primary_2= rulePrimary () )
+            // InternalSatt.g:591:2: ( ( (otherlv_0= '!' | otherlv_1= '~' ) this_Primary_2= rulePrimary () ) )
+            // InternalSatt.g:592:2: ( (otherlv_0= '!' | otherlv_1= '~' ) this_Primary_2= rulePrimary () )
             {
-            // InternalSatt.g:586:2: ( (otherlv_0= '!' | otherlv_1= '~' ) this_Primary_2= rulePrimary () )
-            // InternalSatt.g:587:3: (otherlv_0= '!' | otherlv_1= '~' ) this_Primary_2= rulePrimary ()
+            // InternalSatt.g:592:2: ( (otherlv_0= '!' | otherlv_1= '~' ) this_Primary_2= rulePrimary () )
+            // InternalSatt.g:593:3: (otherlv_0= '!' | otherlv_1= '~' ) this_Primary_2= rulePrimary ()
             {
-            // InternalSatt.g:587:3: (otherlv_0= '!' | otherlv_1= '~' )
+            // InternalSatt.g:593:3: (otherlv_0= '!' | otherlv_1= '~' )
             int alt9=2;
             int LA9_0 = input.LA(1);
 
-            if ( (LA9_0==20) ) {
+            if ( (LA9_0==21) ) {
                 alt9=1;
             }
-            else if ( (LA9_0==21) ) {
+            else if ( (LA9_0==22) ) {
                 alt9=2;
             }
             else {
@@ -1585,9 +1597,9 @@ public class InternalSattParser extends AbstractInternalAntlrParser {
             }
             switch (alt9) {
                 case 1 :
-                    // InternalSatt.g:588:4: otherlv_0= '!'
+                    // InternalSatt.g:594:4: otherlv_0= '!'
                     {
-                    otherlv_0=(Token)match(input,20,FOLLOW_6); 
+                    otherlv_0=(Token)match(input,21,FOLLOW_5); 
 
                     				newLeafNode(otherlv_0, grammarAccess.getNotAccess().getExclamationMarkKeyword_0_0());
                     			
@@ -1595,9 +1607,9 @@ public class InternalSattParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // InternalSatt.g:593:4: otherlv_1= '~'
+                    // InternalSatt.g:599:4: otherlv_1= '~'
                     {
-                    otherlv_1=(Token)match(input,21,FOLLOW_6); 
+                    otherlv_1=(Token)match(input,22,FOLLOW_5); 
 
                     				newLeafNode(otherlv_1, grammarAccess.getNotAccess().getTildeKeyword_0_1());
                     			
@@ -1619,8 +1631,8 @@ public class InternalSattParser extends AbstractInternalAntlrParser {
             			current = this_Primary_2;
             			afterParserOrEnumRuleCall();
             		
-            // InternalSatt.g:606:3: ()
-            // InternalSatt.g:607:4: 
+            // InternalSatt.g:612:3: ()
+            // InternalSatt.g:613:4: 
             {
 
             				current = forceCreateModelElementAndSet(
@@ -1653,7 +1665,7 @@ public class InternalSattParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleVar"
-    // InternalSatt.g:617:1: entryRuleVar returns [EObject current=null] : iv_ruleVar= ruleVar EOF ;
+    // InternalSatt.g:623:1: entryRuleVar returns [EObject current=null] : iv_ruleVar= ruleVar EOF ;
     public final EObject entryRuleVar() throws RecognitionException {
         EObject current = null;
 
@@ -1661,8 +1673,8 @@ public class InternalSattParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalSatt.g:617:44: (iv_ruleVar= ruleVar EOF )
-            // InternalSatt.g:618:2: iv_ruleVar= ruleVar EOF
+            // InternalSatt.g:623:44: (iv_ruleVar= ruleVar EOF )
+            // InternalSatt.g:624:2: iv_ruleVar= ruleVar EOF
             {
              newCompositeNode(grammarAccess.getVarRule()); 
             pushFollow(FOLLOW_1);
@@ -1689,7 +1701,7 @@ public class InternalSattParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleVar"
-    // InternalSatt.g:624:1: ruleVar returns [EObject current=null] : ( (lv_id_0_0= RULE_ID ) ) ;
+    // InternalSatt.g:630:1: ruleVar returns [EObject current=null] : ( (lv_id_0_0= RULE_ID ) ) ;
     public final EObject ruleVar() throws RecognitionException {
         EObject current = null;
 
@@ -1699,14 +1711,14 @@ public class InternalSattParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalSatt.g:630:2: ( ( (lv_id_0_0= RULE_ID ) ) )
-            // InternalSatt.g:631:2: ( (lv_id_0_0= RULE_ID ) )
+            // InternalSatt.g:636:2: ( ( (lv_id_0_0= RULE_ID ) ) )
+            // InternalSatt.g:637:2: ( (lv_id_0_0= RULE_ID ) )
             {
-            // InternalSatt.g:631:2: ( (lv_id_0_0= RULE_ID ) )
-            // InternalSatt.g:632:3: (lv_id_0_0= RULE_ID )
+            // InternalSatt.g:637:2: ( (lv_id_0_0= RULE_ID ) )
+            // InternalSatt.g:638:3: (lv_id_0_0= RULE_ID )
             {
-            // InternalSatt.g:632:3: (lv_id_0_0= RULE_ID )
-            // InternalSatt.g:633:4: lv_id_0_0= RULE_ID
+            // InternalSatt.g:638:3: (lv_id_0_0= RULE_ID )
+            // InternalSatt.g:639:4: lv_id_0_0= RULE_ID
             {
             lv_id_0_0=(Token)match(input,RULE_ID,FOLLOW_2); 
 
@@ -1748,7 +1760,7 @@ public class InternalSattParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleConst"
-    // InternalSatt.g:652:1: entryRuleConst returns [EObject current=null] : iv_ruleConst= ruleConst EOF ;
+    // InternalSatt.g:658:1: entryRuleConst returns [EObject current=null] : iv_ruleConst= ruleConst EOF ;
     public final EObject entryRuleConst() throws RecognitionException {
         EObject current = null;
 
@@ -1756,8 +1768,8 @@ public class InternalSattParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalSatt.g:652:46: (iv_ruleConst= ruleConst EOF )
-            // InternalSatt.g:653:2: iv_ruleConst= ruleConst EOF
+            // InternalSatt.g:658:46: (iv_ruleConst= ruleConst EOF )
+            // InternalSatt.g:659:2: iv_ruleConst= ruleConst EOF
             {
              newCompositeNode(grammarAccess.getConstRule()); 
             pushFollow(FOLLOW_1);
@@ -1784,7 +1796,7 @@ public class InternalSattParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleConst"
-    // InternalSatt.g:659:1: ruleConst returns [EObject current=null] : ( ( (lv_val_0_1= 'true' | lv_val_0_2= 'false' ) ) ) ;
+    // InternalSatt.g:665:1: ruleConst returns [EObject current=null] : ( ( (lv_val_0_1= 'true' | lv_val_0_2= 'false' ) ) ) ;
     public final EObject ruleConst() throws RecognitionException {
         EObject current = null;
 
@@ -1795,23 +1807,23 @@ public class InternalSattParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalSatt.g:665:2: ( ( ( (lv_val_0_1= 'true' | lv_val_0_2= 'false' ) ) ) )
-            // InternalSatt.g:666:2: ( ( (lv_val_0_1= 'true' | lv_val_0_2= 'false' ) ) )
+            // InternalSatt.g:671:2: ( ( ( (lv_val_0_1= 'true' | lv_val_0_2= 'false' ) ) ) )
+            // InternalSatt.g:672:2: ( ( (lv_val_0_1= 'true' | lv_val_0_2= 'false' ) ) )
             {
-            // InternalSatt.g:666:2: ( ( (lv_val_0_1= 'true' | lv_val_0_2= 'false' ) ) )
-            // InternalSatt.g:667:3: ( (lv_val_0_1= 'true' | lv_val_0_2= 'false' ) )
+            // InternalSatt.g:672:2: ( ( (lv_val_0_1= 'true' | lv_val_0_2= 'false' ) ) )
+            // InternalSatt.g:673:3: ( (lv_val_0_1= 'true' | lv_val_0_2= 'false' ) )
             {
-            // InternalSatt.g:667:3: ( (lv_val_0_1= 'true' | lv_val_0_2= 'false' ) )
-            // InternalSatt.g:668:4: (lv_val_0_1= 'true' | lv_val_0_2= 'false' )
+            // InternalSatt.g:673:3: ( (lv_val_0_1= 'true' | lv_val_0_2= 'false' ) )
+            // InternalSatt.g:674:4: (lv_val_0_1= 'true' | lv_val_0_2= 'false' )
             {
-            // InternalSatt.g:668:4: (lv_val_0_1= 'true' | lv_val_0_2= 'false' )
+            // InternalSatt.g:674:4: (lv_val_0_1= 'true' | lv_val_0_2= 'false' )
             int alt10=2;
             int LA10_0 = input.LA(1);
 
-            if ( (LA10_0==22) ) {
+            if ( (LA10_0==23) ) {
                 alt10=1;
             }
-            else if ( (LA10_0==23) ) {
+            else if ( (LA10_0==24) ) {
                 alt10=2;
             }
             else {
@@ -1822,9 +1834,9 @@ public class InternalSattParser extends AbstractInternalAntlrParser {
             }
             switch (alt10) {
                 case 1 :
-                    // InternalSatt.g:669:5: lv_val_0_1= 'true'
+                    // InternalSatt.g:675:5: lv_val_0_1= 'true'
                     {
-                    lv_val_0_1=(Token)match(input,22,FOLLOW_2); 
+                    lv_val_0_1=(Token)match(input,23,FOLLOW_2); 
 
                     					newLeafNode(lv_val_0_1, grammarAccess.getConstAccess().getValTrueKeyword_0_0());
                     				
@@ -1838,9 +1850,9 @@ public class InternalSattParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // InternalSatt.g:680:5: lv_val_0_2= 'false'
+                    // InternalSatt.g:686:5: lv_val_0_2= 'false'
                     {
-                    lv_val_0_2=(Token)match(input,23,FOLLOW_2); 
+                    lv_val_0_2=(Token)match(input,24,FOLLOW_2); 
 
                     					newLeafNode(lv_val_0_2, grammarAccess.getConstAccess().getValFalseKeyword_0_1());
                     				
@@ -1882,7 +1894,7 @@ public class InternalSattParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleSATCallMethod"
-    // InternalSatt.g:696:1: ruleSATCallMethod returns [Enumerator current=null] : ( (enumLiteral_0= 'sat4j-java' ) | (enumLiteral_1= 'sat4j-jar' ) | (enumLiteral_2= 'sat4j-maven' ) ) ;
+    // InternalSatt.g:702:1: ruleSATCallMethod returns [Enumerator current=null] : ( (enumLiteral_0= 'sat4j-java' ) | (enumLiteral_1= 'sat4j-jar' ) | (enumLiteral_2= 'sat4j-maven' ) ) ;
     public final Enumerator ruleSATCallMethod() throws RecognitionException {
         Enumerator current = null;
 
@@ -1894,23 +1906,23 @@ public class InternalSattParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalSatt.g:702:2: ( ( (enumLiteral_0= 'sat4j-java' ) | (enumLiteral_1= 'sat4j-jar' ) | (enumLiteral_2= 'sat4j-maven' ) ) )
-            // InternalSatt.g:703:2: ( (enumLiteral_0= 'sat4j-java' ) | (enumLiteral_1= 'sat4j-jar' ) | (enumLiteral_2= 'sat4j-maven' ) )
+            // InternalSatt.g:708:2: ( ( (enumLiteral_0= 'sat4j-java' ) | (enumLiteral_1= 'sat4j-jar' ) | (enumLiteral_2= 'sat4j-maven' ) ) )
+            // InternalSatt.g:709:2: ( (enumLiteral_0= 'sat4j-java' ) | (enumLiteral_1= 'sat4j-jar' ) | (enumLiteral_2= 'sat4j-maven' ) )
             {
-            // InternalSatt.g:703:2: ( (enumLiteral_0= 'sat4j-java' ) | (enumLiteral_1= 'sat4j-jar' ) | (enumLiteral_2= 'sat4j-maven' ) )
+            // InternalSatt.g:709:2: ( (enumLiteral_0= 'sat4j-java' ) | (enumLiteral_1= 'sat4j-jar' ) | (enumLiteral_2= 'sat4j-maven' ) )
             int alt11=3;
             switch ( input.LA(1) ) {
-            case 24:
+            case 25:
                 {
                 alt11=1;
                 }
                 break;
-            case 25:
+            case 26:
                 {
                 alt11=2;
                 }
                 break;
-            case 26:
+            case 27:
                 {
                 alt11=3;
                 }
@@ -1924,12 +1936,12 @@ public class InternalSattParser extends AbstractInternalAntlrParser {
 
             switch (alt11) {
                 case 1 :
-                    // InternalSatt.g:704:3: (enumLiteral_0= 'sat4j-java' )
+                    // InternalSatt.g:710:3: (enumLiteral_0= 'sat4j-java' )
                     {
-                    // InternalSatt.g:704:3: (enumLiteral_0= 'sat4j-java' )
-                    // InternalSatt.g:705:4: enumLiteral_0= 'sat4j-java'
+                    // InternalSatt.g:710:3: (enumLiteral_0= 'sat4j-java' )
+                    // InternalSatt.g:711:4: enumLiteral_0= 'sat4j-java'
                     {
-                    enumLiteral_0=(Token)match(input,24,FOLLOW_2); 
+                    enumLiteral_0=(Token)match(input,25,FOLLOW_2); 
 
                     				current = grammarAccess.getSATCallMethodAccess().getSAT4J_JAVAEnumLiteralDeclaration_0().getEnumLiteral().getInstance();
                     				newLeafNode(enumLiteral_0, grammarAccess.getSATCallMethodAccess().getSAT4J_JAVAEnumLiteralDeclaration_0());
@@ -1941,12 +1953,12 @@ public class InternalSattParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // InternalSatt.g:712:3: (enumLiteral_1= 'sat4j-jar' )
+                    // InternalSatt.g:718:3: (enumLiteral_1= 'sat4j-jar' )
                     {
-                    // InternalSatt.g:712:3: (enumLiteral_1= 'sat4j-jar' )
-                    // InternalSatt.g:713:4: enumLiteral_1= 'sat4j-jar'
+                    // InternalSatt.g:718:3: (enumLiteral_1= 'sat4j-jar' )
+                    // InternalSatt.g:719:4: enumLiteral_1= 'sat4j-jar'
                     {
-                    enumLiteral_1=(Token)match(input,25,FOLLOW_2); 
+                    enumLiteral_1=(Token)match(input,26,FOLLOW_2); 
 
                     				current = grammarAccess.getSATCallMethodAccess().getSAT4J_JAREnumLiteralDeclaration_1().getEnumLiteral().getInstance();
                     				newLeafNode(enumLiteral_1, grammarAccess.getSATCallMethodAccess().getSAT4J_JAREnumLiteralDeclaration_1());
@@ -1958,12 +1970,12 @@ public class InternalSattParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 3 :
-                    // InternalSatt.g:720:3: (enumLiteral_2= 'sat4j-maven' )
+                    // InternalSatt.g:726:3: (enumLiteral_2= 'sat4j-maven' )
                     {
-                    // InternalSatt.g:720:3: (enumLiteral_2= 'sat4j-maven' )
-                    // InternalSatt.g:721:4: enumLiteral_2= 'sat4j-maven'
+                    // InternalSatt.g:726:3: (enumLiteral_2= 'sat4j-maven' )
+                    // InternalSatt.g:727:4: enumLiteral_2= 'sat4j-maven'
                     {
-                    enumLiteral_2=(Token)match(input,26,FOLLOW_2); 
+                    enumLiteral_2=(Token)match(input,27,FOLLOW_2); 
 
                     				current = grammarAccess.getSATCallMethodAccess().getSAT4J_MAVENEnumLiteralDeclaration_2().getEnumLiteral().getInstance();
                     				newLeafNode(enumLiteral_2, grammarAccess.getSATCallMethodAccess().getSAT4J_MAVENEnumLiteralDeclaration_2());
@@ -2002,14 +2014,15 @@ public class InternalSattParser extends AbstractInternalAntlrParser {
 
     public static final BitSet FOLLOW_1 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_2 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_3 = new BitSet(new long[]{0x0000000007000000L});
+    public static final BitSet FOLLOW_3 = new BitSet(new long[]{0x000000000E000000L});
     public static final BitSet FOLLOW_4 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_5 = new BitSet(new long[]{0x0000000000001002L});
-    public static final BitSet FOLLOW_6 = new BitSet(new long[]{0x0000000000F40020L});
-    public static final BitSet FOLLOW_7 = new BitSet(new long[]{0x0000000000002002L});
-    public static final BitSet FOLLOW_8 = new BitSet(new long[]{0x0000000000004002L});
-    public static final BitSet FOLLOW_9 = new BitSet(new long[]{0x0000000000008002L});
-    public static final BitSet FOLLOW_10 = new BitSet(new long[]{0x0000000000030002L});
-    public static final BitSet FOLLOW_11 = new BitSet(new long[]{0x0000000000080000L});
+    public static final BitSet FOLLOW_5 = new BitSet(new long[]{0x0000000001E80020L});
+    public static final BitSet FOLLOW_6 = new BitSet(new long[]{0x0000000000002002L});
+    public static final BitSet FOLLOW_7 = new BitSet(new long[]{0x0000000000004002L});
+    public static final BitSet FOLLOW_8 = new BitSet(new long[]{0x0000000000008002L});
+    public static final BitSet FOLLOW_9 = new BitSet(new long[]{0x0000000000010002L});
+    public static final BitSet FOLLOW_10 = new BitSet(new long[]{0x0000000000060002L});
+    public static final BitSet FOLLOW_11 = new BitSet(new long[]{0x0000000000001000L});
+    public static final BitSet FOLLOW_12 = new BitSet(new long[]{0x0000000000100000L});
 
 }

@@ -39,6 +39,7 @@ public class SattParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getSATCallMethodAccess().getAlternatives(), "rule__SATCallMethod__Alternatives");
 			builder.put(grammarAccess.getSATAccess().getGroup(), "rule__SAT__Group__0");
 			builder.put(grammarAccess.getFILEAccess().getGroup(), "rule__FILE__Group__0");
+			builder.put(grammarAccess.getModelAccess().getGroup(), "rule__Model__Group__0");
 			builder.put(grammarAccess.getBiImplAccess().getGroup(), "rule__BiImpl__Group__0");
 			builder.put(grammarAccess.getBiImplAccess().getGroup_1(), "rule__BiImpl__Group_1__0");
 			builder.put(grammarAccess.getImplAccess().getGroup(), "rule__Impl__Group__0");

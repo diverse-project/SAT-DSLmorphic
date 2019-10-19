@@ -21,7 +21,7 @@ import org.xtext.example.mydsl.satt.Impl
 import org.xtext.example.mydsl.satt.Nand
 import org.xtext.example.mydsl.satt.Not
 import org.xtext.example.mydsl.satt.Or
-import org.xtext.example.mydsl.satt.SAT
+import org.xtext.example.mydsl.satt.Sat
 
 @ExtendWith(InjectionExtension)
 @InjectWith(SattInjectorProvider)
@@ -31,15 +31,12 @@ import org.xtext.example.mydsl.satt.SAT
 class Mein 
 {
 	@Inject
-	ParseHelper<SAT> parseHelper
+	ParseHelper<Sat> parseHelper
 	
 	@Test
 	def void main()
 	{	
-		println("oui");
 		create_file();
-		
-		
 	}
 	
 	def create_file()
@@ -49,56 +46,80 @@ class Mein
 		//		sat4j-java
 		//''')
 		
-		val text = new String(Files.readAllBytes(Paths.get("fomula2.satt")), StandardCharsets.UTF_8);
+		val input = "fomula2.satt"
+		
+		val text = new String(Files.readAllBytes(Paths.get(input)), StandardCharsets.UTF_8);
 
 		val ast = parseHelper.parse(text);
 		
+		print("text read : ")
 		println(text);
-		
-		val dimacs_formula = read_entry(ast)
-		val call_method = get_call_method(ast)
+		println()
 				
+		val dimacs_formula = read_entry(ast)
+
+		val call_method = get_call_method(ast)
+		
+		print("dimcas fomula : \n")		
 		println(dimacs_formula)
+		println()
 		
+		
+		print("call method : ")
 		println(call_method)
-		
-		
-		val filename= "formula.cnf"
-		val fileWriter = new FileWriter(new File(filename));
-		fileWriter.write(prop_to_dimacs(ast));
+		println()
+
+
+		val filename_of_formula = "output.cnf"
+		val fileWriter = new FileWriter(new File(filename_of_formula));
+		fileWriter.write(dimacs_formula);
 		fileWriter.close();
+		
+		switch call_method
+		{
+			case call_method.equals("sat4j-java") : 
+			{
+				println("calling sat4j in java.")
+				Methode1.DoIt(filename_of_formula)
+			}
+			case call_method.equals("sat4j-jar") : 
+			{
+				
+			}
+			case call_method.equals("sat4j-maven") : 
+			{
+				
+			}
+		}
+		
+
 		
 	}
 	
-	def read_entry(SAT ast)
+	def read_entry(Sat ast)
 	{
 		switch ast.source
 		{
 			case ast.source instanceof FILE :
 			{ 
-				println("oooo")
-				println("ooooooooo")
 				val filename = (ast.source as FILE).file
-				println("hhhhhhh")
-				println(filename)
 				return new String(Files.readAllBytes(Paths.get(filename)), StandardCharsets.UTF_8);
 			}
 			case ast.source instanceof Expression :
 			{
-				println("oo2")
 				return prop_to_dimacs( (ast.source as EObject))
 			}
 			default : 
 			{
-				println(typeof (ast.source))
 				println("OUPS, ERREURRRRRRRRRRR")
+				return ""
 			}
 		}
 	}
 	
-	def get_call_method(SAT ast)
+	def get_call_method(Sat ast)
 	{
-		return ast.callMethod
+		return ast.callMethod.literal
 	}
 
 	def String prop_to_dimacs(EObject formule)

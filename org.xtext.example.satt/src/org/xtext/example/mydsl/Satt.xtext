@@ -14,7 +14,7 @@ enum SATCallMethod :  SAT4J_JAVA='sat4j-java' | SAT4J_JAR = 'sat4j-jar' | SAT4J_
 
 
 Model returns Expression:
-	BiImpl
+	'model' BiImpl
 ;
 
 BiImpl returns Expression:

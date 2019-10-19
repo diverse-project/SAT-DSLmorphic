@@ -86,14 +86,22 @@ public class SattGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	public class ModelElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.mydsl.Satt.Model");
-		private final RuleCall cBiImplParserRuleCall = (RuleCall)rule.eContents().get(1);
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cModelKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final RuleCall cBiImplParserRuleCall_1 = (RuleCall)cGroup.eContents().get(1);
 		
 		//Model Expression:
-		//	BiImpl;
+		//	'model' BiImpl;
 		@Override public ParserRule getRule() { return rule; }
 		
+		//'model' BiImpl
+		public Group getGroup() { return cGroup; }
+		
+		//'model'
+		public Keyword getModelKeyword_0() { return cModelKeyword_0; }
+		
 		//BiImpl
-		public RuleCall getBiImplParserRuleCall() { return cBiImplParserRuleCall; }
+		public RuleCall getBiImplParserRuleCall_1() { return cBiImplParserRuleCall_1; }
 	}
 	public class BiImplElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.mydsl.Satt.BiImpl");
@@ -519,7 +527,7 @@ public class SattGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//Model Expression:
-	//	BiImpl;
+	//	'model' BiImpl;
 	public ModelElements getModelAccess() {
 		return pModel;
 	}

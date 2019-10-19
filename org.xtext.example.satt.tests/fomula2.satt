@@ -1,2 +1,1 @@
-file file.cnf
-sat4j-java
+file "this_is_a_file.cnf" sat4j-java

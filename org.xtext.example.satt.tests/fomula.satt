@@ -1,2 +1,2 @@
-A ^ (B v C)
+model A ^ (B v C) ^ ~A
 sat4j-java

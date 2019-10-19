@@ -1,21 +1,30 @@
 package org.xtext.example.mydsl.tests;
 
 import com.google.inject.Inject;
+import java.io.File;
+import java.io.FileWriter;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.xtext.testing.InjectWith;
 import org.eclipse.xtext.testing.extensions.InjectionExtension;
 import org.eclipse.xtext.testing.util.ParseHelper;
+import org.eclipse.xtext.xbase.lib.Exceptions;
 import org.eclipse.xtext.xbase.lib.InputOutput;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.xtext.example.mydsl.satt.And;
 import org.xtext.example.mydsl.satt.BiImpl;
 import org.xtext.example.mydsl.satt.Expression;
+import org.xtext.example.mydsl.satt.FILE;
 import org.xtext.example.mydsl.satt.Impl;
 import org.xtext.example.mydsl.satt.Nand;
 import org.xtext.example.mydsl.satt.Not;
 import org.xtext.example.mydsl.satt.Or;
+import org.xtext.example.mydsl.satt.Sat;
+import org.xtext.example.mydsl.tests.Methode1;
 import org.xtext.example.mydsl.tests.SattInjectorProvider;
 
 @ExtendWith(InjectionExtension.class)
@@ -23,34 +32,98 @@ import org.xtext.example.mydsl.tests.SattInjectorProvider;
 @SuppressWarnings("all")
 public class Mein {
   @Inject
-  private /* ParseHelper<SAT> */Object parseHelper;
+  private ParseHelper<Sat> parseHelper;
   
   @Test
   public void main() {
-    InputOutput.<String>println("oui");
     this.create_file();
   }
   
-  public void create_file() {
-    throw new Error("Unresolved compilation problems:"
-      + "\nThe field Mein.parseHelper refers to the missing type SAT"
-      + "\nThe method read_entry(SAT) from the type Mein refers to the missing type SAT"
-      + "\nThe method get_call_method(SAT) from the type Mein refers to the missing type Object");
+  public Object create_file() {
+    try {
+      Object _xblockexpression = null;
+      {
+        final String input = "fomula2.satt";
+        byte[] _readAllBytes = Files.readAllBytes(Paths.get(input));
+        final String text = new String(_readAllBytes, StandardCharsets.UTF_8);
+        final Sat ast = this.parseHelper.parse(text);
+        InputOutput.<String>print("text read : ");
+        InputOutput.<String>println(text);
+        InputOutput.println();
+        final String dimacs_formula = this.read_entry(ast);
+        final String call_method = this.get_call_method(ast);
+        InputOutput.<String>print("dimcas fomula : \n");
+        InputOutput.<String>println(dimacs_formula);
+        InputOutput.println();
+        InputOutput.<String>print("call method : ");
+        InputOutput.<String>println(call_method);
+        InputOutput.println();
+        final String filename_of_formula = "output.cnf";
+        File _file = new File(filename_of_formula);
+        final FileWriter fileWriter = new FileWriter(_file);
+        fileWriter.write(dimacs_formula);
+        fileWriter.close();
+        Object _switchResult = null;
+        boolean _matched = false;
+        boolean _equals = call_method.equals("sat4j-java");
+        if (_equals) {
+          _matched=true;
+          InputOutput.<String>println("calling sat4j in java.");
+          Methode1.DoIt(filename_of_formula);
+        }
+        if (!_matched) {
+          boolean _equals_1 = call_method.equals("sat4j-jar");
+          if (_equals_1) {
+            _matched=true;
+            _switchResult = null;
+          }
+        }
+        if (!_matched) {
+          boolean _equals_2 = call_method.equals("sat4j-maven");
+          if (_equals_2) {
+            _matched=true;
+            _switchResult = null;
+          }
+        }
+        _xblockexpression = _switchResult;
+      }
+      return _xblockexpression;
+    } catch (Throwable _e) {
+      throw Exceptions.sneakyThrow(_e);
+    }
   }
   
-  public String read_entry(final /* SAT */Object ast) {
-    throw new Error("Unresolved compilation problems:"
-      + "\nast.source cannot be resolved to a type."
-      + "\nsource cannot be resolved"
-      + "\nsource cannot be resolved"
-      + "\nsource cannot be resolved"
-      + "\nsource cannot be resolved"
-      + "\nsource cannot be resolved");
+  public String read_entry(final Sat ast) {
+    try {
+      EObject _source = ast.getSource();
+      boolean _matched = false;
+      EObject _source_1 = ast.getSource();
+      if ((_source_1 instanceof FILE)) {
+        _matched=true;
+        EObject _source_2 = ast.getSource();
+        final String filename = ((FILE) _source_2).getFile();
+        byte[] _readAllBytes = Files.readAllBytes(Paths.get(filename));
+        return new String(_readAllBytes, StandardCharsets.UTF_8);
+      }
+      if (!_matched) {
+        EObject _source_3 = ast.getSource();
+        if ((_source_3 instanceof Expression)) {
+          _matched=true;
+          EObject _source_4 = ast.getSource();
+          return this.prop_to_dimacs(((EObject) _source_4));
+        }
+      }
+      {
+        InputOutput.<String>println("OUPS, ERREURRRRRRRRRRR");
+        return "";
+      }
+    } catch (Throwable _e) {
+      throw Exceptions.sneakyThrow(_e);
+    }
   }
   
-  public Object get_call_method(final /* SAT */Object ast) {
-    throw new Error("Unresolved compilation problems:"
-      + "\ncallMethod cannot be resolved");
+  public String get_call_method(final Sat ast) {
+    return ast.getCallMethod().getLiteral();
   }
   
   public String prop_to_dimacs(final EObject formule) {

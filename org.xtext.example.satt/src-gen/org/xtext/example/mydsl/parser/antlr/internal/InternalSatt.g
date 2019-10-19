@@ -192,14 +192,20 @@ ruleModel returns [EObject current=null]
 @after {
 	leaveRule();
 }:
-	{
-		newCompositeNode(grammarAccess.getModelAccess().getBiImplParserRuleCall());
-	}
-	this_BiImpl_0=ruleBiImpl
-	{
-		$current = $this_BiImpl_0.current;
-		afterParserOrEnumRuleCall();
-	}
+	(
+		otherlv_0='model'
+		{
+			newLeafNode(otherlv_0, grammarAccess.getModelAccess().getModelKeyword_0());
+		}
+		{
+			newCompositeNode(grammarAccess.getModelAccess().getBiImplParserRuleCall_1());
+		}
+		this_BiImpl_1=ruleBiImpl
+		{
+			$current = $this_BiImpl_1.current;
+			afterParserOrEnumRuleCall();
+		}
+	)
 ;
 
 // Entry rule entryRuleBiImpl
