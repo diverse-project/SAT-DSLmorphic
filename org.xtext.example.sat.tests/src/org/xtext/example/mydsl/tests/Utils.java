@@ -205,9 +205,20 @@ public class Utils {
 			if(ast.SATCallMethod == 'sat4j-jar') {
 				JarSolving(ast);
 			}
+			if(asst.SATCallMethod == 'sat4j-maven') {
+				MavenSolving(ast);
+			}
 		}
 		if (ast instanceof File) {
-			Sat4JLibrarySolver(ast.dimacsFileName);
+			if(ast.SATCallMethod == 'sat4j-java') { 
+				Sat4JLibrarySolver(ast.dimacsFileName);
+			}
+			if(ast.SATCallMethod == 'sat4j-jar') {
+				Sat4JJarSolver(ast.dimacsFileName);;
+			}
+			if(asst.SATCallMethod == 'sat4j-maven') {
+				Sat4JMavenSolver(ast.dimacsFileName);
+			}
 		}
 
 	}
