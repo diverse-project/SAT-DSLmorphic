@@ -73,6 +73,27 @@ public class SatSwitch<T> extends Switch<T>
   {
     switch (classifierID)
     {
+      case SatPackage.SAT:
+      {
+        Sat sat = (Sat)theEObject;
+        T result = caseSat(sat);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case SatPackage.DIMACS_FILE:
+      {
+        DimacsFile dimacsFile = (DimacsFile)theEObject;
+        T result = caseDimacsFile(dimacsFile);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case SatPackage.MODEL:
+      {
+        Model model = (Model)theEObject;
+        T result = caseModel(model);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       case SatPackage.EXPRESSION:
       {
         Expression expression = (Expression)theEObject;
@@ -130,6 +151,54 @@ public class SatSwitch<T> extends Switch<T>
       }
       default: return defaultCase(theEObject);
     }
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Sat</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Sat</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseSat(Sat object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Dimacs File</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Dimacs File</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseDimacsFile(DimacsFile object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Model</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Model</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseModel(Model object)
+  {
+    return null;
   }
 
   /**

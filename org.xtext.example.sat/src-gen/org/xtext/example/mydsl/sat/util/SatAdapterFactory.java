@@ -76,6 +76,21 @@ public class SatAdapterFactory extends AdapterFactoryImpl
     new SatSwitch<Adapter>()
     {
       @Override
+      public Adapter caseSat(Sat object)
+      {
+        return createSatAdapter();
+      }
+      @Override
+      public Adapter caseDimacsFile(DimacsFile object)
+      {
+        return createDimacsFileAdapter();
+      }
+      @Override
+      public Adapter caseModel(Model object)
+      {
+        return createModelAdapter();
+      }
+      @Override
       public Adapter caseExpression(Expression object)
       {
         return createExpressionAdapter();
@@ -131,6 +146,51 @@ public class SatAdapterFactory extends AdapterFactoryImpl
     return modelSwitch.doSwitch((EObject)target);
   }
 
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.example.mydsl.sat.Sat <em>Sat</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.example.mydsl.sat.Sat
+   * @generated
+   */
+  public Adapter createSatAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.example.mydsl.sat.DimacsFile <em>Dimacs File</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.example.mydsl.sat.DimacsFile
+   * @generated
+   */
+  public Adapter createDimacsFileAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.example.mydsl.sat.Model <em>Model</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.example.mydsl.sat.Model
+   * @generated
+   */
+  public Adapter createModelAdapter()
+  {
+    return null;
+  }
 
   /**
    * Creates a new adapter for an object of class '{@link org.xtext.example.mydsl.sat.Expression <em>Expression</em>}'.

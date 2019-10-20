@@ -16,11 +16,14 @@ import org.eclipse.xtext.serializer.sequencer.AbstractDelegatingSemanticSequence
 import org.eclipse.xtext.serializer.sequencer.ITransientValueService.ValueTransient;
 import org.xtext.example.mydsl.sat.And;
 import org.xtext.example.mydsl.sat.BiImpl;
+import org.xtext.example.mydsl.sat.DimacsFile;
 import org.xtext.example.mydsl.sat.Expression;
 import org.xtext.example.mydsl.sat.Impl;
+import org.xtext.example.mydsl.sat.Model;
 import org.xtext.example.mydsl.sat.Nand;
 import org.xtext.example.mydsl.sat.Not;
 import org.xtext.example.mydsl.sat.Or;
+import org.xtext.example.mydsl.sat.Sat;
 import org.xtext.example.mydsl.sat.SatPackage;
 import org.xtext.example.mydsl.services.SatGrammarAccess;
 
@@ -43,6 +46,9 @@ public class SatSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 				return; 
 			case SatPackage.BI_IMPL:
 				sequence_BiImpl(context, (BiImpl) semanticObject); 
+				return; 
+			case SatPackage.DIMACS_FILE:
+				sequence_DimacsFile(context, (DimacsFile) semanticObject); 
 				return; 
 			case SatPackage.EXPRESSION:
 				if (rule == grammarAccess.getConstRule()) {
@@ -73,6 +79,9 @@ public class SatSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 			case SatPackage.IMPL:
 				sequence_Impl(context, (Impl) semanticObject); 
 				return; 
+			case SatPackage.MODEL:
+				sequence_InlineFormula(context, (Model) semanticObject); 
+				return; 
 			case SatPackage.NAND:
 				sequence_Nand(context, (Nand) semanticObject); 
 				return; 
@@ -81,6 +90,9 @@ public class SatSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 				return; 
 			case SatPackage.OR:
 				sequence_Or(context, (Or) semanticObject); 
+				return; 
+			case SatPackage.SAT:
+				sequence_Sat(context, (Sat) semanticObject); 
 				return; 
 			}
 		if (errorAcceptor != null)
@@ -191,6 +203,24 @@ public class SatSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	
 	/**
 	 * Contexts:
+	 *     DimacsFile returns DimacsFile
+	 *
+	 * Constraint:
+	 *     filepath=STRING
+	 */
+	protected void sequence_DimacsFile(ISerializationContext context, DimacsFile semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, SatPackage.Literals.DIMACS_FILE__FILEPATH) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, SatPackage.Literals.DIMACS_FILE__FILEPATH));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getDimacsFileAccess().getFilepathSTRINGTerminalRuleCall_1_0(), semanticObject.getFilepath());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
 	 *     Model returns Impl
 	 *     BiImpl returns Impl
 	 *     BiImpl.BiImpl_1_0 returns Impl
@@ -218,6 +248,24 @@ public class SatSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
 		feeder.accept(grammarAccess.getImplAccess().getImplLeftAction_1_0(), semanticObject.getLeft());
 		feeder.accept(grammarAccess.getImplAccess().getRightOrParserRuleCall_1_2_0(), semanticObject.getRight());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     InlineFormula returns Model
+	 *
+	 * Constraint:
+	 *     model=Model
+	 */
+	protected void sequence_InlineFormula(ISerializationContext context, Model semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, SatPackage.Literals.MODEL__MODEL) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, SatPackage.Literals.MODEL__MODEL));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getInlineFormulaAccess().getModelModelParserRuleCall_1_0(), semanticObject.getModel());
 		feeder.finish();
 	}
 	
@@ -316,6 +364,18 @@ public class SatSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 		feeder.accept(grammarAccess.getOrAccess().getOrLeftAction_1_0(), semanticObject.getLeft());
 		feeder.accept(grammarAccess.getOrAccess().getRightAndParserRuleCall_1_2_0(), semanticObject.getRight());
 		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     Sat returns Sat
+	 *
+	 * Constraint:
+	 *     ((type=DimacsFile | type=InlineFormula) solver_method=SATSolverMethod)
+	 */
+	protected void sequence_Sat(ISerializationContext context, Sat semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	

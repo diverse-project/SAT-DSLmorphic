@@ -5,6 +5,7 @@ package org.xtext.example.mydsl.sat.impl;
 
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EEnum;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 
@@ -12,11 +13,15 @@ import org.eclipse.emf.ecore.impl.EPackageImpl;
 
 import org.xtext.example.mydsl.sat.And;
 import org.xtext.example.mydsl.sat.BiImpl;
+import org.xtext.example.mydsl.sat.DimacsFile;
 import org.xtext.example.mydsl.sat.Expression;
 import org.xtext.example.mydsl.sat.Impl;
+import org.xtext.example.mydsl.sat.Model;
 import org.xtext.example.mydsl.sat.Nand;
 import org.xtext.example.mydsl.sat.Not;
 import org.xtext.example.mydsl.sat.Or;
+import org.xtext.example.mydsl.sat.SATSolverMethod;
+import org.xtext.example.mydsl.sat.Sat;
 import org.xtext.example.mydsl.sat.SatFactory;
 import org.xtext.example.mydsl.sat.SatPackage;
 
@@ -28,6 +33,27 @@ import org.xtext.example.mydsl.sat.SatPackage;
  */
 public class SatPackageImpl extends EPackageImpl implements SatPackage
 {
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass satEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass dimacsFileEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass modelEClass = null;
+
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -76,6 +102,13 @@ public class SatPackageImpl extends EPackageImpl implements SatPackage
    * @generated
    */
   private EClass notEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EEnum satSolverMethodEEnum = null;
 
   /**
    * Creates an instance of the model <b>Package</b>, registered with
@@ -138,6 +171,83 @@ public class SatPackageImpl extends EPackageImpl implements SatPackage
     // Update the registry and return the package
     EPackage.Registry.INSTANCE.put(SatPackage.eNS_URI, theSatPackage);
     return theSatPackage;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getSat()
+  {
+    return satEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getSat_Type()
+  {
+    return (EReference)satEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getSat_Solver_method()
+  {
+    return (EAttribute)satEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getDimacsFile()
+  {
+    return dimacsFileEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getDimacsFile_Filepath()
+  {
+    return (EAttribute)dimacsFileEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getModel()
+  {
+    return modelEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getModel_Model()
+  {
+    return (EReference)modelEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -366,6 +476,17 @@ public class SatPackageImpl extends EPackageImpl implements SatPackage
    * @generated
    */
   @Override
+  public EEnum getSATSolverMethod()
+  {
+    return satSolverMethodEEnum;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public SatFactory getSatFactory()
   {
     return (SatFactory)getEFactoryInstance();
@@ -391,6 +512,16 @@ public class SatPackageImpl extends EPackageImpl implements SatPackage
     isCreated = true;
 
     // Create classes and their features
+    satEClass = createEClass(SAT);
+    createEReference(satEClass, SAT__TYPE);
+    createEAttribute(satEClass, SAT__SOLVER_METHOD);
+
+    dimacsFileEClass = createEClass(DIMACS_FILE);
+    createEAttribute(dimacsFileEClass, DIMACS_FILE__FILEPATH);
+
+    modelEClass = createEClass(MODEL);
+    createEReference(modelEClass, MODEL__MODEL);
+
     expressionEClass = createEClass(EXPRESSION);
     createEAttribute(expressionEClass, EXPRESSION__ID);
     createEAttribute(expressionEClass, EXPRESSION__VAL);
@@ -417,6 +548,9 @@ public class SatPackageImpl extends EPackageImpl implements SatPackage
 
     notEClass = createEClass(NOT);
     createEReference(notEClass, NOT__EXPRESSION);
+
+    // Create enums
+    satSolverMethodEEnum = createEEnum(SAT_SOLVER_METHOD);
   }
 
   /**
@@ -456,6 +590,16 @@ public class SatPackageImpl extends EPackageImpl implements SatPackage
     notEClass.getESuperTypes().add(this.getExpression());
 
     // Initialize classes and features; add operations and parameters
+    initEClass(satEClass, Sat.class, "Sat", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getSat_Type(), ecorePackage.getEObject(), null, "type", null, 0, 1, Sat.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getSat_Solver_method(), this.getSATSolverMethod(), "solver_method", null, 0, 1, Sat.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(dimacsFileEClass, DimacsFile.class, "DimacsFile", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getDimacsFile_Filepath(), ecorePackage.getEString(), "filepath", null, 0, 1, DimacsFile.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(modelEClass, Model.class, "Model", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getModel_Model(), this.getExpression(), null, "model", null, 0, 1, Model.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
     initEClass(expressionEClass, Expression.class, "Expression", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getExpression_Id(), ecorePackage.getEString(), "id", null, 0, 1, Expression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getExpression_Val(), ecorePackage.getEString(), "val", null, 0, 1, Expression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -482,6 +626,12 @@ public class SatPackageImpl extends EPackageImpl implements SatPackage
 
     initEClass(notEClass, Not.class, "Not", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getNot_Expression(), this.getExpression(), null, "expression", null, 0, 1, Not.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    // Initialize enums and add enum literals
+    initEEnum(satSolverMethodEEnum, SATSolverMethod.class, "SATSolverMethod");
+    addEEnumLiteral(satSolverMethodEEnum, SATSolverMethod.SAT4J_JAVA);
+    addEEnumLiteral(satSolverMethodEEnum, SATSolverMethod.SAT4J_JAR);
+    addEEnumLiteral(satSolverMethodEEnum, SATSolverMethod.SAT4J_MAVEN);
 
     // Create resource
     createResource(eNS_URI);

@@ -2,6 +2,20 @@ grammar org.xtext.example.mydsl.Sat with org.eclipse.xtext.common.Terminals
 
 generate sat "http://www.xtext.org/example/mydsl/Sat"
 
+Sat returns Sat:
+	type=(DimacsFile | InlineFormula) solver_method=SATSolverMethod
+;
+
+enum SATSolverMethod : SAT4J_JAVA='sat4j-java' | SAT4J_JAR = 'sat4j-jar' | SAT4J_MAVEN = 'sat4j-maven';
+
+DimacsFile returns DimacsFile:
+	'#dimacs' filepath=STRING
+;
+
+InlineFormula returns Model:
+	'#inline-formula' model=Model
+;
+
 Model returns Expression:
 	BiImpl
 ;

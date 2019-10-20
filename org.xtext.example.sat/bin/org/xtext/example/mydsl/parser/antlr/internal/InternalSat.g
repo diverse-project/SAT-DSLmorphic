@@ -23,6 +23,7 @@ import org.eclipse.xtext.parser.*;
 import org.eclipse.xtext.parser.impl.*;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.common.util.Enumerator;
 import org.eclipse.xtext.parser.antlr.AbstractInternalAntlrParser;
 import org.eclipse.xtext.parser.antlr.XtextTokenStream;
 import org.eclipse.xtext.parser.antlr.XtextTokenStream.HiddenTokens;
@@ -43,7 +44,7 @@ import org.xtext.example.mydsl.services.SatGrammarAccess;
 
     @Override
     protected String getFirstRuleName() {
-    	return "Model";
+    	return "Sat";
    	}
 
    	@Override
@@ -59,6 +60,164 @@ import org.xtext.example.mydsl.services.SatGrammarAccess;
         appendSkippedTokens();
     }
 }
+
+// Entry rule entryRuleSat
+entryRuleSat returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getSatRule()); }
+	iv_ruleSat=ruleSat
+	{ $current=$iv_ruleSat.current; }
+	EOF;
+
+// Rule Sat
+ruleSat returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		(
+			(
+				(
+					{
+						newCompositeNode(grammarAccess.getSatAccess().getTypeDimacsFileParserRuleCall_0_0_0());
+					}
+					lv_type_0_1=ruleDimacsFile
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getSatRule());
+						}
+						set(
+							$current,
+							"type",
+							lv_type_0_1,
+							"org.xtext.example.mydsl.Sat.DimacsFile");
+						afterParserOrEnumRuleCall();
+					}
+					    |
+					{
+						newCompositeNode(grammarAccess.getSatAccess().getTypeInlineFormulaParserRuleCall_0_0_1());
+					}
+					lv_type_0_2=ruleInlineFormula
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getSatRule());
+						}
+						set(
+							$current,
+							"type",
+							lv_type_0_2,
+							"org.xtext.example.mydsl.Sat.InlineFormula");
+						afterParserOrEnumRuleCall();
+					}
+				)
+			)
+		)
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getSatAccess().getSolver_methodSATSolverMethodEnumRuleCall_1_0());
+				}
+				lv_solver_method_1_0=ruleSATSolverMethod
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getSatRule());
+					}
+					set(
+						$current,
+						"solver_method",
+						lv_solver_method_1_0,
+						"org.xtext.example.mydsl.Sat.SATSolverMethod");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)
+	)
+;
+
+// Entry rule entryRuleDimacsFile
+entryRuleDimacsFile returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getDimacsFileRule()); }
+	iv_ruleDimacsFile=ruleDimacsFile
+	{ $current=$iv_ruleDimacsFile.current; }
+	EOF;
+
+// Rule DimacsFile
+ruleDimacsFile returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		otherlv_0='#dimacs'
+		{
+			newLeafNode(otherlv_0, grammarAccess.getDimacsFileAccess().getDimacsKeyword_0());
+		}
+		(
+			(
+				lv_filepath_1_0=RULE_STRING
+				{
+					newLeafNode(lv_filepath_1_0, grammarAccess.getDimacsFileAccess().getFilepathSTRINGTerminalRuleCall_1_0());
+				}
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getDimacsFileRule());
+					}
+					setWithLastConsumed(
+						$current,
+						"filepath",
+						lv_filepath_1_0,
+						"org.eclipse.xtext.common.Terminals.STRING");
+				}
+			)
+		)
+	)
+;
+
+// Entry rule entryRuleInlineFormula
+entryRuleInlineFormula returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getInlineFormulaRule()); }
+	iv_ruleInlineFormula=ruleInlineFormula
+	{ $current=$iv_ruleInlineFormula.current; }
+	EOF;
+
+// Rule InlineFormula
+ruleInlineFormula returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		otherlv_0='#inline-formula'
+		{
+			newLeafNode(otherlv_0, grammarAccess.getInlineFormulaAccess().getInlineFormulaKeyword_0());
+		}
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getInlineFormulaAccess().getModelModelParserRuleCall_1_0());
+				}
+				lv_model_1_0=ruleModel
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getInlineFormulaRule());
+					}
+					set(
+						$current,
+						"model",
+						lv_model_1_0,
+						"org.xtext.example.mydsl.Sat.Model");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)
+	)
+;
 
 // Entry rule entryRuleModel
 entryRuleModel returns [EObject current=null]:
@@ -571,6 +730,41 @@ ruleConst returns [EObject current=null]
 					setWithLastConsumed($current, "val", lv_val_0_2, null);
 				}
 			)
+		)
+	)
+;
+
+// Rule SATSolverMethod
+ruleSATSolverMethod returns [Enumerator current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		(
+			enumLiteral_0='sat4j-java'
+			{
+				$current = grammarAccess.getSATSolverMethodAccess().getSAT4J_JAVAEnumLiteralDeclaration_0().getEnumLiteral().getInstance();
+				newLeafNode(enumLiteral_0, grammarAccess.getSATSolverMethodAccess().getSAT4J_JAVAEnumLiteralDeclaration_0());
+			}
+		)
+		    |
+		(
+			enumLiteral_1='sat4j-jar'
+			{
+				$current = grammarAccess.getSATSolverMethodAccess().getSAT4J_JAREnumLiteralDeclaration_1().getEnumLiteral().getInstance();
+				newLeafNode(enumLiteral_1, grammarAccess.getSATSolverMethodAccess().getSAT4J_JAREnumLiteralDeclaration_1());
+			}
+		)
+		    |
+		(
+			enumLiteral_2='sat4j-maven'
+			{
+				$current = grammarAccess.getSATSolverMethodAccess().getSAT4J_MAVENEnumLiteralDeclaration_2().getEnumLiteral().getInstance();
+				newLeafNode(enumLiteral_2, grammarAccess.getSATSolverMethodAccess().getSAT4J_MAVENEnumLiteralDeclaration_2());
+			}
 		)
 	)
 ;

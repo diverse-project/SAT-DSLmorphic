@@ -24,6 +24,33 @@ public interface SatFactory extends EFactory
   SatFactory eINSTANCE = org.xtext.example.mydsl.sat.impl.SatFactoryImpl.init();
 
   /**
+   * Returns a new object of class '<em>Sat</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Sat</em>'.
+   * @generated
+   */
+  Sat createSat();
+
+  /**
+   * Returns a new object of class '<em>Dimacs File</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Dimacs File</em>'.
+   * @generated
+   */
+  DimacsFile createDimacsFile();
+
+  /**
+   * Returns a new object of class '<em>Model</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Model</em>'.
+   * @generated
+   */
+  Model createModel();
+
+  /**
    * Returns a new object of class '<em>Expression</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->

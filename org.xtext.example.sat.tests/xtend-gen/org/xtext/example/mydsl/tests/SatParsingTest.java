@@ -11,12 +11,11 @@ import org.eclipse.xtext.testing.InjectWith;
 import org.eclipse.xtext.testing.extensions.InjectionExtension;
 import org.eclipse.xtext.testing.util.ParseHelper;
 import org.eclipse.xtext.xbase.lib.Exceptions;
-import org.eclipse.xtext.xbase.lib.InputOutput;
 import org.eclipse.xtext.xbase.lib.IterableExtensions;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
-import org.xtext.example.mydsl.sat.Expression;
+import org.xtext.example.mydsl.sat.Sat;
 import org.xtext.example.mydsl.tests.SatInjectorProvider;
 
 @ExtendWith(InjectionExtension.class)
@@ -24,15 +23,15 @@ import org.xtext.example.mydsl.tests.SatInjectorProvider;
 @SuppressWarnings("all")
 public class SatParsingTest {
   @Inject
-  private ParseHelper<Expression> parseHelper;
+  private ParseHelper<Sat> parseHelper;
   
   @Test
   public void loadModel() {
     try {
       StringConcatenation _builder = new StringConcatenation();
-      _builder.append("A v B => C");
+      _builder.append("Hello Xtext!");
       _builder.newLine();
-      final Expression result = this.parseHelper.parse(_builder);
+      final Sat result = this.parseHelper.parse(_builder);
       Assertions.assertNotNull(result);
       final EList<Resource.Diagnostic> errors = result.eResource().getErrors();
       boolean _isEmpty = errors.isEmpty();
@@ -41,7 +40,6 @@ public class SatParsingTest {
       String _join = IterableExtensions.join(errors, ", ");
       _builder_1.append(_join);
       Assertions.assertTrue(_isEmpty, _builder_1.toString());
-      InputOutput.<String>println(("model=" + result));
     } catch (Throwable _e) {
       throw Exceptions.sneakyThrow(_e);
     }

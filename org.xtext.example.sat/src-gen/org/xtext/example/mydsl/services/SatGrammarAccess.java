@@ -9,6 +9,8 @@ import java.util.List;
 import org.eclipse.xtext.Action;
 import org.eclipse.xtext.Alternatives;
 import org.eclipse.xtext.Assignment;
+import org.eclipse.xtext.EnumLiteralDeclaration;
+import org.eclipse.xtext.EnumRule;
 import org.eclipse.xtext.Grammar;
 import org.eclipse.xtext.GrammarUtil;
 import org.eclipse.xtext.Group;
@@ -17,12 +19,94 @@ import org.eclipse.xtext.ParserRule;
 import org.eclipse.xtext.RuleCall;
 import org.eclipse.xtext.TerminalRule;
 import org.eclipse.xtext.common.services.TerminalsGrammarAccess;
+import org.eclipse.xtext.service.AbstractElementFinder.AbstractEnumRuleElementFinder;
 import org.eclipse.xtext.service.AbstractElementFinder.AbstractGrammarElementFinder;
 import org.eclipse.xtext.service.GrammarProvider;
 
 @Singleton
 public class SatGrammarAccess extends AbstractGrammarElementFinder {
 	
+	public class SatElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.mydsl.Sat.Sat");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Assignment cTypeAssignment_0 = (Assignment)cGroup.eContents().get(0);
+		private final Alternatives cTypeAlternatives_0_0 = (Alternatives)cTypeAssignment_0.eContents().get(0);
+		private final RuleCall cTypeDimacsFileParserRuleCall_0_0_0 = (RuleCall)cTypeAlternatives_0_0.eContents().get(0);
+		private final RuleCall cTypeInlineFormulaParserRuleCall_0_0_1 = (RuleCall)cTypeAlternatives_0_0.eContents().get(1);
+		private final Assignment cSolver_methodAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cSolver_methodSATSolverMethodEnumRuleCall_1_0 = (RuleCall)cSolver_methodAssignment_1.eContents().get(0);
+		
+		//Sat:
+		//	type=(DimacsFile | InlineFormula) solver_method=SATSolverMethod;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//type=(DimacsFile | InlineFormula) solver_method=SATSolverMethod
+		public Group getGroup() { return cGroup; }
+		
+		//type=(DimacsFile | InlineFormula)
+		public Assignment getTypeAssignment_0() { return cTypeAssignment_0; }
+		
+		//(DimacsFile | InlineFormula)
+		public Alternatives getTypeAlternatives_0_0() { return cTypeAlternatives_0_0; }
+		
+		//DimacsFile
+		public RuleCall getTypeDimacsFileParserRuleCall_0_0_0() { return cTypeDimacsFileParserRuleCall_0_0_0; }
+		
+		//InlineFormula
+		public RuleCall getTypeInlineFormulaParserRuleCall_0_0_1() { return cTypeInlineFormulaParserRuleCall_0_0_1; }
+		
+		//solver_method=SATSolverMethod
+		public Assignment getSolver_methodAssignment_1() { return cSolver_methodAssignment_1; }
+		
+		//SATSolverMethod
+		public RuleCall getSolver_methodSATSolverMethodEnumRuleCall_1_0() { return cSolver_methodSATSolverMethodEnumRuleCall_1_0; }
+	}
+	public class DimacsFileElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.mydsl.Sat.DimacsFile");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cDimacsKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Assignment cFilepathAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cFilepathSTRINGTerminalRuleCall_1_0 = (RuleCall)cFilepathAssignment_1.eContents().get(0);
+		
+		//DimacsFile:
+		//	'#dimacs' filepath=STRING;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//'#dimacs' filepath=STRING
+		public Group getGroup() { return cGroup; }
+		
+		//'#dimacs'
+		public Keyword getDimacsKeyword_0() { return cDimacsKeyword_0; }
+		
+		//filepath=STRING
+		public Assignment getFilepathAssignment_1() { return cFilepathAssignment_1; }
+		
+		//STRING
+		public RuleCall getFilepathSTRINGTerminalRuleCall_1_0() { return cFilepathSTRINGTerminalRuleCall_1_0; }
+	}
+	public class InlineFormulaElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.mydsl.Sat.InlineFormula");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cInlineFormulaKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Assignment cModelAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cModelModelParserRuleCall_1_0 = (RuleCall)cModelAssignment_1.eContents().get(0);
+		
+		//InlineFormula Model:
+		//	'#inline-formula' model=Model;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//'#inline-formula' model=Model
+		public Group getGroup() { return cGroup; }
+		
+		//'#inline-formula'
+		public Keyword getInlineFormulaKeyword_0() { return cInlineFormulaKeyword_0; }
+		
+		//model=Model
+		public Assignment getModelAssignment_1() { return cModelAssignment_1; }
+		
+		//Model
+		public RuleCall getModelModelParserRuleCall_1_0() { return cModelModelParserRuleCall_1_0; }
+	}
 	public class ModelElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.mydsl.Sat.Model");
 		private final RuleCall cBiImplParserRuleCall = (RuleCall)rule.eContents().get(1);
@@ -326,7 +410,46 @@ public class SatGrammarAccess extends AbstractGrammarElementFinder {
 		public Keyword getValFalseKeyword_0_1() { return cValFalseKeyword_0_1; }
 	}
 	
+	public class SATSolverMethodElements extends AbstractEnumRuleElementFinder {
+		private final EnumRule rule = (EnumRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.mydsl.Sat.SATSolverMethod");
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final EnumLiteralDeclaration cSAT4J_JAVAEnumLiteralDeclaration_0 = (EnumLiteralDeclaration)cAlternatives.eContents().get(0);
+		private final Keyword cSAT4J_JAVASat4jJavaKeyword_0_0 = (Keyword)cSAT4J_JAVAEnumLiteralDeclaration_0.eContents().get(0);
+		private final EnumLiteralDeclaration cSAT4J_JAREnumLiteralDeclaration_1 = (EnumLiteralDeclaration)cAlternatives.eContents().get(1);
+		private final Keyword cSAT4J_JARSat4jJarKeyword_1_0 = (Keyword)cSAT4J_JAREnumLiteralDeclaration_1.eContents().get(0);
+		private final EnumLiteralDeclaration cSAT4J_MAVENEnumLiteralDeclaration_2 = (EnumLiteralDeclaration)cAlternatives.eContents().get(2);
+		private final Keyword cSAT4J_MAVENSat4jMavenKeyword_2_0 = (Keyword)cSAT4J_MAVENEnumLiteralDeclaration_2.eContents().get(0);
+		
+		//enum SATSolverMethod:
+		//	SAT4J_JAVA='sat4j-java' | SAT4J_JAR='sat4j-jar' | SAT4J_MAVEN='sat4j-maven';
+		public EnumRule getRule() { return rule; }
+		
+		//SAT4J_JAVA='sat4j-java' | SAT4J_JAR='sat4j-jar' | SAT4J_MAVEN='sat4j-maven'
+		public Alternatives getAlternatives() { return cAlternatives; }
+		
+		//SAT4J_JAVA='sat4j-java'
+		public EnumLiteralDeclaration getSAT4J_JAVAEnumLiteralDeclaration_0() { return cSAT4J_JAVAEnumLiteralDeclaration_0; }
+		
+		//'sat4j-java'
+		public Keyword getSAT4J_JAVASat4jJavaKeyword_0_0() { return cSAT4J_JAVASat4jJavaKeyword_0_0; }
+		
+		//SAT4J_JAR='sat4j-jar'
+		public EnumLiteralDeclaration getSAT4J_JAREnumLiteralDeclaration_1() { return cSAT4J_JAREnumLiteralDeclaration_1; }
+		
+		//'sat4j-jar'
+		public Keyword getSAT4J_JARSat4jJarKeyword_1_0() { return cSAT4J_JARSat4jJarKeyword_1_0; }
+		
+		//SAT4J_MAVEN='sat4j-maven'
+		public EnumLiteralDeclaration getSAT4J_MAVENEnumLiteralDeclaration_2() { return cSAT4J_MAVENEnumLiteralDeclaration_2; }
+		
+		//'sat4j-maven'
+		public Keyword getSAT4J_MAVENSat4jMavenKeyword_2_0() { return cSAT4J_MAVENSat4jMavenKeyword_2_0; }
+	}
 	
+	private final SatElements pSat;
+	private final SATSolverMethodElements eSATSolverMethod;
+	private final DimacsFileElements pDimacsFile;
+	private final InlineFormulaElements pInlineFormula;
 	private final ModelElements pModel;
 	private final BiImplElements pBiImpl;
 	private final ImplElements pImpl;
@@ -347,6 +470,10 @@ public class SatGrammarAccess extends AbstractGrammarElementFinder {
 			TerminalsGrammarAccess gaTerminals) {
 		this.grammar = internalFindGrammar(grammarProvider);
 		this.gaTerminals = gaTerminals;
+		this.pSat = new SatElements();
+		this.eSATSolverMethod = new SATSolverMethodElements();
+		this.pDimacsFile = new DimacsFileElements();
+		this.pInlineFormula = new InlineFormulaElements();
 		this.pModel = new ModelElements();
 		this.pBiImpl = new BiImplElements();
 		this.pImpl = new ImplElements();
@@ -385,6 +512,46 @@ public class SatGrammarAccess extends AbstractGrammarElementFinder {
 		return gaTerminals;
 	}
 
+	
+	//Sat:
+	//	type=(DimacsFile | InlineFormula) solver_method=SATSolverMethod;
+	public SatElements getSatAccess() {
+		return pSat;
+	}
+	
+	public ParserRule getSatRule() {
+		return getSatAccess().getRule();
+	}
+	
+	//enum SATSolverMethod:
+	//	SAT4J_JAVA='sat4j-java' | SAT4J_JAR='sat4j-jar' | SAT4J_MAVEN='sat4j-maven';
+	public SATSolverMethodElements getSATSolverMethodAccess() {
+		return eSATSolverMethod;
+	}
+	
+	public EnumRule getSATSolverMethodRule() {
+		return getSATSolverMethodAccess().getRule();
+	}
+	
+	//DimacsFile:
+	//	'#dimacs' filepath=STRING;
+	public DimacsFileElements getDimacsFileAccess() {
+		return pDimacsFile;
+	}
+	
+	public ParserRule getDimacsFileRule() {
+		return getDimacsFileAccess().getRule();
+	}
+	
+	//InlineFormula Model:
+	//	'#inline-formula' model=Model;
+	public InlineFormulaElements getInlineFormulaAccess() {
+		return pInlineFormula;
+	}
+	
+	public ParserRule getInlineFormulaRule() {
+		return getInlineFormulaAccess().getRule();
+	}
 	
 	//Model Expression:
 	//	BiImpl;

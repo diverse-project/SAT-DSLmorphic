@@ -31,10 +31,15 @@ public class SatParser extends AbstractContentAssistParser {
 		}
 		
 		private static void init(ImmutableMap.Builder<AbstractElement, String> builder, SatGrammarAccess grammarAccess) {
+			builder.put(grammarAccess.getSatAccess().getTypeAlternatives_0_0(), "rule__Sat__TypeAlternatives_0_0");
 			builder.put(grammarAccess.getNandAccess().getAlternatives_1_1(), "rule__Nand__Alternatives_1_1");
 			builder.put(grammarAccess.getPrimaryAccess().getAlternatives(), "rule__Primary__Alternatives");
 			builder.put(grammarAccess.getNotAccess().getAlternatives_0(), "rule__Not__Alternatives_0");
 			builder.put(grammarAccess.getConstAccess().getValAlternatives_0(), "rule__Const__ValAlternatives_0");
+			builder.put(grammarAccess.getSATSolverMethodAccess().getAlternatives(), "rule__SATSolverMethod__Alternatives");
+			builder.put(grammarAccess.getSatAccess().getGroup(), "rule__Sat__Group__0");
+			builder.put(grammarAccess.getDimacsFileAccess().getGroup(), "rule__DimacsFile__Group__0");
+			builder.put(grammarAccess.getInlineFormulaAccess().getGroup(), "rule__InlineFormula__Group__0");
 			builder.put(grammarAccess.getBiImplAccess().getGroup(), "rule__BiImpl__Group__0");
 			builder.put(grammarAccess.getBiImplAccess().getGroup_1(), "rule__BiImpl__Group_1__0");
 			builder.put(grammarAccess.getImplAccess().getGroup(), "rule__Impl__Group__0");
@@ -47,6 +52,10 @@ public class SatParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getNandAccess().getGroup_1(), "rule__Nand__Group_1__0");
 			builder.put(grammarAccess.getPrimaryAccess().getGroup_0(), "rule__Primary__Group_0__0");
 			builder.put(grammarAccess.getNotAccess().getGroup(), "rule__Not__Group__0");
+			builder.put(grammarAccess.getSatAccess().getTypeAssignment_0(), "rule__Sat__TypeAssignment_0");
+			builder.put(grammarAccess.getSatAccess().getSolver_methodAssignment_1(), "rule__Sat__Solver_methodAssignment_1");
+			builder.put(grammarAccess.getDimacsFileAccess().getFilepathAssignment_1(), "rule__DimacsFile__FilepathAssignment_1");
+			builder.put(grammarAccess.getInlineFormulaAccess().getModelAssignment_1(), "rule__InlineFormula__ModelAssignment_1");
 			builder.put(grammarAccess.getBiImplAccess().getRightAssignment_1_2(), "rule__BiImpl__RightAssignment_1_2");
 			builder.put(grammarAccess.getImplAccess().getRightAssignment_1_2(), "rule__Impl__RightAssignment_1_2");
 			builder.put(grammarAccess.getOrAccess().getRightAssignment_1_2(), "rule__Or__RightAssignment_1_2");
