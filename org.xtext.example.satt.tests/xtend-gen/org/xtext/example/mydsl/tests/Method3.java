@@ -60,9 +60,6 @@ public class Method3 {
       _builder_1.append("{");
       _builder_1.newLine();
       _builder_1.append("\t\t\t");
-      _builder_1.append("System.out.println(\"heyo?\");");
-      _builder_1.newLine();
-      _builder_1.append("\t\t\t");
       _builder_1.newLine();
       _builder_1.append("\t\t\t");
       _builder_1.append("// SAT! SAT! SAT!");
@@ -104,9 +101,6 @@ public class Method3 {
       _builder_1.newLine();
       _builder_1.append("\t            ");
       _builder_1.append("}");
-      _builder_1.newLine();
-      _builder_1.append("\t            ");
-      _builder_1.append("System.out.println(\"ok\");");
       _builder_1.newLine();
       _builder_1.append("\t        ");
       _builder_1.append("} catch (FileNotFoundException e) {");

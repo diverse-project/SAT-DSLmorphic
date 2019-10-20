@@ -17,7 +17,6 @@ public class Methode1
 {
 	public static void DoIt(String file_dimacs_formula)
 	{
-			System.out.println("hey?");
 			ISolver solver = SolverFactory.newDefault();
 	        solver.setTimeout(3600); // 1 hour timeout
 	        Reader reader = new DimacsReader(solver);
@@ -30,7 +29,6 @@ public class Methode1
 	            } else {
 	                System.out.println("Unsatisfiable !");
 	            }
-	            System.out.println("ok");
 	        } catch (FileNotFoundException e) {
 	        	System.out.println("file not found");
 	            // TODO Auto-generated catch block
@@ -45,6 +43,5 @@ public class Methode1
 	        } catch (TimeoutException e) {
 	            System.out.println("Timeout, sorry!");      
 	        }
-	        System.out.println("fini");
 	}
 }

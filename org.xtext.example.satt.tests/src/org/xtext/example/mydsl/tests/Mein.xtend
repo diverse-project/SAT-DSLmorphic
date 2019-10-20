@@ -94,6 +94,7 @@ class Mein
 			{
 				println("generating maven project")
 				Method3.DoIt(filename_of_formula)
+				println("Done.")
 			}
 		}
 		

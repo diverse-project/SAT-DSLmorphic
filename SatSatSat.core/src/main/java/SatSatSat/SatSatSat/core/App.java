@@ -17,7 +17,6 @@ public class App
 {
 	public static void main( String[] args )
 	{
-			System.out.println("heyo?");
 			
 			// SAT! SAT! SAT!
 			ISolver solver = SolverFactory.newDefault();
@@ -32,7 +31,6 @@ public class App
 	            } else {
 	                System.out.println("Unsatisfiable !");
 	            }
-	            System.out.println("ok");
 	        } catch (FileNotFoundException e) {
 	        	System.out.println("file not found");
 	        } catch (ParseFormatException e) {
