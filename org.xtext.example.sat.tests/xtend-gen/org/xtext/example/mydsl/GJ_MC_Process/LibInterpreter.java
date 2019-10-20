@@ -24,7 +24,7 @@ public class LibInterpreter {
     try {
       FileWriter _fileWriter = new FileWriter(filename);
       final BufferedWriter writer = new BufferedWriter(_fileWriter);
-      writer.write(DIMACSPrinter.dimacsPrint(e));
+      writer.write(DIMACSPrinter.dimacsFile(e));
       writer.close();
     } catch (Throwable _e) {
       throw Exceptions.sneakyThrow(_e);

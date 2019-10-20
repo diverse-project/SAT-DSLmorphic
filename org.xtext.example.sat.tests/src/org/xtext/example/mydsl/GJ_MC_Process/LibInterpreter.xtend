@@ -20,7 +20,7 @@ class LibInterpreter {
 	
 	static def writeSat4jFile(String filename, EObject e){
 		val writer = new BufferedWriter(new FileWriter(filename));
-    	writer.write(DIMACSPrinter.dimacsPrint(e));
+    	writer.write(DIMACSPrinter.dimacsFile(e));
     	writer.close();
 	}
 }
