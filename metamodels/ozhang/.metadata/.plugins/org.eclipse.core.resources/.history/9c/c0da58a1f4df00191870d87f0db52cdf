@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="sAT_Metamodel" nsURI="http://www.example.org/sAT_Metamodel"
+    nsPrefix="sAT_Metamodel">
+  <eClassifiers xsi:type="ecore:EClass" name="Expression">
+    <eOperations name="eval"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="BinOp" eSuperTypes="#//Expression">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="L" lowerBound="1" eType="#//Expression"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="R" lowerBound="1" eType="#//Expression"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="And" eSuperTypes="#//BinOp"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Or" eSuperTypes="#//BinOp"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Implies" eSuperTypes="#//BinOp"/>
+  <eClassifiers xsi:type="ecore:EClass" name="UnOp" eSuperTypes="#//Expression">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="expression" lowerBound="1"
+        eType="#//Expression" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Nand" eSuperTypes="#//BinOp"/>
+  <eClassifiers xsi:type="ecore:EClass" name="BiImplies" eSuperTypes="#//BinOp"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Not" eSuperTypes="#//UnOp"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Axiom" eSuperTypes="#//Expression"/>
+</ecore:EPackage>
