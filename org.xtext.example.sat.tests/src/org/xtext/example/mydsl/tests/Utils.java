@@ -118,12 +118,11 @@ public class Utils {
 	 * formula is satisfiable or not
 	 * @param ast a Model
 	 */
-	public static void LibrarySolving(String dimacsFileContent) {
+	public static void LibrarySolving(String dimacsFileName) {
 		try {
-			Files.write(dimacsFileContent.getBytes(), new File("tmp.cnf"));
-			Sat4JLibrarySolver("tmp.cnf");
+			Sat4JLibrarySolver("dimacsFileName");
 		} catch (IOException e) {
-			System.out.println("File error : creation of tmp.cnf");
+			System.out.println("File error : creation of" + dimacsFileName);
 			e.printStackTrace();
 		}
 		
@@ -136,12 +135,10 @@ public class Utils {
 	 * satisfiability of the formula using the jar file of Sat4J
 	 * @param ast a Model
 	 */
-	public static void JarSolving(String dimacsFileContent) {
+	public static void JarSolving(String dimacsFileName) {
 		Runtime r = Runtime.getRuntime();
 		try {
-			Files.write(dimacsFileContent.getBytes(), new File("tmp.cnf"));
-			Sat4JLibrarySolver("tmp.cnf");
-			Process p = r.exec("java -jar org.sat4j.core-2.3.1.jar tmp.cnf");
+			Process p = r.exec("java -jar org.sat4j.core-2.3.1.jar" + dimacsFileName);
 			p.waitFor();
 			BufferedReader b = new BufferedReader(new InputStreamReader(p.getInputStream()));
 			String line = "";
@@ -204,15 +201,24 @@ public class Utils {
 		if (ast instanceof File) {
 			dimacsFileContent = ast.dimacsFileName;
 		}
+		try {
+			Files.write(dimacsFileContent.getBytes(), new File("tmp.cnf"));
+		} catch (IOException e) {
+			System.out.println(e.getMessage());
+			e.printStackTrace();
+		} catch (InterruptedException e) {
+			System.out.println(e.getMessage());
+			e.printStackTrace();
+		}
 		
-		if(ast.CallMethod == 'sat4j-java') { 
-			LibrarySolving(dimacsFileContent);
+		if(ast.CallMethod == "sat4j-java") { 
+			LibrarySolving("tmp.cnf");
 		}
-		if(ast.CallMethod == 'sat4j-jar') {
-			JarSolving(dimacsFileContent);
+		if(ast.CallMethod == "sat4j-jar") {
+			JarSolving("tmp.cnf");
 		}
-		if(asst.CallMethod == 'sat4j-maven') {
-			MavenSolving(dimacsFileContent);
+		if(ast.CallMethod == "sat4j-maven") {
+			MavenSolving("tmp.cnf");
 		}
 
 	}
