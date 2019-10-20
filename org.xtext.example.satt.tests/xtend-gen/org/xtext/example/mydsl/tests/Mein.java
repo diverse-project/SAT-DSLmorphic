@@ -24,6 +24,7 @@ import org.xtext.example.mydsl.satt.Nand;
 import org.xtext.example.mydsl.satt.Not;
 import org.xtext.example.mydsl.satt.Or;
 import org.xtext.example.mydsl.satt.Sat;
+import org.xtext.example.mydsl.tests.Method3;
 import org.xtext.example.mydsl.tests.Methode1;
 import org.xtext.example.mydsl.tests.Methode2;
 import org.xtext.example.mydsl.tests.SattInjectorProvider;
@@ -40,56 +41,51 @@ public class Mein {
     this.create_file();
   }
   
-  public Object create_file() {
+  public void create_file() {
     try {
-      Object _xblockexpression = null;
-      {
-        final String input = "fomula2.satt";
-        byte[] _readAllBytes = Files.readAllBytes(Paths.get(input));
-        final String text = new String(_readAllBytes, StandardCharsets.UTF_8);
-        final Sat ast = this.parseHelper.parse(text);
-        InputOutput.<String>print("text read : ");
-        InputOutput.<String>println(text);
-        InputOutput.println();
-        final String dimacs_formula = this.read_entry(ast);
-        final String call_method = this.get_call_method(ast);
-        InputOutput.<String>print("dimcas fomula : \n");
-        InputOutput.<String>println(dimacs_formula);
-        InputOutput.println();
-        InputOutput.<String>print("call method : ");
-        InputOutput.<String>println(call_method);
-        InputOutput.println();
-        final String filename_of_formula = "output.cnf";
-        File _file = new File(filename_of_formula);
-        final FileWriter fileWriter = new FileWriter(_file);
-        fileWriter.write(dimacs_formula);
-        fileWriter.close();
-        Object _switchResult = null;
-        boolean _matched = false;
-        boolean _equals = call_method.equals("sat4j-java");
-        if (_equals) {
-          _matched=true;
-          InputOutput.<String>println("calling sat4j from java code.");
-          Methode1.DoIt(filename_of_formula);
-        }
-        if (!_matched) {
-          boolean _equals_1 = call_method.equals("sat4j-jar");
-          if (_equals_1) {
-            _matched=true;
-            InputOutput.<String>println("calling sat4j from jar");
-            Methode2.DoIt(filename_of_formula);
-          }
-        }
-        if (!_matched) {
-          boolean _equals_2 = call_method.equals("sat4j-maven");
-          if (_equals_2) {
-            _matched=true;
-            _switchResult = null;
-          }
-        }
-        _xblockexpression = _switchResult;
+      final String input = "fomula.satt";
+      byte[] _readAllBytes = Files.readAllBytes(Paths.get(input));
+      final String text = new String(_readAllBytes, StandardCharsets.UTF_8);
+      final Sat ast = this.parseHelper.parse(text);
+      InputOutput.<String>print("text read : ");
+      InputOutput.<String>println(text);
+      InputOutput.println();
+      final String dimacs_formula = this.read_entry(ast);
+      final String call_method = this.get_call_method(ast);
+      InputOutput.<String>print("dimcas fomula : \n");
+      InputOutput.<String>println(dimacs_formula);
+      InputOutput.println();
+      InputOutput.<String>print("call method : ");
+      InputOutput.<String>println(call_method);
+      InputOutput.println();
+      final String filename_of_formula = "output.cnf";
+      File _file = new File(filename_of_formula);
+      final FileWriter fileWriter = new FileWriter(_file);
+      fileWriter.write(dimacs_formula);
+      fileWriter.close();
+      boolean _matched = false;
+      boolean _equals = call_method.equals("sat4j-java");
+      if (_equals) {
+        _matched=true;
+        InputOutput.<String>println("calling sat4j from java code.");
+        Methode1.DoIt(filename_of_formula);
       }
-      return _xblockexpression;
+      if (!_matched) {
+        boolean _equals_1 = call_method.equals("sat4j-jar");
+        if (_equals_1) {
+          _matched=true;
+          InputOutput.<String>println("calling sat4j from jar");
+          Methode2.DoIt(filename_of_formula);
+        }
+      }
+      if (!_matched) {
+        boolean _equals_2 = call_method.equals("sat4j-maven");
+        if (_equals_2) {
+          _matched=true;
+          InputOutput.<String>println("generating maven project");
+          Method3.DoIt(filename_of_formula);
+        }
+      }
     } catch (Throwable _e) {
       throw Exceptions.sneakyThrow(_e);
     }

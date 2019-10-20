@@ -48,7 +48,7 @@ class Mein
 		//		sat4j-java
 		//''')
 		
-		val input = "fomula2.satt"
+		val input = "fomula.satt"
 		
 		val text = new String(Files.readAllBytes(Paths.get(input)), StandardCharsets.UTF_8);
 
@@ -92,7 +92,8 @@ class Mein
 			}
 			case call_method.equals("sat4j-maven") : 
 			{
-				
+				println("generating maven project")
+				Method3.DoIt(filename_of_formula)
 			}
 		}
 		
