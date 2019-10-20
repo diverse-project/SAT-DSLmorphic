@@ -118,8 +118,7 @@ public class Utils {
 	 * formula is satisfiable or not
 	 * @param ast a Model
 	 */
-	public static void LibrarySolving(EObject ast) {
-		String dimacsFileContent = dimacsPrinter(ast);
+	public static void LibrarySolving(String dimacsFileContent) {
 		try {
 			Files.write(dimacsFileContent.getBytes(), new File("tmp.cnf"));
 			Sat4JLibrarySolver("tmp.cnf");
@@ -137,9 +136,8 @@ public class Utils {
 	 * satisfiability of the formula using the jar file of Sat4J
 	 * @param ast a Model
 	 */
-	public static void JarSolving(EObject ast) {
+	public static void JarSolving(String dimacsFileContent) {
 		Runtime r = Runtime.getRuntime();
-		String dimacsFileContent = dimacsPrinter(ast);
 		try {
 			Files.write(dimacsFileContent.getBytes(), new File("tmp.cnf"));
 			Sat4JLibrarySolver("tmp.cnf");
@@ -198,27 +196,23 @@ public class Utils {
 	 * Return the result of the SAT problem.
 	 */
 	public static void InputHandler(EObject ast) { 
+		String dimacsFileContent = "";
 		if(ast instanceof Model){
-			if(ast.SATCallMethod == 'sat4j-java') { 
-				LibrarySolving(ast);
-			}
-			if(ast.SATCallMethod == 'sat4j-jar') {
-				JarSolving(ast);
-			}
-			if(asst.SATCallMethod == 'sat4j-maven') {
-				MavenSolving(ast);
-			}
+			dimacsFileContent = dimacsPrinter(ast);
+			
 		}
 		if (ast instanceof File) {
-			if(ast.SATCallMethod == 'sat4j-java') { 
-				Sat4JLibrarySolver(ast.dimacsFileName);
-			}
-			if(ast.SATCallMethod == 'sat4j-jar') {
-				Sat4JJarSolver(ast.dimacsFileName);;
-			}
-			if(asst.SATCallMethod == 'sat4j-maven') {
-				Sat4JMavenSolver(ast.dimacsFileName);
-			}
+			dimacsFileContent = ast.dimacsFileName;
+		}
+		
+		if(ast.CallMethod == 'sat4j-java') { 
+			LibrarySolving(dimacsFileContent);
+		}
+		if(ast.CallMethod == 'sat4j-jar') {
+			JarSolving(dimacsFileContent);
+		}
+		if(asst.CallMethod == 'sat4j-maven') {
+			MavenSolving(dimacsFileContent);
 		}
 
 	}
