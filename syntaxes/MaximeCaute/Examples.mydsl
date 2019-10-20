@@ -1,0 +1,21 @@
+Systeme {
+	
+	Expression b1 {
+		Variable : "v"
+	}
+	
+	Expression b2 {
+		(Variable : "v" <-> Variable : "j")
+	}
+	
+	Expression b3 {
+		(Variable : "v" et Variable : "j" et Variable : "h")
+	}
+	
+	Expression b4 {
+		(
+			Variable : "v" ou
+				(Variable : "j" <-!> non Variable : "h")
+		)
+	}
+}
