@@ -1,4 +1,4 @@
-package org.xtext.example.mydsl.GJ_MC_Tests
+package org.xtext.example.mydsl.GJ_MC_Process
 
 import java.io.FileNotFoundException
 import java.io.IOException
@@ -6,15 +6,12 @@ import java.io.PrintWriter
 import org.sat4j.minisat.SolverFactory
 import org.sat4j.reader.DimacsReader
 import org.sat4j.reader.ParseFormatException
-import org.sat4j.reader.Reader
 import org.sat4j.specs.ContradictionException
-import org.sat4j.specs.IProblem
-import org.sat4j.specs.ISolver
 import org.sat4j.specs.TimeoutException
 
-class Sat4jLauncher {
+class LibInterpreter {
 	
-	static def interpretationSat4j(){
+	static def interpret(String filename){
 		
 		var solver = SolverFactory.newDefault();
         solver.setTimeout(3600); // 1 hour timeout
@@ -22,7 +19,7 @@ class Sat4jLauncher {
         var out = new PrintWriter(System.out,true);
         // CNF filename is given on the command line 
         try {
-            var problem = reader.parseInstance("foo.csv");
+            var problem = reader.parseInstance(filename);
             if (problem.isSatisfiable()) {
                 System.out.println("Satisfiable !");
                 reader.decode(problem.model(),out);
@@ -32,19 +29,23 @@ class Sat4jLauncher {
         } catch (FileNotFoundException e) {
             // TODO Auto-generated catch block
             e.printStackTrace()
+            return false
         } catch (ParseFormatException e) {
             // TODO Auto-generated catch block
             e.printStackTrace()
+            return false
         } catch (IOException e) {
             // TODO Auto-generated catch block
             e.printStackTrace()
+            return false
         } catch (ContradictionException e) {
-            System.out.println("Unsatisfiable (trivial)!");
+            System.out.println("Unsatisfiable !");
+            return false
         } catch (TimeoutException e) {
-            System.out.println("Timeout, sorry!");      
+            System.out.println("Timeout, sorry!");
+            return false      
         }
 		
 		return true;
 	}
-	
 }

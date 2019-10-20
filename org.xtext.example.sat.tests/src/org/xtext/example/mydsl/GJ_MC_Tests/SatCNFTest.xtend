@@ -14,7 +14,6 @@ import org.xtext.example.mydsl.GJ_MC_Process.ConjunctiveNormalForm
 import org.xtext.example.mydsl.GJ_MC_Process.SATUtils
 import org.xtext.example.mydsl.sat.Expression
 import org.xtext.example.mydsl.tests.SatInjectorProvider
-import org.xtext.example.mydsl.GJ_MC_Process.Sat4JCompiler
 
 @ExtendWith(InjectionExtension)
 @InjectWith(SatInjectorProvider)

@@ -43,7 +43,15 @@ public class Sat4jLauncher {
         boolean _equals_1 = Objects.equal(_solver_2, Solver.SAT4J_JAR);
         if (_equals_1) {
           _matched=true;
-          _switchResult = Boolean.valueOf(StandaloneInterpreter.jarCallSat4j(model.getFile().getPath(), model.getExpression()));
+          String _xifexpression_1 = null;
+          File _file_1 = model.getFile();
+          boolean _tripleEquals_1 = (_file_1 == null);
+          if (_tripleEquals_1) {
+            _xifexpression_1 = "";
+          } else {
+            _xifexpression_1 = model.getFile().getPath();
+          }
+          _switchResult = Boolean.valueOf(StandaloneInterpreter.jarCallSat4j(_xifexpression_1, model.getExpression()));
         }
       }
       if (!_matched) {
@@ -51,20 +59,20 @@ public class Sat4jLauncher {
         boolean _equals_2 = Objects.equal(_solver_3, Solver.SAT4J_COMP);
         if (_equals_2) {
           _matched=true;
-          Process _xifexpression_1 = null;
-          File _file_1 = model.getFile();
-          boolean _tripleEquals_1 = (_file_1 == null);
-          if (_tripleEquals_1) {
+          Process _xifexpression_2 = null;
+          File _file_2 = model.getFile();
+          boolean _tripleEquals_2 = (_file_2 == null);
+          if (_tripleEquals_2) {
             Process _xblockexpression_2 = null;
             {
               SATUtils.writeSat4jFile("formula.dimacs", model.getExpression());
               _xblockexpression_2 = Sat4JCompiler.compile("formula.dimacs");
             }
-            _xifexpression_1 = _xblockexpression_2;
+            _xifexpression_2 = _xblockexpression_2;
           } else {
-            _xifexpression_1 = Sat4JCompiler.compile(model.getFile().getPath());
+            _xifexpression_2 = Sat4JCompiler.compile(model.getFile().getPath());
           }
-          _switchResult = _xifexpression_1;
+          _switchResult = _xifexpression_2;
         }
       }
       _xblockexpression = _switchResult;
