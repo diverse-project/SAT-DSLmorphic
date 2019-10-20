@@ -6,21 +6,24 @@ import org.eclipse.xtext.xbase.lib.Exceptions;
 
 @SuppressWarnings("all")
 public class Sat4JCompiler {
-  public static void compile(final String dimacsContent) {
+  public static Process compile(final String file) {
     try {
-      final Process process = Runtime.getRuntime().exec("ls ~/org.xtext.example.mydsl.sat.compiledsat4j");
-      final int code = process.waitFor();
-      if ((code != 0)) {
-        Sat4JCompiler.createMavenProject();
-        final String app = Sat4JCompiler.getApp();
-        final String pom = Sat4JCompiler.getPom();
-        final PrintWriter appWriter = new PrintWriter("~/org.xtext.example.mydsl.sat.compiledsat4j/src/main/java/org/xtext/example/mydsl/sat/App.java", "UTF-8");
-        appWriter.print(app);
-        final PrintWriter pomWriter = new PrintWriter("~/org.xtext.example.mydsl.sat.compiledsat4j/pom.xml", "UTF-8");
-        pomWriter.print(pom);
+      Process _xblockexpression = null;
+      {
+        final Process process = Runtime.getRuntime().exec("ls ~/org.xtext.example.mydsl.sat.compiledsat4j");
+        final int code = process.waitFor();
+        if ((code != 0)) {
+          Sat4JCompiler.createMavenProject();
+          final String app = Sat4JCompiler.getApp();
+          final String pom = Sat4JCompiler.getPom();
+          final PrintWriter appWriter = new PrintWriter("~/org.xtext.example.mydsl.sat.compiledsat4j/src/main/java/org/xtext/example/mydsl/sat/App.java", "UTF-8");
+          appWriter.print(app);
+          final PrintWriter pomWriter = new PrintWriter("~/org.xtext.example.mydsl.sat.compiledsat4j/pom.xml", "UTF-8");
+          pomWriter.print(pom);
+        }
+        _xblockexpression = Runtime.getRuntime().exec((("cp " + file) + " ~/org.xtext.example.mydsl.sat.compiledsat4j/formula.dimacs"));
       }
-      final PrintWriter cnfWriter = new PrintWriter("~/org.xtext.example.mydsl.sat.compiledsat4j/formula.dimacs", "UTF-8");
-      cnfWriter.print(dimacsContent);
+      return _xblockexpression;
     } catch (Throwable _e) {
       throw Exceptions.sneakyThrow(_e);
     }

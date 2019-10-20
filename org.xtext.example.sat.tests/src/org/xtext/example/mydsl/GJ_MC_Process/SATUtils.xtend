@@ -1,5 +1,7 @@
 package org.xtext.example.mydsl.GJ_MC_Process
 
+import java.io.BufferedWriter
+import java.io.FileWriter
 import java.util.ArrayList
 import java.util.List
 import org.eclipse.emf.ecore.EObject
@@ -50,5 +52,11 @@ class SATUtils {
 	
 	static def equals(EObject e1, EObject e2){
 		EcoreUtil2.equals(e1, e2)
+	}
+	
+	static def writeSat4jFile(String filename, EObject e){
+		val writer = new BufferedWriter(new FileWriter(filename));
+    	writer.write(DIMACSPrinter.dimacsFile(ConjunctiveNormalForm.toCleanCNF(Simplifier.simplify(e))));
+    	writer.close();
 	}
 }

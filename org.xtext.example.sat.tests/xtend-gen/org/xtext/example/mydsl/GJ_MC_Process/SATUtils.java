@@ -1,9 +1,15 @@
 package org.xtext.example.mydsl.GJ_MC_Process;
 
+import java.io.BufferedWriter;
+import java.io.FileWriter;
 import java.util.ArrayList;
 import java.util.List;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.xtext.EcoreUtil2;
+import org.eclipse.xtext.xbase.lib.Exceptions;
+import org.xtext.example.mydsl.GJ_MC_Process.ConjunctiveNormalForm;
+import org.xtext.example.mydsl.GJ_MC_Process.DIMACSPrinter;
+import org.xtext.example.mydsl.GJ_MC_Process.Simplifier;
 import org.xtext.example.mydsl.sat.And;
 import org.xtext.example.mydsl.sat.Expression;
 import org.xtext.example.mydsl.sat.Not;
@@ -56,5 +62,16 @@ public class SATUtils {
   
   public static boolean equals(final EObject e1, final EObject e2) {
     return EcoreUtil2.equals(e1, e2);
+  }
+  
+  public static void writeSat4jFile(final String filename, final EObject e) {
+    try {
+      FileWriter _fileWriter = new FileWriter(filename);
+      final BufferedWriter writer = new BufferedWriter(_fileWriter);
+      writer.write(DIMACSPrinter.dimacsFile(ConjunctiveNormalForm.toCleanCNF(Simplifier.simplify(e))));
+      writer.close();
+    } catch (Throwable _e) {
+      throw Exceptions.sneakyThrow(_e);
+    }
   }
 }

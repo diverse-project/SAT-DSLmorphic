@@ -8,18 +8,20 @@ class Sat4jLauncher {
 	static def launch(EObject e){
 		val model = (e as Model)
 		
-		if (model.file === null){
-			
-		}
-		
 		switch(model.solver){
 			case model.solver == SAT4J_JAVA : if (model.file === null){
-												  LibInterpreter.interpret("")											  	
+												  SATUtils.writeSat4jFile("formula.dimacs",model.expression)
+												  LibInterpreter.interpret("formula.dimacs")											  	
 											  } else {
-											  	LibInterpreter.interpret("")
+											  	LibInterpreter.interpret(model.file.path)
 											  }
-			case model.solver == SAT4J_JAR  : println()
-			case model.solver == SAT4J_COMP : Sat4JCompiler.compile("")
+			case model.solver == SAT4J_JAR  : StandaloneInterpreter.jarCallSat4j(model.file.path, model.expression)
+			case model.solver == SAT4J_COMP : if (model.file === null){
+												  SATUtils.writeSat4jFile("formula.dimacs",model.expression)
+												  Sat4JCompiler.compile("formula.dimacs")											  	
+											  } else {
+											  	Sat4JCompiler.compile(model.file.path)
+											  }
 		}
 		
 	}

@@ -4,7 +4,7 @@ import java.io.PrintWriter
 
 class Sat4JCompiler {
 	
-	static def compile(String dimacsContent){
+	static def compile(String file){
 		val process = Runtime.getRuntime().exec("ls ~/org.xtext.example.mydsl.sat.compiledsat4j");
 		val code = process.waitFor
 		if(code != 0){
@@ -16,8 +16,7 @@ class Sat4JCompiler {
 			val pomWriter = new PrintWriter("~/org.xtext.example.mydsl.sat.compiledsat4j/pom.xml", "UTF-8");
 			pomWriter.print(pom);
 		}
-		val cnfWriter = new PrintWriter("~/org.xtext.example.mydsl.sat.compiledsat4j/formula.dimacs", "UTF-8");
-		cnfWriter.print(dimacsContent);
+		Runtime.getRuntime().exec("cp " + file + " ~/org.xtext.example.mydsl.sat.compiledsat4j/formula.dimacs");
 	}
 	
 	static def void createMavenProject(){
