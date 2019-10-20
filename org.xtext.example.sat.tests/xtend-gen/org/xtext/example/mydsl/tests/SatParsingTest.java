@@ -9,7 +9,6 @@ import org.eclipse.xtext.testing.extensions.InjectionExtension;
 import org.eclipse.xtext.testing.util.ParseHelper;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
-import org.xtext.example.mydsl.sat.Expression;
 import org.xtext.example.mydsl.tests.SatInjectorProvider;
 
 @ExtendWith(InjectionExtension.class)
@@ -17,21 +16,41 @@ import org.xtext.example.mydsl.tests.SatInjectorProvider;
 @SuppressWarnings("all")
 public class SatParsingTest {
   @Inject
-  private ParseHelper<Expression> parseHelper;
+  private /* ParseHelper<SAT> */Object parseHelper;
   
   @Test
   public void loadModel() {
     throw new Error("Unresolved compilation problems:"
-      + "\nThe method or field eResource is undefined for the type Expression"
+      + "\nThe field SatParsingTest.parseHelper refers to the missing type SAT"
+      + "\neResource cannot be resolved"
       + "\nerrors cannot be resolved"
       + "\nisEmpty cannot be resolved"
       + "\njoin cannot be resolved");
   }
   
   @Test
-  public void test1() {
+  public void Point1() {
     throw new Error("Unresolved compilation problems:"
-      + "\nThe method dimacsPrinter(Expression) is undefined for the type Class<Utils>"
-      + "\nequals cannot be resolved");
+      + "\nThe method InputHandler(SAT) is undefined for the type Class<Utils>"
+      + "\nThe field SatParsingTest.parseHelper refers to the missing type SAT"
+      + "\n== cannot be resolved");
+  }
+  
+  @Test
+  public void Point2() {
+    throw new Error("Unresolved compilation problems:"
+      + "\nThe method InputHandler(SAT) is undefined for the type Class<Utils>"
+      + "\nThe field SatParsingTest.parseHelper refers to the missing type SAT"
+      + "\n== cannot be resolved");
+  }
+  
+  @Test
+  public void comparison() {
+    throw new Error("Unresolved compilation problems:"
+      + "\nThe method InputHandler(SAT) is undefined for the type Class<Utils>"
+      + "\nThe method InputHandler(SAT) is undefined for the type Class<Utils>"
+      + "\nThe field SatParsingTest.parseHelper refers to the missing type SAT"
+      + "\nThe field SatParsingTest.parseHelper refers to the missing type SAT"
+      + "\n== cannot be resolved");
   }
 }

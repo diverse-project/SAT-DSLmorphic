@@ -12,13 +12,16 @@ import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.^extension.ExtendWith
 import org.xtext.example.mydsl.sat.Expression
 import org.xtext.example.mydsl.generator.SatGenerator
+import org.xtext.example.mydsl.sat.Expression
+import org.xtext.example.mydsl.sat.SAT
+
+
 
 @ExtendWith(InjectionExtension)
 @InjectWith(SatInjectorProvider)
 class SatParsingTest {
 	@Inject
-	ParseHelper<Expression> parseHelper
-	// ParseHelper<SAT> parseHelper
+	ParseHelper<SAT> parseHelper
 	
 	
 	// Files.writer(String, new File(String filename));
@@ -36,11 +39,55 @@ class SatParsingTest {
 		println("model=" + result)
 	}
 	
+//	@Test
+//	def void test1(){
+//		val result = parseHelper.parse('''
+//			(A v ! B) ^ (B v C v ! A)
+//		''')
+//		Assertions.assertTrue(Utils.dimacsPrinter(result).equals("1 -111 0\n1 11 -1111 0\n"));
+//	}
+	
 	@Test
-	def void test1(){
+	def void Point1(){
 		val result = parseHelper.parse('''
-			(A v ! B) ^ (B v C v ! A)
+			(P v Q) ^ (P v !Q) ^ (!P v Q) ^ (!P v !Q)
+			sat4j-java
 		''')
-		Assertions.assertTrue(Utils.dimacsPrinter(result).equals("1 -111 0\n1 11 -1111 0\n"));
+		Assertions.assertNotNull(result)
+		Utils.InputHandler(result) == false
 	}
+	
+	@Test
+	def void Point2(){
+		val result = parseHelper.parse('''
+			(P v Q) ^ (P v !Q) ^ (!P v Q) ^ (!P v !Q)
+			sat4j-jar
+		''')
+		Assertions.assertNotNull(result)
+		Utils.InputHandler(result) == false
+	}
+	
+	@Test
+	def void comparison(){
+		val result1 = parseHelper.parse('''
+			(P v Q) ^ (P v !Q) ^ (!P v Q) ^ (!P v !Q)
+			sat4j-java
+		''')
+		Assertions.assertNotNull(result1)
+		val result2 = parseHelper.parse('''
+			(P v Q) ^ (P v !Q) ^ (!P v Q) ^ (!P v !Q)
+			sat4j-java
+		''')
+		Assertions.assertNotNull(result2)
+		Utils.InputHandler(result1) == Utils.InputHandler(result2)
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
 }

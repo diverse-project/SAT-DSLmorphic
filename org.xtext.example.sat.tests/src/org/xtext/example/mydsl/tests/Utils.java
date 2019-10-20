@@ -161,8 +161,9 @@ public class Utils {
 	/**
 	 * Code from Sat4J how to saying if a formula is satisfiable or not
 	 * @param dimacsFilename the name of a cnf file
+	 * @return <code>true</code> iff satisfiable, <code>false</code> otherwise
 	 */
-	public static void Sat4JLibrarySolver(String dimacsFilename) {
+	public static boolean Sat4JLibrarySolver(String dimacsFilename) {
 		ISolver solver = SolverFactory.newDefault();
         solver.setTimeout(3600); // 1 hour timeout
         Reader reader = new DimacsReader(solver);
@@ -173,8 +174,10 @@ public class Utils {
             if (problem.isSatisfiable()) {
                 System.out.println("Satisfiable !");
                 reader.decode(problem.model(),out);
+                return true;
             } else {
                 System.out.println("Unsatisfiable !");
+                return false;
             }
         } catch (FileNotFoundException e) {
             System.out.println("The file " + dimacsFilename + " does not exist.");
@@ -211,15 +214,15 @@ public class Utils {
 			e.printStackTrace();
 		}
 		
-		if(ast.CallMethod == "sat4j-java") { 
+		if(ast.CallMethod == SATCallMethod.SAT4J_JAVA) { 
 			LibrarySolving("tmp.cnf");
 		}
-		if(ast.CallMethod == "sat4j-jar") {
+		if(ast.CallMethod == SATCallMethod.SAT4J_JAR) {
 			JarSolving("tmp.cnf");
 		}
-		if(ast.CallMethod == "sat4j-maven") {
-			MavenSolving("tmp.cnf");
-		}
+//		if(ast.CallMethod == SATCallMethod.SAT4J_MAVEN) {
+//			MavenSolving("tmp.cnf");
+//		}
 
 	}
 
