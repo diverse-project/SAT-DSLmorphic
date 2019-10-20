@@ -9,6 +9,8 @@ import java.util.List;
 import org.eclipse.xtext.Action;
 import org.eclipse.xtext.Alternatives;
 import org.eclipse.xtext.Assignment;
+import org.eclipse.xtext.EnumLiteralDeclaration;
+import org.eclipse.xtext.EnumRule;
 import org.eclipse.xtext.Grammar;
 import org.eclipse.xtext.GrammarUtil;
 import org.eclipse.xtext.Group;
@@ -17,6 +19,7 @@ import org.eclipse.xtext.ParserRule;
 import org.eclipse.xtext.RuleCall;
 import org.eclipse.xtext.TerminalRule;
 import org.eclipse.xtext.common.services.TerminalsGrammarAccess;
+import org.eclipse.xtext.service.AbstractElementFinder.AbstractEnumRuleElementFinder;
 import org.eclipse.xtext.service.AbstractElementFinder.AbstractGrammarElementFinder;
 import org.eclipse.xtext.service.GrammarProvider;
 
@@ -25,14 +28,69 @@ public class SatGrammarAccess extends AbstractGrammarElementFinder {
 	
 	public class ModelElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.mydsl.Sat.Model");
-		private final RuleCall cBiImplParserRuleCall = (RuleCall)rule.eContents().get(1);
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cSolverKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Assignment cSolverAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cSolverSolverEnumRuleCall_1_0 = (RuleCall)cSolverAssignment_1.eContents().get(0);
+		private final Alternatives cAlternatives_2 = (Alternatives)cGroup.eContents().get(2);
+		private final Assignment cExpressionAssignment_2_0 = (Assignment)cAlternatives_2.eContents().get(0);
+		private final RuleCall cExpressionBiImplParserRuleCall_2_0_0 = (RuleCall)cExpressionAssignment_2_0.eContents().get(0);
+		private final Assignment cFileAssignment_2_1 = (Assignment)cAlternatives_2.eContents().get(1);
+		private final RuleCall cFileFileParserRuleCall_2_1_0 = (RuleCall)cFileAssignment_2_1.eContents().get(0);
 		
-		//Model Expression:
-		//	BiImpl;
+		//Model:
+		//	'solver' solver=Solver (expression=BiImpl | file=File);
 		@Override public ParserRule getRule() { return rule; }
 		
+		//'solver' solver=Solver (expression=BiImpl | file=File)
+		public Group getGroup() { return cGroup; }
+		
+		//'solver'
+		public Keyword getSolverKeyword_0() { return cSolverKeyword_0; }
+		
+		//solver=Solver
+		public Assignment getSolverAssignment_1() { return cSolverAssignment_1; }
+		
+		//Solver
+		public RuleCall getSolverSolverEnumRuleCall_1_0() { return cSolverSolverEnumRuleCall_1_0; }
+		
+		//(expression=BiImpl | file=File)
+		public Alternatives getAlternatives_2() { return cAlternatives_2; }
+		
+		//expression=BiImpl
+		public Assignment getExpressionAssignment_2_0() { return cExpressionAssignment_2_0; }
+		
 		//BiImpl
-		public RuleCall getBiImplParserRuleCall() { return cBiImplParserRuleCall; }
+		public RuleCall getExpressionBiImplParserRuleCall_2_0_0() { return cExpressionBiImplParserRuleCall_2_0_0; }
+		
+		//file=File
+		public Assignment getFileAssignment_2_1() { return cFileAssignment_2_1; }
+		
+		//File
+		public RuleCall getFileFileParserRuleCall_2_1_0() { return cFileFileParserRuleCall_2_1_0; }
+	}
+	public class FileElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.mydsl.Sat.File");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cFileKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Assignment cPathAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cPathSTRINGTerminalRuleCall_1_0 = (RuleCall)cPathAssignment_1.eContents().get(0);
+		
+		//File:
+		//	'file' path=STRING;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//'file' path=STRING
+		public Group getGroup() { return cGroup; }
+		
+		//'file'
+		public Keyword getFileKeyword_0() { return cFileKeyword_0; }
+		
+		//path=STRING
+		public Assignment getPathAssignment_1() { return cPathAssignment_1; }
+		
+		//STRING
+		public RuleCall getPathSTRINGTerminalRuleCall_1_0() { return cPathSTRINGTerminalRuleCall_1_0; }
 	}
 	public class BiImplElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.mydsl.Sat.BiImpl");
@@ -326,8 +384,45 @@ public class SatGrammarAccess extends AbstractGrammarElementFinder {
 		public Keyword getValFalseKeyword_0_1() { return cValFalseKeyword_0_1; }
 	}
 	
+	public class SolverElements extends AbstractEnumRuleElementFinder {
+		private final EnumRule rule = (EnumRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.mydsl.Sat.Solver");
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final EnumLiteralDeclaration cSAT4J_JAVAEnumLiteralDeclaration_0 = (EnumLiteralDeclaration)cAlternatives.eContents().get(0);
+		private final Keyword cSAT4J_JAVASat4jJavaKeyword_0_0 = (Keyword)cSAT4J_JAVAEnumLiteralDeclaration_0.eContents().get(0);
+		private final EnumLiteralDeclaration cSAT4J_JAREnumLiteralDeclaration_1 = (EnumLiteralDeclaration)cAlternatives.eContents().get(1);
+		private final Keyword cSAT4J_JARSat4jJarKeyword_1_0 = (Keyword)cSAT4J_JAREnumLiteralDeclaration_1.eContents().get(0);
+		private final EnumLiteralDeclaration cSAT4J_COMPEnumLiteralDeclaration_2 = (EnumLiteralDeclaration)cAlternatives.eContents().get(2);
+		private final Keyword cSAT4J_COMPSat4jMavenKeyword_2_0 = (Keyword)cSAT4J_COMPEnumLiteralDeclaration_2.eContents().get(0);
+		
+		//enum Solver:
+		//	SAT4J_JAVA="sat4j-java" | SAT4J_JAR="sat4j-jar" | SAT4J_COMP="sat4j-maven";
+		public EnumRule getRule() { return rule; }
+		
+		//SAT4J_JAVA="sat4j-java" | SAT4J_JAR="sat4j-jar" | SAT4J_COMP="sat4j-maven"
+		public Alternatives getAlternatives() { return cAlternatives; }
+		
+		//SAT4J_JAVA="sat4j-java"
+		public EnumLiteralDeclaration getSAT4J_JAVAEnumLiteralDeclaration_0() { return cSAT4J_JAVAEnumLiteralDeclaration_0; }
+		
+		//"sat4j-java"
+		public Keyword getSAT4J_JAVASat4jJavaKeyword_0_0() { return cSAT4J_JAVASat4jJavaKeyword_0_0; }
+		
+		//SAT4J_JAR="sat4j-jar"
+		public EnumLiteralDeclaration getSAT4J_JAREnumLiteralDeclaration_1() { return cSAT4J_JAREnumLiteralDeclaration_1; }
+		
+		//"sat4j-jar"
+		public Keyword getSAT4J_JARSat4jJarKeyword_1_0() { return cSAT4J_JARSat4jJarKeyword_1_0; }
+		
+		//SAT4J_COMP="sat4j-maven"
+		public EnumLiteralDeclaration getSAT4J_COMPEnumLiteralDeclaration_2() { return cSAT4J_COMPEnumLiteralDeclaration_2; }
+		
+		//"sat4j-maven"
+		public Keyword getSAT4J_COMPSat4jMavenKeyword_2_0() { return cSAT4J_COMPSat4jMavenKeyword_2_0; }
+	}
 	
 	private final ModelElements pModel;
+	private final SolverElements eSolver;
+	private final FileElements pFile;
 	private final BiImplElements pBiImpl;
 	private final ImplElements pImpl;
 	private final OrElements pOr;
@@ -348,6 +443,8 @@ public class SatGrammarAccess extends AbstractGrammarElementFinder {
 		this.grammar = internalFindGrammar(grammarProvider);
 		this.gaTerminals = gaTerminals;
 		this.pModel = new ModelElements();
+		this.eSolver = new SolverElements();
+		this.pFile = new FileElements();
 		this.pBiImpl = new BiImplElements();
 		this.pImpl = new ImplElements();
 		this.pOr = new OrElements();
@@ -386,14 +483,34 @@ public class SatGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	
-	//Model Expression:
-	//	BiImpl;
+	//Model:
+	//	'solver' solver=Solver (expression=BiImpl | file=File);
 	public ModelElements getModelAccess() {
 		return pModel;
 	}
 	
 	public ParserRule getModelRule() {
 		return getModelAccess().getRule();
+	}
+	
+	//enum Solver:
+	//	SAT4J_JAVA="sat4j-java" | SAT4J_JAR="sat4j-jar" | SAT4J_COMP="sat4j-maven";
+	public SolverElements getSolverAccess() {
+		return eSolver;
+	}
+	
+	public EnumRule getSolverRule() {
+		return getSolverAccess().getRule();
+	}
+	
+	//File:
+	//	'file' path=STRING;
+	public FileElements getFileAccess() {
+		return pFile;
+	}
+	
+	public ParserRule getFileRule() {
+		return getFileAccess().getRule();
 	}
 	
 	//BiImpl Expression:

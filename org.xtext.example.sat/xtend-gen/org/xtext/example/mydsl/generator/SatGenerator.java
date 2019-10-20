@@ -3,16 +3,12 @@
  */
 package org.xtext.example.mydsl.generator;
 
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.xtext.generator.AbstractGenerator;
 import org.eclipse.xtext.generator.IFileSystemAccess2;
 import org.eclipse.xtext.generator.IGeneratorContext;
-import org.xtext.example.mydsl.generator.ConjunctiveNormalForm;
-import org.xtext.example.mydsl.generator.DIMACSPrinter;
-import org.xtext.example.mydsl.generator.PrettyPrinter;
-import org.xtext.example.mydsl.generator.Simplifier;
-import org.xtext.example.mydsl.sat.Expression;
 
 /**
  * Generates code from your model files on save.
@@ -23,27 +19,8 @@ import org.xtext.example.mydsl.sat.Expression;
 public class SatGenerator extends AbstractGenerator {
   @Override
   public void doGenerate(final Resource resource, final IFileSystemAccess2 fsa, final IGeneratorContext context) {
-    final Expression simplifiedExpression = this.simplify(resource.getContents().get(0));
-    final Expression cnfExpression = this.toCNF(simplifiedExpression);
-    final String ppExpression = this.prettyPrint(cnfExpression);
-    String _dimacsPrint = this.dimacsPrint(cnfExpression);
-    final String content = ((("c\nc " + ppExpression) + "\nc\n") + _dimacsPrint);
-    fsa.generateFile("sat.cnf", content);
-  }
-  
-  public Expression simplify(final EObject e) {
-    return Simplifier.simplify(e);
-  }
-  
-  public Expression toCNF(final EObject e) {
-    return ConjunctiveNormalForm.toCleanCNF(e);
-  }
-  
-  public String prettyPrint(final EObject e) {
-    return PrettyPrinter.prettyPrint(e);
-  }
-  
-  public String dimacsPrint(final EObject e) {
-    return DIMACSPrinter.dimacsFile(e);
+    final EList<EObject> temp = resource.getContents();
+    final String content = temp.toString();
+    fsa.generateFile("sat.view", content);
   }
 }

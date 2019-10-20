@@ -13,7 +13,7 @@ import org.eclipse.xtext.xbase.lib.IterableExtensions;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
-import org.xtext.example.mydsl.generator.DIMACSPrinter;
+import org.xtext.example.mydsl.GJ_MC_Process.DIMACSPrinter;
 import org.xtext.example.mydsl.sat.Expression;
 import org.xtext.example.mydsl.tests.SatInjectorProvider;
 

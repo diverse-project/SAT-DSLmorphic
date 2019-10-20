@@ -3,12 +3,10 @@
  */
 package org.xtext.example.mydsl.generator
 
-import org.eclipse.emf.ecore.EObject
 import org.eclipse.emf.ecore.resource.Resource
 import org.eclipse.xtext.generator.AbstractGenerator
 import org.eclipse.xtext.generator.IFileSystemAccess2
 import org.eclipse.xtext.generator.IGeneratorContext
-import org.xtext.example.mydsl.sat.Expression
 
 /**
  * Generates code from your model files on save.
@@ -19,17 +17,10 @@ class SatGenerator extends AbstractGenerator {
 
 	override void doGenerate(Resource resource, IFileSystemAccess2 fsa, IGeneratorContext context) {
 		
-		val simplifiedExpression = resource.contents.get(0).simplify()
-		val cnfExpression = simplifiedExpression.toCNF()
-		val ppExpression = cnfExpression.prettyPrint 
-		val content = "c\nc " + ppExpression + "\nc\n" + cnfExpression.dimacsPrint()
+		val temp = resource.contents
+		val content = temp.toString
 		
-		fsa.generateFile('sat.cnf', content)
+		fsa.generateFile('sat.view', content)
 	}
-		
-	def Expression simplify(EObject e){ Simplifier.           simplify   (e) }
-	def Expression    toCNF(EObject e){ ConjunctiveNormalForm.toCleanCNF (e) }
-	def String  prettyPrint(EObject e){ PrettyPrinter.        prettyPrint(e) }
-	def String  dimacsPrint(EObject e){ DIMACSPrinter.        dimacsFile (e) }
 		
 }
