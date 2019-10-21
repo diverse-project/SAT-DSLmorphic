@@ -7,13 +7,6 @@ import org.eclipse.emf.ecore.resource.Resource
 import org.eclipse.xtext.generator.AbstractGenerator
 import org.eclipse.xtext.generator.IFileSystemAccess2
 import org.eclipse.xtext.generator.IGeneratorContext
-import org.xtext.example.mydsl.sat.Expression
-import org.xtext.example.mydsl.sat.Instruction
-import org.xtext.example.mydsl.sat.SatFactory
-import java.io.BufferedReader
-import java.io.FileReader
-import java.io.PrintStream
-import java.io.File
 
 /**
  * Generates code from your model files on save.
@@ -28,40 +21,5 @@ class SatGenerator extends AbstractGenerator {
 //				.filter(Greeting)
 //				.map[name]
 //				.join(', '))
-
-	var path = "/home/yarduoc/ENS_INFO/M1/DSL/dimacs.cnf"
-	if( resource.contents.get(0) instanceof Instruction){
-		
-		var ct = resource.contents.get(0) as Instruction
-		
-		if(ct.expr === null){
-			path = ct.path;
-		}
-		else{
-			println("DIMACS")
-			var str = DIMACSConverter.toDIMACS(CNFConverter.CNFConvert(ct.expr));
-			val fout = new PrintStream(new File(path))
-			fout.println(str)
-			fout.close;
-			
-		}
-		
-		if( ct.solver.str.equals("sat4j-java")){
-			Solver.solveJava(path);		
-		}
-		else if( ct.solver.str.equals("sat4j-jar")){
-			Solver.solveJar(path);
-		}
-		else{ 
-			var BufferedReader br = new BufferedReader(new FileReader(path));
-			var String line = null;
-			while ((line = br.readLine()) !== null) {
-				println(line);
-			}
-		}
-	}
-	else {
-		println(PrettyPrinter.PrettyPrint((resource.contents.get(0) as Expression)));
-	}
 	}
 }

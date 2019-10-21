@@ -3,23 +3,10 @@
  */
 package org.xtext.example.mydsl.generator;
 
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileReader;
-import java.io.PrintStream;
-import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.xtext.generator.AbstractGenerator;
 import org.eclipse.xtext.generator.IFileSystemAccess2;
 import org.eclipse.xtext.generator.IGeneratorContext;
-import org.eclipse.xtext.xbase.lib.Exceptions;
-import org.eclipse.xtext.xbase.lib.InputOutput;
-import org.xtext.example.mydsl.generator.CNFConverter;
-import org.xtext.example.mydsl.generator.DIMACSConverter;
-import org.xtext.example.mydsl.generator.PrettyPrinter;
-import org.xtext.example.mydsl.generator.Solver;
-import org.xtext.example.mydsl.sat.Expression;
-import org.xtext.example.mydsl.sat.Instruction;
 
 /**
  * Generates code from your model files on save.
@@ -30,46 +17,5 @@ import org.xtext.example.mydsl.sat.Instruction;
 public class SatGenerator extends AbstractGenerator {
   @Override
   public void doGenerate(final Resource resource, final IFileSystemAccess2 fsa, final IGeneratorContext context) {
-    try {
-      String path = "/home/yarduoc/ENS_INFO/M1/DSL/dimacs.cnf";
-      EObject _get = resource.getContents().get(0);
-      if ((_get instanceof Instruction)) {
-        EObject _get_1 = resource.getContents().get(0);
-        Instruction ct = ((Instruction) _get_1);
-        Expression _expr = ct.getExpr();
-        boolean _tripleEquals = (_expr == null);
-        if (_tripleEquals) {
-          path = ct.getPath();
-        } else {
-          InputOutput.<String>println("DIMACS");
-          String str = DIMACSConverter.toDIMACS(CNFConverter.CNFConvert(ct.getExpr()));
-          File _file = new File(path);
-          final PrintStream fout = new PrintStream(_file);
-          fout.println(str);
-          fout.close();
-        }
-        boolean _equals = ct.getSolver().getStr().equals("sat4j-java");
-        if (_equals) {
-          Solver.solveJava(path);
-        } else {
-          boolean _equals_1 = ct.getSolver().getStr().equals("sat4j-jar");
-          if (_equals_1) {
-            Solver.solveJar(path);
-          } else {
-            FileReader _fileReader = new FileReader(path);
-            BufferedReader br = new BufferedReader(_fileReader);
-            String line = null;
-            while (((line = br.readLine()) != null)) {
-              InputOutput.<String>println(line);
-            }
-          }
-        }
-      } else {
-        EObject _get_2 = resource.getContents().get(0);
-        InputOutput.<String>println(PrettyPrinter.PrettyPrint(((Expression) _get_2)));
-      }
-    } catch (Throwable _e) {
-      throw Exceptions.sneakyThrow(_e);
-    }
   }
 }

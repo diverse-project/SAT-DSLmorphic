@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="projetDSLEcoreBis" nsURI="http://www.example.org/projetDSLEcoreBis"
+    nsPrefix="projetDSLEcoreBis">
+  <eClassifiers xsi:type="ecore:EClass" name="AndOperatorExpression" eSuperTypes="#//OperatorExpression">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="leftMember" lowerBound="1"
+        eType="#//BooleanExpression" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="rightMember" lowerBound="1"
+        eType="#//BooleanExpression" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="BooleanExpression"/>
+  <eClassifiers xsi:type="ecore:EClass" name="NegOperatorExpression" eSuperTypes="#//OperatorExpression">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="negatedExpression" lowerBound="1"
+        eType="#//BooleanExpression" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ImpliesOperatorExpression" eSuperTypes="#//OperatorExpression">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="leftMember" lowerBound="1"
+        eType="#//BooleanExpression" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="rightMember" lowerBound="1"
+        eType="#//BooleanExpression" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="BiimpliesOperatorExpression" eSuperTypes="#//OperatorExpression">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="leftMember" lowerBound="1"
+        eType="#//BooleanExpression" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="rightMember" lowerBound="1"
+        eType="#//BooleanExpression" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="BooleanExpressionsSystem">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="booleanExpression" upperBound="-1"
+        eType="#//BooleanExpression" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="OperatorExpression" eSuperTypes="#//BooleanExpression"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ExcludesOperatorExpression" eSuperTypes="#//OperatorExpression">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="leftMember" lowerBound="1"
+        eType="#//BooleanExpression" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="rightMember" lowerBound="1"
+        eType="#//BooleanExpression" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="OrOperatorExpression" eSuperTypes="#//OperatorExpression">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="leftMember" lowerBound="1"
+        eType="#//BooleanExpression" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="rightMember" lowerBound="1"
+        eType="#//BooleanExpression" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Variable" eSuperTypes="#//BooleanExpression">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+</ecore:EPackage>

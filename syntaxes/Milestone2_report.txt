@@ -1,0 +1,8 @@
+Rules that are worth checking and not expressed in the grammar:
+- atom names should not be special characters to avoid confusion with brackets and operators
+
+Comparison of xtext generated metamodel and milestone 1 metamodel:
+- the pair of expressions needed by BinExpr in the milestone 1 model are two different expressions (leftexpr and rightexpr) in the generated one
+- all "subclasses" for BinExpr and UnExpr in the mildestone 1 model (AND, OR, ...) are represented as string attributes in the xtext generated metamodel
+- similarly the Const class we defined in milestone 1 (for TRUE and FALSE) is represented as a string attribute of the Literal class
+
