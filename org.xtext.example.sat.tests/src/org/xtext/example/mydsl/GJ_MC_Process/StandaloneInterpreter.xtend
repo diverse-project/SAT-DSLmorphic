@@ -14,8 +14,8 @@ class StandaloneInterpreter {
 			commandline = "java -jar org.sat4j.core.jar "+sat4jFilename
 		}
 		
-		Runtime.getRuntime().exec(commandline)
+		var process = Runtime.getRuntime().exec(commandline)
 		
-		return true;
+		return process.outputStream
 	}
 }

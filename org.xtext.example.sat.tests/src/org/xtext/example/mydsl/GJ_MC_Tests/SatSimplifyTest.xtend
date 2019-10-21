@@ -14,21 +14,24 @@ import org.xtext.example.mydsl.GJ_MC_Process.SATUtils
 import org.xtext.example.mydsl.GJ_MC_Process.Simplifier
 import org.xtext.example.mydsl.sat.Expression
 import org.xtext.example.mydsl.tests.SatInjectorProvider
+import org.xtext.example.mydsl.sat.Model
 
 @ExtendWith(InjectionExtension)
 @InjectWith(SatInjectorProvider)
 class SatSimplifyTest {
 	@Inject
-	ParseHelper<Expression> parseHelper
+	ParseHelper<Model> parseHelper
 	
 	@Test
 	def void basicImpliesTest() {
 		val result = parseHelper.parse('''
+			solver sat4j-java
 			A => B
 		''')
-		val simplified = Simplifier.simplify(result)
+		val simplified = Simplifier.simplify(result.expression)
 		
 		val oracle = parseHelper.parse('''
+			solver sat4j-java
 			!A v B
 		''')
 		Assertions.assertNotNull(result)
@@ -41,11 +44,13 @@ class SatSimplifyTest {
 	@Test
 	def void basicBiImplTest() {
 		val result = parseHelper.parse('''
+			solver sat4j-java
 			A <=> B
 		''')
-		val simplified = Simplifier.simplify(result)
+		val simplified = Simplifier.simplify(result.expression)
 		
 		val oracle = parseHelper.parse('''
+			solver sat4j-java
 			A ^ B v !A ^ !B
 		''')
 		Assertions.assertNotNull(result)
@@ -58,11 +63,13 @@ class SatSimplifyTest {
 	@Test
 	def void basicNandTest() {
 		val result = parseHelper.parse('''
+			solver sat4j-java
 			A | B
 		''')
-		val simplified = Simplifier.simplify(result)
+		val simplified = Simplifier.simplify(result.expression)
 		
 		val oracle = parseHelper.parse('''
+			solver sat4j-java
 			!(A ^ B)
 		''')
 		Assertions.assertNotNull(result)
@@ -75,11 +82,13 @@ class SatSimplifyTest {
 	@Test
 	def void basicNotConstantTest() {
 		val result = parseHelper.parse('''
+			solver sat4j-java
 			!true
 		''')
-		val simplified = Simplifier.simplify(result)
+		val simplified = Simplifier.simplify(result.expression)
 		
 		val oracle = parseHelper.parse('''
+			solver sat4j-java
 			false
 		''')
 		Assertions.assertNotNull(result)
@@ -92,11 +101,13 @@ class SatSimplifyTest {
 	@Test
 	def void basicAndTrueConstantTest() {
 		val result = parseHelper.parse('''
+			solver sat4j-java
 			A ^ true
 		''')
-		val simplified = Simplifier.simplify(result)
+		val simplified = Simplifier.simplify(result.expression)
 		
 		val oracle = parseHelper.parse('''
+			solver sat4j-java
 			A
 		''')
 		Assertions.assertNotNull(result)
@@ -109,11 +120,13 @@ class SatSimplifyTest {
 	@Test
 	def void basicAndFalseConstantTest() {
 		val result = parseHelper.parse('''
+			solver sat4j-java
 			A ^ false
 		''')
-		val simplified = Simplifier.simplify(result)
+		val simplified = Simplifier.simplify(result.expression)
 		
 		val oracle = parseHelper.parse('''
+			solver sat4j-java
 			false
 		''')
 		Assertions.assertNotNull(result)
@@ -126,11 +139,13 @@ class SatSimplifyTest {
 	@Test
 	def void basicOrTrueConstantTest() {
 		val result = parseHelper.parse('''
+			solver sat4j-java
 			A v true
 		''')
-		val simplified = Simplifier.simplify(result)
+		val simplified = Simplifier.simplify(result.expression)
 		
 		val oracle = parseHelper.parse('''
+			solver sat4j-java
 			true
 		''')
 		Assertions.assertNotNull(result)
@@ -143,11 +158,13 @@ class SatSimplifyTest {
 	@Test
 	def void basicOrFalseConstantTest() {
 		val result = parseHelper.parse('''
+			solver sat4j-java
 			A v false
 		''')
-		val simplified = Simplifier.simplify(result)
+		val simplified = Simplifier.simplify(result.expression)
 		
 		val oracle = parseHelper.parse('''
+			solver sat4j-java
 			A
 		''')
 		Assertions.assertNotNull(result)
@@ -160,11 +177,13 @@ class SatSimplifyTest {
 	@Test
 	def void ComplexTransformationTest() {
 		val result = parseHelper.parse('''
+			solver sat4j-java
 			(A | B) => (C <=> D)
 		''')
-		val simplified = Simplifier.simplify(result)
+		val simplified = Simplifier.simplify(result.expression)
 		
 		val oracle = parseHelper.parse('''
+			solver sat4j-java
 			!!(A ^ B) v ((C ^ D) v (!C ^ !D))
 		''')
 		Assertions.assertNotNull(result)
@@ -177,11 +196,13 @@ class SatSimplifyTest {
 	@Test
 	def void ComplexTransformationWithConstantTest() {
 		val result = parseHelper.parse('''
+			solver sat4j-java
 			(false | B) <=> (C => true)
 		''')
-		val simplified = Simplifier.simplify(result)
+		val simplified = Simplifier.simplify(result.expression)
 		
 		val oracle = parseHelper.parse('''
+			solver sat4j-java
 			true
 		''')
 		Assertions.assertNotNull(result)

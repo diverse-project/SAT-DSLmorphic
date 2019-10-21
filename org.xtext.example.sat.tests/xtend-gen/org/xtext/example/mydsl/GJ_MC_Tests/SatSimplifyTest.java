@@ -18,6 +18,7 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.xtext.example.mydsl.GJ_MC_Process.SATUtils;
 import org.xtext.example.mydsl.GJ_MC_Process.Simplifier;
 import org.xtext.example.mydsl.sat.Expression;
+import org.xtext.example.mydsl.sat.Model;
 import org.xtext.example.mydsl.tests.SatInjectorProvider;
 
 @ExtendWith(InjectionExtension.class)
@@ -25,20 +26,24 @@ import org.xtext.example.mydsl.tests.SatInjectorProvider;
 @SuppressWarnings("all")
 public class SatSimplifyTest {
   @Inject
-  private ParseHelper<Expression> parseHelper;
+  private ParseHelper<Model> parseHelper;
   
   @Test
   public void basicImpliesTest() {
     try {
       StringConcatenation _builder = new StringConcatenation();
+      _builder.append("solver sat4j-java");
+      _builder.newLine();
       _builder.append("A => B");
       _builder.newLine();
-      final Expression result = this.parseHelper.parse(_builder);
-      final Expression simplified = Simplifier.simplify(result);
+      final Model result = this.parseHelper.parse(_builder);
+      final Expression simplified = Simplifier.simplify(result.getExpression());
       StringConcatenation _builder_1 = new StringConcatenation();
+      _builder_1.append("solver sat4j-java");
+      _builder_1.newLine();
       _builder_1.append("!A v B");
       _builder_1.newLine();
-      final Expression oracle = this.parseHelper.parse(_builder_1);
+      final Model oracle = this.parseHelper.parse(_builder_1);
       Assertions.assertNotNull(result);
       final EList<Resource.Diagnostic> errors = result.eResource().getErrors();
       boolean _isEmpty = errors.isEmpty();
@@ -57,14 +62,18 @@ public class SatSimplifyTest {
   public void basicBiImplTest() {
     try {
       StringConcatenation _builder = new StringConcatenation();
+      _builder.append("solver sat4j-java");
+      _builder.newLine();
       _builder.append("A <=> B");
       _builder.newLine();
-      final Expression result = this.parseHelper.parse(_builder);
-      final Expression simplified = Simplifier.simplify(result);
+      final Model result = this.parseHelper.parse(_builder);
+      final Expression simplified = Simplifier.simplify(result.getExpression());
       StringConcatenation _builder_1 = new StringConcatenation();
+      _builder_1.append("solver sat4j-java");
+      _builder_1.newLine();
       _builder_1.append("A ^ B v !A ^ !B");
       _builder_1.newLine();
-      final Expression oracle = this.parseHelper.parse(_builder_1);
+      final Model oracle = this.parseHelper.parse(_builder_1);
       Assertions.assertNotNull(result);
       final EList<Resource.Diagnostic> errors = result.eResource().getErrors();
       boolean _isEmpty = errors.isEmpty();
@@ -83,14 +92,18 @@ public class SatSimplifyTest {
   public void basicNandTest() {
     try {
       StringConcatenation _builder = new StringConcatenation();
+      _builder.append("solver sat4j-java");
+      _builder.newLine();
       _builder.append("A | B");
       _builder.newLine();
-      final Expression result = this.parseHelper.parse(_builder);
-      final Expression simplified = Simplifier.simplify(result);
+      final Model result = this.parseHelper.parse(_builder);
+      final Expression simplified = Simplifier.simplify(result.getExpression());
       StringConcatenation _builder_1 = new StringConcatenation();
+      _builder_1.append("solver sat4j-java");
+      _builder_1.newLine();
       _builder_1.append("!(A ^ B)");
       _builder_1.newLine();
-      final Expression oracle = this.parseHelper.parse(_builder_1);
+      final Model oracle = this.parseHelper.parse(_builder_1);
       Assertions.assertNotNull(result);
       final EList<Resource.Diagnostic> errors = result.eResource().getErrors();
       boolean _isEmpty = errors.isEmpty();
@@ -109,14 +122,18 @@ public class SatSimplifyTest {
   public void basicNotConstantTest() {
     try {
       StringConcatenation _builder = new StringConcatenation();
+      _builder.append("solver sat4j-java");
+      _builder.newLine();
       _builder.append("!true");
       _builder.newLine();
-      final Expression result = this.parseHelper.parse(_builder);
-      final Expression simplified = Simplifier.simplify(result);
+      final Model result = this.parseHelper.parse(_builder);
+      final Expression simplified = Simplifier.simplify(result.getExpression());
       StringConcatenation _builder_1 = new StringConcatenation();
+      _builder_1.append("solver sat4j-java");
+      _builder_1.newLine();
       _builder_1.append("false");
       _builder_1.newLine();
-      final Expression oracle = this.parseHelper.parse(_builder_1);
+      final Model oracle = this.parseHelper.parse(_builder_1);
       Assertions.assertNotNull(result);
       final EList<Resource.Diagnostic> errors = result.eResource().getErrors();
       boolean _isEmpty = errors.isEmpty();
@@ -135,14 +152,18 @@ public class SatSimplifyTest {
   public void basicAndTrueConstantTest() {
     try {
       StringConcatenation _builder = new StringConcatenation();
+      _builder.append("solver sat4j-java");
+      _builder.newLine();
       _builder.append("A ^ true");
       _builder.newLine();
-      final Expression result = this.parseHelper.parse(_builder);
-      final Expression simplified = Simplifier.simplify(result);
+      final Model result = this.parseHelper.parse(_builder);
+      final Expression simplified = Simplifier.simplify(result.getExpression());
       StringConcatenation _builder_1 = new StringConcatenation();
+      _builder_1.append("solver sat4j-java");
+      _builder_1.newLine();
       _builder_1.append("A");
       _builder_1.newLine();
-      final Expression oracle = this.parseHelper.parse(_builder_1);
+      final Model oracle = this.parseHelper.parse(_builder_1);
       Assertions.assertNotNull(result);
       final EList<Resource.Diagnostic> errors = result.eResource().getErrors();
       boolean _isEmpty = errors.isEmpty();
@@ -161,14 +182,18 @@ public class SatSimplifyTest {
   public void basicAndFalseConstantTest() {
     try {
       StringConcatenation _builder = new StringConcatenation();
+      _builder.append("solver sat4j-java");
+      _builder.newLine();
       _builder.append("A ^ false");
       _builder.newLine();
-      final Expression result = this.parseHelper.parse(_builder);
-      final Expression simplified = Simplifier.simplify(result);
+      final Model result = this.parseHelper.parse(_builder);
+      final Expression simplified = Simplifier.simplify(result.getExpression());
       StringConcatenation _builder_1 = new StringConcatenation();
+      _builder_1.append("solver sat4j-java");
+      _builder_1.newLine();
       _builder_1.append("false");
       _builder_1.newLine();
-      final Expression oracle = this.parseHelper.parse(_builder_1);
+      final Model oracle = this.parseHelper.parse(_builder_1);
       Assertions.assertNotNull(result);
       final EList<Resource.Diagnostic> errors = result.eResource().getErrors();
       boolean _isEmpty = errors.isEmpty();
@@ -187,14 +212,18 @@ public class SatSimplifyTest {
   public void basicOrTrueConstantTest() {
     try {
       StringConcatenation _builder = new StringConcatenation();
+      _builder.append("solver sat4j-java");
+      _builder.newLine();
       _builder.append("A v true");
       _builder.newLine();
-      final Expression result = this.parseHelper.parse(_builder);
-      final Expression simplified = Simplifier.simplify(result);
+      final Model result = this.parseHelper.parse(_builder);
+      final Expression simplified = Simplifier.simplify(result.getExpression());
       StringConcatenation _builder_1 = new StringConcatenation();
+      _builder_1.append("solver sat4j-java");
+      _builder_1.newLine();
       _builder_1.append("true");
       _builder_1.newLine();
-      final Expression oracle = this.parseHelper.parse(_builder_1);
+      final Model oracle = this.parseHelper.parse(_builder_1);
       Assertions.assertNotNull(result);
       final EList<Resource.Diagnostic> errors = result.eResource().getErrors();
       boolean _isEmpty = errors.isEmpty();
@@ -213,14 +242,18 @@ public class SatSimplifyTest {
   public void basicOrFalseConstantTest() {
     try {
       StringConcatenation _builder = new StringConcatenation();
+      _builder.append("solver sat4j-java");
+      _builder.newLine();
       _builder.append("A v false");
       _builder.newLine();
-      final Expression result = this.parseHelper.parse(_builder);
-      final Expression simplified = Simplifier.simplify(result);
+      final Model result = this.parseHelper.parse(_builder);
+      final Expression simplified = Simplifier.simplify(result.getExpression());
       StringConcatenation _builder_1 = new StringConcatenation();
+      _builder_1.append("solver sat4j-java");
+      _builder_1.newLine();
       _builder_1.append("A");
       _builder_1.newLine();
-      final Expression oracle = this.parseHelper.parse(_builder_1);
+      final Model oracle = this.parseHelper.parse(_builder_1);
       Assertions.assertNotNull(result);
       final EList<Resource.Diagnostic> errors = result.eResource().getErrors();
       boolean _isEmpty = errors.isEmpty();
@@ -239,14 +272,18 @@ public class SatSimplifyTest {
   public void ComplexTransformationTest() {
     try {
       StringConcatenation _builder = new StringConcatenation();
+      _builder.append("solver sat4j-java");
+      _builder.newLine();
       _builder.append("(A | B) => (C <=> D)");
       _builder.newLine();
-      final Expression result = this.parseHelper.parse(_builder);
-      final Expression simplified = Simplifier.simplify(result);
+      final Model result = this.parseHelper.parse(_builder);
+      final Expression simplified = Simplifier.simplify(result.getExpression());
       StringConcatenation _builder_1 = new StringConcatenation();
+      _builder_1.append("solver sat4j-java");
+      _builder_1.newLine();
       _builder_1.append("!!(A ^ B) v ((C ^ D) v (!C ^ !D))");
       _builder_1.newLine();
-      final Expression oracle = this.parseHelper.parse(_builder_1);
+      final Model oracle = this.parseHelper.parse(_builder_1);
       Assertions.assertNotNull(result);
       final EList<Resource.Diagnostic> errors = result.eResource().getErrors();
       boolean _isEmpty = errors.isEmpty();
@@ -265,14 +302,18 @@ public class SatSimplifyTest {
   public void ComplexTransformationWithConstantTest() {
     try {
       StringConcatenation _builder = new StringConcatenation();
+      _builder.append("solver sat4j-java");
+      _builder.newLine();
       _builder.append("(false | B) <=> (C => true)");
       _builder.newLine();
-      final Expression result = this.parseHelper.parse(_builder);
-      final Expression simplified = Simplifier.simplify(result);
+      final Model result = this.parseHelper.parse(_builder);
+      final Expression simplified = Simplifier.simplify(result.getExpression());
       StringConcatenation _builder_1 = new StringConcatenation();
+      _builder_1.append("solver sat4j-java");
+      _builder_1.newLine();
       _builder_1.append("true");
       _builder_1.newLine();
-      final Expression oracle = this.parseHelper.parse(_builder_1);
+      final Model oracle = this.parseHelper.parse(_builder_1);
       Assertions.assertNotNull(result);
       final EList<Resource.Diagnostic> errors = result.eResource().getErrors();
       boolean _isEmpty = errors.isEmpty();

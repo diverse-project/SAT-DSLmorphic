@@ -10,19 +10,22 @@ import org.junit.jupiter.api.^extension.ExtendWith
 import org.xtext.example.mydsl.GJ_MC_Process.PrettyPrinter
 import org.xtext.example.mydsl.sat.Expression
 import org.xtext.example.mydsl.tests.SatInjectorProvider
+import org.xtext.example.mydsl.sat.Model
 
 @ExtendWith(InjectionExtension)
 @InjectWith(SatInjectorProvider)
 class SatPrettyPrinterTest {
 	@Inject
-	ParseHelper<Expression> parseHelper
+	ParseHelper<Model> parseHelper
 	
 	@Test
 	def void basicVarTest() {
 		val result = parseHelper.parse('''
+			solver sat4j-java
 			A
 		''')
-		val prettyPrinted = PrettyPrinter.prettyPrint(result)
+		
+		val prettyPrinted = PrettyPrinter.prettyPrint(result.expression)
 		
 		val oracle = "A"
 		
@@ -36,9 +39,10 @@ class SatPrettyPrinterTest {
 	@Test
 	def void basicAndTest() {
 		val result = parseHelper.parse('''
+			solver sat4j-java
 			A ^ B
 		''')
-		val prettyPrinted = PrettyPrinter.prettyPrint(result)
+		val prettyPrinted = PrettyPrinter.prettyPrint(result.expression)
 		
 		val oracle = "(A ^ B)"
 		
@@ -52,9 +56,10 @@ class SatPrettyPrinterTest {
 	@Test
 	def void basicOrTest() {
 		val result = parseHelper.parse('''
+			solver sat4j-java
 			A v B
 		''')
-		val prettyPrinted = PrettyPrinter.prettyPrint(result)
+		val prettyPrinted = PrettyPrinter.prettyPrint(result.expression)
 		
 		val oracle = "(A v B)"
 		
@@ -68,9 +73,10 @@ class SatPrettyPrinterTest {
 	@Test
 	def void basicImplTest() {
 		val result = parseHelper.parse('''
+			solver sat4j-java
 			A => B
 		''')
-		val prettyPrinted = PrettyPrinter.prettyPrint(result)
+		val prettyPrinted = PrettyPrinter.prettyPrint(result.expression)
 		
 		val oracle = "(A => B)"
 		
@@ -84,9 +90,10 @@ class SatPrettyPrinterTest {
 	@Test
 	def void basicBiImplTest() {
 		val result = parseHelper.parse('''
+			solver sat4j-java
 			A <=> B
 		''')
-		val prettyPrinted = PrettyPrinter.prettyPrint(result)
+		val prettyPrinted = PrettyPrinter.prettyPrint(result.expression)
 		
 		val oracle = "(A <=> B)"
 		
@@ -100,9 +107,10 @@ class SatPrettyPrinterTest {
 	@Test
 	def void basicNandTest() {
 		val result = parseHelper.parse('''
+			solver sat4j-java
 			A | B
 		''')
-		val prettyPrinted = PrettyPrinter.prettyPrint(result)
+		val prettyPrinted = PrettyPrinter.prettyPrint(result.expression)
 		
 		val oracle = "(A | B)"
 		
@@ -113,13 +121,14 @@ class SatPrettyPrinterTest {
 		Assertions.assertTrue(prettyPrinted == oracle)
 	}
 	
-	
-	
+	//Failure
+	@Test
 	def void complexPriorityTest(){
 		val result = parseHelper.parse('''
+			solver sat4j-java
 			A => B^C vD
 		''')
-		val prettyPrinted = PrettyPrinter.prettyPrint(result)
+		val prettyPrinted = PrettyPrinter.prettyPrint(result.expression)
 		
 		val oracle = "(A => ((B ^ C) v D))"
 			

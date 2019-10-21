@@ -51,7 +51,7 @@ public class Sat4jLauncher {
           } else {
             _xifexpression_1 = model.getFile().getPath();
           }
-          _switchResult = Boolean.valueOf(StandaloneInterpreter.jarCallSat4j(_xifexpression_1, model.getExpression()));
+          _switchResult = StandaloneInterpreter.jarCallSat4j(_xifexpression_1, model.getExpression());
         }
       }
       if (!_matched) {
