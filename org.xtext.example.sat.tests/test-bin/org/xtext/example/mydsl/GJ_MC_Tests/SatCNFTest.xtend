@@ -14,113 +14,126 @@ import org.xtext.example.mydsl.GJ_MC_Process.ConjunctiveNormalForm
 import org.xtext.example.mydsl.GJ_MC_Process.SATUtils
 import org.xtext.example.mydsl.sat.Expression
 import org.xtext.example.mydsl.tests.SatInjectorProvider
+import org.xtext.example.mydsl.sat.Model
 
 @ExtendWith(InjectionExtension)
 @InjectWith(SatInjectorProvider)
 class SatCNFTest {
 	@Inject
-	ParseHelper<Expression> parseHelper
+	ParseHelper<Model> parseHelper
 	
 	@Test
 	def void basicNotTest() {
 		val result = parseHelper.parse('''
+			solver sat4j-java
 			!A
 		''')
-		val cnf = ConjunctiveNormalForm.toCleanCNF(result)
+		val cnf = ConjunctiveNormalForm.toCleanCNF(result.expression)
 		
 		val oracle = parseHelper.parse('''
+			solver sat4j-java
 			!A
 		''')
 		Assertions.assertNotNull(result)
 		val errors = result.eResource.errors
 		Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
 
-		Assertions.assertTrue(SATUtils.equals(cnf, oracle))
+		Assertions.assertTrue(SATUtils.equals(cnf, oracle.expression))
 	}
 	
 	@Test
 	def void basicOrTest() {
 		val result = parseHelper.parse('''
+			solver sat4j-java
 			A v B
 		''')
-		val cnf = ConjunctiveNormalForm.toCleanCNF(result)
+		val cnf = ConjunctiveNormalForm.toCleanCNF(result.expression)
 		
 		val oracle = parseHelper.parse('''
+			solver sat4j-java
 			A v B
 		''')
 		Assertions.assertNotNull(result)
 		val errors = result.eResource.errors
 		Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
 		
-		Assertions.assertTrue(SATUtils.equals(cnf, oracle))
+		Assertions.assertTrue(SATUtils.equals(cnf, oracle.expression))
 	}
 	
 	@Test
 	def void basicAndTest() {
 		val result = parseHelper.parse('''
+			solver sat4j-java
 			A ^ B
 		''')
-		val cnf = ConjunctiveNormalForm.toCleanCNF(result)
+		val cnf = ConjunctiveNormalForm.toCleanCNF(result.expression)
 		
 		val oracle = parseHelper.parse('''
+			solver sat4j-java
 			A ^ B
 		''')
 		Assertions.assertNotNull(result)
 		val errors = result.eResource.errors
 		Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
 
-		Assertions.assertTrue(SATUtils.equals(cnf, oracle))
+		Assertions.assertTrue(SATUtils.equals(cnf, oracle.expression))
 	}
 	
 	@Test
 	def void basicDNFFormTest() {
 		val result = parseHelper.parse('''
+			solver sat4j-java
 			A ^ B v C ^ D
 		''')
-		val cnf = ConjunctiveNormalForm.toCleanCNF(result)
+		val cnf = ConjunctiveNormalForm.toCleanCNF(result.expression)
 		
 		val oracle = parseHelper.parse('''
+			solver sat4j-java
 			((A v C) ^ (A v D)) ^ ((B v C) ^ (B v D))
 		''')
 		Assertions.assertNotNull(result)
 		val errors = result.eResource.errors
 		Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
 		
-		Assertions.assertTrue(SATUtils.equals(cnf, oracle))
+		Assertions.assertTrue(SATUtils.equals(cnf, oracle.expression))
 	}
 	
 	@Test
 	def void basicCNFFormTest() {
 		val result = parseHelper.parse('''
+			solver sat4j-java
 			(A v B) ^ (C v D)
 		''')
-		val cnf = ConjunctiveNormalForm.toCleanCNF(result)
+		val cnf = ConjunctiveNormalForm.toCleanCNF(result.expression)
 		
 		val oracle = parseHelper.parse('''
+			solver sat4j-java
 			(A v B) ^ (C v D)
 		''')
 		Assertions.assertNotNull(result)
 		val errors = result.eResource.errors
 		Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
 		
-		Assertions.assertTrue(SATUtils.equals(cnf, oracle))
+		Assertions.assertTrue(SATUtils.equals(cnf, oracle.expression))
 	}
 	
 	@Test
 	def void ComplexExpressionTest() {
 		val result = parseHelper.parse('''
+			solver sat4j-java
 			!A v B ^ (!C v D) v E
 		''')
-		val cnf = ConjunctiveNormalForm.toCleanCNF(result)
+		val cnf = ConjunctiveNormalForm.toCleanCNF(result.expression)
 		
 		val oracle = parseHelper.parse('''
+			solver sat4j-java
 			(E v (!A v B)) ^ ((!A v !C) v (D v E))
 		''')
 		Assertions.assertNotNull(result)
 		val errors = result.eResource.errors
 		Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
 		
-		Assertions.assertTrue(SATUtils.equals(cnf, oracle))
+		Assertions.assertTrue(SATUtils.equals(cnf, oracle.expression))
 	}
 	
 }
