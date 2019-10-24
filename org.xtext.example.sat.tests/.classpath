@@ -26,6 +26,6 @@
 		</attributes>
 	</classpathentry>
 	<classpathentry kind="con" path="org.eclipse.pde.core.requiredPlugins"/>
-	<classpathentry kind="lib" path="/media/maxime/DATA/Maxime/Documents/ENS/M1/DSL/CopieGIT/SAT-DSLmorphic/lib/org.sat4j.core-2.3.1.jar"/>
+	<classpathentry kind="lib" path="lib/org.sat4j.core-2.3.1.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
