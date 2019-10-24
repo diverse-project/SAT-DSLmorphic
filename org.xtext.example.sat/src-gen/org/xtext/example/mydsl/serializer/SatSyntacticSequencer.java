@@ -23,12 +23,16 @@ public class SatSyntacticSequencer extends AbstractSyntacticSequencer {
 	protected SatGrammarAccess grammarAccess;
 	protected AbstractElementAlias match_Nand_UpwardsArrowKeyword_1_1_1_or_VerticalLineKeyword_1_1_0;
 	protected AbstractElementAlias match_Not_ExclamationMarkKeyword_0_0_or_TildeKeyword_0_1;
+	protected AbstractElementAlias match_Primary_LeftParenthesisKeyword_0_0_a;
+	protected AbstractElementAlias match_Primary_LeftParenthesisKeyword_0_0_p;
 	
 	@Inject
 	protected void init(IGrammarAccess access) {
 		grammarAccess = (SatGrammarAccess) access;
 		match_Nand_UpwardsArrowKeyword_1_1_1_or_VerticalLineKeyword_1_1_0 = new AlternativeAlias(false, false, new TokenAlias(false, false, grammarAccess.getNandAccess().getUpwardsArrowKeyword_1_1_1()), new TokenAlias(false, false, grammarAccess.getNandAccess().getVerticalLineKeyword_1_1_0()));
 		match_Not_ExclamationMarkKeyword_0_0_or_TildeKeyword_0_1 = new AlternativeAlias(false, false, new TokenAlias(false, false, grammarAccess.getNotAccess().getExclamationMarkKeyword_0_0()), new TokenAlias(false, false, grammarAccess.getNotAccess().getTildeKeyword_0_1()));
+		match_Primary_LeftParenthesisKeyword_0_0_a = new TokenAlias(true, true, grammarAccess.getPrimaryAccess().getLeftParenthesisKeyword_0_0());
+		match_Primary_LeftParenthesisKeyword_0_0_p = new TokenAlias(true, false, grammarAccess.getPrimaryAccess().getLeftParenthesisKeyword_0_0());
 	}
 	
 	@Override
@@ -47,6 +51,10 @@ public class SatSyntacticSequencer extends AbstractSyntacticSequencer {
 				emit_Nand_UpwardsArrowKeyword_1_1_1_or_VerticalLineKeyword_1_1_0(semanticObject, getLastNavigableState(), syntaxNodes);
 			else if (match_Not_ExclamationMarkKeyword_0_0_or_TildeKeyword_0_1.equals(syntax))
 				emit_Not_ExclamationMarkKeyword_0_0_or_TildeKeyword_0_1(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if (match_Primary_LeftParenthesisKeyword_0_0_a.equals(syntax))
+				emit_Primary_LeftParenthesisKeyword_0_0_a(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if (match_Primary_LeftParenthesisKeyword_0_0_p.equals(syntax))
+				emit_Primary_LeftParenthesisKeyword_0_0_p(semanticObject, getLastNavigableState(), syntaxNodes);
 			else acceptNodes(getLastNavigableState(), syntaxNodes);
 		}
 	}
@@ -67,13 +75,60 @@ public class SatSyntacticSequencer extends AbstractSyntacticSequencer {
 	 *     '!' | '~'
 	 *
 	 * This ambiguous syntax occurs at:
-	 *     (rule start) (ambiguity) '(' 'solver' solver=Solver
+	 *     (rule start) (ambiguity) '('* id=ID
+	 *     (rule start) (ambiguity) '('* val='false'
+	 *     (rule start) (ambiguity) '('* val='true'
+	 *     (rule start) (ambiguity) '('* {Not.expression=}
+	 *     (rule start) (ambiguity) '('+ {And.left=}
+	 *     (rule start) (ambiguity) '('+ {BiImpl.left=}
+	 *     (rule start) (ambiguity) '('+ {Impl.left=}
+	 *     (rule start) (ambiguity) '('+ {Nand.left=}
+	 *     (rule start) (ambiguity) '('+ {Or.left=}
+	 */
+	protected void emit_Not_ExclamationMarkKeyword_0_0_or_TildeKeyword_0_1(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+		acceptNodes(transition, nodes);
+	}
+	
+	/**
+	 * Ambiguous syntax:
+	 *     '('*
+	 *
+	 * This ambiguous syntax occurs at:
+	 *     (rule start) ('!' | '~') (ambiguity) id=ID
+	 *     (rule start) ('!' | '~') (ambiguity) val='false'
+	 *     (rule start) ('!' | '~') (ambiguity) val='true'
+	 *     (rule start) ('!' | '~') (ambiguity) {Not.expression=}
 	 *     (rule start) (ambiguity) id=ID
 	 *     (rule start) (ambiguity) val='false'
 	 *     (rule start) (ambiguity) val='true'
+	 *     (rule start) (ambiguity) {And.left=}
+	 *     (rule start) (ambiguity) {BiImpl.left=}
+	 *     (rule start) (ambiguity) {Impl.left=}
+	 *     (rule start) (ambiguity) {Nand.left=}
 	 *     (rule start) (ambiguity) {Not.expression=}
+	 *     (rule start) (ambiguity) {Or.left=}
 	 */
-	protected void emit_Not_ExclamationMarkKeyword_0_0_or_TildeKeyword_0_1(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+	protected void emit_Primary_LeftParenthesisKeyword_0_0_a(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+		acceptNodes(transition, nodes);
+	}
+	
+	/**
+	 * Ambiguous syntax:
+	 *     '('+
+	 *
+	 * This ambiguous syntax occurs at:
+	 *     (rule start) ('!' | '~') (ambiguity) {And.left=}
+	 *     (rule start) ('!' | '~') (ambiguity) {BiImpl.left=}
+	 *     (rule start) ('!' | '~') (ambiguity) {Impl.left=}
+	 *     (rule start) ('!' | '~') (ambiguity) {Nand.left=}
+	 *     (rule start) ('!' | '~') (ambiguity) {Or.left=}
+	 *     (rule start) (ambiguity) {And.left=}
+	 *     (rule start) (ambiguity) {BiImpl.left=}
+	 *     (rule start) (ambiguity) {Impl.left=}
+	 *     (rule start) (ambiguity) {Nand.left=}
+	 *     (rule start) (ambiguity) {Or.left=}
+	 */
+	protected void emit_Primary_LeftParenthesisKeyword_0_0_p(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
 	}
 	

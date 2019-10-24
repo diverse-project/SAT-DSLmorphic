@@ -1284,13 +1284,13 @@ public class InternalSatParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "rulePrimary"
-    // InternalSat.g:498:1: rulePrimary returns [EObject current=null] : ( (otherlv_0= '(' this_Model_1= ruleModel otherlv_2= ')' ) | this_Not_3= ruleNot | this_Const_4= ruleConst | this_Var_5= ruleVar ) ;
+    // InternalSat.g:498:1: rulePrimary returns [EObject current=null] : ( (otherlv_0= '(' this_BiImpl_1= ruleBiImpl otherlv_2= ')' ) | this_Not_3= ruleNot | this_Const_4= ruleConst | this_Var_5= ruleVar ) ;
     public final EObject rulePrimary() throws RecognitionException {
         EObject current = null;
 
         Token otherlv_0=null;
         Token otherlv_2=null;
-        EObject this_Model_1 = null;
+        EObject this_BiImpl_1 = null;
 
         EObject this_Not_3 = null;
 
@@ -1303,10 +1303,10 @@ public class InternalSatParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalSat.g:504:2: ( ( (otherlv_0= '(' this_Model_1= ruleModel otherlv_2= ')' ) | this_Not_3= ruleNot | this_Const_4= ruleConst | this_Var_5= ruleVar ) )
-            // InternalSat.g:505:2: ( (otherlv_0= '(' this_Model_1= ruleModel otherlv_2= ')' ) | this_Not_3= ruleNot | this_Const_4= ruleConst | this_Var_5= ruleVar )
+            // InternalSat.g:504:2: ( ( (otherlv_0= '(' this_BiImpl_1= ruleBiImpl otherlv_2= ')' ) | this_Not_3= ruleNot | this_Const_4= ruleConst | this_Var_5= ruleVar ) )
+            // InternalSat.g:505:2: ( (otherlv_0= '(' this_BiImpl_1= ruleBiImpl otherlv_2= ')' ) | this_Not_3= ruleNot | this_Const_4= ruleConst | this_Var_5= ruleVar )
             {
-            // InternalSat.g:505:2: ( (otherlv_0= '(' this_Model_1= ruleModel otherlv_2= ')' ) | this_Not_3= ruleNot | this_Const_4= ruleConst | this_Var_5= ruleVar )
+            // InternalSat.g:505:2: ( (otherlv_0= '(' this_BiImpl_1= ruleBiImpl otherlv_2= ')' ) | this_Not_3= ruleNot | this_Const_4= ruleConst | this_Var_5= ruleVar )
             int alt8=4;
             switch ( input.LA(1) ) {
             case 19:
@@ -1340,25 +1340,25 @@ public class InternalSatParser extends AbstractInternalAntlrParser {
 
             switch (alt8) {
                 case 1 :
-                    // InternalSat.g:506:3: (otherlv_0= '(' this_Model_1= ruleModel otherlv_2= ')' )
+                    // InternalSat.g:506:3: (otherlv_0= '(' this_BiImpl_1= ruleBiImpl otherlv_2= ')' )
                     {
-                    // InternalSat.g:506:3: (otherlv_0= '(' this_Model_1= ruleModel otherlv_2= ')' )
-                    // InternalSat.g:507:4: otherlv_0= '(' this_Model_1= ruleModel otherlv_2= ')'
+                    // InternalSat.g:506:3: (otherlv_0= '(' this_BiImpl_1= ruleBiImpl otherlv_2= ')' )
+                    // InternalSat.g:507:4: otherlv_0= '(' this_BiImpl_1= ruleBiImpl otherlv_2= ')'
                     {
-                    otherlv_0=(Token)match(input,19,FOLLOW_12); 
+                    otherlv_0=(Token)match(input,19,FOLLOW_7); 
 
                     				newLeafNode(otherlv_0, grammarAccess.getPrimaryAccess().getLeftParenthesisKeyword_0_0());
                     			
 
-                    				newCompositeNode(grammarAccess.getPrimaryAccess().getModelParserRuleCall_0_1());
+                    				newCompositeNode(grammarAccess.getPrimaryAccess().getBiImplParserRuleCall_0_1());
                     			
-                    pushFollow(FOLLOW_13);
-                    this_Model_1=ruleModel();
+                    pushFollow(FOLLOW_12);
+                    this_BiImpl_1=ruleBiImpl();
 
                     state._fsp--;
 
 
-                    				current = this_Model_1;
+                    				current = this_BiImpl_1;
                     				afterParserOrEnumRuleCall();
                     			
                     otherlv_2=(Token)match(input,20,FOLLOW_2); 
@@ -1947,7 +1947,6 @@ public class InternalSatParser extends AbstractInternalAntlrParser {
     public static final BitSet FOLLOW_9 = new BitSet(new long[]{0x0000000000008002L});
     public static final BitSet FOLLOW_10 = new BitSet(new long[]{0x0000000000010002L});
     public static final BitSet FOLLOW_11 = new BitSet(new long[]{0x0000000000060002L});
-    public static final BitSet FOLLOW_12 = new BitSet(new long[]{0x0000000000000800L});
-    public static final BitSet FOLLOW_13 = new BitSet(new long[]{0x0000000000100000L});
+    public static final BitSet FOLLOW_12 = new BitSet(new long[]{0x0000000000100000L});
 
 }

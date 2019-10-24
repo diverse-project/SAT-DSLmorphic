@@ -104,6 +104,10 @@ public class SatSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     Or.Or_1_0 returns And
 	 *     And returns And
 	 *     And.And_1_0 returns And
+	 *     Nand returns And
+	 *     Nand.Nand_1_0 returns And
+	 *     Primary returns And
+	 *     Not.Not_2 returns And
 	 *
 	 * Constraint:
 	 *     (left=And_And_1_0 right=Nand)
@@ -126,6 +130,16 @@ public class SatSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 * Contexts:
 	 *     BiImpl returns BiImpl
 	 *     BiImpl.BiImpl_1_0 returns BiImpl
+	 *     Impl returns BiImpl
+	 *     Impl.Impl_1_0 returns BiImpl
+	 *     Or returns BiImpl
+	 *     Or.Or_1_0 returns BiImpl
+	 *     And returns BiImpl
+	 *     And.And_1_0 returns BiImpl
+	 *     Nand returns BiImpl
+	 *     Nand.Nand_1_0 returns BiImpl
+	 *     Primary returns BiImpl
+	 *     Not.Not_2 returns BiImpl
 	 *
 	 * Constraint:
 	 *     (left=BiImpl_BiImpl_1_0 right=Impl)
@@ -203,6 +217,14 @@ public class SatSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     BiImpl.BiImpl_1_0 returns Impl
 	 *     Impl returns Impl
 	 *     Impl.Impl_1_0 returns Impl
+	 *     Or returns Impl
+	 *     Or.Or_1_0 returns Impl
+	 *     And returns Impl
+	 *     And.And_1_0 returns Impl
+	 *     Nand returns Impl
+	 *     Nand.Nand_1_0 returns Impl
+	 *     Primary returns Impl
+	 *     Not.Not_2 returns Impl
 	 *
 	 * Constraint:
 	 *     (left=Impl_Impl_1_0 right=Or)
@@ -224,18 +246,6 @@ public class SatSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	/**
 	 * Contexts:
 	 *     Model returns Model
-	 *     BiImpl returns Model
-	 *     BiImpl.BiImpl_1_0 returns Model
-	 *     Impl returns Model
-	 *     Impl.Impl_1_0 returns Model
-	 *     Or returns Model
-	 *     Or.Or_1_0 returns Model
-	 *     And returns Model
-	 *     And.And_1_0 returns Model
-	 *     Nand returns Model
-	 *     Nand.Nand_1_0 returns Model
-	 *     Primary returns Model
-	 *     Not.Not_2 returns Model
 	 *
 	 * Constraint:
 	 *     (solver=Solver (expression=BiImpl | file=File))
@@ -257,6 +267,8 @@ public class SatSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     And.And_1_0 returns Nand
 	 *     Nand returns Nand
 	 *     Nand.Nand_1_0 returns Nand
+	 *     Primary returns Nand
+	 *     Not.Not_2 returns Nand
 	 *
 	 * Constraint:
 	 *     (left=Nand_Nand_1_0 right=Primary)
@@ -313,6 +325,12 @@ public class SatSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     Impl.Impl_1_0 returns Or
 	 *     Or returns Or
 	 *     Or.Or_1_0 returns Or
+	 *     And returns Or
+	 *     And.And_1_0 returns Or
+	 *     Nand returns Or
+	 *     Nand.Nand_1_0 returns Or
+	 *     Primary returns Or
+	 *     Not.Not_2 returns Or
 	 *
 	 * Constraint:
 	 *     (left=Or_Or_1_0 right=And)

@@ -561,7 +561,6 @@ public class SatPackageImpl extends EPackageImpl implements SatPackage
     // Set bounds for type parameters
 
     // Add supertypes to classes
-    modelEClass.getESuperTypes().add(this.getExpression());
     biImplEClass.getESuperTypes().add(this.getExpression());
     implEClass.getESuperTypes().add(this.getExpression());
     orEClass.getESuperTypes().add(this.getExpression());
