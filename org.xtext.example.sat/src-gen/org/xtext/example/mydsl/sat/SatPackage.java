@@ -5,6 +5,7 @@ package org.xtext.example.mydsl.sat;
 
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EEnum;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 
@@ -65,7 +66,7 @@ public interface SatPackage extends EPackage
    * @see org.xtext.example.mydsl.sat.impl.SatPackageImpl#getExpression()
    * @generated
    */
-  int EXPRESSION = 0;
+  int EXPRESSION = 2;
 
   /**
    * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -95,6 +96,98 @@ public interface SatPackage extends EPackage
   int EXPRESSION_FEATURE_COUNT = 2;
 
   /**
+   * The meta object id for the '{@link org.xtext.example.mydsl.sat.impl.ModelImpl <em>Model</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.example.mydsl.sat.impl.ModelImpl
+   * @see org.xtext.example.mydsl.sat.impl.SatPackageImpl#getModel()
+   * @generated
+   */
+  int MODEL = 0;
+
+  /**
+   * The feature id for the '<em><b>Id</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int MODEL__ID = EXPRESSION__ID;
+
+  /**
+   * The feature id for the '<em><b>Val</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int MODEL__VAL = EXPRESSION__VAL;
+
+  /**
+   * The feature id for the '<em><b>Solver</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int MODEL__SOLVER = EXPRESSION_FEATURE_COUNT + 0;
+
+  /**
+   * The feature id for the '<em><b>Expression</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int MODEL__EXPRESSION = EXPRESSION_FEATURE_COUNT + 1;
+
+  /**
+   * The feature id for the '<em><b>File</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int MODEL__FILE = EXPRESSION_FEATURE_COUNT + 2;
+
+  /**
+   * The number of structural features of the '<em>Model</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int MODEL_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 3;
+
+  /**
+   * The meta object id for the '{@link org.xtext.example.mydsl.sat.impl.FileImpl <em>File</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.example.mydsl.sat.impl.FileImpl
+   * @see org.xtext.example.mydsl.sat.impl.SatPackageImpl#getFile()
+   * @generated
+   */
+  int FILE = 1;
+
+  /**
+   * The feature id for the '<em><b>Path</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int FILE__PATH = 0;
+
+  /**
+   * The number of structural features of the '<em>File</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int FILE_FEATURE_COUNT = 1;
+
+  /**
    * The meta object id for the '{@link org.xtext.example.mydsl.sat.impl.BiImplImpl <em>Bi Impl</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -102,7 +195,7 @@ public interface SatPackage extends EPackage
    * @see org.xtext.example.mydsl.sat.impl.SatPackageImpl#getBiImpl()
    * @generated
    */
-  int BI_IMPL = 1;
+  int BI_IMPL = 3;
 
   /**
    * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -157,7 +250,7 @@ public interface SatPackage extends EPackage
    * @see org.xtext.example.mydsl.sat.impl.SatPackageImpl#getImpl()
    * @generated
    */
-  int IMPL = 2;
+  int IMPL = 4;
 
   /**
    * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -212,7 +305,7 @@ public interface SatPackage extends EPackage
    * @see org.xtext.example.mydsl.sat.impl.SatPackageImpl#getOr()
    * @generated
    */
-  int OR = 3;
+  int OR = 5;
 
   /**
    * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -267,7 +360,7 @@ public interface SatPackage extends EPackage
    * @see org.xtext.example.mydsl.sat.impl.SatPackageImpl#getAnd()
    * @generated
    */
-  int AND = 4;
+  int AND = 6;
 
   /**
    * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -322,7 +415,7 @@ public interface SatPackage extends EPackage
    * @see org.xtext.example.mydsl.sat.impl.SatPackageImpl#getNand()
    * @generated
    */
-  int NAND = 5;
+  int NAND = 7;
 
   /**
    * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -377,7 +470,7 @@ public interface SatPackage extends EPackage
    * @see org.xtext.example.mydsl.sat.impl.SatPackageImpl#getNot()
    * @generated
    */
-  int NOT = 6;
+  int NOT = 8;
 
   /**
    * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -415,6 +508,80 @@ public interface SatPackage extends EPackage
    */
   int NOT_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 1;
 
+  /**
+   * The meta object id for the '{@link org.xtext.example.mydsl.sat.Solver <em>Solver</em>}' enum.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.example.mydsl.sat.Solver
+   * @see org.xtext.example.mydsl.sat.impl.SatPackageImpl#getSolver()
+   * @generated
+   */
+  int SOLVER = 9;
+
+
+  /**
+   * Returns the meta object for class '{@link org.xtext.example.mydsl.sat.Model <em>Model</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Model</em>'.
+   * @see org.xtext.example.mydsl.sat.Model
+   * @generated
+   */
+  EClass getModel();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.xtext.example.mydsl.sat.Model#getSolver <em>Solver</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Solver</em>'.
+   * @see org.xtext.example.mydsl.sat.Model#getSolver()
+   * @see #getModel()
+   * @generated
+   */
+  EAttribute getModel_Solver();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl.sat.Model#getExpression <em>Expression</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Expression</em>'.
+   * @see org.xtext.example.mydsl.sat.Model#getExpression()
+   * @see #getModel()
+   * @generated
+   */
+  EReference getModel_Expression();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl.sat.Model#getFile <em>File</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>File</em>'.
+   * @see org.xtext.example.mydsl.sat.Model#getFile()
+   * @see #getModel()
+   * @generated
+   */
+  EReference getModel_File();
+
+  /**
+   * Returns the meta object for class '{@link org.xtext.example.mydsl.sat.File <em>File</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>File</em>'.
+   * @see org.xtext.example.mydsl.sat.File
+   * @generated
+   */
+  EClass getFile();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.xtext.example.mydsl.sat.File#getPath <em>Path</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Path</em>'.
+   * @see org.xtext.example.mydsl.sat.File#getPath()
+   * @see #getFile()
+   * @generated
+   */
+  EAttribute getFile_Path();
 
   /**
    * Returns the meta object for class '{@link org.xtext.example.mydsl.sat.Expression <em>Expression</em>}'.
@@ -630,6 +797,16 @@ public interface SatPackage extends EPackage
   EReference getNot_Expression();
 
   /**
+   * Returns the meta object for enum '{@link org.xtext.example.mydsl.sat.Solver <em>Solver</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for enum '<em>Solver</em>'.
+   * @see org.xtext.example.mydsl.sat.Solver
+   * @generated
+   */
+  EEnum getSolver();
+
+  /**
    * Returns the factory that creates the instances of the model.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -652,6 +829,58 @@ public interface SatPackage extends EPackage
    */
   interface Literals
   {
+    /**
+     * The meta object literal for the '{@link org.xtext.example.mydsl.sat.impl.ModelImpl <em>Model</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.example.mydsl.sat.impl.ModelImpl
+     * @see org.xtext.example.mydsl.sat.impl.SatPackageImpl#getModel()
+     * @generated
+     */
+    EClass MODEL = eINSTANCE.getModel();
+
+    /**
+     * The meta object literal for the '<em><b>Solver</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute MODEL__SOLVER = eINSTANCE.getModel_Solver();
+
+    /**
+     * The meta object literal for the '<em><b>Expression</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference MODEL__EXPRESSION = eINSTANCE.getModel_Expression();
+
+    /**
+     * The meta object literal for the '<em><b>File</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference MODEL__FILE = eINSTANCE.getModel_File();
+
+    /**
+     * The meta object literal for the '{@link org.xtext.example.mydsl.sat.impl.FileImpl <em>File</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.example.mydsl.sat.impl.FileImpl
+     * @see org.xtext.example.mydsl.sat.impl.SatPackageImpl#getFile()
+     * @generated
+     */
+    EClass FILE = eINSTANCE.getFile();
+
+    /**
+     * The meta object literal for the '<em><b>Path</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute FILE__PATH = eINSTANCE.getFile_Path();
+
     /**
      * The meta object literal for the '{@link org.xtext.example.mydsl.sat.impl.ExpressionImpl <em>Expression</em>}' class.
      * <!-- begin-user-doc -->
@@ -825,6 +1054,16 @@ public interface SatPackage extends EPackage
      * @generated
      */
     EReference NOT__EXPRESSION = eINSTANCE.getNot_Expression();
+
+    /**
+     * The meta object literal for the '{@link org.xtext.example.mydsl.sat.Solver <em>Solver</em>}' enum.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.example.mydsl.sat.Solver
+     * @see org.xtext.example.mydsl.sat.impl.SatPackageImpl#getSolver()
+     * @generated
+     */
+    EEnum SOLVER = eINSTANCE.getSolver();
 
   }
 

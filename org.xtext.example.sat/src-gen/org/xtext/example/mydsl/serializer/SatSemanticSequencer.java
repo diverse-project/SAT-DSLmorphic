@@ -17,7 +17,9 @@ import org.eclipse.xtext.serializer.sequencer.ITransientValueService.ValueTransi
 import org.xtext.example.mydsl.sat.And;
 import org.xtext.example.mydsl.sat.BiImpl;
 import org.xtext.example.mydsl.sat.Expression;
+import org.xtext.example.mydsl.sat.File;
 import org.xtext.example.mydsl.sat.Impl;
+import org.xtext.example.mydsl.sat.Model;
 import org.xtext.example.mydsl.sat.Nand;
 import org.xtext.example.mydsl.sat.Not;
 import org.xtext.example.mydsl.sat.Or;
@@ -49,8 +51,7 @@ public class SatSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 					sequence_Const(context, (Expression) semanticObject); 
 					return; 
 				}
-				else if (rule == grammarAccess.getModelRule()
-						|| rule == grammarAccess.getBiImplRule()
+				else if (rule == grammarAccess.getBiImplRule()
 						|| action == grammarAccess.getBiImplAccess().getBiImplLeftAction_1_0()
 						|| rule == grammarAccess.getImplRule()
 						|| action == grammarAccess.getImplAccess().getImplLeftAction_1_0()
@@ -70,8 +71,14 @@ public class SatSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 					return; 
 				}
 				else break;
+			case SatPackage.FILE:
+				sequence_File(context, (File) semanticObject); 
+				return; 
 			case SatPackage.IMPL:
 				sequence_Impl(context, (Impl) semanticObject); 
+				return; 
+			case SatPackage.MODEL:
+				sequence_Model(context, (Model) semanticObject); 
 				return; 
 			case SatPackage.NAND:
 				sequence_Nand(context, (Nand) semanticObject); 
@@ -89,7 +96,6 @@ public class SatSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	
 	/**
 	 * Contexts:
-	 *     Model returns And
 	 *     BiImpl returns And
 	 *     BiImpl.BiImpl_1_0 returns And
 	 *     Impl returns And
@@ -98,10 +104,6 @@ public class SatSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     Or.Or_1_0 returns And
 	 *     And returns And
 	 *     And.And_1_0 returns And
-	 *     Nand returns And
-	 *     Nand.Nand_1_0 returns And
-	 *     Primary returns And
-	 *     Not.Not_2 returns And
 	 *
 	 * Constraint:
 	 *     (left=And_And_1_0 right=Nand)
@@ -122,19 +124,8 @@ public class SatSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	
 	/**
 	 * Contexts:
-	 *     Model returns BiImpl
 	 *     BiImpl returns BiImpl
 	 *     BiImpl.BiImpl_1_0 returns BiImpl
-	 *     Impl returns BiImpl
-	 *     Impl.Impl_1_0 returns BiImpl
-	 *     Or returns BiImpl
-	 *     Or.Or_1_0 returns BiImpl
-	 *     And returns BiImpl
-	 *     And.And_1_0 returns BiImpl
-	 *     Nand returns BiImpl
-	 *     Nand.Nand_1_0 returns BiImpl
-	 *     Primary returns BiImpl
-	 *     Not.Not_2 returns BiImpl
 	 *
 	 * Constraint:
 	 *     (left=BiImpl_BiImpl_1_0 right=Impl)
@@ -167,7 +158,6 @@ public class SatSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	
 	/**
 	 * Contexts:
-	 *     Model returns Expression
 	 *     BiImpl returns Expression
 	 *     BiImpl.BiImpl_1_0 returns Expression
 	 *     Impl returns Expression
@@ -191,19 +181,28 @@ public class SatSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	
 	/**
 	 * Contexts:
-	 *     Model returns Impl
+	 *     File returns File
+	 *
+	 * Constraint:
+	 *     path=STRING
+	 */
+	protected void sequence_File(ISerializationContext context, File semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, SatPackage.Literals.FILE__PATH) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, SatPackage.Literals.FILE__PATH));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getFileAccess().getPathSTRINGTerminalRuleCall_1_0(), semanticObject.getPath());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
 	 *     BiImpl returns Impl
 	 *     BiImpl.BiImpl_1_0 returns Impl
 	 *     Impl returns Impl
 	 *     Impl.Impl_1_0 returns Impl
-	 *     Or returns Impl
-	 *     Or.Or_1_0 returns Impl
-	 *     And returns Impl
-	 *     And.And_1_0 returns Impl
-	 *     Nand returns Impl
-	 *     Nand.Nand_1_0 returns Impl
-	 *     Primary returns Impl
-	 *     Not.Not_2 returns Impl
 	 *
 	 * Constraint:
 	 *     (left=Impl_Impl_1_0 right=Or)
@@ -224,7 +223,30 @@ public class SatSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	
 	/**
 	 * Contexts:
-	 *     Model returns Nand
+	 *     Model returns Model
+	 *     BiImpl returns Model
+	 *     BiImpl.BiImpl_1_0 returns Model
+	 *     Impl returns Model
+	 *     Impl.Impl_1_0 returns Model
+	 *     Or returns Model
+	 *     Or.Or_1_0 returns Model
+	 *     And returns Model
+	 *     And.And_1_0 returns Model
+	 *     Nand returns Model
+	 *     Nand.Nand_1_0 returns Model
+	 *     Primary returns Model
+	 *     Not.Not_2 returns Model
+	 *
+	 * Constraint:
+	 *     (solver=Solver (expression=BiImpl | file=File))
+	 */
+	protected void sequence_Model(ISerializationContext context, Model semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
 	 *     BiImpl returns Nand
 	 *     BiImpl.BiImpl_1_0 returns Nand
 	 *     Impl returns Nand
@@ -235,8 +257,6 @@ public class SatSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     And.And_1_0 returns Nand
 	 *     Nand returns Nand
 	 *     Nand.Nand_1_0 returns Nand
-	 *     Primary returns Nand
-	 *     Not.Not_2 returns Nand
 	 *
 	 * Constraint:
 	 *     (left=Nand_Nand_1_0 right=Primary)
@@ -257,7 +277,6 @@ public class SatSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	
 	/**
 	 * Contexts:
-	 *     Model returns Not
 	 *     BiImpl returns Not
 	 *     BiImpl.BiImpl_1_0 returns Not
 	 *     Impl returns Not
@@ -288,19 +307,12 @@ public class SatSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	
 	/**
 	 * Contexts:
-	 *     Model returns Or
 	 *     BiImpl returns Or
 	 *     BiImpl.BiImpl_1_0 returns Or
 	 *     Impl returns Or
 	 *     Impl.Impl_1_0 returns Or
 	 *     Or returns Or
 	 *     Or.Or_1_0 returns Or
-	 *     And returns Or
-	 *     And.And_1_0 returns Or
-	 *     Nand returns Or
-	 *     Nand.Nand_1_0 returns Or
-	 *     Primary returns Or
-	 *     Not.Not_2 returns Or
 	 *
 	 * Constraint:
 	 *     (left=Or_Or_1_0 right=And)

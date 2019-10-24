@@ -6,6 +6,19 @@
     copyrightFields="false" runtimeVersion="2.19">
   <genPackages prefix="Sat" basePackage="org.xtext.example.mydsl" disposableProviderFactory="true"
       fileExtensions="sat" ecorePackage="Sat.ecore#/">
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="Sat.ecore#//Solver">
+      <genEnumLiterals ecoreEnumLiteral="Sat.ecore#//Solver/SAT4J_JAVA"/>
+      <genEnumLiterals ecoreEnumLiteral="Sat.ecore#//Solver/SAT4J_JAR"/>
+      <genEnumLiterals ecoreEnumLiteral="Sat.ecore#//Solver/SAT4J_COMP"/>
+    </genEnums>
+    <genClasses ecoreClass="Sat.ecore#//Model">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Sat.ecore#//Model/solver"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Sat.ecore#//Model/expression"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Sat.ecore#//Model/file"/>
+    </genClasses>
+    <genClasses ecoreClass="Sat.ecore#//File">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Sat.ecore#//File/path"/>
+    </genClasses>
     <genClasses ecoreClass="Sat.ecore#//Expression">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Sat.ecore#//Expression/id"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Sat.ecore#//Expression/val"/>
