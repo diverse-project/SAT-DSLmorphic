@@ -1,3 +1,0 @@
--Toutes les règles de génération de formule SAT donc décrites dans la grammaire.  Il serait intéressant de vérifier que chaque litéral et son contraire possèdent des valeurs différentes lors de l'instatation.
--Le métamodèle généré est plus court, il ne décrit pas les différents constructeurs des opérateurs, il leur associe plutôt directement le type String.
--Notre métamodèle possède des erreurs car nous n'avons pas indiqué de type aux constructeurs OR, AND, etc... Nous sommes censés indiqué des types à ces constructeurs dans le métamodèle ? 
