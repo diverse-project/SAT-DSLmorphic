@@ -3,6 +3,7 @@
  */
 package org.xtext.example.mydsl.sat;
 
+import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
@@ -22,7 +23,7 @@ package org.xtext.example.mydsl.sat;
  * @model
  * @generated
  */
-public interface Model extends Expression
+public interface Model extends EObject
 {
   /**
    * Returns the value of the '<em><b>Solver</b></em>' attribute.

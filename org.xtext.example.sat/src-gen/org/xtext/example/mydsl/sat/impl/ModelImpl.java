@@ -10,6 +10,7 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.xtext.example.mydsl.sat.Expression;
 import org.xtext.example.mydsl.sat.File;
@@ -32,7 +33,7 @@ import org.xtext.example.mydsl.sat.Solver;
  *
  * @generated
  */
-public class ModelImpl extends ExpressionImpl implements Model
+public class ModelImpl extends MinimalEObjectImpl.Container implements Model
 {
   /**
    * The default value of the '{@link #getSolver() <em>Solver</em>}' attribute.

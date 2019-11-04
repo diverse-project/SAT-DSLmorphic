@@ -36,7 +36,7 @@ Nand returns Expression:
 ;
 
 Primary returns Expression:
-	'(' Model ')' |
+	'(' BiImpl ')' |
 	Not |
 	Const |
 	Var 	

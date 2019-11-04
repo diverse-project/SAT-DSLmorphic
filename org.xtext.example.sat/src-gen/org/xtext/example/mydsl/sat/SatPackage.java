@@ -59,6 +59,80 @@ public interface SatPackage extends EPackage
   SatPackage eINSTANCE = org.xtext.example.mydsl.sat.impl.SatPackageImpl.init();
 
   /**
+   * The meta object id for the '{@link org.xtext.example.mydsl.sat.impl.ModelImpl <em>Model</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.example.mydsl.sat.impl.ModelImpl
+   * @see org.xtext.example.mydsl.sat.impl.SatPackageImpl#getModel()
+   * @generated
+   */
+  int MODEL = 0;
+
+  /**
+   * The feature id for the '<em><b>Solver</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int MODEL__SOLVER = 0;
+
+  /**
+   * The feature id for the '<em><b>Expression</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int MODEL__EXPRESSION = 1;
+
+  /**
+   * The feature id for the '<em><b>File</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int MODEL__FILE = 2;
+
+  /**
+   * The number of structural features of the '<em>Model</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int MODEL_FEATURE_COUNT = 3;
+
+  /**
+   * The meta object id for the '{@link org.xtext.example.mydsl.sat.impl.FileImpl <em>File</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.example.mydsl.sat.impl.FileImpl
+   * @see org.xtext.example.mydsl.sat.impl.SatPackageImpl#getFile()
+   * @generated
+   */
+  int FILE = 1;
+
+  /**
+   * The feature id for the '<em><b>Path</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int FILE__PATH = 0;
+
+  /**
+   * The number of structural features of the '<em>File</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int FILE_FEATURE_COUNT = 1;
+
+  /**
    * The meta object id for the '{@link org.xtext.example.mydsl.sat.impl.ExpressionImpl <em>Expression</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -94,98 +168,6 @@ public interface SatPackage extends EPackage
    * @ordered
    */
   int EXPRESSION_FEATURE_COUNT = 2;
-
-  /**
-   * The meta object id for the '{@link org.xtext.example.mydsl.sat.impl.ModelImpl <em>Model</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see org.xtext.example.mydsl.sat.impl.ModelImpl
-   * @see org.xtext.example.mydsl.sat.impl.SatPackageImpl#getModel()
-   * @generated
-   */
-  int MODEL = 0;
-
-  /**
-   * The feature id for the '<em><b>Id</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int MODEL__ID = EXPRESSION__ID;
-
-  /**
-   * The feature id for the '<em><b>Val</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int MODEL__VAL = EXPRESSION__VAL;
-
-  /**
-   * The feature id for the '<em><b>Solver</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int MODEL__SOLVER = EXPRESSION_FEATURE_COUNT + 0;
-
-  /**
-   * The feature id for the '<em><b>Expression</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int MODEL__EXPRESSION = EXPRESSION_FEATURE_COUNT + 1;
-
-  /**
-   * The feature id for the '<em><b>File</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int MODEL__FILE = EXPRESSION_FEATURE_COUNT + 2;
-
-  /**
-   * The number of structural features of the '<em>Model</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int MODEL_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 3;
-
-  /**
-   * The meta object id for the '{@link org.xtext.example.mydsl.sat.impl.FileImpl <em>File</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see org.xtext.example.mydsl.sat.impl.FileImpl
-   * @see org.xtext.example.mydsl.sat.impl.SatPackageImpl#getFile()
-   * @generated
-   */
-  int FILE = 1;
-
-  /**
-   * The feature id for the '<em><b>Path</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int FILE__PATH = 0;
-
-  /**
-   * The number of structural features of the '<em>File</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int FILE_FEATURE_COUNT = 1;
 
   /**
    * The meta object id for the '{@link org.xtext.example.mydsl.sat.impl.BiImplImpl <em>Bi Impl</em>}' class.

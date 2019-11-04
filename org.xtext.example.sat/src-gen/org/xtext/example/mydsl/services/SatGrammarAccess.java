@@ -280,27 +280,27 @@ public class SatGrammarAccess extends AbstractGrammarElementFinder {
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
 		private final Group cGroup_0 = (Group)cAlternatives.eContents().get(0);
 		private final Keyword cLeftParenthesisKeyword_0_0 = (Keyword)cGroup_0.eContents().get(0);
-		private final RuleCall cModelParserRuleCall_0_1 = (RuleCall)cGroup_0.eContents().get(1);
+		private final RuleCall cBiImplParserRuleCall_0_1 = (RuleCall)cGroup_0.eContents().get(1);
 		private final Keyword cRightParenthesisKeyword_0_2 = (Keyword)cGroup_0.eContents().get(2);
 		private final RuleCall cNotParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
 		private final RuleCall cConstParserRuleCall_2 = (RuleCall)cAlternatives.eContents().get(2);
 		private final RuleCall cVarParserRuleCall_3 = (RuleCall)cAlternatives.eContents().get(3);
 		
 		//Primary Expression:
-		//	'(' Model ')' | Not | Const | Var;
+		//	'(' BiImpl ')' | Not | Const | Var;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'(' Model ')' | Not | Const | Var
+		//'(' BiImpl ')' | Not | Const | Var
 		public Alternatives getAlternatives() { return cAlternatives; }
 		
-		//'(' Model ')'
+		//'(' BiImpl ')'
 		public Group getGroup_0() { return cGroup_0; }
 		
 		//'('
 		public Keyword getLeftParenthesisKeyword_0_0() { return cLeftParenthesisKeyword_0_0; }
 		
-		//Model
-		public RuleCall getModelParserRuleCall_0_1() { return cModelParserRuleCall_0_1; }
+		//BiImpl
+		public RuleCall getBiImplParserRuleCall_0_1() { return cBiImplParserRuleCall_0_1; }
 		
 		//')'
 		public Keyword getRightParenthesisKeyword_0_2() { return cRightParenthesisKeyword_0_2; }
@@ -564,7 +564,7 @@ public class SatGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//Primary Expression:
-	//	'(' Model ')' | Not | Const | Var;
+	//	'(' BiImpl ')' | Not | Const | Var;
 	public PrimaryElements getPrimaryAccess() {
 		return pPrimary;
 	}

@@ -1339,9 +1339,9 @@ rule__Primary__Group_0__1__Impl
 	}
 :
 (
-	{ before(grammarAccess.getPrimaryAccess().getModelParserRuleCall_0_1()); }
-	ruleModel
-	{ after(grammarAccess.getPrimaryAccess().getModelParserRuleCall_0_1()); }
+	{ before(grammarAccess.getPrimaryAccess().getBiImplParserRuleCall_0_1()); }
+	ruleBiImpl
+	{ after(grammarAccess.getPrimaryAccess().getBiImplParserRuleCall_0_1()); }
 )
 ;
 finally {

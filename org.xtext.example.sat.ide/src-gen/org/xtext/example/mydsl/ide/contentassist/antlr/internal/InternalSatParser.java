@@ -3985,7 +3985,7 @@ public class InternalSatParser extends AbstractInternalContentAssistParser {
             // InternalSat.g:1301:1: ( rule__Primary__Group_0__0__Impl rule__Primary__Group_0__1 )
             // InternalSat.g:1302:2: rule__Primary__Group_0__0__Impl rule__Primary__Group_0__1
             {
-            pushFollow(FOLLOW_17);
+            pushFollow(FOLLOW_8);
             rule__Primary__Group_0__0__Impl();
 
             state._fsp--;
@@ -4060,7 +4060,7 @@ public class InternalSatParser extends AbstractInternalContentAssistParser {
             // InternalSat.g:1328:1: ( rule__Primary__Group_0__1__Impl rule__Primary__Group_0__2 )
             // InternalSat.g:1329:2: rule__Primary__Group_0__1__Impl rule__Primary__Group_0__2
             {
-            pushFollow(FOLLOW_18);
+            pushFollow(FOLLOW_17);
             rule__Primary__Group_0__1__Impl();
 
             state._fsp--;
@@ -4089,25 +4089,25 @@ public class InternalSatParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Primary__Group_0__1__Impl"
-    // InternalSat.g:1336:1: rule__Primary__Group_0__1__Impl : ( ruleModel ) ;
+    // InternalSat.g:1336:1: rule__Primary__Group_0__1__Impl : ( ruleBiImpl ) ;
     public final void rule__Primary__Group_0__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalSat.g:1340:1: ( ( ruleModel ) )
-            // InternalSat.g:1341:1: ( ruleModel )
+            // InternalSat.g:1340:1: ( ( ruleBiImpl ) )
+            // InternalSat.g:1341:1: ( ruleBiImpl )
             {
-            // InternalSat.g:1341:1: ( ruleModel )
-            // InternalSat.g:1342:2: ruleModel
+            // InternalSat.g:1341:1: ( ruleBiImpl )
+            // InternalSat.g:1342:2: ruleBiImpl
             {
-             before(grammarAccess.getPrimaryAccess().getModelParserRuleCall_0_1()); 
+             before(grammarAccess.getPrimaryAccess().getBiImplParserRuleCall_0_1()); 
             pushFollow(FOLLOW_2);
-            ruleModel();
+            ruleBiImpl();
 
             state._fsp--;
 
-             after(grammarAccess.getPrimaryAccess().getModelParserRuleCall_0_1()); 
+             after(grammarAccess.getPrimaryAccess().getBiImplParserRuleCall_0_1()); 
 
             }
 
@@ -4902,7 +4902,6 @@ public class InternalSatParser extends AbstractInternalContentAssistParser {
     public static final BitSet FOLLOW_14 = new BitSet(new long[]{0x0000000002000002L});
     public static final BitSet FOLLOW_15 = new BitSet(new long[]{0x0000000000001800L});
     public static final BitSet FOLLOW_16 = new BitSet(new long[]{0x0000000000001802L});
-    public static final BitSet FOLLOW_17 = new BitSet(new long[]{0x0000000000100000L});
-    public static final BitSet FOLLOW_18 = new BitSet(new long[]{0x0000000008000000L});
+    public static final BitSet FOLLOW_17 = new BitSet(new long[]{0x0000000008000000L});
 
 }

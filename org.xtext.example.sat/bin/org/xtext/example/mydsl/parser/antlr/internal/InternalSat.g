@@ -509,11 +509,11 @@ rulePrimary returns [EObject current=null]
 				newLeafNode(otherlv_0, grammarAccess.getPrimaryAccess().getLeftParenthesisKeyword_0_0());
 			}
 			{
-				newCompositeNode(grammarAccess.getPrimaryAccess().getModelParserRuleCall_0_1());
+				newCompositeNode(grammarAccess.getPrimaryAccess().getBiImplParserRuleCall_0_1());
 			}
-			this_Model_1=ruleModel
+			this_BiImpl_1=ruleBiImpl
 			{
-				$current = $this_Model_1.current;
+				$current = $this_BiImpl_1.current;
 				afterParserOrEnumRuleCall();
 			}
 			otherlv_2=')'
