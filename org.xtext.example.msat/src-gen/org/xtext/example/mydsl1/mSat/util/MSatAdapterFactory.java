@@ -91,6 +91,11 @@ public class MSatAdapterFactory extends AdapterFactoryImpl
         return createSat4JAdapter();
       }
       @Override
+      public Adapter caseSolverVersion(SolverVersion object)
+      {
+        return createSolverVersionAdapter();
+      }
+      @Override
       public Adapter caseMiniSAT(MiniSAT object)
       {
         return createMiniSATAdapter();
@@ -99,6 +104,11 @@ public class MSatAdapterFactory extends AdapterFactoryImpl
       public Adapter caseCryptoMiniSAT(CryptoMiniSAT object)
       {
         return createCryptoMiniSATAdapter();
+      }
+      @Override
+      public Adapter caseMiniSATParameter(MiniSATParameter object)
+      {
+        return createMiniSATParameterAdapter();
       }
       @Override
       public Adapter caseBenchmark(Benchmark object)
@@ -218,6 +228,21 @@ public class MSatAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
+   * Creates a new adapter for an object of class '{@link org.xtext.example.mydsl1.mSat.SolverVersion <em>Solver Version</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.example.mydsl1.mSat.SolverVersion
+   * @generated
+   */
+  public Adapter createSolverVersionAdapter()
+  {
+    return null;
+  }
+
+  /**
    * Creates a new adapter for an object of class '{@link org.xtext.example.mydsl1.mSat.MiniSAT <em>Mini SAT</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
@@ -243,6 +268,21 @@ public class MSatAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createCryptoMiniSATAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.example.mydsl1.mSat.MiniSATParameter <em>Mini SAT Parameter</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.example.mydsl1.mSat.MiniSATParameter
+   * @generated
+   */
+  public Adapter createMiniSATParameterAdapter()
   {
     return null;
   }

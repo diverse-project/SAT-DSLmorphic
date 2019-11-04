@@ -17,16 +17,23 @@
     </genClasses>
     <genClasses ecoreClass="MSat.ecore#//SATSolver">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MSat.ecore#//SATSolver/solver"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MSat.ecore#//SATSolver/version"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MSat.ecore#//SATSolver/version"/>
     </genClasses>
     <genClasses ecoreClass="MSat.ecore#//Sat4J">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MSat.ecore#//Sat4J/variant"/>
     </genClasses>
+    <genClasses ecoreClass="MSat.ecore#//SolverVersion">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MSat.ecore#//SolverVersion/version"/>
+    </genClasses>
     <genClasses ecoreClass="MSat.ecore#//MiniSAT">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MSat.ecore#//MiniSAT/variant"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MSat.ecore#//MiniSAT/parameter"/>
     </genClasses>
     <genClasses ecoreClass="MSat.ecore#//CryptoMiniSAT">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MSat.ecore#//CryptoMiniSAT/variant"/>
+    </genClasses>
+    <genClasses ecoreClass="MSat.ecore#//MiniSATParameter">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MSat.ecore#//MiniSATParameter/rndfreq"/>
     </genClasses>
     <genClasses ecoreClass="MSat.ecore#//Benchmark"/>
     <genClasses ecoreClass="MSat.ecore#//BenchmarkDimacs">

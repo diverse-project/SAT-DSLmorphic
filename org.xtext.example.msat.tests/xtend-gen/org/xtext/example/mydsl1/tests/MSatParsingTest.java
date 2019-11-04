@@ -31,7 +31,7 @@ public class MSatParsingTest {
       StringConcatenation _builder = new StringConcatenation();
       _builder.append("solver sat4j-jar ");
       _builder.newLine();
-      _builder.append("benchmark-formula (A v B)");
+      _builder.append("benchmarkFormula (A v B)");
       _builder.newLine();
       final SATMorphic result = this.parseHelper.parse(_builder);
       Assertions.assertNotNull(result);
@@ -53,7 +53,7 @@ public class MSatParsingTest {
       StringConcatenation _builder = new StringConcatenation();
       _builder.append("solver sat4j-jar sat4j-maven");
       _builder.newLine();
-      _builder.append("benchmark-formula (A v B) ^ !A");
+      _builder.append("benchmarkFormula (A v B) ^ !A");
       _builder.newLine();
       final SATMorphic result = this.parseHelper.parse(_builder);
       Assertions.assertNotNull(result);
@@ -75,7 +75,7 @@ public class MSatParsingTest {
       StringConcatenation _builder = new StringConcatenation();
       _builder.append("solver sat4j-jar sat4j-maven minisat");
       _builder.newLine();
-      _builder.append("benchmark-DIMACS \"foo1.cnf\", \"foo2.cnf\"");
+      _builder.append("benchmarkDIMACS \"foo1.cnf\", \"foo2.cnf\"");
       _builder.newLine();
       final SATMorphic result = this.parseHelper.parse(_builder);
       Assertions.assertNotNull(result);
@@ -97,7 +97,146 @@ public class MSatParsingTest {
       StringConcatenation _builder = new StringConcatenation();
       _builder.append("solver minisat");
       _builder.newLine();
-      _builder.append("benchmark-DIMACS \"foo1.cnf\"");
+      _builder.append("benchmarkDIMACS \"foo1.cnf\"");
+      _builder.newLine();
+      final SATMorphic result = this.parseHelper.parse(_builder);
+      Assertions.assertNotNull(result);
+      final EList<Resource.Diagnostic> errors = result.eResource().getErrors();
+      boolean _isEmpty = errors.isEmpty();
+      StringConcatenation _builder_1 = new StringConcatenation();
+      _builder_1.append("Unexpected errors: ");
+      String _join = IterableExtensions.join(errors, ", ");
+      _builder_1.append(_join);
+      Assertions.assertTrue(_isEmpty, _builder_1.toString());
+    } catch (Throwable _e) {
+      throw Exceptions.sneakyThrow(_e);
+    }
+  }
+  
+  @Test
+  public void loadModelCrypto() {
+    try {
+      StringConcatenation _builder = new StringConcatenation();
+      _builder.append("solver cryptominisat");
+      _builder.newLine();
+      _builder.append("benchmarkDIMACS \"foo1.cnf\"");
+      _builder.newLine();
+      final SATMorphic result = this.parseHelper.parse(_builder);
+      Assertions.assertNotNull(result);
+      final EList<Resource.Diagnostic> errors = result.eResource().getErrors();
+      boolean _isEmpty = errors.isEmpty();
+      StringConcatenation _builder_1 = new StringConcatenation();
+      _builder_1.append("Unexpected errors: ");
+      String _join = IterableExtensions.join(errors, ", ");
+      _builder_1.append(_join);
+      Assertions.assertTrue(_isEmpty, _builder_1.toString());
+    } catch (Throwable _e) {
+      throw Exceptions.sneakyThrow(_e);
+    }
+  }
+  
+  @Test
+  public void loadModelCryptoParameters() {
+    try {
+      StringConcatenation _builder = new StringConcatenation();
+      _builder.append("solver minisat rnd-freq 0.1");
+      _builder.newLine();
+      _builder.append("benchmarkDIMACS \"foo1.cnf\", \"foo2.cnf\"");
+      _builder.newLine();
+      final SATMorphic result = this.parseHelper.parse(_builder);
+      Assertions.assertNotNull(result);
+      final EList<Resource.Diagnostic> errors = result.eResource().getErrors();
+      boolean _isEmpty = errors.isEmpty();
+      StringConcatenation _builder_1 = new StringConcatenation();
+      _builder_1.append("Unexpected errors: ");
+      String _join = IterableExtensions.join(errors, ", ");
+      _builder_1.append(_join);
+      Assertions.assertTrue(_isEmpty, _builder_1.toString());
+    } catch (Throwable _e) {
+      throw Exceptions.sneakyThrow(_e);
+    }
+  }
+  
+  @Test
+  public void loadModelCryptoParametersZero() {
+    try {
+      StringConcatenation _builder = new StringConcatenation();
+      _builder.append("solver minisat rnd-freq 0.0");
+      _builder.newLine();
+      _builder.append("benchmarkDIMACS \"foo1.cnf\", \"foo2.cnf\"");
+      _builder.newLine();
+      final SATMorphic result = this.parseHelper.parse(_builder);
+      Assertions.assertNotNull(result);
+      final EList<Resource.Diagnostic> errors = result.eResource().getErrors();
+      boolean _isEmpty = errors.isEmpty();
+      StringConcatenation _builder_1 = new StringConcatenation();
+      _builder_1.append("Unexpected errors: ");
+      String _join = IterableExtensions.join(errors, ", ");
+      _builder_1.append(_join);
+      Assertions.assertTrue(_isEmpty, _builder_1.toString());
+    } catch (Throwable _e) {
+      throw Exceptions.sneakyThrow(_e);
+    }
+  }
+  
+  @Test
+  public void loadModelCryptoParametersOne() {
+    try {
+      StringConcatenation _builder = new StringConcatenation();
+      _builder.append("solver minisat rnd-freq 1");
+      _builder.newLine();
+      _builder.append("benchmarkDIMACS \"foo1.cnf\", \"foo2.cnf\"");
+      _builder.newLine();
+      final SATMorphic result = this.parseHelper.parse(_builder);
+      Assertions.assertNotNull(result);
+      final EList<Resource.Diagnostic> errors = result.eResource().getErrors();
+      boolean _isEmpty = errors.isEmpty();
+      StringConcatenation _builder_1 = new StringConcatenation();
+      _builder_1.append("Unexpected errors: ");
+      String _join = IterableExtensions.join(errors, ", ");
+      _builder_1.append(_join);
+      Assertions.assertTrue(_isEmpty, _builder_1.toString());
+    } catch (Throwable _e) {
+      throw Exceptions.sneakyThrow(_e);
+    }
+  }
+  
+  @Test
+  public void loadModelCryptoWrongParameters() {
+    try {
+      StringConcatenation _builder = new StringConcatenation();
+      _builder.append("solver minisat rnd-freq 2 // between 0 and 1");
+      _builder.newLine();
+      _builder.append("benchmarkDIMACS \"foo1.cnf\", \"foo2.cnf\"");
+      _builder.newLine();
+      final SATMorphic result = this.parseHelper.parse(_builder);
+      Assertions.assertNotNull(result);
+      final EList<Resource.Diagnostic> errors = result.eResource().getErrors();
+      int _size = errors.size();
+      boolean _greaterEqualsThan = (_size >= 1);
+      StringConcatenation _builder_1 = new StringConcatenation();
+      _builder_1.append("Unexpected errors: ");
+      String _join = IterableExtensions.join(errors, ", ");
+      _builder_1.append(_join);
+      Assertions.assertTrue(_greaterEqualsThan, _builder_1.toString());
+    } catch (Throwable _e) {
+      throw Exceptions.sneakyThrow(_e);
+    }
+  }
+  
+  @Test
+  public void loadSolvers() {
+    try {
+      StringConcatenation _builder = new StringConcatenation();
+      _builder.append("solver ");
+      _builder.newLine();
+      _builder.append("\t   ");
+      _builder.append("minisat rnd-freq 1");
+      _builder.newLine();
+      _builder.append("\t   ");
+      _builder.append("cryptominisat");
+      _builder.newLine();
+      _builder.append("benchmarkDIMACS \"foo1.cnf\", \"foo2.cnf\"");
       _builder.newLine();
       final SATMorphic result = this.parseHelper.parse(_builder);
       Assertions.assertNotNull(result);

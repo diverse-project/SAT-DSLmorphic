@@ -124,6 +124,31 @@ finally {
 	restoreStackSize(stackSize);
 }
 
+// Entry rule entryRuleSolverVersion
+entryRuleSolverVersion
+:
+{ before(grammarAccess.getSolverVersionRule()); }
+	 ruleSolverVersion
+{ after(grammarAccess.getSolverVersionRule()); } 
+	 EOF 
+;
+
+// Rule SolverVersion
+ruleSolverVersion 
+	@init {
+		int stackSize = keepStackSize();
+	}
+	:
+	(
+		{ before(grammarAccess.getSolverVersionAccess().getGroup()); }
+		(rule__SolverVersion__Group__0)
+		{ after(grammarAccess.getSolverVersionAccess().getGroup()); }
+	)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
 // Entry rule entryRuleMiniSAT
 entryRuleMiniSAT
 :
@@ -140,9 +165,9 @@ ruleMiniSAT
 	}
 	:
 	(
-		{ before(grammarAccess.getMiniSATAccess().getVariantAssignment()); }
-		(rule__MiniSAT__VariantAssignment)
-		{ after(grammarAccess.getMiniSATAccess().getVariantAssignment()); }
+		{ before(grammarAccess.getMiniSATAccess().getGroup()); }
+		(rule__MiniSAT__Group__0)
+		{ after(grammarAccess.getMiniSATAccess().getGroup()); }
 	)
 ;
 finally {
@@ -168,6 +193,31 @@ ruleCryptoMiniSAT
 		{ before(grammarAccess.getCryptoMiniSATAccess().getVariantAssignment()); }
 		(rule__CryptoMiniSAT__VariantAssignment)
 		{ after(grammarAccess.getCryptoMiniSATAccess().getVariantAssignment()); }
+	)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+// Entry rule entryRuleMiniSATParameter
+entryRuleMiniSATParameter
+:
+{ before(grammarAccess.getMiniSATParameterRule()); }
+	 ruleMiniSATParameter
+{ after(grammarAccess.getMiniSATParameterRule()); } 
+	 EOF 
+;
+
+// Rule MiniSATParameter
+ruleMiniSATParameter 
+	@init {
+		int stackSize = keepStackSize();
+	}
+	:
+	(
+		{ before(grammarAccess.getMiniSATParameterAccess().getGroup()); }
+		(rule__MiniSATParameter__Group__0)
+		{ after(grammarAccess.getMiniSATParameterAccess().getGroup()); }
 	)
 ;
 finally {
@@ -803,6 +853,168 @@ finally {
 }
 
 
+rule__SolverVersion__Group__0
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+	rule__SolverVersion__Group__0__Impl
+	rule__SolverVersion__Group__1
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__SolverVersion__Group__0__Impl
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+(
+	{ before(grammarAccess.getSolverVersionAccess().getVersionKeyword_0()); }
+	'version'
+	{ after(grammarAccess.getSolverVersionAccess().getVersionKeyword_0()); }
+)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__SolverVersion__Group__1
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+	rule__SolverVersion__Group__1__Impl
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__SolverVersion__Group__1__Impl
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+(
+	{ before(grammarAccess.getSolverVersionAccess().getVersionAssignment_1()); }
+	(rule__SolverVersion__VersionAssignment_1)
+	{ after(grammarAccess.getSolverVersionAccess().getVersionAssignment_1()); }
+)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+
+rule__MiniSAT__Group__0
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+	rule__MiniSAT__Group__0__Impl
+	rule__MiniSAT__Group__1
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__MiniSAT__Group__0__Impl
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+(
+	{ before(grammarAccess.getMiniSATAccess().getVariantAssignment_0()); }
+	(rule__MiniSAT__VariantAssignment_0)
+	{ after(grammarAccess.getMiniSATAccess().getVariantAssignment_0()); }
+)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__MiniSAT__Group__1
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+	rule__MiniSAT__Group__1__Impl
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__MiniSAT__Group__1__Impl
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+(
+	{ before(grammarAccess.getMiniSATAccess().getParameterAssignment_1()); }
+	(rule__MiniSAT__ParameterAssignment_1)?
+	{ after(grammarAccess.getMiniSATAccess().getParameterAssignment_1()); }
+)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+
+rule__MiniSATParameter__Group__0
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+	rule__MiniSATParameter__Group__0__Impl
+	rule__MiniSATParameter__Group__1
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__MiniSATParameter__Group__0__Impl
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+(
+	{ before(grammarAccess.getMiniSATParameterAccess().getRndFreqKeyword_0()); }
+	'rnd-freq'
+	{ after(grammarAccess.getMiniSATParameterAccess().getRndFreqKeyword_0()); }
+)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__MiniSATParameter__Group__1
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+	rule__MiniSATParameter__Group__1__Impl
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__MiniSATParameter__Group__1__Impl
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+(
+	{ before(grammarAccess.getMiniSATParameterAccess().getRndfreqAssignment_1()); }
+	(rule__MiniSATParameter__RndfreqAssignment_1)
+	{ after(grammarAccess.getMiniSATParameterAccess().getRndfreqAssignment_1()); }
+)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+
 rule__BenchmarkDimacs__Group__0
 	@init {
 		int stackSize = keepStackSize();
@@ -822,7 +1034,7 @@ rule__BenchmarkDimacs__Group__0__Impl
 :
 (
 	{ before(grammarAccess.getBenchmarkDimacsAccess().getBenchmarkDIMACSKeyword_0()); }
-	'benchmark-DIMACS'
+	'benchmarkDIMACS'
 	{ after(grammarAccess.getBenchmarkDimacsAccess().getBenchmarkDIMACSKeyword_0()); }
 )
 ;
@@ -984,7 +1196,7 @@ rule__BenchmarkFormula__Group__0__Impl
 :
 (
 	{ before(grammarAccess.getBenchmarkFormulaAccess().getBenchmarkFormulaKeyword_0()); }
-	'benchmark-formula'
+	'benchmarkFormula'
 	{ after(grammarAccess.getBenchmarkFormulaAccess().getBenchmarkFormulaKeyword_0()); }
 )
 ;
@@ -2015,9 +2227,9 @@ rule__SATSolver__VersionAssignment_1
 	}
 :
 	(
-		{ before(grammarAccess.getSATSolverAccess().getVersionSTRINGTerminalRuleCall_1_0()); }
-		RULE_STRING
-		{ after(grammarAccess.getSATSolverAccess().getVersionSTRINGTerminalRuleCall_1_0()); }
+		{ before(grammarAccess.getSATSolverAccess().getVersionSolverVersionParserRuleCall_1_0()); }
+		ruleSolverVersion
+		{ after(grammarAccess.getSATSolverAccess().getVersionSolverVersionParserRuleCall_1_0()); }
 	)
 ;
 finally {
@@ -2039,19 +2251,49 @@ finally {
 	restoreStackSize(stackSize);
 }
 
-rule__MiniSAT__VariantAssignment
+rule__SolverVersion__VersionAssignment_1
 	@init {
 		int stackSize = keepStackSize();
 	}
 :
 	(
-		{ before(grammarAccess.getMiniSATAccess().getVariantMinisatKeyword_0()); }
+		{ before(grammarAccess.getSolverVersionAccess().getVersionSTRINGTerminalRuleCall_1_0()); }
+		RULE_STRING
+		{ after(grammarAccess.getSolverVersionAccess().getVersionSTRINGTerminalRuleCall_1_0()); }
+	)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__MiniSAT__VariantAssignment_0
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+	(
+		{ before(grammarAccess.getMiniSATAccess().getVariantMinisatKeyword_0_0()); }
 		(
-			{ before(grammarAccess.getMiniSATAccess().getVariantMinisatKeyword_0()); }
+			{ before(grammarAccess.getMiniSATAccess().getVariantMinisatKeyword_0_0()); }
 			'minisat'
-			{ after(grammarAccess.getMiniSATAccess().getVariantMinisatKeyword_0()); }
+			{ after(grammarAccess.getMiniSATAccess().getVariantMinisatKeyword_0_0()); }
 		)
-		{ after(grammarAccess.getMiniSATAccess().getVariantMinisatKeyword_0()); }
+		{ after(grammarAccess.getMiniSATAccess().getVariantMinisatKeyword_0_0()); }
+	)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__MiniSAT__ParameterAssignment_1
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+	(
+		{ before(grammarAccess.getMiniSATAccess().getParameterMiniSATParameterParserRuleCall_1_0()); }
+		ruleMiniSATParameter
+		{ after(grammarAccess.getMiniSATAccess().getParameterMiniSATParameterParserRuleCall_1_0()); }
 	)
 ;
 finally {
@@ -2071,6 +2313,21 @@ rule__CryptoMiniSAT__VariantAssignment
 			{ after(grammarAccess.getCryptoMiniSATAccess().getVariantCryptominisatKeyword_0()); }
 		)
 		{ after(grammarAccess.getCryptoMiniSATAccess().getVariantCryptominisatKeyword_0()); }
+	)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__MiniSATParameter__RndfreqAssignment_1
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+	(
+		{ before(grammarAccess.getMiniSATParameterAccess().getRndfreqPROBATerminalRuleCall_1_0()); }
+		RULE_PROBA
+		{ after(grammarAccess.getMiniSATParameterAccess().getRndfreqPROBATerminalRuleCall_1_0()); }
 	)
 ;
 finally {
@@ -2242,9 +2499,11 @@ finally {
 	restoreStackSize(stackSize);
 }
 
+RULE_PROBA : ('1'|'0' (. RULE_INT)?);
+
 RULE_ID : '^'? ('a'..'z'|'A'..'Z'|'_') ('a'..'z'|'A'..'Z'|'_'|'0'..'9')*;
 
-RULE_INT : ('0'..'9')+;
+fragment RULE_INT : ('0'..'9')+;
 
 RULE_STRING : ('"' ('\\' .|~(('\\'|'"')))* '"'|'\'' ('\\' .|~(('\\'|'\'')))* '\'');
 

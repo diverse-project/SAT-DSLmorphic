@@ -47,25 +47,25 @@ public interface SATSolver extends EObject
   void setSolver(EObject value);
 
   /**
-   * Returns the value of the '<em><b>Version</b></em>' attribute.
+   * Returns the value of the '<em><b>Version</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Version</em>' attribute.
-   * @see #setVersion(String)
+   * @return the value of the '<em>Version</em>' containment reference.
+   * @see #setVersion(SolverVersion)
    * @see org.xtext.example.mydsl1.mSat.MSatPackage#getSATSolver_Version()
-   * @model
+   * @model containment="true"
    * @generated
    */
-  String getVersion();
+  SolverVersion getVersion();
 
   /**
-   * Sets the value of the '{@link org.xtext.example.mydsl1.mSat.SATSolver#getVersion <em>Version</em>}' attribute.
+   * Sets the value of the '{@link org.xtext.example.mydsl1.mSat.SATSolver#getVersion <em>Version</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Version</em>' attribute.
+   * @param value the new value of the '<em>Version</em>' containment reference.
    * @see #getVersion()
    * @generated
    */
-  void setVersion(String value);
+  void setVersion(SolverVersion value);
 
 } // SATSolver

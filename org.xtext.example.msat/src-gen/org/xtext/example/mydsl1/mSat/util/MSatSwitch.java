@@ -94,6 +94,13 @@ public class MSatSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case MSatPackage.SOLVER_VERSION:
+      {
+        SolverVersion solverVersion = (SolverVersion)theEObject;
+        T result = caseSolverVersion(solverVersion);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       case MSatPackage.MINI_SAT:
       {
         MiniSAT miniSAT = (MiniSAT)theEObject;
@@ -105,6 +112,13 @@ public class MSatSwitch<T> extends Switch<T>
       {
         CryptoMiniSAT cryptoMiniSAT = (CryptoMiniSAT)theEObject;
         T result = caseCryptoMiniSAT(cryptoMiniSAT);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case MSatPackage.MINI_SAT_PARAMETER:
+      {
+        MiniSATParameter miniSATParameter = (MiniSATParameter)theEObject;
+        T result = caseMiniSATParameter(miniSATParameter);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -239,6 +253,22 @@ public class MSatSwitch<T> extends Switch<T>
   }
 
   /**
+   * Returns the result of interpreting the object as an instance of '<em>Solver Version</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Solver Version</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseSolverVersion(SolverVersion object)
+  {
+    return null;
+  }
+
+  /**
    * Returns the result of interpreting the object as an instance of '<em>Mini SAT</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
@@ -266,6 +296,22 @@ public class MSatSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseCryptoMiniSAT(CryptoMiniSAT object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Mini SAT Parameter</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Mini SAT Parameter</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseMiniSATParameter(MiniSATParameter object)
   {
     return null;
   }

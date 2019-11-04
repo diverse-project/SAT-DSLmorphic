@@ -115,7 +115,7 @@ public interface MSatPackage extends EPackage
   int SAT_SOLVER__SOLVER = 0;
 
   /**
-   * The feature id for the '<em><b>Version</b></em>' attribute.
+   * The feature id for the '<em><b>Version</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
@@ -161,6 +161,34 @@ public interface MSatPackage extends EPackage
   int SAT4_J_FEATURE_COUNT = 1;
 
   /**
+   * The meta object id for the '{@link org.xtext.example.mydsl1.mSat.impl.SolverVersionImpl <em>Solver Version</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.example.mydsl1.mSat.impl.SolverVersionImpl
+   * @see org.xtext.example.mydsl1.mSat.impl.MSatPackageImpl#getSolverVersion()
+   * @generated
+   */
+  int SOLVER_VERSION = 3;
+
+  /**
+   * The feature id for the '<em><b>Version</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SOLVER_VERSION__VERSION = 0;
+
+  /**
+   * The number of structural features of the '<em>Solver Version</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SOLVER_VERSION_FEATURE_COUNT = 1;
+
+  /**
    * The meta object id for the '{@link org.xtext.example.mydsl1.mSat.impl.MiniSATImpl <em>Mini SAT</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -168,7 +196,7 @@ public interface MSatPackage extends EPackage
    * @see org.xtext.example.mydsl1.mSat.impl.MSatPackageImpl#getMiniSAT()
    * @generated
    */
-  int MINI_SAT = 3;
+  int MINI_SAT = 4;
 
   /**
    * The feature id for the '<em><b>Variant</b></em>' attribute.
@@ -180,13 +208,22 @@ public interface MSatPackage extends EPackage
   int MINI_SAT__VARIANT = 0;
 
   /**
+   * The feature id for the '<em><b>Parameter</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int MINI_SAT__PARAMETER = 1;
+
+  /**
    * The number of structural features of the '<em>Mini SAT</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int MINI_SAT_FEATURE_COUNT = 1;
+  int MINI_SAT_FEATURE_COUNT = 2;
 
   /**
    * The meta object id for the '{@link org.xtext.example.mydsl1.mSat.impl.CryptoMiniSATImpl <em>Crypto Mini SAT</em>}' class.
@@ -196,7 +233,7 @@ public interface MSatPackage extends EPackage
    * @see org.xtext.example.mydsl1.mSat.impl.MSatPackageImpl#getCryptoMiniSAT()
    * @generated
    */
-  int CRYPTO_MINI_SAT = 4;
+  int CRYPTO_MINI_SAT = 5;
 
   /**
    * The feature id for the '<em><b>Variant</b></em>' attribute.
@@ -217,6 +254,34 @@ public interface MSatPackage extends EPackage
   int CRYPTO_MINI_SAT_FEATURE_COUNT = 1;
 
   /**
+   * The meta object id for the '{@link org.xtext.example.mydsl1.mSat.impl.MiniSATParameterImpl <em>Mini SAT Parameter</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.example.mydsl1.mSat.impl.MiniSATParameterImpl
+   * @see org.xtext.example.mydsl1.mSat.impl.MSatPackageImpl#getMiniSATParameter()
+   * @generated
+   */
+  int MINI_SAT_PARAMETER = 6;
+
+  /**
+   * The feature id for the '<em><b>Rndfreq</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int MINI_SAT_PARAMETER__RNDFREQ = 0;
+
+  /**
+   * The number of structural features of the '<em>Mini SAT Parameter</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int MINI_SAT_PARAMETER_FEATURE_COUNT = 1;
+
+  /**
    * The meta object id for the '{@link org.xtext.example.mydsl1.mSat.impl.BenchmarkImpl <em>Benchmark</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -224,7 +289,7 @@ public interface MSatPackage extends EPackage
    * @see org.xtext.example.mydsl1.mSat.impl.MSatPackageImpl#getBenchmark()
    * @generated
    */
-  int BENCHMARK = 5;
+  int BENCHMARK = 7;
 
   /**
    * The number of structural features of the '<em>Benchmark</em>' class.
@@ -243,7 +308,7 @@ public interface MSatPackage extends EPackage
    * @see org.xtext.example.mydsl1.mSat.impl.MSatPackageImpl#getBenchmarkDimacs()
    * @generated
    */
-  int BENCHMARK_DIMACS = 6;
+  int BENCHMARK_DIMACS = 8;
 
   /**
    * The feature id for the '<em><b>Dimacses</b></em>' attribute list.
@@ -271,7 +336,7 @@ public interface MSatPackage extends EPackage
    * @see org.xtext.example.mydsl1.mSat.impl.MSatPackageImpl#getBenchmarkFormula()
    * @generated
    */
-  int BENCHMARK_FORMULA = 7;
+  int BENCHMARK_FORMULA = 9;
 
   /**
    * The feature id for the '<em><b>Expressions</b></em>' containment reference list.
@@ -299,7 +364,7 @@ public interface MSatPackage extends EPackage
    * @see org.xtext.example.mydsl1.mSat.impl.MSatPackageImpl#getExpression()
    * @generated
    */
-  int EXPRESSION = 8;
+  int EXPRESSION = 10;
 
   /**
    * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -336,7 +401,7 @@ public interface MSatPackage extends EPackage
    * @see org.xtext.example.mydsl1.mSat.impl.MSatPackageImpl#getBiImpl()
    * @generated
    */
-  int BI_IMPL = 9;
+  int BI_IMPL = 11;
 
   /**
    * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -391,7 +456,7 @@ public interface MSatPackage extends EPackage
    * @see org.xtext.example.mydsl1.mSat.impl.MSatPackageImpl#getImpl()
    * @generated
    */
-  int IMPL = 10;
+  int IMPL = 12;
 
   /**
    * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -446,7 +511,7 @@ public interface MSatPackage extends EPackage
    * @see org.xtext.example.mydsl1.mSat.impl.MSatPackageImpl#getOr()
    * @generated
    */
-  int OR = 11;
+  int OR = 13;
 
   /**
    * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -501,7 +566,7 @@ public interface MSatPackage extends EPackage
    * @see org.xtext.example.mydsl1.mSat.impl.MSatPackageImpl#getAnd()
    * @generated
    */
-  int AND = 12;
+  int AND = 14;
 
   /**
    * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -556,7 +621,7 @@ public interface MSatPackage extends EPackage
    * @see org.xtext.example.mydsl1.mSat.impl.MSatPackageImpl#getNand()
    * @generated
    */
-  int NAND = 13;
+  int NAND = 15;
 
   /**
    * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -611,7 +676,7 @@ public interface MSatPackage extends EPackage
    * @see org.xtext.example.mydsl1.mSat.impl.MSatPackageImpl#getNot()
    * @generated
    */
-  int NOT = 14;
+  int NOT = 16;
 
   /**
    * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -657,7 +722,7 @@ public interface MSatPackage extends EPackage
    * @see org.xtext.example.mydsl1.mSat.impl.MSatPackageImpl#getSat4JVariant()
    * @generated
    */
-  int SAT4_JVARIANT = 15;
+  int SAT4_JVARIANT = 17;
 
 
   /**
@@ -714,15 +779,15 @@ public interface MSatPackage extends EPackage
   EReference getSATSolver_Solver();
 
   /**
-   * Returns the meta object for the attribute '{@link org.xtext.example.mydsl1.mSat.SATSolver#getVersion <em>Version</em>}'.
+   * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl1.mSat.SATSolver#getVersion <em>Version</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Version</em>'.
+   * @return the meta object for the containment reference '<em>Version</em>'.
    * @see org.xtext.example.mydsl1.mSat.SATSolver#getVersion()
    * @see #getSATSolver()
    * @generated
    */
-  EAttribute getSATSolver_Version();
+  EReference getSATSolver_Version();
 
   /**
    * Returns the meta object for class '{@link org.xtext.example.mydsl1.mSat.Sat4J <em>Sat4 J</em>}'.
@@ -746,6 +811,27 @@ public interface MSatPackage extends EPackage
   EAttribute getSat4J_Variant();
 
   /**
+   * Returns the meta object for class '{@link org.xtext.example.mydsl1.mSat.SolverVersion <em>Solver Version</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Solver Version</em>'.
+   * @see org.xtext.example.mydsl1.mSat.SolverVersion
+   * @generated
+   */
+  EClass getSolverVersion();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.xtext.example.mydsl1.mSat.SolverVersion#getVersion <em>Version</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Version</em>'.
+   * @see org.xtext.example.mydsl1.mSat.SolverVersion#getVersion()
+   * @see #getSolverVersion()
+   * @generated
+   */
+  EAttribute getSolverVersion_Version();
+
+  /**
    * Returns the meta object for class '{@link org.xtext.example.mydsl1.mSat.MiniSAT <em>Mini SAT</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -767,6 +853,17 @@ public interface MSatPackage extends EPackage
   EAttribute getMiniSAT_Variant();
 
   /**
+   * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl1.mSat.MiniSAT#getParameter <em>Parameter</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Parameter</em>'.
+   * @see org.xtext.example.mydsl1.mSat.MiniSAT#getParameter()
+   * @see #getMiniSAT()
+   * @generated
+   */
+  EReference getMiniSAT_Parameter();
+
+  /**
    * Returns the meta object for class '{@link org.xtext.example.mydsl1.mSat.CryptoMiniSAT <em>Crypto Mini SAT</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -786,6 +883,27 @@ public interface MSatPackage extends EPackage
    * @generated
    */
   EAttribute getCryptoMiniSAT_Variant();
+
+  /**
+   * Returns the meta object for class '{@link org.xtext.example.mydsl1.mSat.MiniSATParameter <em>Mini SAT Parameter</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Mini SAT Parameter</em>'.
+   * @see org.xtext.example.mydsl1.mSat.MiniSATParameter
+   * @generated
+   */
+  EClass getMiniSATParameter();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.xtext.example.mydsl1.mSat.MiniSATParameter#getRndfreq <em>Rndfreq</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Rndfreq</em>'.
+   * @see org.xtext.example.mydsl1.mSat.MiniSATParameter#getRndfreq()
+   * @see #getMiniSATParameter()
+   * @generated
+   */
+  EAttribute getMiniSATParameter_Rndfreq();
 
   /**
    * Returns the meta object for class '{@link org.xtext.example.mydsl1.mSat.Benchmark <em>Benchmark</em>}'.
@@ -1130,12 +1248,12 @@ public interface MSatPackage extends EPackage
     EReference SAT_SOLVER__SOLVER = eINSTANCE.getSATSolver_Solver();
 
     /**
-     * The meta object literal for the '<em><b>Version</b></em>' attribute feature.
+     * The meta object literal for the '<em><b>Version</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute SAT_SOLVER__VERSION = eINSTANCE.getSATSolver_Version();
+    EReference SAT_SOLVER__VERSION = eINSTANCE.getSATSolver_Version();
 
     /**
      * The meta object literal for the '{@link org.xtext.example.mydsl1.mSat.impl.Sat4JImpl <em>Sat4 J</em>}' class.
@@ -1156,6 +1274,24 @@ public interface MSatPackage extends EPackage
     EAttribute SAT4_J__VARIANT = eINSTANCE.getSat4J_Variant();
 
     /**
+     * The meta object literal for the '{@link org.xtext.example.mydsl1.mSat.impl.SolverVersionImpl <em>Solver Version</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.example.mydsl1.mSat.impl.SolverVersionImpl
+     * @see org.xtext.example.mydsl1.mSat.impl.MSatPackageImpl#getSolverVersion()
+     * @generated
+     */
+    EClass SOLVER_VERSION = eINSTANCE.getSolverVersion();
+
+    /**
+     * The meta object literal for the '<em><b>Version</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute SOLVER_VERSION__VERSION = eINSTANCE.getSolverVersion_Version();
+
+    /**
      * The meta object literal for the '{@link org.xtext.example.mydsl1.mSat.impl.MiniSATImpl <em>Mini SAT</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -1174,6 +1310,14 @@ public interface MSatPackage extends EPackage
     EAttribute MINI_SAT__VARIANT = eINSTANCE.getMiniSAT_Variant();
 
     /**
+     * The meta object literal for the '<em><b>Parameter</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference MINI_SAT__PARAMETER = eINSTANCE.getMiniSAT_Parameter();
+
+    /**
      * The meta object literal for the '{@link org.xtext.example.mydsl1.mSat.impl.CryptoMiniSATImpl <em>Crypto Mini SAT</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -1190,6 +1334,24 @@ public interface MSatPackage extends EPackage
      * @generated
      */
     EAttribute CRYPTO_MINI_SAT__VARIANT = eINSTANCE.getCryptoMiniSAT_Variant();
+
+    /**
+     * The meta object literal for the '{@link org.xtext.example.mydsl1.mSat.impl.MiniSATParameterImpl <em>Mini SAT Parameter</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.example.mydsl1.mSat.impl.MiniSATParameterImpl
+     * @see org.xtext.example.mydsl1.mSat.impl.MSatPackageImpl#getMiniSATParameter()
+     * @generated
+     */
+    EClass MINI_SAT_PARAMETER = eINSTANCE.getMiniSATParameter();
+
+    /**
+     * The meta object literal for the '<em><b>Rndfreq</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute MINI_SAT_PARAMETER__RNDFREQ = eINSTANCE.getMiniSATParameter_Rndfreq();
 
     /**
      * The meta object literal for the '{@link org.xtext.example.mydsl1.mSat.impl.BenchmarkImpl <em>Benchmark</em>}' class.

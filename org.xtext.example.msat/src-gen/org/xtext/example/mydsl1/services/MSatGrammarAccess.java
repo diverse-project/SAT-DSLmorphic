@@ -67,13 +67,13 @@ public class MSatGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cSolverCryptoMiniSATParserRuleCall_0_0_1 = (RuleCall)cSolverAlternatives_0_0.eContents().get(1);
 		private final RuleCall cSolverMiniSATParserRuleCall_0_0_2 = (RuleCall)cSolverAlternatives_0_0.eContents().get(2);
 		private final Assignment cVersionAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cVersionSTRINGTerminalRuleCall_1_0 = (RuleCall)cVersionAssignment_1.eContents().get(0);
+		private final RuleCall cVersionSolverVersionParserRuleCall_1_0 = (RuleCall)cVersionAssignment_1.eContents().get(0);
 		
 		//SATSolver:
-		//	solver=(Sat4J | CryptoMiniSAT | MiniSAT) version=STRING?;
+		//	solver=(Sat4J | CryptoMiniSAT | MiniSAT) version=SolverVersion?;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//solver=(Sat4J | CryptoMiniSAT | MiniSAT) version=STRING?
+		//solver=(Sat4J | CryptoMiniSAT | MiniSAT) version=SolverVersion?
 		public Group getGroup() { return cGroup; }
 		
 		//solver=(Sat4J | CryptoMiniSAT | MiniSAT)
@@ -91,11 +91,11 @@ public class MSatGrammarAccess extends AbstractGrammarElementFinder {
 		//MiniSAT
 		public RuleCall getSolverMiniSATParserRuleCall_0_0_2() { return cSolverMiniSATParserRuleCall_0_0_2; }
 		
-		//version=STRING?
+		//version=SolverVersion?
 		public Assignment getVersionAssignment_1() { return cVersionAssignment_1; }
 		
-		//STRING
-		public RuleCall getVersionSTRINGTerminalRuleCall_1_0() { return cVersionSTRINGTerminalRuleCall_1_0; }
+		//SolverVersion
+		public RuleCall getVersionSolverVersionParserRuleCall_1_0() { return cVersionSolverVersionParserRuleCall_1_0; }
 	}
 	public class Sat4JElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.mydsl1.MSat.Sat4J");
@@ -112,20 +112,55 @@ public class MSatGrammarAccess extends AbstractGrammarElementFinder {
 		//Sat4JVariant
 		public RuleCall getVariantSat4JVariantEnumRuleCall_0() { return cVariantSat4JVariantEnumRuleCall_0; }
 	}
-	public class MiniSATElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.mydsl1.MSat.MiniSAT");
-		private final Assignment cVariantAssignment = (Assignment)rule.eContents().get(1);
-		private final Keyword cVariantMinisatKeyword_0 = (Keyword)cVariantAssignment.eContents().get(0);
+	public class SolverVersionElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.mydsl1.MSat.SolverVersion");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cVersionKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Assignment cVersionAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cVersionSTRINGTerminalRuleCall_1_0 = (RuleCall)cVersionAssignment_1.eContents().get(0);
 		
-		//MiniSAT:
-		//	variant="minisat";
+		//SolverVersion:
+		//	"version" version=STRING;
 		@Override public ParserRule getRule() { return rule; }
 		
+		//"version" version=STRING
+		public Group getGroup() { return cGroup; }
+		
+		//"version"
+		public Keyword getVersionKeyword_0() { return cVersionKeyword_0; }
+		
+		//version=STRING
+		public Assignment getVersionAssignment_1() { return cVersionAssignment_1; }
+		
+		//STRING
+		public RuleCall getVersionSTRINGTerminalRuleCall_1_0() { return cVersionSTRINGTerminalRuleCall_1_0; }
+	}
+	public class MiniSATElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.mydsl1.MSat.MiniSAT");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Assignment cVariantAssignment_0 = (Assignment)cGroup.eContents().get(0);
+		private final Keyword cVariantMinisatKeyword_0_0 = (Keyword)cVariantAssignment_0.eContents().get(0);
+		private final Assignment cParameterAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cParameterMiniSATParameterParserRuleCall_1_0 = (RuleCall)cParameterAssignment_1.eContents().get(0);
+		
+		//MiniSAT:
+		//	variant="minisat" parameter=MiniSATParameter?;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//variant="minisat" parameter=MiniSATParameter?
+		public Group getGroup() { return cGroup; }
+		
 		//variant="minisat"
-		public Assignment getVariantAssignment() { return cVariantAssignment; }
+		public Assignment getVariantAssignment_0() { return cVariantAssignment_0; }
 		
 		//"minisat"
-		public Keyword getVariantMinisatKeyword_0() { return cVariantMinisatKeyword_0; }
+		public Keyword getVariantMinisatKeyword_0_0() { return cVariantMinisatKeyword_0_0; }
+		
+		//parameter=MiniSATParameter?
+		public Assignment getParameterAssignment_1() { return cParameterAssignment_1; }
+		
+		//MiniSATParameter
+		public RuleCall getParameterMiniSATParameterParserRuleCall_1_0() { return cParameterMiniSATParameterParserRuleCall_1_0; }
 	}
 	public class CryptoMiniSATElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.mydsl1.MSat.CryptoMiniSAT");
@@ -141,6 +176,30 @@ public class MSatGrammarAccess extends AbstractGrammarElementFinder {
 		
 		//"cryptominisat"
 		public Keyword getVariantCryptominisatKeyword_0() { return cVariantCryptominisatKeyword_0; }
+	}
+	public class MiniSATParameterElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.mydsl1.MSat.MiniSATParameter");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cRndFreqKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Assignment cRndfreqAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cRndfreqPROBATerminalRuleCall_1_0 = (RuleCall)cRndfreqAssignment_1.eContents().get(0);
+		
+		//// https://www.msoos.org/minisat-faq/
+		//MiniSATParameter:
+		//	'rnd-freq' rndfreq=PROBA;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//'rnd-freq' rndfreq=PROBA
+		public Group getGroup() { return cGroup; }
+		
+		//'rnd-freq'
+		public Keyword getRndFreqKeyword_0() { return cRndFreqKeyword_0; }
+		
+		//rndfreq=PROBA
+		public Assignment getRndfreqAssignment_1() { return cRndfreqAssignment_1; }
+		
+		//PROBA
+		public RuleCall getRndfreqPROBATerminalRuleCall_1_0() { return cRndfreqPROBATerminalRuleCall_1_0; }
 	}
 	public class BenchmarkElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.mydsl1.MSat.Benchmark");
@@ -174,13 +233,13 @@ public class MSatGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cDimacsesSTRINGTerminalRuleCall_1_1_1_0 = (RuleCall)cDimacsesAssignment_1_1_1.eContents().get(0);
 		
 		//BenchmarkDimacs:
-		//	'benchmark-DIMACS' (dimacses+=STRING ("," dimacses+=STRING)*);
+		//	'benchmarkDIMACS' (dimacses+=STRING ("," dimacses+=STRING)*);
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'benchmark-DIMACS' (dimacses+=STRING ("," dimacses+=STRING)*)
+		//'benchmarkDIMACS' (dimacses+=STRING ("," dimacses+=STRING)*)
 		public Group getGroup() { return cGroup; }
 		
-		//'benchmark-DIMACS'
+		//'benchmarkDIMACS'
 		public Keyword getBenchmarkDIMACSKeyword_0() { return cBenchmarkDIMACSKeyword_0; }
 		
 		//(dimacses+=STRING ("," dimacses+=STRING)*)
@@ -217,13 +276,13 @@ public class MSatGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cExpressionsBiImplParserRuleCall_1_1_1_0 = (RuleCall)cExpressionsAssignment_1_1_1.eContents().get(0);
 		
 		//BenchmarkFormula:
-		//	'benchmark-formula' (expressions+=BiImpl ("," expressions+=BiImpl)*);
+		//	'benchmarkFormula' (expressions+=BiImpl ("," expressions+=BiImpl)*);
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'benchmark-formula' (expressions+=BiImpl ("," expressions+=BiImpl)*)
+		//'benchmarkFormula' (expressions+=BiImpl ("," expressions+=BiImpl)*)
 		public Group getGroup() { return cGroup; }
 		
-		//'benchmark-formula'
+		//'benchmarkFormula'
 		public Keyword getBenchmarkFormulaKeyword_0() { return cBenchmarkFormulaKeyword_0; }
 		
 		//(expressions+=BiImpl ("," expressions+=BiImpl)*)
@@ -579,8 +638,11 @@ public class MSatGrammarAccess extends AbstractGrammarElementFinder {
 	private final SATSolverElements pSATSolver;
 	private final Sat4JElements pSat4J;
 	private final Sat4JVariantElements eSat4JVariant;
+	private final SolverVersionElements pSolverVersion;
 	private final MiniSATElements pMiniSAT;
 	private final CryptoMiniSATElements pCryptoMiniSAT;
+	private final MiniSATParameterElements pMiniSATParameter;
+	private final TerminalRule tPROBA;
 	private final BenchmarkElements pBenchmark;
 	private final BenchmarkDimacsElements pBenchmarkDimacs;
 	private final BenchmarkFormulaElements pBenchmarkFormula;
@@ -607,8 +669,11 @@ public class MSatGrammarAccess extends AbstractGrammarElementFinder {
 		this.pSATSolver = new SATSolverElements();
 		this.pSat4J = new Sat4JElements();
 		this.eSat4JVariant = new Sat4JVariantElements();
+		this.pSolverVersion = new SolverVersionElements();
 		this.pMiniSAT = new MiniSATElements();
 		this.pCryptoMiniSAT = new CryptoMiniSATElements();
+		this.pMiniSATParameter = new MiniSATParameterElements();
+		this.tPROBA = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.mydsl1.MSat.PROBA");
 		this.pBenchmark = new BenchmarkElements();
 		this.pBenchmarkDimacs = new BenchmarkDimacsElements();
 		this.pBenchmarkFormula = new BenchmarkFormulaElements();
@@ -662,7 +727,7 @@ public class MSatGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//SATSolver:
-	//	solver=(Sat4J | CryptoMiniSAT | MiniSAT) version=STRING?;
+	//	solver=(Sat4J | CryptoMiniSAT | MiniSAT) version=SolverVersion?;
 	public SATSolverElements getSATSolverAccess() {
 		return pSATSolver;
 	}
@@ -691,8 +756,18 @@ public class MSatGrammarAccess extends AbstractGrammarElementFinder {
 		return getSat4JVariantAccess().getRule();
 	}
 	
+	//SolverVersion:
+	//	"version" version=STRING;
+	public SolverVersionElements getSolverVersionAccess() {
+		return pSolverVersion;
+	}
+	
+	public ParserRule getSolverVersionRule() {
+		return getSolverVersionAccess().getRule();
+	}
+	
 	//MiniSAT:
-	//	variant="minisat";
+	//	variant="minisat" parameter=MiniSATParameter?;
 	public MiniSATElements getMiniSATAccess() {
 		return pMiniSAT;
 	}
@@ -711,6 +786,23 @@ public class MSatGrammarAccess extends AbstractGrammarElementFinder {
 		return getCryptoMiniSATAccess().getRule();
 	}
 	
+	//// https://www.msoos.org/minisat-faq/
+	//MiniSATParameter:
+	//	'rnd-freq' rndfreq=PROBA;
+	public MiniSATParameterElements getMiniSATParameterAccess() {
+		return pMiniSATParameter;
+	}
+	
+	public ParserRule getMiniSATParameterRule() {
+		return getMiniSATParameterAccess().getRule();
+	}
+	
+	//terminal PROBA returns ecore::EFloat:
+	//	'1' | '0' (. INT)?;
+	public TerminalRule getPROBARule() {
+		return tPROBA;
+	}
+	
 	//Benchmark:
 	//	BenchmarkDimacs | BenchmarkFormula;
 	public BenchmarkElements getBenchmarkAccess() {
@@ -722,7 +814,7 @@ public class MSatGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//BenchmarkDimacs:
-	//	'benchmark-DIMACS' (dimacses+=STRING ("," dimacses+=STRING)*);
+	//	'benchmarkDIMACS' (dimacses+=STRING ("," dimacses+=STRING)*);
 	public BenchmarkDimacsElements getBenchmarkDimacsAccess() {
 		return pBenchmarkDimacs;
 	}
@@ -732,7 +824,7 @@ public class MSatGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//BenchmarkFormula:
-	//	'benchmark-formula' (expressions+=BiImpl ("," expressions+=BiImpl)*);
+	//	'benchmarkFormula' (expressions+=BiImpl ("," expressions+=BiImpl)*);
 	public BenchmarkFormulaElements getBenchmarkFormulaAccess() {
 		return pBenchmarkFormula;
 	}

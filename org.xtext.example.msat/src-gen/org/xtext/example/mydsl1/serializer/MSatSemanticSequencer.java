@@ -23,12 +23,14 @@ import org.xtext.example.mydsl1.mSat.Expression;
 import org.xtext.example.mydsl1.mSat.Impl;
 import org.xtext.example.mydsl1.mSat.MSatPackage;
 import org.xtext.example.mydsl1.mSat.MiniSAT;
+import org.xtext.example.mydsl1.mSat.MiniSATParameter;
 import org.xtext.example.mydsl1.mSat.Nand;
 import org.xtext.example.mydsl1.mSat.Not;
 import org.xtext.example.mydsl1.mSat.Or;
 import org.xtext.example.mydsl1.mSat.SATMorphic;
 import org.xtext.example.mydsl1.mSat.SATSolver;
 import org.xtext.example.mydsl1.mSat.Sat4J;
+import org.xtext.example.mydsl1.mSat.SolverVersion;
 import org.xtext.example.mydsl1.services.MSatGrammarAccess;
 
 @SuppressWarnings("all")
@@ -91,6 +93,9 @@ public class MSatSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 			case MSatPackage.MINI_SAT:
 				sequence_MiniSAT(context, (MiniSAT) semanticObject); 
 				return; 
+			case MSatPackage.MINI_SAT_PARAMETER:
+				sequence_MiniSATParameter(context, (MiniSATParameter) semanticObject); 
+				return; 
 			case MSatPackage.NAND:
 				sequence_Nand(context, (Nand) semanticObject); 
 				return; 
@@ -108,6 +113,9 @@ public class MSatSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 				return; 
 			case MSatPackage.SAT4_J:
 				sequence_Sat4J(context, (Sat4J) semanticObject); 
+				return; 
+			case MSatPackage.SOLVER_VERSION:
+				sequence_SolverVersion(context, (SolverVersion) semanticObject); 
 				return; 
 			}
 		if (errorAcceptor != null)
@@ -291,19 +299,31 @@ public class MSatSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	
 	/**
 	 * Contexts:
+	 *     MiniSATParameter returns MiniSATParameter
+	 *
+	 * Constraint:
+	 *     rndfreq=PROBA
+	 */
+	protected void sequence_MiniSATParameter(ISerializationContext context, MiniSATParameter semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, MSatPackage.Literals.MINI_SAT_PARAMETER__RNDFREQ) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, MSatPackage.Literals.MINI_SAT_PARAMETER__RNDFREQ));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getMiniSATParameterAccess().getRndfreqPROBATerminalRuleCall_1_0(), semanticObject.getRndfreq());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
 	 *     MiniSAT returns MiniSAT
 	 *
 	 * Constraint:
-	 *     variant='minisat'
+	 *     (variant='minisat' parameter=MiniSATParameter?)
 	 */
 	protected void sequence_MiniSAT(ISerializationContext context, MiniSAT semanticObject) {
-		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, MSatPackage.Literals.MINI_SAT__VARIANT) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, MSatPackage.Literals.MINI_SAT__VARIANT));
-		}
-		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getMiniSATAccess().getVariantMinisatKeyword_0(), semanticObject.getVariant());
-		feeder.finish();
+		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
@@ -418,7 +438,7 @@ public class MSatSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     SATSolver returns SATSolver
 	 *
 	 * Constraint:
-	 *     ((solver=Sat4J | solver=CryptoMiniSAT | solver=MiniSAT) version=STRING?)
+	 *     ((solver=Sat4J | solver=CryptoMiniSAT | solver=MiniSAT) version=SolverVersion?)
 	 */
 	protected void sequence_SATSolver(ISerializationContext context, SATSolver semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -439,6 +459,24 @@ public class MSatSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
 		feeder.accept(grammarAccess.getSat4JAccess().getVariantSat4JVariantEnumRuleCall_0(), semanticObject.getVariant());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     SolverVersion returns SolverVersion
+	 *
+	 * Constraint:
+	 *     version=STRING
+	 */
+	protected void sequence_SolverVersion(ISerializationContext context, SolverVersion semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, MSatPackage.Literals.SOLVER_VERSION__VERSION) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, MSatPackage.Literals.SOLVER_VERSION__VERSION));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getSolverVersionAccess().getVersionSTRINGTerminalRuleCall_1_0(), semanticObject.getVersion());
 		feeder.finish();
 	}
 	

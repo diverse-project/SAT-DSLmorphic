@@ -15,6 +15,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.xtext.example.mydsl1.mSat.MSatPackage;
 import org.xtext.example.mydsl1.mSat.SATSolver;
+import org.xtext.example.mydsl1.mSat.SolverVersion;
 
 /**
  * <!-- begin-user-doc -->
@@ -43,24 +44,14 @@ public class SATSolverImpl extends MinimalEObjectImpl.Container implements SATSo
   protected EObject solver;
 
   /**
-   * The default value of the '{@link #getVersion() <em>Version</em>}' attribute.
+   * The cached value of the '{@link #getVersion() <em>Version</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @see #getVersion()
    * @generated
    * @ordered
    */
-  protected static final String VERSION_EDEFAULT = null;
-
-  /**
-   * The cached value of the '{@link #getVersion() <em>Version</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getVersion()
-   * @generated
-   * @ordered
-   */
-  protected String version = VERSION_EDEFAULT;
+  protected SolverVersion version;
 
   /**
    * <!-- begin-user-doc -->
@@ -139,7 +130,7 @@ public class SATSolverImpl extends MinimalEObjectImpl.Container implements SATSo
    * @generated
    */
   @Override
-  public String getVersion()
+  public SolverVersion getVersion()
   {
     return version;
   }
@@ -149,13 +140,38 @@ public class SATSolverImpl extends MinimalEObjectImpl.Container implements SATSo
    * <!-- end-user-doc -->
    * @generated
    */
-  @Override
-  public void setVersion(String newVersion)
+  public NotificationChain basicSetVersion(SolverVersion newVersion, NotificationChain msgs)
   {
-    String oldVersion = version;
+    SolverVersion oldVersion = version;
     version = newVersion;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, MSatPackage.SAT_SOLVER__VERSION, oldVersion, version));
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, MSatPackage.SAT_SOLVER__VERSION, oldVersion, newVersion);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void setVersion(SolverVersion newVersion)
+  {
+    if (newVersion != version)
+    {
+      NotificationChain msgs = null;
+      if (version != null)
+        msgs = ((InternalEObject)version).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - MSatPackage.SAT_SOLVER__VERSION, null, msgs);
+      if (newVersion != null)
+        msgs = ((InternalEObject)newVersion).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - MSatPackage.SAT_SOLVER__VERSION, null, msgs);
+      msgs = basicSetVersion(newVersion, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, MSatPackage.SAT_SOLVER__VERSION, newVersion, newVersion));
   }
 
   /**
@@ -170,6 +186,8 @@ public class SATSolverImpl extends MinimalEObjectImpl.Container implements SATSo
     {
       case MSatPackage.SAT_SOLVER__SOLVER:
         return basicSetSolver(null, msgs);
+      case MSatPackage.SAT_SOLVER__VERSION:
+        return basicSetVersion(null, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -206,7 +224,7 @@ public class SATSolverImpl extends MinimalEObjectImpl.Container implements SATSo
         setSolver((EObject)newValue);
         return;
       case MSatPackage.SAT_SOLVER__VERSION:
-        setVersion((String)newValue);
+        setVersion((SolverVersion)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -226,7 +244,7 @@ public class SATSolverImpl extends MinimalEObjectImpl.Container implements SATSo
         setSolver((EObject)null);
         return;
       case MSatPackage.SAT_SOLVER__VERSION:
-        setVersion(VERSION_EDEFAULT);
+        setVersion((SolverVersion)null);
         return;
     }
     super.eUnset(featureID);
@@ -245,26 +263,9 @@ public class SATSolverImpl extends MinimalEObjectImpl.Container implements SATSo
       case MSatPackage.SAT_SOLVER__SOLVER:
         return solver != null;
       case MSatPackage.SAT_SOLVER__VERSION:
-        return VERSION_EDEFAULT == null ? version != null : !VERSION_EDEFAULT.equals(version);
+        return version != null;
     }
     return super.eIsSet(featureID);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public String toString()
-  {
-    if (eIsProxy()) return super.toString();
-
-    StringBuilder result = new StringBuilder(super.toString());
-    result.append(" (version: ");
-    result.append(version);
-    result.append(')');
-    return result.toString();
   }
 
 } //SATSolverImpl

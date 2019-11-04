@@ -51,6 +51,15 @@ public interface MSatFactory extends EFactory
   Sat4J createSat4J();
 
   /**
+   * Returns a new object of class '<em>Solver Version</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Solver Version</em>'.
+   * @generated
+   */
+  SolverVersion createSolverVersion();
+
+  /**
    * Returns a new object of class '<em>Mini SAT</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -67,6 +76,15 @@ public interface MSatFactory extends EFactory
    * @generated
    */
   CryptoMiniSAT createCryptoMiniSAT();
+
+  /**
+   * Returns a new object of class '<em>Mini SAT Parameter</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Mini SAT Parameter</em>'.
+   * @generated
+   */
+  MiniSATParameter createMiniSATParameter();
 
   /**
    * Returns a new object of class '<em>Benchmark</em>'.

@@ -15,6 +15,7 @@ import org.eclipse.emf.ecore.EObject;
  * </p>
  * <ul>
  *   <li>{@link org.xtext.example.mydsl1.mSat.MiniSAT#getVariant <em>Variant</em>}</li>
+ *   <li>{@link org.xtext.example.mydsl1.mSat.MiniSAT#getParameter <em>Parameter</em>}</li>
  * </ul>
  *
  * @see org.xtext.example.mydsl1.mSat.MSatPackage#getMiniSAT()
@@ -44,5 +45,27 @@ public interface MiniSAT extends EObject
    * @generated
    */
   void setVariant(String value);
+
+  /**
+   * Returns the value of the '<em><b>Parameter</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Parameter</em>' containment reference.
+   * @see #setParameter(MiniSATParameter)
+   * @see org.xtext.example.mydsl1.mSat.MSatPackage#getMiniSAT_Parameter()
+   * @model containment="true"
+   * @generated
+   */
+  MiniSATParameter getParameter();
+
+  /**
+   * Sets the value of the '{@link org.xtext.example.mydsl1.mSat.MiniSAT#getParameter <em>Parameter</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Parameter</em>' containment reference.
+   * @see #getParameter()
+   * @generated
+   */
+  void setParameter(MiniSATParameter value);
 
 } // MiniSAT

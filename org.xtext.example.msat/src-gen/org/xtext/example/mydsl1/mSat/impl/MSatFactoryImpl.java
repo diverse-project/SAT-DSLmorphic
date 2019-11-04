@@ -69,8 +69,10 @@ public class MSatFactoryImpl extends EFactoryImpl implements MSatFactory
       case MSatPackage.SAT_MORPHIC: return createSATMorphic();
       case MSatPackage.SAT_SOLVER: return createSATSolver();
       case MSatPackage.SAT4_J: return createSat4J();
+      case MSatPackage.SOLVER_VERSION: return createSolverVersion();
       case MSatPackage.MINI_SAT: return createMiniSAT();
       case MSatPackage.CRYPTO_MINI_SAT: return createCryptoMiniSAT();
+      case MSatPackage.MINI_SAT_PARAMETER: return createMiniSATParameter();
       case MSatPackage.BENCHMARK: return createBenchmark();
       case MSatPackage.BENCHMARK_DIMACS: return createBenchmarkDimacs();
       case MSatPackage.BENCHMARK_FORMULA: return createBenchmarkFormula();
@@ -162,6 +164,18 @@ public class MSatFactoryImpl extends EFactoryImpl implements MSatFactory
    * @generated
    */
   @Override
+  public SolverVersion createSolverVersion()
+  {
+    SolverVersionImpl solverVersion = new SolverVersionImpl();
+    return solverVersion;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public MiniSAT createMiniSAT()
   {
     MiniSATImpl miniSAT = new MiniSATImpl();
@@ -178,6 +192,18 @@ public class MSatFactoryImpl extends EFactoryImpl implements MSatFactory
   {
     CryptoMiniSATImpl cryptoMiniSAT = new CryptoMiniSATImpl();
     return cryptoMiniSAT;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public MiniSATParameter createMiniSATParameter()
+  {
+    MiniSATParameterImpl miniSATParameter = new MiniSATParameterImpl();
+    return miniSATParameter;
   }
 
   /**

@@ -193,19 +193,20 @@ ruleSATSolver returns [EObject current=null]
 		)
 		(
 			(
-				lv_version_1_0=RULE_STRING
 				{
-					newLeafNode(lv_version_1_0, grammarAccess.getSATSolverAccess().getVersionSTRINGTerminalRuleCall_1_0());
+					newCompositeNode(grammarAccess.getSATSolverAccess().getVersionSolverVersionParserRuleCall_1_0());
 				}
+				lv_version_1_0=ruleSolverVersion
 				{
 					if ($current==null) {
-						$current = createModelElement(grammarAccess.getSATSolverRule());
+						$current = createModelElementForParent(grammarAccess.getSATSolverRule());
 					}
-					setWithLastConsumed(
+					set(
 						$current,
 						"version",
 						lv_version_1_0,
-						"org.eclipse.xtext.common.Terminals.STRING");
+						"org.xtext.example.mydsl1.MSat.SolverVersion");
+					afterParserOrEnumRuleCall();
 				}
 			)
 		)?
@@ -248,6 +249,47 @@ ruleSat4J returns [EObject current=null]
 	)
 ;
 
+// Entry rule entryRuleSolverVersion
+entryRuleSolverVersion returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getSolverVersionRule()); }
+	iv_ruleSolverVersion=ruleSolverVersion
+	{ $current=$iv_ruleSolverVersion.current; }
+	EOF;
+
+// Rule SolverVersion
+ruleSolverVersion returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		otherlv_0='version'
+		{
+			newLeafNode(otherlv_0, grammarAccess.getSolverVersionAccess().getVersionKeyword_0());
+		}
+		(
+			(
+				lv_version_1_0=RULE_STRING
+				{
+					newLeafNode(lv_version_1_0, grammarAccess.getSolverVersionAccess().getVersionSTRINGTerminalRuleCall_1_0());
+				}
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getSolverVersionRule());
+					}
+					setWithLastConsumed(
+						$current,
+						"version",
+						lv_version_1_0,
+						"org.eclipse.xtext.common.Terminals.STRING");
+				}
+			)
+		)
+	)
+;
+
 // Entry rule entryRuleMiniSAT
 entryRuleMiniSAT returns [EObject current=null]:
 	{ newCompositeNode(grammarAccess.getMiniSATRule()); }
@@ -265,17 +307,38 @@ ruleMiniSAT returns [EObject current=null]
 }:
 	(
 		(
-			lv_variant_0_0='minisat'
-			{
-				newLeafNode(lv_variant_0_0, grammarAccess.getMiniSATAccess().getVariantMinisatKeyword_0());
-			}
-			{
-				if ($current==null) {
-					$current = createModelElement(grammarAccess.getMiniSATRule());
+			(
+				lv_variant_0_0='minisat'
+				{
+					newLeafNode(lv_variant_0_0, grammarAccess.getMiniSATAccess().getVariantMinisatKeyword_0_0());
 				}
-				setWithLastConsumed($current, "variant", lv_variant_0_0, "minisat");
-			}
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getMiniSATRule());
+					}
+					setWithLastConsumed($current, "variant", lv_variant_0_0, "minisat");
+				}
+			)
 		)
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getMiniSATAccess().getParameterMiniSATParameterParserRuleCall_1_0());
+				}
+				lv_parameter_1_0=ruleMiniSATParameter
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getMiniSATRule());
+					}
+					set(
+						$current,
+						"parameter",
+						lv_parameter_1_0,
+						"org.xtext.example.mydsl1.MSat.MiniSATParameter");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)?
 	)
 ;
 
@@ -306,6 +369,47 @@ ruleCryptoMiniSAT returns [EObject current=null]
 				}
 				setWithLastConsumed($current, "variant", lv_variant_0_0, "cryptominisat");
 			}
+		)
+	)
+;
+
+// Entry rule entryRuleMiniSATParameter
+entryRuleMiniSATParameter returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getMiniSATParameterRule()); }
+	iv_ruleMiniSATParameter=ruleMiniSATParameter
+	{ $current=$iv_ruleMiniSATParameter.current; }
+	EOF;
+
+// Rule MiniSATParameter
+ruleMiniSATParameter returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		otherlv_0='rnd-freq'
+		{
+			newLeafNode(otherlv_0, grammarAccess.getMiniSATParameterAccess().getRndFreqKeyword_0());
+		}
+		(
+			(
+				lv_rndfreq_1_0=RULE_PROBA
+				{
+					newLeafNode(lv_rndfreq_1_0, grammarAccess.getMiniSATParameterAccess().getRndfreqPROBATerminalRuleCall_1_0());
+				}
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getMiniSATParameterRule());
+					}
+					setWithLastConsumed(
+						$current,
+						"rndfreq",
+						lv_rndfreq_1_0,
+						"org.xtext.example.mydsl1.MSat.PROBA");
+				}
+			)
 		)
 	)
 ;
@@ -362,7 +466,7 @@ ruleBenchmarkDimacs returns [EObject current=null]
 	leaveRule();
 }:
 	(
-		otherlv_0='benchmark-DIMACS'
+		otherlv_0='benchmarkDIMACS'
 		{
 			newLeafNode(otherlv_0, grammarAccess.getBenchmarkDimacsAccess().getBenchmarkDIMACSKeyword_0());
 		}
@@ -429,7 +533,7 @@ ruleBenchmarkFormula returns [EObject current=null]
 	leaveRule();
 }:
 	(
-		otherlv_0='benchmark-formula'
+		otherlv_0='benchmarkFormula'
 		{
 			newLeafNode(otherlv_0, grammarAccess.getBenchmarkFormulaAccess().getBenchmarkFormulaKeyword_0());
 		}
@@ -1007,9 +1111,11 @@ ruleSat4JVariant returns [Enumerator current=null]
 	)
 ;
 
+RULE_PROBA : ('1'|'0' (. RULE_INT)?);
+
 RULE_ID : '^'? ('a'..'z'|'A'..'Z'|'_') ('a'..'z'|'A'..'Z'|'_'|'0'..'9')*;
 
-RULE_INT : ('0'..'9')+;
+fragment RULE_INT : ('0'..'9')+;
 
 RULE_STRING : ('"' ('\\' .|~(('\\'|'"')))* '"'|'\'' ('\\' .|~(('\\'|'\'')))* '\'');
 

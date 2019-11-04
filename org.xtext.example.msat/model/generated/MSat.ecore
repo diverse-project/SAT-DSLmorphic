@@ -10,7 +10,8 @@
   <eClassifiers xsi:type="ecore:EClass" name="SATSolver">
     <eStructuralFeatures xsi:type="ecore:EReference" name="solver" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject"
         containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="version" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="version" eType="#//SolverVersion"
+        containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Sat4J">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="variant" eType="#//Sat4JVariant"/>
@@ -20,11 +21,19 @@
     <eLiterals name="SAT4J_JAR" value="1" literal="sat4j-jar"/>
     <eLiterals name="SAT4J_COMP" value="2" literal="sat4j-maven"/>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SolverVersion">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="version" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="MiniSAT">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="variant" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="parameter" eType="#//MiniSATParameter"
+        containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="CryptoMiniSAT">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="variant" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="MiniSATParameter">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="rndfreq" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Benchmark"/>
   <eClassifiers xsi:type="ecore:EClass" name="BenchmarkDimacs" eSuperTypes="#//Benchmark">

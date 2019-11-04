@@ -22,6 +22,7 @@ import org.xtext.example.mydsl1.mSat.Impl;
 import org.xtext.example.mydsl1.mSat.MSatFactory;
 import org.xtext.example.mydsl1.mSat.MSatPackage;
 import org.xtext.example.mydsl1.mSat.MiniSAT;
+import org.xtext.example.mydsl1.mSat.MiniSATParameter;
 import org.xtext.example.mydsl1.mSat.Nand;
 import org.xtext.example.mydsl1.mSat.Not;
 import org.xtext.example.mydsl1.mSat.Or;
@@ -29,6 +30,7 @@ import org.xtext.example.mydsl1.mSat.SATMorphic;
 import org.xtext.example.mydsl1.mSat.SATSolver;
 import org.xtext.example.mydsl1.mSat.Sat4J;
 import org.xtext.example.mydsl1.mSat.Sat4JVariant;
+import org.xtext.example.mydsl1.mSat.SolverVersion;
 
 /**
  * <!-- begin-user-doc -->
@@ -64,6 +66,13 @@ public class MSatPackageImpl extends EPackageImpl implements MSatPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  private EClass solverVersionEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   private EClass miniSATEClass = null;
 
   /**
@@ -72,6 +81,13 @@ public class MSatPackageImpl extends EPackageImpl implements MSatPackage
    * @generated
    */
   private EClass cryptoMiniSATEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass miniSATParameterEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -274,9 +290,9 @@ public class MSatPackageImpl extends EPackageImpl implements MSatPackage
    * @generated
    */
   @Override
-  public EAttribute getSATSolver_Version()
+  public EReference getSATSolver_Version()
   {
-    return (EAttribute)satSolverEClass.getEStructuralFeatures().get(1);
+    return (EReference)satSolverEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -307,6 +323,28 @@ public class MSatPackageImpl extends EPackageImpl implements MSatPackage
    * @generated
    */
   @Override
+  public EClass getSolverVersion()
+  {
+    return solverVersionEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getSolverVersion_Version()
+  {
+    return (EAttribute)solverVersionEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public EClass getMiniSAT()
   {
     return miniSATEClass;
@@ -329,6 +367,17 @@ public class MSatPackageImpl extends EPackageImpl implements MSatPackage
    * @generated
    */
   @Override
+  public EReference getMiniSAT_Parameter()
+  {
+    return (EReference)miniSATEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public EClass getCryptoMiniSAT()
   {
     return cryptoMiniSATEClass;
@@ -343,6 +392,28 @@ public class MSatPackageImpl extends EPackageImpl implements MSatPackage
   public EAttribute getCryptoMiniSAT_Variant()
   {
     return (EAttribute)cryptoMiniSATEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getMiniSATParameter()
+  {
+    return miniSATParameterEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getMiniSATParameter_Rndfreq()
+  {
+    return (EAttribute)miniSATParameterEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -668,16 +739,23 @@ public class MSatPackageImpl extends EPackageImpl implements MSatPackage
 
     satSolverEClass = createEClass(SAT_SOLVER);
     createEReference(satSolverEClass, SAT_SOLVER__SOLVER);
-    createEAttribute(satSolverEClass, SAT_SOLVER__VERSION);
+    createEReference(satSolverEClass, SAT_SOLVER__VERSION);
 
     sat4JEClass = createEClass(SAT4_J);
     createEAttribute(sat4JEClass, SAT4_J__VARIANT);
 
+    solverVersionEClass = createEClass(SOLVER_VERSION);
+    createEAttribute(solverVersionEClass, SOLVER_VERSION__VERSION);
+
     miniSATEClass = createEClass(MINI_SAT);
     createEAttribute(miniSATEClass, MINI_SAT__VARIANT);
+    createEReference(miniSATEClass, MINI_SAT__PARAMETER);
 
     cryptoMiniSATEClass = createEClass(CRYPTO_MINI_SAT);
     createEAttribute(cryptoMiniSATEClass, CRYPTO_MINI_SAT__VARIANT);
+
+    miniSATParameterEClass = createEClass(MINI_SAT_PARAMETER);
+    createEAttribute(miniSATParameterEClass, MINI_SAT_PARAMETER__RNDFREQ);
 
     benchmarkEClass = createEClass(BENCHMARK);
 
@@ -763,16 +841,23 @@ public class MSatPackageImpl extends EPackageImpl implements MSatPackage
 
     initEClass(satSolverEClass, SATSolver.class, "SATSolver", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getSATSolver_Solver(), ecorePackage.getEObject(), null, "solver", null, 0, 1, SATSolver.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getSATSolver_Version(), ecorePackage.getEString(), "version", null, 0, 1, SATSolver.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getSATSolver_Version(), this.getSolverVersion(), null, "version", null, 0, 1, SATSolver.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(sat4JEClass, Sat4J.class, "Sat4J", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getSat4J_Variant(), this.getSat4JVariant(), "variant", null, 0, 1, Sat4J.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
+    initEClass(solverVersionEClass, SolverVersion.class, "SolverVersion", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getSolverVersion_Version(), ecorePackage.getEString(), "version", null, 0, 1, SolverVersion.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
     initEClass(miniSATEClass, MiniSAT.class, "MiniSAT", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getMiniSAT_Variant(), ecorePackage.getEString(), "variant", null, 0, 1, MiniSAT.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getMiniSAT_Parameter(), this.getMiniSATParameter(), null, "parameter", null, 0, 1, MiniSAT.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(cryptoMiniSATEClass, CryptoMiniSAT.class, "CryptoMiniSAT", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getCryptoMiniSAT_Variant(), ecorePackage.getEString(), "variant", null, 0, 1, CryptoMiniSAT.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(miniSATParameterEClass, MiniSATParameter.class, "MiniSATParameter", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getMiniSATParameter_Rndfreq(), ecorePackage.getEFloat(), "rndfreq", null, 0, 1, MiniSATParameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(benchmarkEClass, Benchmark.class, "Benchmark", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 

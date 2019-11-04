@@ -40,6 +40,9 @@ public class MSatParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getSat4JVariantAccess().getAlternatives(), "rule__Sat4JVariant__Alternatives");
 			builder.put(grammarAccess.getSATMorphicAccess().getGroup(), "rule__SATMorphic__Group__0");
 			builder.put(grammarAccess.getSATSolverAccess().getGroup(), "rule__SATSolver__Group__0");
+			builder.put(grammarAccess.getSolverVersionAccess().getGroup(), "rule__SolverVersion__Group__0");
+			builder.put(grammarAccess.getMiniSATAccess().getGroup(), "rule__MiniSAT__Group__0");
+			builder.put(grammarAccess.getMiniSATParameterAccess().getGroup(), "rule__MiniSATParameter__Group__0");
 			builder.put(grammarAccess.getBenchmarkDimacsAccess().getGroup(), "rule__BenchmarkDimacs__Group__0");
 			builder.put(grammarAccess.getBenchmarkDimacsAccess().getGroup_1(), "rule__BenchmarkDimacs__Group_1__0");
 			builder.put(grammarAccess.getBenchmarkDimacsAccess().getGroup_1_1(), "rule__BenchmarkDimacs__Group_1_1__0");
@@ -63,8 +66,11 @@ public class MSatParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getSATSolverAccess().getSolverAssignment_0(), "rule__SATSolver__SolverAssignment_0");
 			builder.put(grammarAccess.getSATSolverAccess().getVersionAssignment_1(), "rule__SATSolver__VersionAssignment_1");
 			builder.put(grammarAccess.getSat4JAccess().getVariantAssignment(), "rule__Sat4J__VariantAssignment");
-			builder.put(grammarAccess.getMiniSATAccess().getVariantAssignment(), "rule__MiniSAT__VariantAssignment");
+			builder.put(grammarAccess.getSolverVersionAccess().getVersionAssignment_1(), "rule__SolverVersion__VersionAssignment_1");
+			builder.put(grammarAccess.getMiniSATAccess().getVariantAssignment_0(), "rule__MiniSAT__VariantAssignment_0");
+			builder.put(grammarAccess.getMiniSATAccess().getParameterAssignment_1(), "rule__MiniSAT__ParameterAssignment_1");
 			builder.put(grammarAccess.getCryptoMiniSATAccess().getVariantAssignment(), "rule__CryptoMiniSAT__VariantAssignment");
+			builder.put(grammarAccess.getMiniSATParameterAccess().getRndfreqAssignment_1(), "rule__MiniSATParameter__RndfreqAssignment_1");
 			builder.put(grammarAccess.getBenchmarkDimacsAccess().getDimacsesAssignment_1_0(), "rule__BenchmarkDimacs__DimacsesAssignment_1_0");
 			builder.put(grammarAccess.getBenchmarkDimacsAccess().getDimacsesAssignment_1_1_1(), "rule__BenchmarkDimacs__DimacsesAssignment_1_1_1");
 			builder.put(grammarAccess.getBenchmarkFormulaAccess().getExpressionsAssignment_1_0(), "rule__BenchmarkFormula__ExpressionsAssignment_1_0");
