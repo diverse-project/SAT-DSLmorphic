@@ -31,4 +31,40 @@ class MSatParsingMacherTest {
 		val errors = result.eResource.errors
 		Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
 	}
+	
+	@Test
+	def void loadSAT4J() {
+		val result = parseHelper.parse('''
+			solver 
+				   sat4j-java
+			benchmarkDIMACS "foo1.cnf"
+		''')
+		Assertions.assertNotNull(result)
+		val errors = result.eResource.errors
+		Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
+	}
+	
+	@Test
+	def void loadSAT4J_MVN() {
+		val result = parseHelper.parse('''
+			solver 
+				   sat4j-mvn
+			benchmarkDIMACS "foo1.cnf"
+		''')
+		Assertions.assertNotNull(result)
+		val errors = result.eResource.errors
+		Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
+	}
+	
+	@Test
+	def void loadSAT4J_JAR() {
+		val result = parseHelper.parse('''
+			solver 
+				   sat4j-jar
+			benchmarkDIMACS "foo1.cnf"
+		''')
+		Assertions.assertNotNull(result)
+		val errors = result.eResource.errors
+		Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
+	}
 }
