@@ -1,6 +1,7 @@
 package org.xtext.example.msat.GJ_MC_Process
 
 import org.eclipse.emf.ecore.EObject
+import org.xtext.example.mydsl1.mSat.BenchmarkDimacs
 import org.xtext.example.mydsl1.mSat.BenchmarkFormula
 import org.xtext.example.mydsl1.mSat.CryptoMiniSAT
 import org.xtext.example.mydsl1.mSat.MiniSAT
@@ -9,6 +10,10 @@ import org.xtext.example.mydsl1.mSat.Sat4J
 
 class Sat4jLauncher {
 	
+	static final String SAT4J_JAVA = "sat4j-java";
+	static final String SAT4J_JAR = "sat4j-jar";
+	static final String SAT4J_COMP = "sat4j-maven";
+	
 	static def launch(EObject e){
 		val model = (e as SATMorphic)
 		val solversList = model.solvers
@@ -16,30 +21,47 @@ class Sat4jLauncher {
 		for(solver : solversList){
 			switch(solver){
 				
-				case solver == Sat4J && solver.variant == SAT4J_JAVA :
+				case solver instanceof Sat4J && (solver as Sat4J).variant == SAT4J_JAVA :
 					//TODO change files & formulas
-					if (model.benchmark === BenchmarkFormula){
-						SATUtils.writeSat4jFile("formula.dimacs",model.expression)
-						LibInterpreter.interpret("formula.dimacs")											  	
+					if (model.benchmark instanceof BenchmarkFormula){
+						for(expression : (model.benchmark  as BenchmarkFormula).expressions){
+							SATUtils.writeSat4jFile("formula.dimacs", expression)
+							LibInterpreter.interpret("formula.dimacs")
+						}										  	
 					} else { //model.benchmark === BenchmarkDimacs
-					  	LibInterpreter.interpret(model.file.path)
+						for(file : (model.benchmark  as BenchmarkDimacs).dimacses){
+							LibInterpreter.interpret(file)
+						}
 					}
-				case solver == Sat4J && solver.variant == SAT4J_JAR : 
+				case solver instanceof Sat4J && (solver as Sat4J).variant == SAT4J_JAR : 
 					//TODO change files
-					StandaloneInterpreter.jarCallSat4j(model.file===null?"":model.file.path, model.expression)
+					if (model.benchmark instanceof BenchmarkFormula){
+						for(expression : (model.benchmark  as BenchmarkFormula).expressions){
+							SATUtils.writeSat4jFile("formula.dimacs", expression)
+							StandaloneInterpreter.jarCallSat4j("", expression)
+						}										  	
+					} else { //model.benchmark === BenchmarkDimacs
+						for(file : (model.benchmark  as BenchmarkDimacs).dimacses){
+							StandaloneInterpreter.jarCallSat4j(file, null)
+						}
+					}
 					
-				case solver == Sat4J && solver.variant == SAT4J_COMP :
+				case solver instanceof Sat4J && (solver as Sat4J).variant == SAT4J_COMP :
 					//TODO change files & formulas
-					if (model.file === null){
-						SATUtils.writeSat4jFile("formula.dimacs",model.expression)
-						Sat4JCompiler.compile("formula.dimacs")											  	
-					} else {
-					  	Sat4JCompiler.compile(model.file.path)
+					if (model.benchmark instanceof BenchmarkFormula){
+						for(expression : (model.benchmark  as BenchmarkFormula).expressions){
+							SATUtils.writeSat4jFile("formula.dimacs",expression)
+							Sat4JCompiler.compile("formula.dimacs")
+						}										  	
+					} else { //model.benchmark === BenchmarkDimacs
+						for(file : (model.benchmark  as BenchmarkDimacs).dimacses){
+							Sat4JCompiler.compile(file)
+						}
 					}
 				//TODO
-				case solver == CryptoMiniSAT : null
+				//case solver == CryptoMiniSAT : 
 				//TODO
-				case solver == MiniSAT : null
+				//case solver == MiniSAT : 
 			}
 		}
 		
