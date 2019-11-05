@@ -1,9 +1,0 @@
-grammar org.xtext.example.mydsl.Sattl with org.eclipse.xtext.common.Terminals
-
-generate sattl "http://www.xtext.org/example/mydsl/Sattl"
-
-Model:
-	greetings+=Greeting+;
-	
-Greeting:
-	'Hello' name=ID '!';
