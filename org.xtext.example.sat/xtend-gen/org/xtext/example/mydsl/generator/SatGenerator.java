@@ -3,6 +3,8 @@
  */
 package org.xtext.example.mydsl.generator;
 
+import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.xtext.generator.AbstractGenerator;
 import org.eclipse.xtext.generator.IFileSystemAccess2;
@@ -17,5 +19,8 @@ import org.eclipse.xtext.generator.IGeneratorContext;
 public class SatGenerator extends AbstractGenerator {
   @Override
   public void doGenerate(final Resource resource, final IFileSystemAccess2 fsa, final IGeneratorContext context) {
+    final EList<EObject> temp = resource.getContents();
+    final String content = temp.toString();
+    fsa.generateFile("sat.view", content);
   }
 }

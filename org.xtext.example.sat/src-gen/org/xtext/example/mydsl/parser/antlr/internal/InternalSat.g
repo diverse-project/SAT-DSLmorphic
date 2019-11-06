@@ -23,6 +23,7 @@ import org.eclipse.xtext.parser.*;
 import org.eclipse.xtext.parser.impl.*;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.common.util.Enumerator;
 import org.eclipse.xtext.parser.antlr.AbstractInternalAntlrParser;
 import org.eclipse.xtext.parser.antlr.XtextTokenStream;
 import org.eclipse.xtext.parser.antlr.XtextTokenStream.HiddenTokens;
@@ -75,14 +76,113 @@ ruleModel returns [EObject current=null]
 @after {
 	leaveRule();
 }:
-	{
-		newCompositeNode(grammarAccess.getModelAccess().getBiImplParserRuleCall());
-	}
-	this_BiImpl_0=ruleBiImpl
-	{
-		$current = $this_BiImpl_0.current;
-		afterParserOrEnumRuleCall();
-	}
+	(
+		otherlv_0='solver'
+		{
+			newLeafNode(otherlv_0, grammarAccess.getModelAccess().getSolverKeyword_0());
+		}
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getModelAccess().getSolverSolverEnumRuleCall_1_0());
+				}
+				lv_solver_1_0=ruleSolver
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getModelRule());
+					}
+					set(
+						$current,
+						"solver",
+						lv_solver_1_0,
+						"org.xtext.example.mydsl.Sat.Solver");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)
+		(
+			(
+				(
+					{
+						newCompositeNode(grammarAccess.getModelAccess().getExpressionBiImplParserRuleCall_2_0_0());
+					}
+					lv_expression_2_0=ruleBiImpl
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getModelRule());
+						}
+						set(
+							$current,
+							"expression",
+							lv_expression_2_0,
+							"org.xtext.example.mydsl.Sat.BiImpl");
+						afterParserOrEnumRuleCall();
+					}
+				)
+			)
+			    |
+			(
+				(
+					{
+						newCompositeNode(grammarAccess.getModelAccess().getFileFileParserRuleCall_2_1_0());
+					}
+					lv_file_3_0=ruleFile
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getModelRule());
+						}
+						set(
+							$current,
+							"file",
+							lv_file_3_0,
+							"org.xtext.example.mydsl.Sat.File");
+						afterParserOrEnumRuleCall();
+					}
+				)
+			)
+		)
+	)
+;
+
+// Entry rule entryRuleFile
+entryRuleFile returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getFileRule()); }
+	iv_ruleFile=ruleFile
+	{ $current=$iv_ruleFile.current; }
+	EOF;
+
+// Rule File
+ruleFile returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		otherlv_0='file'
+		{
+			newLeafNode(otherlv_0, grammarAccess.getFileAccess().getFileKeyword_0());
+		}
+		(
+			(
+				lv_path_1_0=RULE_STRING
+				{
+					newLeafNode(lv_path_1_0, grammarAccess.getFileAccess().getPathSTRINGTerminalRuleCall_1_0());
+				}
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getFileRule());
+					}
+					setWithLastConsumed(
+						$current,
+						"path",
+						lv_path_1_0,
+						"org.eclipse.xtext.common.Terminals.STRING");
+				}
+			)
+		)
+	)
 ;
 
 // Entry rule entryRuleBiImpl
@@ -409,11 +509,11 @@ rulePrimary returns [EObject current=null]
 				newLeafNode(otherlv_0, grammarAccess.getPrimaryAccess().getLeftParenthesisKeyword_0_0());
 			}
 			{
-				newCompositeNode(grammarAccess.getPrimaryAccess().getModelParserRuleCall_0_1());
+				newCompositeNode(grammarAccess.getPrimaryAccess().getBiImplParserRuleCall_0_1());
 			}
-			this_Model_1=ruleModel
+			this_BiImpl_1=ruleBiImpl
 			{
-				$current = $this_Model_1.current;
+				$current = $this_BiImpl_1.current;
 				afterParserOrEnumRuleCall();
 			}
 			otherlv_2=')'
@@ -571,6 +671,41 @@ ruleConst returns [EObject current=null]
 					setWithLastConsumed($current, "val", lv_val_0_2, null);
 				}
 			)
+		)
+	)
+;
+
+// Rule Solver
+ruleSolver returns [Enumerator current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		(
+			enumLiteral_0='sat4j-java'
+			{
+				$current = grammarAccess.getSolverAccess().getSAT4J_JAVAEnumLiteralDeclaration_0().getEnumLiteral().getInstance();
+				newLeafNode(enumLiteral_0, grammarAccess.getSolverAccess().getSAT4J_JAVAEnumLiteralDeclaration_0());
+			}
+		)
+		    |
+		(
+			enumLiteral_1='sat4j-jar'
+			{
+				$current = grammarAccess.getSolverAccess().getSAT4J_JAREnumLiteralDeclaration_1().getEnumLiteral().getInstance();
+				newLeafNode(enumLiteral_1, grammarAccess.getSolverAccess().getSAT4J_JAREnumLiteralDeclaration_1());
+			}
+		)
+		    |
+		(
+			enumLiteral_2='sat4j-maven'
+			{
+				$current = grammarAccess.getSolverAccess().getSAT4J_COMPEnumLiteralDeclaration_2().getEnumLiteral().getInstance();
+				newLeafNode(enumLiteral_2, grammarAccess.getSolverAccess().getSAT4J_COMPEnumLiteralDeclaration_2());
+			}
 		)
 	)
 ;

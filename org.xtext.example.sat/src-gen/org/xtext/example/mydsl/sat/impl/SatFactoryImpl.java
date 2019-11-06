@@ -4,6 +4,7 @@
 package org.xtext.example.mydsl.sat.impl;
 
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 
@@ -65,6 +66,8 @@ public class SatFactoryImpl extends EFactoryImpl implements SatFactory
   {
     switch (eClass.getClassifierID())
     {
+      case SatPackage.MODEL: return createModel();
+      case SatPackage.FILE: return createFile();
       case SatPackage.EXPRESSION: return createExpression();
       case SatPackage.BI_IMPL: return createBiImpl();
       case SatPackage.IMPL: return createImpl();
@@ -75,6 +78,64 @@ public class SatFactoryImpl extends EFactoryImpl implements SatFactory
       default:
         throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
     }
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Object createFromString(EDataType eDataType, String initialValue)
+  {
+    switch (eDataType.getClassifierID())
+    {
+      case SatPackage.SOLVER:
+        return createSolverFromString(eDataType, initialValue);
+      default:
+        throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
+    }
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public String convertToString(EDataType eDataType, Object instanceValue)
+  {
+    switch (eDataType.getClassifierID())
+    {
+      case SatPackage.SOLVER:
+        return convertSolverToString(eDataType, instanceValue);
+      default:
+        throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
+    }
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Model createModel()
+  {
+    ModelImpl model = new ModelImpl();
+    return model;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public File createFile()
+  {
+    FileImpl file = new FileImpl();
+    return file;
   }
 
   /**
@@ -159,6 +220,28 @@ public class SatFactoryImpl extends EFactoryImpl implements SatFactory
   {
     NotImpl not = new NotImpl();
     return not;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Solver createSolverFromString(EDataType eDataType, String initialValue)
+  {
+    Solver result = Solver.get(initialValue);
+    if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+    return result;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public String convertSolverToString(EDataType eDataType, Object instanceValue)
+  {
+    return instanceValue == null ? null : instanceValue.toString();
   }
 
   /**

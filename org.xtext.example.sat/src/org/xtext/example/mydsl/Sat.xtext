@@ -2,8 +2,17 @@ grammar org.xtext.example.mydsl.Sat with org.eclipse.xtext.common.Terminals
 
 generate sat "http://www.xtext.org/example/mydsl/Sat"
 
-Model returns Expression:
-	BiImpl
+Model:
+	'solver' solver=Solver 
+	(expression=BiImpl | file=File)
+;
+
+enum Solver:
+	SAT4J_JAVA="sat4j-java" | SAT4J_JAR="sat4j-jar" | SAT4J_COMP="sat4j-maven"
+;
+
+File:
+	'file' path=STRING
 ;
 
 BiImpl returns Expression:
@@ -27,7 +36,7 @@ Nand returns Expression:
 ;
 
 Primary returns Expression:
-	'(' Model ')' |
+	'(' BiImpl ')' |
 	Not |
 	Const |
 	Var 	

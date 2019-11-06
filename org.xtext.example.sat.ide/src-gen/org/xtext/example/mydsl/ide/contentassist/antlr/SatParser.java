@@ -31,10 +31,14 @@ public class SatParser extends AbstractContentAssistParser {
 		}
 		
 		private static void init(ImmutableMap.Builder<AbstractElement, String> builder, SatGrammarAccess grammarAccess) {
+			builder.put(grammarAccess.getModelAccess().getAlternatives_2(), "rule__Model__Alternatives_2");
 			builder.put(grammarAccess.getNandAccess().getAlternatives_1_1(), "rule__Nand__Alternatives_1_1");
 			builder.put(grammarAccess.getPrimaryAccess().getAlternatives(), "rule__Primary__Alternatives");
 			builder.put(grammarAccess.getNotAccess().getAlternatives_0(), "rule__Not__Alternatives_0");
 			builder.put(grammarAccess.getConstAccess().getValAlternatives_0(), "rule__Const__ValAlternatives_0");
+			builder.put(grammarAccess.getSolverAccess().getAlternatives(), "rule__Solver__Alternatives");
+			builder.put(grammarAccess.getModelAccess().getGroup(), "rule__Model__Group__0");
+			builder.put(grammarAccess.getFileAccess().getGroup(), "rule__File__Group__0");
 			builder.put(grammarAccess.getBiImplAccess().getGroup(), "rule__BiImpl__Group__0");
 			builder.put(grammarAccess.getBiImplAccess().getGroup_1(), "rule__BiImpl__Group_1__0");
 			builder.put(grammarAccess.getImplAccess().getGroup(), "rule__Impl__Group__0");
@@ -47,6 +51,10 @@ public class SatParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getNandAccess().getGroup_1(), "rule__Nand__Group_1__0");
 			builder.put(grammarAccess.getPrimaryAccess().getGroup_0(), "rule__Primary__Group_0__0");
 			builder.put(grammarAccess.getNotAccess().getGroup(), "rule__Not__Group__0");
+			builder.put(grammarAccess.getModelAccess().getSolverAssignment_1(), "rule__Model__SolverAssignment_1");
+			builder.put(grammarAccess.getModelAccess().getExpressionAssignment_2_0(), "rule__Model__ExpressionAssignment_2_0");
+			builder.put(grammarAccess.getModelAccess().getFileAssignment_2_1(), "rule__Model__FileAssignment_2_1");
+			builder.put(grammarAccess.getFileAccess().getPathAssignment_1(), "rule__File__PathAssignment_1");
 			builder.put(grammarAccess.getBiImplAccess().getRightAssignment_1_2(), "rule__BiImpl__RightAssignment_1_2");
 			builder.put(grammarAccess.getImplAccess().getRightAssignment_1_2(), "rule__Impl__RightAssignment_1_2");
 			builder.put(grammarAccess.getOrAccess().getRightAssignment_1_2(), "rule__Or__RightAssignment_1_2");

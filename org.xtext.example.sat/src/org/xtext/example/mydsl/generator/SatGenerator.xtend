@@ -16,10 +16,11 @@ import org.eclipse.xtext.generator.IGeneratorContext
 class SatGenerator extends AbstractGenerator {
 
 	override void doGenerate(Resource resource, IFileSystemAccess2 fsa, IGeneratorContext context) {
-//		fsa.generateFile('greetings.txt', 'People to greet: ' + 
-//			resource.allContents
-//				.filter(Greeting)
-//				.map[name]
-//				.join(', '))
+		
+		val temp = resource.contents
+		val content = temp.toString
+		
+		fsa.generateFile('sat.view', content)
 	}
+		
 }
