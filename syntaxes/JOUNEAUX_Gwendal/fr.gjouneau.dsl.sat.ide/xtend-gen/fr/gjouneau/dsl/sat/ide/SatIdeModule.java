@@ -3,11 +3,8 @@
  */
 package fr.gjouneau.dsl.sat.ide;
 
-import fr.gjouneau.dsl.sat.ide.AbstractSatIdeModule;
-
 /**
  * Use this class to register ide components.
  */
-@SuppressWarnings("all")
-public class SatIdeModule extends AbstractSatIdeModule {
+public class SatIdeModule /* implements AbstractSatIdeModule  */{
 }

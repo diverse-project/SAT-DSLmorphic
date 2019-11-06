@@ -3,14 +3,12 @@
  */
 package fr.gjouneau.dsl.sat;
 
-import fr.gjouneau.dsl.sat.SatStandaloneSetupGenerated;
-
 /**
  * Initialization support for running Xtext languages without Equinox extension registry.
  */
-@SuppressWarnings("all")
-public class SatStandaloneSetup extends SatStandaloneSetupGenerated {
+public class SatStandaloneSetup /* implements SatStandaloneSetupGenerated  */{
   public static void doSetup() {
-    new SatStandaloneSetup().createInjectorAndDoEMFRegistration();
+    throw new Error("Unresolved compilation problems:"
+      + "\nThe method createInjectorAndDoEMFRegistration() is undefined for the type SatStandaloneSetup");
   }
 }

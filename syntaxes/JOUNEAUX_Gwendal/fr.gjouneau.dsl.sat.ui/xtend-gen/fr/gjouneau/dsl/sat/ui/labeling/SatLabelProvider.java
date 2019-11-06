@@ -12,7 +12,6 @@ import org.eclipse.xtext.ui.label.DefaultEObjectLabelProvider;
  * 
  * See https://www.eclipse.org/Xtext/documentation/304_ide_concepts.html#label-provider
  */
-@SuppressWarnings("all")
 public class SatLabelProvider extends DefaultEObjectLabelProvider {
   @Inject
   public SatLabelProvider(final AdapterFactoryLabelProvider delegate) {

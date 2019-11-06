@@ -3,11 +3,8 @@
  */
 package fr.gjouneau.dsl.sat;
 
-import fr.gjouneau.dsl.sat.AbstractSatRuntimeModule;
-
 /**
  * Use this class to register components to be used at runtime / without the Equinox extension registry.
  */
-@SuppressWarnings("all")
-public class SatRuntimeModule extends AbstractSatRuntimeModule {
+public class SatRuntimeModule /* implements AbstractSatRuntimeModule  */{
 }
