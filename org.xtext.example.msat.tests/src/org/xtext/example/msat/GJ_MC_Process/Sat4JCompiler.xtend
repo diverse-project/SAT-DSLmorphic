@@ -5,27 +5,32 @@ import java.io.PrintWriter
 class Sat4JCompiler {
 	
 	static def compile(String file){
-		val process = Runtime.getRuntime().exec("ls ~/org.xtext.example.mydsl.sat.compiledsat4j");
+		var process = Runtime.getRuntime().exec("ls ./org.xtext.example.mydsl.sat.compiledsat4j");
 		val code = process.waitFor
 		if(code != 0){
 			createMavenProject
 			val app = getApp
 			val pom = getPom
-			val appWriter = new PrintWriter("~/org.xtext.example.mydsl.sat.compiledsat4j/src/main/java/org/xtext/example/mydsl/sat/App.java", "UTF-8");
-			appWriter.print(app);
-			val pomWriter = new PrintWriter("~/org.xtext.example.mydsl.sat.compiledsat4j/pom.xml", "UTF-8");
-			pomWriter.print(pom);
+			process = Runtime.getRuntime().exec("ls ./org.xtext.example.mydsl.sat.compiledsat4j/src/main/java/org/xtext/example/mydsl/sat/App.java");
+			val appWriter = new PrintWriter("./org.xtext.example.mydsl.sat.compiledsat4j/src/main/java/org/xtext/example/mydsl/sat/App.java", "UTF-8");
+			appWriter.write(app);
+			appWriter.close
+			process = Runtime.getRuntime().exec("ls ./org.xtext.example.mydsl.sat.compiledsat4j/pom.xml");
+			val pomWriter = new PrintWriter("./org.xtext.example.mydsl.sat.compiledsat4j/pom.xml", "UTF-8");
+			pomWriter.write(pom);
+			pomWriter.close
 		}
-		Runtime.getRuntime().exec("cp " + file + " ~/org.xtext.example.mydsl.sat.compiledsat4j/formula.dimacs");
+		Runtime.getRuntime().exec("cp " + file + " ./org.xtext.example.mydsl.sat.compiledsat4j/formula.dimacs");
 	}
 	
 	static def void createMavenProject(){
-		Runtime.getRuntime().exec("cd ~");
 		val cmd = "mvn -B archetype:generate " + 
 				  "-DgroupId=org.xtext.example.mydsl.sat " + 
 				  "-DartifactId=org.xtext.example.mydsl.sat.compiledsat4j " +
 				  "-DarchetypeGroupId=org.apache.maven.archetypes "
-		Runtime.getRuntime().exec(cmd);
+		var process = Runtime.getRuntime().exec(cmd);
+		process.waitFor
+		process = Runtime.getRuntime().exec("rm -rf ./org.xtext.example.mydsl.sat.compiledsat4j/src/test");
 	} 
 	static def String getPom(){
 		'''
@@ -37,6 +42,24 @@ class Sat4JCompiler {
 		  <packaging>jar</packaging>
 		  <version>1.0-SNAPSHOT</version>
 		  <name>org.xtext.example.mydsl.sat.compiledsat4j</name>
+		  <properties>
+		  	<maven.compiler.source>1.6</maven.compiler.source>
+		  	<maven.compiler.target>1.6</maven.compiler.target>
+		  </properties>
+		  <plugins>
+		    <plugin>
+			  <groupId>org.apache.maven.plugins</groupId>
+			  <artifactId>maven-jar-plugin</artifactId>
+			  <version>2.4</version>
+			  <configuration>
+			    <archive>
+				  <manifest>
+				    <mainClass>org.xtext.example.mydsl.sat.App</mainClass>
+				  </manifest>
+			    </archive>
+			  </configuration>
+		    </plugin>
+		  </plugins>
 		  <dependencies>
 		    <dependency>
 		      <groupId>org.sat4j</groupId>
@@ -51,11 +74,17 @@ class Sat4JCompiler {
 		'''
 		package org.xtext.example.mydsl.sat;
 		
-		import org.sat4j.minisat.SolverFactory
-		import org.sat4j.reader.DimacsReader
-		import org.sat4j.reader.ParseFormatException
-		import org.sat4j.specs.ContradictionException
-		import org.sat4j.specs.TimeoutException
+		import java.io.IOException;
+		import java.io.PrintWriter;
+		import java.io.FileNotFoundException;
+		import org.sat4j.minisat.SolverFactory;
+		import org.sat4j.reader.DimacsReader;
+		import org.sat4j.reader.ParseFormatException;
+		import org.sat4j.reader.Reader;
+		import org.sat4j.specs.ContradictionException;
+		import org.sat4j.specs.IProblem;
+		import org.sat4j.specs.ISolver;
+		import org.sat4j.specs.TimeoutException;
 
 		public class App 
 		{
@@ -67,7 +96,7 @@ class Sat4JCompiler {
                 PrintWriter out = new PrintWriter(System.out,true);
                 // CNF filename is given on the command line 
                 try {
-                    IProblem problem = reader.parseInstance("~/org.xtext.example.mydsl.sat.compiledsat4j/formula.dimacs");
+                    IProblem problem = reader.parseInstance("./formula.dimacs");
                     if (problem.isSatisfiable()) {
                         System.out.println("Satisfiable !");
                         reader.decode(problem.model(),out);
