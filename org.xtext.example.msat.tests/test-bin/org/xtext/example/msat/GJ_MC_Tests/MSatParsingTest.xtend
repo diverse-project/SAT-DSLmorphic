@@ -71,9 +71,8 @@ class MSatParsingTest {
 		var sat = false
 		var line = ""
 		//var process = Runtime.getRuntime().exec("cd ./org.xtext.example.mydsl.sat.compiledsat4j")
-		var process = Runtime.getRuntime().exec("mvn install -f ./org.xtext.example.mydsl.sat.compiledsat4j")
-		val jar = "./org.xtext.example.mydsl.sat.compiledsat4j/target/org.xtext.example.mydsl.sat.compiledsat4j-1.0-SNAPSHOT.jar"
-		process = Runtime.getRuntime().exec("java -jar "+jar)
+		var process = Runtime.getRuntime().exec("mvn exec:java -f org.xtext.example.mydsl.sat.compiledsat4j")
+		process = Runtime.getRuntime().exec("mvn exec:java -f org.xtext.example.mydsl.sat.compiledsat4j")
 		
 		val output = new BufferedReader(new InputStreamReader(process.getInputStream()));
 		while((line = output.readLine()) !== null){

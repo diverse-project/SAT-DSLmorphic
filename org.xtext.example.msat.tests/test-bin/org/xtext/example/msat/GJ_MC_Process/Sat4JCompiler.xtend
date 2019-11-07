@@ -46,6 +46,7 @@ class Sat4JCompiler {
 		  	<maven.compiler.source>1.6</maven.compiler.source>
 		  	<maven.compiler.target>1.6</maven.compiler.target>
 		  </properties>
+		  <build>
 		  <plugins>
 		    <plugin>
 			  <groupId>org.apache.maven.plugins</groupId>
@@ -54,12 +55,28 @@ class Sat4JCompiler {
 			  <configuration>
 			    <archive>
 				  <manifest>
-				    <mainClass>org.xtext.example.mydsl.sat.App</mainClass>
+				    <mainClass> org.xtext.example.mydsl.sat.App </mainClass>
 				  </manifest>
 			    </archive>
 			  </configuration>
+		  </plugin>
+		    <plugin>
+		        <groupId>org.codehaus.mojo</groupId>
+		        <artifactId>exec-maven-plugin</artifactId>
+		        <version>1.2.1</version>
+		        <executions>
+		            <execution>
+		                <goals>
+		                    <goal>java</goal>
+		                </goals>
+		            </execution>
+		        </executions>
+		        <configuration>
+		            <mainClass>org.xtext.example.mydsl.sat.App</mainClass>
+		        </configuration>
 		    </plugin>
 		  </plugins>
+		  </build>
 		  <dependencies>
 		    <dependency>
 		      <groupId>org.sat4j</groupId>
