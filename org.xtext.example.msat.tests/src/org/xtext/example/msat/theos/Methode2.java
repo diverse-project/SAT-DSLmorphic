@@ -5,7 +5,7 @@ import java.io.InputStreamReader;
 
 public class Methode2
 {
-	public static void DoIt(String file_dimacs_formula) 
+	public static boolean DoIt(String file_dimacs_formula) 
 	{
 		/*
 		ProcessBuilder pb = new ProcessBuilder("java", "-jar", "absolute path upto jar");
@@ -36,8 +36,6 @@ public class Methode2
         {  
             System.out.println(e);  
         }  
-		{
-			
-		}
+		return false;
 	}
 }

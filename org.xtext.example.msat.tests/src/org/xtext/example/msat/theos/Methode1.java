@@ -15,7 +15,7 @@ import org.sat4j.specs.TimeoutException;
 
 public class Methode1 
 {
-	public static void DoIt(String file_dimacs_formula)
+	public static boolean DoIt(String file_dimacs_formula)
 	{
 			ISolver solver = SolverFactory.newDefault();
 	        solver.setTimeout(3600); // 1 hour timeout
@@ -26,9 +26,11 @@ public class Methode1
 	            if (problem.isSatisfiable()) {
 	                System.out.println("Satisfiable !");
 	                reader.decode(problem.model(),out);
+
 	            } else {
 	                System.out.println("Unsatisfiable !");
 	            }
+	            return problem.isSatisfiable();
 	        } catch (FileNotFoundException e) {
 	        	System.out.println("file not found");
 	            // TODO Auto-generated catch block
@@ -43,5 +45,6 @@ public class Methode1
 	        } catch (TimeoutException e) {
 	            System.out.println("Timeout, sorry!");      
 	        }
+	        return false;
 	}
 }

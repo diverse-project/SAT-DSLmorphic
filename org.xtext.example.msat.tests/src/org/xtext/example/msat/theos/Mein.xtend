@@ -39,14 +39,66 @@ class Mein
 	ParseHelper<SATMorphic> parseHelper
 	
 	
+	
+	@Test
+	def void loadSolvers() 
+	{
+		val result = parseHelper.parse(
+		'''
+			solver 
+				   minisat rnd-freq 1
+				   cryptominisat
+			benchmarkDIMACS "foo1.cnf", "foo2.cnf"
+		''')
+		Assertions.assertNotNull(result)
+		val errors = result.eResource.errors
+		Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
+	}
+	
+	@Test
+	def void loadSAT4J() 
+	{
+		val text = 
+		'''
+			solver 
+				   sat4j-java
+			benchmarkDIMACS "output.cnf"
+		'''
+		val sat = check_formula(text);
+		Assertions.assertFalse(sat);
+		//val errors = result.eResource.errors
+		//Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
+	}
+	
+	@Test
+	def void loadSAT4J_MVN() 
+	{
+		val text =  
+		'''
+			solver 
+				   sat4j-maven
+			benchmarkDIMACS "output.cnf"
+		'''
+		val sat = check_formula(text);
+		Assertions.assertFalse(sat);
+	}
+	
+	@Test
+	def void loadSAT4J_JAR() 
+	{
+		val text =
+		'''
+			solver 
+				   sat4j-jar
+			benchmarkDIMACS "output.cnf"
+		'''
+		val sat = check_formula(text);
+		Assertions.assertFalse(sat);
+	}
+	
 	@Test
 	def void main()
 	{	
-		create_file();
-	}
-	
-	def create_file()
-	{
 		//val ast = parseHelper.parse('''
 		//		A ^ (B v C) ^ (~A)
 		//		sat4j-java
@@ -56,11 +108,19 @@ class Mein
 		
 		val text = new String(Files.readAllBytes(Paths.get(input)), StandardCharsets.UTF_8);
 
-		val ast = parseHelper.parse(text);
 		
+		val is_sat = check_formula(text)
+		
+		Assertions.assertTrue(!is_sat)
+	}
+	
+	def check_formula(String input)
+	{
 		print("text read : ")
-		println(text);
+		println(input);
 		println()
+
+		val ast = parseHelper.parse(input);
 				
 		val dimacs_formula = read_entry(ast)
 
@@ -82,32 +142,39 @@ class Mein
 		fileWriter.write(dimacs_formula);
 		fileWriter.close();
 		
+		return evaluate(call_method, filename_of_formula);
+		
+	}
+	
+	def evaluate (int call_method, String filename_of_formula)
+	{
+		var is_sat = false;
 		switch call_method
 		{
 			case Sat4JVariant.SAT4J_JAVA_VALUE : 
 			{
 				println("calling sat4j from java code.")
-				Methode1.DoIt(filename_of_formula)
+				is_sat = Methode1.DoIt(filename_of_formula)
 			}
 			case Sat4JVariant.SAT4J_JAR_VALUE : 
 			{
 				println("calling sat4j from jar")
-				Methode2.DoIt(filename_of_formula)
+				is_sat = Methode2.DoIt(filename_of_formula)
 			
 			}
 			case Sat4JVariant.SAT4J_COMP_VALUE :
 			{
 				println("generating maven project")
-				Method3.DoIt(filename_of_formula)
+				is_sat = Method3.DoIt(filename_of_formula)
 				println("Done.")
 			}
 			default :
 			{
 				println("Unknown variant")
 			}
-		}
+		}	
 		
-	
+		return is_sat;
 		
 	}
 	
