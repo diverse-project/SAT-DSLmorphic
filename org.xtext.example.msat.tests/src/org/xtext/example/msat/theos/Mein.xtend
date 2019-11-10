@@ -19,6 +19,14 @@ import org.xtext.example.mydsl1.mSat.SATMorphic
 import org.xtext.example.mydsl1.mSat.BenchmarkFormula
 import org.xtext.example.mydsl1.mSat.BenchmarkDimacs
 import org.xtext.example.mydsl1.mSat.Sat4J
+import org.xtext.example.mydsl1.mSat.Sat4JVariant
+import org.xtext.example.mydsl1.mSat.Or
+import org.xtext.example.mydsl1.mSat.And
+import org.xtext.example.mydsl1.mSat.Not
+import org.xtext.example.mydsl1.mSat.Expression
+import org.xtext.example.mydsl1.mSat.BiImpl
+import org.xtext.example.mydsl1.mSat.Impl
+import org.xtext.example.mydsl1.mSat.Nand
 
 @ExtendWith(InjectionExtension)
 @InjectWith(MSatInjectorProvider)
@@ -44,7 +52,7 @@ class Mein
 		//		sat4j-java
 		//''')
 		
-		val input = "fomula.satt"
+		val input = "fomula.msat"
 		
 		val text = new String(Files.readAllBytes(Paths.get(input)), StandardCharsets.UTF_8);
 
@@ -75,18 +83,18 @@ class Mein
 		
 		switch call_method
 		{
-			case call_method.equals("sat4j-java") : 
+			case Sat4JVariant.SAT4J_JAVA_VALUE : 
 			{
 				println("calling sat4j from java code.")
 				Methode1.DoIt(filename_of_formula)
 			}
-			case call_method.equals("sat4j-jar") : 
+			case Sat4JVariant.SAT4J_JAR_VALUE : 
 			{
 				println("calling sat4j from jar")
 				Methode2.DoIt(filename_of_formula)
 			
 			}
-			case call_method.equals("sat4j-maven") : 
+			case Sat4JVariant.SAT4J_COMP_VALUE :
 			{
 				println("generating maven project")
 				Method3.DoIt(filename_of_formula)
@@ -126,15 +134,7 @@ class Mein
 	def get_call_method(SATMorphic ast)
 	{
 		// TODO Multiple solver
-		var method = (ast.solvers.get(0) as Sat4J).variant
-		switch method
-		{
-			case SAT4J_JAVA :
-			{
-				return "sat4j-java"
-			}
-		}
-		return (ast.solvers.get(0) as Sat4J).variant as
+		return (ast.solvers.get(0) as Sat4J).variant
 	}
 
 	def String prop_to_dimacs(EObject formule)
