@@ -65,6 +65,7 @@ class Mein
 		val dimacs_formula = read_entry(ast)
 
 		val call_method = get_call_method(ast)
+		println(call_method.getClass().getSimpleName())
 		
 		print("dimcas fomula : \n")		
 		println(dimacs_formula)
@@ -83,18 +84,18 @@ class Mein
 		
 		switch call_method
 		{
-			case call_method.equals("sat4j-java") : 
+			case Sat4JVariant.SAT4J_JAVA_VALUE : 
 			{
 				println("calling sat4j from java code.")
 				Methode1.DoIt(filename_of_formula)
 			}
-			case call_method.equals("sat4j-jar") : 
+			case Sat4JVariant.SAT4J_JAR_VALUE : 
 			{
 				println("calling sat4j from jar")
 				Methode2.DoIt(filename_of_formula)
 			
 			}
-			case call_method.equals("sat4j-maven") :
+			case Sat4JVariant.SAT4J_COMP_VALUE :
 			{
 				println("generating maven project")
 				Method3.DoIt(filename_of_formula)
@@ -102,7 +103,6 @@ class Mein
 			}
 			default :
 			{
-				println(call_method)
 				println("Unknown variant")
 			}
 		}
@@ -143,12 +143,12 @@ class Mein
 		{
 			case ast.solvers.get(0).solver instanceof Sat4J:
 			{
-				return (ast.solvers.get(0).solver as Sat4J).variant
+				return (ast.solvers.get(0).solver as Sat4J).variant.getValue()
 			}
 			default:
 			{
 				println("Unknown solver")
-				return ""
+				return -1
 			}
 		}
 	}
