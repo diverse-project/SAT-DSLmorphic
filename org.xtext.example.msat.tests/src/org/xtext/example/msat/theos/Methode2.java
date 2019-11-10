@@ -20,6 +20,7 @@ public class Methode2
 		dirProcess.redirectError(dirErr);
 		*/
 		
+		String complete_output = "";
 		try 
 		{
 			ProcessBuilder pb = new ProcessBuilder("java", "-jar", "org.sat4j.jar", file_dimacs_formula);
@@ -46,6 +47,7 @@ public class Methode2
         {  
             System.out.println(e);  
         }  
-		
-		throw new Error("calling jar failed");	}
+	
+		throw new Error("calling jar failed");	
+	}
 }
