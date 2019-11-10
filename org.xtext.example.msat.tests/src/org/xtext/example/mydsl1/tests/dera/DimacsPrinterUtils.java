@@ -31,7 +31,6 @@ public class DimacsPrinterUtils extends MSatSwitch<Void>{
 	public Void caseExpression(Expression object) {
 		if (object.getId() == null)
 			return null;
-		System.out.println(object.getId());
 		if (!this.map.containsKey(object.getId())) {
 			this.name += 1;
 			this.map.put(object.getId(), this.name);
@@ -51,26 +50,24 @@ public class DimacsPrinterUtils extends MSatSwitch<Void>{
 	@Override
 	public Void caseAnd(And object) {
 		this.clauses += 1;
+		
 		this.doSwitch(object.getLeft());
 		this.res += " 0\n";
 		
-		this.clauses += 1;
 		this.doSwitch(object.getRight());
-		this.res += " 0\n";
-		
 		return null;
 	}
 
 	@Override
 	public Void caseNot(Not object) {
 		this.res += "-";
-		this.doSwitch(object);
+		this.doSwitch(object.getExpression());
 		return null;
 	}
 	
 	public String toString() {
-		String resume = "p " + this.name + " " + this.clauses + "\n";
-		return resume + this.res;
+		String resume = "p cnf " + this.name + " " + (this.clauses + 1) + "\n";
+		return resume + this.res + " 0";
 	}
 
 	

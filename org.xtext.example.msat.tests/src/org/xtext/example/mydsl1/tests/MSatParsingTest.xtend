@@ -11,6 +11,10 @@ import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.^extension.ExtendWith
 import org.xtext.example.mydsl1.mSat.SATMorphic
+import org.xtext.example.mydsl1.mSat.BenchmarkFormula
+import org.xtext.example.mydsl1.tests.dera.Utils
+import org.xtext.example.mydsl1.tests.dera.Solver
+import org.xtext.example.mydsl1.mSat.BenchmarkDimacs
 
 @ExtendWith(InjectionExtension)
 @InjectWith(MSatInjectorProvider)
@@ -21,114 +25,122 @@ class MSatParsingTest {
 	@Test
 	def void loadModel() {
 		val result = parseHelper.parse('''
-			solver sat4j-jar 
+			solver sat4j-java 
 			benchmarkFormula (A v B)
 		''')
 		Assertions.assertNotNull(result)
 		val errors = result.eResource.errors
 		Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
+		var benchmark = result.benchmark as BenchmarkFormula;
+		Utils.createFileFromFormula(benchmark.expressions.get(0));
+		Solver.Sat4JLibrarySolver(Utils.DEFAULT_FILENAME);
 	}
-	
 	
 	@Test
 	def void loadModel2() {
 		val result = parseHelper.parse('''
-			solver sat4j-jar sat4j-maven
+			solver sat4j-jar
 			benchmarkFormula (A v B) ^ !A
 		''')
 		Assertions.assertNotNull(result)
 		val errors = result.eResource.errors
 		Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
+		var benchmark = result.benchmark as BenchmarkFormula;
+		Utils.createFileFromFormula(benchmark.expressions.get(0));
+		Solver.JarSolving(Utils.DEFAULT_FILENAME);
 	}
 	
 	@Test
 	def void loadModel3() {
 		val result = parseHelper.parse('''
-			solver sat4j-jar sat4j-maven minisat
-			benchmarkDIMACS "foo1.cnf", "foo2.cnf"
+			solver sat4j-maven
+			benchmarkFormula A ^ B ^ C
 		''')
 		Assertions.assertNotNull(result)
 		val errors = result.eResource.errors
 		Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
+		var benchmark = result.benchmark as BenchmarkFormula;
+		Utils.createFileFromFormula(benchmark.expressions.get(0));
+		Solver.MavenSolving(Utils.DEFAULT_FILENAME);
 	}
 	
-	
-	@Test
-	def void loadModel4() {
-		val result = parseHelper.parse('''
-			solver minisat
-			benchmarkDIMACS "foo1.cnf"
-		''')
-		Assertions.assertNotNull(result)
-		val errors = result.eResource.errors
-		Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
-	}
-	
-	@Test
-	def void loadModelCrypto() {
-		val result = parseHelper.parse('''
-			solver cryptominisat
-			benchmarkDIMACS "foo1.cnf"
-		''')
-		Assertions.assertNotNull(result)
-		val errors = result.eResource.errors
-		Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
-	}
-	
-	@Test
-	def void loadModelCryptoParameters() {
-		val result = parseHelper.parse('''
-			solver minisat rnd-freq 0.1
-			benchmarkDIMACS "foo1.cnf", "foo2.cnf"
-		''')
-		Assertions.assertNotNull(result)
-		val errors = result.eResource.errors
-		Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
-	}
-	
-	@Test
-	def void loadModelCryptoParametersZero() {
-		val result = parseHelper.parse('''
-			solver minisat rnd-freq 0.0
-			benchmarkDIMACS "foo1.cnf", "foo2.cnf"
-		''')
-		Assertions.assertNotNull(result)
-		val errors = result.eResource.errors
-		Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
-	}
-	
-	@Test
-	def void loadModelCryptoParametersOne() {
-		val result = parseHelper.parse('''
-			solver minisat rnd-freq 1
-			benchmarkDIMACS "foo1.cnf", "foo2.cnf"
-		''')
-		Assertions.assertNotNull(result)
-		val errors = result.eResource.errors
-		Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
-	}
-	
-	@Test
-	def void loadModelCryptoWrongParameters() {
-		val result = parseHelper.parse('''
-			solver minisat rnd-freq 2 // between 0 and 1
-			benchmarkDIMACS "foo1.cnf", "foo2.cnf"
-		''')
-		Assertions.assertNotNull(result)
-		val errors = result.eResource.errors
-		Assertions.assertTrue(errors.size >= 1, '''Unexpected errors: «errors.join(", ")»''')
-	}
-	
-	@Test
-	def void loadSolvers() {
-		val result = parseHelper.parse('''
-			solver 
-				   minisat rnd-freq 1
-				   cryptominisat
-			benchmarkDIMACS "foo1.cnf", "foo2.cnf"
-		''')
-		Assertions.assertNotNull(result)
-		val errors = result.eResource.errors
-		Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
-	}
+
+//	@Test
+//	def void loadModel4() {
+//		val result = parseHelper.parse('''
+//			solver minisat
+//			benchmarkDIMACS "foo1.cnf"
+//		''')
+//		Assertions.assertNotNull(result)
+//		val errors = result.eResource.errors
+//		Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
+//	}
+//	
+//	@Test
+//	def void loadModelCrypto() {
+//		val result = parseHelper.parse('''
+//			solver cryptominisat
+//			benchmarkDIMACS "foo1.cnf"
+//		''')
+//		Assertions.assertNotNull(result)
+//		val errors = result.eResource.errors
+//		Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
+//	}
+//	
+//	@Test
+//	def void loadModelCryptoParameters() {
+//		val result = parseHelper.parse('''
+//			solver minisat rnd-freq 0.1
+//			benchmarkDIMACS "foo1.cnf", "foo2.cnf"
+//		''')
+//		Assertions.assertNotNull(result)
+//		val errors = result.eResource.errors
+//		Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
+//	}
+//	
+//	@Test
+//	def void loadModelCryptoParametersZero() {
+//		val result = parseHelper.parse('''
+//			solver minisat rnd-freq 0.0
+//			benchmarkDIMACS "foo1.cnf", "foo2.cnf"
+//		''')
+//		Assertions.assertNotNull(result)
+//		val errors = result.eResource.errors
+//		Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
+//	}
+//	
+//	@Test
+//	def void loadModelCryptoParametersOne() {
+//		val result = parseHelper.parse('''
+//			solver minisat rnd-freq 1
+//			benchmarkDIMACS "foo1.cnf", "foo2.cnf"
+//		''')
+//		Assertions.assertNotNull(result)
+//		val errors = result.eResource.errors
+//		Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
+//	}
+//	
+//	@Test
+//	def void loadModelCryptoWrongParameters() {
+//		val result = parseHelper.parse('''
+//			solver minisat rnd-freq 2 // between 0 and 1
+//			benchmarkDIMACS "foo1.cnf", "foo2.cnf"
+//		''')
+//		Assertions.assertNotNull(result)
+//		val errors = result.eResource.errors
+//		Assertions.assertTrue(errors.size >= 1, '''Unexpected errors: «errors.join(", ")»''')
+//	}
+//	
+//	@Test
+//	def void loadSolvers() {
+//		val result = parseHelper.parse('''
+//			solver 
+//				   minisat rnd-freq 1
+//				   cryptominisat
+//			benchmarkDIMACS "foo1.cnf", "foo2.cnf"
+//		''')
+//		Assertions.assertNotNull(result)
+//		val errors = result.eResource.errors
+//		Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
+//	}
 }

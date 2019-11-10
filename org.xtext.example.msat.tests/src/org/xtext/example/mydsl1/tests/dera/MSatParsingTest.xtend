@@ -16,12 +16,12 @@ import org.xtext.example.mydsl1.mSat.BenchmarkFormula
 
 @ExtendWith(InjectionExtension)
 @InjectWith(MSatInjectorProvider)
-class MSatDimacsPrinterTest {
+class MSatParsingTest {
 	@Inject
 	ParseHelper<SATMorphic> parseHelper
 	
 	@Test
-	def void loadModel1() {
+	def void PrintDimacsModel4() {
 		val result = parseHelper.parse('''
 			solver sat4j-jar benchmarkFormula A ^ B ^ C
 		''')
@@ -31,43 +31,14 @@ class MSatDimacsPrinterTest {
 	}
 	
 	@Test
-	def void loadModel2() {
-		val result = parseHelper.parse('''
-			solver sat4j-jar benchmarkFormula A ^ B
-		''')
-		var benchmark = result.benchmark as BenchmarkFormula;
-		var dimacs = DimacsPrinter.dimacsPrinter(benchmark.expressions.get(0));
-		Assertions.assertEquals(dimacs, "p cnf 2 2\n1 0\n2 0")
-	}
-	
-	@Test
-	def void loadModel3() {
-		val result = parseHelper.parse('''
-			solver sat4j-jar benchmarkFormula A
-		''')
-		var benchmark = result.benchmark as BenchmarkFormula;
-		var dimacs = DimacsPrinter.dimacsPrinter(benchmark.expressions.get(0));
-		Assertions.assertEquals(dimacs, "p cnf 1 1\n1 0")
-	}
-	
-	@Test
-	def void loadModel4() {
+	def void PrintDimacsModel1() {
 		val result = parseHelper.parse('''
 			solver sat4j-jar benchmarkFormula A v B
 		''')
 		var benchmark = result.benchmark as BenchmarkFormula;
 		var dimacs = DimacsPrinter.dimacsPrinter(benchmark.expressions.get(0));
 		Assertions.assertEquals(dimacs, "p cnf 2 1\n1 2 0")
-	}
-	
-	@Test
-	def void loadModel5() {
-		val result = parseHelper.parse('''
-			solver sat4j-jar benchmarkFormula (A v B v C) ^ (!A v D)
-		''')
-		var benchmark = result.benchmark as BenchmarkFormula;
-		var dimacs = DimacsPrinter.dimacsPrinter(benchmark.expressions.get(0));
-		Assertions.assertEquals(dimacs, "p cnf 4 2\n1 2 3 0\n-1 4 0")
-	}
+	}	
+
 
 }
