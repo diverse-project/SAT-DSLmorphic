@@ -1,0 +1,3 @@
+solver 
+	   sat4j-java
+benchmarkFormula (a v b) ^ (c v !e) ^ d
