@@ -14,25 +14,21 @@ import org.eclipse.xtext.testing.util.ParseHelper
 import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.^extension.ExtendWith
-import org.xtext.example.mydsl.satt.And
-import org.xtext.example.mydsl.satt.BiImpl
-import org.xtext.example.mydsl.satt.Expression
-import org.xtext.example.mydsl.satt.FILE
-import org.xtext.example.mydsl.satt.Impl
-import org.xtext.example.mydsl.satt.Nand
-import org.xtext.example.mydsl.satt.Not
-import org.xtext.example.mydsl.satt.Or
-import org.xtext.example.mydsl.satt.Sat
+import org.xtext.example.mydsl1.tests.MSatInjectorProvider
+import org.xtext.example.mydsl1.mSat.SATMorphic
+import org.xtext.example.mydsl1.mSat.BenchmarkFormula
+import org.xtext.example.mydsl1.mSat.BenchmarkDimacs
+import org.xtext.example.mydsl1.mSat.Sat4J
 
 @ExtendWith(InjectionExtension)
-@InjectWith(SattInjectorProvider)
+@InjectWith(MSatInjectorProvider)
 
 
 
 class Mein 
 {
 	@Inject
-	ParseHelper<Sat> parseHelper
+	ParseHelper<SATMorphic> parseHelper
 	
 	
 	@Test
@@ -102,18 +98,22 @@ class Mein
 		
 	}
 	
-	def read_entry(Sat ast)
+	def read_entry(SATMorphic ast)
 	{
-		switch ast.source
+		switch ast.benchmark
 		{
-			case ast.source instanceof FILE :
+			case ast.benchmark instanceof BenchmarkDimacs :
 			{ 
-				val filename = (ast.source as FILE).file
+				// TODO Multiple files
+				val filename = (ast.benchmark as BenchmarkDimacs).dimacses.get(0)
 				return new String(Files.readAllBytes(Paths.get(filename)), StandardCharsets.UTF_8);
 			}
-			case ast.source instanceof Expression :
+			case ast.benchmark instanceof BenchmarkFormula :
 			{
-				return prop_to_dimacs( (ast.source as EObject))
+				// TODO Multiple formulas
+				return prop_to_dimacs(((ast.benchmark as BenchmarkFormula)
+											.expressions.get(0) as EObject
+				))
 			}
 			default : 
 			{
@@ -123,9 +123,18 @@ class Mein
 		}
 	}
 	
-	def get_call_method(Sat ast)
+	def get_call_method(SATMorphic ast)
 	{
-		return ast.callMethod.literal
+		// TODO Multiple solver
+		var method = (ast.solvers.get(0) as Sat4J).variant
+		switch method
+		{
+			case SAT4J_JAVA :
+			{
+				return "sat4j-java"
+			}
+		}
+		return (ast.solvers.get(0) as Sat4J).variant as
 	}
 
 	def String prop_to_dimacs(EObject formule)
