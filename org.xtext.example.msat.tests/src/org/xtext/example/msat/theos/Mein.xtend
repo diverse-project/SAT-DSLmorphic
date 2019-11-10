@@ -52,7 +52,7 @@ class Mein
 		//		sat4j-java
 		//''')
 		
-		val input = "fomula.msat"
+		val input = "formula.msat"
 		
 		val text = new String(Files.readAllBytes(Paths.get(input)), StandardCharsets.UTF_8);
 
@@ -83,22 +83,27 @@ class Mein
 		
 		switch call_method
 		{
-			case Sat4JVariant.SAT4J_JAVA_VALUE : 
+			case call_method.equals("sat4j-java") : 
 			{
 				println("calling sat4j from java code.")
 				Methode1.DoIt(filename_of_formula)
 			}
-			case Sat4JVariant.SAT4J_JAR_VALUE : 
+			case call_method.equals("sat4j-jar") : 
 			{
 				println("calling sat4j from jar")
 				Methode2.DoIt(filename_of_formula)
 			
 			}
-			case Sat4JVariant.SAT4J_COMP_VALUE :
+			case call_method.equals("sat4j-maven") :
 			{
 				println("generating maven project")
 				Method3.DoIt(filename_of_formula)
 				println("Done.")
+			}
+			default :
+			{
+				println(call_method)
+				println("Unknown variant")
 			}
 		}
 		
@@ -134,7 +139,18 @@ class Mein
 	def get_call_method(SATMorphic ast)
 	{
 		// TODO Multiple solver
-		return (ast.solvers.get(0) as Sat4J).variant
+		switch ast.solvers.get(0).solver
+		{
+			case ast.solvers.get(0).solver instanceof Sat4J:
+			{
+				return (ast.solvers.get(0).solver as Sat4J).variant
+			}
+			default:
+			{
+				println("Unknown solver")
+				return ""
+			}
+		}
 	}
 
 	def String prop_to_dimacs(EObject formule)

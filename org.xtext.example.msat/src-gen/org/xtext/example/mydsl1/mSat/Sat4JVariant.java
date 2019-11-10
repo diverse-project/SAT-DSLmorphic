@@ -70,7 +70,7 @@ public enum Sat4JVariant implements Enumerator
    * @generated
    * @ordered
    */
-  public static final int SAT4J_JAR_VALUE  = 1;
+  public static final int SAT4J_JAR_VALUE = 1;
 
   /**
    * The '<em><b>SAT4J COMP</b></em>' literal value.
