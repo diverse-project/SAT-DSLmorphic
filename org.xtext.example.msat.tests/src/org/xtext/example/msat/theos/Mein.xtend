@@ -65,7 +65,7 @@ class Mein
 			benchmarkDIMACS "output.cnf"
 		'''
 		val sat = check_formula(text);
-		Assertions.assertFalse(sat);
+		Assertions.assertTrue(sat);
 		//val errors = result.eResource.errors
 		//Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
 	}
@@ -93,7 +93,7 @@ class Mein
 			benchmarkDIMACS "output.cnf"
 		'''
 		val sat = check_formula(text);
-		Assertions.assertFalse(sat);
+		Assertions.assertTrue(sat);
 	}
 	
 	@Test
@@ -111,7 +111,7 @@ class Mein
 		
 		val is_sat = check_formula(text)
 		
-		Assertions.assertTrue(!is_sat)
+		Assertions.assertTrue(is_sat)
 	}
 	
 	def check_formula(String input)

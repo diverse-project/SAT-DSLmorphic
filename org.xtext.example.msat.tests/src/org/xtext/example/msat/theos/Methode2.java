@@ -20,6 +20,7 @@ public class Methode2
 		dirProcess.redirectError(dirErr);
 		*/
 		
+		String complete_output = "";
 		try 
 		{
 			ProcessBuilder pb = new ProcessBuilder("java", "-jar", "org.sat4j.jar", file_dimacs_formula);
@@ -28,6 +29,7 @@ public class Methode2
 			String s = "";
 			while((s = in.readLine()) != null){
 			    System.out.println(s);
+			    complete_output += s;
 			}
 			int status = p.waitFor();
 			System.out.println("Exited with status: " + status);
@@ -36,6 +38,6 @@ public class Methode2
         {  
             System.out.println(e);  
         }  
-		return false;
+		return complete_output.contains(" SATISFIABLE");
 	}
 }
