@@ -3,7 +3,6 @@ package org.xtext.example.mydsl.GJ_MC_Process;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.PrintWriter;
-import org.eclipse.xtext.xbase.lib.Exceptions;
 import org.sat4j.minisat.SolverFactory;
 import org.sat4j.reader.DimacsReader;
 import org.sat4j.reader.ParseFormatException;

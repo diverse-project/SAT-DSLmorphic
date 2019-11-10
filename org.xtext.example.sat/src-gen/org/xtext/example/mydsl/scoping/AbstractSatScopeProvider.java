@@ -3,7 +3,5 @@
  */
 package org.xtext.example.mydsl.scoping;
 
-import org.eclipse.xtext.scoping.impl.DelegatingScopeProvider;
-
 public abstract class AbstractSatScopeProvider extends DelegatingScopeProvider {
 }

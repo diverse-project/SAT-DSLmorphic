@@ -5,11 +5,6 @@ package org.xtext.example.mydsl.ide.contentassist.antlr;
 
 import java.util.Collection;
 import java.util.Collections;
-import org.eclipse.xtext.AbstractRule;
-import org.eclipse.xtext.ide.editor.contentassist.antlr.FollowElement;
-import org.eclipse.xtext.ide.editor.contentassist.antlr.internal.AbstractInternalContentAssistParser;
-import org.eclipse.xtext.ide.editor.partialEditing.IPartialEditingContentAssistParser;
-import org.eclipse.xtext.util.PolymorphicDispatcher;
 
 public class PartialSatContentAssistParser extends SatParser implements IPartialEditingContentAssistParser {
 

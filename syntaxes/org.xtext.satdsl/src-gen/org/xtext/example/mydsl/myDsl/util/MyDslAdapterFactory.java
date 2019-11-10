@@ -3,13 +3,6 @@
  */
 package org.xtext.example.mydsl.myDsl.util;
 
-import org.eclipse.emf.common.notify.Adapter;
-import org.eclipse.emf.common.notify.Notifier;
-
-import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
-
-import org.eclipse.emf.ecore.EObject;
-
 import org.xtext.example.mydsl.myDsl.*;
 
 /**
@@ -101,6 +94,7 @@ public class MyDslAdapterFactory extends AdapterFactoryImpl
         return createAtomAdapter();
       }
       @Override
+	@Override
       public Adapter defaultCase(EObject object)
       {
         return createEObjectAdapter();

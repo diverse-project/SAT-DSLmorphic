@@ -1,8 +1,6 @@
 package org.xtext.example.mydsl.GJ_MC_Process;
 
 import java.io.PrintWriter;
-import org.eclipse.xtend2.lib.StringConcatenation;
-import org.eclipse.xtext.xbase.lib.Exceptions;
 
 @SuppressWarnings("all")
 public class Sat4JCompiler {

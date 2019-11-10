@@ -3,8 +3,6 @@
  */
 package org.xtext.example.mydsl.ui;
 
-import org.eclipse.ui.plugin.AbstractUIPlugin;
-import org.eclipse.xtend.lib.annotations.FinalFieldsConstructor;
 import org.xtext.example.mydsl.ui.AbstractMyDslUiModule;
 
 /**

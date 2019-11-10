@@ -3,18 +3,10 @@
  */
 package org.xtext.example.sat.impl;
 
-import org.eclipse.emf.ecore.EAttribute;
-import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EPackage;
-import org.eclipse.emf.ecore.EReference;
-
-import org.eclipse.emf.ecore.impl.EPackageImpl;
-
 import org.xtext.example.sat.Atom;
 import org.xtext.example.sat.Expr;
 import org.xtext.example.sat.ExprBin;
 import org.xtext.example.sat.ExprUn;
-import org.xtext.example.sat.File;
 import org.xtext.example.sat.Formula;
 import org.xtext.example.sat.SatFactory;
 import org.xtext.example.sat.SatPackage;

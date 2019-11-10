@@ -3,9 +3,6 @@
  */
 package org.xtext.example.mydsl.ide;
 
-import com.google.inject.Guice;
-import com.google.inject.Injector;
-import org.eclipse.xtext.util.Modules2;
 import org.xtext.example.mydsl.MyDslRuntimeModule;
 import org.xtext.example.mydsl.MyDslStandaloneSetup;
 import org.xtext.example.mydsl.ide.MyDslIdeModule;

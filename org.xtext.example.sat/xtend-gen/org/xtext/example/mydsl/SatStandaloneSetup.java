@@ -11,6 +11,7 @@ import org.xtext.example.mydsl.SatStandaloneSetupGenerated;
 @SuppressWarnings("all")
 public class SatStandaloneSetup extends SatStandaloneSetupGenerated {
   public static void doSetup() {
-    new SatStandaloneSetup().createInjectorAndDoEMFRegistration();
+    throw new Error("Unresolved compilation problems:"
+      + "\nThe method createInjectorAndDoEMFRegistration() is undefined for the type SatStandaloneSetup");
   }
 }

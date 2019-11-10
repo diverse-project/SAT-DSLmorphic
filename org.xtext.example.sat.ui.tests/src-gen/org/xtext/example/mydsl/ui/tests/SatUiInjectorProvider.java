@@ -3,8 +3,6 @@
  */
 package org.xtext.example.mydsl.ui.tests;
 
-import com.google.inject.Injector;
-import org.eclipse.xtext.testing.IInjectorProvider;
 import org.xtext.example.sat.ui.internal.SatActivator;
 
 public class SatUiInjectorProvider implements IInjectorProvider {

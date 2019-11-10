@@ -3,13 +3,6 @@
  */
 package org.xtext.example.sat.impl;
 
-import org.eclipse.emf.common.notify.Notification;
-
-import org.eclipse.emf.ecore.EClass;
-
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-
 import org.xtext.example.sat.Atom;
 import org.xtext.example.sat.SatPackage;
 

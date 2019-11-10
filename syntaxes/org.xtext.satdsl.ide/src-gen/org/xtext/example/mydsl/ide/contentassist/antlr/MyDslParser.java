@@ -3,12 +3,7 @@
  */
 package org.xtext.example.mydsl.ide.contentassist.antlr;
 
-import com.google.common.collect.ImmutableMap;
-import com.google.inject.Inject;
-import com.google.inject.Singleton;
 import java.util.Map;
-import org.eclipse.xtext.AbstractElement;
-import org.eclipse.xtext.ide.editor.contentassist.antlr.AbstractContentAssistParser;
 import org.xtext.example.mydsl.ide.contentassist.antlr.internal.InternalMyDslParser;
 import org.xtext.example.mydsl.services.MyDslGrammarAccess;
 

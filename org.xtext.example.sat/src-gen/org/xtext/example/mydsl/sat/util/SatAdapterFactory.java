@@ -3,13 +3,6 @@
  */
 package org.xtext.example.mydsl.sat.util;
 
-import org.eclipse.emf.common.notify.Adapter;
-import org.eclipse.emf.common.notify.Notifier;
-
-import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
-
-import org.eclipse.emf.ecore.EObject;
-
 import org.xtext.example.mydsl.sat.*;
 
 /**
@@ -121,6 +114,7 @@ public class SatAdapterFactory extends AdapterFactoryImpl
         return createNotAdapter();
       }
       @Override
+	@Override
       public Adapter defaultCase(EObject object)
       {
         return createEObjectAdapter();

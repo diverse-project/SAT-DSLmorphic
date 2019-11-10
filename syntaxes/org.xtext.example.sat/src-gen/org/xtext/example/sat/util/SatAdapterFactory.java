@@ -3,13 +3,6 @@
  */
 package org.xtext.example.sat.util;
 
-import org.eclipse.emf.common.notify.Adapter;
-import org.eclipse.emf.common.notify.Notifier;
-
-import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
-
-import org.eclipse.emf.ecore.EObject;
-
 import org.xtext.example.sat.*;
 
 /**
@@ -111,6 +104,7 @@ public class SatAdapterFactory extends AdapterFactoryImpl
         return createAtomAdapter();
       }
       @Override
+	@Override
       public Adapter defaultCase(EObject object)
       {
         return createEObjectAdapter();

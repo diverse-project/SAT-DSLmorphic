@@ -1,8 +1,6 @@
 package org.xtext.example.mydsl.GJ_MC_Process;
 
 import java.io.OutputStream;
-import org.eclipse.emf.ecore.EObject;
-import org.eclipse.xtext.xbase.lib.Exceptions;
 import org.xtext.example.mydsl.GJ_MC_Process.SATUtils;
 
 @SuppressWarnings("all")

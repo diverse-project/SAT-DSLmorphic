@@ -3,9 +3,6 @@
  */
 package org.xtext.example.mydsl.parser.antlr;
 
-import com.google.inject.Inject;
-import org.eclipse.xtext.parser.antlr.AbstractAntlrParser;
-import org.eclipse.xtext.parser.antlr.XtextTokenStream;
 import org.xtext.example.mydsl.parser.antlr.internal.InternalSatParser;
 import org.xtext.example.mydsl.services.SatGrammarAccess;
 

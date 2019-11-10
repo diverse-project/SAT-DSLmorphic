@@ -3,8 +3,6 @@
  */
 package org.xtext.example.mydsl.ui.outline;
 
-import org.eclipse.xtext.ui.editor.outline.impl.DefaultOutlineTreeProvider;
-
 /**
  * Customization of the default outline structure.
  * 

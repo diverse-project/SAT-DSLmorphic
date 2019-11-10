@@ -4,7 +4,6 @@
 package org.xtext.example.parser.antlr;
 
 import java.io.InputStream;
-import org.eclipse.xtext.parser.antlr.IAntlrTokenFileProvider;
 
 public class SatAntlrTokenFileProvider implements IAntlrTokenFileProvider {
 

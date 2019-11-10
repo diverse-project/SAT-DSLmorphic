@@ -2,10 +2,6 @@ package org.xtext.example.mydsl.GJ_MC_Process;
 
 import java.util.ArrayList;
 import java.util.List;
-import org.eclipse.emf.ecore.EObject;
-import org.eclipse.xtext.EcoreUtil2;
-import org.eclipse.xtext.xbase.lib.Conversions;
-import org.eclipse.xtext.xbase.lib.IterableExtensions;
 import org.xtext.example.mydsl.GJ_MC_Process.SATUtils;
 import org.xtext.example.mydsl.sat.And;
 import org.xtext.example.mydsl.sat.BiImpl;
