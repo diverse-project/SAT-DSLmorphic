@@ -104,37 +104,37 @@ class Mein
 		//		sat4j-java
 		//''')
 		
-		val input = "formula.msat"
+		//val input = "formula.msat"
 		
-		val text = new String(Files.readAllBytes(Paths.get(input)), StandardCharsets.UTF_8);
+		//val text = new String(Files.readAllBytes(Paths.get(input)), StandardCharsets.UTF_8);
 
 		
-		val is_sat = check_formula(text)
+		//val is_sat = check_formula(text)
 		
-		Assertions.assertTrue(!is_sat)
+		//Assertions.assertTrue(!is_sat)
 	}
 	
 	def check_formula(String input)
 	{
-		print("text read : ")
-		println(input);
-		println()
+		//print("text read : ")
+		//println(input);
+		//println()
 
 		val ast = parseHelper.parse(input);
 				
 		val dimacs_formula = read_entry(ast)
 
 		val call_method = get_call_method(ast)
-		println(call_method.getClass().getSimpleName())
+		//println(call_method.getClass().getSimpleName())
 		
-		print("dimcas fomula : \n")		
-		println(dimacs_formula)
-		println()
+		//print("dimcas fomula : \n")		
+		//println(dimacs_formula)
+		//println()
 		
 		
-		print("call method : ")
-		println(call_method)
-		println()
+		//print("call method : ")
+		//println(call_method)
+		//println()
 
 
 		val filename_of_formula = "output.cnf"
