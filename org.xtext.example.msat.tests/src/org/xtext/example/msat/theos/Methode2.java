@@ -22,7 +22,7 @@ public class Methode2
 		
 		try 
 		{
-			ProcessBuilder pb = new ProcessBuilder("java", "-jar", "org.sat4j.core.jar", file_dimacs_formula);
+			ProcessBuilder pb = new ProcessBuilder("java", "-jar", "org.sat4j.jar", file_dimacs_formula);
 			Process p = pb.start();
 			BufferedReader in = new BufferedReader(new InputStreamReader(p.getInputStream()));
 			String s = "";
