@@ -6,13 +6,12 @@ import org.xtext.example.mydsl1.mSat.SATSolver
 import org.xtext.example.mydsl1.mSat.Benchmark
 import org.xtext.example.mydsl1.mSat.BenchmarkFormula
 import java.util.ArrayList
-import org.xtext.example.msat.CoudrayThuillier.utils.SolverFunctions.SolvingBenchmarkFormula
 import org.xtext.example.msat.CoudrayThuillier.utils.SolverFunctions.SolverName
 import org.xtext.example.mydsl1.mSat.BenchmarkDimacs
-import org.xtext.example.msat.CoudrayThuillier.utils.SolverFunctions.SolvingBenchmarkDimacs
 import org.eclipse.emf.ecore.EObject
 import org.xtext.example.msat.CoudrayThuillier.utils.CNFConverter
 import org.xtext.example.msat.CoudrayThuillier.utils.DimacsPrint
+import org.xtext.example.msat.CoudrayThuillier.utils.SolverFunctions.SolvingBenchmark
 
 class Solve {
 	
@@ -25,18 +24,24 @@ class Solve {
 		for (SATSolver solver : solvers) {
 			var solver_name = solver_switch.doSwitch(solver.solver)
 			if (!res.containsKey(solver_name)) {
-				var solver_res = process_benchmark(solver.solver, benchmark)
-				res.put(solver_name, solver_res)
+				var version = ""
+				if (solver.version !== null) {
+					version = solver.version.version
+				}
+				var solver_res = process_benchmark(solver.solver, version, benchmark)
+				res.put(solver_name + ((version != "") ? " " + version : ""), solver_res)
 			}
 		}
 		return res
 	}
 	
-	def static ArrayList<Boolean> process_benchmark (EObject s, Benchmark b) {
+	def static ArrayList<Boolean> process_benchmark (EObject s, String solver_version, Benchmark b) {
 		var res = new ArrayList<Boolean>
+		var benchmark_switch = new SolvingBenchmark()
+		benchmark_switch.set_solver_version(solver_version)
 		if (b instanceof BenchmarkFormula) {
 			var expr = (b as BenchmarkFormula).expressions
-			var benchmark_switch = new SolvingBenchmarkFormula
+			benchmark_switch.set_is_dimacs_a_formulae(true)
 			for (var i = 0; i < expr.length; i++) {
 				var e = expr.get(i)
 				var cnf = CNFConverter.convert_to_CNF(e)
@@ -46,11 +51,11 @@ class Solve {
 				res.add(sat)
 			}
 		} else {
+			benchmark_switch.set_is_dimacs_a_formulae(false)
 			var expr = (b as BenchmarkDimacs).dimacses
-			var benchmark_switch = new SolvingBenchmarkDimacs
 			for (var i = 0; i < expr.length; i++) {
 				var e = expr.get(i)
-				benchmark_switch.set_dimacs_path(e)
+				benchmark_switch.set_dimacs(e)
 				var sat = benchmark_switch.doSwitch(s)
 				res.add(sat)
 			}

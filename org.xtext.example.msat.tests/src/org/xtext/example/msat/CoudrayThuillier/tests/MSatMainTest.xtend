@@ -26,7 +26,23 @@ class MSatMainTest {
 		var solvers_results = Solve.process(result)
 		Assertions.assertEquals(solvers_results.keySet.length, 1)
 		for (String s : solvers_results.keySet) {
-			println("--- Solver " + s + " ---")
+			var str = "["
+			for (boolean b : solvers_results.get(s)) {
+				str += " " + b.toString
+			}
+			str += " ]"
+			Assertions.assertEquals(str, "[ true true false ]")
+		}
+	}
+	
+	@Test
+	def void ProcessingModel1_version() {
+		val result = parseHelper.parse('''
+			solver sat4j-jar version "2.3.4" benchmarkFormula A, A v B, A ^ !A
+		''')
+		var solvers_results = Solve.process(result)
+		Assertions.assertEquals(solvers_results.keySet.length, 1)
+		for (String s : solvers_results.keySet) {
 			var str = "["
 			for (boolean b : solvers_results.get(s)) {
 				str += " " + b.toString
@@ -39,12 +55,28 @@ class MSatMainTest {
 	@Test
 	def void ProcessingModel2() {
 		val result = parseHelper.parse('''
-			solver sat4j-java sat4j-jar sat4j-maven benchmarkFormula A
+			solver sat4j-java sat4j-jar benchmarkFormula A
+		''')
+		var solvers_results = Solve.process(result)
+		Assertions.assertEquals(solvers_results.keySet.length, 2)
+		for (String s : solvers_results.keySet) {
+			var str = "["
+			for (boolean b : solvers_results.get(s)) {
+				str += " " + b.toString
+			}
+			str += " ]"
+			Assertions.assertEquals(str, "[ true ]")
+		}
+	}
+
+	@Test
+	def void ProcessingModel2_version() {
+		val result = parseHelper.parse('''
+			solver sat4j-jar version "2.3.1" sat4j-jar version "2.3.4" sat4j-maven version "2.0.0" benchmarkFormula A
 		''')
 		var solvers_results = Solve.process(result)
 		Assertions.assertEquals(solvers_results.keySet.length, 3)
 		for (String s : solvers_results.keySet) {
-			println("--- Solver " + s + " ---")
 			var str = "["
 			for (boolean b : solvers_results.get(s)) {
 				str += " " + b.toString
@@ -62,7 +94,6 @@ class MSatMainTest {
 		var solvers_results = Solve.process(result)
 		Assertions.assertEquals(solvers_results.keySet.length, 3)
 		for (String s : solvers_results.keySet) {
-			println("--- Solver " + s + " ---")
 			var str = "["
 			for (boolean b : solvers_results.get(s)) {
 				str += " " + b.toString
@@ -84,7 +115,6 @@ class MSatMainTest {
 		var solvers_results = Solve.process(result)
 		Assertions.assertEquals(solvers_results.keySet.length, 1)
 		for (String s : solvers_results.keySet) {
-			println("--- Solver " + s + " ---")
 			var str = "["
 			for (boolean b : solvers_results.get(s)) {
 				str += " " + b.toString
@@ -104,12 +134,11 @@ class MSatMainTest {
 1 0" // -> A
 		IEDimacs.export_dimacs("temp2.dimacs", dimacs)
 		val result = parseHelper.parse('''
-			solver sat4j-java sat4j-maven benchmarkDIMACS "temp1.dimacs", "temp2.dimacs"
+			solver sat4j-java sat4j-jar benchmarkDIMACS "temp1.dimacs", "temp2.dimacs"
 		''')
 		var solvers_results = Solve.process(result)
 		Assertions.assertEquals(solvers_results.keySet.length, 2)
 		for (String s : solvers_results.keySet) {
-			println("--- Solver " + s + " ---")
 			var str = "["
 			for (boolean b : solvers_results.get(s)) {
 				str += " " + b.toString

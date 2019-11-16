@@ -84,7 +84,7 @@ class MSatSat4jTest {
 		var dimacs = DimacsPrint.print_dimacs(cnf)
 		IEDimacs.export_dimacs(export_path, dimacs)
 		
-		var is_satisfiable = Sat4jFunctions.solve_jar(export_path)
+		var is_satisfiable = Sat4jFunctions.solve_jar("2.3.4", export_path)
 		assertEquals(is_satisfiable, true)
 	}
 	
@@ -98,7 +98,7 @@ class MSatSat4jTest {
 		var dimacs = DimacsPrint.print_dimacs(cnf)
 		IEDimacs.export_dimacs(export_path, dimacs)
 		
-		var is_satisfiable = Sat4jFunctions.solve_jar(export_path)
+		var is_satisfiable = Sat4jFunctions.solve_jar("2.3.4", export_path)
 		assertEquals(is_satisfiable, false)
 	}
 
@@ -112,7 +112,7 @@ class MSatSat4jTest {
 		var dimacs = DimacsPrint.print_dimacs(cnf)
 		IEDimacs.export_dimacs(export_path, dimacs)
 		
-		var is_satisfiable = Sat4jFunctions.solve_jar(export_path)
+		var is_satisfiable = Sat4jFunctions.solve_jar("2.3.1", export_path)
 		assertEquals(is_satisfiable, true)
 	}
 	
@@ -125,8 +125,7 @@ class MSatSat4jTest {
 		var cnf = CNFConverter.convert_to_CNF(list_expr.get(0))
 		var dimacs = DimacsPrint.print_dimacs(cnf)
 		IEDimacs.export_dimacs(export_maven_path, dimacs)
-		
-		var is_satisfiable = Sat4jFunctions.solve_maven(export_maven_path)
+		var is_satisfiable = Sat4jFunctions.solve_maven("2.3.1", export_maven_path)
 		assertEquals(is_satisfiable, true)
 	}
 	
@@ -140,7 +139,7 @@ class MSatSat4jTest {
 		var dimacs = DimacsPrint.print_dimacs(cnf)
 		IEDimacs.export_dimacs(export_maven_path, dimacs)
 		
-		var is_satisfiable = Sat4jFunctions.solve_maven(export_maven_path)
+		var is_satisfiable = Sat4jFunctions.solve_maven("2.3.1", export_maven_path)
 		assertEquals(is_satisfiable, false)
 	}
 
@@ -154,7 +153,7 @@ class MSatSat4jTest {
 		var dimacs = DimacsPrint.print_dimacs(cnf)
 		IEDimacs.export_dimacs(export_maven_path, dimacs)
 		
-		var is_satisfiable = Sat4jFunctions.solve_maven(export_maven_path)
+		var is_satisfiable = Sat4jFunctions.solve_maven("2.3.1", export_maven_path)
 		assertEquals(is_satisfiable, true)
 	}
 	

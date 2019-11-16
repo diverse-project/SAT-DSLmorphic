@@ -1,4 +1,4 @@
-package org.xtext.example.msat.CoudrayThuillier.tests
+package org.xtext.example.msat.CoudrayThuillier.tests.units
 
 import com.google.inject.Inject
 import org.eclipse.xtext.testing.InjectWith
@@ -14,17 +14,17 @@ import org.xtext.example.msat.CoudrayThuillier.utils.IEDimacs
 
 @ExtendWith(InjectionExtension)
 @InjectWith(MSatInjectorProvider)
-class MSatMainTest {
+class MSatMiniSatTest {
 	@Inject
 	ParseHelper<SATMorphic> parseHelper
 
 	@Test
 	def void ProcessingModel1() {
 		val result = parseHelper.parse('''
-			solver sat4j-jar benchmarkFormula A, A v B, A ^ !A
+			solver minisat rnd-freq 0.2 minisat rnd-freq 1 benchmarkFormula A, A v B, A ^ !A
 		''')
 		var solvers_results = Solve.process(result)
-		Assertions.assertEquals(solvers_results.keySet.length, 1)
+		Assertions.assertEquals(solvers_results.keySet.length, 2)
 		for (String s : solvers_results.keySet) {
 			println("--- Solver " + s + " ---")
 			var str = "["
@@ -39,7 +39,7 @@ class MSatMainTest {
 	@Test
 	def void ProcessingModel2() {
 		val result = parseHelper.parse('''
-			solver sat4j-java sat4j-jar sat4j-maven benchmarkFormula A
+			solver minisat rnd-freq 1 sat4j-jar cryptominisat benchmarkFormula A
 		''')
 		var solvers_results = Solve.process(result)
 		Assertions.assertEquals(solvers_results.keySet.length, 3)
@@ -57,10 +57,10 @@ class MSatMainTest {
 	@Test
 	def void ProcessingModel3() {
 		val result = parseHelper.parse('''
-			solver sat4j-java sat4j-jar sat4j-maven benchmarkFormula A, A => B
+			solver cryptominisat minisat rnd-freq 0.5 benchmarkFormula A, A => B
 		''')
 		var solvers_results = Solve.process(result)
-		Assertions.assertEquals(solvers_results.keySet.length, 3)
+		Assertions.assertEquals(solvers_results.keySet.length, 2)
 		for (String s : solvers_results.keySet) {
 			println("--- Solver " + s + " ---")
 			var str = "["
@@ -79,7 +79,7 @@ class MSatMainTest {
 2 -1 0" // -> A ^ (B v !A)
 		IEDimacs.export_dimacs("temp.dimacs", dimacs)
 		val result = parseHelper.parse('''
-			solver sat4j-java benchmarkDIMACS "temp.dimacs"
+			solver minisat rnd-freq 0.1 benchmarkDIMACS "temp.dimacs"
 		''')
 		var solvers_results = Solve.process(result)
 		Assertions.assertEquals(solvers_results.keySet.length, 1)
@@ -104,7 +104,7 @@ class MSatMainTest {
 1 0" // -> A
 		IEDimacs.export_dimacs("temp2.dimacs", dimacs)
 		val result = parseHelper.parse('''
-			solver sat4j-java sat4j-maven benchmarkDIMACS "temp1.dimacs", "temp2.dimacs"
+			solver minisat rnd-freq 0.5 cryptominisat benchmarkDIMACS "temp1.dimacs", "temp2.dimacs"
 		''')
 		var solvers_results = Solve.process(result)
 		Assertions.assertEquals(solvers_results.keySet.length, 2)
