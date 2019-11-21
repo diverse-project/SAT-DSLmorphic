@@ -17,6 +17,9 @@ import org.sat4j.specs.TimeoutException;
 
 
 public class Solver {
+
+	public static final String PATH_TO_JAR = "../lib/org.sat4j.core-2.3.1.jar";
+	public static final String PATH_TO_MVN = "mvn";
 	
 	/**
 	 * Code from Sat4J how to saying if a formula is satisfiable or not
@@ -25,34 +28,34 @@ public class Solver {
 	 */
 	public static boolean Sat4JLibrarySolver(String dimacsFilename) {
 		ISolver solver = SolverFactory.newDefault();
-        solver.setTimeout(3600); // 1 hour timeout
-        Reader reader = new DimacsReader(solver);
-        PrintWriter out = new PrintWriter(System.out, true);
-        // CNF filename is given on the command line 
-        try {
-            IProblem problem = reader.parseInstance(dimacsFilename);
-            if (problem.isSatisfiable()) {
-                System.out.println("Satisfiable !");
-                reader.decode(problem.model(),out);
-                return true;
-            } else {
-                System.out.println("Unsatisfiable !");
-                return false;
-            }
-        } catch (FileNotFoundException e) {
-            System.out.println("The file " + dimacsFilename + " does not exist.");
-        } catch (IOException e) {
-        	System.out.println(e.getMessage());
-        } catch (ContradictionException e) {
-            System.out.println("Unsatisfiable (trivial)!");
-        } catch (TimeoutException e) {
-            System.out.println("Timeout, sorry!");      
-        } catch (ParseFormatException e) {
+		solver.setTimeout(3600); // 1 hour timeout
+		Reader reader = new DimacsReader(solver);
+		PrintWriter out = new PrintWriter(System.out, true);
+		// CNF filename is given on the command line 
+		try {
+			IProblem problem = reader.parseInstance(dimacsFilename);
+			if (problem.isSatisfiable()) {
+				System.out.println("Satisfiable !");
+				reader.decode(problem.model(),out);
+				return true;
+			} else {
+				System.out.println("Unsatisfiable !");
+				return false;
+			}
+		} catch (FileNotFoundException e) {
+			System.out.println("The file " + dimacsFilename + " does not exist.");
+		} catch (IOException e) {
+			System.out.println(e.getMessage());
+		} catch (ContradictionException e) {
+			System.out.println("Unsatisfiable (trivial)!");
+		} catch (TimeoutException e) {
+			System.out.println("Timeout, sorry!");      
+		} catch (ParseFormatException e) {
 			// TODO Auto-generated catch block
 		}
 		return false;
 	}
-	
+
 	/**
 	 * Answer to the second point of Milestone4
 	 * Converts it to a dimacs format with the method from Milestone 3 then 
@@ -64,14 +67,17 @@ public class Solver {
 	public static boolean JarSolving(String dimacsFileName) {
 		Runtime r = Runtime.getRuntime();
 		try {
-			Process p = r.exec("java -jar ../../../../../../../../lib/org.sat4j.core-2.3.1.jar " + dimacsFileName);
+			Process p = r.exec("java -jar " + PATH_TO_JAR + dimacsFileName);
 			p.waitFor();
 			BufferedReader b = new BufferedReader(new InputStreamReader(p.getInputStream()));
 			String line = "";
 
 			while ((line = b.readLine()) != null) {
-			  if (line.startsWith("s SATISFIABLE"))
-					  return true;
+//				System.out.println(line);
+				if (line.startsWith("s SATISFIABLE")) {
+					System.out.println("SATISFIABLE");
+					return true;
+				}
 			}
 
 			b.close();
@@ -82,9 +88,10 @@ public class Solver {
 			System.out.println(e.getMessage());
 			e.printStackTrace();
 		}
+		System.out.println("NON SATISFIABLE");
 		return false;
 	}
-	
+
 	/**
 	 * Solver using maven
 	 */
@@ -93,18 +100,20 @@ public class Solver {
 		Process p1;
 		Process p2;
 		try {
-			System.setProperty("user.dir", "./maven");
-			p1 = r.exec("mvn package");
+			p1 = r.exec("mvn package -f " + PATH_TO_MVN);
 			p1.waitFor();
-			p2 = r.exec("mvn exec:java -Dexec.args=\"../" + dimacsFileName + "\"");
+			p2 = r.exec("mvn exec:java -Dexec.args=\"" + dimacsFileName + "\" -f " + PATH_TO_MVN);
 			p2.waitFor();
 			BufferedReader b = new BufferedReader(new InputStreamReader(p2.getInputStream()));
 			String line = "";
 
 			while ((line = b.readLine()) != null) {
 				// Quite dirty code but the garbage collector is our friend :p
-			  if (line.startsWith("Satisfiable"))
-				  return true;
+//				System.out.println(line);
+				if (line.startsWith("Satisfiable")) {
+					System.out.println("SATISFIABLE");
+					return true;
+				}
 			}
 			b.close();
 		} catch (IOException e) {
@@ -114,7 +123,8 @@ public class Solver {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		System.out.println("NON SATISFIABLE");
 		return false;
 	}
-	
+
 }
