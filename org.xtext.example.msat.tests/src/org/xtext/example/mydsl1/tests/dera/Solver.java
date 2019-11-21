@@ -67,13 +67,14 @@ public class Solver {
 	public static boolean JarSolving(String dimacsFileName) {
 		Runtime r = Runtime.getRuntime();
 		try {
-			Process p = r.exec("java -jar " + PATH_TO_JAR + dimacsFileName);
+			Process p = r.exec("java -jar " + PATH_TO_JAR + " " + dimacsFileName);
 			p.waitFor();
 			BufferedReader b = new BufferedReader(new InputStreamReader(p.getInputStream()));
 			String line = "";
+			System.out.println("JAR SOLVING");
 
 			while ((line = b.readLine()) != null) {
-//				System.out.println(line);
+				System.out.println(line);
 				if (line.startsWith("s SATISFIABLE")) {
 					System.out.println("SATISFIABLE");
 					return true;
