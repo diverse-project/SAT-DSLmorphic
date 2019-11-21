@@ -15,6 +15,7 @@ import org.xtext.example.mydsl1.mSat.SATMorphic
 import org.xtext.example.mydsl1.tests.dera.Solver
 import org.xtext.example.mydsl1.tests.dera.Utils
 import org.xtext.example.mydsl1.tests.MSatInjectorProvider
+import org.xtext.example.mydsl1.mSat.BenchmarkDimacs
 
 @ExtendWith(InjectionExtension)
 @InjectWith(MSatInjectorProvider)
@@ -23,7 +24,7 @@ class MSatParsingTest {
 	ParseHelper<SATMorphic> parseHelper
 	
 	@Test
-	def void loadModel() {
+	def void loadModel1() {
 		val result = parseHelper.parse('''
 			solver sat4j-java 
 			benchmarkFormula (A v B)
@@ -34,6 +35,19 @@ class MSatParsingTest {
 		var benchmark = result.benchmark as BenchmarkFormula;
 		Utils.createFileFromFormula(benchmark.expressions.get(0));
 		Solver.Sat4JLibrarySolver(Utils.DEFAULT_FILENAME);
+	}
+	
+	@Test
+	def void loadModel11() {
+		val result = parseHelper.parse('''
+			solver sat4j-jar
+			benchmarkDIMACS "foo1.cnf"
+		''')
+		Assertions.assertNotNull(result)
+		val errors = result.eResource.errors
+		Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
+		var benchmark = result.benchmark as BenchmarkDimacs
+		Solver.Sat4JLibrarySolver(benchmark.dimacses.get(0));		
 	}
 	
 	@Test
@@ -51,6 +65,19 @@ class MSatParsingTest {
 	}
 	
 	@Test
+	def void loadModel22() {
+		val result = parseHelper.parse('''
+			solver sat4j-jar
+			benchmarkDIMACS "foo1.cnf"
+		''')
+		Assertions.assertNotNull(result)
+		val errors = result.eResource.errors
+		Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
+		var benchmark = result.benchmark as BenchmarkDimacs
+		Solver.JarSolving(benchmark.dimacses.get(0));		
+	}
+	
+	@Test
 	def void loadModel3() {
 		val result = parseHelper.parse('''
 			solver sat4j-maven
@@ -64,6 +91,20 @@ class MSatParsingTest {
 		Solver.MavenSolving(Utils.DEFAULT_FILENAME);
 	}
 	
+	@Test
+	def void loadModel33() {
+		val result = parseHelper.parse('''
+			solver sat4j-maven
+			benchmarkDIMACS "foo1.cnf"
+		''')
+		Assertions.assertNotNull(result)
+		val errors = result.eResource.errors
+		Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
+		var benchmark = result.benchmark as BenchmarkDimacs
+		Solver.MavenSolving(benchmark.dimacses.get(0));		
+	}
+	
+
 
 //	@Test
 //	def void loadModel4() {
