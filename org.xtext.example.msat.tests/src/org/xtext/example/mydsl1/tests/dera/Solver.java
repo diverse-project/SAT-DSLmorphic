@@ -20,6 +20,8 @@ public class Solver {
 
 	public static final String PATH_TO_JAR = "../lib/org.sat4j.core-2.3.1.jar";
 	public static final String PATH_TO_MVN = "mvn";
+	public static final String PATH_TO_CRYPTOMINISATv5_6_8 = "../lib/cryptominisat-5.6.8/build/cryptominisat5";
+	public static final String PATH_TO_CRYPTOMINISATv5_6_7 = "../lib/cryptominisat-5.6.7/build/cryptominisat5";
 	
 	/**
 	 * Code from Sat4J how to saying if a formula is satisfiable or not
@@ -51,8 +53,8 @@ public class Solver {
 		} catch (TimeoutException e) {
 			System.out.println("Timeout, sorry!");      
 		} catch (ParseFormatException e) {
-			// TODO Auto-generated catch block
-		}
+			System.out.println(e.getMessage());
+			e.printStackTrace();		}
 		return false;
 	}
 
@@ -118,14 +120,72 @@ public class Solver {
 			}
 			b.close();
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
+			System.out.println(e.getMessage());
 			e.printStackTrace();
 		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
+			System.out.println(e.getMessage());
 			e.printStackTrace();
 		}
 		System.out.println("NON SATISFIABLE");
 		return false;
 	}
 
+	public static boolean CryptoMinisat5_6_8(String dimacsFileName){
+		Runtime r = Runtime.getRuntime();
+		try {
+			Process p = r.exec("./" + PATH_TO_CRYPTOMINISATv5_6_8 + " " + dimacsFileName);
+			p.waitFor();
+			BufferedReader b = new BufferedReader(new InputStreamReader(p.getInputStream()));
+			String line = "";
+			System.out.println("CRYPTOMINISAT v5.6.8");
+
+			while ((line = b.readLine()) != null) {
+				System.out.println(line);
+				if (line.startsWith("s SATISFIABLE")) {
+					System.out.println("SATISFIABLE");
+					return true;
+				}
+			}
+
+			b.close();
+		} catch (IOException e) {
+			System.out.println(e.getMessage());
+			e.printStackTrace();
+		} catch (InterruptedException e) {
+			System.out.println(e.getMessage());
+			e.printStackTrace();
+		}
+		System.out.println("NON SATISFIABLE");
+		return false;
+	}
+	
+	public static boolean CryptoMinisat5_6_7(String dimacsFileName){
+		Runtime r = Runtime.getRuntime();
+		try {
+			Process p = r.exec("./" + PATH_TO_CRYPTOMINISATv5_6_7 + " " + dimacsFileName);
+			p.waitFor();
+			BufferedReader b = new BufferedReader(new InputStreamReader(p.getInputStream()));
+			String line = "";
+			System.out.println("CRYPTOMINISAT v5.6.8");
+
+			while ((line = b.readLine()) != null) {
+				System.out.println(line);
+				if (line.startsWith("s SATISFIABLE")) {
+					System.out.println("SATISFIABLE");
+					return true;
+				}
+			}
+
+			b.close();
+		} catch (IOException e) {
+			System.out.println(e.getMessage());
+			e.printStackTrace();
+		} catch (InterruptedException e) {
+			System.out.println(e.getMessage());
+			e.printStackTrace();
+		}
+		System.out.println("NON SATISFIABLE");
+		return false;
+	}
+	
 }
