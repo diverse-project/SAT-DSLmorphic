@@ -42,6 +42,9 @@ import org.xtext.example.mydsl1.mSat.Nand
 import java.io.PrintStream
 import java.io.ByteArrayOutputStream
 import java.io.StringWriter
+import org.xtext.example.mydsl1.mSat.MiniSAT
+import org.xtext.example.mydsl1.mSat.CryptoMiniSAT
+import java.util.ArrayList
 
 @ExtendWith(InjectionExtension)
 @InjectWith(MSatInjectorProvider)
@@ -55,48 +58,85 @@ class MSatParsingBailluetBouazizTest {
 		var String inputFileName = "test.msat";
 		var String content = new String(Files.readAllBytes(Paths.get(inputFileName)));
 		var SATMorphic morphic = parseHelper.parse(content);
-		parseAst(morphic, "test.cnf");
+		parseAst(morphic, "test");
 	}
 	
-	def void parseAst(SATMorphic morphic, String outputDimacsFileName) {
+	def void parseAst(SATMorphic morphic, String outputDimacsFileNamePrefix) {
 
 		var EList<SATSolver> solvers = morphic.solvers;
-		if (solvers.length > 1)
-			System.err.println("Multiple solvers detected, feature not supported yet, will only be using the first one!");
-		
-		if (!(solvers.get(0).solver instanceof Sat4J))
-		{
-			System.err.println("Unsupported solver, only Sat4J supported! Aborting...");
-			System.exit(1);
-		}
-		
-		var Sat4J solvertype = solvers.get(0).solver as Sat4J;
 		var Benchmark bench = morphic.benchmark;
 		 
-		var String dimacs;
+		var ArrayList<String> dimacsFiles = new ArrayList();
 		if (bench instanceof BenchmarkFormula) {
 			var BenchmarkFormula bench_form = bench as BenchmarkFormula;
 			var EList<Expression> exprs = bench_form.expressions;
-			if(exprs.length > 1)
-				System.err.println("Multiple expressions detected, feature not supported yet, will only be using the first one!");
-			var Expression expr = exprs.get(0);
-			dimacs = getDIMACSFromInlineFormula(expr);
-
-			var FileWriter writer = new FileWriter(new File(outputDimacsFileName));
-			writer.write(dimacs);
-			writer.close();
+			var int i = 0;
+			for (Expression expr : exprs) {
+				var String dimacs = getDIMACSFromInlineFormula(expr);
+				var String filename = outputDimacsFileNamePrefix + i.toString();
+	
+				var FileWriter writer = new FileWriter(new File(filename));
+				writer.write(dimacs);
+				writer.close();	
+				i++;
+				dimacsFiles.add(filename);
+			}
 		} else if (bench instanceof BenchmarkDimacs) {
 			var BenchmarkDimacs banch_dimacs = bench as BenchmarkDimacs;
 			var EList<String> files = banch_dimacs.dimacses
-			if(files.length > 1)
-				System.err.println("Multiple input files detected, feature not supported yet, will only be using the first one!");
-			var String filepath = files.get(0);
-			dimacs = getDIMACSFromFile(filepath);
+			for (String file : files) 
+				dimacsFiles.add(file);
 		}
 		
-		println(dimacs);		
 		
-		var Sat4JVariant solverMethod = (solvertype as Sat4J).getVariant();
+		for (String dimacsFile : dimacsFiles) {
+			for (SATSolver solver : solvers) {
+				if(solver.getSolver() instanceof Sat4J) {
+					println(solve(dimacsFile, solver.getSolver() as Sat4J));
+				}
+				else if(solver.getSolver() instanceof MiniSAT) {
+					println(solve(dimacsFile, solver.getSolver() as MiniSAT));
+				}
+				else if(solver.getSolver() instanceof CryptoMiniSAT) {
+					println(solve(dimacsFile, solver.getSolver() as CryptoMiniSAT));
+				}
+			}
+		}
+		
+	}
+	
+	def boolean solve(String dimacsFile, CryptoMiniSAT cryptominisat) 
+	{
+		var Process p = Runtime.getRuntime().exec("./cryptominisat5 --verb=0 " + dimacsFile);	
+		var BufferedReader stdInput = new BufferedReader(new InputStreamReader(p.getInputStream()));
+		
+		var String s = null;
+		while ((s = stdInput.readLine()) !== null) {
+			if (s.contains("s SATISFIABLE"))
+				return true;
+		}
+	}
+	
+	def boolean solve(String dimacsFile, MiniSAT minisat) 
+	{
+		var String minisat_param = "";
+		if (minisat.parameter !== null)
+			minisat_param = "-rnd-freq " + minisat.parameter.rndfreq.toString();
+			
+		var Process p = Runtime.getRuntime().exec("minisat -verb=0 " + minisat_param + " " + dimacsFile);	
+		var BufferedReader stdInput = new BufferedReader(new InputStreamReader(p.getInputStream()));
+		
+		var String s = null;
+		while ((s = stdInput.readLine()) !== null) {
+			if (s.contains("SATISFIABLE"))
+				return true;
+		}
+	}
+	
+	def boolean solve(String dimacsFile, Sat4J sat4j)
+	{
+		var Sat4JVariant solverMethod = sat4j.getVariant();
+		var boolean sat = false;
 		switch solverMethod
 		{
 			case Sat4JVariant.SAT4J_JAVA:
@@ -104,31 +144,26 @@ class MSatParsingBailluetBouazizTest {
 				var ISolver solver = SolverFactory.newDefault();
 		        solver.setTimeout(3600); // 1 hour timeout
 		        var Reader reader = new DimacsReader(solver);
-		        var PrintWriter out = new PrintWriter(System.out, true);
 		        // CNF filename is given on the command line 
 		        try {
-		            var IProblem problem = reader.parseInstance(outputDimacsFileName);
-		            if (problem.isSatisfiable()) {
-		                System.out.println("Satisfiable !");
-		                reader.decode(problem.model(), out);
-		            } else {
-		                System.out.println("Unsatisfiable !");
-		            }
+		            var IProblem problem = reader.parseInstance(dimacsFile);
+		            if (problem.isSatisfiable()) 
+		                sat = true;
 		        } catch (Exception e) {
 		            System.out.println("Oops!");      
-		        }
-		        out.close();
+		        }		        
 			}
 			
 			case Sat4JVariant.SAT4J_JAR:
 			{
-				var Process p = Runtime.getRuntime().exec("java -jar org.sat4j.core.jar " + outputDimacsFileName);
+				var Process p = Runtime.getRuntime().exec("java -jar org.sat4j.core.jar " + dimacsFile);
 				
 				var BufferedReader stdInput = new BufferedReader(new InputStreamReader(p.getInputStream()));
 				
 				var String s = null;
 				while ((s = stdInput.readLine()) !== null) {
-				    System.out.println(s);
+					if (s.contains("s SATISFIABLE"))
+						sat = true;
 				}
 			}
 			
@@ -214,15 +249,18 @@ class MSatParsingBailluetBouazizTest {
 				pom_writer.close();
 				
 				Runtime.getRuntime().exec("mvn install", null, new File("mvn/"));
-				var Process p = Runtime.getRuntime().exec("mvn exec:java -Dexec.mainClass=msat.bailluetbouaziz.App -Dexec.args=../"+outputDimacsFileName, null, new File("mvn/"));
+				var Process p = Runtime.getRuntime().exec("mvn exec:java -Dexec.mainClass=msat.bailluetbouaziz.App -Dexec.args=../"+dimacsFile, null, new File("mvn/"));
 				var BufferedReader stdInput = new BufferedReader(new InputStreamReader(p.getInputStream()));
 				
 				var String s = null;
 				while ((s = stdInput.readLine()) !== null) {
-				    System.out.println(s);
+				    if (s.contains("Satisfiable !"))
+						sat = true;
 				}
 			}
 		}
+		
+		return sat;
 	}
 	
 	def String getDIMACSFromInlineFormula(Expression ast)
@@ -378,26 +416,13 @@ class MSatParsingBailluetBouazizTest {
 		val errors = result.eResource.errors
 		Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
 		
-		var ByteArrayOutputStream outContent = new ByteArrayOutputStream();
+		/*var ByteArrayOutputStream outContent = new ByteArrayOutputStream();
 		var ByteArrayOutputStream errContent = new ByteArrayOutputStream();
 		System.setOut(new PrintStream(outContent));
-    	System.setErr(new PrintStream(errContent));
+    	System.setErr(new PrintStream(errContent));*/
 		parseAst(result, "foo1.cnf");
-		
-		var StringWriter expectedStringWriter = new StringWriter();
-		var PrintWriter printWriter = new PrintWriter(expectedStringWriter);
 
-		printWriter.println("p cnf 5 3");
-		printWriter.println("5 0");
-		printWriter.println("3 -4 0");
-		printWriter.println("1 2 0");
-		printWriter.println();
-		printWriter.println("Satisfiable !");
-		printWriter.print("-1 2 -3 -4 5 0");
-		printWriter.close();
-		
-		var String expected = expectedStringWriter.toString();
-		Assertions.assertEquals(outContent.toString(), expected);
+		//Assertions.assertTrue(outContent.toString().contains("true"));
 	}
 	
 	@Test
@@ -411,14 +436,8 @@ class MSatParsingBailluetBouazizTest {
 		val errors = result.eResource.errors
 		Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
 
-		var ByteArrayOutputStream outContent = new ByteArrayOutputStream();
-		var ByteArrayOutputStream errContent = new ByteArrayOutputStream();
-		System.setOut(new PrintStream(outContent));
-    	System.setErr(new PrintStream(errContent));
 		parseAst(result, "foo1.cnf");
-		
-		Assertions.assertTrue(outContent.toString().contains("Satisfiable !"));
-		Assertions.assertTrue(outContent.toString().contains("-1 2 -3 -4 5 0"));
+		Assertions.assertTrue(System.out.toString().contains("true"));
 	}
 	
 	@Test
@@ -432,25 +451,36 @@ class MSatParsingBailluetBouazizTest {
 		val errors = result.eResource.errors
 		Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
 		
-		var ByteArrayOutputStream outContent = new ByteArrayOutputStream();
-		var ByteArrayOutputStream errContent = new ByteArrayOutputStream();
-		System.setOut(new PrintStream(outContent));
-    	System.setErr(new PrintStream(errContent));
 		parseAst(result, "foo1.cnf");
+		//Assertions.assertTrue(System.out.toString().contains("true"));
+	}
+	
+	@Test
+	def void loadMinisat() {
+		val result = parseHelper.parse('''
+			solver 
+				   minisat
+			benchmarkDIMACS "foo1.cnf"
+		''')
+		Assertions.assertNotNull(result)
+		val errors = result.eResource.errors
+		Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
 		
-		var StringWriter expectedStringWriter = new StringWriter();
-		var PrintWriter printWriter = new PrintWriter(expectedStringWriter);
-
-		printWriter.println("p cnf 5 3");
-		printWriter.println("5 0");
-		printWriter.println("3 -4 0");
-		printWriter.print("1 2 0");
-		printWriter.close();
-
-		
-		var String expected = expectedStringWriter.toString();
-		Assertions.assertTrue(outContent.toString().startsWith(expected));
-		Assertions.assertTrue(outContent.toString().contains("s SATISFIABLE"));
-		Assertions.assertTrue(outContent.toString().contains("v -1 2 -3 -4 5 0"));
+		parseAst(result, "foo1.cnf");
+		//Assertions.assertTrue(System.out.toString().contains("true"));
+	}
+	
+	@Test
+	def void loadCryptoMinisat() {
+		val result = parseHelper.parse('''
+			solver 
+				   cryptominisat
+			benchmarkDIMACS "foo1.cnf"
+		''')
+		Assertions.assertNotNull(result)
+		val errors = result.eResource.errors
+		Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
+		parseAst(result, "foo1.cnf");
+		//Assertions.assertTrue(System.out.toString().contains("true"));
 	}
 }
