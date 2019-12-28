@@ -58,10 +58,30 @@ class Sat4jLauncher {
 							Sat4JCompiler.compile(file)
 						}
 					}
-				//TODO
-				//case solver == CryptoMiniSAT : 
-				//TODO
-				//case solver == MiniSAT : 
+					
+				case solver instanceof CryptoMiniSAT : 
+					if (model.benchmark instanceof BenchmarkFormula){
+						for(expression : (model.benchmark  as BenchmarkFormula).expressions){
+							SATUtils.writeSat4jFile("formula.dimacs",expression)
+							CryptoMiniSatSolver.solve("formula.dimacs")
+						}										  	
+					} else { //model.benchmark === BenchmarkDimacs
+						for(file : (model.benchmark  as BenchmarkDimacs).dimacses){
+							CryptoMiniSatSolver.solve(file);
+						}
+					}
+				
+				case solver instanceof CryptoMiniSAT : 
+					if (model.benchmark instanceof BenchmarkFormula){
+						for(expression : (model.benchmark  as BenchmarkFormula).expressions){
+							SATUtils.writeSat4jFile("formula.dimacs",expression)
+							MiniSatSolver.solve("formula.dimacs")
+						}										  	
+					} else { //model.benchmark === BenchmarkDimacs
+						for(file : (model.benchmark  as BenchmarkDimacs).dimacses){
+							MiniSatSolver.solve(file);
+						}
+					}
 			}
 		}
 		
