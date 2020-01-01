@@ -178,7 +178,7 @@ class Mein
 			answers.add(answer)
 		} 
 		
-		println("Here is the response of all solvers : ")
+		println("Here is the response for all solvers : ")
 		println(answers)
 		println("Returning the first one.")
 		val some_answer = answers.get(0)
