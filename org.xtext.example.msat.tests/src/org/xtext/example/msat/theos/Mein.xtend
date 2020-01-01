@@ -14,19 +14,15 @@ import org.eclipse.xtext.testing.util.ParseHelper
 import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.^extension.ExtendWith
-import org.xtext.example.mydsl1.tests.MSatInjectorProvider
-import org.xtext.example.mydsl1.mSat.SATMorphic
-import org.xtext.example.mydsl1.mSat.BenchmarkFormula
 import org.xtext.example.mydsl1.mSat.BenchmarkDimacs
+import org.xtext.example.mydsl1.mSat.BenchmarkFormula
+import org.xtext.example.mydsl1.mSat.CryptoMiniSAT
+import org.xtext.example.mydsl1.mSat.MiniSAT
+import org.xtext.example.mydsl1.mSat.SATMorphic
 import org.xtext.example.mydsl1.mSat.Sat4J
 import org.xtext.example.mydsl1.mSat.Sat4JVariant
-import org.xtext.example.mydsl1.mSat.Or
-import org.xtext.example.mydsl1.mSat.And
-import org.xtext.example.mydsl1.mSat.Not
-import org.xtext.example.mydsl1.mSat.Expression
-import org.xtext.example.mydsl1.mSat.BiImpl
-import org.xtext.example.mydsl1.mSat.Impl
-import org.xtext.example.mydsl1.mSat.Nand
+import org.xtext.example.mydsl1.mSat.SolverVersion
+import org.xtext.example.mydsl1.tests.MSatInjectorProvider
 
 @ExtendWith(InjectionExtension)
 @InjectWith(MSatInjectorProvider)
@@ -43,22 +39,32 @@ class Mein
 	@Test
 	def void loadSolvers() 
 	{
-		val result = parseHelper.parse(
+		println("-----------------------------------")
+		println("loadSolvers : ")
+		
+		val text = 
 		'''
 			solver 
 				   minisat rnd-freq 1
 				   cryptominisat
-			benchmarkDIMACS "foo1.cnf", "foo2.cnf"
-		''')
+			benchmarkDIMACS "input.cnf", "input2.cnf"
+		'''
+		val result = parseHelper.parse(text)
+		
 		Assertions.assertNotNull(result)
+		
+		check_formula(text)
 		
 		val errors = result.eResource.errors
 		Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
+		
 	}
 	
 	@Test
 	def void loadSAT4J() 
 	{
+		println("-----------------------------------")
+		println("loadSAT4J : ")
 		val text = 
 		'''
 			solver 
@@ -74,6 +80,8 @@ class Mein
 	@Test
 	def void loadSAT4J_MVN() 
 	{
+		println("-----------------------------------")
+		println("loadSAT4J_MVN : ")
 		val text =  
 		'''
 			solver 
@@ -87,6 +95,8 @@ class Mein
 	@Test
 	def void loadSAT4J_MVN_2() 
 	{
+		println("-----------------------------------")
+		println("loadSAT4J_MVN_2 : ")
 		val text =  
 		'''
 			solver 
@@ -100,6 +110,8 @@ class Mein
 	@Test
 	def void loadSAT4J_JAR() 
 	{
+		println("-----------------------------------")
+		println("loadSAT4J_JAR : ")
 		val text =
 		'''
 			solver 
@@ -113,6 +125,8 @@ class Mein
 	@Test
 	def void main()
 	{	
+		println("-----------------------------------")
+		println("main : ")
 		//val ast = parseHelper.parse('''
 		//		A ^ (B v C) ^ (~A)
 		//		sat4j-java
@@ -138,7 +152,7 @@ class Mein
 				
 		val dimacs_formula = read_entry(ast)
 
-		val call_method = get_call_method(ast)
+		val call_methods = get_call_methods(ast)
 		//println(call_method.getClass().getSimpleName())
 		
 		print("dimcas fomula : \n")		
@@ -147,7 +161,7 @@ class Mein
 		
 		
 		print("call method : ")
-		println(call_method)
+		println(call_methods)
 		println()
 
 
@@ -156,14 +170,30 @@ class Mein
 		fileWriter.write(dimacs_formula);
 		fileWriter.close();
 		
-		return evaluate(call_method, filename_of_formula);
+		val answers = newArrayList();
+		
+		for (call_method : call_methods)
+		{	
+			val answer =  evaluate(call_method, filename_of_formula);
+			answers.add(answer)
+		} 
+		
+		println("Here is the response of all solvers : ")
+		println(answers)
+		println("Returning the first one.")
+		val some_answer = answers.get(0)
+		
+		return some_answer
 		
 	}
 	
-	def evaluate (int call_method, String filename_of_formula)
+	def evaluate (ArrayList<Object> call_method, String filename_of_formula)
 	{
+		val id_solver = call_method.get(0)
+		val version_solver = call_method.get(1)
+		
 		var is_sat = false;
-		switch call_method
+		switch id_solver
 		{
 			case Sat4JVariant.SAT4J_JAVA_VALUE : 
 			{
@@ -182,6 +212,14 @@ class Mein
 				is_sat = Method3.DoIt(filename_of_formula)
 				println("Done.")
 			}
+			case 4 : //MiniSAT solver
+			{
+				
+			}	
+			case 5 : //CryptoMinisat solver
+			{
+				
+			}	
 			//TODO other solvers
 			default :
 			{
@@ -212,26 +250,72 @@ class Mein
 			}
 			default : 
 			{
-				println("OUPS, ERREURRRRRRRRRRR")
+				println("Never supposed to happen")
 				return ""
 			}
 		}
 	}
+	/*
+	 * Solvers supportés (ou à supporter) : 
+	 * 
+	 * Sat4J library, version ??
+	 * Sat4J Jar, version ??
+	 * Sat4J Maven ??
+	 * minisat, version ??, parameters ??
+	 * cryptominisat ??
+	 * 
+	 * 
+	 * 
+	 * 
+	 */
 	
-	def get_call_method(SATMorphic ast)
+	
+	def get_call_methods(SATMorphic ast)
 	{
-		// TODO Multiple solver
-		switch ast.solvers.get(0).solver
+		val solvers = newArrayList();
+		for (solver : ast.solvers)
 		{
-			case ast.solvers.get(0).solver instanceof Sat4J:
+			val solverr = solver.solver
+			var version = "?"
+			if (solver.version !== null)
 			{
-				return (ast.solvers.get(0).solver as Sat4J).variant.getValue()
-			}
-			default:
+				version = (solver.version as SolverVersion).version
+			} 
+			switch solverr
 			{
-				println("Unknown solver")
-				return -1
+				case solverr instanceof Sat4J:
+				{
+					val id_solver = (solverr as Sat4J).variant.getValue()
+					val informations_solver = newArrayList(id_solver, version);
+					solvers.add(informations_solver)
+				}
+				case solverr instanceof MiniSAT:
+				{
+					val id_solver = 4 //a new identifier for minisat
+					var parameters = "-rnd-freq="
+					if ((solverr as MiniSAT).parameter !== null)
+					{
+						parameters += (solverr as MiniSAT).parameter.rndfreq
+					}
+					else
+					{
+						parameters += "0"
+					}
+					val informations_solver = newArrayList(id_solver, version, parameters);
+					solvers.add(informations_solver)					
+				}
+				case solverr instanceof CryptoMiniSAT:
+				{
+					val id_solver = 5 //a new identifier for cryptominisat
+					val informations_solver = newArrayList(id_solver, version);
+					solvers.add(informations_solver)				
+				}
+				default:
+				{
+					println("Unknown solver")
+				}
 			}
 		}
+		return solvers
 	}
 }

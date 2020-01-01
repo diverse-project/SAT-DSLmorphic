@@ -24,7 +24,7 @@ public class App
 	        Reader reader = new DimacsReader(solver);
 	        PrintWriter out = new PrintWriter(System.out,true);
 	        try {
-	            IProblem problem = reader.parseInstance("outputt.cnf");
+	            IProblem problem = reader.parseInstance("tmp_output.cnf");
 	            if (problem.isSatisfiable()) {
 	                System.out.println("Satisfiable !");
 	                reader.decode(problem.model(),out);
