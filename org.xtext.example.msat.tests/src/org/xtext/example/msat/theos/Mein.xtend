@@ -123,6 +123,21 @@ class Mein
 	}
 	
 	@Test
+	def void loadMiniSAT() 
+	{
+		println("-----------------------------------")
+		println("loadMiniSAT : ")
+		val text =
+		'''
+			solver 
+				   minisat
+			benchmarkDIMACS "input.cnf"
+		'''
+		val sat = check_formula(text);
+		Assertions.assertTrue(sat);
+	}
+	
+	@Test
 	def void main()
 	{	
 		println("-----------------------------------")
@@ -214,7 +229,9 @@ class Mein
 			}
 			case 4 : //MiniSAT solver
 			{
-				
+				val parameters = call_method.get(2) as String
+				println("calling MiniSAT from bin")
+				is_sat = MiniSATCall.DoIt(filename_of_formula, parameters)
 			}	
 			case 5 : //CryptoMinisat solver
 			{
