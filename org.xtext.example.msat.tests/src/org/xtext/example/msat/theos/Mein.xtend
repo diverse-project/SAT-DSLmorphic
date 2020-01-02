@@ -138,6 +138,21 @@ class Mein
 	}
 	
 	@Test
+	def void loadCryptoMiniSAT() 
+	{
+		println("-----------------------------------")
+		println("loadCryptoMiniSAT : ")
+		val text =
+		'''
+			solver 
+				   cryptominisat
+			benchmarkDIMACS "input.cnf"
+		'''
+		val sat = check_formula(text);
+		Assertions.assertTrue(sat);
+	}
+	
+	@Test
 	def void main()
 	{	
 		println("-----------------------------------")
@@ -235,7 +250,8 @@ class Mein
 			}	
 			case 5 : //CryptoMinisat solver
 			{
-				
+				println("calling CryptoMiniSAT from bin")
+				is_sat = CryptoMiniSATCall.DoIt(filename_of_formula)
 			}	
 			//TODO other solvers
 			default :
