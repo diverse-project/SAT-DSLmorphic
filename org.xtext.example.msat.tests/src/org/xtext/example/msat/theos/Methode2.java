@@ -27,9 +27,18 @@ public class Methode2
 			Process p = pb.start();
 			BufferedReader in = new BufferedReader(new InputStreamReader(p.getInputStream()));
 			String s = "";
-			while((s = in.readLine()) != null){
-			    System.out.println(s);
-			    complete_output += s;
+			while((s = in.readLine()) != null)
+			{
+				if (s.contains("UNSATISFIABLE"))
+				{
+					return false;
+				}
+				else if (s.contains("SATISFIABLE"))
+				{
+					return true;
+				}
+				
+			    //System.out.println(s);
 			}
 			int status = p.waitFor();
 			System.out.println("Exited with status: " + status);
@@ -38,6 +47,7 @@ public class Methode2
         {  
             System.out.println(e);  
         }  
-		return complete_output.contains(" SATISFIABLE");
+	
+		throw new Error("calling jar failed");	
 	}
 }
