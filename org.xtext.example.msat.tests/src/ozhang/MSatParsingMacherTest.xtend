@@ -27,7 +27,7 @@ class MSatParsingMacherTest {
 		val result = parseHelper.parse('''
 			solver 
 				   sat4j-java
-			benchmarkDIMACS "test.cnf"
+			benchmarkDIMACS "test.cnf", "test.cnf"
 		''')
 		Assertions.assertNotNull(result)
 		val errors = result.eResource.errors
@@ -66,7 +66,7 @@ class MSatParsingMacherTest {
 		val result = parseHelper.parse('''
 			solver 
 				   sat4j-java
-			benchmarkFormula A ^ (!A)
+			benchmarkFormula A ^ (!A), A ^ B
 		''')
 		Assertions.assertNotNull(result)
 		val errors = result.eResource.errors

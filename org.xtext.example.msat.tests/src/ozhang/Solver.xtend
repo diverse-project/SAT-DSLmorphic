@@ -24,56 +24,44 @@ import org.xtext.example.mydsl1.mSat.impl.CryptoMiniSATImpl
 class Solver {
 	
 	def void solve(SATMorphic satMorphic) {
-		
-		var temp_input_path = ''
 		switch satMorphic.benchmark.class {
 			// We suppose that there is only one dimacs file to solve
-			case BenchmarkDimacsImpl : temp_input_path = (satMorphic.benchmark as BenchmarkDimacs).dimacses.get(0)
+			case BenchmarkDimacsImpl : (satMorphic.benchmark as BenchmarkDimacs).dimacses.forEach[input_path | run_solver(satMorphic, input_path)]
 			// We suppose that there is only one formula to solve
-			case BenchmarkFormulaImpl : {
-				var expr = (satMorphic.benchmark as BenchmarkFormula).expressions.get(0)
-				
-				// Convert Expression to DIMACS string format		
-				var utils = new Utils()
-				var env = new HashMap<String,Integer>()
-				var res = utils.dimacs(utils.cnf(expr as Expression), env)
-				var nbVar = env.size
-				var nbClauses = res.split('\n').size
-				var str = 'c test.cnf\n'
-				str += 'c\n'
-				str += String.format('p cnf %d %d\n', nbVar, nbClauses)
-				str += res
-				
-				var writer = new PrintWriter("test.cnf", "UTF-8")
-				writer.println(str)
-				writer.close()
-				
-				temp_input_path = 'test.cnf'
-			}
+			case BenchmarkFormulaImpl : (satMorphic.benchmark as BenchmarkFormula).expressions.forEach[expr | run_solver(satMorphic, expr_to_dimacs(expr))]
 			default : println('Unknown input type')
 		}
+    }
+    
+    
+    def String expr_to_dimacs(Expression expr) {
+    	var utils = new Utils()
+		var env = new HashMap<String,Integer>()
+		var res = utils.dimacs(utils.cnf(expr as Expression), env)
+		var nbVar = env.size
+		var nbClauses = res.split('\n').size
+		var str = 'c test.cnf\n'
+		str += 'c\n'
+		str += String.format('p cnf %d %d\n', nbVar, nbClauses)
+		str += res
 		
-		val input_path = temp_input_path
+		var writer = new PrintWriter("test.cnf", "UTF-8")
+		writer.println(str)
+		writer.close()
 		
-//		satMorphic.solvers.forEach[satSolver |
-//			if (satSolver.solver instanceof Sat4JImpl) {
-//				switch (satSolver.solver as Sat4JImpl).variant.literal {
-//					case 'sat4j-java' : java_solve(input_path)
-//					case 'sat4j-jar' : jar_solve(input_path)
-//					case 'sat4j-maven' : maven_solve(input_path)
-//					default : println('Unknown solving method.')
-//				}
-//			}
-//		]
-		
-		satMorphic.solvers.forEach[satSolver |
+		 return 'test.cnf'
+    }
+    
+    
+    def void run_solver(SATMorphic satMorphic, String input_path) {
+    	satMorphic.solvers.forEach[satSolver |
 			switch satSolver {
 				case satSolver.solver instanceof Sat4JImpl : {
 					switch (satSolver.solver as Sat4JImpl).variant.literal {
 						case 'sat4j-java' : java_solve(input_path)
 						case 'sat4j-jar' : jar_solve(input_path)
 						case 'sat4j-maven' : maven_solve(input_path)
-						default : println('Unknown solving method.')
+						default : println('Unknown sat4j solving method')
 					}
 				}
 				case satSolver.solver instanceof MiniSATImpl : {
@@ -85,9 +73,9 @@ class Solver {
 					minisat_solve(input_path, rnd_freq)
 				}
 				case satSolver.solver instanceof CryptoMiniSATImpl : cryptominisat_solve(input_path)
+				default : println('Unknown solver')
 			}
 		]
-		
     }
     
     
