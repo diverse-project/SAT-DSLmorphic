@@ -18,9 +18,10 @@ import org.xtext.example.mydsl1.mSat.Expression
 import org.xtext.example.mydsl1.mSat.impl.BenchmarkDimacsImpl
 import org.xtext.example.mydsl1.mSat.impl.BenchmarkFormulaImpl
 import org.xtext.example.mydsl1.mSat.impl.Sat4JImpl
+import org.xtext.example.mydsl1.mSat.impl.MiniSATImpl
+import org.xtext.example.mydsl1.mSat.impl.CryptoMiniSATImpl
 
 class Solver {
-	
 	
 	def void solve(SATMorphic satMorphic) {
 		
@@ -54,15 +55,59 @@ class Solver {
 		
 		val input_path = temp_input_path
 		
+//		satMorphic.solvers.forEach[satSolver |
+//			if (satSolver.solver instanceof Sat4JImpl) {
+//				switch (satSolver.solver as Sat4JImpl).variant.literal {
+//					case 'sat4j-java' : java_solve(input_path)
+//					case 'sat4j-jar' : jar_solve(input_path)
+//					case 'sat4j-maven' : maven_solve(input_path)
+//					default : println('Unknown solving method.')
+//				}
+//			}
+//		]
+		
 		satMorphic.solvers.forEach[satSolver |
-			if (satSolver.solver instanceof Sat4JImpl) {
-				switch (satSolver.solver as Sat4JImpl).variant.literal {
-					case 'sat4j-java' : java_solve(input_path)
-					case 'sat4j-jar' : jar_solve(input_path)
-					case 'sat4j-maven' : maven_solve(input_path)
-					default : println('Unknown solving method.')
+			switch satSolver {
+				case satSolver.solver instanceof Sat4JImpl : {
+					switch (satSolver.solver as Sat4JImpl).variant.literal {
+						case 'sat4j-java' : java_solve(input_path)
+						case 'sat4j-jar' : jar_solve(input_path)
+						case 'sat4j-maven' : maven_solve(input_path)
+						default : println('Unknown solving method.')
+					}
 				}
-			}]
+				case satSolver.solver instanceof MiniSATImpl : {
+					var param = (satSolver.solver as MiniSATImpl).parameter
+					var rnd_freq = 0f
+					if(param != (null as Float)) {
+						rnd_freq = param.rndfreq
+					}
+					minisat_solve(input_path, rnd_freq)
+				}
+				case satSolver.solver instanceof CryptoMiniSATImpl : cryptominisat_solve(input_path)
+			}
+		]
+		
+    }
+    
+    
+    def void minisat_solve(String file_path, Float rnd_freq) {
+    	println('minisat_solve called')
+    	var pb = new ProcessBuilder()
+		pb.command('minisat','rnd-freq='+rnd_freq, file_path)
+		pb.redirectOutput(Redirect.INHERIT)
+		var p = pb.start()
+		p.waitFor()
+    }
+    
+    
+    def void cryptominisat_solve(String file_path) {
+    	println('cryptominisat_solve called')
+    	var pb = new ProcessBuilder()
+		pb.command('cryptominisat5', file_path)
+		pb.redirectOutput(Redirect.INHERIT)
+		var p = pb.start()
+		p.waitFor()
     }
     
     
@@ -97,7 +142,6 @@ class Solver {
     
     def void jar_solve(String file_path) {
     	println('jar_solve called')
-    	
 		var pb = new ProcessBuilder()
 		pb.command('java', '-jar', 'lib/org.sat4j.jar', file_path)
 		pb.redirectOutput(Redirect.INHERIT)
@@ -120,9 +164,7 @@ class Solver {
 			pb.redirectOutput(Redirect.INHERIT)
 			var p = pb.start()
 			p.waitFor()
-		}
 		
-		if (!solver_file.exists()) {
 			var writer = new PrintWriter(solver_file, "UTF-8")
 			var content =
 'package dsl;
@@ -170,14 +212,9 @@ public class Solver {
 }'
 			writer.println(content)
 			writer.close()
-		}
 		
-		if (pom_file.exists()) {
-			pom_file.delete()
-		}
-		
-		var writer = new PrintWriter(pom_file, "UTF-8")
-		var content =
+			writer = new PrintWriter(pom_file, "UTF-8")
+			content =
 '<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
@@ -210,24 +247,24 @@ public class Solver {
     </dependency>
   </dependencies>
 </project>'
-		writer.println(content)
-		writer.close()
+			writer.println(content)
+			writer.close()
+		
+			pb = new ProcessBuilder()
+			println('--------- mvn install ---------')
+			pb.command('mvn', 'install')
+			pb.redirectOutput(Redirect.INHERIT)
+			pb.directory(sat_file)
+			p = pb.start()
+			p.waitFor()	
+		}
 		
 		var pb = new ProcessBuilder()
-		println('--------- mvn install ---------')
-		pb.command('mvn', 'install')
-		pb.redirectOutput(Redirect.INHERIT)
-		pb.directory(sat_file)
-		var p = pb.start()
-		p.waitFor()
-		
-		pb = new ProcessBuilder()
 		println('--------- mvn exectution ---------')
-		println('-Dexec.args="../'+file_path+'"')
 		pb.command('mvn', 'exec:java', '-Dexec.mainClass=dsl.Solver', '-Dexec.args="../'+file_path+'"')
 		pb.redirectOutput(Redirect.INHERIT)
 		pb.directory(sat_file)
-		p = pb.start()
+		var p = pb.start()
 		p.waitFor()
     }
 }

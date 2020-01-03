@@ -23,7 +23,7 @@ class MSatParsingMacherTest {
 	Solver solver = new Solver()
 	
 	@Test
-	def void loadSAT4J() {
+	def void loadSAT4J_JAVA() {
 		val result = parseHelper.parse('''
 			solver 
 				   sat4j-java
@@ -92,6 +92,18 @@ class MSatParsingMacherTest {
 		val result = parseHelper.parse('''
 			solver 
 				   sat4j-maven
+			benchmarkFormula (A ^ B)
+		''')
+		Assertions.assertNotNull(result)
+		val errors = result.eResource.errors
+		Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
+		solver.solve(result)
+	}
+	
+	@Test
+	def void benchmark_minisat_cryptominisat_test() {
+		val result = parseHelper.parse('''
+			solver minisat cryptominisat
 			benchmarkFormula (A ^ B)
 		''')
 		Assertions.assertNotNull(result)
