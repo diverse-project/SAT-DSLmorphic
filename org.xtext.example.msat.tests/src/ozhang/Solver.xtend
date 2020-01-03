@@ -20,6 +20,9 @@ import org.xtext.example.mydsl1.mSat.impl.BenchmarkFormulaImpl
 import org.xtext.example.mydsl1.mSat.impl.Sat4JImpl
 import org.xtext.example.mydsl1.mSat.impl.MiniSATImpl
 import org.xtext.example.mydsl1.mSat.impl.CryptoMiniSATImpl
+import java.io.BufferedReader
+import java.io.InputStreamReader
+import org.xtext.example.mydsl1.mSat.SATSolver
 
 class Solver {
 	
@@ -54,8 +57,8 @@ class Solver {
     
     
     def void run_solver(SATMorphic satMorphic, String input_path) {
-    	satMorphic.solvers.forEach[satSolver |
-			switch satSolver {
+    	for (SATSolver satSolver : satMorphic.solvers) {
+    		var satisfiable = switch satSolver {
 				case satSolver.solver instanceof Sat4JImpl : {
 					switch (satSolver.solver as Sat4JImpl).variant.literal {
 						case 'sat4j-java' : java_solve(input_path)
@@ -75,31 +78,60 @@ class Solver {
 				case satSolver.solver instanceof CryptoMiniSATImpl : cryptominisat_solve(input_path)
 				default : println('Unknown solver')
 			}
-		]
+			
+			if ((satisfiable as Boolean)) {
+				println('Satisfiable')
+			} else {
+				println('Unsatisfiable')
+			}
+    	}
+
+		
     }
     
     
-    def void minisat_solve(String file_path, Float rnd_freq) {
+    def Boolean minisat_solve(String file_path, Float rnd_freq) {
     	println('minisat_solve called')
+    	var satisfiable = true
     	var pb = new ProcessBuilder()
-		pb.command('minisat','rnd-freq='+rnd_freq, file_path)
-		pb.redirectOutput(Redirect.INHERIT)
+		pb.command('minisat','-rnd-freq='+rnd_freq, file_path)
+//		pb.redirectOutput(Redirect.INHERIT)
 		var p = pb.start()
+		var output = p.getInputStream()
 		p.waitFor()
+		
+		var reader = new BufferedReader(new InputStreamReader(output))
+        var line = ""
+        while ((line = reader.readLine()) !== null) {
+            if(line.toLowerCase.contains('unsatisfiable')) {
+            	satisfiable = false
+            }
+        }
+        return satisfiable
     }
     
     
-    def void cryptominisat_solve(String file_path) {
+    def Boolean cryptominisat_solve(String file_path) {
     	println('cryptominisat_solve called')
+    	var satisfiable = true
     	var pb = new ProcessBuilder()
 		pb.command('cryptominisat5', file_path)
-		pb.redirectOutput(Redirect.INHERIT)
 		var p = pb.start()
+		var output = p.getInputStream()
 		p.waitFor()
+		
+		var reader = new BufferedReader(new InputStreamReader(output))
+        var line = ""
+        while ((line = reader.readLine()) !== null) {
+            if(line.toLowerCase.contains('unsatisfiable')) {
+            	satisfiable = false
+            }
+        }
+        return satisfiable
     }
     
     
-    def void java_solve(String file_path) {
+    def Boolean java_solve(String file_path) {
     	println('java_solve called')
     	var solver = SolverFactory.newDefault()
         solver.setTimeout(3600); // 1 hour timeout
@@ -109,10 +141,12 @@ class Solver {
         try {
             var problem = reader.parseInstance(file_path)
             if (problem.isSatisfiable()) {
-                println("Satisfiable !")
+//                println("Satisfiable !")
                 reader.decode(problem.model(),out)
+                return true
             } else {
-                println("Unsatisfiable !")
+//                println("Unsatisfiable !")
+                return false
             }
         } catch (FileNotFoundException e) {
             // TODO Auto-generated catch block
@@ -121,25 +155,38 @@ class Solver {
         } catch (IOException e) {
             // TODO Auto-generated catch block
         } catch (ContradictionException e) {
-            println("Unsatisfiable (trivial)!")
+//            println("Unsatisfiable (trivial)!")
+            return false
         } catch (TimeoutException e) {
-            println("Timeout, sorry!");      
+//            println("Timeout, sorry!");
+            return false
         }
     }
     
     
-    def void jar_solve(String file_path) {
+    def Boolean jar_solve(String file_path) {
     	println('jar_solve called')
+    	var satisfiable = true
 		var pb = new ProcessBuilder()
 		pb.command('java', '-jar', 'lib/org.sat4j.jar', file_path)
-		pb.redirectOutput(Redirect.INHERIT)
 		var p = pb.start()
+		var output = p.getInputStream()
 		p.waitFor()
+		
+		var reader = new BufferedReader(new InputStreamReader(output))
+        var line = ""
+        while ((line = reader.readLine()) !== null) {
+            if(line.toLowerCase.contains('unsatisfiable')) {
+            	satisfiable = false
+            }
+        }
+        return satisfiable
     }
     
     
-    def void maven_solve(String file_path) {
+    def Boolean maven_solve(String file_path) {
     	println('maven_solve called')
+    	var satisfiable = true
 		var sat_file = new File('sat')
 		var solver_file = new File('sat/src/main/java/dsl/Solver.java')
 		var pom_file = new File('sat/pom.xml')
@@ -253,6 +300,16 @@ public class Solver {
 		pb.redirectOutput(Redirect.INHERIT)
 		pb.directory(sat_file)
 		var p = pb.start()
+		var output = p.getInputStream()
 		p.waitFor()
+		
+		var reader = new BufferedReader(new InputStreamReader(output))
+        var line = ""
+        while ((line = reader.readLine()) !== null) {
+            if(line.toLowerCase.contains('unsatisfiable')) {
+            	satisfiable = false
+            }
+        }
+        return satisfiable
     }
 }

@@ -66,7 +66,7 @@ class MSatParsingMacherTest {
 		val result = parseHelper.parse('''
 			solver 
 				   sat4j-java
-			benchmarkFormula A ^ (!A), A ^ B
+			benchmarkFormula A ^ (!B)
 		''')
 		Assertions.assertNotNull(result)
 		val errors = result.eResource.errors
@@ -79,7 +79,7 @@ class MSatParsingMacherTest {
 		val result = parseHelper.parse('''
 			solver 
 				   sat4j-jar
-			benchmarkFormula (A ^ B)
+			benchmarkFormula (A ^ (!B))
 		''')
 		Assertions.assertNotNull(result)
 		val errors = result.eResource.errors
