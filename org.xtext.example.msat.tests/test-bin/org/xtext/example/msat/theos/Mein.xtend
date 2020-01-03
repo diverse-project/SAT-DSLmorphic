@@ -131,7 +131,7 @@ class Mein
 		{
 			val filename_of_formula = "tmp_output.cnf"
 			val fileWriter = new FileWriter(new File(filename_of_formula));
-			fileWriter.write(dimacs_formula);
+			fileWriter.write(formula);
 			fileWriter.close();
 		
 			val answers = newArrayList();
@@ -149,9 +149,10 @@ class Mein
 				println("Returning the first one.")
 			}
 			val some_answer = answers.get(0)
+			return some_answer
+			
 		}
 		
-		return some_answer
 		
 	}
 	
@@ -211,6 +212,7 @@ class Mein
 		
 	}
 	
+	
 	def read_entry(SATMorphic ast)
 	{
 		val formulas = newArrayList();
@@ -236,8 +238,7 @@ class Mein
 			}
 			default : 
 			{
-				println("Never supposed to happen")
-				return ""
+				throw new Error("Never supposed to happen")
 			}
 		}
 		return formulas
