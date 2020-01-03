@@ -164,7 +164,9 @@ class Mein
 			case Sat4JVariant.SAT4J_JAVA_VALUE : 
 			{
 				println("calling sat4j from java code.")
-				is_sat = SAT4JBIBCall.DoIt(filename_of_formula)
+				val answer = SAT4JBIBCall.DoIt(filename_of_formula)
+				is_sat = (answer.get(0) as Boolean)
+				elapsed_time = (answer.get(1) as Long)
 			}
 			case Sat4JVariant.SAT4J_JAR_VALUE : 
 			{
@@ -230,19 +232,6 @@ class Mein
 			}
 		}
 	}
-	/*
-	 * Solvers supportés (ou à supporter) : 
-	 * 
-	 * Sat4J library, version ??
-	 * Sat4J Jar, version ??
-	 * Sat4J Maven ??
-	 * minisat, version ??, parameters ??
-	 * cryptominisat ??
-	 * 
-	 * 
-	 * 
-	 * 
-	 */
 	
 	
 	def get_call_methods(SATMorphic ast)

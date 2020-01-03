@@ -3,6 +3,8 @@ package org.xtext.example.msat.theos;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.Arrays;
+import java.util.List;
 
 import org.sat4j.minisat.SolverFactory;
 import org.sat4j.reader.DimacsReader;
@@ -15,14 +17,17 @@ import org.sat4j.specs.TimeoutException;
 
 public class SAT4JBIBCall 
 {
-	public static boolean DoIt(String file_dimacs_formula)
+	public static List<Object> DoIt(String file_dimacs_formula)
 	{
+
 			ISolver solver = SolverFactory.newDefault();
 	        solver.setTimeout(3600); // 1 hour timeout
 	        Reader reader = new DimacsReader(solver);
 	        PrintWriter out = new PrintWriter(System.out,true);
 	        try {
 	            IProblem problem = reader.parseInstance(file_dimacs_formula);
+				long start = System.currentTimeMillis();
+
 	            if (problem.isSatisfiable()) {
 	                System.out.println("Satisfiable !");
 	                reader.decode(problem.model(),out);
@@ -30,7 +35,9 @@ public class SAT4JBIBCall
 	            } else {
 	                System.out.println("Unsatisfiable !");
 	            }
-	            return problem.isSatisfiable();
+				long finish = System.currentTimeMillis();
+				long timeElapsed = finish - start;
+				return Arrays.asList(problem.isSatisfiable(), timeElapsed);
 	        } catch (FileNotFoundException e) {
 	        	System.out.println("file not found");
 	            // TODO Auto-generated catch block
@@ -45,6 +52,6 @@ public class SAT4JBIBCall
 	        } catch (TimeoutException e) {
 	            System.out.println("Timeout, sorry!");      
 	        }
-	        return false;
+	        throw new Error("Error while calling SAT4J java library");
 	}
 }
