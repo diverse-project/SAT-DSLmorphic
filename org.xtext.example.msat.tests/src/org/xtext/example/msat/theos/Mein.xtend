@@ -75,7 +75,7 @@ class Mein
 				   sat4j-jar version "2.3.1"
 			benchmarkDIMACS "input.cnf" "input2.cnf"
 		'''
-		val sat_and_time = check_formula(text);
+		val sat_and_time = check_formulas(text);
 		val is_sat = (sat_and_time.get(0) as Boolean)
 		val elapsed_time = (sat_and_time.get(1) as Long)
 		Assertions.assertTrue(is_sat);
@@ -92,10 +92,10 @@ class Mein
 //  				Some functions
 //--------------------------------------------------------------------------------------------------
 
-	def check_formula(String input)
+	def check_formulas(String input)
 	{
 		val print_text_read = false;
-		val print_formula = true;
+		val print_formulas = true;
 		val print_call_method = true;
 		val print_all_responses = true;
 		
@@ -107,16 +107,16 @@ class Mein
 		}
 		val ast = parseHelper.parse(input);
 				
-		val dimacs_formula = read_entry(ast)
+		val dimacs_formulas = read_entry(ast)
 
 		val call_methods = get_call_methods(ast)
 		//println(call_method.getClass().getSimpleName())
 		
 		
-		if(print_formula)
+		if(print_formulas)
 		{
-			print("dimcas fomula : \n")		
-			println(dimacs_formula)
+			print("dimcas fomulas : \n")		
+			println(dimacs_formulas)
 			println()
 		}
 		
@@ -127,26 +127,29 @@ class Mein
 			println()
 		}
 
-		val filename_of_formula = "tmp_output.cnf"
-		val fileWriter = new FileWriter(new File(filename_of_formula));
-		fileWriter.write(dimacs_formula);
-		fileWriter.close();
-		
-		val answers = newArrayList();
-		
-		for (call_method : call_methods)
-		{	
-			val answer =  evaluate(call_method, filename_of_formula);
-			answers.add(answer)
-		} 
-		
-		if(print_all_responses)
+		for(formula : dimacs_formulas)
 		{
-			println("Here is the response for all solvers : ")
-			println(answers)
-			println("Returning the first one.")
+			val filename_of_formula = "tmp_output.cnf"
+			val fileWriter = new FileWriter(new File(filename_of_formula));
+			fileWriter.write(dimacs_formula);
+			fileWriter.close();
+		
+			val answers = newArrayList();
+		
+			for (call_method : call_methods)
+			{	
+				val answer =  evaluate(call_method, filename_of_formula);
+				answers.add(answer)
+			} 
+		
+			if(print_all_responses)
+			{
+				println("Here is the response for all solvers : ")
+				println(answers)
+				println("Returning the first one.")
+			}
+			val some_answer = answers.get(0)
 		}
-		val some_answer = answers.get(0)
 		
 		return some_answer
 		
@@ -210,20 +213,26 @@ class Mein
 	
 	def read_entry(SATMorphic ast)
 	{
+		val formulas = newArrayList();
 		switch ast.benchmark
 		{
 			case ast.benchmark instanceof BenchmarkDimacs :
 			{ 
-				// TODO Multiple files
-				val filename = (ast.benchmark as BenchmarkDimacs).dimacses.get(0)
-				return new String(Files.readAllBytes(Paths.get(filename)), StandardCharsets.UTF_8);
+				for(filename : (ast.benchmark as BenchmarkDimacs).dimacses)
+				{
+					val formula =  new String(Files.readAllBytes(Paths.get(filename)), StandardCharsets.UTF_8);
+					formulas.add(formula)
+				
+				}
 			}
 			case ast.benchmark instanceof BenchmarkFormula :
 			{
-				// TODO Multiple formulas
-				return Utils.prop_to_dimacs(((ast.benchmark as BenchmarkFormula)
-											.expressions.get(0) as EObject
-				))
+				for(msat_formula : ((ast.benchmark as BenchmarkFormula).expressions))
+				{
+					val formula =  Utils.prop_to_dimacs(msat_formula);
+					formulas.add(formula)
+				
+				}
 			}
 			default : 
 			{
@@ -231,6 +240,7 @@ class Mein
 				return ""
 			}
 		}
+		return formulas
 	}
 	
 	
