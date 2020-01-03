@@ -97,23 +97,26 @@ class Solver {
     
     def void jar_solve(String file_path) {
     	println('jar_solve called')
+    	
 		var pb = new ProcessBuilder()
-		pb.command("cmd.exe", "/c", "java -jar lib/org.sat4j.jar " + file_path)
+		pb.command('java', '-jar', 'lib/org.sat4j.jar', file_path)
 		pb.redirectOutput(Redirect.INHERIT)
-		pb.start()
+		var p = pb.start()
+		p.waitFor()
     }
     
     
     def void maven_solve(String file_path) {
     	println('maven_solve called')
 		var sat_file = new File('sat')
-		var solver_file = new File('sat\\src\\main\\java\\dsl\\Solver.java')
-		var pom_file = new File('sat\\pom.xml')
+		var solver_file = new File('sat/src/main/java/dsl/Solver.java')
+		var pom_file = new File('sat/pom.xml')
 		
 		
 		if (!sat_file.exists()) {
 			var pb = new ProcessBuilder()
-			pb.command("cmd.exe", "/c", 'mvn archetype:generate -DgroupId=dsl -DartifactId=sat -DarchetypeArtifactId=maven-archetype-quickstart -DarchetypeVersion=1.4 -DinteractiveMode=false -e')
+			println('--------- mvn generation ---------')
+			pb.command('mvn', 'archetype:generate', '-DgroupId=dsl', '-DartifactId=sat', '-DarchetypeArtifactId=maven-archetype-quickstart', '-DarchetypeVersion=1.4', '-DinteractiveMode=false', '-e')
 			pb.redirectOutput(Redirect.INHERIT)
 			var p = pb.start()
 			p.waitFor()
@@ -197,13 +200,13 @@ public class Solver {
     <dependency>
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
-      <version>3.8.1</version>
+      <version>4.13</version>
       <scope>test</scope>
     </dependency>
     <dependency>
-	    <groupId>org.sat4j</groupId>
-	    <artifactId>org.sat4j.core</artifactId>
-	    <version>2.3.1</version>
+	  <groupId>org.sat4j</groupId>
+	  <artifactId>org.sat4j.core</artifactId>
+	  <version>2.3.1</version>
     </dependency>
   </dependencies>
 </project>'
@@ -211,14 +214,17 @@ public class Solver {
 		writer.close()
 		
 		var pb = new ProcessBuilder()
-		pb.command("cmd.exe", "/c", 'mvn install')
+		println('--------- mvn install ---------')
+		pb.command('mvn', 'install')
 		pb.redirectOutput(Redirect.INHERIT)
 		pb.directory(sat_file)
 		var p = pb.start()
 		p.waitFor()
 		
 		pb = new ProcessBuilder()
-		pb.command("cmd.exe", "/c", String.format('mvn exec:java -D"exec.mainClass"="dsl.Solver" -Dexec.args="..\\%s"',file_path))
+		println('--------- mvn exectution ---------')
+		println('-Dexec.args="../'+file_path+'"')
+		pb.command('mvn', 'exec:java', '-Dexec.mainClass=dsl.Solver', '-Dexec.args="../'+file_path+'"')
 		pb.redirectOutput(Redirect.INHERIT)
 		pb.directory(sat_file)
 		p = pb.start()
