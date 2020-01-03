@@ -3,9 +3,9 @@ package org.xtext.example.msat.theos;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 
-public class Methode2
+public class Sat4JJARCall
 {
-	public static boolean DoIt(String file_dimacs_formula) 
+	public static boolean DoIt(String file_dimacs_formula, String version) 
 	{
 		/*
 		ProcessBuilder pb = new ProcessBuilder("java", "-jar", "absolute path upto jar");
@@ -19,6 +19,8 @@ public class Methode2
 		dirProcess.redirectOutput(dirOut);
 		dirProcess.redirectError(dirErr);
 		*/
+		
+		
 		
 		String complete_output = "";
 		try 

@@ -258,18 +258,18 @@ class Mein
 			case Sat4JVariant.SAT4J_JAVA_VALUE : 
 			{
 				println("calling sat4j from java code.")
-				is_sat = Methode1.DoIt(filename_of_formula)
+				is_sat = SAT4JBIBCall.DoIt(filename_of_formula)
 			}
 			case Sat4JVariant.SAT4J_JAR_VALUE : 
 			{
 				println("calling sat4j from jar")
-				is_sat = Methode2.DoIt(filename_of_formula)
+				is_sat = Sat4JJARCall.DoIt(filename_of_formula, version_solver)
 			
 			}
 			case Sat4JVariant.SAT4J_COMP_VALUE :
 			{
 				println("generating maven project")
-				is_sat = Method3.DoIt(filename_of_formula)
+				is_sat = SAT4JMaven.DoIt(filename_of_formula)
 				println("Done.")
 			}
 			case 4 : //MiniSAT solver
@@ -281,7 +281,7 @@ class Mein
 			case 5 : //CryptoMinisat solver
 			{
 				println("calling CryptoMiniSAT from bin")
-				is_sat = CryptoMiniSATCall.DoIt(filename_of_formula)
+				is_sat = CryptoMiniSATCall.DoIt(filename_of_formula, version_solver)
 			}	
 			//TODO other solvers
 			default :

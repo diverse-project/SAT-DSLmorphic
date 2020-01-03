@@ -6,7 +6,7 @@ import java.nio.file.Files
 import java.nio.file.Paths
 import java.nio.file.StandardCopyOption
 
-class Method3
+class SAT4JMaven
 {
 	static def DoIt(String file_dimacs_formula) 
 	{	

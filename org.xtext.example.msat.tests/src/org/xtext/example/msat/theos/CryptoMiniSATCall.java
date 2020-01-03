@@ -5,7 +5,7 @@ import java.io.InputStreamReader;
 
 public class CryptoMiniSATCall
 {
-	public static boolean DoIt(String file_dimacs_formula) 
+	public static boolean DoIt(String file_dimacs_formula, String version) 
 	{	
 		String complete_output = "";
 		try 

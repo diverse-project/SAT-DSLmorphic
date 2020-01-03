@@ -13,7 +13,7 @@ import org.sat4j.specs.IProblem;
 import org.sat4j.specs.ISolver;
 import org.sat4j.specs.TimeoutException;
 
-public class Methode1 
+public class SAT4JBIBCall 
 {
 	public static boolean DoIt(String file_dimacs_formula)
 	{
