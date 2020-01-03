@@ -71,8 +71,12 @@ class SomeTests
 				   sat4j-java
 			benchmarkDIMACS "input.cnf"
 		'''
-		val sat = check_formula(text);
-		Assertions.assertTrue(sat);
+		val sat_and_time = check_formula(text);
+		val is_sat = (sat_and_time.get(0) as Boolean)
+		val elapsed_time = (sat_and_time.get(1) as Long)		
+		Assertions.assertTrue(is_sat);
+		println("Elapsed time : " + elapsed_time)
+		
 		//val errors = result.eResource.errors
 		//Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
 	}
@@ -88,8 +92,11 @@ class SomeTests
 				   sat4j-maven
 			benchmarkDIMACS "input.cnf"
 		'''
-		val sat = check_formula(text);
-		Assertions.assertFalse(sat);
+		val sat_and_time = check_formula(text);
+		val is_sat = (sat_and_time.get(0) as Boolean)
+		val elapsed_time = (sat_and_time.get(1) as Long)		
+		Assertions.assertFalse(is_sat);
+		println("Elapsed time : " + elapsed_time)
 	}
 	
 	@Test
@@ -103,8 +110,11 @@ class SomeTests
 				   sat4j-maven
 			benchmarkDIMACS "input2.cnf"
 		'''
-		val sat = check_formula(text);
-		Assertions.assertFalse(sat);
+		val sat_and_time = check_formula(text);
+		val is_sat = (sat_and_time.get(0) as Boolean)
+		val elapsed_time = (sat_and_time.get(1) as Long)
+		Assertions.assertFalse(is_sat);
+		println("Elapsed time : " + elapsed_time)
 	}
 	
 	@Test
@@ -118,8 +128,11 @@ class SomeTests
 				   sat4j-jar 
 			benchmarkDIMACS "input.cnf"
 		'''
-		val sat = check_formula(text);
-		Assertions.assertTrue(sat);
+		val sat_and_time = check_formula(text);
+		val is_sat = (sat_and_time.get(0) as Boolean)
+		val elapsed_time = (sat_and_time.get(1) as Long)
+		Assertions.assertTrue(is_sat);
+		println("Elapsed time : " + elapsed_time)
 	}
 	
 	@Test
@@ -133,8 +146,11 @@ class SomeTests
 				   minisat
 			benchmarkDIMACS "input.cnf"
 		'''
-		val sat = check_formula(text);
-		Assertions.assertTrue(sat);
+		val sat_and_time = check_formula(text);
+		val is_sat = (sat_and_time.get(0) as Boolean)
+		val elapsed_time = (sat_and_time.get(1) as Long)
+		Assertions.assertTrue(is_sat);
+		println("Elapsed time : " + elapsed_time)
 	}
 	
 	@Test
@@ -148,8 +164,11 @@ class SomeTests
 				   minisat
 			benchmarkDIMACS "input2.cnf"
 		'''
-		val sat = check_formula(text);
-		Assertions.assertFalse(sat);
+		val sat_and_time = check_formula(text);
+		val is_sat = (sat_and_time.get(0) as Boolean)
+		val elapsed_time = (sat_and_time.get(1) as Long)
+		Assertions.assertFalse(is_sat);
+		println("Elapsed time : " + elapsed_time)
 	}
 	
 	@Test
@@ -163,8 +182,11 @@ class SomeTests
 				   minisat version "1.14.0"
 			benchmarkDIMACS "input.cnf"
 		'''
-		val sat = check_formula(text);
-		Assertions.assertTrue(sat);
+		val sat_and_time = check_formula(text);
+		val is_sat = (sat_and_time.get(0) as Boolean)
+		val elapsed_time = (sat_and_time.get(1) as Long)
+		Assertions.assertTrue(is_sat);
+		println("Elapsed time : " + elapsed_time)
 	}
 	
 	@Test
@@ -178,8 +200,11 @@ class SomeTests
 				   cryptominisat
 			benchmarkDIMACS "input.cnf"
 		'''
-		val sat = check_formula(text);
-		Assertions.assertTrue(sat);
+		val sat_and_time = check_formula(text);
+		val is_sat = (sat_and_time.get(0) as Boolean)
+		val elapsed_time = (sat_and_time.get(1) as Long)
+		Assertions.assertTrue(is_sat);
+		println("Elapsed time : " + elapsed_time)
 	}
 	
 	@Test
@@ -207,14 +232,19 @@ class SomeTests
 //  				Some functions
 //--------------------------------------------------------------------------------------------------
 
-
-
 	def check_formula(String input)
 	{
-		//print("text read : ")
-		//println(input);
-		//println()
-
+		val print_text_read = false;
+		val print_formula = true;
+		val print_call_method = true;
+		val print_all_responses = true;
+		
+		if(print_text_read)
+		{
+			//print("text read : ")
+			//println(input);
+			//println()
+		}
 		val ast = parseHelper.parse(input);
 				
 		val dimacs_formula = read_entry(ast)
@@ -222,15 +252,20 @@ class SomeTests
 		val call_methods = get_call_methods(ast)
 		//println(call_method.getClass().getSimpleName())
 		
-		print("dimcas fomula : \n")		
-		println(dimacs_formula)
-		println()
 		
+		if(print_formula)
+		{
+			print("dimcas fomula : \n")		
+			println(dimacs_formula)
+			println()
+		}
 		
-		print("call method : ")
-		println(call_methods)
-		println()
-
+		if(print_call_method)
+		{
+			print("call method : ")
+			println(call_methods)
+			println()
+		}
 
 		val filename_of_formula = "tmp_output.cnf"
 		val fileWriter = new FileWriter(new File(filename_of_formula));
@@ -245,9 +280,12 @@ class SomeTests
 			answers.add(answer)
 		} 
 		
-		println("Here is the response for all solvers : ")
-		println(answers)
-		println("Returning the first one.")
+		if(print_all_responses)
+		{
+			println("Here is the response for all solvers : ")
+			println(answers)
+			println("Returning the first one.")
+		}
 		val some_answer = answers.get(0)
 		
 		return some_answer
@@ -260,6 +298,7 @@ class SomeTests
 		val version_solver = call_method.get(1) as String
 		
 		var is_sat = false;
+		var elapsed_time = -1l 
 		switch id_solver
 		{
 			case Sat4JVariant.SAT4J_JAVA_VALUE : 
@@ -269,9 +308,10 @@ class SomeTests
 			}
 			case Sat4JVariant.SAT4J_JAR_VALUE : 
 			{
-				println("calling sat4j from jar")
-				is_sat = Sat4JJARCall.DoIt(filename_of_formula, version_solver)
-			
+				println("calling sat4j from jar with version " + version_solver)
+				val answer = Sat4JJARCall.DoIt(filename_of_formula, version_solver)
+				is_sat = (answer.get(0) as Boolean)
+				elapsed_time = (answer.get(1) as Long)
 			}
 			case Sat4JVariant.SAT4J_COMP_VALUE :
 			{
@@ -282,13 +322,17 @@ class SomeTests
 			case 4 : //MiniSAT solver
 			{
 				val parameters = call_method.get(2) as String
-				println("calling MiniSAT from bin")
-				is_sat = MiniSATCall.DoIt(filename_of_formula, version_solver, parameters)
+				println("calling MiniSAT from bin with version " + version_solver)
+				val answer =  MiniSATCall.DoIt(filename_of_formula, version_solver, parameters)
+				is_sat = (answer.get(0) as Boolean)
+				elapsed_time = (answer.get(1) as Long)
 			}	
 			case 5 : //CryptoMinisat solver
 			{
-				println("calling CryptoMiniSAT from bin")
-				is_sat = CryptoMiniSATCall.DoIt(filename_of_formula, version_solver)
+				println("calling CryptoMiniSAT from bin with version " + version_solver)
+				val answer =  CryptoMiniSATCall.DoIt(filename_of_formula, version_solver)
+				is_sat = (answer.get(0) as Boolean)
+				elapsed_time = (answer.get(1) as Long)
 			}	
 			//TODO other solvers
 			default :
@@ -297,7 +341,8 @@ class SomeTests
 			}
 		}	
 		
-		return is_sat;
+		val sat_and_time = newArrayList(is_sat, elapsed_time);
+		return sat_and_time;
 		
 	}
 	
@@ -385,3 +430,7 @@ class SomeTests
 		return solvers
 	}
 }
+
+
+
+	

@@ -11,7 +11,7 @@ public class Sat4JJARCall
 
 	static List<String> accepted_versions =  Arrays.asList("2.0.0", "2.2.3", "2.3.1");
 
-	public static boolean DoIt(String file_dimacs_formula, String version) 
+	public static List<Object> DoIt(String file_dimacs_formula, String version) 
 	{
 		/*
 		ProcessBuilder pb = new ProcessBuilder("java", "-jar", "absolute path upto jar");
@@ -31,25 +31,29 @@ public class Sat4JJARCall
 			version = "2.3.1";
 		}
 		check_version(version);
+		String calling_name = "org.sat4j.core-" + version + ".jar";
 		
 		
 		String complete_output = "";
 		try 
 		{
-			String calling_name = "org.sat4j.core-" + version + ".jar";
+			long start = System.currentTimeMillis();
 			ProcessBuilder pb = new ProcessBuilder("java", "-jar", calling_name, file_dimacs_formula);
 			Process p = pb.start();
 			BufferedReader in = new BufferedReader(new InputStreamReader(p.getInputStream()));
+			long finish = System.currentTimeMillis();
+			long timeElapsed = finish - start;
 			String s = "";
 			while((s = in.readLine()) != null)
 			{
 				if (s.contains("UNSATISFIABLE"))
 				{
-					return false;
+					return Arrays.asList(false, timeElapsed);
 				}
 				else if (s.contains("SATISFIABLE"))
 				{
-					return true;
+					return Arrays.asList(true, timeElapsed);
+
 				}
 				
 			    //System.out.println(s);
