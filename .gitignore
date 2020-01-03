@@ -130,4 +130,7 @@ xtend-gen/
 # Ignore plugin.xml_gen and feature.xml_gen files, when build Eclipse Plugins.
 *.xml_gen
 
+#By Theo : 
+*.xtendbin
+
 # End of https://www.gitignore.io/api/xtext,emacs,eclipse

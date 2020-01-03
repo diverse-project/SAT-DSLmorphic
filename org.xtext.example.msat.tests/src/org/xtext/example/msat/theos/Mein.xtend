@@ -123,6 +123,51 @@ class Mein
 	}
 	
 	@Test
+	def void loadMiniSAT() 
+	{
+		println("-----------------------------------")
+		println("loadMiniSAT : ")
+		val text =
+		'''
+			solver 
+				   minisat
+			benchmarkDIMACS "input.cnf"
+		'''
+		val sat = check_formula(text);
+		Assertions.assertTrue(sat);
+	}
+	
+	@Test
+	def void loadMiniSATversion() 
+	{
+		println("-----------------------------------")
+		println("loadMiniSATversion : ")
+		val text =
+		'''
+			solver 
+				   minisat version "1.14.0"
+			benchmarkDIMACS "input.cnf"
+		'''
+		val sat = check_formula(text);
+		Assertions.assertTrue(sat);
+	}
+	
+	@Test
+	def void loadCryptoMiniSAT() 
+	{
+		println("-----------------------------------")
+		println("loadCryptoMiniSAT : ")
+		val text =
+		'''
+			solver 
+				   cryptominisat
+			benchmarkDIMACS "input.cnf"
+		'''
+		val sat = check_formula(text);
+		Assertions.assertTrue(sat);
+	}
+	
+	@Test
 	def void main()
 	{	
 		println("-----------------------------------")
@@ -190,7 +235,7 @@ class Mein
 	def evaluate (ArrayList<Object> call_method, String filename_of_formula)
 	{
 		val id_solver = call_method.get(0)
-		val version_solver = call_method.get(1)
+		val version_solver = call_method.get(1) as String
 		
 		var is_sat = false;
 		switch id_solver
@@ -214,11 +259,14 @@ class Mein
 			}
 			case 4 : //MiniSAT solver
 			{
-				
+				val parameters = call_method.get(2) as String
+				println("calling MiniSAT from bin")
+				is_sat = MiniSATCall.DoIt(filename_of_formula, version_solver, parameters)
 			}	
 			case 5 : //CryptoMinisat solver
 			{
-				
+				println("calling CryptoMiniSAT from bin")
+				is_sat = CryptoMiniSATCall.DoIt(filename_of_formula)
 			}	
 			//TODO other solvers
 			default :
@@ -276,7 +324,7 @@ class Mein
 		for (solver : ast.solvers)
 		{
 			val solverr = solver.solver
-			var version = "?"
+			var version = "default"
 			if (solver.version !== null)
 			{
 				version = (solver.version as SolverVersion).version
@@ -292,14 +340,10 @@ class Mein
 				case solverr instanceof MiniSAT:
 				{
 					val id_solver = 4 //a new identifier for minisat
-					var parameters = "-rnd-freq="
+					var parameters = ""
 					if ((solverr as MiniSAT).parameter !== null)
 					{
-						parameters += (solverr as MiniSAT).parameter.rndfreq
-					}
-					else
-					{
-						parameters += "0"
+						parameters += "-rnd-freq=" + (solverr as MiniSAT).parameter.rndfreq
 					}
 					val informations_solver = newArrayList(id_solver, version, parameters);
 					solvers.add(informations_solver)					
