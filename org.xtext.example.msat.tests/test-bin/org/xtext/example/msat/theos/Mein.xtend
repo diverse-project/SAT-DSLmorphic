@@ -76,132 +76,15 @@ class Mein
 		//val errors = result.eResource.errors
 		//Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
 	}
-	
-	@Test
-	def void loadSAT4J_MVN() 
-	{
-		println("-----------------------------------")
-		println("loadSAT4J_MVN : ")
-		val text =  
-		'''
-			solver 
-				   sat4j-maven
-			benchmarkDIMACS "input.cnf"
-		'''
-		val sat = check_formula(text);
-		Assertions.assertFalse(sat);
-	}
-	
-	@Test
-	def void loadSAT4J_MVN_2() 
-	{
-		println("-----------------------------------")
-		println("loadSAT4J_MVN_2 : ")
-		val text =  
-		'''
-			solver 
-				   sat4j-maven
-			benchmarkDIMACS "input2.cnf"
-		'''
-		val sat = check_formula(text);
-		Assertions.assertFalse(sat);
-	}
-	
-	@Test
-	def void loadSAT4J_JAR() 
-	{
-		println("-----------------------------------")
-		println("loadSAT4J_JAR : ")
-		val text =
-		'''
-			solver 
-				   sat4j-jar
-			benchmarkDIMACS "input.cnf"
-		'''
-		val sat = check_formula(text);
-		Assertions.assertTrue(sat);
-	}
-	
-	@Test
-	def void loadMiniSAT() 
-	{
-		println("-----------------------------------")
-		println("loadMiniSAT : ")
-		val text =
-		'''
-			solver 
-				   minisat
-			benchmarkDIMACS "input.cnf"
-		'''
-		val sat = check_formula(text);
-		Assertions.assertTrue(sat);
-	}
-	
-	@Test
-	def void loadMiniSAT2() 
-	{
-		println("-----------------------------------")
-		println("loadMiniSAT : ")
-		val text =
-		'''
-			solver 
-				   minisat
-			benchmarkDIMACS "input2.cnf"
-		'''
-		val sat = check_formula(text);
-		Assertions.assertFalse(sat);
-	}
-	
-	@Test
-	def void loadMiniSATversion() 
-	{
-		println("-----------------------------------")
-		println("loadMiniSATversion : ")
-		val text =
-		'''
-			solver 
-				   minisat version "1.14.0"
-			benchmarkDIMACS "input.cnf"
-		'''
-		val sat = check_formula(text);
-		Assertions.assertTrue(sat);
-	}
-	
-	@Test
-	def void loadCryptoMiniSAT() 
-	{
-		println("-----------------------------------")
-		println("loadCryptoMiniSAT : ")
-		val text =
-		'''
-			solver 
-				   cryptominisat
-			benchmarkDIMACS "input.cnf"
-		'''
-		val sat = check_formula(text);
-		Assertions.assertTrue(sat);
-	}
-	
-	@Test
-	def void main()
-	{	
-		println("-----------------------------------")
-		println("main : ")
-		//val ast = parseHelper.parse('''
-		//		A ^ (B v C) ^ (~A)
-		//		sat4j-java
-		//''')
-		
-		//val input = "formula.msat"
-		
-		//val text = new String(Files.readAllBytes(Paths.get(input)), StandardCharsets.UTF_8);
 
-		
-		//val is_sat = check_formula(text)
-		
-		//Assertions.assertTrue(!is_sat)
-	}
-	
+
+
+
+
+//--------------------------------------------------------------------------------------------------
+//  				Some functions
+//--------------------------------------------------------------------------------------------------
+
 	def check_formula(String input)
 	{
 		//print("text read : ")
@@ -378,3 +261,137 @@ class Mein
 		return solvers
 	}
 }
+
+
+
+
+
+
+
+/*
+	@Test
+	def void loadSAT4J_MVN() 
+	{
+		println("-----------------------------------")
+		println("loadSAT4J_MVN : ")
+		val text =  
+		'''
+			solver 
+				   sat4j-maven
+			benchmarkDIMACS "input.cnf"
+		'''
+		val sat = check_formula(text);
+		Assertions.assertFalse(sat);
+	}
+	
+	@Test
+	def void loadSAT4J_MVN_2() 
+	{
+		println("-----------------------------------")
+		println("loadSAT4J_MVN_2 : ")
+		val text =  
+		'''
+			solver 
+				   sat4j-maven
+			benchmarkDIMACS "input2.cnf"
+		'''
+		val sat = check_formula(text);
+		Assertions.assertFalse(sat);
+	}
+	
+	@Test
+	def void loadSAT4J_JAR() 
+	{
+		println("-----------------------------------")
+		println("loadSAT4J_JAR : ")
+		val text =
+		'''
+			solver 
+				   sat4j-jar 
+			benchmarkDIMACS "input.cnf"
+		'''
+		val sat = check_formula(text);
+		Assertions.assertTrue(sat);
+	}
+	
+	@Test
+	def void loadMiniSAT() 
+	{
+		println("-----------------------------------")
+		println("loadMiniSAT : ")
+		val text =
+		'''
+			solver 
+				   minisat
+			benchmarkDIMACS "input.cnf"
+		'''
+		val sat = check_formula(text);
+		Assertions.assertTrue(sat);
+	}
+	
+	@Test
+	def void loadMiniSAT2() 
+	{
+		println("-----------------------------------")
+		println("loadMiniSAT : ")
+		val text =
+		'''
+			solver 
+				   minisat
+			benchmarkDIMACS "input2.cnf"
+		'''
+		val sat = check_formula(text);
+		Assertions.assertFalse(sat);
+	}
+	
+	@Test
+	def void loadMiniSATversion() 
+	{
+		println("-----------------------------------")
+		println("loadMiniSATversion : ")
+		val text =
+		'''
+			solver 
+				   minisat version "1.14.0"
+			benchmarkDIMACS "input.cnf"
+		'''
+		val sat = check_formula(text);
+		Assertions.assertTrue(sat);
+	}
+	
+	@Test
+	def void loadCryptoMiniSAT() 
+	{
+		println("-----------------------------------")
+		println("loadCryptoMiniSAT : ")
+		val text =
+		'''
+			solver 
+				   cryptominisat
+			benchmarkDIMACS "input.cnf"
+		'''
+		val sat = check_formula(text);
+		Assertions.assertTrue(sat);
+	}
+	
+	@Test
+	def void main()
+	{	
+		println("-----------------------------------")
+		println("main : ")
+		//val ast = parseHelper.parse('''
+		//		A ^ (B v C) ^ (~A)
+		//		sat4j-java
+		//''')
+		
+		//val input = "formula.msat"
+		
+		//val text = new String(Files.readAllBytes(Paths.get(input)), StandardCharsets.UTF_8);
+
+		
+		//val is_sat = check_formula(text)
+		
+		//Assertions.assertTrue(!is_sat)
+	}
+*/
+	
