@@ -138,6 +138,21 @@ class Mein
 	}
 	
 	@Test
+	def void loadMiniSAT2() 
+	{
+		println("-----------------------------------")
+		println("loadMiniSAT : ")
+		val text =
+		'''
+			solver 
+				   minisat
+			benchmarkDIMACS "input2.cnf"
+		'''
+		val sat = check_formula(text);
+		Assertions.assertFalse(sat);
+	}
+	
+	@Test
 	def void loadMiniSATversion() 
 	{
 		println("-----------------------------------")
