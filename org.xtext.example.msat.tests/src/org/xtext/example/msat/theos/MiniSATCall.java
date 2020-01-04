@@ -45,7 +45,7 @@ public class MiniSATCall
 			while((s = in.readLine()) != null)
 			{
 				// DEBUG
-				System.out.println(s);
+				//System.out.println(s);
 				if (s.contains("UNSATISFIABLE"))
 				{
 					return Arrays.asList(false, timeElapsed);

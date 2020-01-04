@@ -1,13 +1,13 @@
 package org.xtext.example.msat.theos
 
 import com.google.inject.Inject
+import java.io.BufferedWriter
 import java.io.File
 import java.io.FileWriter
 import java.nio.charset.StandardCharsets
 import java.nio.file.Files
 import java.nio.file.Paths
 import java.util.ArrayList
-import org.eclipse.emf.ecore.EObject
 import org.eclipse.xtext.testing.InjectWith
 import org.eclipse.xtext.testing.extensions.InjectionExtension
 import org.eclipse.xtext.testing.util.ParseHelper
@@ -73,7 +73,15 @@ class Mein
 				   sat4j-jar version "2.0.0"
 				   sat4j-jar version "2.2.3"
 				   sat4j-jar version "2.3.1"
-			benchmarkDIMACS "input.cnf" "input2.cnf"
+				   sat4j-java 
+				   minisat version "1.14.0"
+				   minisat version "2.2.0"
+				   minisat
+				   cryptominisat version "2.4.0"
+				   cryptominisat version "4.5.3"
+				   cryptominisat version "5.6.8"
+				   cryptominisat
+			benchmarkDIMACS "input.cnf", "input2.cnf"
 		'''
 		val sat_and_time = check_formulas(text);
 		val is_sat = (sat_and_time.get(0) as Boolean)
@@ -98,6 +106,8 @@ class Mein
 		val print_formulas = true;
 		val print_call_method = true;
 		val print_all_responses = true;
+		val save_to_file = true;
+		
 		
 		if(print_text_read)
 		{
@@ -107,7 +117,9 @@ class Mein
 		}
 		val ast = parseHelper.parse(input);
 				
-		val dimacs_formulas = read_entry(ast)
+		val dimacs_formulas_and_their_name = read_entry(ast)
+		val dimacs_formulas = dimacs_formulas_and_their_name.get(0)
+		val name_formulas = dimacs_formulas_and_their_name.get(1)
 
 		val call_methods = get_call_methods(ast)
 		//println(call_method.getClass().getSimpleName())
@@ -127,8 +139,11 @@ class Mein
 			println()
 		}
 
-		for(formula : dimacs_formulas)
+		val all_answers = newArrayList();
+		for(var i=0; i< dimacs_formulas.size(); i++)
 		{
+			val formula = dimacs_formulas.get(i)
+			val name_formula = dimacs_formulas.get(i)
 			val filename_of_formula = "tmp_output.cnf"
 			val fileWriter = new FileWriter(new File(filename_of_formula));
 			fileWriter.write(formula);
@@ -148,17 +163,80 @@ class Mein
 				println(answers)
 				println("Returning the first one.")
 			}
-			val some_answer = answers.get(0)
-			return some_answer
-			
+			all_answers.add(answers)
 		}
 		
+			if(save_to_file)
+			{
+				
+				val results_filename = "results.csv"
+				val writer = new BufferedWriter(new FileWriter(results_filename));
 		
+				for(var i=0; i< dimacs_formulas.size(); i++)
+				{
+					val name_formula = name_formulas.get(i)
+					for (var j=0 ; j < call_methods.size(); j++)
+					{
+						val call_method = call_methods.get(j)
+						val id_solver = call_method.get(0) as Integer
+						val version_solver = call_method.get(1) as String
+						
+						val line = name_formula + " ; " + id_solver_to_solver_name(id_solver) + " ; " +
+									version_solver + " ; " + all_answers.get(i).get(j).get(0) + " ; " + 
+									all_answers.get(i).get(j).get(1) + "\n"
+						writer.write(line)
+						
+					}
+					
+				}
+				/*
+				 * formula_name ; solver ; version ; is_sat ; temps 
+				 *
+				 */
+				 writer.close();
+				 
+			}
+		
+		
+
+		return newArrayList(false, 50l);
+		
+	}
+	
+	def id_solver_to_solver_name(int id_solver)
+	{
+		switch id_solver
+		{
+			case Sat4JVariant.SAT4J_JAVA_VALUE : 
+			{
+				return "sat4j-java"
+
+			}
+			case Sat4JVariant.SAT4J_JAR_VALUE : 
+			{
+				return "sat4j-jar"
+				
+			}
+			case Sat4JVariant.SAT4J_COMP_VALUE :
+			{
+				return "maven"
+			}
+			case 4 : //MiniSAT solver
+			{
+				return "MiniSAT"
+			}	
+			case 5 : //CryptoMinisat solver
+			{
+				return "CryptoMiniSAT"
+			}
+			
+		}
+		return "error"	
 	}
 	
 	def evaluate (ArrayList<Object> call_method, String filename_of_formula)
 	{
-		val id_solver = call_method.get(0)
+		val id_solver = call_method.get(0) as Integer
 		val version_solver = call_method.get(1) as String
 		
 		var is_sat = false;
@@ -212,10 +290,11 @@ class Mein
 		
 	}
 	
-	
+	static var cpt = 0
 	def read_entry(SATMorphic ast)
 	{
 		val formulas = newArrayList();
+		val name_formulas = newArrayList();
 		switch ast.benchmark
 		{
 			case ast.benchmark instanceof BenchmarkDimacs :
@@ -224,6 +303,7 @@ class Mein
 				{
 					val formula =  new String(Files.readAllBytes(Paths.get(filename)), StandardCharsets.UTF_8);
 					formulas.add(formula)
+					name_formulas.add(filename)
 				
 				}
 			}
@@ -232,8 +312,9 @@ class Mein
 				for(msat_formula : ((ast.benchmark as BenchmarkFormula).expressions))
 				{
 					val formula =  Utils.prop_to_dimacs(msat_formula);
-					formulas.add(formula)
-				
+					val filename = "BenchmarkFormula_" + cpt++
+					formulas.add(formula)	
+					name_formulas.add(filename)			
 				}
 			}
 			default : 
@@ -241,7 +322,7 @@ class Mein
 				throw new Error("Never supposed to happen")
 			}
 		}
-		return formulas
+		return newArrayList(formulas, name_formulas)
 	}
 	
 	

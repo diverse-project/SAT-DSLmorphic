@@ -23,20 +23,22 @@ public class SAT4JBIBCall
 			ISolver solver = SolverFactory.newDefault();
 	        solver.setTimeout(3600); // 1 hour timeout
 	        Reader reader = new DimacsReader(solver);
-	        PrintWriter out = new PrintWriter(System.out,true);
-	        try {
+	        Long timeElapsed = -1l;
+	       // PrintWriter out = new PrintWriter(System.out,true);
+			long start = System.currentTimeMillis();
+	        try 
+	        {
 	            IProblem problem = reader.parseInstance(file_dimacs_formula);
-				long start = System.currentTimeMillis();
 
 	            if (problem.isSatisfiable()) {
-	                System.out.println("Satisfiable !");
-	                reader.decode(problem.model(),out);
+	                //System.out.println("Satisfiable !");
+	                //reader.decode(problem.model(),out);
 
 	            } else {
-	                System.out.println("Unsatisfiable !");
+	                //System.out.println("Unsatisfiable !");
 	            }
 				long finish = System.currentTimeMillis();
-				long timeElapsed = finish - start;
+				timeElapsed = finish - start;
 				return Arrays.asList(problem.isSatisfiable(), timeElapsed);
 	        } catch (FileNotFoundException e) {
 	        	System.out.println("file not found");
@@ -48,7 +50,9 @@ public class SAT4JBIBCall
 	        	System.out.println("IOExcpetion");
 	            // TODO Auto-generated catch block
 	        } catch (ContradictionException e) {
-	            System.out.println("Unsatisfiable (trivial)!");
+				long finish = System.currentTimeMillis();
+				timeElapsed = finish - start;
+	        	return Arrays.asList(false, timeElapsed);
 	        } catch (TimeoutException e) {
 	            System.out.println("Timeout, sorry!");      
 	        }
