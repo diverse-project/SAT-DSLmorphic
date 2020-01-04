@@ -8,6 +8,7 @@ import java.nio.charset.StandardCharsets
 import java.nio.file.Files
 import java.nio.file.Paths
 import java.util.ArrayList
+import java.util.List
 import org.eclipse.xtext.testing.InjectWith
 import org.eclipse.xtext.testing.extensions.InjectionExtension
 import org.eclipse.xtext.testing.util.ParseHelper
@@ -65,6 +66,10 @@ class Mein
 	@Test
 	def void loadSAT4J() 
 	{
+		val cnf_database = get_all_cnf_in("samplingfm", "samplingfm/")
+		val list_of_cnf =  String.join(", ", cnf_database)
+		print(list_of_cnf)
+		
 		println("-----------------------------------")
 		println("loadSAT4J - all versions : ")
 		val text = 
@@ -78,8 +83,10 @@ class Mein
 				   cryptominisat version "2.4.0"
 				   cryptominisat version "4.5.3"
 				   cryptominisat version "5.6.8"
-			benchmarkDIMACS "input.cnf", "input2.cnf", "cnf-tres-dur.cnf"
-		'''
+			benchmarkDIMACS input.cnf '''//samplingfm/Benchmarks/signedAvg.sk_8_1020.cnf'''// + list_of_cnf
+		
+		println(text)
+		
 		val sat_and_time = check_formulas(text);
 		val is_sat = (sat_and_time.get(0) as Boolean)
 		val elapsed_time = (sat_and_time.get(1) as Long)
@@ -92,26 +99,32 @@ class Mein
 
 	
 
-	static def printFnames(String sDir)
-	{
-		val filenames = newArrayList();
-  		val faFiles = new File(sDir).listFiles();
-  		for(file : faFiles)
-  		{
-    		if(file.getName().matches("*.cnf"))
-    		{
-    			filenames.add(file.getAbsolutePath())
-    			
-     			System.out.println(file.getAbsolutePath());
-    		}
-    	}
-    	return filenames
-  	}
 
 
 //--------------------------------------------------------------------------------------------------
 //  				Some functions
 //--------------------------------------------------------------------------------------------------
+
+	static def List<String> get_all_cnf_in(String sDir, String prefix)
+	{
+		val filenames = newArrayList();
+  		val faFiles = new File(sDir).listFiles();
+  		for(file : faFiles)
+  		{
+    		if(file.getName().matches("(.*).cnf"))
+    		{
+    			val filename = file.getName()
+    			val path = prefix + filename
+    			filenames.add(path)
+    		}
+    		else if (file.isDirectory()) 
+    		{
+    			filenames.addAll(get_all_cnf_in(file.getAbsolutePath(), prefix + file.getName() + "/") )
+    		}
+    	}
+    	return filenames
+  	}
+
 
 	def check_formulas(String input)
 	{

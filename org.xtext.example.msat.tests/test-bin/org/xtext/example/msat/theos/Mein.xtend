@@ -8,6 +8,7 @@ import java.nio.charset.StandardCharsets
 import java.nio.file.Files
 import java.nio.file.Paths
 import java.util.ArrayList
+import java.util.List
 import org.eclipse.xtext.testing.InjectWith
 import org.eclipse.xtext.testing.extensions.InjectionExtension
 import org.eclipse.xtext.testing.util.ParseHelper
@@ -65,6 +66,10 @@ class Mein
 	@Test
 	def void loadSAT4J() 
 	{
+		val cnf_database = get_all_cnf_in("samplingfm", "samplingfm/")
+		val list_of_cnf =  String.join(", ", cnf_database)
+		print(list_of_cnf)
+		
 		println("-----------------------------------")
 		println("loadSAT4J - all versions : ")
 		val text = 
@@ -78,8 +83,10 @@ class Mein
 				   cryptominisat version "2.4.0"
 				   cryptominisat version "4.5.3"
 				   cryptominisat version "5.6.8"
-			benchmarkDIMACS "input.cnf", "input2.cnf", "cnf-dur.cnf", "tres-tres-dur.cnf"
-		'''
+			benchmarkDIMACS input.cnf '''//samplingfm/Benchmarks/signedAvg.sk_8_1020.cnf'''// + list_of_cnf
+		
+		println(text)
+		
 		val sat_and_time = check_formulas(text);
 		val is_sat = (sat_and_time.get(0) as Boolean)
 		val elapsed_time = (sat_and_time.get(1) as Long)
@@ -92,26 +99,32 @@ class Mein
 
 	
 
-	static def printFnames(String sDir)
-	{
-		val filenames = newArrayList();
-  		val faFiles = new File(sDir).listFiles();
-  		for(file : faFiles)
-  		{
-    		if(file.getName().matches("*.cnf"))
-    		{
-    			filenames.add(file.getAbsolutePath())
-    			
-     			System.out.println(file.getAbsolutePath());
-    		}
-    	}
-    	return filenames
-  	}
 
 
 //--------------------------------------------------------------------------------------------------
 //  				Some functions
 //--------------------------------------------------------------------------------------------------
+
+	static def List<String> get_all_cnf_in(String sDir, String prefix)
+	{
+		val filenames = newArrayList();
+  		val faFiles = new File(sDir).listFiles();
+  		for(file : faFiles)
+  		{
+    		if(file.getName().matches("(.*).cnf"))
+    		{
+    			val filename = file.getName()
+    			val path = prefix + filename
+    			filenames.add(path)
+    		}
+    		else if (file.isDirectory()) 
+    		{
+    			filenames.addAll(get_all_cnf_in(file.getAbsolutePath(), prefix + file.getName() + "/") )
+    		}
+    	}
+    	return filenames
+  	}
+
 
 	def check_formulas(String input)
 	{
@@ -253,7 +266,7 @@ class Mein
 		val version_solver = call_method.get(1) as String
 		
 		var is_sat = false;
-		var elapsed_time = -1l 
+		var elapsed_time = -1f
 		switch id_solver
 		{
 			case Sat4JVariant.SAT4J_JAVA_VALUE : 
@@ -261,14 +274,14 @@ class Mein
 				println("calling sat4j from java code.")
 				val answer = SAT4JBIBCall.DoIt(filename_of_formula)
 				is_sat = (answer.get(0) as Boolean)
-				elapsed_time = (answer.get(1) as Long)
+				elapsed_time = (answer.get(1) as Float)
 			}
 			case Sat4JVariant.SAT4J_JAR_VALUE : 
 			{
 				println("calling sat4j from jar with version " + version_solver)
 				val answer = Sat4JJARCall.DoIt(filename_of_formula, version_solver)
 				is_sat = (answer.get(0) as Boolean)
-				elapsed_time = (answer.get(1) as Long)
+				elapsed_time = (answer.get(1) as Float)
 			}
 			case Sat4JVariant.SAT4J_COMP_VALUE :
 			{
@@ -282,14 +295,14 @@ class Mein
 				println("calling MiniSAT from bin with version " + version_solver)
 				val answer =  MiniSATCall.DoIt(filename_of_formula, version_solver, parameters)
 				is_sat = (answer.get(0) as Boolean)
-				elapsed_time = (answer.get(1) as Long)
+				elapsed_time = (answer.get(1) as Float)
 			}	
 			case 5 : //CryptoMinisat solver
 			{
 				println("calling CryptoMiniSAT from bin with version " + version_solver)
 				val answer =  CryptoMiniSATCall.DoIt(filename_of_formula, version_solver)
 				is_sat = (answer.get(0) as Boolean)
-				elapsed_time = (answer.get(1) as Long)
+				elapsed_time = (answer.get(1) as Float)
 			}	
 			//TODO other solvers
 			default :
