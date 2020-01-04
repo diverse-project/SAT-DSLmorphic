@@ -13,6 +13,8 @@ import org.junit.jupiter.api.^extension.ExtendWith
 import org.xtext.example.mydsl1.mSat.SATMorphic
 import org.xtext.example.mydsl1.tests.MSatInjectorProvider
 import ozhang.Solver
+import java.io.File
+import java.util.regex.Pattern
 
 @ExtendWith(InjectionExtension)
 @InjectWith(MSatInjectorProvider)
@@ -101,11 +103,23 @@ class MSatParsingMacherTest {
 	}
 	
 	@Test
-	def void benchmark_minisat_cryptominisat_test() {
-		val result = parseHelper.parse('''
-			solver minisat cryptominisat
-			benchmarkFormula (A ^ B)
+	def void benchmar() {
+		
+		var benchmark_path = new File("/home/ozhang/Documents/5INFO/DSL/DSL_Project/samplingfm/Benchmarks") // Put here path to benchmark files
+		var benchmark_list = benchmark_path.list
+		
+		var pattern = Pattern.compile("\\.cnf$")
+		
+		var result = parseHelper.parse('''
+			solver sat4j-jar sat4j-java sat4j-maven minisat cryptominisat
+			benchmarkDIMACS
+			«FOR benchmark : benchmark_list»
+				«IF pattern.matcher(benchmark).find()»
+					"/home/ozhang/Documents/5INFO/DSL/DSL_Project/samplingfm/Benchmarks/«benchmark»"
+				«ENDIF»
+			«ENDFOR»
 		''')
+		
 		Assertions.assertNotNull(result)
 		val errors = result.eResource.errors
 		Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
