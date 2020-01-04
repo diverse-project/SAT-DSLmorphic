@@ -26,7 +26,10 @@ import org.xtext.example.mydsl1.mSat.SATSolver
 import java.io.FileWriter
 import com.opencsv.CSVWriter
 import java.util.regex.Pattern
-
+import java.util.concurrent.ExecutorService
+import java.util.concurrent.Executors
+import java.util.concurrent.TimeUnit
+import java.util.concurrent.ExecutionException
 
 class Solver {
 	
@@ -35,7 +38,7 @@ class Solver {
 		var file = new File("results.csv")
 		var outputfile = new FileWriter(file)
     	var CSVwriter = new CSVWriter(outputfile)
-    	CSVwriter.writeNext(#["Benchmark", "Solver", "Sat?", "Time (ms)"])
+    	CSVwriter.writeNext(#["Benchmark", "Solver", "Sat?", "Time (ns)"])
     	
     	try {
     		switch satMorphic.benchmark.class {
@@ -45,13 +48,13 @@ class Solver {
 					var i = 1
 					for(String input_path : dimaces) {
 						println(String.format("------------- Proceeding file %d / %d -------------", i, nb_dimaces))
-						run_solver(satMorphic, input_path, CSVwriter)
+						select_solver(satMorphic, input_path, CSVwriter)
 						i++
 					}
 				}
 				case BenchmarkFormulaImpl : {
 					for(Expression expr : (satMorphic.benchmark as BenchmarkFormula).expressions) {
-						run_solver(satMorphic, expr_to_dimacs(expr), CSVwriter)
+						select_solver(satMorphic, expr_to_dimacs(expr), CSVwriter)
 					}
 				}
 				default : println('Unknown input type')
@@ -84,10 +87,12 @@ class Solver {
     }
     
     
-    def void run_solver(SATMorphic satMorphic, String input_path, CSVWriter CSVwriter) {
+    def void select_solver(SATMorphic satMorphic, String input_path, CSVWriter CSVwriter) {
+    	
+    	println("Solving file : " + input_path)
     	
     	for (SATSolver satSolver : satMorphic.solvers) {
-    		var satisfiable = switch satSolver {
+    		switch satSolver {
 				case satSolver.solver instanceof Sat4JImpl : {
 					switch (satSolver.solver as Sat4JImpl).variant.literal {
 						case 'sat4j-java' : java_solve(input_path, CSVwriter)
@@ -107,70 +112,81 @@ class Solver {
 				case satSolver.solver instanceof CryptoMiniSATImpl : cryptominisat_solve(input_path, CSVwriter)
 				default : println('Unknown solver')
 			}
-			
-			if ((satisfiable as Boolean)) {
-				println('Satisfiable')
-			} else {
-				println('Unsatisfiable')
-			}
     	}
     }
     
     
-    def Boolean minisat_solve(String file_path, Float rnd_freq, CSVWriter CSVwriter) {
-    	println('minisat_solve called')
-    	var satisfiable = true
-    	var pb = new ProcessBuilder()
-		pb.command('minisat','-rnd-freq='+rnd_freq, file_path)
+    def void run_solver(String solver_name, ProcessBuilder pb, String file_path, CSVWriter CSVwriter) {
+    	
 //		pb.redirectOutput(Redirect.INHERIT)
-
-		var startTime = System.currentTimeMillis()
-		var p = pb.start()
-		var output = p.getInputStream()
-		p.waitFor()
-		var endTime   = System.currentTimeMillis()
-		var totalTime = endTime - startTime
 		
-		var reader = new BufferedReader(new InputStreamReader(output))
-        var line = ""
-        while ((line = reader.readLine()) !== null) {
-            if(line.toLowerCase.contains('unsatisfiable')) {
-            	satisfiable = false
-            }
-        }
-        var pattern = Pattern.compile(".*\\/(.+\\.cnf)$")
-        var matcher = pattern.matcher(file_path)
-        matcher.find()
-        CSVwriter.writeNext(#[matcher.group(1), "Minisat", satisfiable ? "SAT":"UNSAT", totalTime.toString()])
-        return satisfiable
+		val Runnable thread = new Thread() {
+			override void run() {
+				var satisfiable = true
+		    	var startTime = System.nanoTime()
+				var p = pb.start()
+				var output = p.getInputStream()
+		//		p.waitFor()
+				var endTime   = System.nanoTime()
+				var totalTime = endTime - startTime
+				
+				var reader = new BufferedReader(new InputStreamReader(output))
+		        var line = ""
+		        while ((line = reader.readLine()) !== null) {
+		            if(line.toLowerCase.contains('unsatisfiable')) {
+		            	satisfiable = false
+		            }
+		        }
+		        var pattern = Pattern.compile(".*\\/(.+\\.cnf)$")
+		        var matcher = pattern.matcher(file_path)
+		        matcher.find()
+		        CSVwriter.writeNext(#[matcher.group(1), solver_name, satisfiable ? "SAT":"UNSAT", totalTime.toString()])
+			}
+		}
+		
+		var ExecutorService executor = Executors.newSingleThreadExecutor()
+		var future = executor.submit(thread)
+		executor.shutdown()
+		
+		try {
+			future.get(15, TimeUnit.MINUTES)
+		} catch (InterruptedException ie) { 
+			println("------------- Interrupted -------------")
+			CSVwriter.close()
+		}
+		catch (ExecutionException ee) { 
+			println("------------- Exception during execution -------------")
+			var pattern = Pattern.compile(".*\\/(.+\\.cnf)$")
+	        var matcher = pattern.matcher(file_path)
+	        matcher.find()
+			CSVwriter.writeNext(#[matcher.group(1), solver_name, "CRASHED", (15*60*1000).toString()])
+		}
+		catch (TimeoutException te) { 
+			println("------------- Timed out -------------")
+			var pattern = Pattern.compile(".*\\/(.+\\.cnf)$")
+	        var matcher = pattern.matcher(file_path)
+	        matcher.find()
+			CSVwriter.writeNext(#[matcher.group(1), solver_name, "TIMED OUT", (15*60*1000).toString()])
+		}
+		if (!executor.isTerminated()) {
+			executor.shutdownNow(); // If you want to stop the code that hasn't finished.
+		}
     }
     
     
-    def Boolean cryptominisat_solve(String file_path, CSVWriter CSVwriter) {
+    def void minisat_solve(String file_path, Float rnd_freq, CSVWriter CSVwriter) {
+    	println('minisat_solve called')
+    	var pb = new ProcessBuilder()
+		pb.command('minisat','-rnd-freq='+rnd_freq, file_path)
+		run_solver("Minisat", pb, file_path, CSVwriter)
+    }
+    
+    
+    def void cryptominisat_solve(String file_path, CSVWriter CSVwriter) {
     	println('cryptominisat_solve called')
-    	var satisfiable = true
     	var pb = new ProcessBuilder()
 		pb.command('cryptominisat5', file_path)
-		
-		var startTime = System.currentTimeMillis()
-		var p = pb.start()
-		var output = p.getInputStream()
-		p.waitFor()
-		var endTime   = System.currentTimeMillis()
-		var totalTime = endTime - startTime
-		
-		var reader = new BufferedReader(new InputStreamReader(output))
-        var line = ""
-        while ((line = reader.readLine()) !== null) {
-            if(line.toLowerCase.contains('unsatisfiable')) {
-            	satisfiable = false
-            }
-        }
-        var pattern = Pattern.compile(".*\\/(.+\\.cnf)$")
-        var matcher = pattern.matcher(file_path)
-        matcher.find()
-        CSVwriter.writeNext(#[matcher.group(1), "Cryptominisat", satisfiable ? "SAT":"UNSAT", totalTime.toString()])
-        return satisfiable
+		run_solver("Cryptominisat", pb, file_path, CSVwriter)
     }
     
     
@@ -178,7 +194,7 @@ class Solver {
     	println('java_solve called')
     	var pattern = Pattern.compile(".*\\/(.+\\.cnf)$")
         var matcher = pattern.matcher(file_path)
-        matcher.find()
+        matcher .find()
     	var solver = SolverFactory.newDefault()
         solver.setTimeout(3600); // 1 hour timeout
         var reader = new DimacsReader(solver)
@@ -214,37 +230,16 @@ class Solver {
     }
     
     
-    def Boolean jar_solve(String file_path, CSVWriter CSVwriter) {
+    def void jar_solve(String file_path, CSVWriter CSVwriter) {
     	println('jar_solve called')
-    	var satisfiable = true
 		var pb = new ProcessBuilder()
 		pb.command('java', '-jar', 'lib/org.sat4j.jar', file_path)
-		
-		var startTime = System.currentTimeMillis()
-		var p = pb.start()
-		var output = p.getInputStream()
-		p.waitFor()
-		var endTime   = System.currentTimeMillis()
-		var totalTime = endTime - startTime
-		
-		var reader = new BufferedReader(new InputStreamReader(output))
-        var line = ""
-        while ((line = reader.readLine()) !== null) {
-            if(line.toLowerCase.contains('unsatisfiable')) {
-            	satisfiable = false
-            }
-        }
-        var pattern = Pattern.compile(".*\\/(.+\\.cnf)$")
-        var matcher = pattern.matcher(file_path)
-        matcher.find()
-        CSVwriter.writeNext(#[matcher.group(1), "Sat4j-jar", satisfiable ? "SAT":"UNSAT", totalTime.toString()])
-        return satisfiable
+		run_solver("Sat4j-jar", pb, file_path, CSVwriter)
     }
     
     
-    def Boolean maven_solve(String file_path, CSVWriter CSVwriter) {
+    def void maven_solve(String file_path, CSVWriter CSVwriter) {
     	println('maven_solve called')
-    	var satisfiable = true
 		var sat_file = new File('sat')
 		var solver_file = new File('sat/src/main/java/dsl/Solver.java')
 		var pom_file = new File('sat/pom.xml')
@@ -255,8 +250,8 @@ class Solver {
 			println('--------- mvn generation ---------')
 			pb.command('mvn', 'archetype:generate', '-DgroupId=dsl', '-DartifactId=sat', '-DarchetypeArtifactId=maven-archetype-quickstart', '-DarchetypeVersion=1.4', '-DinteractiveMode=false', '-e')
 			pb.redirectOutput(Redirect.INHERIT)
-			var p = pb.start()
-			p.waitFor()
+			pb.start()
+//			p.waitFor()
 		
 			var writer = new PrintWriter(solver_file, "UTF-8")
 			var content =
@@ -348,8 +343,8 @@ public class Solver {
 			pb.command('mvn', 'install')
 			pb.redirectOutput(Redirect.INHERIT)
 			pb.directory(sat_file)
-			p = pb.start()
-			p.waitFor()	
+			pb.start()
+//			p.waitFor()	
 		}
 		
 		var pb = new ProcessBuilder()
@@ -357,25 +352,6 @@ public class Solver {
 		pb.command('mvn', 'exec:java', '-Dexec.mainClass=dsl.Solver', '-Dexec.args="../'+file_path+'"')
 //		pb.redirectOutput(Redirect.INHERIT)
 		pb.directory(sat_file)
-		
-		var startTime = System.currentTimeMillis()
-		var p = pb.start()
-		var output = p.getInputStream()
-		p.waitFor()
-		var endTime   = System.currentTimeMillis()
-		var totalTime = endTime - startTime
-		
-		var reader = new BufferedReader(new InputStreamReader(output))
-        var line = ""
-        while ((line = reader.readLine()) !== null) {
-            if(line.toLowerCase.contains('unsatisfiable')) {
-            	satisfiable = false
-            }
-        }
-        var pattern = Pattern.compile(".*\\/(.+\\.cnf)$")
-        var matcher = pattern.matcher(file_path)
-        matcher.find()
-        CSVwriter.writeNext(#[matcher.group(1), "Sat4j-maven", satisfiable ? "SAT":"UNSAT", totalTime.toString()])
-        return satisfiable
+		run_solver("Sat4j-maven", pb, file_path, CSVwriter)
     }
 }

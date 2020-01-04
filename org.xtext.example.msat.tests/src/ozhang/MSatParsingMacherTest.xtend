@@ -123,4 +123,17 @@ class MSatParsingMacherTest {
 		Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
 		solver.solve(result)
 	}
+	
+	@Test
+	def void solveFile() {
+		var file_path = "/home/ozhang/Documents/5INFO/DSL/DSL_Project/samplingfm/Benchmarks/7.sk_4_50.cnf"
+		var result = parseHelper.parse('''
+			solver sat4j-java sat4j-maven minisat cryptominisat sat4j-jar
+			benchmarkDIMACS "«file_path»"
+		''')
+		Assertions.assertNotNull(result)
+		val errors = result.eResource.errors
+		Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
+		solver.solve(result)
+	}
 }
