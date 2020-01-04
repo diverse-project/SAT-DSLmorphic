@@ -90,7 +90,23 @@ class Mein
 	}
 
 
+	
 
+	static def printFnames(String sDir)
+	{
+		val filenames = newArrayList();
+  		val faFiles = new File(sDir).listFiles();
+  		for(file : faFiles)
+  		{
+    		if(file.getName().matches("*.cnf"))
+    		{
+    			filenames.add(file.getAbsolutePath())
+    			
+     			System.out.println(file.getAbsolutePath());
+    		}
+    	}
+    	return filenames
+  	}
 
 
 //--------------------------------------------------------------------------------------------------
