@@ -22,7 +22,7 @@ import org.xtext.example.msat.CoudrayThuillier.utils.IEDimacs
 class MSatSat4jTest {
 	@Inject
 	ParseHelper<SATMorphic> parseHelper
-	
+
 	String export_path = "temp.dimacs"
 	String export_maven_path = "../coudraythuillier/file.dimacs"
 
@@ -41,9 +41,9 @@ class MSatSat4jTest {
 		var cnf = CNFConverter.convert_to_CNF(list_expr.get(0))
 		var dimacs = DimacsPrint.print_dimacs(cnf)
 		IEDimacs.export_dimacs(export_path, dimacs)
-		
-		var is_satisfiable = Sat4jFunctions.solve_java(export_path)
-		assertEquals(is_satisfiable, true)
+
+		var is_satisfiable = Sat4jFunctions.solve_java(1, export_path)
+		assertEquals(is_satisfiable.status, "SAT")
 	}
 
 	@Test
@@ -55,9 +55,9 @@ class MSatSat4jTest {
 		var cnf = CNFConverter.convert_to_CNF(list_expr.get(0))
 		var dimacs = DimacsPrint.print_dimacs(cnf)
 		IEDimacs.export_dimacs(export_path, dimacs)
-		
-		var is_satisfiable = Sat4jFunctions.solve_java(export_path)
-		assertEquals(is_satisfiable, false)
+
+		var is_satisfiable = Sat4jFunctions.solve_java(1, export_path)
+		assertEquals(is_satisfiable.status, "UNSAT")
 	}
 
 	@Test
@@ -69,11 +69,11 @@ class MSatSat4jTest {
 		var cnf = CNFConverter.convert_to_CNF(list_expr.get(0))
 		var dimacs = DimacsPrint.print_dimacs(cnf)
 		IEDimacs.export_dimacs(export_path, dimacs)
-		
-		var is_satisfiable = Sat4jFunctions.solve_java(export_path)
-		assertEquals(is_satisfiable, true)
+
+		var is_satisfiable = Sat4jFunctions.solve_java(1, export_path)
+		assertEquals(is_satisfiable.status, "SAT")
 	}
-	
+
 	@Test
 	def void SAT4jJarModel1() {
 		val result = parseHelper.parse('''
@@ -83,11 +83,11 @@ class MSatSat4jTest {
 		var cnf = CNFConverter.convert_to_CNF(list_expr.get(0))
 		var dimacs = DimacsPrint.print_dimacs(cnf)
 		IEDimacs.export_dimacs(export_path, dimacs)
-		
-		var is_satisfiable = Sat4jFunctions.solve_jar("2.3.4", export_path)
-		assertEquals(is_satisfiable, true)
+
+		var is_satisfiable = Sat4jFunctions.solve_jar(1, "2.3.4", export_path)
+		assertEquals(is_satisfiable.status, "SAT")
 	}
-	
+
 	@Test
 	def void SAT4jJarModel2() {
 		val result = parseHelper.parse('''
@@ -97,9 +97,9 @@ class MSatSat4jTest {
 		var cnf = CNFConverter.convert_to_CNF(list_expr.get(0))
 		var dimacs = DimacsPrint.print_dimacs(cnf)
 		IEDimacs.export_dimacs(export_path, dimacs)
-		
-		var is_satisfiable = Sat4jFunctions.solve_jar("2.3.4", export_path)
-		assertEquals(is_satisfiable, false)
+
+		var is_satisfiable = Sat4jFunctions.solve_jar(1, "2.3.4", export_path)
+		assertEquals(is_satisfiable.status, "UNSAT")
 	}
 
 	@Test
@@ -111,11 +111,11 @@ class MSatSat4jTest {
 		var cnf = CNFConverter.convert_to_CNF(list_expr.get(0))
 		var dimacs = DimacsPrint.print_dimacs(cnf)
 		IEDimacs.export_dimacs(export_path, dimacs)
-		
-		var is_satisfiable = Sat4jFunctions.solve_jar("2.3.1", export_path)
-		assertEquals(is_satisfiable, true)
+
+		var is_satisfiable = Sat4jFunctions.solve_jar(1, "2.3.1", export_path)
+		assertEquals(is_satisfiable.status, "SAT")
 	}
-	
+
 	@Test
 	def void SAT4jMavenModel1() {
 		val result = parseHelper.parse('''
@@ -125,10 +125,10 @@ class MSatSat4jTest {
 		var cnf = CNFConverter.convert_to_CNF(list_expr.get(0))
 		var dimacs = DimacsPrint.print_dimacs(cnf)
 		IEDimacs.export_dimacs(export_maven_path, dimacs)
-		var is_satisfiable = Sat4jFunctions.solve_maven("2.3.1", export_maven_path)
-		assertEquals(is_satisfiable, true)
+		var is_satisfiable = Sat4jFunctions.solve_maven(1, "2.3.1", export_maven_path)
+		assertEquals(is_satisfiable.status, "SAT")
 	}
-	
+
 	@Test
 	def void SAT4jMavenModel2() {
 		val result = parseHelper.parse('''
@@ -138,9 +138,9 @@ class MSatSat4jTest {
 		var cnf = CNFConverter.convert_to_CNF(list_expr.get(0))
 		var dimacs = DimacsPrint.print_dimacs(cnf)
 		IEDimacs.export_dimacs(export_maven_path, dimacs)
-		
-		var is_satisfiable = Sat4jFunctions.solve_maven("2.3.1", export_maven_path)
-		assertEquals(is_satisfiable, false)
+
+		var is_satisfiable = Sat4jFunctions.solve_maven(1, "2.3.1", export_maven_path)
+		assertEquals(is_satisfiable.status, "UNSAT")
 	}
 
 	@Test
@@ -152,9 +152,9 @@ class MSatSat4jTest {
 		var cnf = CNFConverter.convert_to_CNF(list_expr.get(0))
 		var dimacs = DimacsPrint.print_dimacs(cnf)
 		IEDimacs.export_dimacs(export_maven_path, dimacs)
-		
-		var is_satisfiable = Sat4jFunctions.solve_maven("2.3.1", export_maven_path)
-		assertEquals(is_satisfiable, true)
+
+		var is_satisfiable = Sat4jFunctions.solve_maven(1, "2.3.1", export_maven_path)
+		assertEquals(is_satisfiable.status, "SAT")
 	}
-	
+
 }

@@ -11,6 +11,7 @@ import org.xtext.example.mydsl1.tests.MSatInjectorProvider
 import org.xtext.example.msat.CoudrayThuillier.Solve
 import org.junit.jupiter.api.Assertions
 import org.xtext.example.msat.CoudrayThuillier.utils.IEDimacs
+import org.xtext.example.msat.CoudrayThuillier.utils.SolverResult
 
 @ExtendWith(InjectionExtension)
 @InjectWith(MSatInjectorProvider)
@@ -24,16 +25,13 @@ class MSatMiniSatTest {
 			solver minisat rnd-freq 0.2 minisat rnd-freq 1 benchmarkFormula A, A v B, A ^ !A
 		''')
 		var solvers_results = Solve.process(result)
-		Assertions.assertEquals(solvers_results.keySet.length, 2)
-		for (String s : solvers_results.keySet) {
-			println("--- Solver " + s + " ---")
-			var str = "["
-			for (boolean b : solvers_results.get(s)) {
-				str += " " + b.toString
-			}
-			str += " ]"
-			Assertions.assertEquals(str, "[ true true false ]")
+		var str = "["
+		for (SolverResult s : solvers_results) {
+			println("--- Solver " + s.solver + " ---")
+			str += " " + s.status
 		}
+		str += " ]"
+		Assertions.assertEquals(str, "[ SAT SAT UNSAT SAT SAT UNSAT ]")
 	}
 
 	@Test
@@ -42,16 +40,13 @@ class MSatMiniSatTest {
 			solver minisat rnd-freq 1 sat4j-jar cryptominisat benchmarkFormula A
 		''')
 		var solvers_results = Solve.process(result)
-		Assertions.assertEquals(solvers_results.keySet.length, 3)
-		for (String s : solvers_results.keySet) {
-			println("--- Solver " + s + " ---")
-			var str = "["
-			for (boolean b : solvers_results.get(s)) {
-				str += " " + b.toString
-			}
-			str += " ]"
-			Assertions.assertEquals(str, "[ true ]")
+		var str = "["
+		for (SolverResult s : solvers_results) {
+			println("--- Solver " + s.solver + " ---")
+			str += " " + s.status
 		}
+		str += " ]"
+		Assertions.assertEquals(str, "[ SAT SAT SAT ]")
 	}
 
 	@Test
@@ -60,16 +55,13 @@ class MSatMiniSatTest {
 			solver cryptominisat minisat rnd-freq 0.5 benchmarkFormula A, A => B
 		''')
 		var solvers_results = Solve.process(result)
-		Assertions.assertEquals(solvers_results.keySet.length, 2)
-		for (String s : solvers_results.keySet) {
-			println("--- Solver " + s + " ---")
-			var str = "["
-			for (boolean b : solvers_results.get(s)) {
-				str += " " + b.toString
-			}
-			str += " ]"
-			Assertions.assertEquals(str, "[ true true ]")
+		var str = "["
+		for (SolverResult s : solvers_results) {
+			println("--- Solver " + s.solver + " ---")
+			str += " " + s.status
 		}
+		str += " ]"
+		Assertions.assertEquals(str, "[ SAT SAT SAT SAT ]")
 	}
 
 	@Test
@@ -82,16 +74,13 @@ class MSatMiniSatTest {
 			solver minisat rnd-freq 0.1 benchmarkDIMACS "temp.dimacs"
 		''')
 		var solvers_results = Solve.process(result)
-		Assertions.assertEquals(solvers_results.keySet.length, 1)
-		for (String s : solvers_results.keySet) {
-			println("--- Solver " + s + " ---")
-			var str = "["
-			for (boolean b : solvers_results.get(s)) {
-				str += " " + b.toString
-			}
-			str += " ]"
-			Assertions.assertEquals(str, "[ true ]")
+		var str = "["
+		for (SolverResult s : solvers_results) {
+			println("--- Solver " + s.solver + " ---")
+			str += " " + s.status
 		}
+		str += " ]"
+		Assertions.assertEquals(str, "[ SAT ]")
 	}
 
 	@Test
@@ -107,15 +96,12 @@ class MSatMiniSatTest {
 			solver minisat rnd-freq 0.5 cryptominisat benchmarkDIMACS "temp1.dimacs", "temp2.dimacs"
 		''')
 		var solvers_results = Solve.process(result)
-		Assertions.assertEquals(solvers_results.keySet.length, 2)
-		for (String s : solvers_results.keySet) {
-			println("--- Solver " + s + " ---")
-			var str = "["
-			for (boolean b : solvers_results.get(s)) {
-				str += " " + b.toString
-			}
-			str += " ]"
-			Assertions.assertEquals(str, "[ true true ]")
+		var str = "["
+		for (SolverResult s : solvers_results) {
+			println("--- Solver " + s.solver + " ---")
+			str += " " + s.status
 		}
+		str += " ]"
+		Assertions.assertEquals(str, "[ SAT SAT SAT SAT ]")
 	}
 }

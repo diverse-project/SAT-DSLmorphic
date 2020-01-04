@@ -11,6 +11,7 @@ import org.xtext.example.mydsl1.tests.MSatInjectorProvider
 import org.xtext.example.msat.CoudrayThuillier.Solve
 import org.junit.jupiter.api.Assertions
 import org.xtext.example.msat.CoudrayThuillier.utils.IEDimacs
+import org.xtext.example.msat.CoudrayThuillier.utils.SolverResult
 
 @ExtendWith(InjectionExtension)
 @InjectWith(MSatInjectorProvider)
@@ -24,32 +25,28 @@ class MSatMainTest {
 			solver sat4j-jar benchmarkFormula A, A v B, A ^ !A
 		''')
 		var solvers_results = Solve.process(result)
-		Assertions.assertEquals(solvers_results.keySet.length, 1)
-		for (String s : solvers_results.keySet) {
-			var str = "["
-			for (boolean b : solvers_results.get(s)) {
-				str += " " + b.toString
-			}
-			str += " ]"
-			Assertions.assertEquals(str, "[ true true false ]")
+		var str = "["
+		for (SolverResult s : solvers_results) {
+			str += " " + s.status
 		}
+		str += " ]"
+		Assertions.assertEquals(str, "[ SAT SAT UNSAT ]")
 	}
-	
+
 	@Test
 	def void ProcessingModel1_version() {
 		val result = parseHelper.parse('''
 			solver sat4j-jar version "2.3.4" benchmarkFormula A, A v B, A ^ !A
 		''')
 		var solvers_results = Solve.process(result)
-		Assertions.assertEquals(solvers_results.keySet.length, 1)
-		for (String s : solvers_results.keySet) {
-			var str = "["
-			for (boolean b : solvers_results.get(s)) {
-				str += " " + b.toString
-			}
-			str += " ]"
-			Assertions.assertEquals(str, "[ true true false ]")
+		var str = "["
+		for (SolverResult s : solvers_results) {
+			Assertions.assertEquals(s.getSolver, "SAT4J_JAR")
+			Assertions.assertEquals(s.getVersion, "2.3.4")
+			str += " " + s.status
 		}
+		str += " ]"
+		Assertions.assertEquals(str, "[ SAT SAT UNSAT ]")
 	}
 
 	@Test
@@ -58,32 +55,32 @@ class MSatMainTest {
 			solver sat4j-java sat4j-jar benchmarkFormula A
 		''')
 		var solvers_results = Solve.process(result)
-		Assertions.assertEquals(solvers_results.keySet.length, 2)
-		for (String s : solvers_results.keySet) {
-			var str = "["
-			for (boolean b : solvers_results.get(s)) {
-				str += " " + b.toString
-			}
-			str += " ]"
-			Assertions.assertEquals(str, "[ true ]")
+		var str = "["
+		for (SolverResult s : solvers_results) {
+			str += " " + s.status
 		}
+		str += " ]"
+		Assertions.assertEquals(str, "[ SAT SAT ]")
 	}
 
 	@Test
 	def void ProcessingModel2_version() {
 		val result = parseHelper.parse('''
-			solver sat4j-jar version "2.3.1" sat4j-jar version "2.3.4" sat4j-maven version "2.0.0" benchmarkFormula A
+			solver sat4j-jar version "2.3.1" sat4j-jar version "2.3.4" sat4j-maven version "2.3.4" benchmarkFormula A
 		''')
 		var solvers_results = Solve.process(result)
-		Assertions.assertEquals(solvers_results.keySet.length, 3)
-		for (String s : solvers_results.keySet) {
-			var str = "["
-			for (boolean b : solvers_results.get(s)) {
-				str += " " + b.toString
-			}
-			str += " ]"
-			Assertions.assertEquals(str, "[ true ]")
+		var str = "["
+		for (SolverResult s : solvers_results) {
+			str += " " + s.status
 		}
+		str += " ]"
+		Assertions.assertEquals(str, "[ SAT SAT UNSAT ]")
+		Assertions.assertEquals(solvers_results.get(0).solver + "; " + solvers_results.get(0).version,
+			"SAT4J_JAR; 2.3.1")
+		Assertions.assertEquals(solvers_results.get(1).solver + "; " + solvers_results.get(1).version,
+			"SAT4J_JAR; 2.3.4")
+		Assertions.assertEquals(solvers_results.get(2).solver + "; " + solvers_results.get(2).version,
+			"SAT4J_COMP; 2.3.4")
 	}
 
 	@Test
@@ -92,15 +89,15 @@ class MSatMainTest {
 			solver sat4j-java sat4j-jar sat4j-maven benchmarkFormula A, A => B
 		''')
 		var solvers_results = Solve.process(result)
-		Assertions.assertEquals(solvers_results.keySet.length, 3)
-		for (String s : solvers_results.keySet) {
-			var str = "["
-			for (boolean b : solvers_results.get(s)) {
-				str += " " + b.toString
-			}
-			str += " ]"
-			Assertions.assertEquals(str, "[ true true ]")
+		var str = "["
+		for (SolverResult s : solvers_results) {
+			str += " " + s.status
 		}
+		str += " ]"
+		Assertions.assertEquals(str, "[ SAT SAT SAT SAT SAT SAT ]")
+		Assertions.assertEquals(solvers_results.get(0).solver, "SAT4J_JAVA")
+		Assertions.assertEquals(solvers_results.get(2).solver, "SAT4J_JAR")
+		Assertions.assertEquals(solvers_results.get(4).solver, "SAT4J_COMP")
 	}
 
 	@Test
@@ -113,15 +110,13 @@ class MSatMainTest {
 			solver sat4j-java benchmarkDIMACS "temp.dimacs"
 		''')
 		var solvers_results = Solve.process(result)
-		Assertions.assertEquals(solvers_results.keySet.length, 1)
-		for (String s : solvers_results.keySet) {
-			var str = "["
-			for (boolean b : solvers_results.get(s)) {
-				str += " " + b.toString
-			}
-			str += " ]"
-			Assertions.assertEquals(str, "[ true ]")
+		var str = "["
+		for (SolverResult s : solvers_results) {
+			str += " " + s.status
 		}
+		str += " ]"
+		Assertions.assertEquals(str, "[ SAT ]")
+		Assertions.assertEquals(solvers_results.get(0).solver, "SAT4J_JAVA")
 	}
 
 	@Test
@@ -137,14 +132,13 @@ class MSatMainTest {
 			solver sat4j-java sat4j-jar benchmarkDIMACS "temp1.dimacs", "temp2.dimacs"
 		''')
 		var solvers_results = Solve.process(result)
-		Assertions.assertEquals(solvers_results.keySet.length, 2)
-		for (String s : solvers_results.keySet) {
-			var str = "["
-			for (boolean b : solvers_results.get(s)) {
-				str += " " + b.toString
-			}
-			str += " ]"
-			Assertions.assertEquals(str, "[ true true ]")
+		var str = "["
+		for (SolverResult s : solvers_results) {
+			str += " " + s.status
 		}
+		str += " ]"
+		Assertions.assertEquals(str, "[ SAT SAT SAT SAT ]")
+		Assertions.assertEquals(solvers_results.get(0).solver, "SAT4J_JAVA")
+		Assertions.assertEquals(solvers_results.get(2).solver, "SAT4J_JAR")
 	}
 }

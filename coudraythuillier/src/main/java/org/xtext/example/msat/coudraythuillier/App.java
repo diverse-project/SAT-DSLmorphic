@@ -13,14 +13,13 @@ import org.sat4j.specs.TimeoutException;
 
 public class App 
 {
-	static String dimacs_path = "/home/kerian/Documents/M1-SIF/DSL/SAT-DSLmorphic/org.xtext.example.msat.tests/temp.dimacs";
+	static String dimacs_path = "/home/kerian/Documents/M1-SIF/DSL/SAT-DSLmorphic/org.xtext.example.msat.tests/Benchmark/xpose.sk_6_134.cnf";
 	
     public static void main(String[] args)
     {
     	ISolver solver = SolverFactory.newDefault();
 		solver.setTimeout(3600); // 1 hour timeout
 		Reader reader = new DimacsReader(solver);
-		System.out.println("Test");
 		try {
 			IProblem problem = reader.parseInstance(dimacs_path);
 			System.out.println("Satisfiable: " + problem.isSatisfiable());

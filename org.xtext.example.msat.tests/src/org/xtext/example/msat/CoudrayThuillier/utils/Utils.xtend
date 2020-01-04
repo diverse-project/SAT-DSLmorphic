@@ -10,8 +10,11 @@ class Utils {
 		var StringBuffer output = new StringBuffer()
 		var Process p
 		try {
-			p = Runtime.getRuntime.exec(command)
+			// Execute the command
+			var String[] cmd = #["/bin/sh", "-c", command]
+			p = Runtime.getRuntime.exec(cmd)
 			p.waitFor
+			// Read the output
 			var BufferedReader reader = new BufferedReader(new InputStreamReader(p.getInputStream()));
 			var String line = ""
 			while ((line = reader.readLine) !== null) {
@@ -28,4 +31,24 @@ class Utils {
 		var matcher = sat_pattern.matcher(output)
 		return matcher.find
 	}
+	
+	static def long mean (long [] times) {
+		var mean_v = 0 as long
+		for (var i = 0; i < times.length; i++) {
+			mean_v = mean_v + times.get(i)
+		}
+		mean_v = mean_v / times.length
+		return mean_v
+	}
+	
+	static def long standard_deviation (long [] times) {
+		var squared_mean_v = Math.pow(mean(times), 2) as long
+		var mean_of_square_v = 0 as long
+		for (var i = 0; i < times.length; i++) {
+			mean_of_square_v = mean_of_square_v + (Math.pow(times.get(i), 2) as long)
+		}
+		mean_of_square_v = mean_of_square_v / times.length
+		return Math.sqrt((mean_of_square_v - squared_mean_v) as double) as long
+	}
+	
 }

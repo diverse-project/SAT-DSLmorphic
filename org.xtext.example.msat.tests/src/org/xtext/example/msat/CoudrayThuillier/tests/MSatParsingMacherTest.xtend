@@ -31,6 +31,11 @@ class MSatParsingMacherTest {
 		Assertions.assertNotNull(result)
 		val errors = result.eResource.errors
 		Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
+		val answer = Solve.process(result)
+		Assertions.assertEquals(answer.get(0).benchmark + "; " + answer.get(0).solver + "; " + answer.get(0).status, "foo1.cnf; minisat rnd-freq=1.0; SAT")
+		Assertions.assertEquals(answer.get(1).benchmark + "; " + answer.get(1).solver + "; " + answer.get(1).status, "foo2.cnf; minisat rnd-freq=1.0; UNSAT")
+		Assertions.assertEquals(answer.get(2).benchmark + "; " + answer.get(2).solver + "; " + answer.get(2).status, "foo1.cnf; cryptominisat; SAT")
+		Assertions.assertEquals(answer.get(3).benchmark + "; " + answer.get(3).solver + "; " + answer.get(3).status, "foo2.cnf; cryptominisat; UNSAT")
 	}
 	
 	@Test
@@ -43,8 +48,8 @@ class MSatParsingMacherTest {
 		Assertions.assertNotNull(result)
 		val errors = result.eResource.errors
 		Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
-		val answer = Solve.process(result) // return a HashMap where solver name are keys and values are ArrayList of boolean representing formula i satisfiability
-		Assertions.assertEquals(answer.get("SAT4J_JAVA").get(0), true)
+		val answer = Solve.process(result)
+		Assertions.assertEquals(answer.get(0).benchmark + "; " + answer.get(0).solver + "; " + answer.get(0).status, "foo1.cnf; SAT4J_JAVA; SAT")
 	}
 	
 	@Test
@@ -57,8 +62,8 @@ class MSatParsingMacherTest {
 		Assertions.assertNotNull(result)
 		val errors = result.eResource.errors
 		Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
-		val answer = Solve.process(result) // return a HashMap where solver name are keys and values are ArrayList of boolean representing formula i satisfiability
-		Assertions.assertEquals(answer.get("SAT4J_COMP").get(0), true)
+		val answer = Solve.process(result)
+		Assertions.assertEquals(answer.get(0).benchmark + "; " + answer.get(0).solver + "; " + answer.get(0).status, "foo1.cnf; SAT4J_COMP; SAT")
 		}
 	
 	@Test
@@ -71,7 +76,7 @@ class MSatParsingMacherTest {
 		Assertions.assertNotNull(result)
 		val errors = result.eResource.errors
 		Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
-		val answer = Solve.process(result) // return a HashMap where solver name are keys and values are ArrayList of boolean representing formula i satisfiability
-		Assertions.assertEquals(answer.get("SAT4J_JAR").get(0), true)
+		val answer = Solve.process(result)
+		Assertions.assertEquals(answer.get(0).benchmark + "; " + answer.get(0).solver + "; " + answer.get(0).status, "foo1.cnf; SAT4J_JAR; SAT")
 	}
 }

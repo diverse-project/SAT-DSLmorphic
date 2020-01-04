@@ -1,0 +1,1089 @@
+Benchmark	Solver	Version	Sat?	Mean Time	Standard Deviation Time
+10.sk_1_46.cnf	SAT4J_JAVA	2.3.1	SAT	17	22
+107.sk_3_90.cnf	SAT4J_JAVA	2.3.1	SAT	53	11
+109.sk_4_36.cnf	SAT4J_JAVA	2.3.1	SAT	24	13
+110.sk_3_88.cnf	SAT4J_JAVA	2.3.1	SAT	92	17
+111.sk_2_36.cnf	SAT4J_JAVA	2.3.1	SAT	10	3
+17.sk_3_45.cnf	SAT4J_JAVA	2.3.1	SAT	14	14
+19.sk_3_48.cnf	SAT4J_JAVA	2.3.1	SAT	8	2
+20.sk_1_51.cnf	SAT4J_JAVA	2.3.1	SAT	19	13
+27.sk_3_32.cnf	SAT4J_JAVA	2.3.1	SAT	2	4
+29.sk_3_45.cnf	SAT4J_JAVA	2.3.1	SAT	10	4
+30.sk_5_76.cnf	SAT4J_JAVA	2.3.1	SAT	47	40
+32.sk_4_38.cnf	SAT4J_JAVA	2.3.1	SAT	7	12
+35.sk_3_52.cnf	SAT4J_JAVA	2.3.1	SAT	4	3
+36.sk_3_77.cnf	SAT4J_JAVA	2.3.1	UNSAT	-1	-1
+51.sk_4_38.cnf	SAT4J_JAVA	2.3.1	SAT	6	1
+53.sk_4_32.cnf	SAT4J_JAVA	2.3.1	SAT	4	3
+54.sk_12_97.cnf	SAT4J_JAVA	2.3.1	SAT	38	42
+55.sk_3_46.cnf	SAT4J_JAVA	2.3.1	SAT	8	17
+56.sk_6_38.cnf	SAT4J_JAVA	2.3.1	SAT	6	4
+57.sk_4_64.cnf	SAT4J_JAVA	2.3.1	SAT	8	4
+63.sk_3_64.cnf	SAT4J_JAVA	2.3.1	SAT	7	2
+7.sk_4_50.cnf	SAT4J_JAVA	2.3.1	SAT	8	5
+70.sk_3_40.cnf	SAT4J_JAVA	2.3.1	SAT	4	2
+71.sk_3_65.cnf	SAT4J_JAVA	2.3.1	SAT	5	4
+77.sk_3_44.cnf	SAT4J_JAVA	2.3.1	SAT	8	4
+79.sk_4_40.cnf	SAT4J_JAVA	2.3.1	UNSAT	-1	-1
+80.sk_2_48.cnf	SAT4J_JAVA	2.3.1	SAT	5	1
+81.sk_5_51.cnf	SAT4J_JAVA	2.3.1	SAT	13	9
+84.sk_4_77.cnf	SAT4J_JAVA	2.3.1	SAT	18	16
+ActivityService.sk_11_27.cnf	SAT4J_JAVA	2.3.1	SAT	3	4
+ActivityService2.sk_10_27.cnf	SAT4J_JAVA	2.3.1	SAT	2	3
+ConcreteActivityService.sk_13_28.cnf	SAT4J_JAVA	2.3.1	SAT	3	3
+ConcreteRoleAffectationService.sk_119_273.cnf	SAT4J_JAVA	2.3.1	SAT	767	122
+GuidanceService.sk_4_27.cnf	SAT4J_JAVA	2.3.1	SAT	2	4
+GuidanceService2.sk_2_27.cnf	SAT4J_JAVA	2.3.1	SAT	1	1
+IssueServiceImpl.sk_8_30.cnf	SAT4J_JAVA	2.3.1	SAT	2	2
+IterationService.sk_12_27.cnf	SAT4J_JAVA	2.3.1	SAT	3	5
+LoginService.sk_20_34.cnf	SAT4J_JAVA	2.3.1	SAT	8	3
+LoginService2.sk_23_36.cnf	SAT4J_JAVA	2.3.1	SAT	14	5
+NotificationServiceImpl2.sk_10_36.cnf	SAT4J_JAVA	2.3.1	SAT	5	4
+PhaseService.sk_14_27.cnf	SAT4J_JAVA	2.3.1	SAT	2	1
+Pollard.sk_1_10.cnf	SAT4J_JAVA	2.3.1	SAT	25	29
+ProcessBean.sk_8_64.cnf	SAT4J_JAVA	2.3.1	SAT	4	2
+ProjectService3.sk_12_55.cnf	SAT4J_JAVA	2.3.1	SAT	2	1
+SetTest.sk_9_21.cnf	SAT4J_JAVA	2.3.1	SAT	65	35
+UserServiceImpl.sk_8_32.cnf	SAT4J_JAVA	2.3.1	SAT	3	5
+compress.sk_17_291.cnf	SAT4J_JAVA	2.3.1	SAT	76	81
+diagStencil.sk_35_36.cnf	SAT4J_JAVA	2.3.1	SAT	1775	264
+doublyLinkedList.sk_8_37.cnf	SAT4J_JAVA	2.3.1	SAT	8	4
+enqueueSeqSK.sk_10_42.cnf	SAT4J_JAVA	2.3.1	SAT	23	23
+isolateRightmost.sk_7_481.cnf	SAT4J_JAVA	2.3.1	SAT	11	8
+jburnim_morton.sk_13_530.cnf	SAT4J_JAVA	2.3.1	SAT	127	17
+karatsuba.sk_7_41.cnf	SAT4J_JAVA	2.3.1	SAT	40	41
+log2.sk_72_391.cnf	SAT4J_JAVA	2.3.1	SAT	345	20
+logcount.sk_16_86.cnf	SAT4J_JAVA	2.3.1	SAT	37	31
+lss.sk_6_7.cnf	SAT4J_JAVA	2.3.1	SAT	99	24
+parity.sk_11_11.cnf	SAT4J_JAVA	2.3.1	SAT	21	17
+partition.sk_22_155.cnf	SAT4J_JAVA	2.3.1	SAT	366	58
+polynomial.sk_7_25.cnf	SAT4J_JAVA	2.3.1	SAT	1	4
+registerlesSwap.sk_3_10.cnf	SAT4J_JAVA	2.3.1	SAT	1	2
+reverse.sk_11_258.cnf	SAT4J_JAVA	2.3.1	SAT	130	17
+signedAvg.sk_8_1020.cnf	SAT4J_JAVA	2.3.1	SAT	44	47
+sort.sk_8_52.cnf	SAT4J_JAVA	2.3.1	SAT	21	21
+tableBasedAddition.sk_240_1024.cnf	SAT4J_JAVA	2.3.1	SAT	1	4
+tutorial1.sk_1_1.cnf	SAT4J_JAVA	2.3.1	SAT	0	0
+tutorial2.sk_3_4.cnf	SAT4J_JAVA	2.3.1	SAT	36	25
+tutorial3.sk_4_31.cnf	SAT4J_JAVA	2.3.1	SAT	1784	80
+xpose.sk_6_134.cnf	SAT4J_JAVA	2.3.1	SAT	77	23
+10.sk_1_46.cnf	SAT4J_JAR	2.0.0	SAT	78	12
+107.sk_3_90.cnf	SAT4J_JAR	2.0.0	SAT	118	12
+109.sk_4_36.cnf	SAT4J_JAR	2.0.0	SAT	98	10
+110.sk_3_88.cnf	SAT4J_JAR	2.0.0	SAT	184	20
+111.sk_2_36.cnf	SAT4J_JAR	2.0.0	SAT	88	16
+17.sk_3_45.cnf	SAT4J_JAR	2.0.0	SAT	136	16
+19.sk_3_48.cnf	SAT4J_JAR	2.0.0	SAT	137	10
+20.sk_1_51.cnf	SAT4J_JAR	2.0.0	SAT	159	8
+27.sk_3_32.cnf	SAT4J_JAR	2.0.0	SAT	83	10
+29.sk_3_45.cnf	SAT4J_JAR	2.0.0	SAT	146	13
+30.sk_5_76.cnf	SAT4J_JAR	2.0.0	SAT	269	32
+32.sk_4_38.cnf	SAT4J_JAR	2.0.0	SAT	97	14
+35.sk_3_52.cnf	SAT4J_JAR	2.0.0	SAT	96	12
+36.sk_3_77.cnf	SAT4J_JAR	2.0.0	UNSAT	88	11
+51.sk_4_38.cnf	SAT4J_JAR	2.0.0	SAT	105	7
+53.sk_4_32.cnf	SAT4J_JAR	2.0.0	SAT	95	8
+54.sk_12_97.cnf	SAT4J_JAR	2.0.0	SAT	234	15
+55.sk_3_46.cnf	SAT4J_JAR	2.0.0	SAT	99	7
+56.sk_6_38.cnf	SAT4J_JAR	2.0.0	SAT	109	9
+57.sk_4_64.cnf	SAT4J_JAR	2.0.0	SAT	113	14
+63.sk_3_64.cnf	SAT4J_JAR	2.0.0	SAT	115	14
+7.sk_4_50.cnf	SAT4J_JAR	2.0.0	SAT	133	17
+70.sk_3_40.cnf	SAT4J_JAR	2.0.0	SAT	121	14
+71.sk_3_65.cnf	SAT4J_JAR	2.0.0	SAT	125	15
+77.sk_3_44.cnf	SAT4J_JAR	2.0.0	SAT	137	7
+79.sk_4_40.cnf	SAT4J_JAR	2.0.0	UNSAT	69	12
+80.sk_2_48.cnf	SAT4J_JAR	2.0.0	SAT	120	11
+81.sk_5_51.cnf	SAT4J_JAR	2.0.0	SAT	154	18
+84.sk_4_77.cnf	SAT4J_JAR	2.0.0	SAT	137	21
+ActivityService.sk_11_27.cnf	SAT4J_JAR	2.0.0	SAT	98	11
+ActivityService2.sk_10_27.cnf	SAT4J_JAR	2.0.0	SAT	103	11
+ConcreteActivityService.sk_13_28.cnf	SAT4J_JAR	2.0.0	SAT	108	8
+ConcreteRoleAffectationService.sk_119_273.cnf	SAT4J_JAR	2.0.0	SAT	14929	169
+GuidanceService.sk_4_27.cnf	SAT4J_JAR	2.0.0	SAT	93	11
+GuidanceService2.sk_2_27.cnf	SAT4J_JAR	2.0.0	SAT	88	18
+IssueServiceImpl.sk_8_30.cnf	SAT4J_JAR	2.0.0	SAT	102	13
+IterationService.sk_12_27.cnf	SAT4J_JAR	2.0.0	SAT	100	4
+LoginService.sk_20_34.cnf	SAT4J_JAR	2.0.0	SAT	175	14
+LoginService2.sk_23_36.cnf	SAT4J_JAR	2.0.0	SAT	191	18
+NotificationServiceImpl2.sk_10_36.cnf	SAT4J_JAR	2.0.0	SAT	118	13
+PhaseService.sk_14_27.cnf	SAT4J_JAR	2.0.0	SAT	95	13
+Pollard.sk_1_10.cnf	SAT4J_JAR	2.0.0	SAT	141	9
+ProcessBean.sk_8_64.cnf	SAT4J_JAR	2.0.0	SAT	139	21
+ProjectService3.sk_12_55.cnf	SAT4J_JAR	2.0.0	SAT	126	10
+SetTest.sk_9_21.cnf	SAT4J_JAR	2.0.0	SAT	315	23
+UserServiceImpl.sk_8_32.cnf	SAT4J_JAR	2.0.0	SAT	102	14
+compress.sk_17_291.cnf	SAT4J_JAR	2.0.0	SAT	5552	77
+diagStencil.sk_35_36.cnf	SAT4J_JAR	2.0.0	SAT	273510	8419
+doublyLinkedList.sk_8_37.cnf	SAT4J_JAR	2.0.0	SAT	193	13
+enqueueSeqSK.sk_10_42.cnf	SAT4J_JAR	2.0.0	SAT	352	32
+isolateRightmost.sk_7_481.cnf	SAT4J_JAR	2.0.0	SAT	240	27
+jburnim_morton.sk_13_530.cnf	SAT4J_JAR	2.0.0	SAT	2036	60
+karatsuba.sk_7_41.cnf	SAT4J_JAR	2.0.0	SAT	2944	53
+log2.sk_72_391.cnf	SAT4J_JAR	2.0.0	SAT	12594	206
+logcount.sk_16_86.cnf	SAT4J_JAR	2.0.0	SAT	18036	186
+lss.sk_6_7.cnf	SAT4J_JAR	2.0.0	SAT	602	35
+parity.sk_11_11.cnf	SAT4J_JAR	2.0.0	SAT	575	54
+partition.sk_22_155.cnf	SAT4J_JAR	2.0.0	SAT	23319	149
+polynomial.sk_7_25.cnf	SAT4J_JAR	2.0.0	SAT	74	16
+registerlesSwap.sk_3_10.cnf	SAT4J_JAR	2.0.0	SAT	66	11
+reverse.sk_11_258.cnf	SAT4J_JAR	2.0.0	SAT	556	33
+signedAvg.sk_8_1020.cnf	SAT4J_JAR	2.0.0	SAT	702	35
+sort.sk_8_52.cnf	SAT4J_JAR	2.0.0	SAT	819	35
+tableBasedAddition.sk_240_1024.cnf	SAT4J_JAR	2.0.0	SAT	72	11
+tutorial1.sk_1_1.cnf	SAT4J_JAR	2.0.0	SAT	59	9
+tutorial2.sk_3_4.cnf	SAT4J_JAR	2.0.0	SAT	187	17
+tutorial3.sk_4_31.cnf	SAT4J_JAR	2.0.0	SAT	4671	104
+xpose.sk_6_134.cnf	SAT4J_JAR	2.0.0	SAT	248877	119105
+10.sk_1_46.cnf	SAT4J_JAR	2.0.4	SAT	74	10
+107.sk_3_90.cnf	SAT4J_JAR	2.0.4	SAT	116	13
+109.sk_4_36.cnf	SAT4J_JAR	2.0.4	SAT	98	5
+110.sk_3_88.cnf	SAT4J_JAR	2.0.4	SAT	181	19
+111.sk_2_36.cnf	SAT4J_JAR	2.0.4	SAT	89	5
+17.sk_3_45.cnf	SAT4J_JAR	2.0.4	SAT	133	14
+19.sk_3_48.cnf	SAT4J_JAR	2.0.4	SAT	140	12
+20.sk_1_51.cnf	SAT4J_JAR	2.0.4	SAT	167	17
+27.sk_3_32.cnf	SAT4J_JAR	2.0.4	SAT	86	9
+29.sk_3_45.cnf	SAT4J_JAR	2.0.4	SAT	150	19
+30.sk_5_76.cnf	SAT4J_JAR	2.0.4	SAT	270	13
+32.sk_4_38.cnf	SAT4J_JAR	2.0.4	SAT	99	12
+35.sk_3_52.cnf	SAT4J_JAR	2.0.4	SAT	95	12
+36.sk_3_77.cnf	SAT4J_JAR	2.0.4	UNSAT	96	10
+51.sk_4_38.cnf	SAT4J_JAR	2.0.4	SAT	100	12
+53.sk_4_32.cnf	SAT4J_JAR	2.0.4	SAT	95	9
+54.sk_12_97.cnf	SAT4J_JAR	2.0.4	SAT	236	15
+55.sk_3_46.cnf	SAT4J_JAR	2.0.4	SAT	98	14
+56.sk_6_38.cnf	SAT4J_JAR	2.0.4	SAT	107	11
+57.sk_4_64.cnf	SAT4J_JAR	2.0.4	SAT	113	15
+63.sk_3_64.cnf	SAT4J_JAR	2.0.4	SAT	128	21
+7.sk_4_50.cnf	SAT4J_JAR	2.0.4	SAT	136	10
+70.sk_3_40.cnf	SAT4J_JAR	2.0.4	SAT	114	12
+71.sk_3_65.cnf	SAT4J_JAR	2.0.4	SAT	137	21
+77.sk_3_44.cnf	SAT4J_JAR	2.0.4	SAT	134	8
+79.sk_4_40.cnf	SAT4J_JAR	2.0.4	UNSAT	78	14
+80.sk_2_48.cnf	SAT4J_JAR	2.0.4	SAT	118	16
+81.sk_5_51.cnf	SAT4J_JAR	2.0.4	SAT	155	15
+84.sk_4_77.cnf	SAT4J_JAR	2.0.4	SAT	133	16
+ActivityService.sk_11_27.cnf	SAT4J_JAR	2.0.4	SAT	95	10
+ActivityService2.sk_10_27.cnf	SAT4J_JAR	2.0.4	SAT	108	12
+ConcreteActivityService.sk_13_28.cnf	SAT4J_JAR	2.0.4	SAT	114	11
+ConcreteRoleAffectationService.sk_119_273.cnf	SAT4J_JAR	2.0.4	SAT	31067	321
+GuidanceService.sk_4_27.cnf	SAT4J_JAR	2.0.4	SAT	93	12
+GuidanceService2.sk_2_27.cnf	SAT4J_JAR	2.0.4	SAT	89	14
+IssueServiceImpl.sk_8_30.cnf	SAT4J_JAR	2.0.4	SAT	98	5
+IterationService.sk_12_27.cnf	SAT4J_JAR	2.0.4	SAT	104	6
+LoginService.sk_20_34.cnf	SAT4J_JAR	2.0.4	SAT	179	12
+LoginService2.sk_23_36.cnf	SAT4J_JAR	2.0.4	SAT	180	12
+NotificationServiceImpl2.sk_10_36.cnf	SAT4J_JAR	2.0.4	SAT	128	17
+PhaseService.sk_14_27.cnf	SAT4J_JAR	2.0.4	SAT	101	7
+Pollard.sk_1_10.cnf	SAT4J_JAR	2.0.4	SAT	140	10
+ProcessBean.sk_8_64.cnf	SAT4J_JAR	2.0.4	SAT	137	10
+ProjectService3.sk_12_55.cnf	SAT4J_JAR	2.0.4	SAT	133	13
+SetTest.sk_9_21.cnf	SAT4J_JAR	2.0.4	SAT	323	12
+UserServiceImpl.sk_8_32.cnf	SAT4J_JAR	2.0.4	SAT	99	11
+compress.sk_17_291.cnf	SAT4J_JAR	2.0.4	SAT	3139	78
+diagStencil.sk_35_36.cnf	SAT4J_JAR	2.0.4	SAT	247378	4858
+doublyLinkedList.sk_8_37.cnf	SAT4J_JAR	2.0.4	SAT	301	23
+enqueueSeqSK.sk_10_42.cnf	SAT4J_JAR	2.0.4	SAT	435	39
+isolateRightmost.sk_7_481.cnf	SAT4J_JAR	2.0.4	SAT	230	17
+jburnim_morton.sk_13_530.cnf	SAT4J_JAR	2.0.4	SAT	2581	41
+karatsuba.sk_7_41.cnf	SAT4J_JAR	2.0.4	SAT	1843	41
+log2.sk_72_391.cnf	SAT4J_JAR	2.0.4	SAT	819	16
+logcount.sk_16_86.cnf	SAT4J_JAR	2.0.4	SAT	195930	33893
+lss.sk_6_7.cnf	SAT4J_JAR	2.0.4	SAT	785	31
+parity.sk_11_11.cnf	SAT4J_JAR	2.0.4	SAT	376	38
+partition.sk_22_155.cnf	SAT4J_JAR	2.0.4	SAT	24256	212
+polynomial.sk_7_25.cnf	SAT4J_JAR	2.0.4	SAT	74	16
+registerlesSwap.sk_3_10.cnf	SAT4J_JAR	2.0.4	SAT	72	14
+reverse.sk_11_258.cnf	SAT4J_JAR	2.0.4	SAT	594	16
+signedAvg.sk_8_1020.cnf	SAT4J_JAR	2.0.4	SAT	640	29
+sort.sk_8_52.cnf	SAT4J_JAR	2.0.4	SAT	714	30
+tableBasedAddition.sk_240_1024.cnf	SAT4J_JAR	2.0.4	SAT	71	11
+tutorial1.sk_1_1.cnf	SAT4J_JAR	2.0.4	SAT	59	11
+tutorial2.sk_3_4.cnf	SAT4J_JAR	2.0.4	SAT	274	22
+tutorial3.sk_4_31.cnf	SAT4J_JAR	2.0.4	SAT	10413	104
+xpose.sk_6_134.cnf	SAT4J_JAR	2.0.4	SAT	353248	187378
+10.sk_1_46.cnf	SAT4J_JAR	2.2.3	SAT	76	6
+107.sk_3_90.cnf	SAT4J_JAR	2.2.3	SAT	123	13
+109.sk_4_36.cnf	SAT4J_JAR	2.2.3	SAT	101	3
+110.sk_3_88.cnf	SAT4J_JAR	2.2.3	SAT	199	30
+111.sk_2_36.cnf	SAT4J_JAR	2.2.3	SAT	93	16
+17.sk_3_45.cnf	SAT4J_JAR	2.2.3	SAT	131	10
+19.sk_3_48.cnf	SAT4J_JAR	2.2.3	SAT	146	16
+20.sk_1_51.cnf	SAT4J_JAR	2.2.3	SAT	160	14
+27.sk_3_32.cnf	SAT4J_JAR	2.2.3	SAT	103	16
+29.sk_3_45.cnf	SAT4J_JAR	2.2.3	SAT	153	13
+30.sk_5_76.cnf	SAT4J_JAR	2.2.3	SAT	262	11
+32.sk_4_38.cnf	SAT4J_JAR	2.2.3	SAT	103	10
+35.sk_3_52.cnf	SAT4J_JAR	2.2.3	SAT	105	11
+36.sk_3_77.cnf	SAT4J_JAR	2.2.3	UNSAT	92	11
+51.sk_4_38.cnf	SAT4J_JAR	2.2.3	SAT	112	13
+53.sk_4_32.cnf	SAT4J_JAR	2.2.3	SAT	96	9
+54.sk_12_97.cnf	SAT4J_JAR	2.2.3	SAT	246	15
+55.sk_3_46.cnf	SAT4J_JAR	2.2.3	SAT	101	10
+56.sk_6_38.cnf	SAT4J_JAR	2.2.3	SAT	109	13
+57.sk_4_64.cnf	SAT4J_JAR	2.2.3	SAT	111	12
+63.sk_3_64.cnf	SAT4J_JAR	2.2.3	SAT	132	11
+7.sk_4_50.cnf	SAT4J_JAR	2.2.3	SAT	137	6
+70.sk_3_40.cnf	SAT4J_JAR	2.2.3	SAT	135	16
+71.sk_3_65.cnf	SAT4J_JAR	2.2.3	SAT	128	7
+77.sk_3_44.cnf	SAT4J_JAR	2.2.3	SAT	151	17
+79.sk_4_40.cnf	SAT4J_JAR	2.2.3	UNSAT	83	17
+80.sk_2_48.cnf	SAT4J_JAR	2.2.3	SAT	123	13
+81.sk_5_51.cnf	SAT4J_JAR	2.2.3	SAT	153	11
+84.sk_4_77.cnf	SAT4J_JAR	2.2.3	SAT	140	14
+ActivityService.sk_11_27.cnf	SAT4J_JAR	2.2.3	SAT	102	7
+ActivityService2.sk_10_27.cnf	SAT4J_JAR	2.2.3	SAT	114	18
+ConcreteActivityService.sk_13_28.cnf	SAT4J_JAR	2.2.3	SAT	112	13
+ConcreteRoleAffectationService.sk_119_273.cnf	SAT4J_JAR	2.2.3	SAT	24562	248
+GuidanceService.sk_4_27.cnf	SAT4J_JAR	2.2.3	SAT	95	5
+GuidanceService2.sk_2_27.cnf	SAT4J_JAR	2.2.3	SAT	89	12
+IssueServiceImpl.sk_8_30.cnf	SAT4J_JAR	2.2.3	SAT	106	12
+IterationService.sk_12_27.cnf	SAT4J_JAR	2.2.3	SAT	103	12
+LoginService.sk_20_34.cnf	SAT4J_JAR	2.2.3	SAT	158	16
+LoginService2.sk_23_36.cnf	SAT4J_JAR	2.2.3	SAT	174	18
+NotificationServiceImpl2.sk_10_36.cnf	SAT4J_JAR	2.2.3	SAT	152	16
+PhaseService.sk_14_27.cnf	SAT4J_JAR	2.2.3	SAT	103	14
+Pollard.sk_1_10.cnf	SAT4J_JAR	2.2.3	SAT	141	4
+ProcessBean.sk_8_64.cnf	SAT4J_JAR	2.2.3	SAT	139	15
+ProjectService3.sk_12_55.cnf	SAT4J_JAR	2.2.3	SAT	128	3
+SetTest.sk_9_21.cnf	SAT4J_JAR	2.2.3	SAT	346	34
+UserServiceImpl.sk_8_32.cnf	SAT4J_JAR	2.2.3	SAT	107	10
+compress.sk_17_291.cnf	SAT4J_JAR	2.2.3	SAT	3514	83
+diagStencil.sk_35_36.cnf	SAT4J_JAR	2.2.3	SAT	263157	2610
+doublyLinkedList.sk_8_37.cnf	SAT4J_JAR	2.2.3	SAT	193	20
+enqueueSeqSK.sk_10_42.cnf	SAT4J_JAR	2.2.3	SAT	339	33
+isolateRightmost.sk_7_481.cnf	SAT4J_JAR	2.2.3	SAT	211	12
+jburnim_morton.sk_13_530.cnf	SAT4J_JAR	2.2.3	SAT	2575	60
+karatsuba.sk_7_41.cnf	SAT4J_JAR	2.2.3	SAT	1876	24
+log2.sk_72_391.cnf	SAT4J_JAR	2.2.3	SAT	18295	398
+logcount.sk_16_86.cnf	SAT4J_JAR	2.2.3	SAT	19512	193
+lss.sk_6_7.cnf	SAT4J_JAR	2.2.3	SAT	651	27
+parity.sk_11_11.cnf	SAT4J_JAR	2.2.3	SAT	845	58
+partition.sk_22_155.cnf	SAT4J_JAR	2.2.3	SAT	24828	210
+polynomial.sk_7_25.cnf	SAT4J_JAR	2.2.3	SAT	77	8
+registerlesSwap.sk_3_10.cnf	SAT4J_JAR	2.2.3	SAT	74	6
+reverse.sk_11_258.cnf	SAT4J_JAR	2.2.3	SAT	600	46
+signedAvg.sk_8_1020.cnf	SAT4J_JAR	2.2.3	SAT	623	40
+sort.sk_8_52.cnf	SAT4J_JAR	2.2.3	SAT	804	25
+tableBasedAddition.sk_240_1024.cnf	SAT4J_JAR	2.2.3	SAT	73	16
+tutorial1.sk_1_1.cnf	SAT4J_JAR	2.2.3	SAT	63	4
+tutorial2.sk_3_4.cnf	SAT4J_JAR	2.2.3	SAT	184	18
+tutorial3.sk_4_31.cnf	SAT4J_JAR	2.2.3	SAT	5120	105
+xpose.sk_6_134.cnf	SAT4J_JAR	2.2.3	SAT	73446	491
+10.sk_1_46.cnf	SAT4J_JAR	2.3.1	SAT	85	19
+107.sk_3_90.cnf	SAT4J_JAR	2.3.1	SAT	132	18
+109.sk_4_36.cnf	SAT4J_JAR	2.3.1	SAT	108	10
+110.sk_3_88.cnf	SAT4J_JAR	2.3.1	SAT	190	15
+111.sk_2_36.cnf	SAT4J_JAR	2.3.1	SAT	93	14
+17.sk_3_45.cnf	SAT4J_JAR	2.3.1	SAT	138	12
+19.sk_3_48.cnf	SAT4J_JAR	2.3.1	SAT	147	22
+20.sk_1_51.cnf	SAT4J_JAR	2.3.1	SAT	165	17
+27.sk_3_32.cnf	SAT4J_JAR	2.3.1	SAT	88	13
+29.sk_3_45.cnf	SAT4J_JAR	2.3.1	SAT	152	7
+30.sk_5_76.cnf	SAT4J_JAR	2.3.1	SAT	269	21
+32.sk_4_38.cnf	SAT4J_JAR	2.3.1	SAT	103	14
+35.sk_3_52.cnf	SAT4J_JAR	2.3.1	SAT	103	11
+36.sk_3_77.cnf	SAT4J_JAR	2.3.1	UNSAT	94	12
+51.sk_4_38.cnf	SAT4J_JAR	2.3.1	SAT	112	14
+53.sk_4_32.cnf	SAT4J_JAR	2.3.1	SAT	99	11
+54.sk_12_97.cnf	SAT4J_JAR	2.3.1	SAT	248	19
+55.sk_3_46.cnf	SAT4J_JAR	2.3.1	SAT	103	11
+56.sk_6_38.cnf	SAT4J_JAR	2.3.1	SAT	110	10
+57.sk_4_64.cnf	SAT4J_JAR	2.3.1	SAT	121	11
+63.sk_3_64.cnf	SAT4J_JAR	2.3.1	SAT	135	11
+7.sk_4_50.cnf	SAT4J_JAR	2.3.1	SAT	144	20
+70.sk_3_40.cnf	SAT4J_JAR	2.3.1	SAT	138	19
+71.sk_3_65.cnf	SAT4J_JAR	2.3.1	SAT	134	12
+77.sk_3_44.cnf	SAT4J_JAR	2.3.1	SAT	156	18
+79.sk_4_40.cnf	SAT4J_JAR	2.3.1	UNSAT	79	13
+80.sk_2_48.cnf	SAT4J_JAR	2.3.1	SAT	135	18
+81.sk_5_51.cnf	SAT4J_JAR	2.3.1	SAT	167	17
+84.sk_4_77.cnf	SAT4J_JAR	2.3.1	SAT	142	16
+ActivityService.sk_11_27.cnf	SAT4J_JAR	2.3.1	SAT	100	8
+ActivityService2.sk_10_27.cnf	SAT4J_JAR	2.3.1	SAT	110	18
+ConcreteActivityService.sk_13_28.cnf	SAT4J_JAR	2.3.1	SAT	109	10
+ConcreteRoleAffectationService.sk_119_273.cnf	SAT4J_JAR	2.3.1	SAT	24687	231
+GuidanceService.sk_4_27.cnf	SAT4J_JAR	2.3.1	SAT	96	10
+GuidanceService2.sk_2_27.cnf	SAT4J_JAR	2.3.1	SAT	90	12
+IssueServiceImpl.sk_8_30.cnf	SAT4J_JAR	2.3.1	SAT	106	13
+IterationService.sk_12_27.cnf	SAT4J_JAR	2.3.1	SAT	107	4
+LoginService.sk_20_34.cnf	SAT4J_JAR	2.3.1	SAT	166	13
+LoginService2.sk_23_36.cnf	SAT4J_JAR	2.3.1	SAT	188	17
+NotificationServiceImpl2.sk_10_36.cnf	SAT4J_JAR	2.3.1	SAT	149	9
+PhaseService.sk_14_27.cnf	SAT4J_JAR	2.3.1	SAT	106	9
+Pollard.sk_1_10.cnf	SAT4J_JAR	2.3.1	SAT	147	21
+ProcessBean.sk_8_64.cnf	SAT4J_JAR	2.3.1	SAT	141	17
+ProjectService3.sk_12_55.cnf	SAT4J_JAR	2.3.1	SAT	133	10
+SetTest.sk_9_21.cnf	SAT4J_JAR	2.3.1	SAT	346	21
+UserServiceImpl.sk_8_32.cnf	SAT4J_JAR	2.3.1	SAT	109	10
+compress.sk_17_291.cnf	SAT4J_JAR	2.3.1	SAT	3575	24
+diagStencil.sk_35_36.cnf	SAT4J_JAR	2.3.1	SAT	262697	1983
+doublyLinkedList.sk_8_37.cnf	SAT4J_JAR	2.3.1	SAT	191	20
+enqueueSeqSK.sk_10_42.cnf	SAT4J_JAR	2.3.1	SAT	349	35
+isolateRightmost.sk_7_481.cnf	SAT4J_JAR	2.3.1	SAT	216	23
+jburnim_morton.sk_13_530.cnf	SAT4J_JAR	2.3.1	SAT	2596	59
+karatsuba.sk_7_41.cnf	SAT4J_JAR	2.3.1	SAT	1902	59
+log2.sk_72_391.cnf	SAT4J_JAR	2.3.1	SAT	18450	380
+logcount.sk_16_86.cnf	SAT4J_JAR	2.3.1	SAT	19713	127
+lss.sk_6_7.cnf	SAT4J_JAR	2.3.1	SAT	697	37
+parity.sk_11_11.cnf	SAT4J_JAR	2.3.1	SAT	847	59
+partition.sk_22_155.cnf	SAT4J_JAR	2.3.1	SAT	24929	248
+polynomial.sk_7_25.cnf	SAT4J_JAR	2.3.1	SAT	79	14
+registerlesSwap.sk_3_10.cnf	SAT4J_JAR	2.3.1	SAT	80	13
+reverse.sk_11_258.cnf	SAT4J_JAR	2.3.1	SAT	612	35
+signedAvg.sk_8_1020.cnf	SAT4J_JAR	2.3.1	SAT	631	33
+sort.sk_8_52.cnf	SAT4J_JAR	2.3.1	SAT	802	21
+tableBasedAddition.sk_240_1024.cnf	SAT4J_JAR	2.3.1	SAT	77	11
+tutorial1.sk_1_1.cnf	SAT4J_JAR	2.3.1	SAT	60	10
+tutorial2.sk_3_4.cnf	SAT4J_JAR	2.3.1	SAT	185	10
+tutorial3.sk_4_31.cnf	SAT4J_JAR	2.3.1	SAT	5270	75
+xpose.sk_6_134.cnf	SAT4J_JAR	2.3.1	SAT	73814	446
+10.sk_1_46.cnf	SAT4J_COMP	2.0.0	SAT	1477	57
+107.sk_3_90.cnf	SAT4J_COMP	2.0.0	SAT	2151	63
+109.sk_4_36.cnf	SAT4J_COMP	2.0.0	SAT	1719	55
+110.sk_3_88.cnf	SAT4J_COMP	2.0.0	SAT	2606	77
+111.sk_2_36.cnf	SAT4J_COMP	2.0.0	SAT	1555	77
+17.sk_3_45.cnf	SAT4J_COMP	2.0.0	SAT	2009	81
+19.sk_3_48.cnf	SAT4J_COMP	2.0.0	SAT	1970	69
+20.sk_1_51.cnf	SAT4J_COMP	2.0.0	SAT	2546	72
+27.sk_3_32.cnf	SAT4J_COMP	2.0.0	SAT	1475	60
+29.sk_3_45.cnf	SAT4J_COMP	2.0.0	SAT	2094	81
+30.sk_5_76.cnf	SAT4J_COMP	2.0.0	SAT	3363	74
+32.sk_4_38.cnf	SAT4J_COMP	2.0.0	SAT	1731	75
+35.sk_3_52.cnf	SAT4J_COMP	2.0.0	SAT	1663	69
+36.sk_3_77.cnf	SAT4J_COMP	2.0.0	UNSAT	1892	59
+51.sk_4_38.cnf	SAT4J_COMP	2.0.0	SAT	1786	95
+53.sk_4_32.cnf	SAT4J_COMP	2.0.0	SAT	1668	70
+54.sk_12_97.cnf	SAT4J_COMP	2.0.0	SAT	2800	82
+55.sk_3_46.cnf	SAT4J_COMP	2.0.0	SAT	1677	82
+56.sk_6_38.cnf	SAT4J_COMP	2.0.0	SAT	1839	75
+57.sk_4_64.cnf	SAT4J_COMP	2.0.0	SAT	1945	71
+63.sk_3_64.cnf	SAT4J_COMP	2.0.0	SAT	1954	66
+7.sk_4_50.cnf	SAT4J_COMP	2.0.0	SAT	1947	63
+70.sk_3_40.cnf	SAT4J_COMP	2.0.0	SAT	1821	57
+71.sk_3_65.cnf	SAT4J_COMP	2.0.0	SAT	1840	69
+77.sk_3_44.cnf	SAT4J_COMP	2.0.0	SAT	2013	45
+79.sk_4_40.cnf	SAT4J_COMP	2.0.0	UNSAT	1471	64
+80.sk_2_48.cnf	SAT4J_COMP	2.0.0	SAT	1818	57
+81.sk_5_51.cnf	SAT4J_COMP	2.0.0	SAT	2191	71
+84.sk_4_77.cnf	SAT4J_COMP	2.0.0	SAT	2646	50
+ActivityService.sk_11_27.cnf	SAT4J_COMP	2.0.0	SAT	1590	75
+ActivityService2.sk_10_27.cnf	SAT4J_COMP	2.0.0	SAT	1610	75
+ConcreteActivityService.sk_13_28.cnf	SAT4J_COMP	2.0.0	SAT	1682	85
+ConcreteRoleAffectationService.sk_119_273.cnf	SAT4J_COMP	2.0.0	SAT	36493	341
+GuidanceService.sk_4_27.cnf	SAT4J_COMP	2.0.0	SAT	1491	55
+GuidanceService2.sk_2_27.cnf	SAT4J_COMP	2.0.0	SAT	1502	91
+IssueServiceImpl.sk_8_30.cnf	SAT4J_COMP	2.0.0	SAT	1542	47
+IterationService.sk_12_27.cnf	SAT4J_COMP	2.0.0	SAT	1624	97
+LoginService.sk_20_34.cnf	SAT4J_COMP	2.0.0	SAT	2038	98
+LoginService2.sk_23_36.cnf	SAT4J_COMP	2.0.0	SAT	2231	52
+NotificationServiceImpl2.sk_10_36.cnf	SAT4J_COMP	2.0.0	SAT	1755	81
+PhaseService.sk_14_27.cnf	SAT4J_COMP	2.0.0	SAT	1587	62
+Pollard.sk_1_10.cnf	SAT4J_COMP	2.0.0	SAT	2222	102
+ProcessBean.sk_8_64.cnf	SAT4J_COMP	2.0.0	SAT	1810	47
+ProjectService3.sk_12_55.cnf	SAT4J_COMP	2.0.0	SAT	1739	57
+SetTest.sk_9_21.cnf	SAT4J_COMP	2.0.0	SAT	4006	107
+UserServiceImpl.sk_8_32.cnf	SAT4J_COMP	2.0.0	SAT	1558	79
+compress.sk_17_291.cnf	SAT4J_COMP	2.0.0	SAT	9049	161
+diagStencil.sk_35_36.cnf	SAT4J_COMP	2.0.0	SAT	286893	4551
+doublyLinkedList.sk_8_37.cnf	SAT4J_COMP	2.0.0	SAT	2037	77
+enqueueSeqSK.sk_10_42.cnf	SAT4J_COMP	2.0.0	SAT	2686	63
+isolateRightmost.sk_7_481.cnf	SAT4J_COMP	2.0.0	SAT	2204	65
+jburnim_morton.sk_13_530.cnf	SAT4J_COMP	2.0.0	SAT	8867	210
+karatsuba.sk_7_41.cnf	SAT4J_COMP	2.0.0	SAT	5640	116
+log2.sk_72_391.cnf	SAT4J_COMP	2.0.0	SAT	23796	1012
+logcount.sk_16_86.cnf	SAT4J_COMP	2.0.0	SAT	20006	316
+lss.sk_6_7.cnf	SAT4J_COMP	2.0.0	SAT	5777	139
+parity.sk_11_11.cnf	SAT4J_COMP	2.0.0	SAT	2626	60
+partition.sk_22_155.cnf	SAT4J_COMP	2.0.0	SAT	32145	246
+polynomial.sk_7_25.cnf	SAT4J_COMP	2.0.0	SAT	1415	73
+registerlesSwap.sk_3_10.cnf	SAT4J_COMP	2.0.0	SAT	1428	60
+reverse.sk_11_258.cnf	SAT4J_COMP	2.0.0	SAT	7451	124
+signedAvg.sk_8_1020.cnf	SAT4J_COMP	2.0.0	SAT	3494	81
+sort.sk_8_52.cnf	SAT4J_COMP	2.0.0	SAT	3023	83
+tableBasedAddition.sk_240_1024.cnf	SAT4J_COMP	2.0.0	SAT	1406	66
+tutorial1.sk_1_1.cnf	SAT4J_COMP	2.0.0	SAT	1291	49
+tutorial2.sk_3_4.cnf	SAT4J_COMP	2.0.0	SAT	2841	78
+tutorial3.sk_4_31.cnf	SAT4J_COMP	2.0.0	SAT	43406	542
+xpose.sk_6_134.cnf	SAT4J_COMP	2.0.0	SAT	248896	6437
+10.sk_1_46.cnf	SAT4J_COMP	2.0.4	SAT	1470	62
+107.sk_3_90.cnf	SAT4J_COMP	2.0.4	SAT	2143	65
+109.sk_4_36.cnf	SAT4J_COMP	2.0.4	SAT	1727	50
+110.sk_3_88.cnf	SAT4J_COMP	2.0.4	SAT	2598	82
+111.sk_2_36.cnf	SAT4J_COMP	2.0.4	SAT	1589	61
+17.sk_3_45.cnf	SAT4J_COMP	2.0.4	SAT	2000	96
+19.sk_3_48.cnf	SAT4J_COMP	2.0.4	SAT	2017	75
+20.sk_1_51.cnf	SAT4J_COMP	2.0.4	SAT	2534	94
+27.sk_3_32.cnf	SAT4J_COMP	2.0.4	SAT	1481	76
+29.sk_3_45.cnf	SAT4J_COMP	2.0.4	SAT	2089	71
+30.sk_5_76.cnf	SAT4J_COMP	2.0.4	SAT	3376	60
+32.sk_4_38.cnf	SAT4J_COMP	2.0.4	SAT	1672	32
+35.sk_3_52.cnf	SAT4J_COMP	2.0.4	SAT	1691	86
+36.sk_3_77.cnf	SAT4J_COMP	2.0.4	UNSAT	1898	44
+51.sk_4_38.cnf	SAT4J_COMP	2.0.4	SAT	1789	118
+53.sk_4_32.cnf	SAT4J_COMP	2.0.4	SAT	1721	99
+54.sk_12_97.cnf	SAT4J_COMP	2.0.4	SAT	2819	53
+55.sk_3_46.cnf	SAT4J_COMP	2.0.4	SAT	1680	63
+56.sk_6_38.cnf	SAT4J_COMP	2.0.4	SAT	1861	92
+57.sk_4_64.cnf	SAT4J_COMP	2.0.4	SAT	1950	51
+63.sk_3_64.cnf	SAT4J_COMP	2.0.4	SAT	1957	24
+7.sk_4_50.cnf	SAT4J_COMP	2.0.4	SAT	1991	70
+70.sk_3_40.cnf	SAT4J_COMP	2.0.4	SAT	1862	92
+71.sk_3_65.cnf	SAT4J_COMP	2.0.4	SAT	1798	73
+77.sk_3_44.cnf	SAT4J_COMP	2.0.4	SAT	2005	96
+79.sk_4_40.cnf	SAT4J_COMP	2.0.4	UNSAT	1492	46
+80.sk_2_48.cnf	SAT4J_COMP	2.0.4	SAT	1808	75
+81.sk_5_51.cnf	SAT4J_COMP	2.0.4	SAT	2199	52
+84.sk_4_77.cnf	SAT4J_COMP	2.0.4	SAT	2637	92
+ActivityService.sk_11_27.cnf	SAT4J_COMP	2.0.4	SAT	1606	62
+ActivityService2.sk_10_27.cnf	SAT4J_COMP	2.0.4	SAT	1652	74
+ConcreteActivityService.sk_13_28.cnf	SAT4J_COMP	2.0.4	SAT	1674	78
+ConcreteRoleAffectationService.sk_119_273.cnf	SAT4J_COMP	2.0.4	SAT	50937	552
+GuidanceService.sk_4_27.cnf	SAT4J_COMP	2.0.4	SAT	1505	78
+GuidanceService2.sk_2_27.cnf	SAT4J_COMP	2.0.4	SAT	1486	67
+IssueServiceImpl.sk_8_30.cnf	SAT4J_COMP	2.0.4	SAT	1534	84
+IterationService.sk_12_27.cnf	SAT4J_COMP	2.0.4	SAT	1618	69
+LoginService.sk_20_34.cnf	SAT4J_COMP	2.0.4	SAT	2080	69
+LoginService2.sk_23_36.cnf	SAT4J_COMP	2.0.4	SAT	2262	74
+NotificationServiceImpl2.sk_10_36.cnf	SAT4J_COMP	2.0.4	SAT	1801	86
+PhaseService.sk_14_27.cnf	SAT4J_COMP	2.0.4	SAT	1592	68
+Pollard.sk_1_10.cnf	SAT4J_COMP	2.0.4	SAT	2244	79
+ProcessBean.sk_8_64.cnf	SAT4J_COMP	2.0.4	SAT	1813	98
+ProjectService3.sk_12_55.cnf	SAT4J_COMP	2.0.4	SAT	1759	89
+SetTest.sk_9_21.cnf	SAT4J_COMP	2.0.4	SAT	4004	119
+UserServiceImpl.sk_8_32.cnf	SAT4J_COMP	2.0.4	SAT	1554	51
+compress.sk_17_291.cnf	SAT4J_COMP	2.0.4	SAT	6758	122
+diagStencil.sk_35_36.cnf	SAT4J_COMP	2.0.4	SAT	271871	5519
+doublyLinkedList.sk_8_37.cnf	SAT4J_COMP	2.0.4	SAT	2148	100
+enqueueSeqSK.sk_10_42.cnf	SAT4J_COMP	2.0.4	SAT	2777	62
+isolateRightmost.sk_7_481.cnf	SAT4J_COMP	2.0.4	SAT	2225	64
+jburnim_morton.sk_13_530.cnf	SAT4J_COMP	2.0.4	SAT	9254	108
+karatsuba.sk_7_41.cnf	SAT4J_COMP	2.0.4	SAT	4550	104
+log2.sk_72_391.cnf	SAT4J_COMP	2.0.4	SAT	12491	115
+logcount.sk_16_86.cnf	SAT4J_COMP	2.0.4	SAT	131732	3445
+lss.sk_6_7.cnf	SAT4J_COMP	2.0.4	SAT	5922	129
+parity.sk_11_11.cnf	SAT4J_COMP	2.0.4	SAT	2494	67
+partition.sk_22_155.cnf	SAT4J_COMP	2.0.4	SAT	34129	1591
+polynomial.sk_7_25.cnf	SAT4J_COMP	2.0.4	SAT	1409	69
+registerlesSwap.sk_3_10.cnf	SAT4J_COMP	2.0.4	SAT	1436	68
+reverse.sk_11_258.cnf	SAT4J_COMP	2.0.4	SAT	7434	120
+signedAvg.sk_8_1020.cnf	SAT4J_COMP	2.0.4	SAT	3424	48
+sort.sk_8_52.cnf	SAT4J_COMP	2.0.4	SAT	2942	67
+tableBasedAddition.sk_240_1024.cnf	SAT4J_COMP	2.0.4	SAT	1390	64
+tutorial1.sk_1_1.cnf	SAT4J_COMP	2.0.4	SAT	1277	47
+tutorial2.sk_3_4.cnf	SAT4J_COMP	2.0.4	SAT	2909	85
+tutorial3.sk_4_31.cnf	SAT4J_COMP	2.0.4	SAT	48221	474
+xpose.sk_6_134.cnf	SAT4J_COMP	2.0.4	SAT	220805	5305
+10.sk_1_46.cnf	SAT4J_COMP	2.2.3	SAT	1297	49
+107.sk_3_90.cnf	SAT4J_COMP	2.2.3	SAT	1341	81
+109.sk_4_36.cnf	SAT4J_COMP	2.2.3	SAT	1300	68
+110.sk_3_88.cnf	SAT4J_COMP	2.2.3	SAT	1365	72
+111.sk_2_36.cnf	SAT4J_COMP	2.2.3	SAT	1277	47
+17.sk_3_45.cnf	SAT4J_COMP	2.2.3	SAT	1345	62
+19.sk_3_48.cnf	SAT4J_COMP	2.2.3	SAT	1338	41
+20.sk_1_51.cnf	SAT4J_COMP	2.2.3	SAT	1394	88
+27.sk_3_32.cnf	SAT4J_COMP	2.2.3	SAT	1303	88
+29.sk_3_45.cnf	SAT4J_COMP	2.2.3	SAT	1335	60
+30.sk_5_76.cnf	SAT4J_COMP	2.2.3	SAT	1479	77
+32.sk_4_38.cnf	SAT4J_COMP	2.2.3	SAT	1291	22
+35.sk_3_52.cnf	SAT4J_COMP	2.2.3	SAT	1296	55
+36.sk_3_77.cnf	SAT4J_COMP	2.2.3	UNSAT	1283	40
+51.sk_4_38.cnf	SAT4J_COMP	2.2.3	SAT	1295	31
+53.sk_4_32.cnf	SAT4J_COMP	2.2.3	SAT	1286	44
+54.sk_12_97.cnf	SAT4J_COMP	2.2.3	SAT	1454	75
+55.sk_3_46.cnf	SAT4J_COMP	2.2.3	SAT	1283	57
+56.sk_6_38.cnf	SAT4J_COMP	2.2.3	SAT	1310	63
+57.sk_4_64.cnf	SAT4J_COMP	2.2.3	SAT	1313	68
+63.sk_3_64.cnf	SAT4J_COMP	2.2.3	SAT	1350	86
+7.sk_4_50.cnf	SAT4J_COMP	2.2.3	SAT	1332	53
+70.sk_3_40.cnf	SAT4J_COMP	2.2.3	SAT	1362	56
+71.sk_3_65.cnf	SAT4J_COMP	2.2.3	SAT	1350	49
+77.sk_3_44.cnf	SAT4J_COMP	2.2.3	SAT	1341	46
+79.sk_4_40.cnf	SAT4J_COMP	2.2.3	UNSAT	1274	44
+80.sk_2_48.cnf	SAT4J_COMP	2.2.3	SAT	1334	60
+81.sk_5_51.cnf	SAT4J_COMP	2.2.3	SAT	1378	57
+84.sk_4_77.cnf	SAT4J_COMP	2.2.3	SAT	1364	93
+ActivityService.sk_11_27.cnf	SAT4J_COMP	2.2.3	SAT	1308	51
+ActivityService2.sk_10_27.cnf	SAT4J_COMP	2.2.3	SAT	1328	67
+ConcreteActivityService.sk_13_28.cnf	SAT4J_COMP	2.2.3	SAT	1341	76
+ConcreteRoleAffectationService.sk_119_273.cnf	SAT4J_COMP	2.2.3	SAT	25368	171
+GuidanceService.sk_4_27.cnf	SAT4J_COMP	2.2.3	SAT	1320	80
+GuidanceService2.sk_2_27.cnf	SAT4J_COMP	2.2.3	SAT	1285	38
+IssueServiceImpl.sk_8_30.cnf	SAT4J_COMP	2.2.3	SAT	1300	36
+IterationService.sk_12_27.cnf	SAT4J_COMP	2.2.3	SAT	1308	62
+LoginService.sk_20_34.cnf	SAT4J_COMP	2.2.3	SAT	1381	65
+LoginService2.sk_23_36.cnf	SAT4J_COMP	2.2.3	SAT	1409	56
+NotificationServiceImpl2.sk_10_36.cnf	SAT4J_COMP	2.2.3	SAT	1356	24
+PhaseService.sk_14_27.cnf	SAT4J_COMP	2.2.3	SAT	1283	32
+Pollard.sk_1_10.cnf	SAT4J_COMP	2.2.3	SAT	1331	41
+ProcessBean.sk_8_64.cnf	SAT4J_COMP	2.2.3	SAT	1337	75
+ProjectService3.sk_12_55.cnf	SAT4J_COMP	2.2.3	SAT	1324	51
+SetTest.sk_9_21.cnf	SAT4J_COMP	2.2.3	SAT	1532	56
+UserServiceImpl.sk_8_32.cnf	SAT4J_COMP	2.2.3	SAT	1322	43
+compress.sk_17_291.cnf	SAT4J_COMP	2.2.3	SAT	4468	121
+diagStencil.sk_35_36.cnf	SAT4J_COMP	2.2.3	SAT	266556	4706
+doublyLinkedList.sk_8_37.cnf	SAT4J_COMP	2.2.3	SAT	1385	64
+enqueueSeqSK.sk_10_42.cnf	SAT4J_COMP	2.2.3	SAT	1559	67
+isolateRightmost.sk_7_481.cnf	SAT4J_COMP	2.2.3	SAT	1411	51
+jburnim_morton.sk_13_530.cnf	SAT4J_COMP	2.2.3	SAT	3671	116
+karatsuba.sk_7_41.cnf	SAT4J_COMP	2.2.3	SAT	3032	85
+log2.sk_72_391.cnf	SAT4J_COMP	2.2.3	SAT	19124	239
+logcount.sk_16_86.cnf	SAT4J_COMP	2.2.3	SAT	57185	1425
+lss.sk_6_7.cnf	SAT4J_COMP	2.2.3	SAT	1772	47
+parity.sk_11_11.cnf	SAT4J_COMP	2.2.3	SAT	1995	66
+partition.sk_22_155.cnf	SAT4J_COMP	2.2.3	SAT	25484	263
+polynomial.sk_7_25.cnf	SAT4J_COMP	2.2.3	SAT	1299	91
+registerlesSwap.sk_3_10.cnf	SAT4J_COMP	2.2.3	SAT	1293	58
+reverse.sk_11_258.cnf	SAT4J_COMP	2.2.3	SAT	1716	76
+signedAvg.sk_8_1020.cnf	SAT4J_COMP	2.2.3	SAT	1785	64
+sort.sk_8_52.cnf	SAT4J_COMP	2.2.3	SAT	1998	58
+tableBasedAddition.sk_240_1024.cnf	SAT4J_COMP	2.2.3	SAT	1281	42
+tutorial1.sk_1_1.cnf	SAT4J_COMP	2.2.3	SAT	1278	56
+tutorial2.sk_3_4.cnf	SAT4J_COMP	2.2.3	SAT	1392	71
+tutorial3.sk_4_31.cnf	SAT4J_COMP	2.2.3	SAT	5639	151
+xpose.sk_6_134.cnf	SAT4J_COMP	2.2.3	SAT	74258	1611
+10.sk_1_46.cnf	SAT4J_COMP	2.3.1	SAT	1303	56
+107.sk_3_90.cnf	SAT4J_COMP	2.3.1	SAT	1316	38
+109.sk_4_36.cnf	SAT4J_COMP	2.3.1	SAT	1315	51
+110.sk_3_88.cnf	SAT4J_COMP	2.3.1	SAT	1370	48
+111.sk_2_36.cnf	SAT4J_COMP	2.3.1	SAT	1290	46
+17.sk_3_45.cnf	SAT4J_COMP	2.3.1	SAT	1332	48
+19.sk_3_48.cnf	SAT4J_COMP	2.3.1	SAT	1340	56
+20.sk_1_51.cnf	SAT4J_COMP	2.3.1	SAT	1383	67
+27.sk_3_32.cnf	SAT4J_COMP	2.3.1	SAT	1298	59
+29.sk_3_45.cnf	SAT4J_COMP	2.3.1	SAT	1359	58
+30.sk_5_76.cnf	SAT4J_COMP	2.3.1	SAT	1478	78
+32.sk_4_38.cnf	SAT4J_COMP	2.3.1	SAT	1305	58
+35.sk_3_52.cnf	SAT4J_COMP	2.3.1	SAT	1308	57
+36.sk_3_77.cnf	SAT4J_COMP	2.3.1	UNSAT	1285	19
+51.sk_4_38.cnf	SAT4J_COMP	2.3.1	SAT	1307	33
+53.sk_4_32.cnf	SAT4J_COMP	2.3.1	SAT	1327	49
+54.sk_12_97.cnf	SAT4J_COMP	2.3.1	SAT	1449	76
+55.sk_3_46.cnf	SAT4J_COMP	2.3.1	SAT	1328	72
+56.sk_6_38.cnf	SAT4J_COMP	2.3.1	SAT	1327	59
+57.sk_4_64.cnf	SAT4J_COMP	2.3.1	SAT	1310	61
+63.sk_3_64.cnf	SAT4J_COMP	2.3.1	SAT	1341	38
+7.sk_4_50.cnf	SAT4J_COMP	2.3.1	SAT	1325	40
+70.sk_3_40.cnf	SAT4J_COMP	2.3.1	SAT	1321	57
+71.sk_3_65.cnf	SAT4J_COMP	2.3.1	SAT	1369	85
+77.sk_3_44.cnf	SAT4J_COMP	2.3.1	SAT	1322	44
+79.sk_4_40.cnf	SAT4J_COMP	2.3.1	UNSAT	1286	60
+80.sk_2_48.cnf	SAT4J_COMP	2.3.1	SAT	1385	85
+81.sk_5_51.cnf	SAT4J_COMP	2.3.1	SAT	1376	72
+84.sk_4_77.cnf	SAT4J_COMP	2.3.1	SAT	1354	43
+ActivityService.sk_11_27.cnf	SAT4J_COMP	2.3.1	SAT	1328	68
+ActivityService2.sk_10_27.cnf	SAT4J_COMP	2.3.1	SAT	1322	76
+ConcreteActivityService.sk_13_28.cnf	SAT4J_COMP	2.3.1	SAT	1342	83
+ConcreteRoleAffectationService.sk_119_273.cnf	SAT4J_COMP	2.3.1	SAT	25713	230
+GuidanceService.sk_4_27.cnf	SAT4J_COMP	2.3.1	SAT	1292	23
+GuidanceService2.sk_2_27.cnf	SAT4J_COMP	2.3.1	SAT	1284	44
+IssueServiceImpl.sk_8_30.cnf	SAT4J_COMP	2.3.1	SAT	1306	54
+IterationService.sk_12_27.cnf	SAT4J_COMP	2.3.1	SAT	1291	53
+LoginService.sk_20_34.cnf	SAT4J_COMP	2.3.1	SAT	1352	51
+LoginService2.sk_23_36.cnf	SAT4J_COMP	2.3.1	SAT	1392	71
+NotificationServiceImpl2.sk_10_36.cnf	SAT4J_COMP	2.3.1	SAT	1364	64
+PhaseService.sk_14_27.cnf	SAT4J_COMP	2.3.1	SAT	1302	59
+Pollard.sk_1_10.cnf	SAT4J_COMP	2.3.1	SAT	1334	58
+ProcessBean.sk_8_64.cnf	SAT4J_COMP	2.3.1	SAT	1338	67
+ProjectService3.sk_12_55.cnf	SAT4J_COMP	2.3.1	SAT	1323	51
+SetTest.sk_9_21.cnf	SAT4J_COMP	2.3.1	SAT	1565	95
+UserServiceImpl.sk_8_32.cnf	SAT4J_COMP	2.3.1	SAT	1339	56
+compress.sk_17_291.cnf	SAT4J_COMP	2.3.1	SAT	4483	95
+diagStencil.sk_35_36.cnf	SAT4J_COMP	2.3.1	SAT	265187	5219
+doublyLinkedList.sk_8_37.cnf	SAT4J_COMP	2.3.1	SAT	1377	54
+enqueueSeqSK.sk_10_42.cnf	SAT4J_COMP	2.3.1	SAT	1525	59
+isolateRightmost.sk_7_481.cnf	SAT4J_COMP	2.3.1	SAT	1422	71
+jburnim_morton.sk_13_530.cnf	SAT4J_COMP	2.3.1	SAT	3649	65
+karatsuba.sk_7_41.cnf	SAT4J_COMP	2.3.1	SAT	3091	139
+log2.sk_72_391.cnf	SAT4J_COMP	2.3.1	SAT	19207	272
+logcount.sk_16_86.cnf	SAT4J_COMP	2.3.1	SAT	57824	1627
+lss.sk_6_7.cnf	SAT4J_COMP	2.3.1	SAT	1864	88
+parity.sk_11_11.cnf	SAT4J_COMP	2.3.1	SAT	2020	94
+partition.sk_22_155.cnf	SAT4J_COMP	2.3.1	SAT	25779	322
+polynomial.sk_7_25.cnf	SAT4J_COMP	2.3.1	SAT	1266	48
+registerlesSwap.sk_3_10.cnf	SAT4J_COMP	2.3.1	SAT	1276	52
+reverse.sk_11_258.cnf	SAT4J_COMP	2.3.1	SAT	1756	74
+signedAvg.sk_8_1020.cnf	SAT4J_COMP	2.3.1	SAT	1760	55
+sort.sk_8_52.cnf	SAT4J_COMP	2.3.1	SAT	2034	80
+tableBasedAddition.sk_240_1024.cnf	SAT4J_COMP	2.3.1	SAT	1272	40
+tutorial1.sk_1_1.cnf	SAT4J_COMP	2.3.1	SAT	1243	43
+tutorial2.sk_3_4.cnf	SAT4J_COMP	2.3.1	SAT	1404	84
+tutorial3.sk_4_31.cnf	SAT4J_COMP	2.3.1	SAT	5710	112
+xpose.sk_6_134.cnf	SAT4J_COMP	2.3.1	SAT	74248	1693
+10.sk_1_46.cnf	cryptominisat	5.7.8	SAT	9	11
+107.sk_3_90.cnf	cryptominisat	5.7.8	SAT	12	2
+109.sk_4_36.cnf	cryptominisat	5.7.8	SAT	7	3
+110.sk_3_88.cnf	cryptominisat	5.7.8	SAT	26	5
+111.sk_2_36.cnf	cryptominisat	5.7.8	SAT	6	2
+17.sk_3_45.cnf	cryptominisat	5.7.8	SAT	14	4
+19.sk_3_48.cnf	cryptominisat	5.7.8	SAT	12	4
+20.sk_1_51.cnf	cryptominisat	5.7.8	SAT	22	2
+27.sk_3_32.cnf	cryptominisat	5.7.8	SAT	5	2
+29.sk_3_45.cnf	cryptominisat	5.7.8	SAT	16	0
+30.sk_5_76.cnf	cryptominisat	5.7.8	SAT	43	7
+32.sk_4_38.cnf	cryptominisat	5.7.8	SAT	7	3
+35.sk_3_52.cnf	cryptominisat	5.7.8	SAT	7	2
+36.sk_3_77.cnf	cryptominisat	5.7.8	UNSAT	9	4
+51.sk_4_38.cnf	cryptominisat	5.7.8	SAT	8	3
+53.sk_4_32.cnf	cryptominisat	5.7.8	SAT	7	1
+54.sk_12_97.cnf	cryptominisat	5.7.8	SAT	31	4
+55.sk_3_46.cnf	cryptominisat	5.7.8	SAT	7	2
+56.sk_6_38.cnf	cryptominisat	5.7.8	SAT	9	2
+57.sk_4_64.cnf	cryptominisat	5.7.8	SAT	11	0
+63.sk_3_64.cnf	cryptominisat	5.7.8	SAT	12	0
+7.sk_4_50.cnf	cryptominisat	5.7.8	SAT	11	4
+70.sk_3_40.cnf	cryptominisat	5.7.8	SAT	10	2
+71.sk_3_65.cnf	cryptominisat	5.7.8	SAT	10	3
+77.sk_3_44.cnf	cryptominisat	5.7.8	SAT	14	4
+79.sk_4_40.cnf	cryptominisat	5.7.8	UNSAT	7	3
+80.sk_2_48.cnf	cryptominisat	5.7.8	SAT	10	1
+81.sk_5_51.cnf	cryptominisat	5.7.8	SAT	16	5
+84.sk_4_77.cnf	cryptominisat	5.7.8	SAT	17	5
+ActivityService.sk_11_27.cnf	cryptominisat	5.7.8	SAT	6	3
+ActivityService2.sk_10_27.cnf	cryptominisat	5.7.8	SAT	7	2
+ConcreteActivityService.sk_13_28.cnf	cryptominisat	5.7.8	SAT	8	3
+ConcreteRoleAffectationService.sk_119_273.cnf	cryptominisat	5.7.8	SAT	1518	39
+GuidanceService.sk_4_27.cnf	cryptominisat	5.7.8	SAT	5	3
+GuidanceService2.sk_2_27.cnf	cryptominisat	5.7.8	SAT	5	2
+IssueServiceImpl.sk_8_30.cnf	cryptominisat	5.7.8	SAT	6	2
+IterationService.sk_12_27.cnf	cryptominisat	5.7.8	SAT	7	1
+LoginService.sk_20_34.cnf	cryptominisat	5.7.8	SAT	17	4
+LoginService2.sk_23_36.cnf	cryptominisat	5.7.8	SAT	19	3
+NotificationServiceImpl2.sk_10_36.cnf	cryptominisat	5.7.8	SAT	11	1
+PhaseService.sk_14_27.cnf	cryptominisat	5.7.8	SAT	7	1
+Pollard.sk_1_10.cnf	cryptominisat	5.7.8	SAT	16	2
+ProcessBean.sk_8_64.cnf	cryptominisat	5.7.8	SAT	9	3
+ProjectService3.sk_12_55.cnf	cryptominisat	5.7.8	SAT	9	3
+SetTest.sk_9_21.cnf	cryptominisat	5.7.8	SAT	82	10
+UserServiceImpl.sk_8_32.cnf	cryptominisat	5.7.8	SAT	6	1
+compress.sk_17_291.cnf	cryptominisat	5.7.8	SAT	617	33
+diagStencil.sk_35_36.cnf	cryptominisat	5.7.8	SAT	67452	395
+doublyLinkedList.sk_8_37.cnf	cryptominisat	5.7.8	SAT	21	4
+enqueueSeqSK.sk_10_42.cnf	cryptominisat	5.7.8	SAT	93	0
+isolateRightmost.sk_7_481.cnf	cryptominisat	5.7.8	SAT	23	4
+jburnim_morton.sk_13_530.cnf	cryptominisat	5.7.8	SAT	1473	8
+karatsuba.sk_7_41.cnf	cryptominisat	5.7.8	SAT	527	25
+log2.sk_72_391.cnf	cryptominisat	5.7.8	SAT	1288	23
+logcount.sk_16_86.cnf	cryptominisat	5.7.8	SAT	77613	352
+lss.sk_6_7.cnf	cryptominisat	5.7.8	SAT	157	14
+parity.sk_11_11.cnf	cryptominisat	5.7.8	SAT	185	10
+partition.sk_22_155.cnf	cryptominisat	5.7.8	SAT	5067	8
+polynomial.sk_7_25.cnf	cryptominisat	5.7.8	SAT	5	0
+registerlesSwap.sk_3_10.cnf	cryptominisat	5.7.8	SAT	5	1
+reverse.sk_11_258.cnf	cryptominisat	5.7.8	SAT	116	9
+signedAvg.sk_8_1020.cnf	cryptominisat	5.7.8	SAT	202	18
+sort.sk_8_52.cnf	cryptominisat	5.7.8	SAT	341	21
+tableBasedAddition.sk_240_1024.cnf	cryptominisat	5.7.8	SAT	5	1
+tutorial1.sk_1_1.cnf	cryptominisat	5.7.8	SAT	4	2
+tutorial2.sk_3_4.cnf	cryptominisat	5.7.8	SAT	28	3
+tutorial3.sk_4_31.cnf	cryptominisat	5.7.8	SAT	5559	35
+xpose.sk_6_134.cnf	cryptominisat	5.7.8	SAT	10290	129
+10.sk_1_46.cnf	minisat rnd-freq=0.01	2.2.0	SAT	9	16
+107.sk_3_90.cnf	minisat rnd-freq=0.01	2.2.0	SAT	6	3
+109.sk_4_36.cnf	minisat rnd-freq=0.01	2.2.0	SAT	7	1
+110.sk_3_88.cnf	minisat rnd-freq=0.01	2.2.0	SAT	35	2
+111.sk_2_36.cnf	minisat rnd-freq=0.01	2.2.0	SAT	5	1
+17.sk_3_45.cnf	minisat rnd-freq=0.01	2.2.0	SAT	21	5
+19.sk_3_48.cnf	minisat rnd-freq=0.01	2.2.0	SAT	25	6
+20.sk_1_51.cnf	minisat rnd-freq=0.01	2.2.0	SAT	36	8
+27.sk_3_32.cnf	minisat rnd-freq=0.01	2.2.0	SAT	3	1
+29.sk_3_45.cnf	minisat rnd-freq=0.01	2.2.0	SAT	29	6
+30.sk_5_76.cnf	minisat rnd-freq=0.01	2.2.0	SAT	91	0
+32.sk_4_38.cnf	minisat rnd-freq=0.01	2.2.0	SAT	4	2
+35.sk_3_52.cnf	minisat rnd-freq=0.01	2.2.0	SAT	3	1
+36.sk_3_77.cnf	minisat rnd-freq=0.01	2.2.0	UNSAT	6	2
+51.sk_4_38.cnf	minisat rnd-freq=0.01	2.2.0	SAT	7	3
+53.sk_4_32.cnf	minisat rnd-freq=0.01	2.2.0	SAT	5	0
+54.sk_12_97.cnf	minisat rnd-freq=0.01	2.2.0	SAT	71	11
+55.sk_3_46.cnf	minisat rnd-freq=0.01	2.2.0	SAT	4	2
+56.sk_6_38.cnf	minisat rnd-freq=0.01	2.2.0	SAT	8	2
+57.sk_4_64.cnf	minisat rnd-freq=0.01	2.2.0	SAT	8	3
+63.sk_3_64.cnf	minisat rnd-freq=0.01	2.2.0	SAT	20	0
+7.sk_4_50.cnf	minisat rnd-freq=0.01	2.2.0	SAT	20	4
+70.sk_3_40.cnf	minisat rnd-freq=0.01	2.2.0	SAT	14	3
+71.sk_3_65.cnf	minisat rnd-freq=0.01	2.2.0	SAT	13	2
+77.sk_3_44.cnf	minisat rnd-freq=0.01	2.2.0	SAT	18	4
+79.sk_4_40.cnf	minisat rnd-freq=0.01	2.2.0	UNSAT	3	1
+80.sk_2_48.cnf	minisat rnd-freq=0.01	2.2.0	SAT	17	3
+81.sk_5_51.cnf	minisat rnd-freq=0.01	2.2.0	SAT	29	5
+84.sk_4_77.cnf	minisat rnd-freq=0.01	2.2.0	SAT	8	3
+ActivityService.sk_11_27.cnf	minisat rnd-freq=0.01	2.2.0	SAT	7	3
+ActivityService2.sk_10_27.cnf	minisat rnd-freq=0.01	2.2.0	SAT	9	3
+ConcreteActivityService.sk_13_28.cnf	minisat rnd-freq=0.01	2.2.0	SAT	13	1
+ConcreteRoleAffectationService.sk_119_273.cnf	minisat rnd-freq=0.01	2.2.0	SAT	2697	69
+GuidanceService.sk_4_27.cnf	minisat rnd-freq=0.01	2.2.0	SAT	5	1
+GuidanceService2.sk_2_27.cnf	minisat rnd-freq=0.01	2.2.0	SAT	3	1
+IssueServiceImpl.sk_8_30.cnf	minisat rnd-freq=0.01	2.2.0	SAT	6	1
+IterationService.sk_12_27.cnf	minisat rnd-freq=0.01	2.2.0	SAT	9	3
+LoginService.sk_20_34.cnf	minisat rnd-freq=0.01	2.2.0	SAT	32	3
+LoginService2.sk_23_36.cnf	minisat rnd-freq=0.01	2.2.0	SAT	53	8
+NotificationServiceImpl2.sk_10_36.cnf	minisat rnd-freq=0.01	2.2.0	SAT	17	3
+PhaseService.sk_14_27.cnf	minisat rnd-freq=0.01	2.2.0	SAT	8	3
+Pollard.sk_1_10.cnf	minisat rnd-freq=0.01	2.2.0	SAT	37	3
+ProcessBean.sk_8_64.cnf	minisat rnd-freq=0.01	2.2.0	SAT	16	4
+ProjectService3.sk_12_55.cnf	minisat rnd-freq=0.01	2.2.0	SAT	13	4
+SetTest.sk_9_21.cnf	minisat rnd-freq=0.01	2.2.0	SAT	114	12
+UserServiceImpl.sk_8_32.cnf	minisat rnd-freq=0.01	2.2.0	SAT	6	1
+compress.sk_17_291.cnf	minisat rnd-freq=0.01	2.2.0	SAT	338	11
+diagStencil.sk_35_36.cnf	minisat rnd-freq=0.01	2.2.0	SAT	14279	163
+doublyLinkedList.sk_8_37.cnf	minisat rnd-freq=0.01	2.2.0	SAT	27	7
+enqueueSeqSK.sk_10_42.cnf	minisat rnd-freq=0.01	2.2.0	SAT	74	3
+isolateRightmost.sk_7_481.cnf	minisat rnd-freq=0.01	2.2.0	SAT	41	0
+jburnim_morton.sk_13_530.cnf	minisat rnd-freq=0.01	2.2.0	SAT	480	9
+karatsuba.sk_7_41.cnf	minisat rnd-freq=0.01	2.2.0	SAT	430	27
+log2.sk_72_391.cnf	minisat rnd-freq=0.01	2.2.0	SAT	2364	38
+logcount.sk_16_86.cnf	minisat rnd-freq=0.01	2.2.0	SAT	7016	85
+lss.sk_6_7.cnf	minisat rnd-freq=0.01	2.2.0	SAT	316	23
+parity.sk_11_11.cnf	minisat rnd-freq=0.01	2.2.0	SAT	57	6
+partition.sk_22_155.cnf	minisat rnd-freq=0.01	2.2.0	SAT	2142	50
+polynomial.sk_7_25.cnf	minisat rnd-freq=0.01	2.2.0	SAT	2	1
+registerlesSwap.sk_3_10.cnf	minisat rnd-freq=0.01	2.2.0	SAT	2	1
+reverse.sk_11_258.cnf	minisat rnd-freq=0.01	2.2.0	SAT	511	3
+signedAvg.sk_8_1020.cnf	minisat rnd-freq=0.01	2.2.0	SAT	98	10
+sort.sk_8_52.cnf	minisat rnd-freq=0.01	2.2.0	SAT	131	5
+tableBasedAddition.sk_240_1024.cnf	minisat rnd-freq=0.01	2.2.0	SAT	1	1
+tutorial1.sk_1_1.cnf	minisat rnd-freq=0.01	2.2.0	SAT	1	1
+tutorial2.sk_3_4.cnf	minisat rnd-freq=0.01	2.2.0	SAT	106	12
+tutorial3.sk_4_31.cnf	minisat rnd-freq=0.01	2.2.0	SAT	21456	148
+xpose.sk_6_134.cnf	minisat rnd-freq=0.01	2.2.0	SAT	73925	176
+10.sk_1_46.cnf	minisat rnd-freq=0.2	2.2.0	SAT	2	2
+107.sk_3_90.cnf	minisat rnd-freq=0.2	2.2.0	SAT	6	3
+109.sk_4_36.cnf	minisat rnd-freq=0.2	2.2.0	SAT	7	1
+110.sk_3_88.cnf	minisat rnd-freq=0.2	2.2.0	SAT	35	3
+111.sk_2_36.cnf	minisat rnd-freq=0.2	2.2.0	SAT	5	2
+17.sk_3_45.cnf	minisat rnd-freq=0.2	2.2.0	SAT	21	5
+19.sk_3_48.cnf	minisat rnd-freq=0.2	2.2.0	SAT	25	6
+20.sk_1_51.cnf	minisat rnd-freq=0.2	2.2.0	SAT	36	8
+27.sk_3_32.cnf	minisat rnd-freq=0.2	2.2.0	SAT	3	1
+29.sk_3_45.cnf	minisat rnd-freq=0.2	2.2.0	SAT	30	0
+30.sk_5_76.cnf	minisat rnd-freq=0.2	2.2.0	SAT	91	6
+32.sk_4_38.cnf	minisat rnd-freq=0.2	2.2.0	SAT	4	2
+35.sk_3_52.cnf	minisat rnd-freq=0.2	2.2.0	SAT	3	1
+36.sk_3_77.cnf	minisat rnd-freq=0.2	2.2.0	UNSAT	6	2
+51.sk_4_38.cnf	minisat rnd-freq=0.2	2.2.0	SAT	7	3
+53.sk_4_32.cnf	minisat rnd-freq=0.2	2.2.0	SAT	4	2
+54.sk_12_97.cnf	minisat rnd-freq=0.2	2.2.0	SAT	71	5
+55.sk_3_46.cnf	minisat rnd-freq=0.2	2.2.0	SAT	4	2
+56.sk_6_38.cnf	minisat rnd-freq=0.2	2.2.0	SAT	8	2
+57.sk_4_64.cnf	minisat rnd-freq=0.2	2.2.0	SAT	8	2
+63.sk_3_64.cnf	minisat rnd-freq=0.2	2.2.0	SAT	20	2
+7.sk_4_50.cnf	minisat rnd-freq=0.2	2.2.0	SAT	20	3
+70.sk_3_40.cnf	minisat rnd-freq=0.2	2.2.0	SAT	14	3
+71.sk_3_65.cnf	minisat rnd-freq=0.2	2.2.0	SAT	13	3
+77.sk_3_44.cnf	minisat rnd-freq=0.2	2.2.0	SAT	18	3
+79.sk_4_40.cnf	minisat rnd-freq=0.2	2.2.0	UNSAT	3	1
+80.sk_2_48.cnf	minisat rnd-freq=0.2	2.2.0	SAT	17	4
+81.sk_5_51.cnf	minisat rnd-freq=0.2	2.2.0	SAT	29	5
+84.sk_4_77.cnf	minisat rnd-freq=0.2	2.2.0	SAT	8	3
+ActivityService.sk_11_27.cnf	minisat rnd-freq=0.2	2.2.0	SAT	7	3
+ActivityService2.sk_10_27.cnf	minisat rnd-freq=0.2	2.2.0	SAT	9	3
+ConcreteActivityService.sk_13_28.cnf	minisat rnd-freq=0.2	2.2.0	SAT	13	0
+ConcreteRoleAffectationService.sk_119_273.cnf	minisat rnd-freq=0.2	2.2.0	SAT	2708	23
+GuidanceService.sk_4_27.cnf	minisat rnd-freq=0.2	2.2.0	SAT	5	1
+GuidanceService2.sk_2_27.cnf	minisat rnd-freq=0.2	2.2.0	SAT	3	0
+IssueServiceImpl.sk_8_30.cnf	minisat rnd-freq=0.2	2.2.0	SAT	6	1
+IterationService.sk_12_27.cnf	minisat rnd-freq=0.2	2.2.0	SAT	9	3
+LoginService.sk_20_34.cnf	minisat rnd-freq=0.2	2.2.0	SAT	32	3
+LoginService2.sk_23_36.cnf	minisat rnd-freq=0.2	2.2.0	SAT	53	9
+NotificationServiceImpl2.sk_10_36.cnf	minisat rnd-freq=0.2	2.2.0	SAT	17	2
+PhaseService.sk_14_27.cnf	minisat rnd-freq=0.2	2.2.0	SAT	8	3
+Pollard.sk_1_10.cnf	minisat rnd-freq=0.2	2.2.0	SAT	28	3
+ProcessBean.sk_8_64.cnf	minisat rnd-freq=0.2	2.2.0	SAT	16	4
+ProjectService3.sk_12_55.cnf	minisat rnd-freq=0.2	2.2.0	SAT	13	4
+SetTest.sk_9_21.cnf	minisat rnd-freq=0.2	2.2.0	SAT	126	7
+UserServiceImpl.sk_8_32.cnf	minisat rnd-freq=0.2	2.2.0	SAT	6	1
+compress.sk_17_291.cnf	minisat rnd-freq=0.2	2.2.0	SAT	217	11
+diagStencil.sk_35_36.cnf	minisat rnd-freq=0.2	2.2.0	SAT	16977	188
+doublyLinkedList.sk_8_37.cnf	minisat rnd-freq=0.2	2.2.0	SAT	31	7
+enqueueSeqSK.sk_10_42.cnf	minisat rnd-freq=0.2	2.2.0	SAT	73	10
+isolateRightmost.sk_7_481.cnf	minisat rnd-freq=0.2	2.2.0	SAT	43	7
+jburnim_morton.sk_13_530.cnf	minisat rnd-freq=0.2	2.2.0	SAT	474	29
+karatsuba.sk_7_41.cnf	minisat rnd-freq=0.2	2.2.0	SAT	2080	45
+log2.sk_72_391.cnf	minisat rnd-freq=0.2	2.2.0	SAT	1782	33
+logcount.sk_16_86.cnf	minisat rnd-freq=0.2	2.2.0	SAT	7032	65
+lss.sk_6_7.cnf	minisat rnd-freq=0.2	2.2.0	SAT	317	15
+parity.sk_11_11.cnf	minisat rnd-freq=0.2	2.2.0	SAT	44	7
+partition.sk_22_155.cnf	minisat rnd-freq=0.2	2.2.0	SAT	3838	83
+polynomial.sk_7_25.cnf	minisat rnd-freq=0.2	2.2.0	SAT	2	1
+registerlesSwap.sk_3_10.cnf	minisat rnd-freq=0.2	2.2.0	SAT	2	1
+reverse.sk_11_258.cnf	minisat rnd-freq=0.2	2.2.0	SAT	509	10
+signedAvg.sk_8_1020.cnf	minisat rnd-freq=0.2	2.2.0	SAT	98	10
+sort.sk_8_52.cnf	minisat rnd-freq=0.2	2.2.0	SAT	124	14
+tableBasedAddition.sk_240_1024.cnf	minisat rnd-freq=0.2	2.2.0	SAT	1	1
+tutorial1.sk_1_1.cnf	minisat rnd-freq=0.2	2.2.0	SAT	1	1
+tutorial2.sk_3_4.cnf	minisat rnd-freq=0.2	2.2.0	SAT	107	6
+tutorial3.sk_4_31.cnf	minisat rnd-freq=0.2	2.2.0	SAT	22143	189
+xpose.sk_6_134.cnf	minisat rnd-freq=0.2	2.2.0	SAT	6431	15
+10.sk_1_46.cnf	minisat rnd-freq=0.4	2.2.0	SAT	2	2
+107.sk_3_90.cnf	minisat rnd-freq=0.4	2.2.0	SAT	6	3
+109.sk_4_36.cnf	minisat rnd-freq=0.4	2.2.0	SAT	7	1
+110.sk_3_88.cnf	minisat rnd-freq=0.4	2.2.0	SAT	35	2
+111.sk_2_36.cnf	minisat rnd-freq=0.4	2.2.0	SAT	5	1
+17.sk_3_45.cnf	minisat rnd-freq=0.4	2.2.0	SAT	21	5
+19.sk_3_48.cnf	minisat rnd-freq=0.4	2.2.0	SAT	25	5
+20.sk_1_51.cnf	minisat rnd-freq=0.4	2.2.0	SAT	36	8
+27.sk_3_32.cnf	minisat rnd-freq=0.4	2.2.0	SAT	3	1
+29.sk_3_45.cnf	minisat rnd-freq=0.4	2.2.0	SAT	29	6
+30.sk_5_76.cnf	minisat rnd-freq=0.4	2.2.0	SAT	91	4
+32.sk_4_38.cnf	minisat rnd-freq=0.4	2.2.0	SAT	4	2
+35.sk_3_52.cnf	minisat rnd-freq=0.4	2.2.0	SAT	3	2
+36.sk_3_77.cnf	minisat rnd-freq=0.4	2.2.0	UNSAT	6	2
+51.sk_4_38.cnf	minisat rnd-freq=0.4	2.2.0	SAT	7	3
+53.sk_4_32.cnf	minisat rnd-freq=0.4	2.2.0	SAT	4	2
+54.sk_12_97.cnf	minisat rnd-freq=0.4	2.2.0	SAT	68	9
+55.sk_3_46.cnf	minisat rnd-freq=0.4	2.2.0	SAT	4	2
+56.sk_6_38.cnf	minisat rnd-freq=0.4	2.2.0	SAT	8	2
+57.sk_4_64.cnf	minisat rnd-freq=0.4	2.2.0	SAT	8	3
+63.sk_3_64.cnf	minisat rnd-freq=0.4	2.2.0	SAT	20	0
+7.sk_4_50.cnf	minisat rnd-freq=0.4	2.2.0	SAT	20	2
+70.sk_3_40.cnf	minisat rnd-freq=0.4	2.2.0	SAT	14	2
+71.sk_3_65.cnf	minisat rnd-freq=0.4	2.2.0	SAT	13	3
+77.sk_3_44.cnf	minisat rnd-freq=0.4	2.2.0	SAT	18	3
+79.sk_4_40.cnf	minisat rnd-freq=0.4	2.2.0	UNSAT	3	1
+80.sk_2_48.cnf	minisat rnd-freq=0.4	2.2.0	SAT	17	4
+81.sk_5_51.cnf	minisat rnd-freq=0.4	2.2.0	SAT	32	8
+84.sk_4_77.cnf	minisat rnd-freq=0.4	2.2.0	SAT	12	2
+ActivityService.sk_11_27.cnf	minisat rnd-freq=0.4	2.2.0	SAT	7	3
+ActivityService2.sk_10_27.cnf	minisat rnd-freq=0.4	2.2.0	SAT	9	3
+ConcreteActivityService.sk_13_28.cnf	minisat rnd-freq=0.4	2.2.0	SAT	13	2
+ConcreteRoleAffectationService.sk_119_273.cnf	minisat rnd-freq=0.4	2.2.0	SAT	2608	56
+GuidanceService.sk_4_27.cnf	minisat rnd-freq=0.4	2.2.0	SAT	5	1
+GuidanceService2.sk_2_27.cnf	minisat rnd-freq=0.4	2.2.0	SAT	3	1
+IssueServiceImpl.sk_8_30.cnf	minisat rnd-freq=0.4	2.2.0	SAT	6	1
+IterationService.sk_12_27.cnf	minisat rnd-freq=0.4	2.2.0	SAT	9	3
+LoginService.sk_20_34.cnf	minisat rnd-freq=0.4	2.2.0	SAT	33	5
+LoginService2.sk_23_36.cnf	minisat rnd-freq=0.4	2.2.0	SAT	58	5
+NotificationServiceImpl2.sk_10_36.cnf	minisat rnd-freq=0.4	2.2.0	SAT	17	4
+PhaseService.sk_14_27.cnf	minisat rnd-freq=0.4	2.2.0	SAT	8	3
+Pollard.sk_1_10.cnf	minisat rnd-freq=0.4	2.2.0	SAT	27	5
+ProcessBean.sk_8_64.cnf	minisat rnd-freq=0.4	2.2.0	SAT	16	4
+ProjectService3.sk_12_55.cnf	minisat rnd-freq=0.4	2.2.0	SAT	13	4
+SetTest.sk_9_21.cnf	minisat rnd-freq=0.4	2.2.0	SAT	122	9
+UserServiceImpl.sk_8_32.cnf	minisat rnd-freq=0.4	2.2.0	SAT	6	1
+compress.sk_17_291.cnf	minisat rnd-freq=0.4	2.2.0	SAT	269	10
+diagStencil.sk_35_36.cnf	minisat rnd-freq=0.4	2.2.0	SAT	18056	119
+doublyLinkedList.sk_8_37.cnf	minisat rnd-freq=0.4	2.2.0	SAT	27	4
+enqueueSeqSK.sk_10_42.cnf	minisat rnd-freq=0.4	2.2.0	SAT	206	15
+isolateRightmost.sk_7_481.cnf	minisat rnd-freq=0.4	2.2.0	SAT	44	7
+jburnim_morton.sk_13_530.cnf	minisat rnd-freq=0.4	2.2.0	SAT	596	7
+karatsuba.sk_7_41.cnf	minisat rnd-freq=0.4	2.2.0	SAT	1980	56
+log2.sk_72_391.cnf	minisat rnd-freq=0.4	2.2.0	SAT	1537	50
+logcount.sk_16_86.cnf	minisat rnd-freq=0.4	2.2.0	SAT	712	29
+lss.sk_6_7.cnf	minisat rnd-freq=0.4	2.2.0	SAT	318	0
+parity.sk_11_11.cnf	minisat rnd-freq=0.4	2.2.0	SAT	44	0
+partition.sk_22_155.cnf	minisat rnd-freq=0.4	2.2.0	SAT	3334	73
+polynomial.sk_7_25.cnf	minisat rnd-freq=0.4	2.2.0	SAT	2	1
+registerlesSwap.sk_3_10.cnf	minisat rnd-freq=0.4	2.2.0	SAT	2	1
+reverse.sk_11_258.cnf	minisat rnd-freq=0.4	2.2.0	SAT	513	3
+signedAvg.sk_8_1020.cnf	minisat rnd-freq=0.4	2.2.0	SAT	92	12
+sort.sk_8_52.cnf	minisat rnd-freq=0.4	2.2.0	SAT	134	13
+tableBasedAddition.sk_240_1024.cnf	minisat rnd-freq=0.4	2.2.0	SAT	1	1
+tutorial1.sk_1_1.cnf	minisat rnd-freq=0.4	2.2.0	SAT	1	1
+tutorial2.sk_3_4.cnf	minisat rnd-freq=0.4	2.2.0	SAT	105	12
+tutorial3.sk_4_31.cnf	minisat rnd-freq=0.4	2.2.0	SAT	21853	200
+xpose.sk_6_134.cnf	minisat rnd-freq=0.4	2.2.0	SAT	6850	53
+10.sk_1_46.cnf	minisat rnd-freq=0.6	2.2.0	SAT	2	2
+107.sk_3_90.cnf	minisat rnd-freq=0.6	2.2.0	SAT	6	3
+109.sk_4_36.cnf	minisat rnd-freq=0.6	2.2.0	SAT	7	1
+110.sk_3_88.cnf	minisat rnd-freq=0.6	2.2.0	SAT	35	4
+111.sk_2_36.cnf	minisat rnd-freq=0.6	2.2.0	SAT	5	1
+17.sk_3_45.cnf	minisat rnd-freq=0.6	2.2.0	SAT	21	4
+19.sk_3_48.cnf	minisat rnd-freq=0.6	2.2.0	SAT	25	6
+20.sk_1_51.cnf	minisat rnd-freq=0.6	2.2.0	SAT	37	0
+27.sk_3_32.cnf	minisat rnd-freq=0.6	2.2.0	SAT	3	1
+29.sk_3_45.cnf	minisat rnd-freq=0.6	2.2.0	SAT	29	6
+30.sk_5_76.cnf	minisat rnd-freq=0.6	2.2.0	SAT	91	6
+32.sk_4_38.cnf	minisat rnd-freq=0.6	2.2.0	SAT	4	2
+35.sk_3_52.cnf	minisat rnd-freq=0.6	2.2.0	SAT	3	1
+36.sk_3_77.cnf	minisat rnd-freq=0.6	2.2.0	UNSAT	6	2
+51.sk_4_38.cnf	minisat rnd-freq=0.6	2.2.0	SAT	7	3
+53.sk_4_32.cnf	minisat rnd-freq=0.6	2.2.0	SAT	5	0
+54.sk_12_97.cnf	minisat rnd-freq=0.6	2.2.0	SAT	68	10
+55.sk_3_46.cnf	minisat rnd-freq=0.6	2.2.0	SAT	4	2
+56.sk_6_38.cnf	minisat rnd-freq=0.6	2.2.0	SAT	8	2
+57.sk_4_64.cnf	minisat rnd-freq=0.6	2.2.0	SAT	8	3
+63.sk_3_64.cnf	minisat rnd-freq=0.6	2.2.0	SAT	20	0
+7.sk_4_50.cnf	minisat rnd-freq=0.6	2.2.0	SAT	20	4
+70.sk_3_40.cnf	minisat rnd-freq=0.6	2.2.0	SAT	14	2
+71.sk_3_65.cnf	minisat rnd-freq=0.6	2.2.0	SAT	13	4
+77.sk_3_44.cnf	minisat rnd-freq=0.6	2.2.0	SAT	18	4
+79.sk_4_40.cnf	minisat rnd-freq=0.6	2.2.0	UNSAT	3	1
+80.sk_2_48.cnf	minisat rnd-freq=0.6	2.2.0	SAT	17	4
+81.sk_5_51.cnf	minisat rnd-freq=0.6	2.2.0	SAT	29	4
+84.sk_4_77.cnf	minisat rnd-freq=0.6	2.2.0	SAT	8	3
+ActivityService.sk_11_27.cnf	minisat rnd-freq=0.6	2.2.0	SAT	7	3
+ActivityService2.sk_10_27.cnf	minisat rnd-freq=0.6	2.2.0	SAT	9	3
+ConcreteActivityService.sk_13_28.cnf	minisat rnd-freq=0.6	2.2.0	SAT	13	2
+ConcreteRoleAffectationService.sk_119_273.cnf	minisat rnd-freq=0.6	2.2.0	SAT	2838	71
+GuidanceService.sk_4_27.cnf	minisat rnd-freq=0.6	2.2.0	SAT	5	1
+GuidanceService2.sk_2_27.cnf	minisat rnd-freq=0.6	2.2.0	SAT	3	0
+IssueServiceImpl.sk_8_30.cnf	minisat rnd-freq=0.6	2.2.0	SAT	6	1
+IterationService.sk_12_27.cnf	minisat rnd-freq=0.6	2.2.0	SAT	9	3
+LoginService.sk_20_34.cnf	minisat rnd-freq=0.6	2.2.0	SAT	33	6
+LoginService2.sk_23_36.cnf	minisat rnd-freq=0.6	2.2.0	SAT	55	7
+NotificationServiceImpl2.sk_10_36.cnf	minisat rnd-freq=0.6	2.2.0	SAT	17	3
+PhaseService.sk_14_27.cnf	minisat rnd-freq=0.6	2.2.0	SAT	8	3
+Pollard.sk_1_10.cnf	minisat rnd-freq=0.6	2.2.0	SAT	27	4
+ProcessBean.sk_8_64.cnf	minisat rnd-freq=0.6	2.2.0	SAT	16	4
+ProjectService3.sk_12_55.cnf	minisat rnd-freq=0.6	2.2.0	SAT	13	4
+SetTest.sk_9_21.cnf	minisat rnd-freq=0.6	2.2.0	SAT	113	13
+UserServiceImpl.sk_8_32.cnf	minisat rnd-freq=0.6	2.2.0	SAT	6	1
+compress.sk_17_291.cnf	minisat rnd-freq=0.6	2.2.0	SAT	287	18
+diagStencil.sk_35_36.cnf	minisat rnd-freq=0.6	2.2.0	SAT	13554	140
+doublyLinkedList.sk_8_37.cnf	minisat rnd-freq=0.6	2.2.0	SAT	24	6
+enqueueSeqSK.sk_10_42.cnf	minisat rnd-freq=0.6	2.2.0	SAT	131	11
+isolateRightmost.sk_7_481.cnf	minisat rnd-freq=0.6	2.2.0	SAT	39	8
+jburnim_morton.sk_13_530.cnf	minisat rnd-freq=0.6	2.2.0	SAT	556	25
+karatsuba.sk_7_41.cnf	minisat rnd-freq=0.6	2.2.0	SAT	5687	37
+log2.sk_72_391.cnf	minisat rnd-freq=0.6	2.2.0	SAT	1615	44
+logcount.sk_16_86.cnf	minisat rnd-freq=0.6	2.2.0	SAT	3932	84
+lss.sk_6_7.cnf	minisat rnd-freq=0.6	2.2.0	SAT	313	19
+parity.sk_11_11.cnf	minisat rnd-freq=0.6	2.2.0	SAT	85	10
+partition.sk_22_155.cnf	minisat rnd-freq=0.6	2.2.0	SAT	7631	87
+polynomial.sk_7_25.cnf	minisat rnd-freq=0.6	2.2.0	SAT	2	1
+registerlesSwap.sk_3_10.cnf	minisat rnd-freq=0.6	2.2.0	SAT	2	1
+reverse.sk_11_258.cnf	minisat rnd-freq=0.6	2.2.0	SAT	512	25
+signedAvg.sk_8_1020.cnf	minisat rnd-freq=0.6	2.2.0	SAT	107	10
+sort.sk_8_52.cnf	minisat rnd-freq=0.6	2.2.0	SAT	146	5
+tableBasedAddition.sk_240_1024.cnf	minisat rnd-freq=0.6	2.2.0	SAT	1	1
+tutorial1.sk_1_1.cnf	minisat rnd-freq=0.6	2.2.0	SAT	1	1
+tutorial2.sk_3_4.cnf	minisat rnd-freq=0.6	2.2.0	SAT	106	7
+tutorial3.sk_4_31.cnf	minisat rnd-freq=0.6	2.2.0	SAT	22820	192
+xpose.sk_6_134.cnf	minisat rnd-freq=0.6	2.2.0	SAT	3327	37
+10.sk_1_46.cnf	minisat rnd-freq=0.8	2.2.0	SAT	2	2
+107.sk_3_90.cnf	minisat rnd-freq=0.8	2.2.0	SAT	6	3
+109.sk_4_36.cnf	minisat rnd-freq=0.8	2.2.0	SAT	7	1
+110.sk_3_88.cnf	minisat rnd-freq=0.8	2.2.0	SAT	35	2
+111.sk_2_36.cnf	minisat rnd-freq=0.8	2.2.0	SAT	5	1
+17.sk_3_45.cnf	minisat rnd-freq=0.8	2.2.0	SAT	21	5
+19.sk_3_48.cnf	minisat rnd-freq=0.8	2.2.0	SAT	25	6
+20.sk_1_51.cnf	minisat rnd-freq=0.8	2.2.0	SAT	36	8
+27.sk_3_32.cnf	minisat rnd-freq=0.8	2.2.0	SAT	3	1
+29.sk_3_45.cnf	minisat rnd-freq=0.8	2.2.0	SAT	29	7
+30.sk_5_76.cnf	minisat rnd-freq=0.8	2.2.0	SAT	91	6
+32.sk_4_38.cnf	minisat rnd-freq=0.8	2.2.0	SAT	4	2
+35.sk_3_52.cnf	minisat rnd-freq=0.8	2.2.0	SAT	3	1
+36.sk_3_77.cnf	minisat rnd-freq=0.8	2.2.0	UNSAT	6	2
+51.sk_4_38.cnf	minisat rnd-freq=0.8	2.2.0	SAT	7	3
+53.sk_4_32.cnf	minisat rnd-freq=0.8	2.2.0	SAT	4	2
+54.sk_12_97.cnf	minisat rnd-freq=0.8	2.2.0	SAT	70	6
+55.sk_3_46.cnf	minisat rnd-freq=0.8	2.2.0	SAT	4	2
+56.sk_6_38.cnf	minisat rnd-freq=0.8	2.2.0	SAT	8	1
+57.sk_4_64.cnf	minisat rnd-freq=0.8	2.2.0	SAT	8	3
+63.sk_3_64.cnf	minisat rnd-freq=0.8	2.2.0	SAT	20	0
+7.sk_4_50.cnf	minisat rnd-freq=0.8	2.2.0	SAT	20	3
+70.sk_3_40.cnf	minisat rnd-freq=0.8	2.2.0	SAT	14	3
+71.sk_3_65.cnf	minisat rnd-freq=0.8	2.2.0	SAT	13	4
+77.sk_3_44.cnf	minisat rnd-freq=0.8	2.2.0	SAT	18	4
+79.sk_4_40.cnf	minisat rnd-freq=0.8	2.2.0	UNSAT	3	1
+80.sk_2_48.cnf	minisat rnd-freq=0.8	2.2.0	SAT	17	3
+81.sk_5_51.cnf	minisat rnd-freq=0.8	2.2.0	SAT	29	6
+84.sk_4_77.cnf	minisat rnd-freq=0.8	2.2.0	SAT	8	3
+ActivityService.sk_11_27.cnf	minisat rnd-freq=0.8	2.2.0	SAT	7	3
+ActivityService2.sk_10_27.cnf	minisat rnd-freq=0.8	2.2.0	SAT	9	3
+ConcreteActivityService.sk_13_28.cnf	minisat rnd-freq=0.8	2.2.0	SAT	13	2
+ConcreteRoleAffectationService.sk_119_273.cnf	minisat rnd-freq=0.8	2.2.0	SAT	3048	70
+GuidanceService.sk_4_27.cnf	minisat rnd-freq=0.8	2.2.0	SAT	5	1
+GuidanceService2.sk_2_27.cnf	minisat rnd-freq=0.8	2.2.0	SAT	3	1
+IssueServiceImpl.sk_8_30.cnf	minisat rnd-freq=0.8	2.2.0	SAT	6	1
+IterationService.sk_12_27.cnf	minisat rnd-freq=0.8	2.2.0	SAT	10	1
+LoginService.sk_20_34.cnf	minisat rnd-freq=0.8	2.2.0	SAT	35	1
+LoginService2.sk_23_36.cnf	minisat rnd-freq=0.8	2.2.0	SAT	55	9
+NotificationServiceImpl2.sk_10_36.cnf	minisat rnd-freq=0.8	2.2.0	SAT	17	3
+PhaseService.sk_14_27.cnf	minisat rnd-freq=0.8	2.2.0	SAT	8	3
+Pollard.sk_1_10.cnf	minisat rnd-freq=0.8	2.2.0	SAT	27	3
+ProcessBean.sk_8_64.cnf	minisat rnd-freq=0.8	2.2.0	SAT	16	5
+ProjectService3.sk_12_55.cnf	minisat rnd-freq=0.8	2.2.0	SAT	13	4
+SetTest.sk_9_21.cnf	minisat rnd-freq=0.8	2.2.0	SAT	114	13
+UserServiceImpl.sk_8_32.cnf	minisat rnd-freq=0.8	2.2.0	SAT	6	1
+compress.sk_17_291.cnf	minisat rnd-freq=0.8	2.2.0	SAT	789	35
+diagStencil.sk_35_36.cnf	minisat rnd-freq=0.8	2.2.0	SAT	51894	300
+doublyLinkedList.sk_8_37.cnf	minisat rnd-freq=0.8	2.2.0	SAT	25	5
+enqueueSeqSK.sk_10_42.cnf	minisat rnd-freq=0.8	2.2.0	SAT	332	1
+isolateRightmost.sk_7_481.cnf	minisat rnd-freq=0.8	2.2.0	SAT	53	9
+jburnim_morton.sk_13_530.cnf	minisat rnd-freq=0.8	2.2.0	SAT	1051	41
+karatsuba.sk_7_41.cnf	minisat rnd-freq=0.8	2.2.0	SAT	2483	23
+log2.sk_72_391.cnf	minisat rnd-freq=0.8	2.2.0	SAT	2628	69
+logcount.sk_16_86.cnf	minisat rnd-freq=0.8	2.2.0	SAT	2096	29
+lss.sk_6_7.cnf	minisat rnd-freq=0.8	2.2.0	SAT	315	11
+parity.sk_11_11.cnf	minisat rnd-freq=0.8	2.2.0	SAT	94	0
+partition.sk_22_155.cnf	minisat rnd-freq=0.8	2.2.0	SAT	4205	51
+polynomial.sk_7_25.cnf	minisat rnd-freq=0.8	2.2.0	SAT	2	1
+registerlesSwap.sk_3_10.cnf	minisat rnd-freq=0.8	2.2.0	SAT	2	1
+reverse.sk_11_258.cnf	minisat rnd-freq=0.8	2.2.0	SAT	506	24
+signedAvg.sk_8_1020.cnf	minisat rnd-freq=0.8	2.2.0	SAT	120	12
+sort.sk_8_52.cnf	minisat rnd-freq=0.8	2.2.0	SAT	224	20
+tableBasedAddition.sk_240_1024.cnf	minisat rnd-freq=0.8	2.2.0	SAT	1	1
+tutorial1.sk_1_1.cnf	minisat rnd-freq=0.8	2.2.0	SAT	1	1
+tutorial2.sk_3_4.cnf	minisat rnd-freq=0.8	2.2.0	SAT	106	12
+tutorial3.sk_4_31.cnf	minisat rnd-freq=0.8	2.2.0	SAT	21735	70
+xpose.sk_6_134.cnf	minisat rnd-freq=0.8	2.2.0	SAT	13074	157
+10.sk_1_46.cnf	minisat rnd-freq=0.99	2.2.0	SAT	2	2
+107.sk_3_90.cnf	minisat rnd-freq=0.99	2.2.0	SAT	6	3
+109.sk_4_36.cnf	minisat rnd-freq=0.99	2.2.0	SAT	7	1
+110.sk_3_88.cnf	minisat rnd-freq=0.99	2.2.0	SAT	35	4
+111.sk_2_36.cnf	minisat rnd-freq=0.99	2.2.0	SAT	5	2
+17.sk_3_45.cnf	minisat rnd-freq=0.99	2.2.0	SAT	21	5
+19.sk_3_48.cnf	minisat rnd-freq=0.99	2.2.0	SAT	26	0
+20.sk_1_51.cnf	minisat rnd-freq=0.99	2.2.0	SAT	37	4
+27.sk_3_32.cnf	minisat rnd-freq=0.99	2.2.0	SAT	3	1
+29.sk_3_45.cnf	minisat rnd-freq=0.99	2.2.0	SAT	29	7
+30.sk_5_76.cnf	minisat rnd-freq=0.99	2.2.0	SAT	91	4
+32.sk_4_38.cnf	minisat rnd-freq=0.99	2.2.0	SAT	4	2
+35.sk_3_52.cnf	minisat rnd-freq=0.99	2.2.0	SAT	3	1
+36.sk_3_77.cnf	minisat rnd-freq=0.99	2.2.0	UNSAT	6	2
+51.sk_4_38.cnf	minisat rnd-freq=0.99	2.2.0	SAT	8	2
+53.sk_4_32.cnf	minisat rnd-freq=0.99	2.2.0	SAT	5	1
+54.sk_12_97.cnf	minisat rnd-freq=0.99	2.2.0	SAT	74	5
+55.sk_3_46.cnf	minisat rnd-freq=0.99	2.2.0	SAT	4	2
+56.sk_6_38.cnf	minisat rnd-freq=0.99	2.2.0	SAT	8	2
+57.sk_4_64.cnf	minisat rnd-freq=0.99	2.2.0	SAT	8	2
+63.sk_3_64.cnf	minisat rnd-freq=0.99	2.2.0	SAT	20	2
+7.sk_4_50.cnf	minisat rnd-freq=0.99	2.2.0	SAT	20	3
+70.sk_3_40.cnf	minisat rnd-freq=0.99	2.2.0	SAT	14	4
+71.sk_3_65.cnf	minisat rnd-freq=0.99	2.2.0	SAT	13	3
+77.sk_3_44.cnf	minisat rnd-freq=0.99	2.2.0	SAT	18	5
+79.sk_4_40.cnf	minisat rnd-freq=0.99	2.2.0	UNSAT	3	1
+80.sk_2_48.cnf	minisat rnd-freq=0.99	2.2.0	SAT	17	5
+81.sk_5_51.cnf	minisat rnd-freq=0.99	2.2.0	SAT	29	5
+84.sk_4_77.cnf	minisat rnd-freq=0.99	2.2.0	SAT	8	3
+ActivityService.sk_11_27.cnf	minisat rnd-freq=0.99	2.2.0	SAT	7	3
+ActivityService2.sk_10_27.cnf	minisat rnd-freq=0.99	2.2.0	SAT	9	3
+ConcreteActivityService.sk_13_28.cnf	minisat rnd-freq=0.99	2.2.0	SAT	13	2
+ConcreteRoleAffectationService.sk_119_273.cnf	minisat rnd-freq=0.99	2.2.0	SAT	3066	60
+GuidanceService.sk_4_27.cnf	minisat rnd-freq=0.99	2.2.0	SAT	5	1
+GuidanceService2.sk_2_27.cnf	minisat rnd-freq=0.99	2.2.0	SAT	3	1
+IssueServiceImpl.sk_8_30.cnf	minisat rnd-freq=0.99	2.2.0	SAT	6	1
+IterationService.sk_12_27.cnf	minisat rnd-freq=0.99	2.2.0	SAT	9	3
+LoginService.sk_20_34.cnf	minisat rnd-freq=0.99	2.2.0	SAT	36	2
+LoginService2.sk_23_36.cnf	minisat rnd-freq=0.99	2.2.0	SAT	54	3
+NotificationServiceImpl2.sk_10_36.cnf	minisat rnd-freq=0.99	2.2.0	SAT	17	4
+PhaseService.sk_14_27.cnf	minisat rnd-freq=0.99	2.2.0	SAT	8	3
+Pollard.sk_1_10.cnf	minisat rnd-freq=0.99	2.2.0	SAT	27	7
+ProcessBean.sk_8_64.cnf	minisat rnd-freq=0.99	2.2.0	SAT	16	5
+ProjectService3.sk_12_55.cnf	minisat rnd-freq=0.99	2.2.0	SAT	13	4
+SetTest.sk_9_21.cnf	minisat rnd-freq=0.99	2.2.0	SAT	117	12
+UserServiceImpl.sk_8_32.cnf	minisat rnd-freq=0.99	2.2.0	SAT	6	1
+compress.sk_17_291.cnf	minisat rnd-freq=0.99	2.2.0	SAT	999	32
+diagStencil.sk_35_36.cnf	minisat rnd-freq=0.99	2.2.0	SAT	127195	1647
+doublyLinkedList.sk_8_37.cnf	minisat rnd-freq=0.99	2.2.0	SAT	28	7
+enqueueSeqSK.sk_10_42.cnf	minisat rnd-freq=0.99	2.2.0	SAT	1030	2
+isolateRightmost.sk_7_481.cnf	minisat rnd-freq=0.99	2.2.0	SAT	131	12
+jburnim_morton.sk_13_530.cnf	minisat rnd-freq=0.99	2.2.0	SAT	1413	4
+karatsuba.sk_7_41.cnf	minisat rnd-freq=0.99	2.2.0	SAT	11459	132
+log2.sk_72_391.cnf	minisat rnd-freq=0.99	2.2.0	SAT	4122	58
+logcount.sk_16_86.cnf	minisat rnd-freq=0.99	2.2.0	SAT	13237	119
+lss.sk_6_7.cnf	minisat rnd-freq=0.99	2.2.0	SAT	422	18
+parity.sk_11_11.cnf	minisat rnd-freq=0.99	2.2.0	SAT	331	14
+partition.sk_22_155.cnf	minisat rnd-freq=0.99	2.2.0	SAT	20746	800
+polynomial.sk_7_25.cnf	minisat rnd-freq=0.99	2.2.0	SAT	2	1
+registerlesSwap.sk_3_10.cnf	minisat rnd-freq=0.99	2.2.0	SAT	2	0
+reverse.sk_11_258.cnf	minisat rnd-freq=0.99	2.2.0	SAT	512	3
+signedAvg.sk_8_1020.cnf	minisat rnd-freq=0.99	2.2.0	SAT	265	21
+sort.sk_8_52.cnf	minisat rnd-freq=0.99	2.2.0	SAT	349	8
+tableBasedAddition.sk_240_1024.cnf	minisat rnd-freq=0.99	2.2.0	SAT	1	1
+tutorial1.sk_1_1.cnf	minisat rnd-freq=0.99	2.2.0	SAT	1	1
+tutorial2.sk_3_4.cnf	minisat rnd-freq=0.99	2.2.0	SAT	107	13
+tutorial3.sk_4_31.cnf	minisat rnd-freq=0.99	2.2.0	SAT	21840	71
+xpose.sk_6_134.cnf	minisat rnd-freq=0.99	2.2.0	SAT	12835	228

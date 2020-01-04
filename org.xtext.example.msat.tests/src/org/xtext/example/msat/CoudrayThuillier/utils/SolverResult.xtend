@@ -14,6 +14,16 @@ class SolverResult {
 	long mean_t = -1
 	long sd_t = -1
 	
+	new(boolean status, long mean_t, long sd_t) {
+		if (status) {
+			this.status = SolverStatus.SAT 
+		} else {
+			this.status = SolverStatus.UNSAT
+		}
+		this.mean_t    = mean_t
+		this.sd_t      = sd_t
+	}
+	
 	new(String benchmark, String solver, String version, boolean status, long mean_t, long sd_t) {
 		this.benchmark = benchmark
 		this.solver    = solver
@@ -49,6 +59,12 @@ class SolverResult {
 	
 	def long getStandardDeviationTime () {
 		return sd_t
+	}
+	
+	def void set_infos (String benchmark, String solver, String version) {
+		this.benchmark = benchmark
+		this.solver = solver
+		this.version = version
 	}
 	
 	def static String toString(SolverStatus status) {
