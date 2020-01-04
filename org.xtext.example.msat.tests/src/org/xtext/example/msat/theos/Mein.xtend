@@ -78,7 +78,7 @@ class Mein
 				   cryptominisat version "2.4.0"
 				   cryptominisat version "4.5.3"
 				   cryptominisat version "5.6.8"
-			benchmarkDIMACS "input.cnf", "input2.cnf", "cnf-dur.cnf", "tres-tres-dur.cnf"
+			benchmarkDIMACS "input.cnf", "input2.cnf", "cnf-tres-dur.cnf"
 		'''
 		val sat_and_time = check_formulas(text);
 		val is_sat = (sat_and_time.get(0) as Boolean)
@@ -253,7 +253,7 @@ class Mein
 		val version_solver = call_method.get(1) as String
 		
 		var is_sat = false;
-		var elapsed_time = -1l 
+		var elapsed_time = -1f
 		switch id_solver
 		{
 			case Sat4JVariant.SAT4J_JAVA_VALUE : 
@@ -261,14 +261,14 @@ class Mein
 				println("calling sat4j from java code.")
 				val answer = SAT4JBIBCall.DoIt(filename_of_formula)
 				is_sat = (answer.get(0) as Boolean)
-				elapsed_time = (answer.get(1) as Long)
+				elapsed_time = (answer.get(1) as Float)
 			}
 			case Sat4JVariant.SAT4J_JAR_VALUE : 
 			{
 				println("calling sat4j from jar with version " + version_solver)
 				val answer = Sat4JJARCall.DoIt(filename_of_formula, version_solver)
 				is_sat = (answer.get(0) as Boolean)
-				elapsed_time = (answer.get(1) as Long)
+				elapsed_time = (answer.get(1) as Float)
 			}
 			case Sat4JVariant.SAT4J_COMP_VALUE :
 			{
@@ -282,14 +282,14 @@ class Mein
 				println("calling MiniSAT from bin with version " + version_solver)
 				val answer =  MiniSATCall.DoIt(filename_of_formula, version_solver, parameters)
 				is_sat = (answer.get(0) as Boolean)
-				elapsed_time = (answer.get(1) as Long)
+				elapsed_time = (answer.get(1) as Float)
 			}	
 			case 5 : //CryptoMinisat solver
 			{
 				println("calling CryptoMiniSAT from bin with version " + version_solver)
 				val answer =  CryptoMiniSATCall.DoIt(filename_of_formula, version_solver)
 				is_sat = (answer.get(0) as Boolean)
-				elapsed_time = (answer.get(1) as Long)
+				elapsed_time = (answer.get(1) as Float)
 			}	
 			//TODO other solvers
 			default :

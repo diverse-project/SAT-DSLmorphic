@@ -133,5 +133,6 @@ xtend-gen/
 #By Theo : 
 *.xtendbin
 *.class
+*.trace
 
 # End of https://www.gitignore.io/api/xtext,emacs,eclipse

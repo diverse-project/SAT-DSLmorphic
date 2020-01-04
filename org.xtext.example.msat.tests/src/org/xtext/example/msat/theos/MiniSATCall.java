@@ -55,39 +55,45 @@ public class MiniSATCall
 		        }
 		    }, TIMEOUT);
 			
-			int status = p.waitFor();
 			long finish = System.currentTimeMillis();
 			long timeElapsed = finish - start;
 			
-			System.out.println("Exited with status: " + status);
-			
 			if (timeElapsed > TIMEOUT + 50)
 			{
-				return Arrays.asList(false, -1l);
+				return Arrays.asList(false, -1f);
 			}
 			
 			boolean result = false;
+			float real_time = 0f;
+			String[] cut_str;
 			
 			String s = "";
 			while((s = in.readLine()) != null)
 			{
 				// DEBUG
 				//System.out.println(s);
+				if (s.contains("CPU time"))
+				{
+					cut_str = s.substring(0, s.length() - 1).split(" ");
+					real_time = Float.parseFloat(cut_str[cut_str.length-1]);
+				}
 				if (s.contains("UNSATISFIABLE"))
 				{
 					result = false;
-					break;
 				}
 				else if (s.contains("SATISFIABLE"))
 				{
 					result = true;
-					break;
 				}
 				
 			    //System.out.println(s);
 			}
 			
-			return Arrays.asList(result, timeElapsed);
+			int status = p.waitFor();
+			
+			System.out.println("Exited with status: " + status);
+			
+			return Arrays.asList(result, real_time);
 		}
         catch(Exception e)  
         {  
