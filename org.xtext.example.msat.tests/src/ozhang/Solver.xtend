@@ -27,16 +27,41 @@ import java.io.FileWriter
 import com.opencsv.CSVWriter
 import java.util.regex.Pattern
 
+
 class Solver {
 	
 	def void solve(SATMorphic satMorphic) {
-		switch satMorphic.benchmark.class {
-			// We suppose that there is only one dimacs file to solve
-			case BenchmarkDimacsImpl : (satMorphic.benchmark as BenchmarkDimacs).dimacses.forEach[input_path | run_solver(satMorphic, input_path)]
-			// We suppose that there is only one formula to solve
-			case BenchmarkFormulaImpl : (satMorphic.benchmark as BenchmarkFormula).expressions.forEach[expr | run_solver(satMorphic, expr_to_dimacs(expr))]
-			default : println('Unknown input type')
-		}
+		
+		var file = new File("results.csv")
+		var outputfile = new FileWriter(file)
+    	var CSVwriter = new CSVWriter(outputfile)
+    	CSVwriter.writeNext(#["Benchmark", "Solver", "Sat?", "Time (ms)"])
+    	
+    	try {
+    		switch satMorphic.benchmark.class {
+				case BenchmarkDimacsImpl : {
+					var dimaces = (satMorphic.benchmark as BenchmarkDimacs).dimacses
+					var nb_dimaces = dimaces.size
+					var i = 1
+					for(String input_path : dimaces) {
+						println(String.format("------------- Proceeding file %d / %d -------------", i, nb_dimaces))
+						run_solver(satMorphic, input_path, CSVwriter)
+						i++
+					}
+				}
+				case BenchmarkFormulaImpl : {
+					for(Expression expr : (satMorphic.benchmark as BenchmarkFormula).expressions) {
+						run_solver(satMorphic, expr_to_dimacs(expr), CSVwriter)
+					}
+				}
+				default : println('Unknown input type')
+			}
+    	} catch (Exception e) {
+    		println("------------- Unexpected error during computation -------------")
+    		CSVwriter.close()
+    	}
+    	println("------------- Finished -------------")
+		CSVwriter.close()
     }
     
     
@@ -59,13 +84,7 @@ class Solver {
     }
     
     
-    def void run_solver(SATMorphic satMorphic, String input_path) {
-    	
-    	var file = new File("results.csv")
-
-		var outputfile = new FileWriter(file)
-    	var CSVwriter = new CSVWriter(outputfile)
-    	CSVwriter.writeNext(#["Benchmark", "Solver", "Sat?", "Time (ms)"])
+    def void run_solver(SATMorphic satMorphic, String input_path, CSVWriter CSVwriter) {
     	
     	for (SATSolver satSolver : satMorphic.solvers) {
     		var satisfiable = switch satSolver {
@@ -95,7 +114,6 @@ class Solver {
 				println('Unsatisfiable')
 			}
     	}
-    	CSVwriter.close()
     }
     
     

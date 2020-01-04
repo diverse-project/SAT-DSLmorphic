@@ -4,6 +4,9 @@
 package ozhang
 
 import com.google.inject.Inject
+import java.io.File
+import java.util.regex.Pattern
+import java.util.stream.Collectors
 import org.eclipse.xtext.testing.InjectWith
 import org.eclipse.xtext.testing.extensions.InjectionExtension
 import org.eclipse.xtext.testing.util.ParseHelper
@@ -12,9 +15,6 @@ import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.^extension.ExtendWith
 import org.xtext.example.mydsl1.mSat.SATMorphic
 import org.xtext.example.mydsl1.tests.MSatInjectorProvider
-import ozhang.Solver
-import java.io.File
-import java.util.regex.Pattern
 
 @ExtendWith(InjectionExtension)
 @InjectWith(MSatInjectorProvider)
@@ -103,23 +103,21 @@ class MSatParsingMacherTest {
 	}
 	
 	@Test
-	def void benchmar() {
+	def void benchmark() {
 		
 		var benchmark_path = new File("/home/ozhang/Documents/5INFO/DSL/DSL_Project/samplingfm/Benchmarks") // Put here path to benchmark files
 		var benchmark_list = benchmark_path.list
 		
-		var pattern = Pattern.compile("\\.cnf$")
+		var pattern = Pattern.compile("cnf$")
+		var benchmark_cnf_list = benchmark_list.stream().filter(pattern.asPredicate()).collect(Collectors.toList());
 		
 		var result = parseHelper.parse('''
 			solver sat4j-jar sat4j-java sat4j-maven minisat cryptominisat
-			benchmarkDIMACS
-			«FOR benchmark : benchmark_list»
-				«IF pattern.matcher(benchmark).find()»
-					"/home/ozhang/Documents/5INFO/DSL/DSL_Project/samplingfm/Benchmarks/«benchmark»"
-				«ENDIF»
+			benchmarkDIMACS 
+			«FOR benchmark : benchmark_cnf_list SEPARATOR ' , '»
+				"/home/ozhang/Documents/5INFO/DSL/DSL_Project/samplingfm/Benchmarks/«benchmark»"
 			«ENDFOR»
 		''')
-		
 		Assertions.assertNotNull(result)
 		val errors = result.eResource.errors
 		Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
