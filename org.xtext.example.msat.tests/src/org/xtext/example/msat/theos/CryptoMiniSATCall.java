@@ -4,6 +4,8 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Timer;
+import java.util.TimerTask;
 
 public class CryptoMiniSATCall
 {
@@ -13,6 +15,7 @@ public class CryptoMiniSATCall
 	
 	public static List<Object> DoIt(String file_dimacs_formula, String version) 
 	{	
+		int TIMEOUT = 600000;
 
 		check_version(version);
 		String calling_name = "cryptominisat-" + version;
@@ -28,9 +31,33 @@ public class CryptoMiniSATCall
 			Process p = pb.start();
 			BufferedReader in = new BufferedReader(new InputStreamReader(p.getInputStream()));
 			
+			Timer t = new Timer();
+		    t.schedule(new TimerTask() {
+
+		        @Override
+		        public void run() {
+		        	try {
+						Thread.sleep(100);
+					} catch (InterruptedException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+		            p.destroy();
+		        }
+		    }, TIMEOUT);
+			
+			int status = p.waitFor();
 			long finish = System.currentTimeMillis();
 			long timeElapsed = finish - start;
+			
+			System.out.println("Exited with status: " + status);
+			
+			if (timeElapsed > TIMEOUT + 50)
+			{
+				return Arrays.asList(false, -1l);
+			}
 
+			boolean result = false;
 			
 			String s = "";
 			while((s = in.readLine()) != null)
@@ -39,17 +66,19 @@ public class CryptoMiniSATCall
 				// System.out.println(s);
 				if (s.contains("UNSATISFIABLE"))
 				{
-					return Arrays.asList(false, timeElapsed);
+					result = false;
+					break;
 				}
 				else if (s.contains("SATISFIABLE"))
 				{
-					return Arrays.asList(true, timeElapsed);
+					result = true;
+					break;
 				}
 				
 			    //System.out.println(s);
 			}
-			int status = p.waitFor();
-			System.out.println("Exited with status: " + status);
+			
+			return Arrays.asList(result, timeElapsed);
 		}
         catch(Exception e)  
         {  
