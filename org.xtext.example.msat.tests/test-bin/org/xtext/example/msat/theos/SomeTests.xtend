@@ -235,7 +235,7 @@ class SomeTests
 	def check_formula(String input)
 	{
 		val print_text_read = false;
-		val print_formula = true;
+		val print_formula = false;
 		val print_call_method = true;
 		val print_all_responses = true;
 		

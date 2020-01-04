@@ -100,7 +100,7 @@ class Mein
 	def check_formulas(String input)
 	{
 		val print_text_read = false;
-		val print_formulas = true;
+		val print_formulas = false;
 		val print_call_method = true;
 		val print_all_responses = true;
 		val save_to_file = true;
