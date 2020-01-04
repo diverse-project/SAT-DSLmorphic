@@ -78,7 +78,7 @@ class Mein
 				   cryptominisat version "2.4.0"
 				   cryptominisat version "4.5.3"
 				   cryptominisat version "5.6.8"
-			benchmarkDIMACS "input.cnf", "input2.cnf", "cnf-tres-dur.cnf"
+			benchmarkDIMACS "input.cnf", "input2.cnf", "tres-tres-dur.cnf"
 		'''
 		val sat_and_time = check_formulas(text);
 		val is_sat = (sat_and_time.get(0) as Boolean)
@@ -136,11 +136,13 @@ class Mein
 			println()
 		}
 
+		val results_filename = "results.csv"
+		val writer = new BufferedWriter(new FileWriter(results_filename));
 		val all_answers = newArrayList();
 		for(var i=0; i< dimacs_formulas.size(); i++)
 		{
 			val formula = dimacs_formulas.get(i)
-			val name_formula = dimacs_formulas.get(i)
+			val name_formula = name_formulas.get(i)
 			val filename_of_formula = "tmp_output.cnf"
 			val fileWriter = new FileWriter(new File(filename_of_formula));
 			fileWriter.write(formula);
@@ -152,6 +154,14 @@ class Mein
 			{	
 				val answer =  evaluate(call_method, filename_of_formula);
 				answers.add(answer)
+				if(save_to_file)
+				{
+					var line = name_formula + " ; " + id_solver_to_solver_name(call_method.get(0) as Integer) +
+									" ; " + call_method.get(1) + " ; " + answer.get(0) + " ; " + 
+									answer.get(1) + "\n"
+					writer.write(line)
+					writer.flush()
+				}
 			} 
 		
 			if(print_all_responses)
@@ -163,6 +173,9 @@ class Mein
 			all_answers.add(answers)
 		}
 		
+		writer.close()
+		
+		/*
 			if(save_to_file)
 			{
 				
@@ -186,13 +199,12 @@ class Mein
 					}
 					
 				}
-				/*
-				 * formula_name ; solver ; version ; is_sat ; temps 
-				 *
-				 */
+				 // formula_name ; solver ; version ; is_sat ; temps 
+
 				 writer.close();
 				 
 			}
+		*/
 		
 		
 
