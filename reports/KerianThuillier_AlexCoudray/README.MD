@@ -6,4 +6,5 @@ Le dossier **PythonScript** contient un script *python* utilisé pour extraire d
 * nombre de clauses;
 * nombre de variables;
 * taux de clauses à 1 littéral.
+
 Enfin, le dossier **RScript** contient les scripts *r* utilisé pour l'étude des données dans le rapport. Les tableaux et figures du rapport ont tous été générés avec ces scripts.
