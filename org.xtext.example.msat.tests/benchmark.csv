@@ -1,0 +1,201 @@
+Benchmark;Solver;Parameter;Sat?;Time
+Benchmarks/107.sk_3_90.cnf;sat4j-java;;SAT;175017485
+Benchmarks/107.sk_3_90.cnf;sat4j-jar;;SAT;12942018
+Benchmarks/107.sk_3_90.cnf;minisat;rnd-freq 0.2;SAT;9925683
+Benchmarks/107.sk_3_90.cnf;minisat;rnd-freq 0.5;SAT;624277
+Benchmarks/107.sk_3_90.cnf;minisat;rnd-freq 1.0;SAT;588886
+Benchmarks/107.sk_3_90.cnf;cryptominisat;;SAT;553157
+Benchmarks/109.sk_4_36.cnf;sat4j-java;;SAT;54073393
+Benchmarks/109.sk_4_36.cnf;sat4j-jar;;SAT;483216
+Benchmarks/109.sk_4_36.cnf;minisat;rnd-freq 0.2;SAT;485627
+Benchmarks/109.sk_4_36.cnf;minisat;rnd-freq 0.5;SAT;511060
+Benchmarks/109.sk_4_36.cnf;minisat;rnd-freq 1.0;SAT;534283
+Benchmarks/109.sk_4_36.cnf;cryptominisat;;SAT;384096
+Benchmarks/10.sk_1_46.cnf;sat4j-java;;SAT;6671849
+Benchmarks/10.sk_1_46.cnf;sat4j-jar;;SAT;735378
+Benchmarks/10.sk_1_46.cnf;minisat;rnd-freq 0.2;SAT;584863
+Benchmarks/10.sk_1_46.cnf;minisat;rnd-freq 0.5;SAT;468415
+Benchmarks/10.sk_1_46.cnf;minisat;rnd-freq 1.0;SAT;403690
+Benchmarks/10.sk_1_46.cnf;cryptominisat;;SAT;373560
+Benchmarks/110.sk_3_88.cnf;sat4j-java;;SAT;146879340
+Benchmarks/110.sk_3_88.cnf;sat4j-jar;;SAT;548346
+Benchmarks/110.sk_3_88.cnf;minisat;rnd-freq 0.2;SAT;395786
+Benchmarks/110.sk_3_88.cnf;minisat;rnd-freq 0.5;SAT;534448
+Benchmarks/110.sk_3_88.cnf;minisat;rnd-freq 1.0;SAT;608635
+Benchmarks/110.sk_3_88.cnf;cryptominisat;;SAT;444764
+Benchmarks/111.sk_2_36.cnf;sat4j-java;;SAT;23977285
+Benchmarks/111.sk_2_36.cnf;sat4j-jar;;SAT;1414017
+Benchmarks/111.sk_2_36.cnf;minisat;rnd-freq 0.2;SAT;544822
+Benchmarks/111.sk_2_36.cnf;minisat;rnd-freq 0.5;SAT;569644
+Benchmarks/111.sk_2_36.cnf;minisat;rnd-freq 1.0;SAT;644529
+Benchmarks/111.sk_2_36.cnf;cryptominisat;;SAT;479856
+Benchmarks/17.sk_3_45.cnf;sat4j-java;;SAT;30524715
+Benchmarks/17.sk_3_45.cnf;sat4j-jar;;SAT;832414
+Benchmarks/17.sk_3_45.cnf;minisat;rnd-freq 0.2;SAT;379223
+Benchmarks/17.sk_3_45.cnf;minisat;rnd-freq 0.5;SAT;655980
+Benchmarks/17.sk_3_45.cnf;minisat;rnd-freq 1.0;SAT;831840
+Benchmarks/17.sk_3_45.cnf;cryptominisat;;SAT;822628
+Benchmarks/19.sk_3_48.cnf;sat4j-java;;SAT;28987506
+Benchmarks/19.sk_3_48.cnf;sat4j-jar;;SAT;511071
+Benchmarks/19.sk_3_48.cnf;minisat;rnd-freq 0.2;SAT;413335
+Benchmarks/19.sk_3_48.cnf;minisat;rnd-freq 0.5;SAT;673714
+Benchmarks/19.sk_3_48.cnf;minisat;rnd-freq 1.0;SAT;618470
+Benchmarks/19.sk_3_48.cnf;cryptominisat;;SAT;464242
+Benchmarks/20.sk_1_51.cnf;sat4j-java;;SAT;45404823
+Benchmarks/20.sk_1_51.cnf;sat4j-jar;;SAT;501709
+Benchmarks/20.sk_1_51.cnf;minisat;rnd-freq 0.2;SAT;346138
+Benchmarks/20.sk_1_51.cnf;minisat;rnd-freq 0.5;SAT;398870
+Benchmarks/20.sk_1_51.cnf;minisat;rnd-freq 1.0;SAT;453277
+Benchmarks/20.sk_1_51.cnf;cryptominisat;;SAT;362843
+Benchmarks/27.sk_3_32.cnf;sat4j-java;;SAT;2302896
+Benchmarks/27.sk_3_32.cnf;sat4j-jar;;SAT;387956
+Benchmarks/27.sk_3_32.cnf;minisat;rnd-freq 0.2;SAT;464813
+Benchmarks/27.sk_3_32.cnf;minisat;rnd-freq 0.5;SAT;414617
+Benchmarks/27.sk_3_32.cnf;minisat;rnd-freq 1.0;SAT;520682
+Benchmarks/27.sk_3_32.cnf;cryptominisat;;SAT;403340
+Benchmarks/29.sk_3_45.cnf;sat4j-java;;SAT;32218674
+Benchmarks/29.sk_3_45.cnf;sat4j-jar;;SAT;546912
+Benchmarks/29.sk_3_45.cnf;minisat;rnd-freq 0.2;SAT;411771
+Benchmarks/29.sk_3_45.cnf;minisat;rnd-freq 0.5;SAT;570935
+Benchmarks/29.sk_3_45.cnf;minisat;rnd-freq 1.0;SAT;626761
+Benchmarks/29.sk_3_45.cnf;cryptominisat;;SAT;415174
+Benchmarks/30.sk_5_76.cnf;sat4j-java;;SAT;90034402
+Benchmarks/30.sk_5_76.cnf;sat4j-jar;;SAT;518631
+Benchmarks/30.sk_5_76.cnf;minisat;rnd-freq 0.2;SAT;457613
+Benchmarks/30.sk_5_76.cnf;minisat;rnd-freq 0.5;SAT;445486
+Benchmarks/30.sk_5_76.cnf;minisat;rnd-freq 1.0;SAT;464523
+Benchmarks/30.sk_5_76.cnf;cryptominisat;;SAT;460968
+Benchmarks/32.sk_4_38.cnf;sat4j-java;;SAT;7635117
+Benchmarks/32.sk_4_38.cnf;sat4j-jar;;SAT;430339
+Benchmarks/32.sk_4_38.cnf;minisat;rnd-freq 0.2;SAT;609442
+Benchmarks/32.sk_4_38.cnf;minisat;rnd-freq 0.5;SAT;469374
+Benchmarks/32.sk_4_38.cnf;minisat;rnd-freq 1.0;SAT;451330
+Benchmarks/32.sk_4_38.cnf;cryptominisat;;SAT;674052
+Benchmarks/35.sk_3_52.cnf;sat4j-java;;SAT;4660848
+Benchmarks/35.sk_3_52.cnf;sat4j-jar;;SAT;445215
+Benchmarks/35.sk_3_52.cnf;minisat;rnd-freq 0.2;SAT;370861
+Benchmarks/35.sk_3_52.cnf;minisat;rnd-freq 0.5;SAT;623920
+Benchmarks/35.sk_3_52.cnf;minisat;rnd-freq 1.0;SAT;375631
+Benchmarks/35.sk_3_52.cnf;cryptominisat;;SAT;452110
+Benchmarks/36.sk_3_77.cnf;sat4j-java;;UNSAT;0
+Benchmarks/36.sk_3_77.cnf;sat4j-jar;;UNSAT;0
+Benchmarks/36.sk_3_77.cnf;minisat;rnd-freq 0.2;SAT;498031
+Benchmarks/36.sk_3_77.cnf;minisat;rnd-freq 0.5;SAT;537444
+Benchmarks/36.sk_3_77.cnf;minisat;rnd-freq 1.0;SAT;581040
+Benchmarks/36.sk_3_77.cnf;cryptominisat;;UNSAT;-1
+Benchmarks/51.sk_4_38.cnf;sat4j-java;;SAT;10828731
+Benchmarks/51.sk_4_38.cnf;sat4j-jar;;SAT;1967306
+Benchmarks/51.sk_4_38.cnf;minisat;rnd-freq 0.2;SAT;371119
+Benchmarks/51.sk_4_38.cnf;minisat;rnd-freq 0.5;SAT;463559
+Benchmarks/51.sk_4_38.cnf;minisat;rnd-freq 1.0;SAT;448471
+Benchmarks/51.sk_4_38.cnf;cryptominisat;;SAT;443796
+Benchmarks/53.sk_4_32.cnf;sat4j-java;;SAT;4544046
+Benchmarks/53.sk_4_32.cnf;sat4j-jar;;SAT;470450
+Benchmarks/53.sk_4_32.cnf;minisat;rnd-freq 0.2;SAT;438635
+Benchmarks/53.sk_4_32.cnf;minisat;rnd-freq 0.5;SAT;354940
+Benchmarks/53.sk_4_32.cnf;minisat;rnd-freq 1.0;SAT;483603
+Benchmarks/53.sk_4_32.cnf;cryptominisat;;SAT;478667
+Benchmarks/54.sk_12_97.cnf;sat4j-java;;SAT;91485206
+Benchmarks/54.sk_12_97.cnf;sat4j-jar;;SAT;583641
+Benchmarks/54.sk_12_97.cnf;minisat;rnd-freq 0.2;SAT;396301
+Benchmarks/54.sk_12_97.cnf;minisat;rnd-freq 0.5;SAT;698810
+Benchmarks/54.sk_12_97.cnf;minisat;rnd-freq 1.0;SAT;458747
+Benchmarks/54.sk_12_97.cnf;cryptominisat;;SAT;400591
+Benchmarks/55.sk_3_46.cnf;sat4j-java;;SAT;6641052
+Benchmarks/55.sk_3_46.cnf;sat4j-jar;;SAT;416293
+Benchmarks/55.sk_3_46.cnf;minisat;rnd-freq 0.2;SAT;584455
+Benchmarks/55.sk_3_46.cnf;minisat;rnd-freq 0.5;SAT;482893
+Benchmarks/55.sk_3_46.cnf;minisat;rnd-freq 1.0;SAT;398945
+Benchmarks/55.sk_3_46.cnf;cryptominisat;;SAT;374677
+Benchmarks/56.sk_6_38.cnf;sat4j-java;;SAT;8989697
+Benchmarks/56.sk_6_38.cnf;sat4j-jar;;SAT;427622
+Benchmarks/56.sk_6_38.cnf;minisat;rnd-freq 0.2;SAT;372493
+Benchmarks/56.sk_6_38.cnf;minisat;rnd-freq 0.5;SAT;490458
+Benchmarks/56.sk_6_38.cnf;minisat;rnd-freq 1.0;SAT;431094
+Benchmarks/56.sk_6_38.cnf;cryptominisat;;SAT;428093
+Benchmarks/57.sk_4_64.cnf;sat4j-java;;SAT;11143904
+Benchmarks/57.sk_4_64.cnf;sat4j-jar;;SAT;553088
+Benchmarks/57.sk_4_64.cnf;minisat;rnd-freq 0.2;SAT;454301
+Benchmarks/57.sk_4_64.cnf;minisat;rnd-freq 0.5;SAT;438320
+Benchmarks/57.sk_4_64.cnf;minisat;rnd-freq 1.0;SAT;450205
+Benchmarks/57.sk_4_64.cnf;cryptominisat;;SAT;402812
+Benchmarks/63.sk_3_64.cnf;sat4j-java;;SAT;13031541
+Benchmarks/63.sk_3_64.cnf;sat4j-jar;;SAT;556374
+Benchmarks/63.sk_3_64.cnf;minisat;rnd-freq 0.2;SAT;402472
+Benchmarks/63.sk_3_64.cnf;minisat;rnd-freq 0.5;SAT;456881
+Benchmarks/63.sk_3_64.cnf;minisat;rnd-freq 1.0;SAT;429789
+Benchmarks/63.sk_3_64.cnf;cryptominisat;;SAT;516797
+Benchmarks/70.sk_3_40.cnf;sat4j-java;;SAT;14190114
+Benchmarks/70.sk_3_40.cnf;sat4j-jar;;SAT;543851
+Benchmarks/70.sk_3_40.cnf;minisat;rnd-freq 0.2;SAT;440774
+Benchmarks/70.sk_3_40.cnf;minisat;rnd-freq 0.5;SAT;390169
+Benchmarks/70.sk_3_40.cnf;minisat;rnd-freq 1.0;SAT;513685
+Benchmarks/70.sk_3_40.cnf;cryptominisat;;SAT;392623
+Benchmarks/71.sk_3_65.cnf;sat4j-java;;SAT;20464898
+Benchmarks/71.sk_3_65.cnf;sat4j-jar;;SAT;469420
+Benchmarks/71.sk_3_65.cnf;minisat;rnd-freq 0.2;SAT;374502
+Benchmarks/71.sk_3_65.cnf;minisat;rnd-freq 0.5;SAT;410195
+Benchmarks/71.sk_3_65.cnf;minisat;rnd-freq 1.0;SAT;498694
+Benchmarks/71.sk_3_65.cnf;cryptominisat;;SAT;394293
+Benchmarks/77.sk_3_44.cnf;sat4j-java;;SAT;17896577
+Benchmarks/77.sk_3_44.cnf;sat4j-jar;;SAT;523221
+Benchmarks/77.sk_3_44.cnf;minisat;rnd-freq 0.2;SAT;409060
+Benchmarks/77.sk_3_44.cnf;minisat;rnd-freq 0.5;SAT;526861
+Benchmarks/77.sk_3_44.cnf;minisat;rnd-freq 1.0;SAT;524842
+Benchmarks/77.sk_3_44.cnf;cryptominisat;;SAT;479781
+Benchmarks/79.sk_4_40.cnf;sat4j-java;;UNSAT;0
+Benchmarks/79.sk_4_40.cnf;sat4j-jar;;UNSAT;0
+Benchmarks/79.sk_4_40.cnf;minisat;rnd-freq 0.2;SAT;629812
+Benchmarks/79.sk_4_40.cnf;minisat;rnd-freq 0.5;SAT;455842
+Benchmarks/79.sk_4_40.cnf;minisat;rnd-freq 1.0;SAT;553224
+Benchmarks/79.sk_4_40.cnf;cryptominisat;;UNSAT;-1
+Benchmarks/7.sk_4_50.cnf;sat4j-java;;SAT;14922017
+Benchmarks/7.sk_4_50.cnf;sat4j-jar;;SAT;441532
+Benchmarks/7.sk_4_50.cnf;minisat;rnd-freq 0.2;SAT;402156
+Benchmarks/7.sk_4_50.cnf;minisat;rnd-freq 0.5;SAT;695822
+Benchmarks/7.sk_4_50.cnf;minisat;rnd-freq 1.0;SAT;689675
+Benchmarks/7.sk_4_50.cnf;cryptominisat;;SAT;536668
+Benchmarks/80.sk_2_48.cnf;sat4j-java;;SAT;11534709
+Benchmarks/80.sk_2_48.cnf;sat4j-jar;;SAT;495214
+Benchmarks/80.sk_2_48.cnf;minisat;rnd-freq 0.2;SAT;449142
+Benchmarks/80.sk_2_48.cnf;minisat;rnd-freq 0.5;SAT;502465
+Benchmarks/80.sk_2_48.cnf;minisat;rnd-freq 1.0;SAT;421319
+Benchmarks/80.sk_2_48.cnf;cryptominisat;;SAT;426749
+Benchmarks/81.sk_5_51.cnf;sat4j-java;;SAT;27003976
+Benchmarks/81.sk_5_51.cnf;sat4j-jar;;SAT;589807
+Benchmarks/81.sk_5_51.cnf;minisat;rnd-freq 0.2;SAT;605104
+Benchmarks/81.sk_5_51.cnf;minisat;rnd-freq 0.5;SAT;484990
+Benchmarks/81.sk_5_51.cnf;minisat;rnd-freq 1.0;SAT;526838
+Benchmarks/81.sk_5_51.cnf;cryptominisat;;SAT;451383
+Benchmarks/84.sk_4_77.cnf;sat4j-java;;SAT;19195420
+Benchmarks/84.sk_4_77.cnf;sat4j-jar;;SAT;627552
+Benchmarks/84.sk_4_77.cnf;minisat;rnd-freq 0.2;SAT;397394
+Benchmarks/84.sk_4_77.cnf;minisat;rnd-freq 0.5;SAT;407924
+Benchmarks/84.sk_4_77.cnf;minisat;rnd-freq 1.0;SAT;452500
+Benchmarks/84.sk_4_77.cnf;cryptominisat;;SAT;419049
+Benchmarks/ActivityService2.sk_10_27.cnf;sat4j-java;;SAT;7664044
+Benchmarks/ActivityService2.sk_10_27.cnf;sat4j-jar;;SAT;410236
+Benchmarks/ActivityService2.sk_10_27.cnf;minisat;rnd-freq 0.2;SAT;616988
+Benchmarks/ActivityService2.sk_10_27.cnf;minisat;rnd-freq 0.5;SAT;447184
+Benchmarks/ActivityService2.sk_10_27.cnf;minisat;rnd-freq 1.0;SAT;370193
+Benchmarks/ActivityService2.sk_10_27.cnf;cryptominisat;;SAT;539588
+Benchmarks/ActivityService.sk_11_27.cnf;sat4j-java;;SAT;5221447
+Benchmarks/ActivityService.sk_11_27.cnf;sat4j-jar;;SAT;349781
+Benchmarks/ActivityService.sk_11_27.cnf;minisat;rnd-freq 0.2;SAT;438596
+Benchmarks/ActivityService.sk_11_27.cnf;minisat;rnd-freq 0.5;SAT;488276
+Benchmarks/ActivityService.sk_11_27.cnf;minisat;rnd-freq 1.0;SAT;618753
+Benchmarks/ActivityService.sk_11_27.cnf;cryptominisat;;SAT;468087
+Benchmarks/compress.sk_17_291.cnf;sat4j-java;;SAT;5574985323
+Benchmarks/compress.sk_17_291.cnf;sat4j-jar;;SAT;584902
+Benchmarks/compress.sk_17_291.cnf;minisat;rnd-freq 0.2;SAT;362970
+Benchmarks/compress.sk_17_291.cnf;minisat;rnd-freq 0.5;SAT;593997
+Benchmarks/compress.sk_17_291.cnf;minisat;rnd-freq 1.0;SAT;481678
+Benchmarks/compress.sk_17_291.cnf;cryptominisat;;SAT;489318
+Benchmarks/ConcreteActivityService.sk_13_28.cnf;sat4j-java;;SAT;7414570
+Benchmarks/ConcreteActivityService.sk_13_28.cnf;sat4j-jar;;SAT;605591
+Benchmarks/ConcreteActivityService.sk_13_28.cnf;minisat;rnd-freq 0.2;SAT;516538
+Benchmarks/ConcreteActivityService.sk_13_28.cnf;minisat;rnd-freq 0.5;SAT;647574
+Benchmarks/ConcreteActivityService.sk_13_28.cnf;minisat;rnd-freq 1.0;SAT;442528
+Benchmarks/ConcreteActivityService.sk_13_28.cnf;cryptominisat;;SAT;369199
+Benchmarks/ConcreteRoleAffectationService.sk_119_273.cnf;sat4j-java;;SAT;40913003782
+Benchmarks/ConcreteRoleAffectationService.sk_119_273.cnf;sat4j-jar;;SAT;390163

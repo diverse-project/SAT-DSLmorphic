@@ -45,6 +45,7 @@ import java.io.StringWriter
 import org.xtext.example.mydsl1.mSat.MiniSAT
 import org.xtext.example.mydsl1.mSat.CryptoMiniSAT
 import java.util.ArrayList
+import java.io.FileOutputStream
 
 @ExtendWith(InjectionExtension)
 @InjectWith(MSatInjectorProvider)
@@ -58,10 +59,16 @@ class MSatParsingBailluetBouazizTest {
 		var String inputFileName = "test.msat";
 		var String content = new String(Files.readAllBytes(Paths.get(inputFileName)));
 		var SATMorphic morphic = parseHelper.parse(content);
-		parseAst(morphic, "test");
+		
+		var FileOutputStream csv = new FileOutputStream("benchmark.csv");
+		csv.write("Benchmark;Solver;Parameter;Sat?;Time\n".getBytes());
+		
+		parseAst(morphic, "test", csv);
+		csv.flush();
+		csv.close();
 	}
 	
-	def void parseAst(SATMorphic morphic, String outputDimacsFileNamePrefix) {
+	def void parseAst(SATMorphic morphic, String outputDimacsFileNamePrefix, FileOutputStream csv) {
 
 		var EList<SATSolver> solvers = morphic.solvers;
 		var Benchmark bench = morphic.benchmark;
@@ -91,64 +98,98 @@ class MSatParsingBailluetBouazizTest {
 		
 		for (String dimacsFile : dimacsFiles) {
 			for (SATSolver solver : solvers) {
+				var Pair<Boolean, Long> result;
+				var String csvLine = dimacsFile+";";
+				
 				if(solver.getSolver() instanceof Sat4J) {
-					println(solve(dimacsFile, solver.getSolver() as Sat4J));
+					result = solve(dimacsFile, solver.getSolver() as Sat4J);
+					if ((solver.getSolver() as Sat4J).getVariant() == Sat4JVariant.SAT4J_JAVA)
+						csvLine += "sat4j-java;;"
+					else if ((solver.getSolver() as Sat4J).getVariant() == Sat4JVariant.SAT4J_JAR)
+						csvLine += "sat4j-jar;;"
+					else
+						csvLine += "sat4j-mvn;;"
 				}
 				else if(solver.getSolver() instanceof MiniSAT) {
-					println(solve(dimacsFile, solver.getSolver() as MiniSAT));
+					result = solve(dimacsFile, solver.getSolver() as MiniSAT);
+					csvLine += "minisat;"
+					if ((solver.getSolver() as MiniSAT).parameter !== null)
+						csvLine += "rnd-freq " + (solver.getSolver() as MiniSAT).parameter.rndfreq.toString();
+					csvLine += ";"
+					
 				}
 				else if(solver.getSolver() instanceof CryptoMiniSAT) {
-					println(solve(dimacsFile, solver.getSolver() as CryptoMiniSAT));
+					result = solve(dimacsFile, solver.getSolver() as CryptoMiniSAT);
+					csvLine += "cryptominisat;;"
 				}
+				
+				if (result.getKey())
+					csvLine += "SAT;"
+				else
+					csvLine += "UNSAT;"
+				csvLine += result.getValue().toString() + "\n";
+				csv.write(csvLine.getBytes());
 			}
 		}
 		
 	}
 	
-	def boolean solve(String dimacsFile, CryptoMiniSAT cryptominisat) 
+	def Pair<Boolean, Long> solve(String dimacsFile, CryptoMiniSAT cryptominisat) 
 	{
+		var long start = System.nanoTime();
 		var Process p = Runtime.getRuntime().exec("./cryptominisat5 --verb=0 " + dimacsFile);	
+		var long end = System.nanoTime();
 		var BufferedReader stdInput = new BufferedReader(new InputStreamReader(p.getInputStream()));
 		
 		var String s = null;
 		while ((s = stdInput.readLine()) !== null) {
 			if (s.contains("s SATISFIABLE"))
-				return true;
+				return new Pair<Boolean, Long>(true, end-start);
 		}
+		
+		return new Pair<Boolean, Long>(false, -1L);
 	}
 	
-	def boolean solve(String dimacsFile, MiniSAT minisat) 
+	def Pair<Boolean, Long> solve(String dimacsFile, MiniSAT minisat) 
 	{
 		var String minisat_param = "";
 		if (minisat.parameter !== null)
-			minisat_param = "-rnd-freq " + minisat.parameter.rndfreq.toString();
+			minisat_param = "-rnd-freq=" + minisat.parameter.rndfreq.toString();
 			
+		var long start = System.nanoTime();
 		var Process p = Runtime.getRuntime().exec("minisat -verb=0 " + minisat_param + " " + dimacsFile);	
+		var long end = System.nanoTime();
 		var BufferedReader stdInput = new BufferedReader(new InputStreamReader(p.getInputStream()));
 		
 		var String s = null;
 		while ((s = stdInput.readLine()) !== null) {
 			if (s.contains("SATISFIABLE"))
-				return true;
+				return new Pair<Boolean, Long>(true, end-start);
 		}
+		
+		return new Pair<Boolean, Long>(false, -1L);
 	}
 	
-	def boolean solve(String dimacsFile, Sat4J sat4j)
+	def Pair<Boolean, Long> solve(String dimacsFile, Sat4J sat4j)
 	{
 		var Sat4JVariant solverMethod = sat4j.getVariant();
 		var boolean sat = false;
+		var long time;
 		switch solverMethod
 		{
 			case Sat4JVariant.SAT4J_JAVA:
 			{
+				var long start = System.nanoTime();
 				var ISolver solver = SolverFactory.newDefault();
 		        solver.setTimeout(3600); // 1 hour timeout
 		        var Reader reader = new DimacsReader(solver);
 		        // CNF filename is given on the command line 
 		        try {
 		            var IProblem problem = reader.parseInstance(dimacsFile);
-		            if (problem.isSatisfiable()) 
+		            if (problem.isSatisfiable())  {
 		                sat = true;
+		                time = System.nanoTime() - start;
+		            }
 		        } catch (Exception e) {
 		            System.out.println("Oops!");      
 		        }		        
@@ -156,14 +197,18 @@ class MSatParsingBailluetBouazizTest {
 			
 			case Sat4JVariant.SAT4J_JAR:
 			{
+				var start = System.nanoTime();
 				var Process p = Runtime.getRuntime().exec("java -jar org.sat4j.core.jar " + dimacsFile);
+				var end = System.nanoTime();
 				
 				var BufferedReader stdInput = new BufferedReader(new InputStreamReader(p.getInputStream()));
 				
 				var String s = null;
 				while ((s = stdInput.readLine()) !== null) {
-					if (s.contains("s SATISFIABLE"))
+					if (s.contains("s SATISFIABLE")) {
 						sat = true;
+						time = end-start;
+					}
 				}
 			}
 			
@@ -249,18 +294,21 @@ class MSatParsingBailluetBouazizTest {
 				pom_writer.close();
 				
 				Runtime.getRuntime().exec("mvn install", null, new File("mvn/"));
+				var start = System.nanoTime();
 				var Process p = Runtime.getRuntime().exec("mvn exec:java -Dexec.mainClass=msat.bailluetbouaziz.App -Dexec.args=../"+dimacsFile, null, new File("mvn/"));
+				var end = System.nanoTime();
 				var BufferedReader stdInput = new BufferedReader(new InputStreamReader(p.getInputStream()));
 				
 				var String s = null;
 				while ((s = stdInput.readLine()) !== null) {
 				    if (s.contains("Satisfiable !"))
 						sat = true;
+						time = end-start;
 				}
 			}
 		}
 		
-		return sat;
+		return new Pair<Boolean, Long>(sat, time);
 	}
 	
 	def String getDIMACSFromInlineFormula(Expression ast)
@@ -420,7 +468,7 @@ class MSatParsingBailluetBouazizTest {
 		var ByteArrayOutputStream errContent = new ByteArrayOutputStream();
 		System.setOut(new PrintStream(outContent));
     	System.setErr(new PrintStream(errContent));*/
-		parseAst(result, "foo1.cnf");
+		parseAst(result, "foo1.cnf", null);
 
 		//Assertions.assertTrue(outContent.toString().contains("true"));
 	}
@@ -436,7 +484,7 @@ class MSatParsingBailluetBouazizTest {
 		val errors = result.eResource.errors
 		Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
 
-		parseAst(result, "foo1.cnf");
+		parseAst(result, "foo1.cnf", null);
 		Assertions.assertTrue(System.out.toString().contains("true"));
 	}
 	
@@ -451,7 +499,7 @@ class MSatParsingBailluetBouazizTest {
 		val errors = result.eResource.errors
 		Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
 		
-		parseAst(result, "foo1.cnf");
+		parseAst(result, "foo1.cnf", null);
 		//Assertions.assertTrue(System.out.toString().contains("true"));
 	}
 	
@@ -466,7 +514,7 @@ class MSatParsingBailluetBouazizTest {
 		val errors = result.eResource.errors
 		Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
 		
-		parseAst(result, "foo1.cnf");
+		parseAst(result, "foo1.cnf", null);
 		//Assertions.assertTrue(System.out.toString().contains("true"));
 	}
 	
@@ -480,7 +528,7 @@ class MSatParsingBailluetBouazizTest {
 		Assertions.assertNotNull(result)
 		val errors = result.eResource.errors
 		Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
-		parseAst(result, "foo1.cnf");
+		parseAst(result, "foo1.cnf", null);
 		//Assertions.assertTrue(System.out.toString().contains("true"));
 	}
 }
