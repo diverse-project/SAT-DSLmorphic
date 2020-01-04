@@ -2,6 +2,7 @@ package org.xtext.example.msat.theos;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Timer;
@@ -25,9 +26,13 @@ public class CryptoMiniSATCall
 		String complete_output = "";
 		try 
 		{
+			List<String> full_command = new ArrayList<String>();
+			full_command.add("./" + calling_name);
+			full_command.add(file_dimacs_formula);
+			
 			long start = System.currentTimeMillis();
 
-			ProcessBuilder pb = new ProcessBuilder("./" + calling_name, file_dimacs_formula);
+			ProcessBuilder pb = new ProcessBuilder(full_command);
 			Process p = pb.start();
 			BufferedReader in = new BufferedReader(new InputStreamReader(p.getInputStream()));
 			
@@ -45,40 +50,46 @@ public class CryptoMiniSATCall
 		            p.destroy();
 		        }
 		    }, TIMEOUT);
-			
-			int status = p.waitFor();
-			long finish = System.currentTimeMillis();
+		    
+		    long finish = System.currentTimeMillis();
 			long timeElapsed = finish - start;
-			
-			System.out.println("Exited with status: " + status);
 			
 			if (timeElapsed > TIMEOUT + 50)
 			{
-				return Arrays.asList(false, -1l);
+				return Arrays.asList(false, -1f);
 			}
 
 			boolean result = false;
+			float real_time = 0f;
+			String[] cut_str;
 			
 			String s = "";
 			while((s = in.readLine()) != null)
 			{
 				// DEBUG
 				// System.out.println(s);
+				if (s.contains("CPU time") || s.contains("Total time"))
+				{
+					cut_str = s.substring(0, s.length() - 1).split(" ");
+					real_time = Float.parseFloat(cut_str[cut_str.length-1]);
+				}
 				if (s.contains("UNSATISFIABLE"))
 				{
 					result = false;
-					break;
 				}
 				else if (s.contains("SATISFIABLE"))
 				{
 					result = true;
-					break;
 				}
 				
 			    //System.out.println(s);
 			}
 			
-			return Arrays.asList(result, timeElapsed);
+			int status = p.waitFor();
+			
+			System.out.println("Exited with status: " + status);
+			
+			return Arrays.asList(result, real_time);
 		}
         catch(Exception e)  
         {  
