@@ -75,6 +75,7 @@ class Mein
 		val text = 
 		'''
 			solver 
+				   sat4j-java 
 				   sat4j-jar version "2.0.0"
 				   sat4j-jar version "2.2.3"
 				   sat4j-jar version "2.3.1"
@@ -169,6 +170,8 @@ class Mein
 
 		val results_filename = "results.csv"
 		val writer = new BufferedWriter(new FileWriter(results_filename));
+		writer.write("Benchmark ; Solver ; Version ; Is_sat ; Time")
+		
 		val all_answers = newArrayList();
 		for(var i=0; i< dimacs_formulas.size(); i++)
 		{

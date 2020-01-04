@@ -21,7 +21,7 @@ public class SAT4JBIBCall
 	{
 
 			ISolver solver = SolverFactory.newDefault();
-	        solver.setTimeout(3600); // 1 hour timeout
+	        solver.setTimeout(600); // 1 hour timeout
 	        Reader reader = new DimacsReader(solver);
 	        Long timeElapsed = -1l;
 	       // PrintWriter out = new PrintWriter(System.out,true);
