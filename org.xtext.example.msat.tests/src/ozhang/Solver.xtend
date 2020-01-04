@@ -49,8 +49,8 @@ class Solver {
 		str += res
 		
 		var writer = new PrintWriter("test.cnf", "UTF-8")
-		writer.println(str)
 		writer.close()
+		writer.println(str)
 		
 		 return 'test.cnf'
     }
@@ -96,9 +96,13 @@ class Solver {
     	var pb = new ProcessBuilder()
 		pb.command('minisat','-rnd-freq='+rnd_freq, file_path)
 //		pb.redirectOutput(Redirect.INHERIT)
+
+		var startTime = System.nanoTime()
 		var p = pb.start()
 		var output = p.getInputStream()
 		p.waitFor()
+		var endTime   = System.nanoTime()
+		var totalTime = endTime - startTime
 		
 		var reader = new BufferedReader(new InputStreamReader(output))
         var line = ""
@@ -116,9 +120,13 @@ class Solver {
     	var satisfiable = true
     	var pb = new ProcessBuilder()
 		pb.command('cryptominisat5', file_path)
+		
+		var startTime = System.nanoTime()
 		var p = pb.start()
 		var output = p.getInputStream()
 		p.waitFor()
+		var endTime   = System.nanoTime()
+		var totalTime = endTime - startTime
 		
 		var reader = new BufferedReader(new InputStreamReader(output))
         var line = ""
@@ -136,18 +144,15 @@ class Solver {
     	var solver = SolverFactory.newDefault()
         solver.setTimeout(3600); // 1 hour timeout
         var reader = new DimacsReader(solver)
-        var out = new PrintWriter(System.out,true)
+//        var out = new PrintWriter(System.out,true)
         // CNF filename is given on the command line 
         try {
+        	var startTime = System.nanoTime()
             var problem = reader.parseInstance(file_path)
-            if (problem.isSatisfiable()) {
-//                println("Satisfiable !")
-                reader.decode(problem.model(),out)
-                return true
-            } else {
-//                println("Unsatisfiable !")
-                return false
-            }
+            var satisfiable = problem.isSatisfiable()
+            var endTime   = System.nanoTime()
+			var totalTime = endTime - startTime
+            return satisfiable
         } catch (FileNotFoundException e) {
             // TODO Auto-generated catch block
         } catch (ParseFormatException e) {
@@ -169,9 +174,13 @@ class Solver {
     	var satisfiable = true
 		var pb = new ProcessBuilder()
 		pb.command('java', '-jar', 'lib/org.sat4j.jar', file_path)
+		
+		var startTime = System.nanoTime()
 		var p = pb.start()
 		var output = p.getInputStream()
 		p.waitFor()
+		var endTime   = System.nanoTime()
+		var totalTime = endTime - startTime
 		
 		var reader = new BufferedReader(new InputStreamReader(output))
         var line = ""
@@ -299,9 +308,13 @@ public class Solver {
 		pb.command('mvn', 'exec:java', '-Dexec.mainClass=dsl.Solver', '-Dexec.args="../'+file_path+'"')
 		pb.redirectOutput(Redirect.INHERIT)
 		pb.directory(sat_file)
+		
+		var startTime = System.nanoTime()
 		var p = pb.start()
 		var output = p.getInputStream()
 		p.waitFor()
+		var endTime   = System.nanoTime()
+		var totalTime = endTime - startTime
 		
 		var reader = new BufferedReader(new InputStreamReader(output))
         var line = ""
