@@ -60,7 +60,7 @@ public class CryptoMiniSATCall
 			}
 
 			boolean result = false;
-			float real_time = 0f;
+			float real_time = -1f;
 			String[] cut_str;
 			
 			String s = "";

@@ -66,7 +66,8 @@ class Mein
 	@Test
 	def void loadSAT4J() 
 	{
-		val cnf_database = get_all_cnf_in("samplingfm", "samplingfm/")
+		//val cnf_database = get_all_cnf_in("samplingfm", "samplingfm/")
+		val cnf_database = get_all_cnf_in("samplingfm/Benchmarks", "samplingfm/Benchmarks/")
 		val list_of_cnf =  String.join(", ", cnf_database)
 		print(list_of_cnf)
 		
@@ -122,7 +123,8 @@ class Mein
     		}
     		else if (file.isDirectory()) 
     		{
-    			filenames.addAll(get_all_cnf_in(file.getAbsolutePath(), prefix + file.getName() + "/") )
+    			//de-comment for recursive
+    			//filenames.addAll(get_all_cnf_in(file.getAbsolutePath(), prefix + file.getName() + "/") )
     		}
     	}
     	return filenames

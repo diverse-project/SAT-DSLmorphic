@@ -2,7 +2,6 @@ package org.xtext.example.msat.theos;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.util.Arrays;
 import java.util.List;
 
@@ -23,9 +22,9 @@ public class SAT4JBIBCall
 			ISolver solver = SolverFactory.newDefault();
 	        solver.setTimeout(600); // 1 hour timeout
 	        Reader reader = new DimacsReader(solver);
-	        Long timeElapsed = -1l;
+	        float timeElapsed = -1l;
 	       // PrintWriter out = new PrintWriter(System.out,true);
-			long start = System.currentTimeMillis();
+			float start = System.currentTimeMillis();
 	        try 
 	        {
 	            IProblem problem = reader.parseInstance(file_dimacs_formula);
@@ -37,7 +36,7 @@ public class SAT4JBIBCall
 	            } else {
 	                //System.out.println("Unsatisfiable !");
 	            }
-				long finish = System.currentTimeMillis();
+				float finish = System.currentTimeMillis();
 				timeElapsed = finish - start;
 				return Arrays.asList(problem.isSatisfiable(), timeElapsed);
 	        } catch (FileNotFoundException e) {
@@ -50,7 +49,7 @@ public class SAT4JBIBCall
 	        	System.out.println("IOExcpetion");
 	            // TODO Auto-generated catch block
 	        } catch (ContradictionException e) {
-				long finish = System.currentTimeMillis();
+				float finish = System.currentTimeMillis();
 				timeElapsed = finish - start;
 	        	return Arrays.asList(false, timeElapsed);
 	        } catch (TimeoutException e) {
