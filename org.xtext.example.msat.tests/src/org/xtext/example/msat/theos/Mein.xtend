@@ -73,15 +73,12 @@ class Mein
 				   sat4j-jar version "2.0.0"
 				   sat4j-jar version "2.2.3"
 				   sat4j-jar version "2.3.1"
-				   sat4j-java 
 				   minisat version "1.14.0"
 				   minisat version "2.2.0"
-				   minisat
 				   cryptominisat version "2.4.0"
 				   cryptominisat version "4.5.3"
 				   cryptominisat version "5.6.8"
-				   cryptominisat
-			benchmarkDIMACS "input.cnf", "input2.cnf"
+			benchmarkDIMACS "input.cnf", "input2.cnf", "cnf-dur.cnf", "tres-tres-dur.cnf"
 		'''
 		val sat_and_time = check_formulas(text);
 		val is_sat = (sat_and_time.get(0) as Boolean)
