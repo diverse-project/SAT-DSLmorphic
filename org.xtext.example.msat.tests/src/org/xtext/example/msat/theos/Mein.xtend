@@ -155,7 +155,7 @@ class Mein
 		val print_call_method = true;
 		val print_all_responses = true;
 		val save_to_file = true;
-		val nb_of_runs = 5
+		val nb_of_runs = 10
 		
 		var numero_of_run = 1 
 		
@@ -215,6 +215,17 @@ class Mein
 				{	
 					val answer =  evaluate(call_method, filename_of_formula);
 					answers.add(answer)
+					var parameters = "Default"
+					try
+					{
+						parameters = call_method.get(2) as String
+						if(parameters.equals(""))
+							parameters = "Default"
+					}
+					catch (Exception e)
+					{
+						parameters = "Default"
+					}
 					if(save_to_file)
 					{
 						var option = ""

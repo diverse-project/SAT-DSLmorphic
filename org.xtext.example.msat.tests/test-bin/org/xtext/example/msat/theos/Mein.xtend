@@ -83,8 +83,6 @@ class Mein
 		val text = 
 		'''
 			solver 
-				   sat4j-java 
-				   sat4j-jar version "2.0.0"
 				   sat4j-jar version "2.3.1"
 				   minisat version "1.14.0"
 				   minisat rnd-freq 0 version "2.2.0" 
@@ -146,7 +144,7 @@ class Mein
 		val print_call_method = true;
 		val print_all_responses = true;
 		val save_to_file = true;
-		val nb_of_runs = 5
+		val nb_of_runs = 10
 		
 		var numero_of_run = 1 
 		
@@ -185,7 +183,7 @@ class Mein
 	
 			val results_filename = "results_" + numero_run + ".csv"
 			val writer = new BufferedWriter(new FileWriter(results_filename));
-			writer.write("Benchmark ; Solver ; Version ; Is_sat ; Time (s)\n")
+			writer.write("Benchmark ; Solver ; Version ; Is_sat ; Time (s) ; Parameters\n")
 			
 			val all_answers = newArrayList();
 			for(var i=0; i< dimacs_formulas.size(); i++)
@@ -205,11 +203,22 @@ class Mein
 				{	
 					val answer =  evaluate(call_method, filename_of_formula);
 					answers.add(answer)
+					var parameters = "Default"
+					try
+					{
+						parameters = call_method.get(2) as String
+						if(parameters.equals(""))
+							parameters = "Default"
+					}
+					catch (Exception e)
+					{
+						parameters = "Default"
+					}
 					if(save_to_file)
 					{
 						var line = name_formula + " ; " + id_solver_to_solver_name(call_method.get(0) as Integer) +
 										" ; " + call_method.get(1) + " ; " + answer.get(0) + " ; " + 
-										answer.get(1) + "\n"
+										answer.get(1) + " ; "  + parameters + "\n"
 						writer.write(line)
 						writer.flush()
 					}

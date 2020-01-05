@@ -56,6 +56,10 @@ public class SAT4JBIBCall
 	        } catch (TimeoutException e) {
 	            System.out.println("Timeout, sorry!");      
 	        }
+	        catch (Exception e)
+	        {
+				return Arrays.asList(false, -1f);
+	        }
 	        throw new Error("Error while calling SAT4J java library");
 	}
 }
