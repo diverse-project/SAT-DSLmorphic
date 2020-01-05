@@ -73,8 +73,8 @@ class Mein
 	def void loadSAT4J() 
 	{
 		//val cnf_database = get_all_cnf_in("samplingfm", "samplingfm/")
-		//val cnf_database = get_all_cnf_in("samplingfm/Benchmarks", "samplingfm/Benchmarks/")
-		val cnf_database = newArrayList("\"input.cnf\"", "\"input2.cnf\"", "\"cnf-tres-dur.cnf\"", "\"tres-tres-dur.cnf\"")
+		val cnf_database = get_all_cnf_in("samplingfm/Benchmarks", "samplingfm/Benchmarks/")
+		//val cnf_database = newArrayList("\"input.cnf\"", "\"input2.cnf\"", "\"cnf-tres-dur.cnf\"", "\"tres-tres-dur.cnf\"")
 		val list_of_cnf =  String.join(", ", cnf_database)
 		print(list_of_cnf)
 		
@@ -87,9 +87,9 @@ class Mein
 				   sat4j-jar version "2.0.0"
 				   sat4j-jar version "2.3.1"
 				   minisat version "1.14.0"
-				   minisat version rnd-freq 0 "2.2.0" 
-				   minisat version rnd-freq 0.5 "2.2.0" 
-				   minisat version rnd-freq 0.9 "2.2.0" 
+				   minisat rnd-freq 0 version "2.2.0" 
+				   minisat rnd-freq 0.5 version "2.2.0" 
+				   minisat rnd-freq 0.9 version "2.2.0" 
 				   cryptominisat version "2.4.0" 
 				   cryptominisat version "4.5.3"
 				   cryptominisat freq 0 version "5.6.8" 
