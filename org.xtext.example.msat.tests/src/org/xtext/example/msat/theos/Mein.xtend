@@ -29,7 +29,6 @@ import org.xtext.example.mydsl1.tests.MSatInjectorProvider
 @InjectWith(MSatInjectorProvider)
 
 
-
 class Mein 
 {
 	@Inject
@@ -73,8 +72,8 @@ class Mein
 	def void loadSAT4J() 
 	{
 		//val cnf_database = get_all_cnf_in("samplingfm", "samplingfm/")
-		val cnf_database = get_all_cnf_in("samplingfm/Benchmarks", "samplingfm/Benchmarks/")
-		//val cnf_database = newArrayList("\"input.cnf\"", "\"input2.cnf\"", "\"cnf-tres-dur.cnf\"")
+		//val cnf_database = get_all_cnf_in("samplingfm/Benchmarks", "samplingfm/Benchmarks/")
+		val cnf_database = newArrayList("\"input.cnf\"", "\"input2.cnf\"", "\"cnf-tres-dur.cnf\"")
 		val list_of_cnf =  String.join(", ", cnf_database)
 		print(list_of_cnf)
 		
@@ -100,8 +99,20 @@ class Mein
 //			benchmarkDIMACS "input.cnf", "input2.cnf", "tres-tres-dur.cnf"
 //		'''
 		val sat_and_time = check_formulas(text);
-		val is_sat_first_formula = (sat_and_time.get(0) as Boolean)
-		Assertions.assertTrue(is_sat_first_formula);
+		
+		
+		var cur_res = true
+		for(run : sat_and_time)
+		{
+			for(formula : run)
+			{
+				cur_res = formula.get(0).x
+				for(execution : formula)
+				{
+					Assertions.assertTrue(execution.x == cur_res)
+				}
+			}
+		}
 		//val errors = result.eResource.errors
 		//Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
 	}
@@ -148,6 +159,7 @@ class Mein
 		
 		var numero_of_run = 1 
 		
+		var all_runs = new ArrayList<ArrayList<ArrayList<Tuple<Boolean, Float>>>>();
 		for(var numero_run = 1 ; numero_run <= nb_of_runs ; numero_run++)
 		{
 		
@@ -183,9 +195,9 @@ class Mein
 	
 			val results_filename = "results_" + numero_run + ".csv"
 			val writer = new BufferedWriter(new FileWriter(results_filename));
-			writer.write("Benchmark ; Solver ; Version ; Is_sat ; Time (s) ; Parameters\n")
+			writer.write("Benchmark ; Solver ; Version ; Option ; Is_sat ; Time (s)\n")
 			
-			val all_answers = newArrayList();
+			val all_answers = new ArrayList<ArrayList<Tuple<Boolean, Float>>>();
 			for(var i=0; i< dimacs_formulas.size(); i++)
 			{
 				val formula = dimacs_formulas.get(i)
@@ -197,7 +209,7 @@ class Mein
 				fileWriter.write(formula);
 				fileWriter.close();
 			
-				val answers = newArrayList();
+				val answers = new ArrayList<Tuple<Boolean, Float>>();
 			
 				for (call_method : call_methods)
 				{	
@@ -216,9 +228,14 @@ class Mein
 					}
 					if(save_to_file)
 					{
+						var option = ""
+						if (call_method.length == 3)
+						{
+							option = (call_method.get(2) as String)
+						}
 						var line = name_formula + " ; " + id_solver_to_solver_name(call_method.get(0) as Integer) +
-										" ; " + call_method.get(1) + " ; " + answer.get(0) + " ; " + 
-										answer.get(1) + " ; "  + parameters + "\n"
+										" ; " + call_method.get(1) + " ; " + option + " ; " +
+										answer.x + " ; " + answer.y + "\n"
 						writer.write(line)
 						writer.flush()
 					}
@@ -234,57 +251,10 @@ class Mein
 			
 			writer.close()
 			
+			all_runs.add(all_answers)
 		}
 		
-		
-		
-		/*
-			if(save_to_file)
-			{
-				
-				val results_filename = "results.csv"
-				val writer = new BufferedWriter(new FileWriter(results_filename));
-		
-				for(var i=0; i< dimacs_formulas.size(); i++)
-				{
-					val name_formula = name_formulas.get(i)
-					for (var j=0 ; j < call_methods.size(); j++)
-					{
-						val call_method = call_methods.get(j)
-						val id_solver = call_method.get(0) as Integer
-						val version_solver = call_method.get(1) as String
-						
-						val line = name_formula + " ; " + id_solver_to_solver_name(id_solver) + " ; " +
-									version_solver + " ; " + all_answers.get(i).get(j).get(0) + " ; " + 
-									all_answers.get(i).get(j).get(1) + "\n"
-						writer.write(line)
-						
-					}
-					
-				}
-				 // formula_name ; solver ; version ; is_sat ; temps 
-
-				 writer.close();
-				 
-			}
-		*/
-		
-		/*
-		
-		//all first responses
-		val return_list = newArrayList()
-		for (var i=0; i < all_answers.size(); i++)
-		{
-			val answers = all_answers.get(i)
-			
-			return_list.add(answers.get(0).get(0) as Boolean)
-		}
-
-		return return_list;
-
-		*/
-		
-		return newArrayList(false, 50l)		
+		return all_runs
 		
 	}
 	
@@ -371,7 +341,7 @@ class Mein
 			}
 		}	
 		
-		val sat_and_time = newArrayList(is_sat, elapsed_time);
+		val sat_and_time = new Tuple(is_sat, elapsed_time);
 		return sat_and_time;
 		
 	}
