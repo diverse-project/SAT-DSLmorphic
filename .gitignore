@@ -135,5 +135,6 @@ xtend-gen/
 *.class
 *.trace
 results.csv
+*.csv
 
 # End of https://www.gitignore.io/api/xtext,emacs,eclipse
