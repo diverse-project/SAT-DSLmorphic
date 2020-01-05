@@ -146,7 +146,7 @@ class Mein
 		val print_call_method = true;
 		val print_all_responses = true;
 		val save_to_file = true;
-		val nb_of_runs = 5
+		val nb_of_runs = 10
 		
 		var numero_of_run = 1 
 		
