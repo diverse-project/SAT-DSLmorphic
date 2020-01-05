@@ -1,7 +1,9 @@
 package org.xtext.example.msat.theos;
 
 import java.io.BufferedReader;
+import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Timer;
@@ -15,7 +17,7 @@ public class Sat4JJARCall
 
 	public static List<Object> DoIt(String file_dimacs_formula, String version) 
 	{
-		int TIMEOUT = 600000;
+		String TIMEOUT = "600";
 		/*
 		ProcessBuilder pb = new ProcessBuilder("java", "-jar", "absolute path upto jar");
 		Process p = pb.start();
@@ -40,34 +42,17 @@ public class Sat4JJARCall
 		String complete_output = "";
 		try 
 		{
-			long start = System.currentTimeMillis();
-			ProcessBuilder pb = new ProcessBuilder("java", "-jar", calling_name, file_dimacs_formula);
+			List<String> full_command = new ArrayList<String>();
+			full_command.add("timeout");
+			full_command.add(TIMEOUT);
+			full_command.add("java");
+			full_command.add("-jar");
+			full_command.add(calling_name);
+			full_command.add(file_dimacs_formula);
+			
+			ProcessBuilder pb = new ProcessBuilder(full_command);
 			Process p = pb.start();
 			BufferedReader in = new BufferedReader(new InputStreamReader(p.getInputStream()));
-			
-			
-			Timer t = new Timer();
-		    t.schedule(new TimerTask() {
-
-		        @Override
-		        public void run() {
-		        	try {
-						Thread.sleep(100);
-					} catch (InterruptedException e) {
-						// TODO Auto-generated catch block
-						e.printStackTrace();
-					}
-		            p.destroy();
-		        }
-		    }, TIMEOUT);
-		    
-			long finish = System.currentTimeMillis();
-			long timeElapsed = finish - start;
-			
-			if (timeElapsed > TIMEOUT + 50)
-			{
-				return Arrays.asList(false, -1f);
-			}
 			
 			boolean result = false;
 			float real_time = -1f;
@@ -81,7 +66,7 @@ public class Sat4JJARCall
 					cut_str = s.substring(0, s.length() - 1).split(" ");
 					real_time = Float.parseFloat(cut_str[cut_str.length-1]);
 				}
-				if (s.contains("UNSATISFIABLE"))
+				else if (s.contains("UNSATISFIABLE"))
 				{
 					result = false;
 				}
@@ -89,8 +74,10 @@ public class Sat4JJARCall
 				{
 					result = true;
 				}
-				
-			    //System.out.println(s);
+				else if (s.contains("UNKNOWN"))
+				{
+					return Arrays.asList(false, -1f);
+				}
 			}
 			
 			int status = p.waitFor();

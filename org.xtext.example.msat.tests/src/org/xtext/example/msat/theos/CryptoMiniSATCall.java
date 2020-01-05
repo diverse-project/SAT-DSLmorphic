@@ -16,7 +16,7 @@ public class CryptoMiniSATCall
 	
 	public static List<Object> DoIt(String file_dimacs_formula, String version, String parameters) 
 	{	
-		int TIMEOUT = 600000;
+		String TIMEOUT = "600";
 
 		check_version(version);
 		String calling_name = "cryptominisat-" + version;
@@ -27,41 +27,18 @@ public class CryptoMiniSATCall
 		try 
 		{
 			List<String> full_command = new ArrayList<String>();
+			full_command.add("timeout");
+			full_command.add(TIMEOUT);
 			full_command.add("./" + calling_name);
 			if (!parameters.equals(""))
 			{
 				full_command.add(parameters);
 			}
 			full_command.add(file_dimacs_formula);
-			
-			long start = System.currentTimeMillis();
 
 			ProcessBuilder pb = new ProcessBuilder(full_command);
 			Process p = pb.start();
 			BufferedReader in = new BufferedReader(new InputStreamReader(p.getInputStream()));
-			
-			Timer t = new Timer();
-		    t.schedule(new TimerTask() {
-
-		        @Override
-		        public void run() {
-		        	try {
-						Thread.sleep(100);
-					} catch (InterruptedException e) {
-						// TODO Auto-generated catch block
-						e.printStackTrace();
-					}
-		            p.destroy();
-		        }
-		    }, TIMEOUT);
-		    
-		    long finish = System.currentTimeMillis();
-			long timeElapsed = finish - start;
-			
-			if (timeElapsed > TIMEOUT + 50)
-			{
-				return Arrays.asList(false, -1f);
-			}
 
 			boolean result = false;
 			float real_time = -1f;
@@ -70,8 +47,6 @@ public class CryptoMiniSATCall
 			String s = "";
 			while((s = in.readLine()) != null)
 			{
-				// DEBUG
-				// System.out.println(s);
 				if (s.contains("CPU time") || s.contains("Total time"))
 				{
 					cut_str = s.substring(0, s.length() - 1).split(" ");
@@ -85,8 +60,6 @@ public class CryptoMiniSATCall
 				{
 					result = true;
 				}
-				
-			    //System.out.println(s);
 			}
 			
 			int status = p.waitFor();
