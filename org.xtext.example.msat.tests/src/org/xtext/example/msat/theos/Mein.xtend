@@ -83,8 +83,6 @@ class Mein
 		val text = 
 		'''
 			solver 
-				   sat4j-java 
-				   sat4j-jar version "2.0.0"
 				   sat4j-jar version "2.3.1"
 				   minisat version "1.14.0"
 				   minisat rnd-freq 0 version "2.2.0" 

@@ -11,7 +11,7 @@
 
 \begin{document}
 
-\section{Présentation de la méthode}
+\section{Introduction et méthode}
 
 Dans ce rapport, nous allons rapporter les performances de différentes versions des solveurs \textit{SAT4J}, \textit{MiniSAT} et \textit{CryptoMiniSAT}.
 Pour ce faire, nous utiliserons la base de donnée de formules booléennes trouvable à cet url : \url{https://github.com/diverse-project/samplingfm/tree/master/Benchmarks}.
@@ -39,14 +39,32 @@ Les solveurs testés sont :
 Afin de comparer ces solveurs, nous récupérons leur résultat et leur temps d'exécution sur toutes les formules du dossier "Benchmarks", avec un timeout à 10 minutes. 
 Afin d'obtenir des résultats les moins bruités possible, nous effectuons ces calculs plusieurs fois et utilisons la moyenne.
 
-Les tests sont lancés depuis un projet XText. Pour reproduire les données présentées dans ce rapport, il suffit d'éxectuer le fichier "org.xtext.example.msat.tests/src/org/xtext/example/msat/theos/Mein.xtend" avec JUnit. Les résultats seront stockés dans les fichiers "result\_\textit{i}.csv".
+Les tests sont lancés depuis un projet XText. Pour reproduire les données présentées dans ce rapport, il suffit d'exéctuer le fichier "org.xtext.example.msat.tests/src/org/xtext/example/msat/theos/Mein.xtend" avec JUnit. Les résultats seront stockés dans les fichiers "result\_\textit{i}.csv".
 
 
-\subsection{Présentation des résultats}
+\section{Résultats}
 
-Les données brutes peuvent être trouvés dans le dossier "results", avec "results_\textit{i}.csv" les données de chaque exécution de la base de données.
+Les données brutes peuvent être trouvées dans le dossier "results", avec "results\_\textit{i}.csv" les données de chaque exécution de la base de données.
+
+\subsection{Aspect fonctionnel}
+
+Tous les solveurs ont renvoyé la même réponse pour toutes les formules présentes dans "Benchmarks".
+
+\subsection{Efficacité}
+
+Afin de comparer l'efficacité, nous ne parlerons ici que du temps d'exéction, sans compter d'autres facteurs tels que l'espace utilisé.
+
+Informations cool : 
+- nombre de formules résolues
+- nombre de timeout (simple)
+- Temps moyen pour les formules (timeout = 15m) (?)
+- nombre de formules pour lequelles Cryptominisat a été strictement plus rapide que les deux autres.
+- nombre de formules pour lesquelles MiniSAT a été strictement plus rapide que les deux autres.
+- nombre de formules pour lesquelles SAT4J a été strictment plus rapide que les deux autres.
+- pour chaque solveur/version/parametres / combien de fois il a été le plus rapide.
 
 
+\section{Questions}
 Given a benchmark (a set of SAT formulae), we aim to know:
  What is the “best” solver?
  Are there functional bugs in some solvers?
