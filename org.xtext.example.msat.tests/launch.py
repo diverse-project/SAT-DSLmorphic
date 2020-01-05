@@ -63,7 +63,7 @@ def main():
                     version = "5.6.7"
                 tmp = """
 @Test
-def void loadModel{}() {{
+def void loadModel{:03d}() {{
     val result = parseHelper.parse('''
     solver {}
     benchmarkDIMACS "{}"
