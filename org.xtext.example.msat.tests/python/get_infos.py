@@ -186,19 +186,35 @@ def mix_rewritten_data(datas) :
 
 mixed_results = mix_rewritten_data(data)
 
+def compute_deviation_on_rewritten_data(datas) : 
+	infos_on_formula = {}
+	mixed_results = []
+	
+	#creating map on mixed times
+	for line in datas[0] : 
+		formula = line[0]
+		infos_on_formula[formula] = [0,0,0,0,0,0,0,0,0,0]
+	for i_data in range(len(datas)) : 
+		data = datas[i_data]
+		for i_line in range(len(data)) : 
+			line = data[i_line]
+			formula = line[0]
+			times = line[5]
+			infos_on_formula[formula] = list(zip(infos_on_formula[formula],times))
+
+	return infos_on_formula	
+
+	#print(all_formulas)
+	#for formula in all_formulas : 
+		
+
+infos_on_formulas = compute_deviation_on_rewritten_data(data)
+#print(infos_on_formulas)
+
+
 #print(mixed_results)
 
-
-
-
-
-#i = 7
-#print(formulas[i], solvers[i], versions[i], is_sats[i], times[i], parameters[i])
-
-
 # list of 6-uplets (formula, solvers, versions, is_sats, times, parameters)
-#
-#
 
 
 
@@ -283,7 +299,7 @@ for i in range(len(nb_timeouts_per_solver)) :
 
 
 print()
-print("Big instances : ")
+print("mean deviation : ")
 sum_earlyness = 0
 nb_first = 0
 sum_lateness = 0
