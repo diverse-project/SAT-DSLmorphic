@@ -207,7 +207,7 @@ data_rewritten = mixed_results
 
 
 
-minimal_time_for_counting = 0.1
+minimal_time_for_counting = 0.01
 nb_fastest = [0,0,0,0,0,0,0,0,0,0]
 mean_times = [0,0,0,0,0,0,0,0,0,0]
 # sat4j-jar, minisat 1.14.0, minisat 2.2.0 freq0, minisat 2.2.0 freq0.5, minisat 2.2.0 freq0.9,

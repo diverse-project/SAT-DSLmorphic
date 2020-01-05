@@ -39,7 +39,7 @@ Afin d'obtenir des résultats les moins bruités possible, nous effectuons ces c
 
 Les tests sont lancés depuis un projet XText. Pour reproduire les données présentées dans ce rapport, il suffit d'exéctuer le fichier "org.xtext.example.msat.tests/src/org/xtext/example/msat/theos/Mein.xtend" avec JUnit. Les résultats seront stockés dans les fichiers "result\_\textit{i}.csv".
 
-En tout les benchmarks ont durés 20 heures soit cinq itérations par tests.
+En tout les benchmarks ont durés 20 heures soit six itérations par tests.
 
 
 \section{Résultats}
@@ -57,20 +57,38 @@ la formule \textit{listReverse.sk\_11\_43}, le solveur Sat4J a timeout systémat
 
 Afin de comparer l'efficacité, nous ne parlerons ici que du temps d'exéction, sans compter d'autres facteurs tels que l'espace utilisé.
 
-Informations cool : 
-- nombre de formules résolues
-- nombre de timeout (simple)
-- Temps moyen pour les formules (timeout = 15m) (?)
-- pour chaque solveur/version/parametres / combien de fois il a été le plus rapide.
+La table \ref{tab:results} récapitule les résultats que nous avons trouvé pertinent de mettre en avant. 
+La colonne "Premier" indique combien de fois le solveur a fini avant les autres. Le total ne s'additionne pas à 70 car nous n'avons pas pris en compte les formules que tous les solveurs triataient en moins de 0.01s, car le temps est trop court pour être pertinent.
+La colonne "Timeout" indique le nombre de timeout effectué par chacun de ces solveurs, sur les $70 * 6$ formules traitées. 
+
+\begin{table}[]
+\begin{tabular}{|l|l|l|l|l|l|}
+\hline
+Solveur       & Version & Paramètres    & Premier & Temps moyen        & Timeout \\ \hline
+SAT4J-Jar     & 2.3.1   &               & 0       & 35.71311904761907  & 8       \\
+MiniSAT       & 1.14.0  &               & 0       & 30.90854285714287  & 8       \\
+MiniSAT       & 2.2.0   & -rdn-freq=0   & 5       & 28.379771428571427 & 8       \\
+MiniSAT       & 2.2.0   & -rdn-freq=0.5 & 8       & 21.300999999999988 & 4       \\
+MiniSAT       & 2.2.0   & -rdn-freq=0.9 & 1       & 28.466257142857135 & 8       \\
+CryptoMiniSAT & 2.4.0   &               & 0       & 24.241333333333337 & 5       \\
+CryptoMiniSAT & 4.5.3   &               & 3       & 4.498499999999998  & 0       \\
+CryptoMiniSAT & 5.6.8   & --freq=0      & 3       & 10.498333333333331 & 0       \\
+CryptoMiniSAT & 5.6.8   & --freq=0.5    & 1       & 20.116500000000006 & 4       \\
+CryptoMiniSAT & 5.6.8   & --freq=0.9    & 1       & 20.638809523809538 & 4       \\ \hline
+\end{tabular}
+\caption{Resultats sur les 70 formules de "Benchmarks"}
+\label{tab:results}
+\end{table}
 
 
 \section{Questions}
 
-\subsection{Le "meilleurs" solveur ?}
+\subsection{Le ``meilleur" solveur ?}
 
-Voici le temps moyen de résolution pour toutes les formules :
+Le temps moyen de résolution pour toutes les formules est trouvable dans la table \ref{tab:results}.
 
-On remarque par ailleurs que CryptoMiniSAT 4 n'a été battu que sur
+
+On remarque que MiniSAT termine souvent premier, mais que CryptoMiniSAT 4.5.3 a un bien meilleur temps moyen. Cela s'explique par le fait que CryptoMiniSAT
 ??? formules. Et seulement de ???.
 
 Les SAT-solveurs mordernes utilisent des heuristiques qui peuvent légérements varier et, pour des instances particulières, mener à des écars de performances plus ou moins importants. De fait, la question du "meilleurs" solveur n'a pas tant de sens sans ses guillemets. Cependant dans notre cas, au vu des information à notre disposition, la réponse n'appel pas particulièrement à la nuance :
