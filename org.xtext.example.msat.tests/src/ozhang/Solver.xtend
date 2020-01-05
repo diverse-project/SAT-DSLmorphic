@@ -35,10 +35,10 @@ class Solver {
 	
 	def void solve(SATMorphic satMorphic) {
 		
-		var file = new File("results.csv")
+		var file = new File("results2.csv")
 		var outputfile = new FileWriter(file)
     	var CSVwriter = new CSVWriter(outputfile)
-    	CSVwriter.writeNext(#["Benchmark", "Solver", "Sat?", "Time (ns)"])
+    	CSVwriter.writeNext(#["Benchmark", "Solver", "Sat?", "Time (ms)"])
     	
     	try {
     		switch satMorphic.benchmark.class {
@@ -61,7 +61,6 @@ class Solver {
 			}
     	} catch (Exception e) {
     		println("------------- Unexpected error during computation -------------")
-    		CSVwriter.close()
     	}
     	println("------------- Finished -------------")
 		CSVwriter.close()
@@ -80,10 +79,10 @@ class Solver {
 		str += res
 		
 		var writer = new PrintWriter("test.cnf", "UTF-8")
-		writer.close()
 		writer.println(str)
+		writer.close()
 		
-		 return 'test.cnf'
+		 return '/home/ozhang/Documents/5INFO/DSL/DSL_Project/SAT-DSLmorphic/org.xtext.example.msat.tests/test.cnf'
     }
     
     
@@ -123,11 +122,11 @@ class Solver {
 		val Runnable thread = new Thread() {
 			override void run() {
 				var satisfiable = true
-		    	var startTime = System.nanoTime()
+		    	var startTime = System.currentTimeMillis()
 				var p = pb.start()
 				var output = p.getInputStream()
-		//		p.waitFor()
-				var endTime   = System.nanoTime()
+//				p.waitFor()
+				var endTime   = System.currentTimeMillis()
 				var totalTime = endTime - startTime
 				
 				var reader = new BufferedReader(new InputStreamReader(output))
@@ -149,7 +148,7 @@ class Solver {
 		executor.shutdown()
 		
 		try {
-			future.get(15, TimeUnit.MINUTES)
+			future.get(5, TimeUnit.MINUTES)
 		} catch (InterruptedException ie) { 
 			println("------------- Interrupted -------------")
 			CSVwriter.close()
@@ -159,14 +158,20 @@ class Solver {
 			var pattern = Pattern.compile(".*\\/(.+\\.cnf)$")
 	        var matcher = pattern.matcher(file_path)
 	        matcher.find()
-			CSVwriter.writeNext(#[matcher.group(1), solver_name, "CRASHED", (15*60*1000).toString()])
+			CSVwriter.writeNext(#[matcher.group(1), solver_name, "CRASHED", (300000).toString()])
 		}
 		catch (TimeoutException te) { 
 			println("------------- Timed out -------------")
 			var pattern = Pattern.compile(".*\\/(.+\\.cnf)$")
 	        var matcher = pattern.matcher(file_path)
 	        matcher.find()
-			CSVwriter.writeNext(#[matcher.group(1), solver_name, "TIMED OUT", (15*60*1000).toString()])
+			CSVwriter.writeNext(#[matcher.group(1), solver_name, "TIMED OUT", (300000).toString()])
+		} catch (Exception e) {
+			println("---- Timed out ----")
+			var pattern = Pattern.compile(".*\\/(.+\\.cnf)$")
+	        var matcher = pattern.matcher(file_path)
+	        matcher.find()
+			CSVwriter.writeNext(#[matcher.group(1), solver_name, "TIMED OUT", (300000).toString()])
 		}
 		if (!executor.isTerminated()) {
 			executor.shutdownNow(); // If you want to stop the code that hasn't finished.
@@ -196,7 +201,7 @@ class Solver {
         var matcher = pattern.matcher(file_path)
         matcher .find()
     	var solver = SolverFactory.newDefault()
-        solver.setTimeout(3600); // 1 hour timeout
+        solver.setTimeout(60*5); // 1 hour timeout
         var reader = new DimacsReader(solver)
 //        var out = new PrintWriter(System.out,true)
         // CNF filename is given on the command line 
@@ -221,10 +226,8 @@ class Solver {
 			CSVwriter.writeNext(#[matcher.group(1), "Sat4j-java", "UNSAT", totalTime.toString()])
             return false
         } catch (TimeoutException e) {
-//            println("Timeout, sorry!");
-			var endTime   = System.currentTimeMillis()
-			var totalTime = endTime - startTime
-			CSVwriter.writeNext(#[matcher.group(1), "Sat4j-java", "UNSAT", totalTime.toString()])
+            println("---- Timed out ----")
+			CSVwriter.writeNext(#[matcher.group(1), "Sat4j-java", "TIMED OUT", (300000).toString()])
             return false
         }
     }
@@ -349,9 +352,12 @@ public class Solver {
 		
 		var pb = new ProcessBuilder()
 //		println('--------- mvn exectution ---------')
-		pb.command('mvn', 'exec:java', '-Dexec.mainClass=dsl.Solver', '-Dexec.args="../'+file_path+'"')
+		pb.command('mvn', 'exec:java', '-Dexec.mainClass=dsl.Solver', '-Dexec.args="'+file_path+'"')
 //		pb.redirectOutput(Redirect.INHERIT)
 		pb.directory(sat_file)
+//		var p = pb.start()
+//		p.waitFor()
+		
 		run_solver("Sat4j-maven", pb, file_path, CSVwriter)
     }
 }

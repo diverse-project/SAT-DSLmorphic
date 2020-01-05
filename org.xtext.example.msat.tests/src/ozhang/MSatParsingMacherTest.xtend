@@ -94,7 +94,7 @@ class MSatParsingMacherTest {
 		val result = parseHelper.parse('''
 			solver 
 				   sat4j-maven
-			benchmarkFormula (A ^ B)
+			benchmarkFormula (A ^ (!A))
 		''')
 		Assertions.assertNotNull(result)
 		val errors = result.eResource.errors
@@ -126,7 +126,7 @@ class MSatParsingMacherTest {
 	
 	@Test
 	def void solveFile() {
-		var file_path = "/home/ozhang/Documents/5INFO/DSL/DSL_Project/samplingfm/Benchmarks/7.sk_4_50.cnf"
+		var file_path = "/home/ozhang/Documents/5INFO/DSL/DSL_Project/samplingfm/Benchmarks/36.sk_3_77.cnf"
 		var result = parseHelper.parse('''
 			solver sat4j-java sat4j-maven minisat cryptominisat sat4j-jar
 			benchmarkDIMACS "«file_path»"
