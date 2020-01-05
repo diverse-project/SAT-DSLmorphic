@@ -200,28 +200,21 @@ def compute_deviation_on_rewritten_data(datas) :
 			line = data[i_line]
 			formula = line[0]
 			times = line[5]
-			infos_on_formula[formula] = list(zip(infos_on_formula[formula], times)])
+			infos_on_formula[formula] = list(zip(infos_on_formula[formula],times))
 
-	return infos_on_formulas	
+	return infos_on_formula	
 
 	#print(all_formulas)
 	#for formula in all_formulas : 
 		
 
 infos_on_formulas = compute_deviation_on_rewritten_data(data)
+#print(infos_on_formulas)
+
+
 #print(mixed_results)
 
-
-
-
-
-#i = 7
-#print(formulas[i], solvers[i], versions[i], is_sats[i], times[i], parameters[i])
-
-
 # list of 6-uplets (formula, solvers, versions, is_sats, times, parameters)
-#
-#
 
 
 
