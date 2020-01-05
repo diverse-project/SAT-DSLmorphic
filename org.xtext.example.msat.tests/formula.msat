@@ -1,1 +1,0 @@
-solver sat4j-jar benchmarkFormula A ^ (B v C)
