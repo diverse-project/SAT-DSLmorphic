@@ -209,6 +209,8 @@ class Mein
 					try
 					{
 						parameters = call_method.get(2) as String
+						if(parameters.equals(""))
+							parameters = "Default"
 					}
 					catch (Exception e)
 					{
