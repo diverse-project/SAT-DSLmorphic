@@ -185,7 +185,7 @@ class Mein
 	
 			val results_filename = "results_" + numero_run + ".csv"
 			val writer = new BufferedWriter(new FileWriter(results_filename));
-			writer.write("Benchmark ; Solver ; Version ; Is_sat ; Time (s)\n")
+			writer.write("Benchmark ; Solver ; Version ; Is_sat ; Time (s) ; Parameters\n")
 			
 			val all_answers = newArrayList();
 			for(var i=0; i< dimacs_formulas.size(); i++)
@@ -205,11 +205,20 @@ class Mein
 				{	
 					val answer =  evaluate(call_method, filename_of_formula);
 					answers.add(answer)
+					var parameters = "Default"
+					try
+					{
+						parameters = call_method.get(2) as String
+					}
+					catch (Exception e)
+					{
+						parameters = "Default"
+					}
 					if(save_to_file)
 					{
 						var line = name_formula + " ; " + id_solver_to_solver_name(call_method.get(0) as Integer) +
 										" ; " + call_method.get(1) + " ; " + answer.get(0) + " ; " + 
-										answer.get(1) + "\n"
+										answer.get(1) + " ; "  + parameters + "\n"
 						writer.write(line)
 						writer.flush()
 					}
