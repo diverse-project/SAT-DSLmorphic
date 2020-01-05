@@ -23,6 +23,8 @@ import org.xtext.example.mydsl1.mSat.Sat4J
 import org.xtext.example.mydsl1.mSat.Sat4JVariant
 import org.xtext.example.mydsl1.mSat.SolverVersion
 import org.xtext.example.mydsl1.tests.MSatInjectorProvider
+import java.io.BufferedWriter
+import java.util.List
 
 @ExtendWith(InjectionExtension)
 @InjectWith(MSatInjectorProvider)
@@ -34,7 +36,21 @@ class SomeTests
 	@Inject
 	ParseHelper<SATMorphic> parseHelper
 	
-	
+	def checkRes(ArrayList<ArrayList<ArrayList<Tuple<Boolean, Float>>>> resresres)
+	{
+		var cur_res = true
+		for(run : resresres)
+		{
+			for(formula : run)
+			{
+				cur_res = formula.get(0).x
+				for(execution : formula)
+				{
+					Assertions.assertTrue(execution.x == cur_res)
+				}
+			}
+		}
+	}
 	
 	@Test
 	def void loadSolvers() 
@@ -53,7 +69,7 @@ class SomeTests
 		
 		Assertions.assertNotNull(result)
 		
-		check_formula(text)
+		check_formulas(text)
 		
 		val errors = result.eResource.errors
 		Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
@@ -71,11 +87,8 @@ class SomeTests
 				   sat4j-java
 			benchmarkDIMACS "input.cnf"
 		'''
-		val sat_and_time = check_formula(text);
-		val is_sat = (sat_and_time.get(0) as Boolean)
-		val elapsed_time = (sat_and_time.get(1) as Long)		
-		Assertions.assertTrue(is_sat);
-		println("Elapsed time : " + elapsed_time)
+		val sat_and_time = check_formulas(text);
+		checkRes(sat_and_time)
 		
 		//val errors = result.eResource.errors
 		//Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
@@ -92,11 +105,8 @@ class SomeTests
 				   sat4j-maven
 			benchmarkDIMACS "input.cnf"
 		'''
-		val sat_and_time = check_formula(text);
-		val is_sat = (sat_and_time.get(0) as Boolean)
-		val elapsed_time = (sat_and_time.get(1) as Long)		
-		Assertions.assertFalse(is_sat);
-		println("Elapsed time : " + elapsed_time)
+		val sat_and_time = check_formulas(text);
+		checkRes(sat_and_time)
 	}
 	
 	@Test
@@ -110,11 +120,8 @@ class SomeTests
 				   sat4j-maven
 			benchmarkDIMACS "input2.cnf"
 		'''
-		val sat_and_time = check_formula(text);
-		val is_sat = (sat_and_time.get(0) as Boolean)
-		val elapsed_time = (sat_and_time.get(1) as Long)
-		Assertions.assertFalse(is_sat);
-		println("Elapsed time : " + elapsed_time)
+		val sat_and_time = check_formulas(text);
+		checkRes(sat_and_time)
 	}
 	
 	@Test
@@ -128,11 +135,8 @@ class SomeTests
 				   sat4j-jar 
 			benchmarkDIMACS "input.cnf"
 		'''
-		val sat_and_time = check_formula(text);
-		val is_sat = (sat_and_time.get(0) as Boolean)
-		val elapsed_time = (sat_and_time.get(1) as Long)
-		Assertions.assertTrue(is_sat);
-		println("Elapsed time : " + elapsed_time)
+		val sat_and_time = check_formulas(text);
+		checkRes(sat_and_time)
 	}
 	
 	@Test
@@ -146,11 +150,8 @@ class SomeTests
 				   minisat
 			benchmarkDIMACS "input.cnf"
 		'''
-		val sat_and_time = check_formula(text);
-		val is_sat = (sat_and_time.get(0) as Boolean)
-		val elapsed_time = (sat_and_time.get(1) as Long)
-		Assertions.assertTrue(is_sat);
-		println("Elapsed time : " + elapsed_time)
+		val sat_and_time = check_formulas(text);
+		checkRes(sat_and_time)
 	}
 	
 	@Test
@@ -164,11 +165,8 @@ class SomeTests
 				   minisat
 			benchmarkDIMACS "input2.cnf"
 		'''
-		val sat_and_time = check_formula(text);
-		val is_sat = (sat_and_time.get(0) as Boolean)
-		val elapsed_time = (sat_and_time.get(1) as Long)
-		Assertions.assertFalse(is_sat);
-		println("Elapsed time : " + elapsed_time)
+		val sat_and_time = check_formulas(text);
+		checkRes(sat_and_time)
 	}
 	
 	@Test
@@ -182,11 +180,8 @@ class SomeTests
 				   minisat version "1.14.0"
 			benchmarkDIMACS "input.cnf"
 		'''
-		val sat_and_time = check_formula(text);
-		val is_sat = (sat_and_time.get(0) as Boolean)
-		val elapsed_time = (sat_and_time.get(1) as Long)
-		Assertions.assertTrue(is_sat);
-		println("Elapsed time : " + elapsed_time)
+		val sat_and_time = check_formulas(text);
+		checkRes(sat_and_time)
 	}
 	
 	@Test
@@ -200,11 +195,8 @@ class SomeTests
 				   cryptominisat
 			benchmarkDIMACS "input.cnf"
 		'''
-		val sat_and_time = check_formula(text);
-		val is_sat = (sat_and_time.get(0) as Boolean)
-		val elapsed_time = (sat_and_time.get(1) as Long)
-		Assertions.assertTrue(is_sat);
-		println("Elapsed time : " + elapsed_time)
+		val sat_and_time = check_formulas(text);
+		checkRes(sat_and_time)
 	}
 	
 	@Test
@@ -232,73 +224,165 @@ class SomeTests
 //  				Some functions
 //--------------------------------------------------------------------------------------------------
 
-	def check_formula(String input)
+	static def List<String> get_all_cnf_in(String sDir, String prefix)
+	{
+		val filenames = newArrayList();
+  		val faFiles = new File(sDir).listFiles();
+  		for(file : faFiles)
+  		{
+    		if(file.getName().matches("(.*).cnf"))
+    		{
+    			val filename = file.getName()
+    			val path = "\"" + prefix + filename + "\""
+    			filenames.add(path)
+    		}
+    		else if (file.isDirectory()) 
+    		{
+    			//de-comment for recursive
+    			//filenames.addAll(get_all_cnf_in(file.getAbsolutePath(), prefix + file.getName() + "/") )
+    		}
+    	}
+    	return filenames
+  	}
+
+
+	def check_formulas(String input)
 	{
 		val print_text_read = false;
-		val print_formula = false;
+		val print_formulas = false;
 		val print_call_method = true;
 		val print_all_responses = true;
+		val save_to_file = true;
+		val nb_of_runs = 5
 		
-		if(print_text_read)
+		var numero_of_run = 1 
+		
+		var all_runs = new ArrayList<ArrayList<ArrayList<Tuple<Boolean, Float>>>>();
+		for(var numero_run = 1 ; numero_run <= nb_of_runs ; numero_run++)
 		{
-			//print("text read : ")
-			//println(input);
-			//println()
-		}
-		val ast = parseHelper.parse(input);
+		
+			if(print_text_read)
+			{
+				//print("text read : ")
+				//println(input);
+				//println()
+			}
+			val ast = parseHelper.parse(input);
+					
+			val dimacs_formulas_and_their_name = read_entry(ast)
+			val dimacs_formulas = dimacs_formulas_and_their_name.get(0)
+			val name_formulas = dimacs_formulas_and_their_name.get(1)
+	
+			val call_methods = get_call_methods(ast)
+			//println(call_method.getClass().getSimpleName())
+			
+			
+			if(print_formulas)
+			{
+				print("dimcas fomulas : \n")		
+				println(dimacs_formulas)
+				println()
+			}
+			
+			if(print_call_method)
+			{
+				print("call method : ")
+				println(call_methods)
+				println()
+			}
+	
+			val results_filename = "results_" + numero_run + ".csv"
+			val writer = new BufferedWriter(new FileWriter(results_filename));
+			writer.write("Benchmark ; Solver ; Version ; Option ; Is_sat ; Time (s)\n")
+			
+			val all_answers = new ArrayList<ArrayList<Tuple<Boolean, Float>>>();
+			for(var i=0; i< dimacs_formulas.size(); i++)
+			{
+				val formula = dimacs_formulas.get(i)
+				val name_formula = name_formulas.get(i)
 				
-		val dimacs_formula = read_entry(ast)
+				println("\n\nTreating formula " + name_formula + "\n")
+				val filename_of_formula = "tmp_output.cnf"
+				val fileWriter = new FileWriter(new File(filename_of_formula));
+				fileWriter.write(formula);
+				fileWriter.close();
+			
+				val answers = new ArrayList<Tuple<Boolean, Float>>();
+			
+				for (call_method : call_methods)
+				{	
+					val answer =  evaluate(call_method, filename_of_formula);
+					answers.add(answer)
+					if(save_to_file)
+					{
+						var option = ""
+						if (call_method.length == 3)
+						{
+							option = (call_method.get(2) as String)
+						}
+						var line = name_formula + " ; " + id_solver_to_solver_name(call_method.get(0) as Integer) +
+										" ; " + call_method.get(1) + " ; " + option + " ; " +
+										answer.x + " ; " + answer.y + "\n"
+						writer.write(line)
+						writer.flush()
+					}
+				} 
+			
+				if(print_all_responses)
+				{
+					println("Here is the response for all solvers : ")
+					println(answers)
+				}
+				all_answers.add(answers)
+			}
+			
+			writer.close()
+			
+			all_runs.add(all_answers)
+		}
+		
+		return all_runs
+		
+	}
+	
+	def id_solver_to_solver_name(int id_solver)
+	{
+		switch id_solver
+		{
+			case Sat4JVariant.SAT4J_JAVA_VALUE : 
+			{
+				return "sat4j-java"
 
-		val call_methods = get_call_methods(ast)
-		//println(call_method.getClass().getSimpleName())
-		
-		
-		if(print_formula)
-		{
-			print("dimcas fomula : \n")		
-			println(dimacs_formula)
-			println()
+			}
+			case Sat4JVariant.SAT4J_JAR_VALUE : 
+			{
+				return "sat4j-jar"
+				
+			}
+			case Sat4JVariant.SAT4J_COMP_VALUE :
+			{
+				return "maven"
+			}
+			case 4 : //MiniSAT solver
+			{
+				return "MiniSAT"
+			}	
+			case 5 : //CryptoMinisat solver
+			{
+				return "CryptoMiniSAT"
+			}
+			
 		}
-		
-		if(print_call_method)
-		{
-			print("call method : ")
-			println(call_methods)
-			println()
-		}
-
-		val filename_of_formula = "tmp_output.cnf"
-		val fileWriter = new FileWriter(new File(filename_of_formula));
-		fileWriter.write(dimacs_formula);
-		fileWriter.close();
-		
-		val answers = newArrayList();
-		
-		for (call_method : call_methods)
-		{	
-			val answer =  evaluate(call_method, filename_of_formula);
-			answers.add(answer)
-		} 
-		
-		if(print_all_responses)
-		{
-			println("Here is the response for all solvers : ")
-			println(answers)
-			println("Returning the first one.")
-		}
-		val some_answer = answers.get(0)
-		
-		return some_answer
-		
+		return "error"	
 	}
 	
 	def evaluate (ArrayList<Object> call_method, String filename_of_formula)
 	{
-		val id_solver = call_method.get(0)
+		val id_solver = call_method.get(0) as Integer
 		val version_solver = call_method.get(1) as String
 		
 		var is_sat = false;
-		var elapsed_time = -1l 
+		var elapsed_time = -1f
 		switch id_solver
 		{
 			case Sat4JVariant.SAT4J_JAVA_VALUE : 
@@ -306,14 +390,14 @@ class SomeTests
 				println("calling sat4j from java code.")
 				val answer = SAT4JBIBCall.DoIt(filename_of_formula)
 				is_sat = (answer.get(0) as Boolean)
-				elapsed_time = (answer.get(1) as Long)
+				elapsed_time = (answer.get(1) as Float)
 			}
 			case Sat4JVariant.SAT4J_JAR_VALUE : 
 			{
 				println("calling sat4j from jar with version " + version_solver)
 				val answer = Sat4JJARCall.DoIt(filename_of_formula, version_solver)
 				is_sat = (answer.get(0) as Boolean)
-				elapsed_time = (answer.get(1) as Long)
+				elapsed_time = (answer.get(1) as Float)
 			}
 			case Sat4JVariant.SAT4J_COMP_VALUE :
 			{
@@ -327,14 +411,15 @@ class SomeTests
 				println("calling MiniSAT from bin with version " + version_solver)
 				val answer =  MiniSATCall.DoIt(filename_of_formula, version_solver, parameters)
 				is_sat = (answer.get(0) as Boolean)
-				elapsed_time = (answer.get(1) as Long)
+				elapsed_time = (answer.get(1) as Float)
 			}	
 			case 5 : //CryptoMinisat solver
 			{
+				val parameters = call_method.get(2) as String
 				println("calling CryptoMiniSAT from bin with version " + version_solver)
-				val answer =  CryptoMiniSATCall.DoIt(filename_of_formula, version_solver)
+				val answer =  CryptoMiniSATCall.DoIt(filename_of_formula, version_solver, parameters)
 				is_sat = (answer.get(0) as Boolean)
-				elapsed_time = (answer.get(1) as Long)
+				elapsed_time = (answer.get(1) as Float)
 			}	
 			//TODO other solvers
 			default :
@@ -343,48 +428,45 @@ class SomeTests
 			}
 		}	
 		
-		val sat_and_time = newArrayList(is_sat, elapsed_time);
+		val sat_and_time = new Tuple(is_sat, elapsed_time);
 		return sat_and_time;
 		
 	}
 	
+	static var cpt = 0
 	def read_entry(SATMorphic ast)
 	{
+		val formulas = newArrayList();
+		val name_formulas = newArrayList();
 		switch ast.benchmark
 		{
 			case ast.benchmark instanceof BenchmarkDimacs :
 			{ 
-				// TODO Multiple files
-				val filename = (ast.benchmark as BenchmarkDimacs).dimacses.get(0)
-				return new String(Files.readAllBytes(Paths.get(filename)), StandardCharsets.UTF_8);
+				for(filename : (ast.benchmark as BenchmarkDimacs).dimacses)
+				{
+					val formula =  new String(Files.readAllBytes(Paths.get(filename)), StandardCharsets.UTF_8);
+					formulas.add(formula)
+					name_formulas.add(filename)
+				
+				}
 			}
 			case ast.benchmark instanceof BenchmarkFormula :
 			{
-				// TODO Multiple formulas
-				return Utils.prop_to_dimacs(((ast.benchmark as BenchmarkFormula)
-											.expressions.get(0) as EObject
-				))
+				for(msat_formula : ((ast.benchmark as BenchmarkFormula).expressions))
+				{
+					val formula =  Utils.prop_to_dimacs(msat_formula);
+					val filename = "BenchmarkFormula_" + cpt++
+					formulas.add(formula)	
+					name_formulas.add(filename)			
+				}
 			}
 			default : 
 			{
-				println("Never supposed to happen")
-				return ""
+				throw new Error("Never supposed to happen")
 			}
 		}
+		return newArrayList(formulas, name_formulas)
 	}
-	/*
-	 * Solvers supportés (ou à supporter) : 
-	 * 
-	 * Sat4J library, version ??
-	 * Sat4J Jar, version ??
-	 * Sat4J Maven ??
-	 * minisat, version ??, parameters ??
-	 * cryptominisat ??
-	 * 
-	 * 
-	 * 
-	 * 
-	 */
 	
 	
 	def get_call_methods(SATMorphic ast)
@@ -419,8 +501,13 @@ class SomeTests
 				}
 				case solverr instanceof CryptoMiniSAT:
 				{
+					var parameters = ""
+					if ((solverr as CryptoMiniSAT).parameter !== null)
+					{
+						parameters += "--freq=" + (solverr as CryptoMiniSAT).parameter.rndfreq
+					}
 					val id_solver = 5 //a new identifier for cryptominisat
-					val informations_solver = newArrayList(id_solver, version);
+					val informations_solver = newArrayList(id_solver, version, parameters);
 					solvers.add(informations_solver)				
 				}
 				default:

@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+
 public class MiniSATCall
 {
 	static List<String> accepted_versions =  Arrays.asList("1.14.0", "2.2.0", "default");
