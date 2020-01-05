@@ -134,6 +134,7 @@ xtend-gen/
 *.xtendbin
 *.class
 *.trace
+*._trace
 results.csv
 *.csv
 
