@@ -190,9 +190,9 @@ ruleCryptoMiniSAT
 	}
 	:
 	(
-		{ before(grammarAccess.getCryptoMiniSATAccess().getVariantAssignment()); }
-		(rule__CryptoMiniSAT__VariantAssignment)
-		{ after(grammarAccess.getCryptoMiniSATAccess().getVariantAssignment()); }
+		{ before(grammarAccess.getCryptoMiniSATAccess().getGroup()); }
+		(rule__CryptoMiniSAT__Group__0)
+		{ after(grammarAccess.getCryptoMiniSATAccess().getGroup()); }
 	)
 ;
 finally {
@@ -218,6 +218,31 @@ ruleMiniSATParameter
 		{ before(grammarAccess.getMiniSATParameterAccess().getGroup()); }
 		(rule__MiniSATParameter__Group__0)
 		{ after(grammarAccess.getMiniSATParameterAccess().getGroup()); }
+	)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+// Entry rule entryRuleCryptoMiniSATParameter
+entryRuleCryptoMiniSATParameter
+:
+{ before(grammarAccess.getCryptoMiniSATParameterRule()); }
+	 ruleCryptoMiniSATParameter
+{ after(grammarAccess.getCryptoMiniSATParameterRule()); } 
+	 EOF 
+;
+
+// Rule CryptoMiniSATParameter
+ruleCryptoMiniSATParameter 
+	@init {
+		int stackSize = keepStackSize();
+	}
+	:
+	(
+		{ before(grammarAccess.getCryptoMiniSATParameterAccess().getGroup()); }
+		(rule__CryptoMiniSATParameter__Group__0)
+		{ after(grammarAccess.getCryptoMiniSATParameterAccess().getGroup()); }
 	)
 ;
 finally {
@@ -961,6 +986,60 @@ finally {
 }
 
 
+rule__CryptoMiniSAT__Group__0
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+	rule__CryptoMiniSAT__Group__0__Impl
+	rule__CryptoMiniSAT__Group__1
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__CryptoMiniSAT__Group__0__Impl
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+(
+	{ before(grammarAccess.getCryptoMiniSATAccess().getVariantAssignment_0()); }
+	(rule__CryptoMiniSAT__VariantAssignment_0)
+	{ after(grammarAccess.getCryptoMiniSATAccess().getVariantAssignment_0()); }
+)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__CryptoMiniSAT__Group__1
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+	rule__CryptoMiniSAT__Group__1__Impl
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__CryptoMiniSAT__Group__1__Impl
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+(
+	{ before(grammarAccess.getCryptoMiniSATAccess().getParameterAssignment_1()); }
+	(rule__CryptoMiniSAT__ParameterAssignment_1)?
+	{ after(grammarAccess.getCryptoMiniSATAccess().getParameterAssignment_1()); }
+)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+
 rule__MiniSATParameter__Group__0
 	@init {
 		int stackSize = keepStackSize();
@@ -1008,6 +1087,60 @@ rule__MiniSATParameter__Group__1__Impl
 	{ before(grammarAccess.getMiniSATParameterAccess().getRndfreqAssignment_1()); }
 	(rule__MiniSATParameter__RndfreqAssignment_1)
 	{ after(grammarAccess.getMiniSATParameterAccess().getRndfreqAssignment_1()); }
+)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+
+rule__CryptoMiniSATParameter__Group__0
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+	rule__CryptoMiniSATParameter__Group__0__Impl
+	rule__CryptoMiniSATParameter__Group__1
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__CryptoMiniSATParameter__Group__0__Impl
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+(
+	{ before(grammarAccess.getCryptoMiniSATParameterAccess().getFreqKeyword_0()); }
+	'freq'
+	{ after(grammarAccess.getCryptoMiniSATParameterAccess().getFreqKeyword_0()); }
+)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__CryptoMiniSATParameter__Group__1
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+	rule__CryptoMiniSATParameter__Group__1__Impl
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__CryptoMiniSATParameter__Group__1__Impl
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+(
+	{ before(grammarAccess.getCryptoMiniSATParameterAccess().getRndfreqAssignment_1()); }
+	(rule__CryptoMiniSATParameter__RndfreqAssignment_1)
+	{ after(grammarAccess.getCryptoMiniSATParameterAccess().getRndfreqAssignment_1()); }
 )
 ;
 finally {
@@ -2300,19 +2433,34 @@ finally {
 	restoreStackSize(stackSize);
 }
 
-rule__CryptoMiniSAT__VariantAssignment
+rule__CryptoMiniSAT__VariantAssignment_0
 	@init {
 		int stackSize = keepStackSize();
 	}
 :
 	(
-		{ before(grammarAccess.getCryptoMiniSATAccess().getVariantCryptominisatKeyword_0()); }
+		{ before(grammarAccess.getCryptoMiniSATAccess().getVariantCryptominisatKeyword_0_0()); }
 		(
-			{ before(grammarAccess.getCryptoMiniSATAccess().getVariantCryptominisatKeyword_0()); }
+			{ before(grammarAccess.getCryptoMiniSATAccess().getVariantCryptominisatKeyword_0_0()); }
 			'cryptominisat'
-			{ after(grammarAccess.getCryptoMiniSATAccess().getVariantCryptominisatKeyword_0()); }
+			{ after(grammarAccess.getCryptoMiniSATAccess().getVariantCryptominisatKeyword_0_0()); }
 		)
-		{ after(grammarAccess.getCryptoMiniSATAccess().getVariantCryptominisatKeyword_0()); }
+		{ after(grammarAccess.getCryptoMiniSATAccess().getVariantCryptominisatKeyword_0_0()); }
+	)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__CryptoMiniSAT__ParameterAssignment_1
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+	(
+		{ before(grammarAccess.getCryptoMiniSATAccess().getParameterCryptoMiniSATParameterParserRuleCall_1_0()); }
+		ruleCryptoMiniSATParameter
+		{ after(grammarAccess.getCryptoMiniSATAccess().getParameterCryptoMiniSATParameterParserRuleCall_1_0()); }
 	)
 ;
 finally {
@@ -2328,6 +2476,21 @@ rule__MiniSATParameter__RndfreqAssignment_1
 		{ before(grammarAccess.getMiniSATParameterAccess().getRndfreqPROBATerminalRuleCall_1_0()); }
 		RULE_PROBA
 		{ after(grammarAccess.getMiniSATParameterAccess().getRndfreqPROBATerminalRuleCall_1_0()); }
+	)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__CryptoMiniSATParameter__RndfreqAssignment_1
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+	(
+		{ before(grammarAccess.getCryptoMiniSATParameterAccess().getRndfreqPROBATerminalRuleCall_1_0()); }
+		RULE_PROBA
+		{ after(grammarAccess.getCryptoMiniSATParameterAccess().getRndfreqPROBATerminalRuleCall_1_0()); }
 	)
 ;
 finally {

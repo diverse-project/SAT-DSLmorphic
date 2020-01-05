@@ -31,8 +31,13 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="CryptoMiniSAT">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="variant" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="parameter" eType="#//CryptoMiniSATParameter"
+        containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="MiniSATParameter">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="rndfreq" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="CryptoMiniSATParameter">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="rndfreq" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Benchmark"/>

@@ -4,13 +4,16 @@
 package org.xtext.example.mydsl1.mSat.impl;
 
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.xtext.example.mydsl1.mSat.CryptoMiniSAT;
+import org.xtext.example.mydsl1.mSat.CryptoMiniSATParameter;
 import org.xtext.example.mydsl1.mSat.MSatPackage;
 
 /**
@@ -22,6 +25,7 @@ import org.xtext.example.mydsl1.mSat.MSatPackage;
  * </p>
  * <ul>
  *   <li>{@link org.xtext.example.mydsl1.mSat.impl.CryptoMiniSATImpl#getVariant <em>Variant</em>}</li>
+ *   <li>{@link org.xtext.example.mydsl1.mSat.impl.CryptoMiniSATImpl#getParameter <em>Parameter</em>}</li>
  * </ul>
  *
  * @generated
@@ -47,6 +51,16 @@ public class CryptoMiniSATImpl extends MinimalEObjectImpl.Container implements C
    * @ordered
    */
   protected String variant = VARIANT_EDEFAULT;
+
+  /**
+   * The cached value of the '{@link #getParameter() <em>Parameter</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getParameter()
+   * @generated
+   * @ordered
+   */
+  protected CryptoMiniSATParameter parameter;
 
   /**
    * <!-- begin-user-doc -->
@@ -100,12 +114,80 @@ public class CryptoMiniSATImpl extends MinimalEObjectImpl.Container implements C
    * @generated
    */
   @Override
+  public CryptoMiniSATParameter getParameter()
+  {
+    return parameter;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetParameter(CryptoMiniSATParameter newParameter, NotificationChain msgs)
+  {
+    CryptoMiniSATParameter oldParameter = parameter;
+    parameter = newParameter;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, MSatPackage.CRYPTO_MINI_SAT__PARAMETER, oldParameter, newParameter);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void setParameter(CryptoMiniSATParameter newParameter)
+  {
+    if (newParameter != parameter)
+    {
+      NotificationChain msgs = null;
+      if (parameter != null)
+        msgs = ((InternalEObject)parameter).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - MSatPackage.CRYPTO_MINI_SAT__PARAMETER, null, msgs);
+      if (newParameter != null)
+        msgs = ((InternalEObject)newParameter).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - MSatPackage.CRYPTO_MINI_SAT__PARAMETER, null, msgs);
+      msgs = basicSetParameter(newParameter, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, MSatPackage.CRYPTO_MINI_SAT__PARAMETER, newParameter, newParameter));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
+  {
+    switch (featureID)
+    {
+      case MSatPackage.CRYPTO_MINI_SAT__PARAMETER:
+        return basicSetParameter(null, msgs);
+    }
+    return super.eInverseRemove(otherEnd, featureID, msgs);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public Object eGet(int featureID, boolean resolve, boolean coreType)
   {
     switch (featureID)
     {
       case MSatPackage.CRYPTO_MINI_SAT__VARIANT:
         return getVariant();
+      case MSatPackage.CRYPTO_MINI_SAT__PARAMETER:
+        return getParameter();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -122,6 +204,9 @@ public class CryptoMiniSATImpl extends MinimalEObjectImpl.Container implements C
     {
       case MSatPackage.CRYPTO_MINI_SAT__VARIANT:
         setVariant((String)newValue);
+        return;
+      case MSatPackage.CRYPTO_MINI_SAT__PARAMETER:
+        setParameter((CryptoMiniSATParameter)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -140,6 +225,9 @@ public class CryptoMiniSATImpl extends MinimalEObjectImpl.Container implements C
       case MSatPackage.CRYPTO_MINI_SAT__VARIANT:
         setVariant(VARIANT_EDEFAULT);
         return;
+      case MSatPackage.CRYPTO_MINI_SAT__PARAMETER:
+        setParameter((CryptoMiniSATParameter)null);
+        return;
     }
     super.eUnset(featureID);
   }
@@ -156,6 +244,8 @@ public class CryptoMiniSATImpl extends MinimalEObjectImpl.Container implements C
     {
       case MSatPackage.CRYPTO_MINI_SAT__VARIANT:
         return VARIANT_EDEFAULT == null ? variant != null : !VARIANT_EDEFAULT.equals(variant);
+      case MSatPackage.CRYPTO_MINI_SAT__PARAMETER:
+        return parameter != null;
     }
     return super.eIsSet(featureID);
   }

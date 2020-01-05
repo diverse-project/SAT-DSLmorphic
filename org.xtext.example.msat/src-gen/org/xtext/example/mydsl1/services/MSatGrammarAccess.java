@@ -164,18 +164,30 @@ public class MSatGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	public class CryptoMiniSATElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.mydsl1.MSat.CryptoMiniSAT");
-		private final Assignment cVariantAssignment = (Assignment)rule.eContents().get(1);
-		private final Keyword cVariantCryptominisatKeyword_0 = (Keyword)cVariantAssignment.eContents().get(0);
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Assignment cVariantAssignment_0 = (Assignment)cGroup.eContents().get(0);
+		private final Keyword cVariantCryptominisatKeyword_0_0 = (Keyword)cVariantAssignment_0.eContents().get(0);
+		private final Assignment cParameterAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cParameterCryptoMiniSATParameterParserRuleCall_1_0 = (RuleCall)cParameterAssignment_1.eContents().get(0);
 		
 		//CryptoMiniSAT:
-		//	variant="cryptominisat";
+		//	variant="cryptominisat" parameter=CryptoMiniSATParameter?;
 		@Override public ParserRule getRule() { return rule; }
 		
+		//variant="cryptominisat" parameter=CryptoMiniSATParameter?
+		public Group getGroup() { return cGroup; }
+		
 		//variant="cryptominisat"
-		public Assignment getVariantAssignment() { return cVariantAssignment; }
+		public Assignment getVariantAssignment_0() { return cVariantAssignment_0; }
 		
 		//"cryptominisat"
-		public Keyword getVariantCryptominisatKeyword_0() { return cVariantCryptominisatKeyword_0; }
+		public Keyword getVariantCryptominisatKeyword_0_0() { return cVariantCryptominisatKeyword_0_0; }
+		
+		//parameter=CryptoMiniSATParameter?
+		public Assignment getParameterAssignment_1() { return cParameterAssignment_1; }
+		
+		//CryptoMiniSATParameter
+		public RuleCall getParameterCryptoMiniSATParameterParserRuleCall_1_0() { return cParameterCryptoMiniSATParameterParserRuleCall_1_0; }
 	}
 	public class MiniSATParameterElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.mydsl1.MSat.MiniSATParameter");
@@ -194,6 +206,30 @@ public class MSatGrammarAccess extends AbstractGrammarElementFinder {
 		
 		//'rnd-freq'
 		public Keyword getRndFreqKeyword_0() { return cRndFreqKeyword_0; }
+		
+		//rndfreq=PROBA
+		public Assignment getRndfreqAssignment_1() { return cRndfreqAssignment_1; }
+		
+		//PROBA
+		public RuleCall getRndfreqPROBATerminalRuleCall_1_0() { return cRndfreqPROBATerminalRuleCall_1_0; }
+	}
+	public class CryptoMiniSATParameterElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.mydsl1.MSat.CryptoMiniSATParameter");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cFreqKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Assignment cRndfreqAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cRndfreqPROBATerminalRuleCall_1_0 = (RuleCall)cRndfreqAssignment_1.eContents().get(0);
+		
+		//// STRING; 
+		//CryptoMiniSATParameter:
+		//	'freq' rndfreq=PROBA;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//'freq' rndfreq=PROBA
+		public Group getGroup() { return cGroup; }
+		
+		//'freq'
+		public Keyword getFreqKeyword_0() { return cFreqKeyword_0; }
 		
 		//rndfreq=PROBA
 		public Assignment getRndfreqAssignment_1() { return cRndfreqAssignment_1; }
@@ -642,6 +678,7 @@ public class MSatGrammarAccess extends AbstractGrammarElementFinder {
 	private final MiniSATElements pMiniSAT;
 	private final CryptoMiniSATElements pCryptoMiniSAT;
 	private final MiniSATParameterElements pMiniSATParameter;
+	private final CryptoMiniSATParameterElements pCryptoMiniSATParameter;
 	private final TerminalRule tPROBA;
 	private final BenchmarkElements pBenchmark;
 	private final BenchmarkDimacsElements pBenchmarkDimacs;
@@ -673,6 +710,7 @@ public class MSatGrammarAccess extends AbstractGrammarElementFinder {
 		this.pMiniSAT = new MiniSATElements();
 		this.pCryptoMiniSAT = new CryptoMiniSATElements();
 		this.pMiniSATParameter = new MiniSATParameterElements();
+		this.pCryptoMiniSATParameter = new CryptoMiniSATParameterElements();
 		this.tPROBA = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.mydsl1.MSat.PROBA");
 		this.pBenchmark = new BenchmarkElements();
 		this.pBenchmarkDimacs = new BenchmarkDimacsElements();
@@ -777,7 +815,7 @@ public class MSatGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//CryptoMiniSAT:
-	//	variant="cryptominisat";
+	//	variant="cryptominisat" parameter=CryptoMiniSATParameter?;
 	public CryptoMiniSATElements getCryptoMiniSATAccess() {
 		return pCryptoMiniSAT;
 	}
@@ -795,6 +833,17 @@ public class MSatGrammarAccess extends AbstractGrammarElementFinder {
 	
 	public ParserRule getMiniSATParameterRule() {
 		return getMiniSATParameterAccess().getRule();
+	}
+	
+	//// STRING; 
+	//CryptoMiniSATParameter:
+	//	'freq' rndfreq=PROBA;
+	public CryptoMiniSATParameterElements getCryptoMiniSATParameterAccess() {
+		return pCryptoMiniSATParameter;
+	}
+	
+	public ParserRule getCryptoMiniSATParameterRule() {
+		return getCryptoMiniSATParameterAccess().getRule();
 	}
 	
 	//terminal PROBA returns ecore::EFloat:

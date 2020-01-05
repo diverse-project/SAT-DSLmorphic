@@ -48,7 +48,7 @@ class MSatParsingMacherTest {
 	def void loadSAT4J_MVN() {
 		val result = parseHelper.parse('''
 			solver 
-				   sat4j-mvn
+				   sat4j-maven
 			benchmarkDIMACS "foo1.cnf"
 		''')
 		Assertions.assertNotNull(result)

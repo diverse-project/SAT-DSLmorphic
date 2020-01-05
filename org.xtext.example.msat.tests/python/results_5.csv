@@ -1,0 +1,701 @@
+Benchmark ; Solver ; Version ; Option ; Is_sat ; Time (s)
+samplingfm/Benchmarks/signedAvg.sk_8_1020.cnf ; sat4j-jar ; 2.3.1 ;  ; true ; 0.77
+samplingfm/Benchmarks/signedAvg.sk_8_1020.cnf ; MiniSAT ; 1.14.0 ;  ; true ; 0.24
+samplingfm/Benchmarks/signedAvg.sk_8_1020.cnf ; MiniSAT ; 2.2.0 ; -rnd-freq=0.0 ; true ; 0.052
+samplingfm/Benchmarks/signedAvg.sk_8_1020.cnf ; MiniSAT ; 2.2.0 ; -rnd-freq=0.5 ; true ; 0.1
+samplingfm/Benchmarks/signedAvg.sk_8_1020.cnf ; MiniSAT ; 2.2.0 ; -rnd-freq=0.9 ; true ; 0.332
+samplingfm/Benchmarks/signedAvg.sk_8_1020.cnf ; CryptoMiniSAT ; 2.4.0 ;  ; true ; 0.42
+samplingfm/Benchmarks/signedAvg.sk_8_1020.cnf ; CryptoMiniSAT ; 4.5.3 ;  ; true ; 0.16
+samplingfm/Benchmarks/signedAvg.sk_8_1020.cnf ; CryptoMiniSAT ; 5.6.8 ; --freq=0.0 ; true ; 0.26
+samplingfm/Benchmarks/signedAvg.sk_8_1020.cnf ; CryptoMiniSAT ; 5.6.8 ; --freq=0.5 ; true ; 0.34
+samplingfm/Benchmarks/signedAvg.sk_8_1020.cnf ; CryptoMiniSAT ; 5.6.8 ; --freq=0.9 ; true ; 0.64
+samplingfm/Benchmarks/35.sk_3_52.cnf ; sat4j-jar ; 2.3.1 ;  ; true ; 0.04
+samplingfm/Benchmarks/35.sk_3_52.cnf ; MiniSAT ; 1.14.0 ;  ; true ; 0.0
+samplingfm/Benchmarks/35.sk_3_52.cnf ; MiniSAT ; 2.2.0 ; -rnd-freq=0.0 ; true ; 0.0
+samplingfm/Benchmarks/35.sk_3_52.cnf ; MiniSAT ; 2.2.0 ; -rnd-freq=0.5 ; true ; 0.0
+samplingfm/Benchmarks/35.sk_3_52.cnf ; MiniSAT ; 2.2.0 ; -rnd-freq=0.9 ; true ; 0.0
+samplingfm/Benchmarks/35.sk_3_52.cnf ; CryptoMiniSAT ; 2.4.0 ;  ; true ; 0.0
+samplingfm/Benchmarks/35.sk_3_52.cnf ; CryptoMiniSAT ; 4.5.3 ;  ; true ; 0.0
+samplingfm/Benchmarks/35.sk_3_52.cnf ; CryptoMiniSAT ; 5.6.8 ; --freq=0.0 ; true ; 0.0
+samplingfm/Benchmarks/35.sk_3_52.cnf ; CryptoMiniSAT ; 5.6.8 ; --freq=0.5 ; true ; 0.0
+samplingfm/Benchmarks/35.sk_3_52.cnf ; CryptoMiniSAT ; 5.6.8 ; --freq=0.9 ; true ; 0.0
+samplingfm/Benchmarks/ProjectService3.sk_12_55.cnf ; sat4j-jar ; 2.3.1 ;  ; true ; 0.09
+samplingfm/Benchmarks/ProjectService3.sk_12_55.cnf ; MiniSAT ; 1.14.0 ;  ; true ; 0.004
+samplingfm/Benchmarks/ProjectService3.sk_12_55.cnf ; MiniSAT ; 2.2.0 ; -rnd-freq=0.0 ; true ; 0.0
+samplingfm/Benchmarks/ProjectService3.sk_12_55.cnf ; MiniSAT ; 2.2.0 ; -rnd-freq=0.5 ; true ; 0.0
+samplingfm/Benchmarks/ProjectService3.sk_12_55.cnf ; MiniSAT ; 2.2.0 ; -rnd-freq=0.9 ; true ; 0.004
+samplingfm/Benchmarks/ProjectService3.sk_12_55.cnf ; CryptoMiniSAT ; 2.4.0 ;  ; true ; 0.02
+samplingfm/Benchmarks/ProjectService3.sk_12_55.cnf ; CryptoMiniSAT ; 4.5.3 ;  ; true ; 0.02
+samplingfm/Benchmarks/ProjectService3.sk_12_55.cnf ; CryptoMiniSAT ; 5.6.8 ; --freq=0.0 ; true ; 0.0
+samplingfm/Benchmarks/ProjectService3.sk_12_55.cnf ; CryptoMiniSAT ; 5.6.8 ; --freq=0.5 ; true ; 0.01
+samplingfm/Benchmarks/ProjectService3.sk_12_55.cnf ; CryptoMiniSAT ; 5.6.8 ; --freq=0.9 ; true ; 0.01
+samplingfm/Benchmarks/log2.sk_72_391.cnf ; sat4j-jar ; 2.3.1 ;  ; true ; 32.12
+samplingfm/Benchmarks/log2.sk_72_391.cnf ; MiniSAT ; 1.14.0 ;  ; true ; 18.428
+samplingfm/Benchmarks/log2.sk_72_391.cnf ; MiniSAT ; 2.2.0 ; -rnd-freq=0.0 ; true ; 14.912
+samplingfm/Benchmarks/log2.sk_72_391.cnf ; MiniSAT ; 2.2.0 ; -rnd-freq=0.5 ; true ; 14.788
+samplingfm/Benchmarks/log2.sk_72_391.cnf ; MiniSAT ; 2.2.0 ; -rnd-freq=0.9 ; true ; 11.148
+samplingfm/Benchmarks/log2.sk_72_391.cnf ; CryptoMiniSAT ; 2.4.0 ;  ; true ; 3.4
+samplingfm/Benchmarks/log2.sk_72_391.cnf ; CryptoMiniSAT ; 4.5.3 ;  ; true ; 3.84
+samplingfm/Benchmarks/log2.sk_72_391.cnf ; CryptoMiniSAT ; 5.6.8 ; --freq=0.0 ; true ; 2.35
+samplingfm/Benchmarks/log2.sk_72_391.cnf ; CryptoMiniSAT ; 5.6.8 ; --freq=0.5 ; true ; 4.54
+samplingfm/Benchmarks/log2.sk_72_391.cnf ; CryptoMiniSAT ; 5.6.8 ; --freq=0.9 ; true ; 10.71
+samplingfm/Benchmarks/SetTest.sk_9_21.cnf ; sat4j-jar ; 2.3.1 ;  ; true ; 0.41
+samplingfm/Benchmarks/SetTest.sk_9_21.cnf ; MiniSAT ; 1.14.0 ;  ; true ; 0.048
+samplingfm/Benchmarks/SetTest.sk_9_21.cnf ; MiniSAT ; 2.2.0 ; -rnd-freq=0.0 ; true ; 0.04
+samplingfm/Benchmarks/SetTest.sk_9_21.cnf ; MiniSAT ; 2.2.0 ; -rnd-freq=0.5 ; true ; 0.036
+samplingfm/Benchmarks/SetTest.sk_9_21.cnf ; MiniSAT ; 2.2.0 ; -rnd-freq=0.9 ; true ; 0.044
+samplingfm/Benchmarks/SetTest.sk_9_21.cnf ; CryptoMiniSAT ; 2.4.0 ;  ; true ; 0.26
+samplingfm/Benchmarks/SetTest.sk_9_21.cnf ; CryptoMiniSAT ; 4.5.3 ;  ; true ; 0.3
+samplingfm/Benchmarks/SetTest.sk_9_21.cnf ; CryptoMiniSAT ; 5.6.8 ; --freq=0.0 ; true ; 0.12
+samplingfm/Benchmarks/SetTest.sk_9_21.cnf ; CryptoMiniSAT ; 5.6.8 ; --freq=0.5 ; true ; 0.08
+samplingfm/Benchmarks/SetTest.sk_9_21.cnf ; CryptoMiniSAT ; 5.6.8 ; --freq=0.9 ; true ; 0.07
+samplingfm/Benchmarks/karatsuba.sk_7_41.cnf ; sat4j-jar ; 2.3.1 ;  ; true ; 2.84
+samplingfm/Benchmarks/karatsuba.sk_7_41.cnf ; MiniSAT ; 1.14.0 ;  ; true ; 1.064
+samplingfm/Benchmarks/karatsuba.sk_7_41.cnf ; MiniSAT ; 2.2.0 ; -rnd-freq=0.0 ; true ; 8.76
+samplingfm/Benchmarks/karatsuba.sk_7_41.cnf ; MiniSAT ; 2.2.0 ; -rnd-freq=0.5 ; true ; 2.872
+samplingfm/Benchmarks/karatsuba.sk_7_41.cnf ; MiniSAT ; 2.2.0 ; -rnd-freq=0.9 ; true ; 7.308
+samplingfm/Benchmarks/karatsuba.sk_7_41.cnf ; CryptoMiniSAT ; 2.4.0 ;  ; true ; 2.79
+samplingfm/Benchmarks/karatsuba.sk_7_41.cnf ; CryptoMiniSAT ; 4.5.3 ;  ; true ; 1.88
+samplingfm/Benchmarks/karatsuba.sk_7_41.cnf ; CryptoMiniSAT ; 5.6.8 ; --freq=0.0 ; true ; 0.75
+samplingfm/Benchmarks/karatsuba.sk_7_41.cnf ; CryptoMiniSAT ; 5.6.8 ; --freq=0.5 ; true ; 2.01
+samplingfm/Benchmarks/karatsuba.sk_7_41.cnf ; CryptoMiniSAT ; 5.6.8 ; --freq=0.9 ; true ; 9.02
+samplingfm/Benchmarks/GuidanceService2.sk_2_27.cnf ; sat4j-jar ; 2.3.1 ;  ; true ; 0.03
+samplingfm/Benchmarks/GuidanceService2.sk_2_27.cnf ; MiniSAT ; 1.14.0 ;  ; true ; 0.0
+samplingfm/Benchmarks/GuidanceService2.sk_2_27.cnf ; MiniSAT ; 2.2.0 ; -rnd-freq=0.0 ; true ; 0.0
+samplingfm/Benchmarks/GuidanceService2.sk_2_27.cnf ; MiniSAT ; 2.2.0 ; -rnd-freq=0.5 ; true ; 0.0
+samplingfm/Benchmarks/GuidanceService2.sk_2_27.cnf ; MiniSAT ; 2.2.0 ; -rnd-freq=0.9 ; true ; 0.0
+samplingfm/Benchmarks/GuidanceService2.sk_2_27.cnf ; CryptoMiniSAT ; 2.4.0 ;  ; true ; 0.0
+samplingfm/Benchmarks/GuidanceService2.sk_2_27.cnf ; CryptoMiniSAT ; 4.5.3 ;  ; true ; 0.0
+samplingfm/Benchmarks/GuidanceService2.sk_2_27.cnf ; CryptoMiniSAT ; 5.6.8 ; --freq=0.0 ; true ; 0.0
+samplingfm/Benchmarks/GuidanceService2.sk_2_27.cnf ; CryptoMiniSAT ; 5.6.8 ; --freq=0.5 ; true ; 0.0
+samplingfm/Benchmarks/GuidanceService2.sk_2_27.cnf ; CryptoMiniSAT ; 5.6.8 ; --freq=0.9 ; true ; 0.0
+samplingfm/Benchmarks/IterationService.sk_12_27.cnf ; sat4j-jar ; 2.3.1 ;  ; true ; 0.0
+samplingfm/Benchmarks/IterationService.sk_12_27.cnf ; MiniSAT ; 1.14.0 ;  ; true ; 0.0
+samplingfm/Benchmarks/IterationService.sk_12_27.cnf ; MiniSAT ; 2.2.0 ; -rnd-freq=0.0 ; true ; 0.0
+samplingfm/Benchmarks/IterationService.sk_12_27.cnf ; MiniSAT ; 2.2.0 ; -rnd-freq=0.5 ; true ; 0.0
+samplingfm/Benchmarks/IterationService.sk_12_27.cnf ; MiniSAT ; 2.2.0 ; -rnd-freq=0.9 ; true ; 0.0
+samplingfm/Benchmarks/IterationService.sk_12_27.cnf ; CryptoMiniSAT ; 2.4.0 ;  ; true ; 0.01
+samplingfm/Benchmarks/IterationService.sk_12_27.cnf ; CryptoMiniSAT ; 4.5.3 ;  ; true ; 0.01
+samplingfm/Benchmarks/IterationService.sk_12_27.cnf ; CryptoMiniSAT ; 5.6.8 ; --freq=0.0 ; true ; 0.0
+samplingfm/Benchmarks/IterationService.sk_12_27.cnf ; CryptoMiniSAT ; 5.6.8 ; --freq=0.5 ; true ; 0.0
+samplingfm/Benchmarks/IterationService.sk_12_27.cnf ; CryptoMiniSAT ; 5.6.8 ; --freq=0.9 ; true ; 0.01
+samplingfm/Benchmarks/partition.sk_22_155.cnf ; sat4j-jar ; 2.3.1 ;  ; true ; 43.09
+samplingfm/Benchmarks/partition.sk_22_155.cnf ; MiniSAT ; 1.14.0 ;  ; true ; 11.008
+samplingfm/Benchmarks/partition.sk_22_155.cnf ; MiniSAT ; 2.2.0 ; -rnd-freq=0.0 ; true ; 7.436
+samplingfm/Benchmarks/partition.sk_22_155.cnf ; MiniSAT ; 2.2.0 ; -rnd-freq=0.5 ; true ; 6.284
+samplingfm/Benchmarks/partition.sk_22_155.cnf ; MiniSAT ; 2.2.0 ; -rnd-freq=0.9 ; true ; 8.904
+samplingfm/Benchmarks/partition.sk_22_155.cnf ; CryptoMiniSAT ; 2.4.0 ;  ; true ; 14.73
+samplingfm/Benchmarks/partition.sk_22_155.cnf ; CryptoMiniSAT ; 4.5.3 ;  ; true ; 9.21
+samplingfm/Benchmarks/partition.sk_22_155.cnf ; CryptoMiniSAT ; 5.6.8 ; --freq=0.0 ; true ; 8.43
+samplingfm/Benchmarks/partition.sk_22_155.cnf ; CryptoMiniSAT ; 5.6.8 ; --freq=0.5 ; true ; 20.05
+samplingfm/Benchmarks/partition.sk_22_155.cnf ; CryptoMiniSAT ; 5.6.8 ; --freq=0.9 ; true ; 9.08
+samplingfm/Benchmarks/29.sk_3_45.cnf ; sat4j-jar ; 2.3.1 ;  ; true ; 0.11
+samplingfm/Benchmarks/29.sk_3_45.cnf ; MiniSAT ; 1.14.0 ;  ; true ; 0.008
+samplingfm/Benchmarks/29.sk_3_45.cnf ; MiniSAT ; 2.2.0 ; -rnd-freq=0.0 ; true ; 0.008
+samplingfm/Benchmarks/29.sk_3_45.cnf ; MiniSAT ; 2.2.0 ; -rnd-freq=0.5 ; true ; 0.004
+samplingfm/Benchmarks/29.sk_3_45.cnf ; MiniSAT ; 2.2.0 ; -rnd-freq=0.9 ; true ; 0.008
+samplingfm/Benchmarks/29.sk_3_45.cnf ; CryptoMiniSAT ; 2.4.0 ;  ; true ; 0.06
+samplingfm/Benchmarks/29.sk_3_45.cnf ; CryptoMiniSAT ; 4.5.3 ;  ; true ; 0.08
+samplingfm/Benchmarks/29.sk_3_45.cnf ; CryptoMiniSAT ; 5.6.8 ; --freq=0.0 ; true ; 0.01
+samplingfm/Benchmarks/29.sk_3_45.cnf ; CryptoMiniSAT ; 5.6.8 ; --freq=0.5 ; true ; 0.02
+samplingfm/Benchmarks/29.sk_3_45.cnf ; CryptoMiniSAT ; 5.6.8 ; --freq=0.9 ; true ; 0.02
+samplingfm/Benchmarks/LoginService.sk_20_34.cnf ; sat4j-jar ; 2.3.1 ;  ; true ; 0.16
+samplingfm/Benchmarks/LoginService.sk_20_34.cnf ; MiniSAT ; 1.14.0 ;  ; true ; 0.012
+samplingfm/Benchmarks/LoginService.sk_20_34.cnf ; MiniSAT ; 2.2.0 ; -rnd-freq=0.0 ; true ; 0.0
+samplingfm/Benchmarks/LoginService.sk_20_34.cnf ; MiniSAT ; 2.2.0 ; -rnd-freq=0.5 ; true ; 0.008
+samplingfm/Benchmarks/LoginService.sk_20_34.cnf ; MiniSAT ; 2.2.0 ; -rnd-freq=0.9 ; true ; 0.008
+samplingfm/Benchmarks/LoginService.sk_20_34.cnf ; CryptoMiniSAT ; 2.4.0 ;  ; true ; 0.04
+samplingfm/Benchmarks/LoginService.sk_20_34.cnf ; CryptoMiniSAT ; 4.5.3 ;  ; true ; 0.05
+samplingfm/Benchmarks/LoginService.sk_20_34.cnf ; CryptoMiniSAT ; 5.6.8 ; --freq=0.0 ; true ; 0.01
+samplingfm/Benchmarks/LoginService.sk_20_34.cnf ; CryptoMiniSAT ; 5.6.8 ; --freq=0.5 ; true ; 0.02
+samplingfm/Benchmarks/LoginService.sk_20_34.cnf ; CryptoMiniSAT ; 5.6.8 ; --freq=0.9 ; true ; 0.02
+samplingfm/Benchmarks/51.sk_4_38.cnf ; sat4j-jar ; 2.3.1 ;  ; true ; 0.06
+samplingfm/Benchmarks/51.sk_4_38.cnf ; MiniSAT ; 1.14.0 ;  ; true ; 0.0
+samplingfm/Benchmarks/51.sk_4_38.cnf ; MiniSAT ; 2.2.0 ; -rnd-freq=0.0 ; true ; 0.0
+samplingfm/Benchmarks/51.sk_4_38.cnf ; MiniSAT ; 2.2.0 ; -rnd-freq=0.5 ; true ; 0.0
+samplingfm/Benchmarks/51.sk_4_38.cnf ; MiniSAT ; 2.2.0 ; -rnd-freq=0.9 ; true ; 0.0
+samplingfm/Benchmarks/51.sk_4_38.cnf ; CryptoMiniSAT ; 2.4.0 ;  ; true ; 0.01
+samplingfm/Benchmarks/51.sk_4_38.cnf ; CryptoMiniSAT ; 4.5.3 ;  ; true ; 0.02
+samplingfm/Benchmarks/51.sk_4_38.cnf ; CryptoMiniSAT ; 5.6.8 ; --freq=0.0 ; true ; 0.0
+samplingfm/Benchmarks/51.sk_4_38.cnf ; CryptoMiniSAT ; 5.6.8 ; --freq=0.5 ; true ; 0.01
+samplingfm/Benchmarks/51.sk_4_38.cnf ; CryptoMiniSAT ; 5.6.8 ; --freq=0.9 ; true ; 0.01
+samplingfm/Benchmarks/71.sk_3_65.cnf ; sat4j-jar ; 2.3.1 ;  ; true ; 0.13
+samplingfm/Benchmarks/71.sk_3_65.cnf ; MiniSAT ; 1.14.0 ;  ; true ; 0.004
+samplingfm/Benchmarks/71.sk_3_65.cnf ; MiniSAT ; 2.2.0 ; -rnd-freq=0.0 ; true ; 0.004
+samplingfm/Benchmarks/71.sk_3_65.cnf ; MiniSAT ; 2.2.0 ; -rnd-freq=0.5 ; true ; 0.004
+samplingfm/Benchmarks/71.sk_3_65.cnf ; MiniSAT ; 2.2.0 ; -rnd-freq=0.9 ; true ; 0.004
+samplingfm/Benchmarks/71.sk_3_65.cnf ; CryptoMiniSAT ; 2.4.0 ;  ; true ; 0.02
+samplingfm/Benchmarks/71.sk_3_65.cnf ; CryptoMiniSAT ; 4.5.3 ;  ; true ; 0.02
+samplingfm/Benchmarks/71.sk_3_65.cnf ; CryptoMiniSAT ; 5.6.8 ; --freq=0.0 ; true ; 0.01
+samplingfm/Benchmarks/71.sk_3_65.cnf ; CryptoMiniSAT ; 5.6.8 ; --freq=0.5 ; true ; 0.01
+samplingfm/Benchmarks/71.sk_3_65.cnf ; CryptoMiniSAT ; 5.6.8 ; --freq=0.9 ; true ; 0.0
+samplingfm/Benchmarks/parity.sk_11_11.cnf ; sat4j-jar ; 2.3.1 ;  ; true ; 1.0
+samplingfm/Benchmarks/parity.sk_11_11.cnf ; MiniSAT ; 1.14.0 ;  ; true ; 1.256
+samplingfm/Benchmarks/parity.sk_11_11.cnf ; MiniSAT ; 2.2.0 ; -rnd-freq=0.0 ; true ; 0.06
+samplingfm/Benchmarks/parity.sk_11_11.cnf ; MiniSAT ; 2.2.0 ; -rnd-freq=0.5 ; true ; 0.268
+samplingfm/Benchmarks/parity.sk_11_11.cnf ; MiniSAT ; 2.2.0 ; -rnd-freq=0.9 ; true ; 0.268
+samplingfm/Benchmarks/parity.sk_11_11.cnf ; CryptoMiniSAT ; 2.4.0 ;  ; true ; 0.17
+samplingfm/Benchmarks/parity.sk_11_11.cnf ; CryptoMiniSAT ; 4.5.3 ;  ; true ; 0.19
+samplingfm/Benchmarks/parity.sk_11_11.cnf ; CryptoMiniSAT ; 5.6.8 ; --freq=0.0 ; true ; 0.23
+samplingfm/Benchmarks/parity.sk_11_11.cnf ; CryptoMiniSAT ; 5.6.8 ; --freq=0.5 ; true ; 0.04
+samplingfm/Benchmarks/parity.sk_11_11.cnf ; CryptoMiniSAT ; 5.6.8 ; --freq=0.9 ; true ; 0.17
+samplingfm/Benchmarks/17.sk_3_45.cnf ; sat4j-jar ; 2.3.1 ;  ; true ; 0.11
+samplingfm/Benchmarks/17.sk_3_45.cnf ; MiniSAT ; 1.14.0 ;  ; true ; 0.016
+samplingfm/Benchmarks/17.sk_3_45.cnf ; MiniSAT ; 2.2.0 ; -rnd-freq=0.0 ; true ; 0.008
+samplingfm/Benchmarks/17.sk_3_45.cnf ; MiniSAT ; 2.2.0 ; -rnd-freq=0.5 ; true ; 0.008
+samplingfm/Benchmarks/17.sk_3_45.cnf ; MiniSAT ; 2.2.0 ; -rnd-freq=0.9 ; true ; 0.008
+samplingfm/Benchmarks/17.sk_3_45.cnf ; CryptoMiniSAT ; 2.4.0 ;  ; true ; 0.06
+samplingfm/Benchmarks/17.sk_3_45.cnf ; CryptoMiniSAT ; 4.5.3 ;  ; true ; 0.04
+samplingfm/Benchmarks/17.sk_3_45.cnf ; CryptoMiniSAT ; 5.6.8 ; --freq=0.0 ; true ; 0.01
+samplingfm/Benchmarks/17.sk_3_45.cnf ; CryptoMiniSAT ; 5.6.8 ; --freq=0.5 ; true ; 0.01
+samplingfm/Benchmarks/17.sk_3_45.cnf ; CryptoMiniSAT ; 5.6.8 ; --freq=0.9 ; true ; 0.01
+samplingfm/Benchmarks/57.sk_4_64.cnf ; sat4j-jar ; 2.3.1 ;  ; true ; 0.0
+samplingfm/Benchmarks/57.sk_4_64.cnf ; MiniSAT ; 1.14.0 ;  ; true ; 0.004
+samplingfm/Benchmarks/57.sk_4_64.cnf ; MiniSAT ; 2.2.0 ; -rnd-freq=0.0 ; true ; 0.0
+samplingfm/Benchmarks/57.sk_4_64.cnf ; MiniSAT ; 2.2.0 ; -rnd-freq=0.5 ; true ; 0.0
+samplingfm/Benchmarks/57.sk_4_64.cnf ; MiniSAT ; 2.2.0 ; -rnd-freq=0.9 ; true ; 0.0
+samplingfm/Benchmarks/57.sk_4_64.cnf ; CryptoMiniSAT ; 2.4.0 ;  ; true ; 0.02
+samplingfm/Benchmarks/57.sk_4_64.cnf ; CryptoMiniSAT ; 4.5.3 ;  ; true ; 0.02
+samplingfm/Benchmarks/57.sk_4_64.cnf ; CryptoMiniSAT ; 5.6.8 ; --freq=0.0 ; true ; 0.0
+samplingfm/Benchmarks/57.sk_4_64.cnf ; CryptoMiniSAT ; 5.6.8 ; --freq=0.5 ; true ; 0.01
+samplingfm/Benchmarks/57.sk_4_64.cnf ; CryptoMiniSAT ; 5.6.8 ; --freq=0.9 ; true ; 0.01
+samplingfm/Benchmarks/84.sk_4_77.cnf ; sat4j-jar ; 2.3.1 ;  ; true ; 0.11
+samplingfm/Benchmarks/84.sk_4_77.cnf ; MiniSAT ; 1.14.0 ;  ; true ; 0.004
+samplingfm/Benchmarks/84.sk_4_77.cnf ; MiniSAT ; 2.2.0 ; -rnd-freq=0.0 ; true ; 0.004
+samplingfm/Benchmarks/84.sk_4_77.cnf ; MiniSAT ; 2.2.0 ; -rnd-freq=0.5 ; true ; 0.004
+samplingfm/Benchmarks/84.sk_4_77.cnf ; MiniSAT ; 2.2.0 ; -rnd-freq=0.9 ; true ; 0.004
+samplingfm/Benchmarks/84.sk_4_77.cnf ; CryptoMiniSAT ; 2.4.0 ;  ; true ; 0.01
+samplingfm/Benchmarks/84.sk_4_77.cnf ; CryptoMiniSAT ; 4.5.3 ;  ; true ; 0.02
+samplingfm/Benchmarks/84.sk_4_77.cnf ; CryptoMiniSAT ; 5.6.8 ; --freq=0.0 ; true ; 0.02
+samplingfm/Benchmarks/84.sk_4_77.cnf ; CryptoMiniSAT ; 5.6.8 ; --freq=0.5 ; true ; 0.02
+samplingfm/Benchmarks/84.sk_4_77.cnf ; CryptoMiniSAT ; 5.6.8 ; --freq=0.9 ; true ; 0.02
+samplingfm/Benchmarks/ConcreteRoleAffectationService.sk_119_273.cnf ; sat4j-jar ; 2.3.1 ;  ; true ; 37.63
+samplingfm/Benchmarks/ConcreteRoleAffectationService.sk_119_273.cnf ; MiniSAT ; 1.14.0 ;  ; true ; 17.992
+samplingfm/Benchmarks/ConcreteRoleAffectationService.sk_119_273.cnf ; MiniSAT ; 2.2.0 ; -rnd-freq=0.0 ; true ; 2.08
+samplingfm/Benchmarks/ConcreteRoleAffectationService.sk_119_273.cnf ; MiniSAT ; 2.2.0 ; -rnd-freq=0.5 ; true ; 3.124
+samplingfm/Benchmarks/ConcreteRoleAffectationService.sk_119_273.cnf ; MiniSAT ; 2.2.0 ; -rnd-freq=0.9 ; true ; 3.336
+samplingfm/Benchmarks/ConcreteRoleAffectationService.sk_119_273.cnf ; CryptoMiniSAT ; 2.4.0 ;  ; true ; 39.91
+samplingfm/Benchmarks/ConcreteRoleAffectationService.sk_119_273.cnf ; CryptoMiniSAT ; 4.5.3 ;  ; true ; 4.0
+samplingfm/Benchmarks/ConcreteRoleAffectationService.sk_119_273.cnf ; CryptoMiniSAT ; 5.6.8 ; --freq=0.0 ; true ; 2.03
+samplingfm/Benchmarks/ConcreteRoleAffectationService.sk_119_273.cnf ; CryptoMiniSAT ; 5.6.8 ; --freq=0.5 ; true ; 3.89
+samplingfm/Benchmarks/ConcreteRoleAffectationService.sk_119_273.cnf ; CryptoMiniSAT ; 5.6.8 ; --freq=0.9 ; true ; 3.27
+samplingfm/Benchmarks/32.sk_4_38.cnf ; sat4j-jar ; 2.3.1 ;  ; true ; 0.06
+samplingfm/Benchmarks/32.sk_4_38.cnf ; MiniSAT ; 1.14.0 ;  ; true ; 0.0
+samplingfm/Benchmarks/32.sk_4_38.cnf ; MiniSAT ; 2.2.0 ; -rnd-freq=0.0 ; true ; 0.0
+samplingfm/Benchmarks/32.sk_4_38.cnf ; MiniSAT ; 2.2.0 ; -rnd-freq=0.5 ; true ; 0.0
+samplingfm/Benchmarks/32.sk_4_38.cnf ; MiniSAT ; 2.2.0 ; -rnd-freq=0.9 ; true ; 0.0
+samplingfm/Benchmarks/32.sk_4_38.cnf ; CryptoMiniSAT ; 2.4.0 ;  ; true ; 0.01
+samplingfm/Benchmarks/32.sk_4_38.cnf ; CryptoMiniSAT ; 4.5.3 ;  ; true ; 0.01
+samplingfm/Benchmarks/32.sk_4_38.cnf ; CryptoMiniSAT ; 5.6.8 ; --freq=0.0 ; true ; 0.0
+samplingfm/Benchmarks/32.sk_4_38.cnf ; CryptoMiniSAT ; 5.6.8 ; --freq=0.5 ; true ; 0.0
+samplingfm/Benchmarks/32.sk_4_38.cnf ; CryptoMiniSAT ; 5.6.8 ; --freq=0.9 ; true ; 0.0
+samplingfm/Benchmarks/36.sk_3_77.cnf ; sat4j-jar ; 2.3.1 ;  ; false ; 0.0
+samplingfm/Benchmarks/36.sk_3_77.cnf ; MiniSAT ; 1.14.0 ;  ; false ; 0.0
+samplingfm/Benchmarks/36.sk_3_77.cnf ; MiniSAT ; 2.2.0 ; -rnd-freq=0.0 ; false ; 0.004
+samplingfm/Benchmarks/36.sk_3_77.cnf ; MiniSAT ; 2.2.0 ; -rnd-freq=0.5 ; false ; 0.0
+samplingfm/Benchmarks/36.sk_3_77.cnf ; MiniSAT ; 2.2.0 ; -rnd-freq=0.9 ; false ; 0.004
+samplingfm/Benchmarks/36.sk_3_77.cnf ; CryptoMiniSAT ; 2.4.0 ;  ; false ; 0.0
+samplingfm/Benchmarks/36.sk_3_77.cnf ; CryptoMiniSAT ; 4.5.3 ;  ; false ; 0.01
+samplingfm/Benchmarks/36.sk_3_77.cnf ; CryptoMiniSAT ; 5.6.8 ; --freq=0.0 ; false ; 0.0
+samplingfm/Benchmarks/36.sk_3_77.cnf ; CryptoMiniSAT ; 5.6.8 ; --freq=0.5 ; false ; 0.0
+samplingfm/Benchmarks/36.sk_3_77.cnf ; CryptoMiniSAT ; 5.6.8 ; --freq=0.9 ; false ; 0.01
+samplingfm/Benchmarks/10.sk_1_46.cnf ; sat4j-jar ; 2.3.1 ;  ; true ; 0.03
+samplingfm/Benchmarks/10.sk_1_46.cnf ; MiniSAT ; 1.14.0 ;  ; true ; 0.0
+samplingfm/Benchmarks/10.sk_1_46.cnf ; MiniSAT ; 2.2.0 ; -rnd-freq=0.0 ; true ; 0.0
+samplingfm/Benchmarks/10.sk_1_46.cnf ; MiniSAT ; 2.2.0 ; -rnd-freq=0.5 ; true ; 0.0
+samplingfm/Benchmarks/10.sk_1_46.cnf ; MiniSAT ; 2.2.0 ; -rnd-freq=0.9 ; true ; 0.0
+samplingfm/Benchmarks/10.sk_1_46.cnf ; CryptoMiniSAT ; 2.4.0 ;  ; true ; 0.0
+samplingfm/Benchmarks/10.sk_1_46.cnf ; CryptoMiniSAT ; 4.5.3 ;  ; true ; 0.0
+samplingfm/Benchmarks/10.sk_1_46.cnf ; CryptoMiniSAT ; 5.6.8 ; --freq=0.0 ; true ; 0.0
+samplingfm/Benchmarks/10.sk_1_46.cnf ; CryptoMiniSAT ; 5.6.8 ; --freq=0.5 ; true ; 0.0
+samplingfm/Benchmarks/10.sk_1_46.cnf ; CryptoMiniSAT ; 5.6.8 ; --freq=0.9 ; true ; 0.0
+samplingfm/Benchmarks/sort.sk_8_52.cnf ; sat4j-jar ; 2.3.1 ;  ; true ; 0.89
+samplingfm/Benchmarks/sort.sk_8_52.cnf ; MiniSAT ; 1.14.0 ;  ; true ; 0.344
+samplingfm/Benchmarks/sort.sk_8_52.cnf ; MiniSAT ; 2.2.0 ; -rnd-freq=0.0 ; true ; 0.128
+samplingfm/Benchmarks/sort.sk_8_52.cnf ; MiniSAT ; 2.2.0 ; -rnd-freq=0.5 ; true ; 0.268
+samplingfm/Benchmarks/sort.sk_8_52.cnf ; MiniSAT ; 2.2.0 ; -rnd-freq=0.9 ; true ; 0.356
+samplingfm/Benchmarks/sort.sk_8_52.cnf ; CryptoMiniSAT ; 2.4.0 ;  ; true ; 0.23
+samplingfm/Benchmarks/sort.sk_8_52.cnf ; CryptoMiniSAT ; 4.5.3 ;  ; true ; 0.23
+samplingfm/Benchmarks/sort.sk_8_52.cnf ; CryptoMiniSAT ; 5.6.8 ; --freq=0.0 ; true ; 0.46
+samplingfm/Benchmarks/sort.sk_8_52.cnf ; CryptoMiniSAT ; 5.6.8 ; --freq=0.5 ; true ; 0.23
+samplingfm/Benchmarks/sort.sk_8_52.cnf ; CryptoMiniSAT ; 5.6.8 ; --freq=0.9 ; true ; 0.81
+samplingfm/Benchmarks/tutorial1.sk_1_1.cnf ; sat4j-jar ; 2.3.1 ;  ; true ; 0.0
+samplingfm/Benchmarks/tutorial1.sk_1_1.cnf ; MiniSAT ; 1.14.0 ;  ; true ; 0.0
+samplingfm/Benchmarks/tutorial1.sk_1_1.cnf ; MiniSAT ; 2.2.0 ; -rnd-freq=0.0 ; true ; 0.0
+samplingfm/Benchmarks/tutorial1.sk_1_1.cnf ; MiniSAT ; 2.2.0 ; -rnd-freq=0.5 ; true ; 0.0
+samplingfm/Benchmarks/tutorial1.sk_1_1.cnf ; MiniSAT ; 2.2.0 ; -rnd-freq=0.9 ; true ; 0.0
+samplingfm/Benchmarks/tutorial1.sk_1_1.cnf ; CryptoMiniSAT ; 2.4.0 ;  ; true ; 0.0
+samplingfm/Benchmarks/tutorial1.sk_1_1.cnf ; CryptoMiniSAT ; 4.5.3 ;  ; true ; 0.0
+samplingfm/Benchmarks/tutorial1.sk_1_1.cnf ; CryptoMiniSAT ; 5.6.8 ; --freq=0.0 ; true ; 0.0
+samplingfm/Benchmarks/tutorial1.sk_1_1.cnf ; CryptoMiniSAT ; 5.6.8 ; --freq=0.5 ; true ; 0.0
+samplingfm/Benchmarks/tutorial1.sk_1_1.cnf ; CryptoMiniSAT ; 5.6.8 ; --freq=0.9 ; true ; 0.0
+samplingfm/Benchmarks/63.sk_3_64.cnf ; sat4j-jar ; 2.3.1 ;  ; true ; 0.1
+samplingfm/Benchmarks/63.sk_3_64.cnf ; MiniSAT ; 1.14.0 ;  ; true ; 0.004
+samplingfm/Benchmarks/63.sk_3_64.cnf ; MiniSAT ; 2.2.0 ; -rnd-freq=0.0 ; true ; 0.0
+samplingfm/Benchmarks/63.sk_3_64.cnf ; MiniSAT ; 2.2.0 ; -rnd-freq=0.5 ; true ; 0.004
+samplingfm/Benchmarks/63.sk_3_64.cnf ; MiniSAT ; 2.2.0 ; -rnd-freq=0.9 ; true ; 0.004
+samplingfm/Benchmarks/63.sk_3_64.cnf ; CryptoMiniSAT ; 2.4.0 ;  ; true ; 0.04
+samplingfm/Benchmarks/63.sk_3_64.cnf ; CryptoMiniSAT ; 4.5.3 ;  ; true ; 0.05
+samplingfm/Benchmarks/63.sk_3_64.cnf ; CryptoMiniSAT ; 5.6.8 ; --freq=0.0 ; true ; 0.0
+samplingfm/Benchmarks/63.sk_3_64.cnf ; CryptoMiniSAT ; 5.6.8 ; --freq=0.5 ; true ; 0.0
+samplingfm/Benchmarks/63.sk_3_64.cnf ; CryptoMiniSAT ; 5.6.8 ; --freq=0.9 ; true ; 0.01
+samplingfm/Benchmarks/tutorial3.sk_4_31.cnf ; sat4j-jar ; 2.3.1 ;  ; true ; 8.68
+samplingfm/Benchmarks/tutorial3.sk_4_31.cnf ; MiniSAT ; 1.14.0 ;  ; true ; 1.896
+samplingfm/Benchmarks/tutorial3.sk_4_31.cnf ; MiniSAT ; 2.2.0 ; -rnd-freq=0.0 ; true ; 0.992
+samplingfm/Benchmarks/tutorial3.sk_4_31.cnf ; MiniSAT ; 2.2.0 ; -rnd-freq=0.5 ; true ; 0.948
+samplingfm/Benchmarks/tutorial3.sk_4_31.cnf ; MiniSAT ; 2.2.0 ; -rnd-freq=0.9 ; true ; 5.604
+samplingfm/Benchmarks/tutorial3.sk_4_31.cnf ; CryptoMiniSAT ; 2.4.0 ;  ; true ; 26.09
+samplingfm/Benchmarks/tutorial3.sk_4_31.cnf ; CryptoMiniSAT ; 4.5.3 ;  ; true ; 6.6
+samplingfm/Benchmarks/tutorial3.sk_4_31.cnf ; CryptoMiniSAT ; 5.6.8 ; --freq=0.0 ; true ; 8.34
+samplingfm/Benchmarks/tutorial3.sk_4_31.cnf ; CryptoMiniSAT ; 5.6.8 ; --freq=0.5 ; true ; 10.05
+samplingfm/Benchmarks/tutorial3.sk_4_31.cnf ; CryptoMiniSAT ; 5.6.8 ; --freq=0.9 ; true ; 9.12
+samplingfm/Benchmarks/UserServiceImpl.sk_8_32.cnf ; sat4j-jar ; 2.3.1 ;  ; true ; 0.05
+samplingfm/Benchmarks/UserServiceImpl.sk_8_32.cnf ; MiniSAT ; 1.14.0 ;  ; true ; 0.0
+samplingfm/Benchmarks/UserServiceImpl.sk_8_32.cnf ; MiniSAT ; 2.2.0 ; -rnd-freq=0.0 ; true ; 0.0
+samplingfm/Benchmarks/UserServiceImpl.sk_8_32.cnf ; MiniSAT ; 2.2.0 ; -rnd-freq=0.5 ; true ; 0.0
+samplingfm/Benchmarks/UserServiceImpl.sk_8_32.cnf ; MiniSAT ; 2.2.0 ; -rnd-freq=0.9 ; true ; 0.0
+samplingfm/Benchmarks/UserServiceImpl.sk_8_32.cnf ; CryptoMiniSAT ; 2.4.0 ;  ; true ; 0.01
+samplingfm/Benchmarks/UserServiceImpl.sk_8_32.cnf ; CryptoMiniSAT ; 4.5.3 ;  ; true ; 0.01
+samplingfm/Benchmarks/UserServiceImpl.sk_8_32.cnf ; CryptoMiniSAT ; 5.6.8 ; --freq=0.0 ; true ; 0.0
+samplingfm/Benchmarks/UserServiceImpl.sk_8_32.cnf ; CryptoMiniSAT ; 5.6.8 ; --freq=0.5 ; true ; 0.0
+samplingfm/Benchmarks/UserServiceImpl.sk_8_32.cnf ; CryptoMiniSAT ; 5.6.8 ; --freq=0.9 ; true ; 0.0
+samplingfm/Benchmarks/ProcessBean.sk_8_64.cnf ; sat4j-jar ; 2.3.1 ;  ; true ; 0.11
+samplingfm/Benchmarks/ProcessBean.sk_8_64.cnf ; MiniSAT ; 1.14.0 ;  ; true ; 0.004
+samplingfm/Benchmarks/ProcessBean.sk_8_64.cnf ; MiniSAT ; 2.2.0 ; -rnd-freq=0.0 ; true ; 0.004
+samplingfm/Benchmarks/ProcessBean.sk_8_64.cnf ; MiniSAT ; 2.2.0 ; -rnd-freq=0.5 ; true ; 0.004
+samplingfm/Benchmarks/ProcessBean.sk_8_64.cnf ; MiniSAT ; 2.2.0 ; -rnd-freq=0.9 ; true ; 0.004
+samplingfm/Benchmarks/ProcessBean.sk_8_64.cnf ; CryptoMiniSAT ; 2.4.0 ;  ; true ; 0.02
+samplingfm/Benchmarks/ProcessBean.sk_8_64.cnf ; CryptoMiniSAT ; 4.5.3 ;  ; true ; 0.02
+samplingfm/Benchmarks/ProcessBean.sk_8_64.cnf ; CryptoMiniSAT ; 5.6.8 ; --freq=0.0 ; true ; 0.0
+samplingfm/Benchmarks/ProcessBean.sk_8_64.cnf ; CryptoMiniSAT ; 5.6.8 ; --freq=0.5 ; true ; 0.01
+samplingfm/Benchmarks/ProcessBean.sk_8_64.cnf ; CryptoMiniSAT ; 5.6.8 ; --freq=0.9 ; true ; 0.01
+samplingfm/Benchmarks/jburnim_morton.sk_13_530.cnf ; sat4j-jar ; 2.3.1 ;  ; true ; 4.35
+samplingfm/Benchmarks/jburnim_morton.sk_13_530.cnf ; MiniSAT ; 1.14.0 ;  ; true ; 1.132
+samplingfm/Benchmarks/jburnim_morton.sk_13_530.cnf ; MiniSAT ; 2.2.0 ; -rnd-freq=0.0 ; true ; 0.784
+samplingfm/Benchmarks/jburnim_morton.sk_13_530.cnf ; MiniSAT ; 2.2.0 ; -rnd-freq=0.5 ; true ; 1.26
+samplingfm/Benchmarks/jburnim_morton.sk_13_530.cnf ; MiniSAT ; 2.2.0 ; -rnd-freq=0.9 ; true ; 2.536
+samplingfm/Benchmarks/jburnim_morton.sk_13_530.cnf ; CryptoMiniSAT ; 2.4.0 ;  ; true ; 1.18
+samplingfm/Benchmarks/jburnim_morton.sk_13_530.cnf ; CryptoMiniSAT ; 4.5.3 ;  ; true ; 1.64
+samplingfm/Benchmarks/jburnim_morton.sk_13_530.cnf ; CryptoMiniSAT ; 5.6.8 ; --freq=0.0 ; true ; 2.31
+samplingfm/Benchmarks/jburnim_morton.sk_13_530.cnf ; CryptoMiniSAT ; 5.6.8 ; --freq=0.5 ; true ; 4.73
+samplingfm/Benchmarks/jburnim_morton.sk_13_530.cnf ; CryptoMiniSAT ; 5.6.8 ; --freq=0.9 ; true ; 3.7
+samplingfm/Benchmarks/tutorial2.sk_3_4.cnf ; sat4j-jar ; 2.3.1 ;  ; true ; 0.23
+samplingfm/Benchmarks/tutorial2.sk_3_4.cnf ; MiniSAT ; 1.14.0 ;  ; true ; 0.02
+samplingfm/Benchmarks/tutorial2.sk_3_4.cnf ; MiniSAT ; 2.2.0 ; -rnd-freq=0.0 ; true ; 0.012
+samplingfm/Benchmarks/tutorial2.sk_3_4.cnf ; MiniSAT ; 2.2.0 ; -rnd-freq=0.5 ; true ; 0.012
+samplingfm/Benchmarks/tutorial2.sk_3_4.cnf ; MiniSAT ; 2.2.0 ; -rnd-freq=0.9 ; true ; 0.016
+samplingfm/Benchmarks/tutorial2.sk_3_4.cnf ; CryptoMiniSAT ; 2.4.0 ;  ; true ; 0.13
+samplingfm/Benchmarks/tutorial2.sk_3_4.cnf ; CryptoMiniSAT ; 4.5.3 ;  ; true ; 0.15
+samplingfm/Benchmarks/tutorial2.sk_3_4.cnf ; CryptoMiniSAT ; 5.6.8 ; --freq=0.0 ; true ; 0.02
+samplingfm/Benchmarks/tutorial2.sk_3_4.cnf ; CryptoMiniSAT ; 5.6.8 ; --freq=0.5 ; true ; 0.02
+samplingfm/Benchmarks/tutorial2.sk_3_4.cnf ; CryptoMiniSAT ; 5.6.8 ; --freq=0.9 ; true ; 0.02
+samplingfm/Benchmarks/111.sk_2_36.cnf ; sat4j-jar ; 2.3.1 ;  ; true ; 0.04
+samplingfm/Benchmarks/111.sk_2_36.cnf ; MiniSAT ; 1.14.0 ;  ; true ; 0.0
+samplingfm/Benchmarks/111.sk_2_36.cnf ; MiniSAT ; 2.2.0 ; -rnd-freq=0.0 ; true ; 0.0
+samplingfm/Benchmarks/111.sk_2_36.cnf ; MiniSAT ; 2.2.0 ; -rnd-freq=0.5 ; true ; 0.0
+samplingfm/Benchmarks/111.sk_2_36.cnf ; MiniSAT ; 2.2.0 ; -rnd-freq=0.9 ; true ; 0.0
+samplingfm/Benchmarks/111.sk_2_36.cnf ; CryptoMiniSAT ; 2.4.0 ;  ; true ; 0.0
+samplingfm/Benchmarks/111.sk_2_36.cnf ; CryptoMiniSAT ; 4.5.3 ;  ; true ; 0.01
+samplingfm/Benchmarks/111.sk_2_36.cnf ; CryptoMiniSAT ; 5.6.8 ; --freq=0.0 ; true ; 0.0
+samplingfm/Benchmarks/111.sk_2_36.cnf ; CryptoMiniSAT ; 5.6.8 ; --freq=0.5 ; true ; 0.0
+samplingfm/Benchmarks/111.sk_2_36.cnf ; CryptoMiniSAT ; 5.6.8 ; --freq=0.9 ; true ; 0.0
+samplingfm/Benchmarks/30.sk_5_76.cnf ; sat4j-jar ; 2.3.1 ;  ; true ; 0.35
+samplingfm/Benchmarks/30.sk_5_76.cnf ; MiniSAT ; 1.14.0 ;  ; true ; 0.064
+samplingfm/Benchmarks/30.sk_5_76.cnf ; MiniSAT ; 2.2.0 ; -rnd-freq=0.0 ; true ; 0.024
+samplingfm/Benchmarks/30.sk_5_76.cnf ; MiniSAT ; 2.2.0 ; -rnd-freq=0.5 ; true ; 0.032
+samplingfm/Benchmarks/30.sk_5_76.cnf ; MiniSAT ; 2.2.0 ; -rnd-freq=0.9 ; true ; 0.024
+samplingfm/Benchmarks/30.sk_5_76.cnf ; CryptoMiniSAT ; 2.4.0 ;  ; true ; 0.19
+samplingfm/Benchmarks/30.sk_5_76.cnf ; CryptoMiniSAT ; 4.5.3 ;  ; true ; 0.22
+samplingfm/Benchmarks/30.sk_5_76.cnf ; CryptoMiniSAT ; 5.6.8 ; --freq=0.0 ; true ; 0.04
+samplingfm/Benchmarks/30.sk_5_76.cnf ; CryptoMiniSAT ; 5.6.8 ; --freq=0.5 ; true ; 0.04
+samplingfm/Benchmarks/30.sk_5_76.cnf ; CryptoMiniSAT ; 5.6.8 ; --freq=0.9 ; true ; 0.04
+samplingfm/Benchmarks/ActivityService.sk_11_27.cnf ; sat4j-jar ; 2.3.1 ;  ; true ; 0.05
+samplingfm/Benchmarks/ActivityService.sk_11_27.cnf ; MiniSAT ; 1.14.0 ;  ; true ; 0.0
+samplingfm/Benchmarks/ActivityService.sk_11_27.cnf ; MiniSAT ; 2.2.0 ; -rnd-freq=0.0 ; true ; 0.0
+samplingfm/Benchmarks/ActivityService.sk_11_27.cnf ; MiniSAT ; 2.2.0 ; -rnd-freq=0.5 ; true ; 0.0
+samplingfm/Benchmarks/ActivityService.sk_11_27.cnf ; MiniSAT ; 2.2.0 ; -rnd-freq=0.9 ; true ; 0.0
+samplingfm/Benchmarks/ActivityService.sk_11_27.cnf ; CryptoMiniSAT ; 2.4.0 ;  ; true ; 0.01
+samplingfm/Benchmarks/ActivityService.sk_11_27.cnf ; CryptoMiniSAT ; 4.5.3 ;  ; true ; 0.01
+samplingfm/Benchmarks/ActivityService.sk_11_27.cnf ; CryptoMiniSAT ; 5.6.8 ; --freq=0.0 ; true ; 0.0
+samplingfm/Benchmarks/ActivityService.sk_11_27.cnf ; CryptoMiniSAT ; 5.6.8 ; --freq=0.5 ; true ; 0.0
+samplingfm/Benchmarks/ActivityService.sk_11_27.cnf ; CryptoMiniSAT ; 5.6.8 ; --freq=0.9 ; true ; 0.0
+samplingfm/Benchmarks/diagStencil.sk_35_36.cnf ; sat4j-jar ; 2.3.1 ;  ; true ; 449.58
+samplingfm/Benchmarks/diagStencil.sk_35_36.cnf ; MiniSAT ; 1.14.0 ;  ; true ; 103.616
+samplingfm/Benchmarks/diagStencil.sk_35_36.cnf ; MiniSAT ; 2.2.0 ; -rnd-freq=0.0 ; true ; 53.812
+samplingfm/Benchmarks/diagStencil.sk_35_36.cnf ; MiniSAT ; 2.2.0 ; -rnd-freq=0.5 ; true ; 95.764
+samplingfm/Benchmarks/diagStencil.sk_35_36.cnf ; MiniSAT ; 2.2.0 ; -rnd-freq=0.9 ; true ; 106.876
+samplingfm/Benchmarks/diagStencil.sk_35_36.cnf ; CryptoMiniSAT ; 2.4.0 ;  ; true ; 99.71
+samplingfm/Benchmarks/diagStencil.sk_35_36.cnf ; CryptoMiniSAT ; 4.5.3 ;  ; true ; 51.85
+samplingfm/Benchmarks/diagStencil.sk_35_36.cnf ; CryptoMiniSAT ; 5.6.8 ; --freq=0.0 ; true ; 119.31
+samplingfm/Benchmarks/diagStencil.sk_35_36.cnf ; CryptoMiniSAT ; 5.6.8 ; --freq=0.5 ; true ; 115.02
+samplingfm/Benchmarks/diagStencil.sk_35_36.cnf ; CryptoMiniSAT ; 5.6.8 ; --freq=0.9 ; true ; 111.22
+samplingfm/Benchmarks/27.sk_3_32.cnf ; sat4j-jar ; 2.3.1 ;  ; true ; 0.03
+samplingfm/Benchmarks/27.sk_3_32.cnf ; MiniSAT ; 1.14.0 ;  ; true ; 0.0
+samplingfm/Benchmarks/27.sk_3_32.cnf ; MiniSAT ; 2.2.0 ; -rnd-freq=0.0 ; true ; 0.0
+samplingfm/Benchmarks/27.sk_3_32.cnf ; MiniSAT ; 2.2.0 ; -rnd-freq=0.5 ; true ; 0.0
+samplingfm/Benchmarks/27.sk_3_32.cnf ; MiniSAT ; 2.2.0 ; -rnd-freq=0.9 ; true ; 0.0
+samplingfm/Benchmarks/27.sk_3_32.cnf ; CryptoMiniSAT ; 2.4.0 ;  ; true ; 0.0
+samplingfm/Benchmarks/27.sk_3_32.cnf ; CryptoMiniSAT ; 4.5.3 ;  ; true ; 0.0
+samplingfm/Benchmarks/27.sk_3_32.cnf ; CryptoMiniSAT ; 5.6.8 ; --freq=0.0 ; true ; 0.0
+samplingfm/Benchmarks/27.sk_3_32.cnf ; CryptoMiniSAT ; 5.6.8 ; --freq=0.5 ; true ; 0.0
+samplingfm/Benchmarks/27.sk_3_32.cnf ; CryptoMiniSAT ; 5.6.8 ; --freq=0.9 ; true ; 0.0
+samplingfm/Benchmarks/IssueServiceImpl.sk_8_30.cnf ; sat4j-jar ; 2.3.1 ;  ; true ; 0.05
+samplingfm/Benchmarks/IssueServiceImpl.sk_8_30.cnf ; MiniSAT ; 1.14.0 ;  ; true ; 0.0
+samplingfm/Benchmarks/IssueServiceImpl.sk_8_30.cnf ; MiniSAT ; 2.2.0 ; -rnd-freq=0.0 ; true ; 0.0
+samplingfm/Benchmarks/IssueServiceImpl.sk_8_30.cnf ; MiniSAT ; 2.2.0 ; -rnd-freq=0.5 ; true ; 0.0
+samplingfm/Benchmarks/IssueServiceImpl.sk_8_30.cnf ; MiniSAT ; 2.2.0 ; -rnd-freq=0.9 ; true ; 0.0
+samplingfm/Benchmarks/IssueServiceImpl.sk_8_30.cnf ; CryptoMiniSAT ; 2.4.0 ;  ; true ; 0.01
+samplingfm/Benchmarks/IssueServiceImpl.sk_8_30.cnf ; CryptoMiniSAT ; 4.5.3 ;  ; true ; 0.01
+samplingfm/Benchmarks/IssueServiceImpl.sk_8_30.cnf ; CryptoMiniSAT ; 5.6.8 ; --freq=0.0 ; true ; 0.0
+samplingfm/Benchmarks/IssueServiceImpl.sk_8_30.cnf ; CryptoMiniSAT ; 5.6.8 ; --freq=0.5 ; true ; 0.0
+samplingfm/Benchmarks/IssueServiceImpl.sk_8_30.cnf ; CryptoMiniSAT ; 5.6.8 ; --freq=0.9 ; true ; 0.0
+samplingfm/Benchmarks/listReverse.sk_11_43.cnf ; sat4j-jar ; 2.3.1 ;  ; false ; -1.0
+samplingfm/Benchmarks/listReverse.sk_11_43.cnf ; MiniSAT ; 1.14.0 ;  ; false ; -1.0
+samplingfm/Benchmarks/listReverse.sk_11_43.cnf ; MiniSAT ; 2.2.0 ; -rnd-freq=0.0 ; false ; -1.0
+samplingfm/Benchmarks/listReverse.sk_11_43.cnf ; MiniSAT ; 2.2.0 ; -rnd-freq=0.5 ; false ; -1.0
+samplingfm/Benchmarks/listReverse.sk_11_43.cnf ; MiniSAT ; 2.2.0 ; -rnd-freq=0.9 ; false ; -1.0
+samplingfm/Benchmarks/listReverse.sk_11_43.cnf ; CryptoMiniSAT ; 2.4.0 ;  ; false ; -1.0
+samplingfm/Benchmarks/listReverse.sk_11_43.cnf ; CryptoMiniSAT ; 4.5.3 ;  ; true ; 201.88
+samplingfm/Benchmarks/listReverse.sk_11_43.cnf ; CryptoMiniSAT ; 5.6.8 ; --freq=0.0 ; true ; 439.12
+samplingfm/Benchmarks/listReverse.sk_11_43.cnf ; CryptoMiniSAT ; 5.6.8 ; --freq=0.5 ; false ; -1.0
+samplingfm/Benchmarks/listReverse.sk_11_43.cnf ; CryptoMiniSAT ; 5.6.8 ; --freq=0.9 ; false ; -1.0
+samplingfm/Benchmarks/logcount.sk_16_86.cnf ; sat4j-jar ; 2.3.1 ;  ; true ; 28.1
+samplingfm/Benchmarks/logcount.sk_16_86.cnf ; MiniSAT ; 1.14.0 ;  ; true ; 46.148
+samplingfm/Benchmarks/logcount.sk_16_86.cnf ; MiniSAT ; 2.2.0 ; -rnd-freq=0.0 ; true ; 5.136
+samplingfm/Benchmarks/logcount.sk_16_86.cnf ; MiniSAT ; 2.2.0 ; -rnd-freq=0.5 ; true ; 398.952
+samplingfm/Benchmarks/logcount.sk_16_86.cnf ; MiniSAT ; 2.2.0 ; -rnd-freq=0.9 ; false ; -1.0
+samplingfm/Benchmarks/logcount.sk_16_86.cnf ; CryptoMiniSAT ; 2.4.0 ;  ; true ; 570.2
+samplingfm/Benchmarks/logcount.sk_16_86.cnf ; CryptoMiniSAT ; 4.5.3 ;  ; true ; 21.7
+samplingfm/Benchmarks/logcount.sk_16_86.cnf ; CryptoMiniSAT ; 5.6.8 ; --freq=0.0 ; true ; 57.42
+samplingfm/Benchmarks/logcount.sk_16_86.cnf ; CryptoMiniSAT ; 5.6.8 ; --freq=0.5 ; true ; 81.4
+samplingfm/Benchmarks/logcount.sk_16_86.cnf ; CryptoMiniSAT ; 5.6.8 ; --freq=0.9 ; true ; 193.85
+samplingfm/Benchmarks/70.sk_3_40.cnf ; sat4j-jar ; 2.3.1 ;  ; true ; 0.09
+samplingfm/Benchmarks/70.sk_3_40.cnf ; MiniSAT ; 1.14.0 ;  ; true ; 0.004
+samplingfm/Benchmarks/70.sk_3_40.cnf ; MiniSAT ; 2.2.0 ; -rnd-freq=0.0 ; true ; 0.004
+samplingfm/Benchmarks/70.sk_3_40.cnf ; MiniSAT ; 2.2.0 ; -rnd-freq=0.5 ; true ; 0.004
+samplingfm/Benchmarks/70.sk_3_40.cnf ; MiniSAT ; 2.2.0 ; -rnd-freq=0.9 ; true ; 0.004
+samplingfm/Benchmarks/70.sk_3_40.cnf ; CryptoMiniSAT ; 2.4.0 ;  ; true ; 0.02
+samplingfm/Benchmarks/70.sk_3_40.cnf ; CryptoMiniSAT ; 4.5.3 ;  ; true ; 0.03
+samplingfm/Benchmarks/70.sk_3_40.cnf ; CryptoMiniSAT ; 5.6.8 ; --freq=0.0 ; true ; 0.0
+samplingfm/Benchmarks/70.sk_3_40.cnf ; CryptoMiniSAT ; 5.6.8 ; --freq=0.5 ; true ; 0.0
+samplingfm/Benchmarks/70.sk_3_40.cnf ; CryptoMiniSAT ; 5.6.8 ; --freq=0.9 ; true ; 0.01
+samplingfm/Benchmarks/54.sk_12_97.cnf ; sat4j-jar ; 2.3.1 ;  ; true ; 0.3
+samplingfm/Benchmarks/54.sk_12_97.cnf ; MiniSAT ; 1.14.0 ;  ; true ; 0.032
+samplingfm/Benchmarks/54.sk_12_97.cnf ; MiniSAT ; 2.2.0 ; -rnd-freq=0.0 ; true ; 0.016
+samplingfm/Benchmarks/54.sk_12_97.cnf ; MiniSAT ; 2.2.0 ; -rnd-freq=0.5 ; true ; 0.016
+samplingfm/Benchmarks/54.sk_12_97.cnf ; MiniSAT ; 2.2.0 ; -rnd-freq=0.9 ; true ; 0.052
+samplingfm/Benchmarks/54.sk_12_97.cnf ; CryptoMiniSAT ; 2.4.0 ;  ; true ; 0.16
+samplingfm/Benchmarks/54.sk_12_97.cnf ; CryptoMiniSAT ; 4.5.3 ;  ; true ; 0.16
+samplingfm/Benchmarks/54.sk_12_97.cnf ; CryptoMiniSAT ; 5.6.8 ; --freq=0.0 ; true ; 0.03
+samplingfm/Benchmarks/54.sk_12_97.cnf ; CryptoMiniSAT ; 5.6.8 ; --freq=0.5 ; true ; 0.04
+samplingfm/Benchmarks/54.sk_12_97.cnf ; CryptoMiniSAT ; 5.6.8 ; --freq=0.9 ; true ; 0.07
+samplingfm/Benchmarks/77.sk_3_44.cnf ; sat4j-jar ; 2.3.1 ;  ; true ; 0.09
+samplingfm/Benchmarks/77.sk_3_44.cnf ; MiniSAT ; 1.14.0 ;  ; true ; 0.036
+samplingfm/Benchmarks/77.sk_3_44.cnf ; MiniSAT ; 2.2.0 ; -rnd-freq=0.0 ; true ; 0.012
+samplingfm/Benchmarks/77.sk_3_44.cnf ; MiniSAT ; 2.2.0 ; -rnd-freq=0.5 ; true ; 0.008
+samplingfm/Benchmarks/77.sk_3_44.cnf ; MiniSAT ; 2.2.0 ; -rnd-freq=0.9 ; true ; 0.004
+samplingfm/Benchmarks/77.sk_3_44.cnf ; CryptoMiniSAT ; 2.4.0 ;  ; true ; 0.04
+samplingfm/Benchmarks/77.sk_3_44.cnf ; CryptoMiniSAT ; 4.5.3 ;  ; true ; 0.03
+samplingfm/Benchmarks/77.sk_3_44.cnf ; CryptoMiniSAT ; 5.6.8 ; --freq=0.0 ; true ; 0.01
+samplingfm/Benchmarks/77.sk_3_44.cnf ; CryptoMiniSAT ; 5.6.8 ; --freq=0.5 ; true ; 0.01
+samplingfm/Benchmarks/77.sk_3_44.cnf ; CryptoMiniSAT ; 5.6.8 ; --freq=0.9 ; true ; 0.0
+samplingfm/Benchmarks/19.sk_3_48.cnf ; sat4j-jar ; 2.3.1 ;  ; true ; 0.12
+samplingfm/Benchmarks/19.sk_3_48.cnf ; MiniSAT ; 1.14.0 ;  ; true ; 0.02
+samplingfm/Benchmarks/19.sk_3_48.cnf ; MiniSAT ; 2.2.0 ; -rnd-freq=0.0 ; true ; 0.008
+samplingfm/Benchmarks/19.sk_3_48.cnf ; MiniSAT ; 2.2.0 ; -rnd-freq=0.5 ; true ; 0.0
+samplingfm/Benchmarks/19.sk_3_48.cnf ; MiniSAT ; 2.2.0 ; -rnd-freq=0.9 ; true ; 0.008
+samplingfm/Benchmarks/19.sk_3_48.cnf ; CryptoMiniSAT ; 2.4.0 ;  ; true ; 0.05
+samplingfm/Benchmarks/19.sk_3_48.cnf ; CryptoMiniSAT ; 4.5.3 ;  ; true ; 0.05
+samplingfm/Benchmarks/19.sk_3_48.cnf ; CryptoMiniSAT ; 5.6.8 ; --freq=0.0 ; true ; 0.01
+samplingfm/Benchmarks/19.sk_3_48.cnf ; CryptoMiniSAT ; 5.6.8 ; --freq=0.5 ; true ; 0.01
+samplingfm/Benchmarks/19.sk_3_48.cnf ; CryptoMiniSAT ; 5.6.8 ; --freq=0.9 ; true ; 0.01
+samplingfm/Benchmarks/lss.sk_6_7.cnf ; sat4j-jar ; 2.3.1 ;  ; true ; 0.83
+samplingfm/Benchmarks/lss.sk_6_7.cnf ; MiniSAT ; 1.14.0 ;  ; true ; 0.24
+samplingfm/Benchmarks/lss.sk_6_7.cnf ; MiniSAT ; 2.2.0 ; -rnd-freq=0.0 ; true ; 0.052
+samplingfm/Benchmarks/lss.sk_6_7.cnf ; MiniSAT ; 2.2.0 ; -rnd-freq=0.5 ; true ; 0.152
+samplingfm/Benchmarks/lss.sk_6_7.cnf ; MiniSAT ; 2.2.0 ; -rnd-freq=0.9 ; true ; 0.06
+samplingfm/Benchmarks/lss.sk_6_7.cnf ; CryptoMiniSAT ; 2.4.0 ;  ; true ; 0.58
+samplingfm/Benchmarks/lss.sk_6_7.cnf ; CryptoMiniSAT ; 4.5.3 ;  ; true ; 0.66
+samplingfm/Benchmarks/lss.sk_6_7.cnf ; CryptoMiniSAT ; 5.6.8 ; --freq=0.0 ; true ; 0.2
+samplingfm/Benchmarks/lss.sk_6_7.cnf ; CryptoMiniSAT ; 5.6.8 ; --freq=0.5 ; true ; 0.08
+samplingfm/Benchmarks/lss.sk_6_7.cnf ; CryptoMiniSAT ; 5.6.8 ; --freq=0.9 ; true ; 0.18
+samplingfm/Benchmarks/ConcreteActivityService.sk_13_28.cnf ; sat4j-jar ; 2.3.1 ;  ; true ; 0.06
+samplingfm/Benchmarks/ConcreteActivityService.sk_13_28.cnf ; MiniSAT ; 1.14.0 ;  ; true ; 0.004
+samplingfm/Benchmarks/ConcreteActivityService.sk_13_28.cnf ; MiniSAT ; 2.2.0 ; -rnd-freq=0.0 ; true ; 0.0
+samplingfm/Benchmarks/ConcreteActivityService.sk_13_28.cnf ; MiniSAT ; 2.2.0 ; -rnd-freq=0.5 ; true ; 0.0
+samplingfm/Benchmarks/ConcreteActivityService.sk_13_28.cnf ; MiniSAT ; 2.2.0 ; -rnd-freq=0.9 ; true ; 0.0
+samplingfm/Benchmarks/ConcreteActivityService.sk_13_28.cnf ; CryptoMiniSAT ; 2.4.0 ;  ; true ; 0.01
+samplingfm/Benchmarks/ConcreteActivityService.sk_13_28.cnf ; CryptoMiniSAT ; 4.5.3 ;  ; true ; 0.02
+samplingfm/Benchmarks/ConcreteActivityService.sk_13_28.cnf ; CryptoMiniSAT ; 5.6.8 ; --freq=0.0 ; true ; 0.01
+samplingfm/Benchmarks/ConcreteActivityService.sk_13_28.cnf ; CryptoMiniSAT ; 5.6.8 ; --freq=0.5 ; true ; 0.01
+samplingfm/Benchmarks/ConcreteActivityService.sk_13_28.cnf ; CryptoMiniSAT ; 5.6.8 ; --freq=0.9 ; true ; 0.01
+samplingfm/Benchmarks/doublyLinkedList.sk_8_37.cnf ; sat4j-jar ; 2.3.1 ;  ; true ; 0.1
+samplingfm/Benchmarks/doublyLinkedList.sk_8_37.cnf ; MiniSAT ; 1.14.0 ;  ; true ; 0.012
+samplingfm/Benchmarks/doublyLinkedList.sk_8_37.cnf ; MiniSAT ; 2.2.0 ; -rnd-freq=0.0 ; true ; 0.008
+samplingfm/Benchmarks/doublyLinkedList.sk_8_37.cnf ; MiniSAT ; 2.2.0 ; -rnd-freq=0.5 ; true ; 0.012
+samplingfm/Benchmarks/doublyLinkedList.sk_8_37.cnf ; MiniSAT ; 2.2.0 ; -rnd-freq=0.9 ; true ; 0.024
+samplingfm/Benchmarks/doublyLinkedList.sk_8_37.cnf ; CryptoMiniSAT ; 2.4.0 ;  ; true ; 0.04
+samplingfm/Benchmarks/doublyLinkedList.sk_8_37.cnf ; CryptoMiniSAT ; 4.5.3 ;  ; true ; 0.06
+samplingfm/Benchmarks/doublyLinkedList.sk_8_37.cnf ; CryptoMiniSAT ; 5.6.8 ; --freq=0.0 ; true ; 0.02
+samplingfm/Benchmarks/doublyLinkedList.sk_8_37.cnf ; CryptoMiniSAT ; 5.6.8 ; --freq=0.5 ; true ; 0.05
+samplingfm/Benchmarks/doublyLinkedList.sk_8_37.cnf ; CryptoMiniSAT ; 5.6.8 ; --freq=0.9 ; true ; 0.02
+samplingfm/Benchmarks/isolateRightmost.sk_7_481.cnf ; sat4j-jar ; 2.3.1 ;  ; true ; 0.22
+samplingfm/Benchmarks/isolateRightmost.sk_7_481.cnf ; MiniSAT ; 1.14.0 ;  ; true ; 0.016
+samplingfm/Benchmarks/isolateRightmost.sk_7_481.cnf ; MiniSAT ; 2.2.0 ; -rnd-freq=0.0 ; true ; 0.008
+samplingfm/Benchmarks/isolateRightmost.sk_7_481.cnf ; MiniSAT ; 2.2.0 ; -rnd-freq=0.5 ; true ; 0.012
+samplingfm/Benchmarks/isolateRightmost.sk_7_481.cnf ; MiniSAT ; 2.2.0 ; -rnd-freq=0.9 ; true ; 0.064
+samplingfm/Benchmarks/isolateRightmost.sk_7_481.cnf ; CryptoMiniSAT ; 2.4.0 ;  ; true ; 0.06
+samplingfm/Benchmarks/isolateRightmost.sk_7_481.cnf ; CryptoMiniSAT ; 4.5.3 ;  ; true ; 0.08
+samplingfm/Benchmarks/isolateRightmost.sk_7_481.cnf ; CryptoMiniSAT ; 5.6.8 ; --freq=0.0 ; true ; 0.02
+samplingfm/Benchmarks/isolateRightmost.sk_7_481.cnf ; CryptoMiniSAT ; 5.6.8 ; --freq=0.5 ; true ; 0.03
+samplingfm/Benchmarks/isolateRightmost.sk_7_481.cnf ; CryptoMiniSAT ; 5.6.8 ; --freq=0.9 ; true ; 0.09
+samplingfm/Benchmarks/20.sk_1_51.cnf ; sat4j-jar ; 2.3.1 ;  ; true ; 0.15
+samplingfm/Benchmarks/20.sk_1_51.cnf ; MiniSAT ; 1.14.0 ;  ; true ; 0.012
+samplingfm/Benchmarks/20.sk_1_51.cnf ; MiniSAT ; 2.2.0 ; -rnd-freq=0.0 ; true ; 0.008
+samplingfm/Benchmarks/20.sk_1_51.cnf ; MiniSAT ; 2.2.0 ; -rnd-freq=0.5 ; true ; 0.008
+samplingfm/Benchmarks/20.sk_1_51.cnf ; MiniSAT ; 2.2.0 ; -rnd-freq=0.9 ; true ; 0.012
+samplingfm/Benchmarks/20.sk_1_51.cnf ; CryptoMiniSAT ; 2.4.0 ;  ; true ; 0.1
+samplingfm/Benchmarks/20.sk_1_51.cnf ; CryptoMiniSAT ; 4.5.3 ;  ; true ; 0.08
+samplingfm/Benchmarks/20.sk_1_51.cnf ; CryptoMiniSAT ; 5.6.8 ; --freq=0.0 ; true ; 0.02
+samplingfm/Benchmarks/20.sk_1_51.cnf ; CryptoMiniSAT ; 5.6.8 ; --freq=0.5 ; true ; 0.02
+samplingfm/Benchmarks/20.sk_1_51.cnf ; CryptoMiniSAT ; 5.6.8 ; --freq=0.9 ; true ; 0.02
+samplingfm/Benchmarks/109.sk_4_36.cnf ; sat4j-jar ; 2.3.1 ;  ; true ; 0.05
+samplingfm/Benchmarks/109.sk_4_36.cnf ; MiniSAT ; 1.14.0 ;  ; true ; 0.0
+samplingfm/Benchmarks/109.sk_4_36.cnf ; MiniSAT ; 2.2.0 ; -rnd-freq=0.0 ; true ; 0.0
+samplingfm/Benchmarks/109.sk_4_36.cnf ; MiniSAT ; 2.2.0 ; -rnd-freq=0.5 ; true ; 0.0
+samplingfm/Benchmarks/109.sk_4_36.cnf ; MiniSAT ; 2.2.0 ; -rnd-freq=0.9 ; true ; 0.0
+samplingfm/Benchmarks/109.sk_4_36.cnf ; CryptoMiniSAT ; 2.4.0 ;  ; true ; 0.01
+samplingfm/Benchmarks/109.sk_4_36.cnf ; CryptoMiniSAT ; 4.5.3 ;  ; true ; 0.01
+samplingfm/Benchmarks/109.sk_4_36.cnf ; CryptoMiniSAT ; 5.6.8 ; --freq=0.0 ; true ; 0.0
+samplingfm/Benchmarks/109.sk_4_36.cnf ; CryptoMiniSAT ; 5.6.8 ; --freq=0.5 ; true ; 0.0
+samplingfm/Benchmarks/109.sk_4_36.cnf ; CryptoMiniSAT ; 5.6.8 ; --freq=0.9 ; true ; 0.0
+samplingfm/Benchmarks/80.sk_2_48.cnf ; sat4j-jar ; 2.3.1 ;  ; true ; 0.08
+samplingfm/Benchmarks/80.sk_2_48.cnf ; MiniSAT ; 1.14.0 ;  ; true ; 0.004
+samplingfm/Benchmarks/80.sk_2_48.cnf ; MiniSAT ; 2.2.0 ; -rnd-freq=0.0 ; true ; 0.0
+samplingfm/Benchmarks/80.sk_2_48.cnf ; MiniSAT ; 2.2.0 ; -rnd-freq=0.5 ; true ; 0.0
+samplingfm/Benchmarks/80.sk_2_48.cnf ; MiniSAT ; 2.2.0 ; -rnd-freq=0.9 ; true ; 0.004
+samplingfm/Benchmarks/80.sk_2_48.cnf ; CryptoMiniSAT ; 2.4.0 ;  ; true ; 0.03
+samplingfm/Benchmarks/80.sk_2_48.cnf ; CryptoMiniSAT ; 4.5.3 ;  ; true ; 0.03
+samplingfm/Benchmarks/80.sk_2_48.cnf ; CryptoMiniSAT ; 5.6.8 ; --freq=0.0 ; true ; 0.01
+samplingfm/Benchmarks/80.sk_2_48.cnf ; CryptoMiniSAT ; 5.6.8 ; --freq=0.5 ; true ; 0.01
+samplingfm/Benchmarks/80.sk_2_48.cnf ; CryptoMiniSAT ; 5.6.8 ; --freq=0.9 ; true ; 0.01
+samplingfm/Benchmarks/PhaseService.sk_14_27.cnf ; sat4j-jar ; 2.3.1 ;  ; true ; 0.05
+samplingfm/Benchmarks/PhaseService.sk_14_27.cnf ; MiniSAT ; 1.14.0 ;  ; true ; 0.0
+samplingfm/Benchmarks/PhaseService.sk_14_27.cnf ; MiniSAT ; 2.2.0 ; -rnd-freq=0.0 ; true ; 0.0
+samplingfm/Benchmarks/PhaseService.sk_14_27.cnf ; MiniSAT ; 2.2.0 ; -rnd-freq=0.5 ; true ; 0.0
+samplingfm/Benchmarks/PhaseService.sk_14_27.cnf ; MiniSAT ; 2.2.0 ; -rnd-freq=0.9 ; true ; 0.0
+samplingfm/Benchmarks/PhaseService.sk_14_27.cnf ; CryptoMiniSAT ; 2.4.0 ;  ; true ; 0.01
+samplingfm/Benchmarks/PhaseService.sk_14_27.cnf ; CryptoMiniSAT ; 4.5.3 ;  ; true ; 0.01
+samplingfm/Benchmarks/PhaseService.sk_14_27.cnf ; CryptoMiniSAT ; 5.6.8 ; --freq=0.0 ; true ; 0.0
+samplingfm/Benchmarks/PhaseService.sk_14_27.cnf ; CryptoMiniSAT ; 5.6.8 ; --freq=0.5 ; true ; 0.0
+samplingfm/Benchmarks/PhaseService.sk_14_27.cnf ; CryptoMiniSAT ; 5.6.8 ; --freq=0.9 ; true ; 0.0
+samplingfm/Benchmarks/NotificationServiceImpl2.sk_10_36.cnf ; sat4j-jar ; 2.3.1 ;  ; true ; 0.13
+samplingfm/Benchmarks/NotificationServiceImpl2.sk_10_36.cnf ; MiniSAT ; 1.14.0 ;  ; true ; 0.004
+samplingfm/Benchmarks/NotificationServiceImpl2.sk_10_36.cnf ; MiniSAT ; 2.2.0 ; -rnd-freq=0.0 ; true ; 0.0
+samplingfm/Benchmarks/NotificationServiceImpl2.sk_10_36.cnf ; MiniSAT ; 2.2.0 ; -rnd-freq=0.5 ; true ; 0.004
+samplingfm/Benchmarks/NotificationServiceImpl2.sk_10_36.cnf ; MiniSAT ; 2.2.0 ; -rnd-freq=0.9 ; true ; 0.012
+samplingfm/Benchmarks/NotificationServiceImpl2.sk_10_36.cnf ; CryptoMiniSAT ; 2.4.0 ;  ; true ; 0.02
+samplingfm/Benchmarks/NotificationServiceImpl2.sk_10_36.cnf ; CryptoMiniSAT ; 4.5.3 ;  ; true ; 0.03
+samplingfm/Benchmarks/NotificationServiceImpl2.sk_10_36.cnf ; CryptoMiniSAT ; 5.6.8 ; --freq=0.0 ; true ; 0.01
+samplingfm/Benchmarks/NotificationServiceImpl2.sk_10_36.cnf ; CryptoMiniSAT ; 5.6.8 ; --freq=0.5 ; true ; 0.0
+samplingfm/Benchmarks/NotificationServiceImpl2.sk_10_36.cnf ; CryptoMiniSAT ; 5.6.8 ; --freq=0.9 ; true ; 0.01
+samplingfm/Benchmarks/compress.sk_17_291.cnf ; sat4j-jar ; 2.3.1 ;  ; true ; 4.9
+samplingfm/Benchmarks/compress.sk_17_291.cnf ; MiniSAT ; 1.14.0 ;  ; true ; 2.412
+samplingfm/Benchmarks/compress.sk_17_291.cnf ; MiniSAT ; 2.2.0 ; -rnd-freq=0.0 ; true ; 0.364
+samplingfm/Benchmarks/compress.sk_17_291.cnf ; MiniSAT ; 2.2.0 ; -rnd-freq=0.5 ; true ; 0.188
+samplingfm/Benchmarks/compress.sk_17_291.cnf ; MiniSAT ; 2.2.0 ; -rnd-freq=0.9 ; true ; 0.636
+samplingfm/Benchmarks/compress.sk_17_291.cnf ; CryptoMiniSAT ; 2.4.0 ;  ; true ; 1.6
+samplingfm/Benchmarks/compress.sk_17_291.cnf ; CryptoMiniSAT ; 4.5.3 ;  ; true ; 0.62
+samplingfm/Benchmarks/compress.sk_17_291.cnf ; CryptoMiniSAT ; 5.6.8 ; --freq=0.0 ; true ; 0.78
+samplingfm/Benchmarks/compress.sk_17_291.cnf ; CryptoMiniSAT ; 5.6.8 ; --freq=0.5 ; true ; 0.68
+samplingfm/Benchmarks/compress.sk_17_291.cnf ; CryptoMiniSAT ; 5.6.8 ; --freq=0.9 ; true ; 0.08
+samplingfm/Benchmarks/Pollard.sk_1_10.cnf ; sat4j-jar ; 2.3.1 ;  ; true ; 0.0
+samplingfm/Benchmarks/Pollard.sk_1_10.cnf ; MiniSAT ; 1.14.0 ;  ; true ; 0.016
+samplingfm/Benchmarks/Pollard.sk_1_10.cnf ; MiniSAT ; 2.2.0 ; -rnd-freq=0.0 ; true ; 0.004
+samplingfm/Benchmarks/Pollard.sk_1_10.cnf ; MiniSAT ; 2.2.0 ; -rnd-freq=0.5 ; true ; 0.004
+samplingfm/Benchmarks/Pollard.sk_1_10.cnf ; MiniSAT ; 2.2.0 ; -rnd-freq=0.9 ; true ; 0.008
+samplingfm/Benchmarks/Pollard.sk_1_10.cnf ; CryptoMiniSAT ; 2.4.0 ;  ; true ; 0.06
+samplingfm/Benchmarks/Pollard.sk_1_10.cnf ; CryptoMiniSAT ; 4.5.3 ;  ; true ; 0.06
+samplingfm/Benchmarks/Pollard.sk_1_10.cnf ; CryptoMiniSAT ; 5.6.8 ; --freq=0.0 ; true ; 0.01
+samplingfm/Benchmarks/Pollard.sk_1_10.cnf ; CryptoMiniSAT ; 5.6.8 ; --freq=0.5 ; true ; 0.01
+samplingfm/Benchmarks/Pollard.sk_1_10.cnf ; CryptoMiniSAT ; 5.6.8 ; --freq=0.9 ; true ; 0.01
+samplingfm/Benchmarks/diagStencilClean.sk_41_36.cnf ; sat4j-jar ; 2.3.1 ;  ; false ; -1.0
+samplingfm/Benchmarks/diagStencilClean.sk_41_36.cnf ; MiniSAT ; 1.14.0 ;  ; true ; 178.38
+samplingfm/Benchmarks/diagStencilClean.sk_41_36.cnf ; MiniSAT ; 2.2.0 ; -rnd-freq=0.0 ; true ; 95.48
+samplingfm/Benchmarks/diagStencilClean.sk_41_36.cnf ; MiniSAT ; 2.2.0 ; -rnd-freq=0.5 ; true ; 150.032
+samplingfm/Benchmarks/diagStencilClean.sk_41_36.cnf ; MiniSAT ; 2.2.0 ; -rnd-freq=0.9 ; true ; 17.54
+samplingfm/Benchmarks/diagStencilClean.sk_41_36.cnf ; CryptoMiniSAT ; 2.4.0 ;  ; true ; 74.68
+samplingfm/Benchmarks/diagStencilClean.sk_41_36.cnf ; CryptoMiniSAT ; 4.5.3 ;  ; true ; 5.74
+samplingfm/Benchmarks/diagStencilClean.sk_41_36.cnf ; CryptoMiniSAT ; 5.6.8 ; --freq=0.0 ; true ; 138.52
+samplingfm/Benchmarks/diagStencilClean.sk_41_36.cnf ; CryptoMiniSAT ; 5.6.8 ; --freq=0.5 ; true ; 183.66
+samplingfm/Benchmarks/diagStencilClean.sk_41_36.cnf ; CryptoMiniSAT ; 5.6.8 ; --freq=0.9 ; true ; 172.56
+samplingfm/Benchmarks/GuidanceService.sk_4_27.cnf ; sat4j-jar ; 2.3.1 ;  ; true ; 0.05
+samplingfm/Benchmarks/GuidanceService.sk_4_27.cnf ; MiniSAT ; 1.14.0 ;  ; true ; 0.0
+samplingfm/Benchmarks/GuidanceService.sk_4_27.cnf ; MiniSAT ; 2.2.0 ; -rnd-freq=0.0 ; true ; 0.0
+samplingfm/Benchmarks/GuidanceService.sk_4_27.cnf ; MiniSAT ; 2.2.0 ; -rnd-freq=0.5 ; true ; 0.0
+samplingfm/Benchmarks/GuidanceService.sk_4_27.cnf ; MiniSAT ; 2.2.0 ; -rnd-freq=0.9 ; true ; 0.0
+samplingfm/Benchmarks/GuidanceService.sk_4_27.cnf ; CryptoMiniSAT ; 2.4.0 ;  ; true ; 0.0
+samplingfm/Benchmarks/GuidanceService.sk_4_27.cnf ; CryptoMiniSAT ; 4.5.3 ;  ; true ; 0.01
+samplingfm/Benchmarks/GuidanceService.sk_4_27.cnf ; CryptoMiniSAT ; 5.6.8 ; --freq=0.0 ; true ; 0.0
+samplingfm/Benchmarks/GuidanceService.sk_4_27.cnf ; CryptoMiniSAT ; 5.6.8 ; --freq=0.5 ; true ; 0.0
+samplingfm/Benchmarks/GuidanceService.sk_4_27.cnf ; CryptoMiniSAT ; 5.6.8 ; --freq=0.9 ; true ; 0.0
+samplingfm/Benchmarks/polynomial.sk_7_25.cnf ; sat4j-jar ; 2.3.1 ;  ; true ; 0.02
+samplingfm/Benchmarks/polynomial.sk_7_25.cnf ; MiniSAT ; 1.14.0 ;  ; true ; 0.0
+samplingfm/Benchmarks/polynomial.sk_7_25.cnf ; MiniSAT ; 2.2.0 ; -rnd-freq=0.0 ; true ; 0.0
+samplingfm/Benchmarks/polynomial.sk_7_25.cnf ; MiniSAT ; 2.2.0 ; -rnd-freq=0.5 ; true ; 0.0
+samplingfm/Benchmarks/polynomial.sk_7_25.cnf ; MiniSAT ; 2.2.0 ; -rnd-freq=0.9 ; true ; 0.0
+samplingfm/Benchmarks/polynomial.sk_7_25.cnf ; CryptoMiniSAT ; 2.4.0 ;  ; true ; 0.0
+samplingfm/Benchmarks/polynomial.sk_7_25.cnf ; CryptoMiniSAT ; 4.5.3 ;  ; true ; 0.0
+samplingfm/Benchmarks/polynomial.sk_7_25.cnf ; CryptoMiniSAT ; 5.6.8 ; --freq=0.0 ; true ; 0.0
+samplingfm/Benchmarks/polynomial.sk_7_25.cnf ; CryptoMiniSAT ; 5.6.8 ; --freq=0.5 ; true ; 0.0
+samplingfm/Benchmarks/polynomial.sk_7_25.cnf ; CryptoMiniSAT ; 5.6.8 ; --freq=0.9 ; true ; 0.0
+samplingfm/Benchmarks/registerlesSwap.sk_3_10.cnf ; sat4j-jar ; 2.3.1 ;  ; true ; 0.02
+samplingfm/Benchmarks/registerlesSwap.sk_3_10.cnf ; MiniSAT ; 1.14.0 ;  ; true ; 0.0
+samplingfm/Benchmarks/registerlesSwap.sk_3_10.cnf ; MiniSAT ; 2.2.0 ; -rnd-freq=0.0 ; true ; 0.0
+samplingfm/Benchmarks/registerlesSwap.sk_3_10.cnf ; MiniSAT ; 2.2.0 ; -rnd-freq=0.5 ; true ; 0.0
+samplingfm/Benchmarks/registerlesSwap.sk_3_10.cnf ; MiniSAT ; 2.2.0 ; -rnd-freq=0.9 ; true ; 0.0
+samplingfm/Benchmarks/registerlesSwap.sk_3_10.cnf ; CryptoMiniSAT ; 2.4.0 ;  ; true ; 0.0
+samplingfm/Benchmarks/registerlesSwap.sk_3_10.cnf ; CryptoMiniSAT ; 4.5.3 ;  ; true ; 0.0
+samplingfm/Benchmarks/registerlesSwap.sk_3_10.cnf ; CryptoMiniSAT ; 5.6.8 ; --freq=0.0 ; true ; 0.0
+samplingfm/Benchmarks/registerlesSwap.sk_3_10.cnf ; CryptoMiniSAT ; 5.6.8 ; --freq=0.5 ; true ; 0.0
+samplingfm/Benchmarks/registerlesSwap.sk_3_10.cnf ; CryptoMiniSAT ; 5.6.8 ; --freq=0.9 ; true ; 0.01
+samplingfm/Benchmarks/81.sk_5_51.cnf ; sat4j-jar ; 2.3.1 ;  ; true ; 0.16
+samplingfm/Benchmarks/81.sk_5_51.cnf ; MiniSAT ; 1.14.0 ;  ; true ; 0.012
+samplingfm/Benchmarks/81.sk_5_51.cnf ; MiniSAT ; 2.2.0 ; -rnd-freq=0.0 ; true ; 0.004
+samplingfm/Benchmarks/81.sk_5_51.cnf ; MiniSAT ; 2.2.0 ; -rnd-freq=0.5 ; true ; 0.008
+samplingfm/Benchmarks/81.sk_5_51.cnf ; MiniSAT ; 2.2.0 ; -rnd-freq=0.9 ; true ; 0.008
+samplingfm/Benchmarks/81.sk_5_51.cnf ; CryptoMiniSAT ; 2.4.0 ;  ; true ; 0.06
+samplingfm/Benchmarks/81.sk_5_51.cnf ; CryptoMiniSAT ; 4.5.3 ;  ; true ; 0.06
+samplingfm/Benchmarks/81.sk_5_51.cnf ; CryptoMiniSAT ; 5.6.8 ; --freq=0.0 ; true ; 0.01
+samplingfm/Benchmarks/81.sk_5_51.cnf ; CryptoMiniSAT ; 5.6.8 ; --freq=0.5 ; true ; 0.02
+samplingfm/Benchmarks/81.sk_5_51.cnf ; CryptoMiniSAT ; 5.6.8 ; --freq=0.9 ; true ; 0.02
+samplingfm/Benchmarks/79.sk_4_40.cnf ; sat4j-jar ; 2.3.1 ;  ; false ; 0.01
+samplingfm/Benchmarks/79.sk_4_40.cnf ; MiniSAT ; 1.14.0 ;  ; false ; 0.0
+samplingfm/Benchmarks/79.sk_4_40.cnf ; MiniSAT ; 2.2.0 ; -rnd-freq=0.0 ; false ; 0.0
+samplingfm/Benchmarks/79.sk_4_40.cnf ; MiniSAT ; 2.2.0 ; -rnd-freq=0.5 ; false ; 0.0
+samplingfm/Benchmarks/79.sk_4_40.cnf ; MiniSAT ; 2.2.0 ; -rnd-freq=0.9 ; false ; 0.0
+samplingfm/Benchmarks/79.sk_4_40.cnf ; CryptoMiniSAT ; 2.4.0 ;  ; false ; 0.0
+samplingfm/Benchmarks/79.sk_4_40.cnf ; CryptoMiniSAT ; 4.5.3 ;  ; false ; 0.0
+samplingfm/Benchmarks/79.sk_4_40.cnf ; CryptoMiniSAT ; 5.6.8 ; --freq=0.0 ; false ; 0.0
+samplingfm/Benchmarks/79.sk_4_40.cnf ; CryptoMiniSAT ; 5.6.8 ; --freq=0.5 ; false ; 0.0
+samplingfm/Benchmarks/79.sk_4_40.cnf ; CryptoMiniSAT ; 5.6.8 ; --freq=0.9 ; false ; 0.0
+samplingfm/Benchmarks/xpose.sk_6_134.cnf ; sat4j-jar ; 2.3.1 ;  ; true ; 98.38
+samplingfm/Benchmarks/xpose.sk_6_134.cnf ; MiniSAT ; 1.14.0 ;  ; false ; -1.0
+samplingfm/Benchmarks/xpose.sk_6_134.cnf ; MiniSAT ; 2.2.0 ; -rnd-freq=0.0 ; false ; -1.0
+samplingfm/Benchmarks/xpose.sk_6_134.cnf ; MiniSAT ; 2.2.0 ; -rnd-freq=0.5 ; true ; 2.596
+samplingfm/Benchmarks/xpose.sk_6_134.cnf ; MiniSAT ; 2.2.0 ; -rnd-freq=0.9 ; true ; 27.732
+samplingfm/Benchmarks/xpose.sk_6_134.cnf ; CryptoMiniSAT ; 2.4.0 ;  ; true ; 19.46
+samplingfm/Benchmarks/xpose.sk_6_134.cnf ; CryptoMiniSAT ; 4.5.3 ;  ; true ; 16.99
+samplingfm/Benchmarks/xpose.sk_6_134.cnf ; CryptoMiniSAT ; 5.6.8 ; --freq=0.0 ; true ; 14.05
+samplingfm/Benchmarks/xpose.sk_6_134.cnf ; CryptoMiniSAT ; 5.6.8 ; --freq=0.5 ; true ; 95.19
+samplingfm/Benchmarks/xpose.sk_6_134.cnf ; CryptoMiniSAT ; 5.6.8 ; --freq=0.9 ; true ; 10.7
+samplingfm/Benchmarks/reverse.sk_11_258.cnf ; sat4j-jar ; 2.3.1 ;  ; true ; 0.62
+samplingfm/Benchmarks/reverse.sk_11_258.cnf ; MiniSAT ; 1.14.0 ;  ; true ; 0.112
+samplingfm/Benchmarks/reverse.sk_11_258.cnf ; MiniSAT ; 2.2.0 ; -rnd-freq=0.0 ; true ; 0.084
+samplingfm/Benchmarks/reverse.sk_11_258.cnf ; MiniSAT ; 2.2.0 ; -rnd-freq=0.5 ; true ; 0.08
+samplingfm/Benchmarks/reverse.sk_11_258.cnf ; MiniSAT ; 2.2.0 ; -rnd-freq=0.9 ; true ; 0.088
+samplingfm/Benchmarks/reverse.sk_11_258.cnf ; CryptoMiniSAT ; 2.4.0 ;  ; true ; 3.76
+samplingfm/Benchmarks/reverse.sk_11_258.cnf ; CryptoMiniSAT ; 4.5.3 ;  ; true ; 1.0
+samplingfm/Benchmarks/reverse.sk_11_258.cnf ; CryptoMiniSAT ; 5.6.8 ; --freq=0.0 ; true ; 0.13
+samplingfm/Benchmarks/reverse.sk_11_258.cnf ; CryptoMiniSAT ; 5.6.8 ; --freq=0.5 ; true ; 0.13
+samplingfm/Benchmarks/reverse.sk_11_258.cnf ; CryptoMiniSAT ; 5.6.8 ; --freq=0.9 ; true ; 0.14
+samplingfm/Benchmarks/55.sk_3_46.cnf ; sat4j-jar ; 2.3.1 ;  ; true ; 0.0
+samplingfm/Benchmarks/55.sk_3_46.cnf ; MiniSAT ; 1.14.0 ;  ; true ; 0.0
+samplingfm/Benchmarks/55.sk_3_46.cnf ; MiniSAT ; 2.2.0 ; -rnd-freq=0.0 ; true ; 0.0
+samplingfm/Benchmarks/55.sk_3_46.cnf ; MiniSAT ; 2.2.0 ; -rnd-freq=0.5 ; true ; 0.0
+samplingfm/Benchmarks/55.sk_3_46.cnf ; MiniSAT ; 2.2.0 ; -rnd-freq=0.9 ; true ; 0.0
+samplingfm/Benchmarks/55.sk_3_46.cnf ; CryptoMiniSAT ; 2.4.0 ;  ; true ; 0.0
+samplingfm/Benchmarks/55.sk_3_46.cnf ; CryptoMiniSAT ; 4.5.3 ;  ; true ; 0.01
+samplingfm/Benchmarks/55.sk_3_46.cnf ; CryptoMiniSAT ; 5.6.8 ; --freq=0.0 ; true ; 0.0
+samplingfm/Benchmarks/55.sk_3_46.cnf ; CryptoMiniSAT ; 5.6.8 ; --freq=0.5 ; true ; 0.0
+samplingfm/Benchmarks/55.sk_3_46.cnf ; CryptoMiniSAT ; 5.6.8 ; --freq=0.9 ; true ; 0.0
+samplingfm/Benchmarks/tableBasedAddition.sk_240_1024.cnf ; sat4j-jar ; 2.3.1 ;  ; true ; 0.01
+samplingfm/Benchmarks/tableBasedAddition.sk_240_1024.cnf ; MiniSAT ; 1.14.0 ;  ; true ; 0.0
+samplingfm/Benchmarks/tableBasedAddition.sk_240_1024.cnf ; MiniSAT ; 2.2.0 ; -rnd-freq=0.0 ; true ; 0.0
+samplingfm/Benchmarks/tableBasedAddition.sk_240_1024.cnf ; MiniSAT ; 2.2.0 ; -rnd-freq=0.5 ; true ; 0.0
+samplingfm/Benchmarks/tableBasedAddition.sk_240_1024.cnf ; MiniSAT ; 2.2.0 ; -rnd-freq=0.9 ; true ; 0.0
+samplingfm/Benchmarks/tableBasedAddition.sk_240_1024.cnf ; CryptoMiniSAT ; 2.4.0 ;  ; true ; 0.0
+samplingfm/Benchmarks/tableBasedAddition.sk_240_1024.cnf ; CryptoMiniSAT ; 4.5.3 ;  ; true ; 0.0
+samplingfm/Benchmarks/tableBasedAddition.sk_240_1024.cnf ; CryptoMiniSAT ; 5.6.8 ; --freq=0.0 ; true ; 0.0
+samplingfm/Benchmarks/tableBasedAddition.sk_240_1024.cnf ; CryptoMiniSAT ; 5.6.8 ; --freq=0.5 ; true ; 0.0
+samplingfm/Benchmarks/tableBasedAddition.sk_240_1024.cnf ; CryptoMiniSAT ; 5.6.8 ; --freq=0.9 ; true ; 0.0
+samplingfm/Benchmarks/107.sk_3_90.cnf ; sat4j-jar ; 2.3.1 ;  ; true ; 0.09
+samplingfm/Benchmarks/107.sk_3_90.cnf ; MiniSAT ; 1.14.0 ;  ; true ; 0.004
+samplingfm/Benchmarks/107.sk_3_90.cnf ; MiniSAT ; 2.2.0 ; -rnd-freq=0.0 ; true ; 0.0
+samplingfm/Benchmarks/107.sk_3_90.cnf ; MiniSAT ; 2.2.0 ; -rnd-freq=0.5 ; true ; 0.0
+samplingfm/Benchmarks/107.sk_3_90.cnf ; MiniSAT ; 2.2.0 ; -rnd-freq=0.9 ; true ; 0.0
+samplingfm/Benchmarks/107.sk_3_90.cnf ; CryptoMiniSAT ; 2.4.0 ;  ; true ; 0.01
+samplingfm/Benchmarks/107.sk_3_90.cnf ; CryptoMiniSAT ; 4.5.3 ;  ; true ; 0.02
+samplingfm/Benchmarks/107.sk_3_90.cnf ; CryptoMiniSAT ; 5.6.8 ; --freq=0.0 ; true ; 0.0
+samplingfm/Benchmarks/107.sk_3_90.cnf ; CryptoMiniSAT ; 5.6.8 ; --freq=0.5 ; true ; 0.01
+samplingfm/Benchmarks/107.sk_3_90.cnf ; CryptoMiniSAT ; 5.6.8 ; --freq=0.9 ; true ; 0.0
+samplingfm/Benchmarks/ActivityService2.sk_10_27.cnf ; sat4j-jar ; 2.3.1 ;  ; true ; 0.05
+samplingfm/Benchmarks/ActivityService2.sk_10_27.cnf ; MiniSAT ; 1.14.0 ;  ; true ; 0.0
+samplingfm/Benchmarks/ActivityService2.sk_10_27.cnf ; MiniSAT ; 2.2.0 ; -rnd-freq=0.0 ; true ; 0.0
+samplingfm/Benchmarks/ActivityService2.sk_10_27.cnf ; MiniSAT ; 2.2.0 ; -rnd-freq=0.5 ; true ; 0.0
+samplingfm/Benchmarks/ActivityService2.sk_10_27.cnf ; MiniSAT ; 2.2.0 ; -rnd-freq=0.9 ; true ; 0.0
+samplingfm/Benchmarks/ActivityService2.sk_10_27.cnf ; CryptoMiniSAT ; 2.4.0 ;  ; true ; 0.01
+samplingfm/Benchmarks/ActivityService2.sk_10_27.cnf ; CryptoMiniSAT ; 4.5.3 ;  ; true ; 0.01
+samplingfm/Benchmarks/ActivityService2.sk_10_27.cnf ; CryptoMiniSAT ; 5.6.8 ; --freq=0.0 ; true ; 0.0
+samplingfm/Benchmarks/ActivityService2.sk_10_27.cnf ; CryptoMiniSAT ; 5.6.8 ; --freq=0.5 ; true ; 0.0
+samplingfm/Benchmarks/ActivityService2.sk_10_27.cnf ; CryptoMiniSAT ; 5.6.8 ; --freq=0.9 ; true ; 0.0
+samplingfm/Benchmarks/7.sk_4_50.cnf ; sat4j-jar ; 2.3.1 ;  ; true ; 0.1
+samplingfm/Benchmarks/7.sk_4_50.cnf ; MiniSAT ; 1.14.0 ;  ; true ; 0.004
+samplingfm/Benchmarks/7.sk_4_50.cnf ; MiniSAT ; 2.2.0 ; -rnd-freq=0.0 ; true ; 0.0
+samplingfm/Benchmarks/7.sk_4_50.cnf ; MiniSAT ; 2.2.0 ; -rnd-freq=0.5 ; true ; 0.004
+samplingfm/Benchmarks/7.sk_4_50.cnf ; MiniSAT ; 2.2.0 ; -rnd-freq=0.9 ; true ; 0.004
+samplingfm/Benchmarks/7.sk_4_50.cnf ; CryptoMiniSAT ; 2.4.0 ;  ; true ; 0.04
+samplingfm/Benchmarks/7.sk_4_50.cnf ; CryptoMiniSAT ; 4.5.3 ;  ; true ; 0.03
+samplingfm/Benchmarks/7.sk_4_50.cnf ; CryptoMiniSAT ; 5.6.8 ; --freq=0.0 ; true ; 0.01
+samplingfm/Benchmarks/7.sk_4_50.cnf ; CryptoMiniSAT ; 5.6.8 ; --freq=0.5 ; true ; 0.01
+samplingfm/Benchmarks/7.sk_4_50.cnf ; CryptoMiniSAT ; 5.6.8 ; --freq=0.9 ; true ; 0.01
+samplingfm/Benchmarks/enqueueSeqSK.sk_10_42.cnf ; sat4j-jar ; 2.3.1 ;  ; true ; 0.37
+samplingfm/Benchmarks/enqueueSeqSK.sk_10_42.cnf ; MiniSAT ; 1.14.0 ;  ; true ; 0.044
+samplingfm/Benchmarks/enqueueSeqSK.sk_10_42.cnf ; MiniSAT ; 2.2.0 ; -rnd-freq=0.0 ; true ; 0.04
+samplingfm/Benchmarks/enqueueSeqSK.sk_10_42.cnf ; MiniSAT ; 2.2.0 ; -rnd-freq=0.5 ; true ; 0.02
+samplingfm/Benchmarks/enqueueSeqSK.sk_10_42.cnf ; MiniSAT ; 2.2.0 ; -rnd-freq=0.9 ; true ; 1.764
+samplingfm/Benchmarks/enqueueSeqSK.sk_10_42.cnf ; CryptoMiniSAT ; 2.4.0 ;  ; true ; 0.22
+samplingfm/Benchmarks/enqueueSeqSK.sk_10_42.cnf ; CryptoMiniSAT ; 4.5.3 ;  ; true ; 0.26
+samplingfm/Benchmarks/enqueueSeqSK.sk_10_42.cnf ; CryptoMiniSAT ; 5.6.8 ; --freq=0.0 ; true ; 0.11
+samplingfm/Benchmarks/enqueueSeqSK.sk_10_42.cnf ; CryptoMiniSAT ; 5.6.8 ; --freq=0.5 ; true ; 0.24
+samplingfm/Benchmarks/enqueueSeqSK.sk_10_42.cnf ; CryptoMiniSAT ; 5.6.8 ; --freq=0.9 ; true ; 1.44
+samplingfm/Benchmarks/LoginService2.sk_23_36.cnf ; sat4j-jar ; 2.3.1 ;  ; true ; 0.17
+samplingfm/Benchmarks/LoginService2.sk_23_36.cnf ; MiniSAT ; 1.14.0 ;  ; true ; 0.016
+samplingfm/Benchmarks/LoginService2.sk_23_36.cnf ; MiniSAT ; 2.2.0 ; -rnd-freq=0.0 ; true ; 0.008
+samplingfm/Benchmarks/LoginService2.sk_23_36.cnf ; MiniSAT ; 2.2.0 ; -rnd-freq=0.5 ; true ; 0.008
+samplingfm/Benchmarks/LoginService2.sk_23_36.cnf ; MiniSAT ; 2.2.0 ; -rnd-freq=0.9 ; true ; 0.012
+samplingfm/Benchmarks/LoginService2.sk_23_36.cnf ; CryptoMiniSAT ; 2.4.0 ;  ; true ; 0.07
+samplingfm/Benchmarks/LoginService2.sk_23_36.cnf ; CryptoMiniSAT ; 4.5.3 ;  ; true ; 0.1
+samplingfm/Benchmarks/LoginService2.sk_23_36.cnf ; CryptoMiniSAT ; 5.6.8 ; --freq=0.0 ; true ; 0.02
+samplingfm/Benchmarks/LoginService2.sk_23_36.cnf ; CryptoMiniSAT ; 5.6.8 ; --freq=0.5 ; true ; 0.01
+samplingfm/Benchmarks/LoginService2.sk_23_36.cnf ; CryptoMiniSAT ; 5.6.8 ; --freq=0.9 ; true ; 0.02
+samplingfm/Benchmarks/53.sk_4_32.cnf ; sat4j-jar ; 2.3.1 ;  ; true ; 0.04
+samplingfm/Benchmarks/53.sk_4_32.cnf ; MiniSAT ; 1.14.0 ;  ; true ; 0.0
+samplingfm/Benchmarks/53.sk_4_32.cnf ; MiniSAT ; 2.2.0 ; -rnd-freq=0.0 ; true ; 0.0
+samplingfm/Benchmarks/53.sk_4_32.cnf ; MiniSAT ; 2.2.0 ; -rnd-freq=0.5 ; true ; 0.0
+samplingfm/Benchmarks/53.sk_4_32.cnf ; MiniSAT ; 2.2.0 ; -rnd-freq=0.9 ; true ; 0.0
+samplingfm/Benchmarks/53.sk_4_32.cnf ; CryptoMiniSAT ; 2.4.0 ;  ; true ; 0.01
+samplingfm/Benchmarks/53.sk_4_32.cnf ; CryptoMiniSAT ; 4.5.3 ;  ; true ; 0.01
+samplingfm/Benchmarks/53.sk_4_32.cnf ; CryptoMiniSAT ; 5.6.8 ; --freq=0.0 ; true ; 0.0
+samplingfm/Benchmarks/53.sk_4_32.cnf ; CryptoMiniSAT ; 5.6.8 ; --freq=0.5 ; true ; 0.0
+samplingfm/Benchmarks/53.sk_4_32.cnf ; CryptoMiniSAT ; 5.6.8 ; --freq=0.9 ; true ; 0.0
+samplingfm/Benchmarks/110.sk_3_88.cnf ; sat4j-jar ; 2.3.1 ;  ; true ; 0.18
+samplingfm/Benchmarks/110.sk_3_88.cnf ; MiniSAT ; 1.14.0 ;  ; true ; 0.016
+samplingfm/Benchmarks/110.sk_3_88.cnf ; MiniSAT ; 2.2.0 ; -rnd-freq=0.0 ; true ; 0.012
+samplingfm/Benchmarks/110.sk_3_88.cnf ; MiniSAT ; 2.2.0 ; -rnd-freq=0.5 ; true ; 0.012
+samplingfm/Benchmarks/110.sk_3_88.cnf ; MiniSAT ; 2.2.0 ; -rnd-freq=0.9 ; true ; 0.012
+samplingfm/Benchmarks/110.sk_3_88.cnf ; CryptoMiniSAT ; 2.4.0 ;  ; true ; 0.1
+samplingfm/Benchmarks/110.sk_3_88.cnf ; CryptoMiniSAT ; 4.5.3 ;  ; true ; 0.1
+samplingfm/Benchmarks/110.sk_3_88.cnf ; CryptoMiniSAT ; 5.6.8 ; --freq=0.0 ; true ; 0.02
+samplingfm/Benchmarks/110.sk_3_88.cnf ; CryptoMiniSAT ; 5.6.8 ; --freq=0.5 ; true ; 0.02
+samplingfm/Benchmarks/110.sk_3_88.cnf ; CryptoMiniSAT ; 5.6.8 ; --freq=0.9 ; true ; 0.02
+samplingfm/Benchmarks/56.sk_6_38.cnf ; sat4j-jar ; 2.3.1 ;  ; true ; 0.06
+samplingfm/Benchmarks/56.sk_6_38.cnf ; MiniSAT ; 1.14.0 ;  ; true ; 0.004
+samplingfm/Benchmarks/56.sk_6_38.cnf ; MiniSAT ; 2.2.0 ; -rnd-freq=0.0 ; true ; 0.0
+samplingfm/Benchmarks/56.sk_6_38.cnf ; MiniSAT ; 2.2.0 ; -rnd-freq=0.5 ; true ; 0.0
+samplingfm/Benchmarks/56.sk_6_38.cnf ; MiniSAT ; 2.2.0 ; -rnd-freq=0.9 ; true ; 0.0
+samplingfm/Benchmarks/56.sk_6_38.cnf ; CryptoMiniSAT ; 2.4.0 ;  ; true ; 0.02
+samplingfm/Benchmarks/56.sk_6_38.cnf ; CryptoMiniSAT ; 4.5.3 ;  ; true ; 0.01
+samplingfm/Benchmarks/56.sk_6_38.cnf ; CryptoMiniSAT ; 5.6.8 ; --freq=0.0 ; true ; 0.0
+samplingfm/Benchmarks/56.sk_6_38.cnf ; CryptoMiniSAT ; 5.6.8 ; --freq=0.5 ; true ; 0.0
+samplingfm/Benchmarks/56.sk_6_38.cnf ; CryptoMiniSAT ; 5.6.8 ; --freq=0.9 ; true ; 0.01

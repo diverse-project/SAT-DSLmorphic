@@ -15,6 +15,7 @@ import org.eclipse.emf.ecore.EObject;
  * </p>
  * <ul>
  *   <li>{@link org.xtext.example.mydsl1.mSat.CryptoMiniSAT#getVariant <em>Variant</em>}</li>
+ *   <li>{@link org.xtext.example.mydsl1.mSat.CryptoMiniSAT#getParameter <em>Parameter</em>}</li>
  * </ul>
  *
  * @see org.xtext.example.mydsl1.mSat.MSatPackage#getCryptoMiniSAT()
@@ -44,5 +45,27 @@ public interface CryptoMiniSAT extends EObject
    * @generated
    */
   void setVariant(String value);
+
+  /**
+   * Returns the value of the '<em><b>Parameter</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Parameter</em>' containment reference.
+   * @see #setParameter(CryptoMiniSATParameter)
+   * @see org.xtext.example.mydsl1.mSat.MSatPackage#getCryptoMiniSAT_Parameter()
+   * @model containment="true"
+   * @generated
+   */
+  CryptoMiniSATParameter getParameter();
+
+  /**
+   * Sets the value of the '{@link org.xtext.example.mydsl1.mSat.CryptoMiniSAT#getParameter <em>Parameter</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Parameter</em>' containment reference.
+   * @see #getParameter()
+   * @generated
+   */
+  void setParameter(CryptoMiniSATParameter value);
 
 } // CryptoMiniSAT
