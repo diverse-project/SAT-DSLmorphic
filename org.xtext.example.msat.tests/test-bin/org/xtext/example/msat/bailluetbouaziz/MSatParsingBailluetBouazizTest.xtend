@@ -46,6 +46,8 @@ import org.xtext.example.mydsl1.mSat.MiniSAT
 import org.xtext.example.mydsl1.mSat.CryptoMiniSAT
 import java.util.ArrayList
 import java.io.FileOutputStream
+import java.util.concurrent.TimeUnit
+import org.sat4j.specs.TimeoutException
 
 @ExtendWith(InjectionExtension)
 @InjectWith(MSatInjectorProvider)
@@ -98,7 +100,7 @@ class MSatParsingBailluetBouazizTest {
 		
 		for (String dimacsFile : dimacsFiles) {
 			for (SATSolver solver : solvers) {
-				var Pair<Boolean, Long> result;
+				var Pair<String, Long> result;
 				var String csvLine = dimacsFile+";";
 				
 				if(solver.getSolver() instanceof Sat4J) {
@@ -123,10 +125,7 @@ class MSatParsingBailluetBouazizTest {
 					csvLine += "cryptominisat;;"
 				}
 				
-				if (result.getKey())
-					csvLine += "SAT;"
-				else
-					csvLine += "UNSAT;"
+				csvLine += result.getKey()+";"
 				csvLine += result.getValue().toString() + "\n";
 				csv.write(csvLine.getBytes());
 			}
@@ -134,7 +133,7 @@ class MSatParsingBailluetBouazizTest {
 		
 	}
 	
-	def Pair<Boolean, Long> solve(String dimacsFile, CryptoMiniSAT cryptominisat) 
+	def Pair<String, Long> solve(String dimacsFile, CryptoMiniSAT cryptominisat) 
 	{
 		var long start = System.nanoTime();
 		var Process p = Runtime.getRuntime().exec("./cryptominisat5 --verb=0 " + dimacsFile);	
@@ -144,13 +143,13 @@ class MSatParsingBailluetBouazizTest {
 		var String s = null;
 		while ((s = stdInput.readLine()) !== null) {
 			if (s.contains("s SATISFIABLE"))
-				return new Pair<Boolean, Long>(true, end-start);
+				return new Pair<String, Long>("SAT", System.nanoTime()-start);
 		}
 		
-		return new Pair<Boolean, Long>(false, -1L);
+		return new Pair<String, Long>("UNSAT", System.nanoTime()-start);
 	}
 	
-	def Pair<Boolean, Long> solve(String dimacsFile, MiniSAT minisat) 
+	def Pair<String, Long> solve(String dimacsFile, MiniSAT minisat) 
 	{
 		var String minisat_param = "";
 		if (minisat.parameter !== null)
@@ -161,25 +160,29 @@ class MSatParsingBailluetBouazizTest {
 		var long end = System.nanoTime();
 		var BufferedReader stdInput = new BufferedReader(new InputStreamReader(p.getInputStream()));
 		
-		var String s = null;
-		while ((s = stdInput.readLine()) !== null) {
-			if (s.contains("SATISFIABLE"))
-				return new Pair<Boolean, Long>(true, end-start);
+		if(!p.waitFor(60, TimeUnit.MINUTES)) {
+			p.destroy();
+			return new Pair<String, Long>("TIMEOUT", System.nanoTime()-start);
 		}
 		
-		return new Pair<Boolean, Long>(false, -1L);
+		var String s = null;
+		while ((s = stdInput.readLine()) !== null) {
+			if (s.startsWith("SATISFIABLE"))
+				return new Pair<String, Long>("SAT", System.nanoTime()-start);
+		}
+		
+		return new Pair<String, Long>("UNSAT", System.nanoTime()-start);
 	}
 	
-	def Pair<Boolean, Long> solve(String dimacsFile, Sat4J sat4j)
+	def Pair<String, Long> solve(String dimacsFile, Sat4J sat4j)
 	{
 		var Sat4JVariant solverMethod = sat4j.getVariant();
-		var boolean sat = false;
-		var long time;
+		var long start;
 		switch solverMethod
 		{
 			case Sat4JVariant.SAT4J_JAVA:
 			{
-				var long start = System.nanoTime();
+				start = System.nanoTime();
 				var ISolver solver = SolverFactory.newDefault();
 		        solver.setTimeout(3600); // 1 hour timeout
 		        var Reader reader = new DimacsReader(solver);
@@ -187,27 +190,31 @@ class MSatParsingBailluetBouazizTest {
 		        try {
 		            var IProblem problem = reader.parseInstance(dimacsFile);
 		            if (problem.isSatisfiable())  {
-		                sat = true;
-		                time = System.nanoTime() - start;
+		                return new Pair<String, Long>("SAT", System.nanoTime()-start);
 		            }
+		        } catch (TimeoutException e) {
+		            return new Pair<String, Long>("TIMEOUT", System.nanoTime()-start);
 		        } catch (Exception e) {
-		            System.out.println("Oops!");      
-		        }		        
+		        	System.out.println("Oops!");   
+		        }
+		        	        
 			}
 			
 			case Sat4JVariant.SAT4J_JAR:
 			{
-				var start = System.nanoTime();
+				start = System.nanoTime();
 				var Process p = Runtime.getRuntime().exec("java -jar org.sat4j.core.jar " + dimacsFile);
-				var end = System.nanoTime();
 				
 				var BufferedReader stdInput = new BufferedReader(new InputStreamReader(p.getInputStream()));
-				
+				if(!p.waitFor(60, TimeUnit.MINUTES)) {
+					p.destroy();
+					return new Pair<String, Long>("TIMEOUT", System.nanoTime()-start);
+				}
+		
 				var String s = null;
 				while ((s = stdInput.readLine()) !== null) {
 					if (s.contains("s SATISFIABLE")) {
-						sat = true;
-						time = end-start;
+						return new Pair<String, Long>("SAT", System.nanoTime()-start);
 					}
 				}
 			}
@@ -294,21 +301,26 @@ class MSatParsingBailluetBouazizTest {
 				pom_writer.close();
 				
 				Runtime.getRuntime().exec("mvn install", null, new File("mvn/"));
-				var start = System.nanoTime();
+				start = System.nanoTime();
 				var Process p = Runtime.getRuntime().exec("mvn exec:java -Dexec.mainClass=msat.bailluetbouaziz.App -Dexec.args=../"+dimacsFile, null, new File("mvn/"));
 				var end = System.nanoTime();
 				var BufferedReader stdInput = new BufferedReader(new InputStreamReader(p.getInputStream()));
 				
+				if(!p.waitFor(60, TimeUnit.MINUTES)) {
+					p.destroy();
+					return new Pair<String, Long>("TIMEOUT", System.nanoTime()-start);
+				}
+		
+				
 				var String s = null;
 				while ((s = stdInput.readLine()) !== null) {
 				    if (s.contains("Satisfiable !"))
-						sat = true;
-						time = end-start;
+						return new Pair<String, Long>("SAT", System.nanoTime()-start);
 				}
 			}
 		}
 		
-		return new Pair<Boolean, Long>(sat, time);
+		return new Pair<String, Long>("UNSAT", System.nanoTime()-start);
 	}
 	
 	def String getDIMACSFromInlineFormula(Expression ast)
