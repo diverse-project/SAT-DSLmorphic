@@ -1,0 +1,86 @@
+\documentclass{article}
+\usepackage{fullpage}%
+ 
+\usepackage[T1]{fontenc}%
+\usepackage[utf8]{inputenc}%
+ 
+\usepackage{mathpazo} 
+ 
+\usepackage[main=francais,english]{babel}%  To be modified according to the language used
+ 
+\usepackage{graphicx}%
+
+\usepackage{caption}
+\usepackage{hyperref}
+\usepackage{abstract}%
+\usepackage{ dsfont }
+
+\usepackage{ amssymb }
+
+
+\title{Efficiency of SAT solvers}
+\author{Georges Aaron RANDRIANAINA et Lauric DESAUW}
+
+\begin{document}
+
+\maketitle
+
+\section{Introduction}
+
+
+\section{Best Solver}
+\subsection{Experimental protocole}
+We have a set of SAT solver that use different method. Because we want to solve formula as fast as possible while having the correct awser we want to have a classement of those solvers to know which one we may use. To make our classement we are using the following protocole:
+
+\begin{itemize}
+\item For each solver we use the data set of formula: \href{https://github.com/diverse-project/samplingfm/tree/master/Benchmarks}{samplingfm}
+\item We mesure how long they take to solves all the formula
+\item We check if all their awsers are corrects. If a solver have wrong anwsers he will not be considered in the classement. 
+\item  Then we do a classment of the mean of time taken to solve a formula. The most efficient solver is the one which's taking the less time. 
+\end{itemize}
+\subsection{Results}
+% Beautiful array with the resutls
+
+% Analysis of those results
+
+\section{Presence of Bugs}
+\subsection{Experimental Protocole}
+In the previous experiment we've not consider the solvers that gave a wrong awser because we wanted to always have a correct awnser. But maybe some of those solvers are more efficient and have just a bug in some corner cases. First we want to know if the solvers are consistent ie they always gave the same awser for a formula. Next we want to know if they gave the correct awnser.  
+We used the followings protocoles:
+\begin{itemize}
+\item[\underline{Consistent}:]  For each solvers we are trying to know if they are consistent, if they always give the same responce for a given formula. For that we basicly run the solver several time on the same formula and watch if it always return the same. 
+\item[\underline{Correct}:] For each solvers we want to know if it gaves the right anwser. To know the correct awnser we should use a proofed solver but it may take a lot of time. We rather compute the awnser of all the other solver and assume that the majority is right. This solution is natural because most of those solvers have been tested a lot and designed separatly so the probability that they all gave the wrong awsnser on the same formula is really low. 
+\end{itemize}
+\subsection{Results}
+% Beautiful array with the resutls
+
+% Analysis of those results
+
+
+
+\section{Performance deviation}
+\subsection{Experimental Protocole}
+
+
+\subsection{Results}
+% Beautiful array with the resutls
+
+% Analysis of those results
+
+\section{Harder SAT formula}
+\subsection{Experimental Protocole}
+Up to here we have consider formula as an homogeneous set but some formula are harder than other to solve. It may be interesting to know which formula are harder and how solver react to them. We consider a formula harder for a solver if it solve time is higher than his mean solve time.
+\begin{itemize}
+\item For each formula we compare it to the mean of solve time. If we take far more time we consider that formula hard for the solver.
+\item If a formula is hard for a mojority of solver then that formula is considered hard. 
+\end{itemize}
+\subsection{Results}
+% Beautiful array with the resutls
+
+% Analysis of those results
+
+
+\end{document}
+
+
+
