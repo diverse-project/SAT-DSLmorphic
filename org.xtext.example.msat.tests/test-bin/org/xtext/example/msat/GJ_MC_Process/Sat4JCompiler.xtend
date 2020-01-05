@@ -1,8 +1,10 @@
 package org.xtext.example.msat.GJ_MC_Process
 
+import java.io.BufferedReader
+import java.io.InputStreamReader
 import java.io.PrintWriter
 
-class Sat4JCompiler {
+class Sat4JCompiler implements Benchmarkable{
 	
 	static def compile(String file){
 		var process = Runtime.getRuntime().exec("ls ./org.xtext.example.mydsl.sat.compiledsat4j");
@@ -134,6 +136,24 @@ class Sat4JCompiler {
 		    }
 		}
 		'''
-	} 
+	}
 	
+	override benchmark(String filename) {
+		// maybe review the benchmark
+		Sat4JCompiler.compile(filename)
+		var line = ""
+		val start = System.nanoTime()
+		var process = Runtime.getRuntime().exec("mvn exec:java -f org.xtext.example.mydsl.sat.compiledsat4j")
+		val delta = System.nanoTime() - start;
+		
+		val output = new BufferedReader(new InputStreamReader(process.getInputStream()));
+		while((line = output.readLine()) !== null){
+			if(line.equals("Satisfiable !")) return new Pair(true, delta)
+		}
+		return new Pair(false, delta)
+	}
+	
+	override toString(){
+		"sat4j-maven,v2.3.1,0.0"
+	} 
 }

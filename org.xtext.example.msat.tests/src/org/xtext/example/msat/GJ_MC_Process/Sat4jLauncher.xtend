@@ -5,10 +5,10 @@ import org.eclipse.emf.ecore.EObject
 import org.eclipse.xtext.EcoreUtil2
 import org.xtext.example.mydsl1.mSat.BenchmarkDimacs
 import org.xtext.example.mydsl1.mSat.BenchmarkFormula
-import org.xtext.example.mydsl1.mSat.CryptoMiniSAT
-import org.xtext.example.mydsl1.mSat.MiniSAT
 import org.xtext.example.mydsl1.mSat.SATMorphic
 import org.xtext.example.mydsl1.mSat.Sat4J
+import org.xtext.example.mydsl1.mSat.impl.CryptoMiniSATImpl
+import org.xtext.example.mydsl1.mSat.impl.MiniSATImpl
 import org.xtext.example.mydsl1.mSat.impl.Sat4JImpl
 
 class Sat4jLauncher {
@@ -100,27 +100,48 @@ class Sat4jLauncher {
 						}
 					}
 					
-				case solver instanceof CryptoMiniSAT : 
+				case solver.solver instanceof CryptoMiniSATImpl : 
 					if (model.benchmark instanceof BenchmarkFormula){
 						for(expression : (model.benchmark  as BenchmarkFormula).expressions){
-							SATUtils.writeSat4jFile("formula.dimacs",expression)
-							CryptoMiniSatSolver.solve("formula.dimacs")
+							SATUtils.writeSat4jFile("formula.dimacs",EcoreUtil2.copy(expression))
+							val b = CryptoMiniSatSolver.solve("formula.dimacs")
+							line.add(b)
 						}										  	
 					} else { //model.benchmark === BenchmarkDimacs
 						for(file : (model.benchmark  as BenchmarkDimacs).dimacses){
-							CryptoMiniSatSolver.solve(file);
+							val b = CryptoMiniSatSolver.solve(file);
+							line.add(b)
 						}
 					}
 				
-				case solver instanceof MiniSAT : 
+				case solver.solver instanceof MiniSATImpl :
 					if (model.benchmark instanceof BenchmarkFormula){
 						for(expression : (model.benchmark  as BenchmarkFormula).expressions){
-							SATUtils.writeSat4jFile("formula.dimacs",expression)
-							MiniSatSolver.solve("formula.dimacs")
+							SATUtils.writeSat4jFile("formula.dimacs",EcoreUtil2.copy(expression))
+							try {
+								val param = (solver.solver as MiniSATImpl).parameter
+								val b = MiniSatSolver.solve("formula.dimacs", 
+									solver.version !== null?"2.2":solver.version.version,
+									param===null?0.0f:param.rndfreq
+								)
+								line.add(b)
+							} catch(Exception ex) {
+								line.add(null)
+							}
+							
 						}										  	
 					} else { //model.benchmark === BenchmarkDimacs
 						for(file : (model.benchmark  as BenchmarkDimacs).dimacses){
-							MiniSatSolver.solve(file);
+							try {
+								val param = (solver.solver as MiniSATImpl).parameter
+								val b = MiniSatSolver.solve(file, 
+									solver.version !== null?"2.2":solver.version.version,
+									param===null?0.0f:param.rndfreq
+								)
+								line.add(b)
+							} catch(Exception ex) {
+								line.add(null)
+							}
 						}
 					}
 			}

@@ -10,6 +10,7 @@ import org.eclipse.xtext.testing.util.ParseHelper
 import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.^extension.ExtendWith
+import org.xtext.example.msat.GJ_MC_Process.BenchmarkLauncher
 import org.xtext.example.msat.GJ_MC_Process.Sat4jLauncher
 import org.xtext.example.mydsl1.mSat.SATMorphic
 import org.xtext.example.mydsl1.tests.MSatInjectorProvider
@@ -99,10 +100,12 @@ class SatSolverTest {
 	@Test
 	def void MultipleExpressionAndSolverTest() {
 		val result = parseHelper.parse('''
-			solver sat4j-java sat4j-jar
+			solver cryptominisat minisat version "2.2" minisat version "1.4"
 			benchmarkFormula A ^ !A, A v B
 		''')
 		val out = Sat4jLauncher.launch(result)
+		val csv = BenchmarkLauncher.launch(result,3)
+		println(csv.replace(";",";\n"))
 		
 		Assertions.assertNotNull(result)
 		val errors = result.eResource.errors

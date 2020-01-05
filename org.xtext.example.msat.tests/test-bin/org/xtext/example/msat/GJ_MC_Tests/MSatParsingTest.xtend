@@ -22,7 +22,7 @@ class MSatParsingTest {
 	@Inject
 	ParseHelper<SATMorphic> parseHelper
 	
-	//@Test Waiting for the implementation
+	@Test
 	def void loadSolvers() {
 		val result = parseHelper.parse('''
 			solver 
@@ -70,9 +70,7 @@ class MSatParsingTest {
 		
 		var sat = false
 		var line = ""
-		//var process = Runtime.getRuntime().exec("cd ./org.xtext.example.mydsl.sat.compiledsat4j")
 		var process = Runtime.getRuntime().exec("mvn exec:java -f org.xtext.example.mydsl.sat.compiledsat4j")
-		process = Runtime.getRuntime().exec("mvn exec:java -f org.xtext.example.mydsl.sat.compiledsat4j")
 		
 		val output = new BufferedReader(new InputStreamReader(process.getInputStream()));
 		while((line = output.readLine()) !== null){
