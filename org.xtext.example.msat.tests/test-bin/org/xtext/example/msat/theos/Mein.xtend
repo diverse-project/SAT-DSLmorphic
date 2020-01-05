@@ -37,6 +37,12 @@ class Mein
 	
 	
 	/*
+	 * minisat : -cpu-lim (en secondes)
+	 * cryptominisat : --maxtime (en s)
+	 * sat4j : 
+	 */
+	
+	/*
 	@Test
 	def void loadSolvers() 
 	{
@@ -81,8 +87,10 @@ class Mein
 				   sat4j-jar version "2.2.3"
 				   sat4j-jar version "2.3.1"
 				   minisat version "1.14.0"
-				   minisat version "2.2.0"
-				   cryptominisat version "2.4.0"
+				   minisat version "2.2.0" rdn-freq 0
+				   minisat version "2.2.0" rdn-freq 0.5
+				   minisat version "2.2.0" rdn-freq 1
+				   cryptominisat version "2.4.0" 
 				   cryptominisat version "4.5.3"
 				   cryptominisat version "5.6.8"
 			benchmarkDIMACS ''' + list_of_cnf
@@ -92,10 +100,8 @@ class Mein
 //			benchmarkDIMACS "input.cnf", "input2.cnf", "tres-tres-dur.cnf"
 //		'''
 		val sat_and_time = check_formulas(text);
-		val is_sat = (sat_and_time.get(0) as Boolean)
-		val elapsed_time = (sat_and_time.get(1) as Long)
-		Assertions.assertTrue(is_sat);
-		println("Elapsed time : " + elapsed_time)
+		val is_sat_first_formula = (sat_and_time.get(0) as Boolean)
+		Assertions.assertTrue(is_sat_first_formula);
 		//val errors = result.eResource.errors
 		//Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
 	}
@@ -172,7 +178,7 @@ class Mein
 
 		val results_filename = "results.csv"
 		val writer = new BufferedWriter(new FileWriter(results_filename));
-		writer.write("Benchmark ; Solver ; Version ; Is_sat ; Time")
+		writer.write("Benchmark ; Solver ; Version ; Is_sat ; Time\n")
 		
 		val all_answers = newArrayList();
 		for(var i=0; i< dimacs_formulas.size(); i++)
@@ -210,6 +216,7 @@ class Mein
 			all_answers.add(answers)
 		}
 		
+		
 		writer.close()
 		
 		/*
@@ -243,9 +250,16 @@ class Mein
 			}
 		*/
 		
-		
+		//all first responses
+		val return_list = newArrayList()
+		for (var i=0; i < all_answers.size(); i++)
+		{
+			val answers = all_answers.get(i)
+			
+			return_list.add(answers.get(0).get(0) as Boolean)
+		}
 
-		return newArrayList(false, 50l);
+		return return_list;
 		
 	}
 	

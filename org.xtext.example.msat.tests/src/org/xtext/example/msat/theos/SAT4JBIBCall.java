@@ -22,7 +22,7 @@ public class SAT4JBIBCall
 			ISolver solver = SolverFactory.newDefault();
 	        solver.setTimeout(600); // 1 hour timeout
 	        Reader reader = new DimacsReader(solver);
-	        float timeElapsed = -1l;
+	        float timeElapsed = -1f;
 	       // PrintWriter out = new PrintWriter(System.out,true);
 			float start = System.currentTimeMillis();
 	        try 
@@ -36,9 +36,10 @@ public class SAT4JBIBCall
 	            } else {
 	                //System.out.println("Unsatisfiable !");
 	            }
+	            boolean sat = problem.isSatisfiable();
 				float finish = System.currentTimeMillis();
 				timeElapsed = finish - start;
-				return Arrays.asList(problem.isSatisfiable(), timeElapsed);
+				return Arrays.asList(sat, timeElapsed/1000);
 	        } catch (FileNotFoundException e) {
 	        	System.out.println("file not found");
 	            // TODO Auto-generated catch block
