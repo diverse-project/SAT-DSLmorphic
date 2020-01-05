@@ -96,8 +96,6 @@ class Mein
 		
 		println(text)
 		
-//			benchmarkDIMACS "input.cnf", "input2.cnf", "tres-tres-dur.cnf"
-//		'''
 		val sat_and_time = check_formulas(text);
 		
 		
@@ -153,7 +151,7 @@ class Mein
 		val print_text_read = false;
 		val print_formulas = false;
 		val print_call_method = true;
-		val print_all_responses = true;
+		val print_all_responses = false;
 		val save_to_file = true;
 		val nb_of_runs = 10
 		
