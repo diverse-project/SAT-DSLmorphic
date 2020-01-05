@@ -73,7 +73,8 @@ class Mein
 	def void loadSAT4J() 
 	{
 		//val cnf_database = get_all_cnf_in("samplingfm", "samplingfm/")
-		val cnf_database = get_all_cnf_in("samplingfm/Benchmarks", "samplingfm/Benchmarks/")
+		//val cnf_database = get_all_cnf_in("samplingfm/Benchmarks", "samplingfm/Benchmarks/")
+		val cnf_database = newArrayList("\"input.cnf\"", "\"input2.cnf\"", "\"cnf-tres-dur.cnf\"", "\"tres-tres-dur.cnf\"")
 		val list_of_cnf =  String.join(", ", cnf_database)
 		print(list_of_cnf)
 		
@@ -84,15 +85,16 @@ class Mein
 			solver 
 				   sat4j-java 
 				   sat4j-jar version "2.0.0"
-				   sat4j-jar version "2.2.3"
 				   sat4j-jar version "2.3.1"
 				   minisat version "1.14.0"
-				   minisat version "2.2.0" rdn-freq 0
-				   minisat version "2.2.0" rdn-freq 0.5
-				   minisat version "2.2.0" rdn-freq 1
+				   minisat version rnd-freq 0 "2.2.0" 
+				   minisat version rnd-freq 0.5 "2.2.0" 
+				   minisat version rnd-freq 0.9 "2.2.0" 
 				   cryptominisat version "2.4.0" 
 				   cryptominisat version "4.5.3"
-				   cryptominisat version "5.6.8"
+				   cryptominisat freq 0 version "5.6.8" 
+				   cryptominisat freq 0.5 version "5.6.8" 
+				   cryptominisat freq 0.9 version "5.6.8" 
 			benchmarkDIMACS ''' + list_of_cnf
 		
 		println(text)
@@ -144,80 +146,88 @@ class Mein
 		val print_call_method = true;
 		val print_all_responses = true;
 		val save_to_file = true;
+		val nb_of_runs = 5
 		
+		var numero_of_run = 1 
 		
-		if(print_text_read)
+		for(var numero_run = 1 ; numero_run <= nb_of_runs ; numero_run++)
 		{
-			//print("text read : ")
-			//println(input);
-			//println()
-		}
-		val ast = parseHelper.parse(input);
-				
-		val dimacs_formulas_and_their_name = read_entry(ast)
-		val dimacs_formulas = dimacs_formulas_and_their_name.get(0)
-		val name_formulas = dimacs_formulas_and_their_name.get(1)
-
-		val call_methods = get_call_methods(ast)
-		//println(call_method.getClass().getSimpleName())
 		
-		
-		if(print_formulas)
-		{
-			print("dimcas fomulas : \n")		
-			println(dimacs_formulas)
-			println()
-		}
-		
-		if(print_call_method)
-		{
-			print("call method : ")
-			println(call_methods)
-			println()
-		}
-
-		val results_filename = "results.csv"
-		val writer = new BufferedWriter(new FileWriter(results_filename));
-		writer.write("Benchmark ; Solver ; Version ; Is_sat ; Time\n")
-		
-		val all_answers = newArrayList();
-		for(var i=0; i< dimacs_formulas.size(); i++)
-		{
-			val formula = dimacs_formulas.get(i)
-			val name_formula = name_formulas.get(i)
-			
-			println("\n\nTreating formula " + name_formula + "\n")
-			val filename_of_formula = "tmp_output.cnf"
-			val fileWriter = new FileWriter(new File(filename_of_formula));
-			fileWriter.write(formula);
-			fileWriter.close();
-		
-			val answers = newArrayList();
-		
-			for (call_method : call_methods)
-			{	
-				val answer =  evaluate(call_method, filename_of_formula);
-				answers.add(answer)
-				if(save_to_file)
-				{
-					var line = name_formula + " ; " + id_solver_to_solver_name(call_method.get(0) as Integer) +
-									" ; " + call_method.get(1) + " ; " + answer.get(0) + " ; " + 
-									answer.get(1) + "\n"
-					writer.write(line)
-					writer.flush()
-				}
-			} 
-		
-			if(print_all_responses)
+			if(print_text_read)
 			{
-				println("Here is the response for all solvers : ")
-				println(answers)
+				//print("text read : ")
+				//println(input);
+				//println()
 			}
-			all_answers.add(answers)
+			val ast = parseHelper.parse(input);
+					
+			val dimacs_formulas_and_their_name = read_entry(ast)
+			val dimacs_formulas = dimacs_formulas_and_their_name.get(0)
+			val name_formulas = dimacs_formulas_and_their_name.get(1)
+	
+			val call_methods = get_call_methods(ast)
+			//println(call_method.getClass().getSimpleName())
+			
+			
+			if(print_formulas)
+			{
+				print("dimcas fomulas : \n")		
+				println(dimacs_formulas)
+				println()
+			}
+			
+			if(print_call_method)
+			{
+				print("call method : ")
+				println(call_methods)
+				println()
+			}
+	
+			val results_filename = "results_" + numero_run + ".csv"
+			val writer = new BufferedWriter(new FileWriter(results_filename));
+			writer.write("Benchmark ; Solver ; Version ; Is_sat ; Time (s)\n")
+			
+			val all_answers = newArrayList();
+			for(var i=0; i< dimacs_formulas.size(); i++)
+			{
+				val formula = dimacs_formulas.get(i)
+				val name_formula = name_formulas.get(i)
+				
+				println("\n\nTreating formula " + name_formula + "\n")
+				val filename_of_formula = "tmp_output.cnf"
+				val fileWriter = new FileWriter(new File(filename_of_formula));
+				fileWriter.write(formula);
+				fileWriter.close();
+			
+				val answers = newArrayList();
+			
+				for (call_method : call_methods)
+				{	
+					val answer =  evaluate(call_method, filename_of_formula);
+					answers.add(answer)
+					if(save_to_file)
+					{
+						var line = name_formula + " ; " + id_solver_to_solver_name(call_method.get(0) as Integer) +
+										" ; " + call_method.get(1) + " ; " + answer.get(0) + " ; " + 
+										answer.get(1) + "\n"
+						writer.write(line)
+						writer.flush()
+					}
+				} 
+			
+				if(print_all_responses)
+				{
+					println("Here is the response for all solvers : ")
+					println(answers)
+				}
+				all_answers.add(answers)
+			}
+			
+			writer.close()
+			
 		}
 		
 		
-		writer.close()
 		
 		/*
 			if(save_to_file)
@@ -250,6 +260,8 @@ class Mein
 			}
 		*/
 		
+		/*
+		
 		//all first responses
 		val return_list = newArrayList()
 		for (var i=0; i < all_answers.size(); i++)
@@ -260,6 +272,10 @@ class Mein
 		}
 
 		return return_list;
+
+		*/
+		
+		return newArrayList(false, 50l)		
 		
 	}
 	
@@ -333,8 +349,9 @@ class Mein
 			}	
 			case 5 : //CryptoMinisat solver
 			{
+				val parameters = call_method.get(2) as String
 				println("calling CryptoMiniSAT from bin with version " + version_solver)
-				val answer =  CryptoMiniSATCall.DoIt(filename_of_formula, version_solver)
+				val answer =  CryptoMiniSATCall.DoIt(filename_of_formula, version_solver, parameters)
 				is_sat = (answer.get(0) as Boolean)
 				elapsed_time = (answer.get(1) as Float)
 			}	
@@ -418,8 +435,13 @@ class Mein
 				}
 				case solverr instanceof CryptoMiniSAT:
 				{
+					var parameters = ""
+					if ((solverr as CryptoMiniSAT).parameter !== null)
+					{
+						parameters += "--freq=" + (solverr as CryptoMiniSAT).parameter.rndfreq
+					}
 					val id_solver = 5 //a new identifier for cryptominisat
-					val informations_solver = newArrayList(id_solver, version);
+					val informations_solver = newArrayList(id_solver, version, parameters);
 					solvers.add(informations_solver)				
 				}
 				default:

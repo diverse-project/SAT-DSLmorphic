@@ -14,7 +14,7 @@ public class CryptoMiniSATCall
 	static List<String> accepted_versions =  Arrays.asList("2.4.0", "3.1.0", "4.5.3", "5.6.8", "default");
 	
 	
-	public static List<Object> DoIt(String file_dimacs_formula, String version) 
+	public static List<Object> DoIt(String file_dimacs_formula, String version, String parameters) 
 	{	
 		int TIMEOUT = 600000;
 
@@ -28,6 +28,10 @@ public class CryptoMiniSATCall
 		{
 			List<String> full_command = new ArrayList<String>();
 			full_command.add("./" + calling_name);
+			if (!parameters.equals(""))
+			{
+				full_command.add(parameters);
+			}
 			full_command.add(file_dimacs_formula);
 			
 			long start = System.currentTimeMillis();

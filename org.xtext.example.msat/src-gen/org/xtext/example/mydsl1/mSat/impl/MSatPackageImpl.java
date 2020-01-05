@@ -17,6 +17,7 @@ import org.xtext.example.mydsl1.mSat.BenchmarkDimacs;
 import org.xtext.example.mydsl1.mSat.BenchmarkFormula;
 import org.xtext.example.mydsl1.mSat.BiImpl;
 import org.xtext.example.mydsl1.mSat.CryptoMiniSAT;
+import org.xtext.example.mydsl1.mSat.CryptoMiniSATParameter;
 import org.xtext.example.mydsl1.mSat.Expression;
 import org.xtext.example.mydsl1.mSat.Impl;
 import org.xtext.example.mydsl1.mSat.MSatFactory;
@@ -88,6 +89,13 @@ public class MSatPackageImpl extends EPackageImpl implements MSatPackage
    * @generated
    */
   private EClass miniSATParameterEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass cryptoMiniSATParameterEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -400,6 +408,17 @@ public class MSatPackageImpl extends EPackageImpl implements MSatPackage
    * @generated
    */
   @Override
+  public EReference getCryptoMiniSAT_Parameter()
+  {
+    return (EReference)cryptoMiniSATEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public EClass getMiniSATParameter()
   {
     return miniSATParameterEClass;
@@ -414,6 +433,28 @@ public class MSatPackageImpl extends EPackageImpl implements MSatPackage
   public EAttribute getMiniSATParameter_Rndfreq()
   {
     return (EAttribute)miniSATParameterEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getCryptoMiniSATParameter()
+  {
+    return cryptoMiniSATParameterEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getCryptoMiniSATParameter_Rndfreq()
+  {
+    return (EAttribute)cryptoMiniSATParameterEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -753,9 +794,13 @@ public class MSatPackageImpl extends EPackageImpl implements MSatPackage
 
     cryptoMiniSATEClass = createEClass(CRYPTO_MINI_SAT);
     createEAttribute(cryptoMiniSATEClass, CRYPTO_MINI_SAT__VARIANT);
+    createEReference(cryptoMiniSATEClass, CRYPTO_MINI_SAT__PARAMETER);
 
     miniSATParameterEClass = createEClass(MINI_SAT_PARAMETER);
     createEAttribute(miniSATParameterEClass, MINI_SAT_PARAMETER__RNDFREQ);
+
+    cryptoMiniSATParameterEClass = createEClass(CRYPTO_MINI_SAT_PARAMETER);
+    createEAttribute(cryptoMiniSATParameterEClass, CRYPTO_MINI_SAT_PARAMETER__RNDFREQ);
 
     benchmarkEClass = createEClass(BENCHMARK);
 
@@ -855,9 +900,13 @@ public class MSatPackageImpl extends EPackageImpl implements MSatPackage
 
     initEClass(cryptoMiniSATEClass, CryptoMiniSAT.class, "CryptoMiniSAT", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getCryptoMiniSAT_Variant(), ecorePackage.getEString(), "variant", null, 0, 1, CryptoMiniSAT.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getCryptoMiniSAT_Parameter(), this.getCryptoMiniSATParameter(), null, "parameter", null, 0, 1, CryptoMiniSAT.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(miniSATParameterEClass, MiniSATParameter.class, "MiniSATParameter", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getMiniSATParameter_Rndfreq(), ecorePackage.getEFloat(), "rndfreq", null, 0, 1, MiniSATParameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(cryptoMiniSATParameterEClass, CryptoMiniSATParameter.class, "CryptoMiniSATParameter", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getCryptoMiniSATParameter_Rndfreq(), ecorePackage.getEFloat(), "rndfreq", null, 0, 1, CryptoMiniSATParameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(benchmarkEClass, Benchmark.class, "Benchmark", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
