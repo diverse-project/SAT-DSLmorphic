@@ -49,17 +49,19 @@ def main():
     version = ""
     old = os.getcwd()
     os.chdir(FILE_DIR + '/Benchmarks')
-    for file in os.scandir():
-        if file.is_file() and file.name[-4:] == EXTENSION:
-            for solver in SOLVER:
-                if 'sat4j' in solver:
-                    version = "2.3.1"
-                for meth in SOLVER[solver]:
-                    if meth[-1] == '8':
-                        version = "5.6.8"
-                    if meth[-1] == "7":
-                        version = "5.6.7"
-                    tmp = """
+    files = [f for f in os.scandir()\
+             if f.is_file() and f.name[-4:] == EXTENSION]
+    files = sorted(files, key=lambda f: f.stat().st_size)
+    for file in files:
+        for solver in SOLVER:
+            if 'sat4j' in solver:
+                version = "2.3.1"
+            for meth in SOLVER[solver]:
+                if meth[-1] == '8':
+                    version = "5.6.8"
+                if meth[-1] == "7":
+                    version = "5.6.7"
+                tmp = """
 @Test
 def void loadModel{}() {{
     val result = parseHelper.parse('''
@@ -83,8 +85,8 @@ def void loadModel{}() {{
 }}
 
 """.format(cpt, solver, FILE_DIR + '/Benchmarks' + '/' + file.name, meth, solver, version, solver, version)
-                    res += tmp
-                    cpt += 1
+                res += tmp
+                cpt += 1
     stream = open("{}/{}".format(old, TEST_FILENAME), 'w+')
     stream.write(HEADER)
     stream.write(res + "}")
