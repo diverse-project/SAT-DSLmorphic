@@ -1,0 +1,5 @@
+samplingfm/Benchmarks/ProcessBean.sk_8_64.cnf,sat4j-java,2.3.1,SAT,221
+samplingfm/Benchmarks/ProcessBean.sk_8_64.cnf,sat4j-maven,2.3.1,SAT,10820
+samplingfm/Benchmarks/ProcessBean.sk_8_64.cnf,sat4j-jar,2.3.1,SAT,493
+samplingfm/Benchmarks/ProcessBean.sk_8_64.cnf,cryptominisat,5.6.8,SAT,151
+samplingfm/Benchmarks/ProcessBean.sk_8_64.cnf,cryptominisat,5.6.7,SAT,166
