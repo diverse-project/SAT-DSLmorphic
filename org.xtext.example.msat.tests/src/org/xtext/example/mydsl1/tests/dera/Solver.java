@@ -36,20 +36,22 @@ public class Solver {
 		// CNF filename is given on the command line 
 		try {
 			IProblem problem = reader.parseInstance(dimacsFilename);
-			if (problem.isSatisfiable()) {
-				System.out.println("Satisfiable !");
-				reader.decode(problem.model(),out);
-				return true;
-			} else {
-				System.out.println("Unsatisfiable !");
-				return false;
-			}
+			return problem.isSatisfiable();
+//			if (problem.isSatisfiable()) {
+//				System.out.println("Satisfiable !");
+//				reader.decode(problem.model(),out);
+//				return true;
+//			} else {
+//				System.out.println("Unsatisfiable !");
+//				return false;
+//			}
 		} catch (FileNotFoundException e) {
 			System.out.println("The file " + dimacsFilename + " does not exist.");
 		} catch (IOException e) {
 			System.out.println(e.getMessage());
 		} catch (ContradictionException e) {
 			System.out.println("Unsatisfiable (trivial)!");
+			return false;
 		} catch (TimeoutException e) {
 			System.out.println("Timeout, sorry!");      
 		} catch (ParseFormatException e) {
@@ -67,32 +69,34 @@ public class Solver {
 	 * @return 
 	 */
 	public static boolean JarSolving(String dimacsFileName) {
-		Runtime r = Runtime.getRuntime();
-		try {
-			Process p = r.exec("java -jar " + PATH_TO_JAR + " " + dimacsFileName);
-			p.waitFor();
-			BufferedReader b = new BufferedReader(new InputStreamReader(p.getInputStream()));
-			String line = "";
-			System.out.println("JAR SOLVING");
-
-			while ((line = b.readLine()) != null) {
-				System.out.println(line);
-				if (line.startsWith("s SATISFIABLE")) {
-					System.out.println("SATISFIABLE");
-					return true;
-				}
-			}
-
-			b.close();
-		} catch (IOException e) {
-			System.out.println(e.getMessage());
-			e.printStackTrace();
-		} catch (InterruptedException e) {
-			System.out.println(e.getMessage());
-			e.printStackTrace();
-		}
-		System.out.println("NON SATISFIABLE");
-		return false;
+		return Utils.bashCmd("java -jar " + PATH_TO_JAR + " " + dimacsFileName, "s SATISFIABLE");
+		
+//		Runtime r = Runtime.getRuntime();
+//		try {
+//			Process p = r.exec("java -jar " + PATH_TO_JAR + " " + dimacsFileName);
+//			p.waitFor();
+//			BufferedReader b = new BufferedReader(new InputStreamReader(p.getInputStream()));
+//			String line = "";
+//			System.out.println("JAR SOLVING");
+//
+//			while ((line = b.readLine()) != null) {
+////				System.out.println(line);
+//				if (line.startsWith("s SATISFIABLE")) {
+//					System.out.println("SATISFIABLE");
+//					return true;
+//				}
+//			}
+//
+//			b.close();
+//		} catch (IOException e) {
+//			System.out.println(e.getMessage());
+//			e.printStackTrace();
+//		} catch (InterruptedException e) {
+//			System.out.println(e.getMessage());
+//			e.printStackTrace();
+//		}
+//		System.out.println("NON SATISFIABLE");
+//		return false;
 	}
 
 	/**
@@ -101,24 +105,25 @@ public class Solver {
 	public static boolean MavenSolving(String dimacsFileName) {
 		Runtime r = Runtime.getRuntime();
 		Process p1;
-		Process p2;
+//		Process p2;
 		try {
 			p1 = r.exec("mvn package -f " + PATH_TO_MVN);
 			p1.waitFor();
-			p2 = r.exec("mvn exec:java -Dexec.args=\"" + dimacsFileName + "\" -f " + PATH_TO_MVN);
-			p2.waitFor();
-			BufferedReader b = new BufferedReader(new InputStreamReader(p2.getInputStream()));
-			String line = "";
-
-			while ((line = b.readLine()) != null) {
-				// Quite dirty code but the garbage collector is our friend :p
-//				System.out.println(line);
-				if (line.startsWith("Satisfiable")) {
-					System.out.println("SATISFIABLE");
-					return true;
-				}
-			}
-			b.close();
+//			p2 = r.exec("mvn exec:java -Dexec.args=\"" + dimacsFileName + "\" -f " + PATH_TO_MVN);
+			return Utils.bashCmd("mvn exec:java -Dexec.args=\"" + dimacsFileName + "\" -f " + PATH_TO_MVN, "Satisfiable");
+//			p2.waitFor();
+//			BufferedReader b = new BufferedReader(new InputStreamReader(p2.getInputStream()));
+//			String line = "";
+//
+//			while ((line = b.readLine()) != null) {
+//				// Quite dirty code but the garbage collector is our friend :p
+////				System.out.println(line);
+//				if (line.startsWith("Satisfiable")) {
+//					System.out.println("SATISFIABLE");
+//					return true;
+//				}
+//			}
+//			b.close();
 		} catch (IOException e) {
 			System.out.println(e.getMessage());
 			e.printStackTrace();
@@ -126,66 +131,68 @@ public class Solver {
 			System.out.println(e.getMessage());
 			e.printStackTrace();
 		}
-		System.out.println("NON SATISFIABLE");
+//		System.out.println("NON SATISFIABLE");
 		return false;
 	}
 
 	public static boolean CryptoMinisat5_6_8(String dimacsFileName){
-		Runtime r = Runtime.getRuntime();
-		try {
-			Process p = r.exec("./" + PATH_TO_CRYPTOMINISATv5_6_8 + " " + dimacsFileName);
-			p.waitFor();
-			BufferedReader b = new BufferedReader(new InputStreamReader(p.getInputStream()));
-			String line = "";
-			System.out.println("CRYPTOMINISAT v5.6.8");
-
-			while ((line = b.readLine()) != null) {
-				System.out.println(line);
-				if (line.startsWith("s SATISFIABLE")) {
-					System.out.println("SATISFIABLE");
-					return true;
-				}
-			}
-
-			b.close();
-		} catch (IOException e) {
-			System.out.println(e.getMessage());
-			e.printStackTrace();
-		} catch (InterruptedException e) {
-			System.out.println(e.getMessage());
-			e.printStackTrace();
-		}
-		System.out.println("NON SATISFIABLE");
-		return false;
+		return Utils.bashCmd("./" + PATH_TO_CRYPTOMINISATv5_6_8 + " " + dimacsFileName, "s SATISFIABLE");
+//		Runtime r = Runtime.getRuntime();
+//		try {
+//			Process p = r.exec("./" + PATH_TO_CRYPTOMINISATv5_6_8 + " " + dimacsFileName);
+//			p.waitFor();
+//			BufferedReader b = new BufferedReader(new InputStreamReader(p.getInputStream()));
+//			String line = "";
+//			System.out.println("CRYPTOMINISAT v5.6.8");
+//
+//			while ((line = b.readLine()) != null) {
+//				System.out.println(line);
+//				if (line.startsWith("s SATISFIABLE")) {
+//					System.out.println("SATISFIABLE");
+//					return true;
+//				}
+//			}
+//
+//			b.close();
+//		} catch (IOException e) {
+//			System.out.println(e.getMessage());
+//			e.printStackTrace();
+//		} catch (InterruptedException e) {
+//			System.out.println(e.getMessage());
+//			e.printStackTrace();
+//		}
+//		System.out.println("NON SATISFIABLE");
+//		return false;
 	}
 	
 	public static boolean CryptoMinisat5_6_7(String dimacsFileName){
-		Runtime r = Runtime.getRuntime();
-		try {
-			Process p = r.exec("./" + PATH_TO_CRYPTOMINISATv5_6_7 + " " + dimacsFileName);
-			p.waitFor();
-			BufferedReader b = new BufferedReader(new InputStreamReader(p.getInputStream()));
-			String line = "";
-			System.out.println("CRYPTOMINISAT v5.6.8");
-
-			while ((line = b.readLine()) != null) {
-				System.out.println(line);
-				if (line.startsWith("s SATISFIABLE")) {
-					System.out.println("SATISFIABLE");
-					return true;
-				}
-			}
-
-			b.close();
-		} catch (IOException e) {
-			System.out.println(e.getMessage());
-			e.printStackTrace();
-		} catch (InterruptedException e) {
-			System.out.println(e.getMessage());
-			e.printStackTrace();
-		}
-		System.out.println("NON SATISFIABLE");
-		return false;
+		return Utils.bashCmd("./" + PATH_TO_CRYPTOMINISATv5_6_7 + " " + dimacsFileName, "s SATISFIABLE");
+//		Runtime r = Runtime.getRuntime();
+//		try {
+//			Process p = r.exec("./" + PATH_TO_CRYPTOMINISATv5_6_7 + " " + dimacsFileName);
+//			p.waitFor();
+//			BufferedReader b = new BufferedReader(new InputStreamReader(p.getInputStream()));
+//			String line = "";
+//			System.out.println("CRYPTOMINISAT v5.6.8");
+//
+//			while ((line = b.readLine()) != null) {
+//				System.out.println(line);
+//				if (line.startsWith("s SATISFIABLE")) {
+//					System.out.println("SATISFIABLE");
+//					return true;
+//				}
+//			}
+//
+//			b.close();
+//		} catch (IOException e) {
+//			System.out.println(e.getMessage());
+//			e.printStackTrace();
+//		} catch (InterruptedException e) {
+//			System.out.println(e.getMessage());
+//			e.printStackTrace();
+//		}
+//		System.out.println("NON SATISFIABLE");
+//		return false;
 	}
 	
 }

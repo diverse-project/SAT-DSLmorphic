@@ -47,7 +47,16 @@ class MSatParsingTest {
 		val errors = result.eResource.errors
 		Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
 		var benchmark = result.benchmark as BenchmarkDimacs
-		Solver.Sat4JLibrarySolver(benchmark.dimacses.get(0));		
+		var file = benchmark.dimacses.get(0);
+		var start = System.currentTimeMillis();
+		var res = Solver.Sat4JLibrarySolver(file)
+		var end = System.currentTimeMillis();
+		var time = end - start;
+		if (res){
+			System.out.println(file + ",sat4j-jar,2.3.1,SAT," + time);
+		}else{
+			System.out.println(file + ",sat4j-jar,2.3.1,UNSAT," + time);
+		}
 	}
 	
 	@Test
@@ -103,19 +112,24 @@ class MSatParsingTest {
 		var benchmark = result.benchmark as BenchmarkDimacs
 		Solver.MavenSolving(benchmark.dimacses.get(0));		
 	}
-	
 
 
-//	@Test
-//	def void loadModel4() {
-//		val result = parseHelper.parse('''
-//			solver minisat
-//			benchmarkDIMACS "foo1.cnf"
-//		''')
-//		Assertions.assertNotNull(result)
-//		val errors = result.eResource.errors
-//		Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
-//	}
+	@Test
+	def void loadModel4() {
+		val result = parseHelper.parse('''
+			solver cryptominisat
+			benchmarkDIMACS "foo1.cnf"
+		''')
+		Assertions.assertNotNull(result)
+		val errors = result.eResource.errors
+		Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
+		var benchmark = result.benchmark as BenchmarkDimacs
+		if (Solver.CryptoMinisat5_6_7(benchmark.dimacses.get(0))){
+			System.out.println("SAT")
+		}else{
+			System.out.println("UNSAT");
+		}
+	}
 //	
 //	@Test
 //	def void loadModelCrypto() {
