@@ -359,17 +359,38 @@ ruleCryptoMiniSAT returns [EObject current=null]
 }:
 	(
 		(
-			lv_variant_0_0='cryptominisat'
-			{
-				newLeafNode(lv_variant_0_0, grammarAccess.getCryptoMiniSATAccess().getVariantCryptominisatKeyword_0());
-			}
-			{
-				if ($current==null) {
-					$current = createModelElement(grammarAccess.getCryptoMiniSATRule());
+			(
+				lv_variant_0_0='cryptominisat'
+				{
+					newLeafNode(lv_variant_0_0, grammarAccess.getCryptoMiniSATAccess().getVariantCryptominisatKeyword_0_0());
 				}
-				setWithLastConsumed($current, "variant", lv_variant_0_0, "cryptominisat");
-			}
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getCryptoMiniSATRule());
+					}
+					setWithLastConsumed($current, "variant", lv_variant_0_0, "cryptominisat");
+				}
+			)
 		)
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getCryptoMiniSATAccess().getParameterCryptoMiniSATParameterParserRuleCall_1_0());
+				}
+				lv_parameter_1_0=ruleCryptoMiniSATParameter
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getCryptoMiniSATRule());
+					}
+					set(
+						$current,
+						"parameter",
+						lv_parameter_1_0,
+						"org.xtext.example.mydsl1.MSat.CryptoMiniSATParameter");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)?
 	)
 ;
 
@@ -402,6 +423,47 @@ ruleMiniSATParameter returns [EObject current=null]
 				{
 					if ($current==null) {
 						$current = createModelElement(grammarAccess.getMiniSATParameterRule());
+					}
+					setWithLastConsumed(
+						$current,
+						"rndfreq",
+						lv_rndfreq_1_0,
+						"org.xtext.example.mydsl1.MSat.PROBA");
+				}
+			)
+		)
+	)
+;
+
+// Entry rule entryRuleCryptoMiniSATParameter
+entryRuleCryptoMiniSATParameter returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getCryptoMiniSATParameterRule()); }
+	iv_ruleCryptoMiniSATParameter=ruleCryptoMiniSATParameter
+	{ $current=$iv_ruleCryptoMiniSATParameter.current; }
+	EOF;
+
+// Rule CryptoMiniSATParameter
+ruleCryptoMiniSATParameter returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		otherlv_0='freq'
+		{
+			newLeafNode(otherlv_0, grammarAccess.getCryptoMiniSATParameterAccess().getFreqKeyword_0());
+		}
+		(
+			(
+				lv_rndfreq_1_0=RULE_PROBA
+				{
+					newLeafNode(lv_rndfreq_1_0, grammarAccess.getCryptoMiniSATParameterAccess().getRndfreqPROBATerminalRuleCall_1_0());
+				}
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getCryptoMiniSATParameterRule());
 					}
 					setWithLastConsumed(
 						$current,

@@ -19,10 +19,11 @@ enum Sat4JVariant:	SAT4J_JAVA="sat4j-java" | SAT4J_JAR="sat4j-jar" | SAT4J_COMP=
 SolverVersion: "version" version=STRING;
 
 MiniSAT: variant="minisat" parameter=MiniSATParameter?;
-CryptoMiniSAT: variant="cryptominisat" ;
+CryptoMiniSAT: variant="cryptominisat" parameter=CryptoMiniSATParameter?;
 
 // https://www.msoos.org/minisat-faq/
 MiniSATParameter : 'rnd-freq' rndfreq=PROBA; // STRING; 
+CryptoMiniSATParameter : 'freq' rndfreq=PROBA; // STRING; 
 
 terminal PROBA returns ecore::EFloat : '1'|('0'(.INT)?);
 

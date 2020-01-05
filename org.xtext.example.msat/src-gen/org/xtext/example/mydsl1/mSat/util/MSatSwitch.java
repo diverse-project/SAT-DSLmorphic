@@ -122,6 +122,13 @@ public class MSatSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case MSatPackage.CRYPTO_MINI_SAT_PARAMETER:
+      {
+        CryptoMiniSATParameter cryptoMiniSATParameter = (CryptoMiniSATParameter)theEObject;
+        T result = caseCryptoMiniSATParameter(cryptoMiniSATParameter);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       case MSatPackage.BENCHMARK:
       {
         Benchmark benchmark = (Benchmark)theEObject;
@@ -312,6 +319,22 @@ public class MSatSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseMiniSATParameter(MiniSATParameter object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Crypto Mini SAT Parameter</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Crypto Mini SAT Parameter</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseCryptoMiniSATParameter(CryptoMiniSATParameter object)
   {
     return null;
   }

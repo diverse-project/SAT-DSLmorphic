@@ -87,6 +87,15 @@ public interface MSatFactory extends EFactory
   MiniSATParameter createMiniSATParameter();
 
   /**
+   * Returns a new object of class '<em>Crypto Mini SAT Parameter</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Crypto Mini SAT Parameter</em>'.
+   * @generated
+   */
+  CryptoMiniSATParameter createCryptoMiniSATParameter();
+
+  /**
    * Returns a new object of class '<em>Benchmark</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->

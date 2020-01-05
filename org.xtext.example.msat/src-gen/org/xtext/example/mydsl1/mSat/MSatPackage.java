@@ -245,13 +245,22 @@ public interface MSatPackage extends EPackage
   int CRYPTO_MINI_SAT__VARIANT = 0;
 
   /**
+   * The feature id for the '<em><b>Parameter</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CRYPTO_MINI_SAT__PARAMETER = 1;
+
+  /**
    * The number of structural features of the '<em>Crypto Mini SAT</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int CRYPTO_MINI_SAT_FEATURE_COUNT = 1;
+  int CRYPTO_MINI_SAT_FEATURE_COUNT = 2;
 
   /**
    * The meta object id for the '{@link org.xtext.example.mydsl1.mSat.impl.MiniSATParameterImpl <em>Mini SAT Parameter</em>}' class.
@@ -282,6 +291,34 @@ public interface MSatPackage extends EPackage
   int MINI_SAT_PARAMETER_FEATURE_COUNT = 1;
 
   /**
+   * The meta object id for the '{@link org.xtext.example.mydsl1.mSat.impl.CryptoMiniSATParameterImpl <em>Crypto Mini SAT Parameter</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.example.mydsl1.mSat.impl.CryptoMiniSATParameterImpl
+   * @see org.xtext.example.mydsl1.mSat.impl.MSatPackageImpl#getCryptoMiniSATParameter()
+   * @generated
+   */
+  int CRYPTO_MINI_SAT_PARAMETER = 7;
+
+  /**
+   * The feature id for the '<em><b>Rndfreq</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CRYPTO_MINI_SAT_PARAMETER__RNDFREQ = 0;
+
+  /**
+   * The number of structural features of the '<em>Crypto Mini SAT Parameter</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CRYPTO_MINI_SAT_PARAMETER_FEATURE_COUNT = 1;
+
+  /**
    * The meta object id for the '{@link org.xtext.example.mydsl1.mSat.impl.BenchmarkImpl <em>Benchmark</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -289,7 +326,7 @@ public interface MSatPackage extends EPackage
    * @see org.xtext.example.mydsl1.mSat.impl.MSatPackageImpl#getBenchmark()
    * @generated
    */
-  int BENCHMARK = 7;
+  int BENCHMARK = 8;
 
   /**
    * The number of structural features of the '<em>Benchmark</em>' class.
@@ -308,7 +345,7 @@ public interface MSatPackage extends EPackage
    * @see org.xtext.example.mydsl1.mSat.impl.MSatPackageImpl#getBenchmarkDimacs()
    * @generated
    */
-  int BENCHMARK_DIMACS = 8;
+  int BENCHMARK_DIMACS = 9;
 
   /**
    * The feature id for the '<em><b>Dimacses</b></em>' attribute list.
@@ -336,7 +373,7 @@ public interface MSatPackage extends EPackage
    * @see org.xtext.example.mydsl1.mSat.impl.MSatPackageImpl#getBenchmarkFormula()
    * @generated
    */
-  int BENCHMARK_FORMULA = 9;
+  int BENCHMARK_FORMULA = 10;
 
   /**
    * The feature id for the '<em><b>Expressions</b></em>' containment reference list.
@@ -364,7 +401,7 @@ public interface MSatPackage extends EPackage
    * @see org.xtext.example.mydsl1.mSat.impl.MSatPackageImpl#getExpression()
    * @generated
    */
-  int EXPRESSION = 10;
+  int EXPRESSION = 11;
 
   /**
    * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -401,7 +438,7 @@ public interface MSatPackage extends EPackage
    * @see org.xtext.example.mydsl1.mSat.impl.MSatPackageImpl#getBiImpl()
    * @generated
    */
-  int BI_IMPL = 11;
+  int BI_IMPL = 12;
 
   /**
    * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -456,7 +493,7 @@ public interface MSatPackage extends EPackage
    * @see org.xtext.example.mydsl1.mSat.impl.MSatPackageImpl#getImpl()
    * @generated
    */
-  int IMPL = 12;
+  int IMPL = 13;
 
   /**
    * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -511,7 +548,7 @@ public interface MSatPackage extends EPackage
    * @see org.xtext.example.mydsl1.mSat.impl.MSatPackageImpl#getOr()
    * @generated
    */
-  int OR = 13;
+  int OR = 14;
 
   /**
    * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -566,7 +603,7 @@ public interface MSatPackage extends EPackage
    * @see org.xtext.example.mydsl1.mSat.impl.MSatPackageImpl#getAnd()
    * @generated
    */
-  int AND = 14;
+  int AND = 15;
 
   /**
    * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -621,7 +658,7 @@ public interface MSatPackage extends EPackage
    * @see org.xtext.example.mydsl1.mSat.impl.MSatPackageImpl#getNand()
    * @generated
    */
-  int NAND = 15;
+  int NAND = 16;
 
   /**
    * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -676,7 +713,7 @@ public interface MSatPackage extends EPackage
    * @see org.xtext.example.mydsl1.mSat.impl.MSatPackageImpl#getNot()
    * @generated
    */
-  int NOT = 16;
+  int NOT = 17;
 
   /**
    * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -722,7 +759,7 @@ public interface MSatPackage extends EPackage
    * @see org.xtext.example.mydsl1.mSat.impl.MSatPackageImpl#getSat4JVariant()
    * @generated
    */
-  int SAT4_JVARIANT = 17;
+  int SAT4_JVARIANT = 18;
 
 
   /**
@@ -885,6 +922,17 @@ public interface MSatPackage extends EPackage
   EAttribute getCryptoMiniSAT_Variant();
 
   /**
+   * Returns the meta object for the containment reference '{@link org.xtext.example.mydsl1.mSat.CryptoMiniSAT#getParameter <em>Parameter</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Parameter</em>'.
+   * @see org.xtext.example.mydsl1.mSat.CryptoMiniSAT#getParameter()
+   * @see #getCryptoMiniSAT()
+   * @generated
+   */
+  EReference getCryptoMiniSAT_Parameter();
+
+  /**
    * Returns the meta object for class '{@link org.xtext.example.mydsl1.mSat.MiniSATParameter <em>Mini SAT Parameter</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -904,6 +952,27 @@ public interface MSatPackage extends EPackage
    * @generated
    */
   EAttribute getMiniSATParameter_Rndfreq();
+
+  /**
+   * Returns the meta object for class '{@link org.xtext.example.mydsl1.mSat.CryptoMiniSATParameter <em>Crypto Mini SAT Parameter</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Crypto Mini SAT Parameter</em>'.
+   * @see org.xtext.example.mydsl1.mSat.CryptoMiniSATParameter
+   * @generated
+   */
+  EClass getCryptoMiniSATParameter();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.xtext.example.mydsl1.mSat.CryptoMiniSATParameter#getRndfreq <em>Rndfreq</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Rndfreq</em>'.
+   * @see org.xtext.example.mydsl1.mSat.CryptoMiniSATParameter#getRndfreq()
+   * @see #getCryptoMiniSATParameter()
+   * @generated
+   */
+  EAttribute getCryptoMiniSATParameter_Rndfreq();
 
   /**
    * Returns the meta object for class '{@link org.xtext.example.mydsl1.mSat.Benchmark <em>Benchmark</em>}'.
@@ -1336,6 +1405,14 @@ public interface MSatPackage extends EPackage
     EAttribute CRYPTO_MINI_SAT__VARIANT = eINSTANCE.getCryptoMiniSAT_Variant();
 
     /**
+     * The meta object literal for the '<em><b>Parameter</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference CRYPTO_MINI_SAT__PARAMETER = eINSTANCE.getCryptoMiniSAT_Parameter();
+
+    /**
      * The meta object literal for the '{@link org.xtext.example.mydsl1.mSat.impl.MiniSATParameterImpl <em>Mini SAT Parameter</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -1352,6 +1429,24 @@ public interface MSatPackage extends EPackage
      * @generated
      */
     EAttribute MINI_SAT_PARAMETER__RNDFREQ = eINSTANCE.getMiniSATParameter_Rndfreq();
+
+    /**
+     * The meta object literal for the '{@link org.xtext.example.mydsl1.mSat.impl.CryptoMiniSATParameterImpl <em>Crypto Mini SAT Parameter</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.example.mydsl1.mSat.impl.CryptoMiniSATParameterImpl
+     * @see org.xtext.example.mydsl1.mSat.impl.MSatPackageImpl#getCryptoMiniSATParameter()
+     * @generated
+     */
+    EClass CRYPTO_MINI_SAT_PARAMETER = eINSTANCE.getCryptoMiniSATParameter();
+
+    /**
+     * The meta object literal for the '<em><b>Rndfreq</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute CRYPTO_MINI_SAT_PARAMETER__RNDFREQ = eINSTANCE.getCryptoMiniSATParameter_Rndfreq();
 
     /**
      * The meta object literal for the '{@link org.xtext.example.mydsl1.mSat.impl.BenchmarkImpl <em>Benchmark</em>}' class.

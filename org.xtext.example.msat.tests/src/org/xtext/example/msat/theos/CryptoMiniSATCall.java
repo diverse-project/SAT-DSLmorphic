@@ -14,7 +14,7 @@ public class CryptoMiniSATCall
 	static List<String> accepted_versions =  Arrays.asList("2.4.0", "3.1.0", "4.5.3", "5.6.8", "default");
 	
 	
-	public static List<Object> DoIt(String file_dimacs_formula, String version) 
+	public static List<Object> DoIt(String file_dimacs_formula, String version, String parameters) 
 	{	
 		String TIMEOUT = "600";
 
@@ -30,6 +30,10 @@ public class CryptoMiniSATCall
 			full_command.add("timeout");
 			full_command.add(TIMEOUT);
 			full_command.add("./" + calling_name);
+			if (!parameters.equals(""))
+			{
+				full_command.add(parameters);
+			}
 			full_command.add(file_dimacs_formula);
 
 			ProcessBuilder pb = new ProcessBuilder(full_command);

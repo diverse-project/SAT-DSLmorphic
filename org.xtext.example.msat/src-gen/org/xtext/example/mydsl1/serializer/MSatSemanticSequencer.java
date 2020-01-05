@@ -19,6 +19,7 @@ import org.xtext.example.mydsl1.mSat.BenchmarkDimacs;
 import org.xtext.example.mydsl1.mSat.BenchmarkFormula;
 import org.xtext.example.mydsl1.mSat.BiImpl;
 import org.xtext.example.mydsl1.mSat.CryptoMiniSAT;
+import org.xtext.example.mydsl1.mSat.CryptoMiniSATParameter;
 import org.xtext.example.mydsl1.mSat.Expression;
 import org.xtext.example.mydsl1.mSat.Impl;
 import org.xtext.example.mydsl1.mSat.MSatPackage;
@@ -61,6 +62,9 @@ public class MSatSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 				return; 
 			case MSatPackage.CRYPTO_MINI_SAT:
 				sequence_CryptoMiniSAT(context, (CryptoMiniSAT) semanticObject); 
+				return; 
+			case MSatPackage.CRYPTO_MINI_SAT_PARAMETER:
+				sequence_CryptoMiniSATParameter(context, (CryptoMiniSATParameter) semanticObject); 
 				return; 
 			case MSatPackage.EXPRESSION:
 				if (rule == grammarAccess.getConstRule()) {
@@ -249,19 +253,31 @@ public class MSatSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	
 	/**
 	 * Contexts:
+	 *     CryptoMiniSATParameter returns CryptoMiniSATParameter
+	 *
+	 * Constraint:
+	 *     rndfreq=PROBA
+	 */
+	protected void sequence_CryptoMiniSATParameter(ISerializationContext context, CryptoMiniSATParameter semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, MSatPackage.Literals.CRYPTO_MINI_SAT_PARAMETER__RNDFREQ) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, MSatPackage.Literals.CRYPTO_MINI_SAT_PARAMETER__RNDFREQ));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getCryptoMiniSATParameterAccess().getRndfreqPROBATerminalRuleCall_1_0(), semanticObject.getRndfreq());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
 	 *     CryptoMiniSAT returns CryptoMiniSAT
 	 *
 	 * Constraint:
-	 *     variant='cryptominisat'
+	 *     (variant='cryptominisat' parameter=CryptoMiniSATParameter?)
 	 */
 	protected void sequence_CryptoMiniSAT(ISerializationContext context, CryptoMiniSAT semanticObject) {
-		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, MSatPackage.Literals.CRYPTO_MINI_SAT__VARIANT) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, MSatPackage.Literals.CRYPTO_MINI_SAT__VARIANT));
-		}
-		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getCryptoMiniSATAccess().getVariantCryptominisatKeyword_0(), semanticObject.getVariant());
-		feeder.finish();
+		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	

@@ -42,7 +42,9 @@ public class MSatParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getSATSolverAccess().getGroup(), "rule__SATSolver__Group__0");
 			builder.put(grammarAccess.getSolverVersionAccess().getGroup(), "rule__SolverVersion__Group__0");
 			builder.put(grammarAccess.getMiniSATAccess().getGroup(), "rule__MiniSAT__Group__0");
+			builder.put(grammarAccess.getCryptoMiniSATAccess().getGroup(), "rule__CryptoMiniSAT__Group__0");
 			builder.put(grammarAccess.getMiniSATParameterAccess().getGroup(), "rule__MiniSATParameter__Group__0");
+			builder.put(grammarAccess.getCryptoMiniSATParameterAccess().getGroup(), "rule__CryptoMiniSATParameter__Group__0");
 			builder.put(grammarAccess.getBenchmarkDimacsAccess().getGroup(), "rule__BenchmarkDimacs__Group__0");
 			builder.put(grammarAccess.getBenchmarkDimacsAccess().getGroup_1(), "rule__BenchmarkDimacs__Group_1__0");
 			builder.put(grammarAccess.getBenchmarkDimacsAccess().getGroup_1_1(), "rule__BenchmarkDimacs__Group_1_1__0");
@@ -69,8 +71,10 @@ public class MSatParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getSolverVersionAccess().getVersionAssignment_1(), "rule__SolverVersion__VersionAssignment_1");
 			builder.put(grammarAccess.getMiniSATAccess().getVariantAssignment_0(), "rule__MiniSAT__VariantAssignment_0");
 			builder.put(grammarAccess.getMiniSATAccess().getParameterAssignment_1(), "rule__MiniSAT__ParameterAssignment_1");
-			builder.put(grammarAccess.getCryptoMiniSATAccess().getVariantAssignment(), "rule__CryptoMiniSAT__VariantAssignment");
+			builder.put(grammarAccess.getCryptoMiniSATAccess().getVariantAssignment_0(), "rule__CryptoMiniSAT__VariantAssignment_0");
+			builder.put(grammarAccess.getCryptoMiniSATAccess().getParameterAssignment_1(), "rule__CryptoMiniSAT__ParameterAssignment_1");
 			builder.put(grammarAccess.getMiniSATParameterAccess().getRndfreqAssignment_1(), "rule__MiniSATParameter__RndfreqAssignment_1");
+			builder.put(grammarAccess.getCryptoMiniSATParameterAccess().getRndfreqAssignment_1(), "rule__CryptoMiniSATParameter__RndfreqAssignment_1");
 			builder.put(grammarAccess.getBenchmarkDimacsAccess().getDimacsesAssignment_1_0(), "rule__BenchmarkDimacs__DimacsesAssignment_1_0");
 			builder.put(grammarAccess.getBenchmarkDimacsAccess().getDimacsesAssignment_1_1_1(), "rule__BenchmarkDimacs__DimacsesAssignment_1_1_1");
 			builder.put(grammarAccess.getBenchmarkFormulaAccess().getExpressionsAssignment_1_0(), "rule__BenchmarkFormula__ExpressionsAssignment_1_0");

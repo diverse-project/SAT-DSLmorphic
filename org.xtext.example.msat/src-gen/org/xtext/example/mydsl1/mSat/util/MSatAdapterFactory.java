@@ -111,6 +111,11 @@ public class MSatAdapterFactory extends AdapterFactoryImpl
         return createMiniSATParameterAdapter();
       }
       @Override
+      public Adapter caseCryptoMiniSATParameter(CryptoMiniSATParameter object)
+      {
+        return createCryptoMiniSATParameterAdapter();
+      }
+      @Override
       public Adapter caseBenchmark(Benchmark object)
       {
         return createBenchmarkAdapter();
@@ -283,6 +288,21 @@ public class MSatAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createMiniSATParameterAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.example.mydsl1.mSat.CryptoMiniSATParameter <em>Crypto Mini SAT Parameter</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.example.mydsl1.mSat.CryptoMiniSATParameter
+   * @generated
+   */
+  public Adapter createCryptoMiniSATParameterAdapter()
   {
     return null;
   }
