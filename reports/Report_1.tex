@@ -28,7 +28,7 @@
 \section{Introduction}
 In the first part of the project we implemented some SAT solver with sat4j. We wanted to compare our solver to sate-of-the-art solvers to see how far we were from them. 
 We wanted to compare to the following solvers: cryptominisat and minisat. Unfortunatly we didn't suceed to install minisat on our machines so we only compared to cryptominisat.
-To run the script that provide the database for the tests you have to redirect the output of eclipse in a file and then run the following command \emph{python launch.py}. It will write the results in the file in the form of a csv file with the form \emph{Benchmark/solver/version/sat/time (ms)}
+To run the script that provide the database for the tests you have to redirect the output of eclipse in a file \emph{result.csv} and then run the following command \emph{python launch.py}. It will write a xtend files with unit test method (JUnit). Then you have to run the test of \emph{BenchmarkSolver.xtend} to write the results in the file in the form of a csv file with the form \emph{Benchmark/solver/version/sat/time (ms)}
 In the next of this report we will run some test to compare the efficiency of the solvers and their correctness. Then we will use those solvers to determine hard formula. 
 
 \section{Best Solver}
@@ -58,7 +58,7 @@ We use the results computed whith the launch.py script. We computed the mean sol
 
 \vskip 3mm
 
-First we remark that the sat4j solver are far less efficient than the cryptominisat one. For the sat4j solver the jar is slighly better than the other sat4j solvers and that the new version of cryptominisat is better than the older which is natural. 
+First we remark that the sat4j solver are far less efficient than the cryptominisat one. For the sat4j solver the jar is slighly better than the other sat4j solvers. We can explain that by the fact that the sat4j-maven have to build a project each time so it take some times. The new version of cryptominisat is better than the older which is natural. 
 
 \section{Presence of Bugs}
 \subsection{Experimental Protocole}
@@ -104,7 +104,13 @@ Up to here we have consider formula as an homogeneous set but some formula are h
 We find that all the solver have the same hardest formula which is listReverse.sk\_11\_43.cnf. It mean solve time is $142 $ s. 
 For these formula the most efficient solver is sat4j-jar and he is two time faster than the both version of cryptominisat. The sat4j-maven and sat4j-jave do not suceed to solve this formula. 
 
+
+\section{Discussion}
+Our test are not hundred purcent accurate because we did not run them with an empty cache, RAM and a fresh machine. Moreover if we want to have a higher accuracy we have to use a bigger dataset.
+
+Therefore, even with our dataset, we can conclude that all the solvers are correct and that the cryptominisat are more efficient that the sat4j solvers. But the sat4j solvers are more efficient for hard formula such as listReverse.sk\_11\_43.cnf.
 \end{document}
+
 
 
 
