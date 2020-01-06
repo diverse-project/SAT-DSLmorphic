@@ -1,18 +1,5 @@
 package org.xtext.example.mydsl.GJ_MC_Tests;
 
-import com.google.common.base.Objects;
-import com.google.inject.Inject;
-import org.eclipse.emf.common.util.EList;
-import org.eclipse.emf.ecore.resource.Resource;
-import org.eclipse.xtend2.lib.StringConcatenation;
-import org.eclipse.xtext.testing.InjectWith;
-import org.eclipse.xtext.testing.extensions.InjectionExtension;
-import org.eclipse.xtext.testing.util.ParseHelper;
-import org.eclipse.xtext.xbase.lib.Exceptions;
-import org.eclipse.xtext.xbase.lib.IterableExtensions;
-import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.extension.ExtendWith;
 import org.xtext.example.mydsl.GJ_MC_Process.DIMACSPrinter;
 import org.xtext.example.mydsl.sat.Model;
 import org.xtext.example.mydsl.tests.SatInjectorProvider;

@@ -3,16 +3,8 @@
  */
 package org.xtext.satdsl.ui.internal;
 
-import com.google.common.collect.Maps;
-import com.google.inject.Guice;
-import com.google.inject.Injector;
 import java.util.Collections;
 import java.util.Map;
-import org.apache.log4j.Logger;
-import org.eclipse.ui.plugin.AbstractUIPlugin;
-import org.eclipse.xtext.ui.shared.SharedStateModule;
-import org.eclipse.xtext.util.Modules2;
-import org.osgi.framework.BundleContext;
 import org.xtext.example.mydsl.MyDslRuntimeModule;
 import org.xtext.example.mydsl.ui.MyDslUiModule;
 

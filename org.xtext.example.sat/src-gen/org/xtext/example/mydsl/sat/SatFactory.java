@@ -3,8 +3,6 @@
  */
 package org.xtext.example.mydsl.sat;
 
-import org.eclipse.emf.ecore.EFactory;
-
 /**
  * <!-- begin-user-doc -->
  * The <b>Factory</b> for the model.

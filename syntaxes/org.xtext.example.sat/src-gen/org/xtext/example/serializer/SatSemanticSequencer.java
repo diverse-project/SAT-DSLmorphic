@@ -3,21 +3,10 @@
  */
 package org.xtext.example.serializer;
 
-import com.google.inject.Inject;
 import java.util.Set;
-import org.eclipse.emf.ecore.EObject;
-import org.eclipse.emf.ecore.EPackage;
-import org.eclipse.xtext.Action;
-import org.eclipse.xtext.Parameter;
-import org.eclipse.xtext.ParserRule;
-import org.eclipse.xtext.serializer.ISerializationContext;
-import org.eclipse.xtext.serializer.acceptor.SequenceFeeder;
-import org.eclipse.xtext.serializer.sequencer.AbstractDelegatingSemanticSequencer;
-import org.eclipse.xtext.serializer.sequencer.ITransientValueService.ValueTransient;
 import org.xtext.example.sat.Atom;
 import org.xtext.example.sat.ExprBin;
 import org.xtext.example.sat.ExprUn;
-import org.xtext.example.sat.File;
 import org.xtext.example.sat.Formula;
 import org.xtext.example.sat.SatPackage;
 import org.xtext.example.sat.Var;

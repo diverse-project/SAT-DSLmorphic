@@ -1,6 +1,5 @@
 package org.xtext.example.mydsl.GJ_MC_Process;
 
-import org.eclipse.emf.ecore.EObject;
 import org.xtext.example.mydsl.sat.And;
 import org.xtext.example.mydsl.sat.BiImpl;
 import org.xtext.example.mydsl.sat.Expression;

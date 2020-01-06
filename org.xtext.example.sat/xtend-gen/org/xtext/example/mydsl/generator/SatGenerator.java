@@ -3,24 +3,18 @@
  */
 package org.xtext.example.mydsl.generator;
 
-import org.eclipse.emf.common.util.EList;
-import org.eclipse.emf.ecore.EObject;
-import org.eclipse.emf.ecore.resource.Resource;
-import org.eclipse.xtext.generator.AbstractGenerator;
-import org.eclipse.xtext.generator.IFileSystemAccess2;
-import org.eclipse.xtext.generator.IGeneratorContext;
-
 /**
  * Generates code from your model files on save.
  * 
  * See https://www.eclipse.org/Xtext/documentation/303_runtime_concepts.html#code-generation
  */
 @SuppressWarnings("all")
-public class SatGenerator extends AbstractGenerator {
+public class SatGenerator /* implements AbstractGenerator  */{
   @Override
-  public void doGenerate(final Resource resource, final IFileSystemAccess2 fsa, final IGeneratorContext context) {
-    final EList<EObject> temp = resource.getContents();
-    final String content = temp.toString();
-    fsa.generateFile("sat.view", content);
+  public void doGenerate(final /* Resource */Object resource, final /* IFileSystemAccess2 */Object fsa, final /* IGeneratorContext */Object context) {
+    throw new Error("Unresolved compilation problems:"
+      + "\ncontents cannot be resolved"
+      + "\ntoString cannot be resolved"
+      + "\ngenerateFile cannot be resolved");
   }
 }

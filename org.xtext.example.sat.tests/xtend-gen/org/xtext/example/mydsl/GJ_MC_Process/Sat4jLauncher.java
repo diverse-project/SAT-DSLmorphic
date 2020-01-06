@@ -1,7 +1,5 @@
 package org.xtext.example.mydsl.GJ_MC_Process;
 
-import com.google.common.base.Objects;
-import org.eclipse.emf.ecore.EObject;
 import org.xtext.example.mydsl.GJ_MC_Process.LibInterpreter;
 import org.xtext.example.mydsl.GJ_MC_Process.SATUtils;
 import org.xtext.example.mydsl.GJ_MC_Process.Sat4JCompiler;

@@ -3,10 +3,6 @@
  */
 package org.xtext.example.mydsl.ui;
 
-import com.google.inject.Injector;
-import org.eclipse.core.runtime.Platform;
-import org.eclipse.xtext.ui.guice.AbstractGuiceAwareExecutableExtensionFactory;
-import org.osgi.framework.Bundle;
 import org.xtext.example.sat.ui.internal.SatActivator;
 
 /**

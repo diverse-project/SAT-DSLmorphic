@@ -3,21 +3,7 @@
  */
 package org.xtext.example.mydsl.services;
 
-import com.google.inject.Inject;
-import com.google.inject.Singleton;
 import java.util.List;
-import org.eclipse.xtext.Alternatives;
-import org.eclipse.xtext.Assignment;
-import org.eclipse.xtext.Grammar;
-import org.eclipse.xtext.GrammarUtil;
-import org.eclipse.xtext.Group;
-import org.eclipse.xtext.Keyword;
-import org.eclipse.xtext.ParserRule;
-import org.eclipse.xtext.RuleCall;
-import org.eclipse.xtext.TerminalRule;
-import org.eclipse.xtext.common.services.TerminalsGrammarAccess;
-import org.eclipse.xtext.service.AbstractElementFinder.AbstractGrammarElementFinder;
-import org.eclipse.xtext.service.GrammarProvider;
 
 @Singleton
 public class MyDslGrammarAccess extends AbstractGrammarElementFinder {

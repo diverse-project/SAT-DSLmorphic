@@ -2,8 +2,6 @@ package org.xtext.example.mydsl.GJ_MC_Process;
 
 import java.util.HashMap;
 import java.util.List;
-import org.eclipse.emf.ecore.EObject;
-import org.eclipse.xtext.xbase.lib.CollectionLiterals;
 import org.xtext.example.mydsl.GJ_MC_Process.SATUtils;
 import org.xtext.example.mydsl.sat.And;
 import org.xtext.example.mydsl.sat.Expression;

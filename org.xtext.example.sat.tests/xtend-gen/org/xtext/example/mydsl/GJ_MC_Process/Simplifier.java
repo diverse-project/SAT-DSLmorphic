@@ -1,8 +1,5 @@
 package org.xtext.example.mydsl.GJ_MC_Process;
 
-import com.google.common.base.Objects;
-import org.eclipse.emf.ecore.EObject;
-import org.eclipse.xtext.EcoreUtil2;
 import org.xtext.example.mydsl.sat.And;
 import org.xtext.example.mydsl.sat.BiImpl;
 import org.xtext.example.mydsl.sat.Expression;

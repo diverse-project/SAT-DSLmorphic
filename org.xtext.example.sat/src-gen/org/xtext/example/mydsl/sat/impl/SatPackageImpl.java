@@ -3,14 +3,6 @@
  */
 package org.xtext.example.mydsl.sat.impl;
 
-import org.eclipse.emf.ecore.EAttribute;
-import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EEnum;
-import org.eclipse.emf.ecore.EPackage;
-import org.eclipse.emf.ecore.EReference;
-
-import org.eclipse.emf.ecore.impl.EPackageImpl;
-
 import org.xtext.example.mydsl.sat.And;
 import org.xtext.example.mydsl.sat.BiImpl;
 import org.xtext.example.mydsl.sat.Expression;

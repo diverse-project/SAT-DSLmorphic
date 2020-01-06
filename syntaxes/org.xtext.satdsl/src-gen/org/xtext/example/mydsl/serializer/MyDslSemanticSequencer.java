@@ -3,17 +3,7 @@
  */
 package org.xtext.example.mydsl.serializer;
 
-import com.google.inject.Inject;
 import java.util.Set;
-import org.eclipse.emf.ecore.EObject;
-import org.eclipse.emf.ecore.EPackage;
-import org.eclipse.xtext.Action;
-import org.eclipse.xtext.Parameter;
-import org.eclipse.xtext.ParserRule;
-import org.eclipse.xtext.serializer.ISerializationContext;
-import org.eclipse.xtext.serializer.acceptor.SequenceFeeder;
-import org.eclipse.xtext.serializer.sequencer.AbstractDelegatingSemanticSequencer;
-import org.eclipse.xtext.serializer.sequencer.ITransientValueService.ValueTransient;
 import org.xtext.example.mydsl.myDsl.Atom;
 import org.xtext.example.mydsl.myDsl.BinExpr;
 import org.xtext.example.mydsl.myDsl.Expression;

@@ -3,13 +3,6 @@
  */
 package org.xtext.example.mydsl.myDsl.impl;
 
-import org.eclipse.emf.ecore.EAttribute;
-import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EPackage;
-import org.eclipse.emf.ecore.EReference;
-
-import org.eclipse.emf.ecore.impl.EPackageImpl;
-
 import org.xtext.example.mydsl.myDsl.Atom;
 import org.xtext.example.mydsl.myDsl.BinExpr;
 import org.xtext.example.mydsl.myDsl.Expression;
