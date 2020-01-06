@@ -58,7 +58,7 @@ We use the results computed whith the launch.py script. We computed the mean sol
 
 \vskip 3mm
 
-First we remark that the sat4j solver are far less efficient than the cryptominisat one. For the sat4j solver the jar is slighly better than the other sat4j solvers. We can explain that by the fact that the sat4j-maven have to build a project each time so it take some times. The new version of cryptominisat is better than the older which is natural. 
+First we remark that the sat4j solver are far less efficient than the cryptominisat one. For the sat4j solver the jar is slighly better than the other sat4j solvers. We can explain that by the fact that the sat4j-maven have to build a project each time so it take some times. The new version of cryptominisat is a bit worse than the old one, because the difference is less than a percent that can be explained by a mere random variation. 
 
 \section{Presence of Bugs}
 \subsection{Experimental Protocole}
@@ -76,17 +76,6 @@ We used the followings protocoles:
 For the test of consistency we obtain that all the solvers are consistent. One reason may be that we did not make enought repetition to find a bug. Another reason may be that some solver are deterministic  and so are consistent and that non-deterministic solver are strong enought to be consistent (the alea may be  change the solve time but not the awnser).
 
 For the test of corectness we have that all the solver that gave an awnser all gave the same awnser. So we may conclude that our solvers are corret in most of the cases. We have to be careful because our solvers may not give the right awnser in some corner cases which are not in our dataset. 
-
-
-
-%\section{Performance deviation}
-%\subsection{Experimental Protocole}
-
-
-%\subsection{Results}
-% Beautiful array with the resutls
-
-% Analysis of those results
 
 \section{Harder SAT formula}
 \subsection{Experimental Protocole}

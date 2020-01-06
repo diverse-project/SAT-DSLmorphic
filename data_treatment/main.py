@@ -103,10 +103,13 @@ for name in file_name :
                     st +=1
                 else:
                     unsat +=1
-        print(st,unsat)
         if st > unsat :
             if awsn != "SAT":
                 print(curr_benc,curr_solv,curr_ver)
         else :
             if awsn == "SAT":
                     print(curr_benc,curr_solv,curr_ver)
+
+
+
+                    
