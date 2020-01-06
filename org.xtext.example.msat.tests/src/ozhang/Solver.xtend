@@ -158,20 +158,20 @@ class Solver {
 			var pattern = Pattern.compile(".*\\/(.+\\.cnf)$")
 	        var matcher = pattern.matcher(file_path)
 	        matcher.find()
-			CSVwriter.writeNext(#[matcher.group(1), solver_name, "CRASHED", (300000).toString()])
+			CSVwriter.writeNext(#[matcher.group(1), solver_name, "CRASHED", ""])
 		}
 		catch (TimeoutException te) { 
 			println("------------- Timed out -------------")
 			var pattern = Pattern.compile(".*\\/(.+\\.cnf)$")
 	        var matcher = pattern.matcher(file_path)
 	        matcher.find()
-			CSVwriter.writeNext(#[matcher.group(1), solver_name, "TIMED OUT", (300000).toString()])
+			CSVwriter.writeNext(#[matcher.group(1), solver_name, "TIMED OUT", ""])
 		} catch (Exception e) {
 			println("---- Timed out ----")
 			var pattern = Pattern.compile(".*\\/(.+\\.cnf)$")
 	        var matcher = pattern.matcher(file_path)
 	        matcher.find()
-			CSVwriter.writeNext(#[matcher.group(1), solver_name, "TIMED OUT", (300000).toString()])
+			CSVwriter.writeNext(#[matcher.group(1), solver_name, "TIMED OUT", ""])
 		}
 		if (!executor.isTerminated()) {
 			executor.shutdownNow(); // If you want to stop the code that hasn't finished.
@@ -227,7 +227,7 @@ class Solver {
             return false
         } catch (TimeoutException e) {
             println("---- Timed out ----")
-			CSVwriter.writeNext(#[matcher.group(1), "Sat4j-java", "TIMED OUT", (300000).toString()])
+			CSVwriter.writeNext(#[matcher.group(1), "Sat4j-java", "TIMED OUT", ""])
             return false
         }
     }
