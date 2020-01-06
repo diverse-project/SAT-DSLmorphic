@@ -22,16 +22,16 @@ class BenchmarkSolver {
 	ParseHelper<SATMorphic> parseHelper
 
 @Test
-def void loadModel() {
+def void loadModel0() {
     System.out.println("Benchmark,Solver,version,Sat?,Time(ms)");
 }
 
 
 @Test
-def void loadModel0() {
+def void loadModel001() {
     val result = parseHelper.parse('''
     solver sat4j-java
-    benchmarkDIMACS "samplingfm/Benchmarks/ProcessBean.sk_8_64.cnf"
+    benchmarkDIMACS "samplingfm/Benchmarks/tutorial1.sk_1_1.cnf"
     ''')
     Assertions.assertNotNull(result)
     val errors = result.eResource.errors
@@ -51,10 +51,10 @@ def void loadModel0() {
 
 
 @Test
-def void loadModel1() {
+def void loadModel002() {
     val result = parseHelper.parse('''
     solver sat4j-maven
-    benchmarkDIMACS "samplingfm/Benchmarks/ProcessBean.sk_8_64.cnf"
+    benchmarkDIMACS "samplingfm/Benchmarks/tutorial1.sk_1_1.cnf"
     ''')
     Assertions.assertNotNull(result)
     val errors = result.eResource.errors
@@ -74,10 +74,10 @@ def void loadModel1() {
 
 
 @Test
-def void loadModel2() {
+def void loadModel003() {
     val result = parseHelper.parse('''
     solver sat4j-jar
-    benchmarkDIMACS "samplingfm/Benchmarks/ProcessBean.sk_8_64.cnf"
+    benchmarkDIMACS "samplingfm/Benchmarks/tutorial1.sk_1_1.cnf"
     ''')
     Assertions.assertNotNull(result)
     val errors = result.eResource.errors
@@ -97,10 +97,10 @@ def void loadModel2() {
 
 
 @Test
-def void loadModel3() {
+def void loadModel004() {
     val result = parseHelper.parse('''
     solver cryptominisat
-    benchmarkDIMACS "samplingfm/Benchmarks/ProcessBean.sk_8_64.cnf"
+    benchmarkDIMACS "samplingfm/Benchmarks/tutorial1.sk_1_1.cnf"
     ''')
     Assertions.assertNotNull(result)
     val errors = result.eResource.errors
@@ -120,10 +120,10 @@ def void loadModel3() {
 
 
 @Test
-def void loadModel4() {
+def void loadModel005() {
     val result = parseHelper.parse('''
     solver cryptominisat
-    benchmarkDIMACS "samplingfm/Benchmarks/ProcessBean.sk_8_64.cnf"
+    benchmarkDIMACS "samplingfm/Benchmarks/tutorial1.sk_1_1.cnf"
     ''')
     Assertions.assertNotNull(result)
     val errors = result.eResource.errors
@@ -143,10 +143,10 @@ def void loadModel4() {
 
 
 @Test
-def void loadModel5() {
+def void loadModel006() {
     val result = parseHelper.parse('''
     solver sat4j-java
-    benchmarkDIMACS "samplingfm/Benchmarks/diagStencilClean.sk_41_36.cnf"
+    benchmarkDIMACS "samplingfm/Benchmarks/tableBasedAddition.sk_240_1024.cnf"
     ''')
     Assertions.assertNotNull(result)
     val errors = result.eResource.errors
@@ -166,10 +166,10 @@ def void loadModel5() {
 
 
 @Test
-def void loadModel6() {
+def void loadModel007() {
     val result = parseHelper.parse('''
     solver sat4j-maven
-    benchmarkDIMACS "samplingfm/Benchmarks/diagStencilClean.sk_41_36.cnf"
+    benchmarkDIMACS "samplingfm/Benchmarks/tableBasedAddition.sk_240_1024.cnf"
     ''')
     Assertions.assertNotNull(result)
     val errors = result.eResource.errors
@@ -189,10 +189,10 @@ def void loadModel6() {
 
 
 @Test
-def void loadModel7() {
+def void loadModel008() {
     val result = parseHelper.parse('''
     solver sat4j-jar
-    benchmarkDIMACS "samplingfm/Benchmarks/diagStencilClean.sk_41_36.cnf"
+    benchmarkDIMACS "samplingfm/Benchmarks/tableBasedAddition.sk_240_1024.cnf"
     ''')
     Assertions.assertNotNull(result)
     val errors = result.eResource.errors
@@ -212,10 +212,10 @@ def void loadModel7() {
 
 
 @Test
-def void loadModel8() {
+def void loadModel009() {
     val result = parseHelper.parse('''
     solver cryptominisat
-    benchmarkDIMACS "samplingfm/Benchmarks/diagStencilClean.sk_41_36.cnf"
+    benchmarkDIMACS "samplingfm/Benchmarks/tableBasedAddition.sk_240_1024.cnf"
     ''')
     Assertions.assertNotNull(result)
     val errors = result.eResource.errors
@@ -235,10 +235,10 @@ def void loadModel8() {
 
 
 @Test
-def void loadModel9() {
+def void loadModel010() {
     val result = parseHelper.parse('''
     solver cryptominisat
-    benchmarkDIMACS "samplingfm/Benchmarks/diagStencilClean.sk_41_36.cnf"
+    benchmarkDIMACS "samplingfm/Benchmarks/tableBasedAddition.sk_240_1024.cnf"
     ''')
     Assertions.assertNotNull(result)
     val errors = result.eResource.errors
@@ -258,10 +258,10 @@ def void loadModel9() {
 
 
 @Test
-def void loadModel10() {
+def void loadModel011() {
     val result = parseHelper.parse('''
     solver sat4j-java
-    benchmarkDIMACS "samplingfm/Benchmarks/ActivityService.sk_11_27.cnf"
+    benchmarkDIMACS "samplingfm/Benchmarks/polynomial.sk_7_25.cnf"
     ''')
     Assertions.assertNotNull(result)
     val errors = result.eResource.errors
@@ -281,10 +281,10 @@ def void loadModel10() {
 
 
 @Test
-def void loadModel11() {
+def void loadModel012() {
     val result = parseHelper.parse('''
     solver sat4j-maven
-    benchmarkDIMACS "samplingfm/Benchmarks/ActivityService.sk_11_27.cnf"
+    benchmarkDIMACS "samplingfm/Benchmarks/polynomial.sk_7_25.cnf"
     ''')
     Assertions.assertNotNull(result)
     val errors = result.eResource.errors
@@ -304,10 +304,10 @@ def void loadModel11() {
 
 
 @Test
-def void loadModel12() {
+def void loadModel013() {
     val result = parseHelper.parse('''
     solver sat4j-jar
-    benchmarkDIMACS "samplingfm/Benchmarks/ActivityService.sk_11_27.cnf"
+    benchmarkDIMACS "samplingfm/Benchmarks/polynomial.sk_7_25.cnf"
     ''')
     Assertions.assertNotNull(result)
     val errors = result.eResource.errors
@@ -327,10 +327,10 @@ def void loadModel12() {
 
 
 @Test
-def void loadModel13() {
+def void loadModel014() {
     val result = parseHelper.parse('''
     solver cryptominisat
-    benchmarkDIMACS "samplingfm/Benchmarks/ActivityService.sk_11_27.cnf"
+    benchmarkDIMACS "samplingfm/Benchmarks/polynomial.sk_7_25.cnf"
     ''')
     Assertions.assertNotNull(result)
     val errors = result.eResource.errors
@@ -350,10 +350,10 @@ def void loadModel13() {
 
 
 @Test
-def void loadModel14() {
+def void loadModel015() {
     val result = parseHelper.parse('''
     solver cryptominisat
-    benchmarkDIMACS "samplingfm/Benchmarks/ActivityService.sk_11_27.cnf"
+    benchmarkDIMACS "samplingfm/Benchmarks/polynomial.sk_7_25.cnf"
     ''')
     Assertions.assertNotNull(result)
     val errors = result.eResource.errors
@@ -373,10 +373,10 @@ def void loadModel14() {
 
 
 @Test
-def void loadModel15() {
+def void loadModel016() {
     val result = parseHelper.parse('''
     solver sat4j-java
-    benchmarkDIMACS "samplingfm/Benchmarks/jburnim_morton.sk_13_530.cnf"
+    benchmarkDIMACS "samplingfm/Benchmarks/registerlesSwap.sk_3_10.cnf"
     ''')
     Assertions.assertNotNull(result)
     val errors = result.eResource.errors
@@ -396,10 +396,10 @@ def void loadModel15() {
 
 
 @Test
-def void loadModel16() {
+def void loadModel017() {
     val result = parseHelper.parse('''
     solver sat4j-maven
-    benchmarkDIMACS "samplingfm/Benchmarks/jburnim_morton.sk_13_530.cnf"
+    benchmarkDIMACS "samplingfm/Benchmarks/registerlesSwap.sk_3_10.cnf"
     ''')
     Assertions.assertNotNull(result)
     val errors = result.eResource.errors
@@ -419,10 +419,10 @@ def void loadModel16() {
 
 
 @Test
-def void loadModel17() {
+def void loadModel018() {
     val result = parseHelper.parse('''
     solver sat4j-jar
-    benchmarkDIMACS "samplingfm/Benchmarks/jburnim_morton.sk_13_530.cnf"
+    benchmarkDIMACS "samplingfm/Benchmarks/registerlesSwap.sk_3_10.cnf"
     ''')
     Assertions.assertNotNull(result)
     val errors = result.eResource.errors
@@ -442,10 +442,10 @@ def void loadModel17() {
 
 
 @Test
-def void loadModel18() {
+def void loadModel019() {
     val result = parseHelper.parse('''
     solver cryptominisat
-    benchmarkDIMACS "samplingfm/Benchmarks/jburnim_morton.sk_13_530.cnf"
+    benchmarkDIMACS "samplingfm/Benchmarks/registerlesSwap.sk_3_10.cnf"
     ''')
     Assertions.assertNotNull(result)
     val errors = result.eResource.errors
@@ -465,10 +465,10 @@ def void loadModel18() {
 
 
 @Test
-def void loadModel19() {
+def void loadModel020() {
     val result = parseHelper.parse('''
     solver cryptominisat
-    benchmarkDIMACS "samplingfm/Benchmarks/jburnim_morton.sk_13_530.cnf"
+    benchmarkDIMACS "samplingfm/Benchmarks/registerlesSwap.sk_3_10.cnf"
     ''')
     Assertions.assertNotNull(result)
     val errors = result.eResource.errors
@@ -488,10 +488,10 @@ def void loadModel19() {
 
 
 @Test
-def void loadModel20() {
+def void loadModel021() {
     val result = parseHelper.parse('''
     solver sat4j-java
-    benchmarkDIMACS "samplingfm/Benchmarks/diagStencil.sk_35_36.cnf"
+    benchmarkDIMACS "samplingfm/Benchmarks/10.sk_1_46.cnf"
     ''')
     Assertions.assertNotNull(result)
     val errors = result.eResource.errors
@@ -511,10 +511,10 @@ def void loadModel20() {
 
 
 @Test
-def void loadModel21() {
+def void loadModel022() {
     val result = parseHelper.parse('''
     solver sat4j-maven
-    benchmarkDIMACS "samplingfm/Benchmarks/diagStencil.sk_35_36.cnf"
+    benchmarkDIMACS "samplingfm/Benchmarks/10.sk_1_46.cnf"
     ''')
     Assertions.assertNotNull(result)
     val errors = result.eResource.errors
@@ -534,10 +534,10 @@ def void loadModel21() {
 
 
 @Test
-def void loadModel22() {
+def void loadModel023() {
     val result = parseHelper.parse('''
     solver sat4j-jar
-    benchmarkDIMACS "samplingfm/Benchmarks/diagStencil.sk_35_36.cnf"
+    benchmarkDIMACS "samplingfm/Benchmarks/10.sk_1_46.cnf"
     ''')
     Assertions.assertNotNull(result)
     val errors = result.eResource.errors
@@ -557,10 +557,10 @@ def void loadModel22() {
 
 
 @Test
-def void loadModel23() {
+def void loadModel024() {
     val result = parseHelper.parse('''
     solver cryptominisat
-    benchmarkDIMACS "samplingfm/Benchmarks/diagStencil.sk_35_36.cnf"
+    benchmarkDIMACS "samplingfm/Benchmarks/10.sk_1_46.cnf"
     ''')
     Assertions.assertNotNull(result)
     val errors = result.eResource.errors
@@ -580,10 +580,10 @@ def void loadModel23() {
 
 
 @Test
-def void loadModel24() {
+def void loadModel025() {
     val result = parseHelper.parse('''
     solver cryptominisat
-    benchmarkDIMACS "samplingfm/Benchmarks/diagStencil.sk_35_36.cnf"
+    benchmarkDIMACS "samplingfm/Benchmarks/10.sk_1_46.cnf"
     ''')
     Assertions.assertNotNull(result)
     val errors = result.eResource.errors
@@ -603,10 +603,10 @@ def void loadModel24() {
 
 
 @Test
-def void loadModel25() {
+def void loadModel026() {
     val result = parseHelper.parse('''
     solver sat4j-java
-    benchmarkDIMACS "samplingfm/Benchmarks/29.sk_3_45.cnf"
+    benchmarkDIMACS "samplingfm/Benchmarks/GuidanceService2.sk_2_27.cnf"
     ''')
     Assertions.assertNotNull(result)
     val errors = result.eResource.errors
@@ -626,10 +626,10 @@ def void loadModel25() {
 
 
 @Test
-def void loadModel26() {
+def void loadModel027() {
     val result = parseHelper.parse('''
     solver sat4j-maven
-    benchmarkDIMACS "samplingfm/Benchmarks/29.sk_3_45.cnf"
+    benchmarkDIMACS "samplingfm/Benchmarks/GuidanceService2.sk_2_27.cnf"
     ''')
     Assertions.assertNotNull(result)
     val errors = result.eResource.errors
@@ -649,10 +649,10 @@ def void loadModel26() {
 
 
 @Test
-def void loadModel27() {
+def void loadModel028() {
     val result = parseHelper.parse('''
     solver sat4j-jar
-    benchmarkDIMACS "samplingfm/Benchmarks/29.sk_3_45.cnf"
+    benchmarkDIMACS "samplingfm/Benchmarks/GuidanceService2.sk_2_27.cnf"
     ''')
     Assertions.assertNotNull(result)
     val errors = result.eResource.errors
@@ -672,10 +672,10 @@ def void loadModel27() {
 
 
 @Test
-def void loadModel28() {
+def void loadModel029() {
     val result = parseHelper.parse('''
     solver cryptominisat
-    benchmarkDIMACS "samplingfm/Benchmarks/29.sk_3_45.cnf"
+    benchmarkDIMACS "samplingfm/Benchmarks/GuidanceService2.sk_2_27.cnf"
     ''')
     Assertions.assertNotNull(result)
     val errors = result.eResource.errors
@@ -695,10 +695,10 @@ def void loadModel28() {
 
 
 @Test
-def void loadModel29() {
+def void loadModel030() {
     val result = parseHelper.parse('''
     solver cryptominisat
-    benchmarkDIMACS "samplingfm/Benchmarks/29.sk_3_45.cnf"
+    benchmarkDIMACS "samplingfm/Benchmarks/GuidanceService2.sk_2_27.cnf"
     ''')
     Assertions.assertNotNull(result)
     val errors = result.eResource.errors
@@ -718,7 +718,7 @@ def void loadModel29() {
 
 
 @Test
-def void loadModel30() {
+def void loadModel031() {
     val result = parseHelper.parse('''
     solver sat4j-java
     benchmarkDIMACS "samplingfm/Benchmarks/27.sk_3_32.cnf"
@@ -741,7 +741,7 @@ def void loadModel30() {
 
 
 @Test
-def void loadModel31() {
+def void loadModel032() {
     val result = parseHelper.parse('''
     solver sat4j-maven
     benchmarkDIMACS "samplingfm/Benchmarks/27.sk_3_32.cnf"
@@ -764,7 +764,7 @@ def void loadModel31() {
 
 
 @Test
-def void loadModel32() {
+def void loadModel033() {
     val result = parseHelper.parse('''
     solver sat4j-jar
     benchmarkDIMACS "samplingfm/Benchmarks/27.sk_3_32.cnf"
@@ -787,7 +787,7 @@ def void loadModel32() {
 
 
 @Test
-def void loadModel33() {
+def void loadModel034() {
     val result = parseHelper.parse('''
     solver cryptominisat
     benchmarkDIMACS "samplingfm/Benchmarks/27.sk_3_32.cnf"
@@ -810,7 +810,7 @@ def void loadModel33() {
 
 
 @Test
-def void loadModel34() {
+def void loadModel035() {
     val result = parseHelper.parse('''
     solver cryptominisat
     benchmarkDIMACS "samplingfm/Benchmarks/27.sk_3_32.cnf"
@@ -833,10 +833,10 @@ def void loadModel34() {
 
 
 @Test
-def void loadModel35() {
+def void loadModel036() {
     val result = parseHelper.parse('''
     solver sat4j-java
-    benchmarkDIMACS "samplingfm/Benchmarks/81.sk_5_51.cnf"
+    benchmarkDIMACS "samplingfm/Benchmarks/GuidanceService.sk_4_27.cnf"
     ''')
     Assertions.assertNotNull(result)
     val errors = result.eResource.errors
@@ -856,10 +856,10 @@ def void loadModel35() {
 
 
 @Test
-def void loadModel36() {
+def void loadModel037() {
     val result = parseHelper.parse('''
     solver sat4j-maven
-    benchmarkDIMACS "samplingfm/Benchmarks/81.sk_5_51.cnf"
+    benchmarkDIMACS "samplingfm/Benchmarks/GuidanceService.sk_4_27.cnf"
     ''')
     Assertions.assertNotNull(result)
     val errors = result.eResource.errors
@@ -879,10 +879,10 @@ def void loadModel36() {
 
 
 @Test
-def void loadModel37() {
+def void loadModel038() {
     val result = parseHelper.parse('''
     solver sat4j-jar
-    benchmarkDIMACS "samplingfm/Benchmarks/81.sk_5_51.cnf"
+    benchmarkDIMACS "samplingfm/Benchmarks/GuidanceService.sk_4_27.cnf"
     ''')
     Assertions.assertNotNull(result)
     val errors = result.eResource.errors
@@ -902,10 +902,10 @@ def void loadModel37() {
 
 
 @Test
-def void loadModel38() {
+def void loadModel039() {
     val result = parseHelper.parse('''
     solver cryptominisat
-    benchmarkDIMACS "samplingfm/Benchmarks/81.sk_5_51.cnf"
+    benchmarkDIMACS "samplingfm/Benchmarks/GuidanceService.sk_4_27.cnf"
     ''')
     Assertions.assertNotNull(result)
     val errors = result.eResource.errors
@@ -925,10 +925,10 @@ def void loadModel38() {
 
 
 @Test
-def void loadModel39() {
+def void loadModel040() {
     val result = parseHelper.parse('''
     solver cryptominisat
-    benchmarkDIMACS "samplingfm/Benchmarks/81.sk_5_51.cnf"
+    benchmarkDIMACS "samplingfm/Benchmarks/GuidanceService.sk_4_27.cnf"
     ''')
     Assertions.assertNotNull(result)
     val errors = result.eResource.errors
@@ -948,10 +948,10 @@ def void loadModel39() {
 
 
 @Test
-def void loadModel40() {
+def void loadModel041() {
     val result = parseHelper.parse('''
     solver sat4j-java
-    benchmarkDIMACS "samplingfm/Benchmarks/36.sk_3_77.cnf"
+    benchmarkDIMACS "samplingfm/Benchmarks/IssueServiceImpl.sk_8_30.cnf"
     ''')
     Assertions.assertNotNull(result)
     val errors = result.eResource.errors
@@ -971,10 +971,10 @@ def void loadModel40() {
 
 
 @Test
-def void loadModel41() {
+def void loadModel042() {
     val result = parseHelper.parse('''
     solver sat4j-maven
-    benchmarkDIMACS "samplingfm/Benchmarks/36.sk_3_77.cnf"
+    benchmarkDIMACS "samplingfm/Benchmarks/IssueServiceImpl.sk_8_30.cnf"
     ''')
     Assertions.assertNotNull(result)
     val errors = result.eResource.errors
@@ -994,10 +994,10 @@ def void loadModel41() {
 
 
 @Test
-def void loadModel42() {
+def void loadModel043() {
     val result = parseHelper.parse('''
     solver sat4j-jar
-    benchmarkDIMACS "samplingfm/Benchmarks/36.sk_3_77.cnf"
+    benchmarkDIMACS "samplingfm/Benchmarks/IssueServiceImpl.sk_8_30.cnf"
     ''')
     Assertions.assertNotNull(result)
     val errors = result.eResource.errors
@@ -1017,10 +1017,10 @@ def void loadModel42() {
 
 
 @Test
-def void loadModel43() {
+def void loadModel044() {
     val result = parseHelper.parse('''
     solver cryptominisat
-    benchmarkDIMACS "samplingfm/Benchmarks/36.sk_3_77.cnf"
+    benchmarkDIMACS "samplingfm/Benchmarks/IssueServiceImpl.sk_8_30.cnf"
     ''')
     Assertions.assertNotNull(result)
     val errors = result.eResource.errors
@@ -1040,10 +1040,10 @@ def void loadModel43() {
 
 
 @Test
-def void loadModel44() {
+def void loadModel045() {
     val result = parseHelper.parse('''
     solver cryptominisat
-    benchmarkDIMACS "samplingfm/Benchmarks/36.sk_3_77.cnf"
+    benchmarkDIMACS "samplingfm/Benchmarks/IssueServiceImpl.sk_8_30.cnf"
     ''')
     Assertions.assertNotNull(result)
     val errors = result.eResource.errors
@@ -1063,10 +1063,10 @@ def void loadModel44() {
 
 
 @Test
-def void loadModel45() {
+def void loadModel046() {
     val result = parseHelper.parse('''
     solver sat4j-java
-    benchmarkDIMACS "samplingfm/Benchmarks/reverse.sk_11_258.cnf"
+    benchmarkDIMACS "samplingfm/Benchmarks/UserServiceImpl.sk_8_32.cnf"
     ''')
     Assertions.assertNotNull(result)
     val errors = result.eResource.errors
@@ -1086,10 +1086,10 @@ def void loadModel45() {
 
 
 @Test
-def void loadModel46() {
+def void loadModel047() {
     val result = parseHelper.parse('''
     solver sat4j-maven
-    benchmarkDIMACS "samplingfm/Benchmarks/reverse.sk_11_258.cnf"
+    benchmarkDIMACS "samplingfm/Benchmarks/UserServiceImpl.sk_8_32.cnf"
     ''')
     Assertions.assertNotNull(result)
     val errors = result.eResource.errors
@@ -1109,10 +1109,10 @@ def void loadModel46() {
 
 
 @Test
-def void loadModel47() {
+def void loadModel048() {
     val result = parseHelper.parse('''
     solver sat4j-jar
-    benchmarkDIMACS "samplingfm/Benchmarks/reverse.sk_11_258.cnf"
+    benchmarkDIMACS "samplingfm/Benchmarks/UserServiceImpl.sk_8_32.cnf"
     ''')
     Assertions.assertNotNull(result)
     val errors = result.eResource.errors
@@ -1132,10 +1132,10 @@ def void loadModel47() {
 
 
 @Test
-def void loadModel48() {
+def void loadModel049() {
     val result = parseHelper.parse('''
     solver cryptominisat
-    benchmarkDIMACS "samplingfm/Benchmarks/reverse.sk_11_258.cnf"
+    benchmarkDIMACS "samplingfm/Benchmarks/UserServiceImpl.sk_8_32.cnf"
     ''')
     Assertions.assertNotNull(result)
     val errors = result.eResource.errors
@@ -1155,10 +1155,10 @@ def void loadModel48() {
 
 
 @Test
-def void loadModel49() {
+def void loadModel050() {
     val result = parseHelper.parse('''
     solver cryptominisat
-    benchmarkDIMACS "samplingfm/Benchmarks/reverse.sk_11_258.cnf"
+    benchmarkDIMACS "samplingfm/Benchmarks/UserServiceImpl.sk_8_32.cnf"
     ''')
     Assertions.assertNotNull(result)
     val errors = result.eResource.errors
@@ -1178,10 +1178,10 @@ def void loadModel49() {
 
 
 @Test
-def void loadModel50() {
+def void loadModel051() {
     val result = parseHelper.parse('''
     solver sat4j-java
-    benchmarkDIMACS "samplingfm/Benchmarks/57.sk_4_64.cnf"
+    benchmarkDIMACS "samplingfm/Benchmarks/111.sk_2_36.cnf"
     ''')
     Assertions.assertNotNull(result)
     val errors = result.eResource.errors
@@ -1201,10 +1201,10 @@ def void loadModel50() {
 
 
 @Test
-def void loadModel51() {
+def void loadModel052() {
     val result = parseHelper.parse('''
     solver sat4j-maven
-    benchmarkDIMACS "samplingfm/Benchmarks/57.sk_4_64.cnf"
+    benchmarkDIMACS "samplingfm/Benchmarks/111.sk_2_36.cnf"
     ''')
     Assertions.assertNotNull(result)
     val errors = result.eResource.errors
@@ -1224,10 +1224,10 @@ def void loadModel51() {
 
 
 @Test
-def void loadModel52() {
+def void loadModel053() {
     val result = parseHelper.parse('''
     solver sat4j-jar
-    benchmarkDIMACS "samplingfm/Benchmarks/57.sk_4_64.cnf"
+    benchmarkDIMACS "samplingfm/Benchmarks/111.sk_2_36.cnf"
     ''')
     Assertions.assertNotNull(result)
     val errors = result.eResource.errors
@@ -1247,10 +1247,10 @@ def void loadModel52() {
 
 
 @Test
-def void loadModel53() {
+def void loadModel054() {
     val result = parseHelper.parse('''
     solver cryptominisat
-    benchmarkDIMACS "samplingfm/Benchmarks/57.sk_4_64.cnf"
+    benchmarkDIMACS "samplingfm/Benchmarks/111.sk_2_36.cnf"
     ''')
     Assertions.assertNotNull(result)
     val errors = result.eResource.errors
@@ -1270,10 +1270,10 @@ def void loadModel53() {
 
 
 @Test
-def void loadModel54() {
+def void loadModel055() {
     val result = parseHelper.parse('''
     solver cryptominisat
-    benchmarkDIMACS "samplingfm/Benchmarks/57.sk_4_64.cnf"
+    benchmarkDIMACS "samplingfm/Benchmarks/111.sk_2_36.cnf"
     ''')
     Assertions.assertNotNull(result)
     val errors = result.eResource.errors
@@ -1293,10 +1293,10 @@ def void loadModel54() {
 
 
 @Test
-def void loadModel55() {
+def void loadModel056() {
     val result = parseHelper.parse('''
     solver sat4j-java
-    benchmarkDIMACS "samplingfm/Benchmarks/19.sk_3_48.cnf"
+    benchmarkDIMACS "samplingfm/Benchmarks/PhaseService.sk_14_27.cnf"
     ''')
     Assertions.assertNotNull(result)
     val errors = result.eResource.errors
@@ -1316,10 +1316,10 @@ def void loadModel55() {
 
 
 @Test
-def void loadModel56() {
+def void loadModel057() {
     val result = parseHelper.parse('''
     solver sat4j-maven
-    benchmarkDIMACS "samplingfm/Benchmarks/19.sk_3_48.cnf"
+    benchmarkDIMACS "samplingfm/Benchmarks/PhaseService.sk_14_27.cnf"
     ''')
     Assertions.assertNotNull(result)
     val errors = result.eResource.errors
@@ -1339,10 +1339,10 @@ def void loadModel56() {
 
 
 @Test
-def void loadModel57() {
+def void loadModel058() {
     val result = parseHelper.parse('''
     solver sat4j-jar
-    benchmarkDIMACS "samplingfm/Benchmarks/19.sk_3_48.cnf"
+    benchmarkDIMACS "samplingfm/Benchmarks/PhaseService.sk_14_27.cnf"
     ''')
     Assertions.assertNotNull(result)
     val errors = result.eResource.errors
@@ -1362,10 +1362,10 @@ def void loadModel57() {
 
 
 @Test
-def void loadModel58() {
+def void loadModel059() {
     val result = parseHelper.parse('''
     solver cryptominisat
-    benchmarkDIMACS "samplingfm/Benchmarks/19.sk_3_48.cnf"
+    benchmarkDIMACS "samplingfm/Benchmarks/PhaseService.sk_14_27.cnf"
     ''')
     Assertions.assertNotNull(result)
     val errors = result.eResource.errors
@@ -1385,10 +1385,10 @@ def void loadModel58() {
 
 
 @Test
-def void loadModel59() {
+def void loadModel060() {
     val result = parseHelper.parse('''
     solver cryptominisat
-    benchmarkDIMACS "samplingfm/Benchmarks/19.sk_3_48.cnf"
+    benchmarkDIMACS "samplingfm/Benchmarks/PhaseService.sk_14_27.cnf"
     ''')
     Assertions.assertNotNull(result)
     val errors = result.eResource.errors
@@ -1408,10 +1408,10 @@ def void loadModel59() {
 
 
 @Test
-def void loadModel60() {
+def void loadModel061() {
     val result = parseHelper.parse('''
     solver sat4j-java
-    benchmarkDIMACS "samplingfm/Benchmarks/7.sk_4_50.cnf"
+    benchmarkDIMACS "samplingfm/Benchmarks/ActivityService.sk_11_27.cnf"
     ''')
     Assertions.assertNotNull(result)
     val errors = result.eResource.errors
@@ -1431,10 +1431,10 @@ def void loadModel60() {
 
 
 @Test
-def void loadModel61() {
+def void loadModel062() {
     val result = parseHelper.parse('''
     solver sat4j-maven
-    benchmarkDIMACS "samplingfm/Benchmarks/7.sk_4_50.cnf"
+    benchmarkDIMACS "samplingfm/Benchmarks/ActivityService.sk_11_27.cnf"
     ''')
     Assertions.assertNotNull(result)
     val errors = result.eResource.errors
@@ -1454,10 +1454,10 @@ def void loadModel61() {
 
 
 @Test
-def void loadModel62() {
+def void loadModel063() {
     val result = parseHelper.parse('''
     solver sat4j-jar
-    benchmarkDIMACS "samplingfm/Benchmarks/7.sk_4_50.cnf"
+    benchmarkDIMACS "samplingfm/Benchmarks/ActivityService.sk_11_27.cnf"
     ''')
     Assertions.assertNotNull(result)
     val errors = result.eResource.errors
@@ -1477,10 +1477,10 @@ def void loadModel62() {
 
 
 @Test
-def void loadModel63() {
+def void loadModel064() {
     val result = parseHelper.parse('''
     solver cryptominisat
-    benchmarkDIMACS "samplingfm/Benchmarks/7.sk_4_50.cnf"
+    benchmarkDIMACS "samplingfm/Benchmarks/ActivityService.sk_11_27.cnf"
     ''')
     Assertions.assertNotNull(result)
     val errors = result.eResource.errors
@@ -1500,10 +1500,10 @@ def void loadModel63() {
 
 
 @Test
-def void loadModel64() {
+def void loadModel065() {
     val result = parseHelper.parse('''
     solver cryptominisat
-    benchmarkDIMACS "samplingfm/Benchmarks/7.sk_4_50.cnf"
+    benchmarkDIMACS "samplingfm/Benchmarks/ActivityService.sk_11_27.cnf"
     ''')
     Assertions.assertNotNull(result)
     val errors = result.eResource.errors
@@ -1523,10 +1523,10 @@ def void loadModel64() {
 
 
 @Test
-def void loadModel65() {
+def void loadModel066() {
     val result = parseHelper.parse('''
     solver sat4j-java
-    benchmarkDIMACS "samplingfm/Benchmarks/71.sk_3_65.cnf"
+    benchmarkDIMACS "samplingfm/Benchmarks/IterationService.sk_12_27.cnf"
     ''')
     Assertions.assertNotNull(result)
     val errors = result.eResource.errors
@@ -1546,10 +1546,10 @@ def void loadModel65() {
 
 
 @Test
-def void loadModel66() {
+def void loadModel067() {
     val result = parseHelper.parse('''
     solver sat4j-maven
-    benchmarkDIMACS "samplingfm/Benchmarks/71.sk_3_65.cnf"
+    benchmarkDIMACS "samplingfm/Benchmarks/IterationService.sk_12_27.cnf"
     ''')
     Assertions.assertNotNull(result)
     val errors = result.eResource.errors
@@ -1569,10 +1569,10 @@ def void loadModel66() {
 
 
 @Test
-def void loadModel67() {
+def void loadModel068() {
     val result = parseHelper.parse('''
     solver sat4j-jar
-    benchmarkDIMACS "samplingfm/Benchmarks/71.sk_3_65.cnf"
+    benchmarkDIMACS "samplingfm/Benchmarks/IterationService.sk_12_27.cnf"
     ''')
     Assertions.assertNotNull(result)
     val errors = result.eResource.errors
@@ -1592,10 +1592,10 @@ def void loadModel67() {
 
 
 @Test
-def void loadModel68() {
+def void loadModel069() {
     val result = parseHelper.parse('''
     solver cryptominisat
-    benchmarkDIMACS "samplingfm/Benchmarks/71.sk_3_65.cnf"
+    benchmarkDIMACS "samplingfm/Benchmarks/IterationService.sk_12_27.cnf"
     ''')
     Assertions.assertNotNull(result)
     val errors = result.eResource.errors
@@ -1615,10 +1615,10 @@ def void loadModel68() {
 
 
 @Test
-def void loadModel69() {
+def void loadModel070() {
     val result = parseHelper.parse('''
     solver cryptominisat
-    benchmarkDIMACS "samplingfm/Benchmarks/71.sk_3_65.cnf"
+    benchmarkDIMACS "samplingfm/Benchmarks/IterationService.sk_12_27.cnf"
     ''')
     Assertions.assertNotNull(result)
     val errors = result.eResource.errors
@@ -1638,10 +1638,10 @@ def void loadModel69() {
 
 
 @Test
-def void loadModel70() {
+def void loadModel071() {
     val result = parseHelper.parse('''
     solver sat4j-java
-    benchmarkDIMACS "samplingfm/Benchmarks/listReverse.sk_11_43.cnf"
+    benchmarkDIMACS "samplingfm/Benchmarks/ActivityService2.sk_10_27.cnf"
     ''')
     Assertions.assertNotNull(result)
     val errors = result.eResource.errors
@@ -1661,10 +1661,10 @@ def void loadModel70() {
 
 
 @Test
-def void loadModel71() {
+def void loadModel072() {
     val result = parseHelper.parse('''
     solver sat4j-maven
-    benchmarkDIMACS "samplingfm/Benchmarks/listReverse.sk_11_43.cnf"
+    benchmarkDIMACS "samplingfm/Benchmarks/ActivityService2.sk_10_27.cnf"
     ''')
     Assertions.assertNotNull(result)
     val errors = result.eResource.errors
@@ -1684,10 +1684,10 @@ def void loadModel71() {
 
 
 @Test
-def void loadModel72() {
+def void loadModel073() {
     val result = parseHelper.parse('''
     solver sat4j-jar
-    benchmarkDIMACS "samplingfm/Benchmarks/listReverse.sk_11_43.cnf"
+    benchmarkDIMACS "samplingfm/Benchmarks/ActivityService2.sk_10_27.cnf"
     ''')
     Assertions.assertNotNull(result)
     val errors = result.eResource.errors
@@ -1707,10 +1707,10 @@ def void loadModel72() {
 
 
 @Test
-def void loadModel73() {
+def void loadModel074() {
     val result = parseHelper.parse('''
     solver cryptominisat
-    benchmarkDIMACS "samplingfm/Benchmarks/listReverse.sk_11_43.cnf"
+    benchmarkDIMACS "samplingfm/Benchmarks/ActivityService2.sk_10_27.cnf"
     ''')
     Assertions.assertNotNull(result)
     val errors = result.eResource.errors
@@ -1730,10 +1730,10 @@ def void loadModel73() {
 
 
 @Test
-def void loadModel74() {
+def void loadModel075() {
     val result = parseHelper.parse('''
     solver cryptominisat
-    benchmarkDIMACS "samplingfm/Benchmarks/listReverse.sk_11_43.cnf"
+    benchmarkDIMACS "samplingfm/Benchmarks/ActivityService2.sk_10_27.cnf"
     ''')
     Assertions.assertNotNull(result)
     val errors = result.eResource.errors
@@ -1753,10 +1753,10 @@ def void loadModel74() {
 
 
 @Test
-def void loadModel75() {
+def void loadModel076() {
     val result = parseHelper.parse('''
     solver sat4j-java
-    benchmarkDIMACS "samplingfm/Benchmarks/NotificationServiceImpl2.sk_10_36.cnf"
+    benchmarkDIMACS "samplingfm/Benchmarks/ConcreteActivityService.sk_13_28.cnf"
     ''')
     Assertions.assertNotNull(result)
     val errors = result.eResource.errors
@@ -1776,10 +1776,10 @@ def void loadModel75() {
 
 
 @Test
-def void loadModel76() {
+def void loadModel077() {
     val result = parseHelper.parse('''
     solver sat4j-maven
-    benchmarkDIMACS "samplingfm/Benchmarks/NotificationServiceImpl2.sk_10_36.cnf"
+    benchmarkDIMACS "samplingfm/Benchmarks/ConcreteActivityService.sk_13_28.cnf"
     ''')
     Assertions.assertNotNull(result)
     val errors = result.eResource.errors
@@ -1799,10 +1799,10 @@ def void loadModel76() {
 
 
 @Test
-def void loadModel77() {
+def void loadModel078() {
     val result = parseHelper.parse('''
     solver sat4j-jar
-    benchmarkDIMACS "samplingfm/Benchmarks/NotificationServiceImpl2.sk_10_36.cnf"
+    benchmarkDIMACS "samplingfm/Benchmarks/ConcreteActivityService.sk_13_28.cnf"
     ''')
     Assertions.assertNotNull(result)
     val errors = result.eResource.errors
@@ -1822,10 +1822,10 @@ def void loadModel77() {
 
 
 @Test
-def void loadModel78() {
+def void loadModel079() {
     val result = parseHelper.parse('''
     solver cryptominisat
-    benchmarkDIMACS "samplingfm/Benchmarks/NotificationServiceImpl2.sk_10_36.cnf"
+    benchmarkDIMACS "samplingfm/Benchmarks/ConcreteActivityService.sk_13_28.cnf"
     ''')
     Assertions.assertNotNull(result)
     val errors = result.eResource.errors
@@ -1845,10 +1845,10 @@ def void loadModel78() {
 
 
 @Test
-def void loadModel79() {
+def void loadModel080() {
     val result = parseHelper.parse('''
     solver cryptominisat
-    benchmarkDIMACS "samplingfm/Benchmarks/NotificationServiceImpl2.sk_10_36.cnf"
+    benchmarkDIMACS "samplingfm/Benchmarks/ConcreteActivityService.sk_13_28.cnf"
     ''')
     Assertions.assertNotNull(result)
     val errors = result.eResource.errors
@@ -1868,10 +1868,10 @@ def void loadModel79() {
 
 
 @Test
-def void loadModel80() {
+def void loadModel081() {
     val result = parseHelper.parse('''
     solver sat4j-java
-    benchmarkDIMACS "samplingfm/Benchmarks/Pollard.sk_1_10.cnf"
+    benchmarkDIMACS "samplingfm/Benchmarks/35.sk_3_52.cnf"
     ''')
     Assertions.assertNotNull(result)
     val errors = result.eResource.errors
@@ -1891,10 +1891,10 @@ def void loadModel80() {
 
 
 @Test
-def void loadModel81() {
+def void loadModel082() {
     val result = parseHelper.parse('''
     solver sat4j-maven
-    benchmarkDIMACS "samplingfm/Benchmarks/Pollard.sk_1_10.cnf"
+    benchmarkDIMACS "samplingfm/Benchmarks/35.sk_3_52.cnf"
     ''')
     Assertions.assertNotNull(result)
     val errors = result.eResource.errors
@@ -1914,10 +1914,10 @@ def void loadModel81() {
 
 
 @Test
-def void loadModel82() {
+def void loadModel083() {
     val result = parseHelper.parse('''
     solver sat4j-jar
-    benchmarkDIMACS "samplingfm/Benchmarks/Pollard.sk_1_10.cnf"
+    benchmarkDIMACS "samplingfm/Benchmarks/35.sk_3_52.cnf"
     ''')
     Assertions.assertNotNull(result)
     val errors = result.eResource.errors
@@ -1937,10 +1937,10 @@ def void loadModel82() {
 
 
 @Test
-def void loadModel83() {
+def void loadModel084() {
     val result = parseHelper.parse('''
     solver cryptominisat
-    benchmarkDIMACS "samplingfm/Benchmarks/Pollard.sk_1_10.cnf"
+    benchmarkDIMACS "samplingfm/Benchmarks/35.sk_3_52.cnf"
     ''')
     Assertions.assertNotNull(result)
     val errors = result.eResource.errors
@@ -1960,10 +1960,10 @@ def void loadModel83() {
 
 
 @Test
-def void loadModel84() {
+def void loadModel085() {
     val result = parseHelper.parse('''
     solver cryptominisat
-    benchmarkDIMACS "samplingfm/Benchmarks/Pollard.sk_1_10.cnf"
+    benchmarkDIMACS "samplingfm/Benchmarks/35.sk_3_52.cnf"
     ''')
     Assertions.assertNotNull(result)
     val errors = result.eResource.errors
@@ -1983,10 +1983,10 @@ def void loadModel84() {
 
 
 @Test
-def void loadModel85() {
+def void loadModel086() {
     val result = parseHelper.parse('''
     solver sat4j-java
-    benchmarkDIMACS "samplingfm/Benchmarks/enqueueSeqSK.sk_10_42.cnf"
+    benchmarkDIMACS "samplingfm/Benchmarks/53.sk_4_32.cnf"
     ''')
     Assertions.assertNotNull(result)
     val errors = result.eResource.errors
@@ -2006,10 +2006,10 @@ def void loadModel85() {
 
 
 @Test
-def void loadModel86() {
+def void loadModel087() {
     val result = parseHelper.parse('''
     solver sat4j-maven
-    benchmarkDIMACS "samplingfm/Benchmarks/enqueueSeqSK.sk_10_42.cnf"
+    benchmarkDIMACS "samplingfm/Benchmarks/53.sk_4_32.cnf"
     ''')
     Assertions.assertNotNull(result)
     val errors = result.eResource.errors
@@ -2029,10 +2029,10 @@ def void loadModel86() {
 
 
 @Test
-def void loadModel87() {
+def void loadModel088() {
     val result = parseHelper.parse('''
     solver sat4j-jar
-    benchmarkDIMACS "samplingfm/Benchmarks/enqueueSeqSK.sk_10_42.cnf"
+    benchmarkDIMACS "samplingfm/Benchmarks/53.sk_4_32.cnf"
     ''')
     Assertions.assertNotNull(result)
     val errors = result.eResource.errors
@@ -2052,10 +2052,10 @@ def void loadModel87() {
 
 
 @Test
-def void loadModel88() {
+def void loadModel089() {
     val result = parseHelper.parse('''
     solver cryptominisat
-    benchmarkDIMACS "samplingfm/Benchmarks/enqueueSeqSK.sk_10_42.cnf"
+    benchmarkDIMACS "samplingfm/Benchmarks/53.sk_4_32.cnf"
     ''')
     Assertions.assertNotNull(result)
     val errors = result.eResource.errors
@@ -2075,10 +2075,10 @@ def void loadModel88() {
 
 
 @Test
-def void loadModel89() {
+def void loadModel090() {
     val result = parseHelper.parse('''
     solver cryptominisat
-    benchmarkDIMACS "samplingfm/Benchmarks/enqueueSeqSK.sk_10_42.cnf"
+    benchmarkDIMACS "samplingfm/Benchmarks/53.sk_4_32.cnf"
     ''')
     Assertions.assertNotNull(result)
     val errors = result.eResource.errors
@@ -2098,7 +2098,7 @@ def void loadModel89() {
 
 
 @Test
-def void loadModel90() {
+def void loadModel091() {
     val result = parseHelper.parse('''
     solver sat4j-java
     benchmarkDIMACS "samplingfm/Benchmarks/ProjectService3.sk_12_55.cnf"
@@ -2121,7 +2121,7 @@ def void loadModel90() {
 
 
 @Test
-def void loadModel91() {
+def void loadModel092() {
     val result = parseHelper.parse('''
     solver sat4j-maven
     benchmarkDIMACS "samplingfm/Benchmarks/ProjectService3.sk_12_55.cnf"
@@ -2144,7 +2144,7 @@ def void loadModel91() {
 
 
 @Test
-def void loadModel92() {
+def void loadModel093() {
     val result = parseHelper.parse('''
     solver sat4j-jar
     benchmarkDIMACS "samplingfm/Benchmarks/ProjectService3.sk_12_55.cnf"
@@ -2167,7 +2167,7 @@ def void loadModel92() {
 
 
 @Test
-def void loadModel93() {
+def void loadModel094() {
     val result = parseHelper.parse('''
     solver cryptominisat
     benchmarkDIMACS "samplingfm/Benchmarks/ProjectService3.sk_12_55.cnf"
@@ -2190,7 +2190,7 @@ def void loadModel93() {
 
 
 @Test
-def void loadModel94() {
+def void loadModel095() {
     val result = parseHelper.parse('''
     solver cryptominisat
     benchmarkDIMACS "samplingfm/Benchmarks/ProjectService3.sk_12_55.cnf"
@@ -2213,10 +2213,10 @@ def void loadModel94() {
 
 
 @Test
-def void loadModel95() {
+def void loadModel096() {
     val result = parseHelper.parse('''
     solver sat4j-java
-    benchmarkDIMACS "samplingfm/Benchmarks/karatsuba.sk_7_41.cnf"
+    benchmarkDIMACS "samplingfm/Benchmarks/55.sk_3_46.cnf"
     ''')
     Assertions.assertNotNull(result)
     val errors = result.eResource.errors
@@ -2236,10 +2236,10 @@ def void loadModel95() {
 
 
 @Test
-def void loadModel96() {
+def void loadModel097() {
     val result = parseHelper.parse('''
     solver sat4j-maven
-    benchmarkDIMACS "samplingfm/Benchmarks/karatsuba.sk_7_41.cnf"
+    benchmarkDIMACS "samplingfm/Benchmarks/55.sk_3_46.cnf"
     ''')
     Assertions.assertNotNull(result)
     val errors = result.eResource.errors
@@ -2259,10 +2259,10 @@ def void loadModel96() {
 
 
 @Test
-def void loadModel97() {
+def void loadModel098() {
     val result = parseHelper.parse('''
     solver sat4j-jar
-    benchmarkDIMACS "samplingfm/Benchmarks/karatsuba.sk_7_41.cnf"
+    benchmarkDIMACS "samplingfm/Benchmarks/55.sk_3_46.cnf"
     ''')
     Assertions.assertNotNull(result)
     val errors = result.eResource.errors
@@ -2282,10 +2282,10 @@ def void loadModel97() {
 
 
 @Test
-def void loadModel98() {
+def void loadModel099() {
     val result = parseHelper.parse('''
     solver cryptominisat
-    benchmarkDIMACS "samplingfm/Benchmarks/karatsuba.sk_7_41.cnf"
+    benchmarkDIMACS "samplingfm/Benchmarks/55.sk_3_46.cnf"
     ''')
     Assertions.assertNotNull(result)
     val errors = result.eResource.errors
@@ -2300,29 +2300,6 @@ def void loadModel98() {
 	System.out.println(file + ",cryptominisat,5.6.8,SAT," + time);
     }else{
         System.out.println(file + ",cryptominisat,5.6.8,UNSAT," + time);
-    }
-}
-
-
-@Test
-def void loadModel99() {
-    val result = parseHelper.parse('''
-    solver cryptominisat
-    benchmarkDIMACS "samplingfm/Benchmarks/karatsuba.sk_7_41.cnf"
-    ''')
-    Assertions.assertNotNull(result)
-    val errors = result.eResource.errors
-    Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
-    var benchmark = result.benchmark as BenchmarkDimacs
-    var file = benchmark.dimacses.get(0);
-    var start = System.currentTimeMillis();
-    var res = Solver.CryptoMinisat5_6_7(file)
-    var end = System.currentTimeMillis();
-    var time = end - start;
-    if (res){
-	System.out.println(file + ",cryptominisat,5.6.7,SAT," + time);
-    }else{
-        System.out.println(file + ",cryptominisat,5.6.7,UNSAT," + time);
     }
 }
 
@@ -2330,8 +2307,31 @@ def void loadModel99() {
 @Test
 def void loadModel100() {
     val result = parseHelper.parse('''
+    solver cryptominisat
+    benchmarkDIMACS "samplingfm/Benchmarks/55.sk_3_46.cnf"
+    ''')
+    Assertions.assertNotNull(result)
+    val errors = result.eResource.errors
+    Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
+    var benchmark = result.benchmark as BenchmarkDimacs
+    var file = benchmark.dimacses.get(0);
+    var start = System.currentTimeMillis();
+    var res = Solver.CryptoMinisat5_6_7(file)
+    var end = System.currentTimeMillis();
+    var time = end - start;
+    if (res){
+	System.out.println(file + ",cryptominisat,5.6.7,SAT," + time);
+    }else{
+        System.out.println(file + ",cryptominisat,5.6.7,UNSAT," + time);
+    }
+}
+
+
+@Test
+def void loadModel101() {
+    val result = parseHelper.parse('''
     solver sat4j-java
-    benchmarkDIMACS "samplingfm/Benchmarks/17.sk_3_45.cnf"
+    benchmarkDIMACS "samplingfm/Benchmarks/32.sk_4_38.cnf"
     ''')
     Assertions.assertNotNull(result)
     val errors = result.eResource.errors
@@ -2351,10 +2351,10 @@ def void loadModel100() {
 
 
 @Test
-def void loadModel101() {
+def void loadModel102() {
     val result = parseHelper.parse('''
     solver sat4j-maven
-    benchmarkDIMACS "samplingfm/Benchmarks/17.sk_3_45.cnf"
+    benchmarkDIMACS "samplingfm/Benchmarks/32.sk_4_38.cnf"
     ''')
     Assertions.assertNotNull(result)
     val errors = result.eResource.errors
@@ -2374,10 +2374,10 @@ def void loadModel101() {
 
 
 @Test
-def void loadModel102() {
+def void loadModel103() {
     val result = parseHelper.parse('''
     solver sat4j-jar
-    benchmarkDIMACS "samplingfm/Benchmarks/17.sk_3_45.cnf"
+    benchmarkDIMACS "samplingfm/Benchmarks/32.sk_4_38.cnf"
     ''')
     Assertions.assertNotNull(result)
     val errors = result.eResource.errors
@@ -2392,29 +2392,6 @@ def void loadModel102() {
 	System.out.println(file + ",sat4j-jar,2.3.1,SAT," + time);
     }else{
         System.out.println(file + ",sat4j-jar,2.3.1,UNSAT," + time);
-    }
-}
-
-
-@Test
-def void loadModel103() {
-    val result = parseHelper.parse('''
-    solver cryptominisat
-    benchmarkDIMACS "samplingfm/Benchmarks/17.sk_3_45.cnf"
-    ''')
-    Assertions.assertNotNull(result)
-    val errors = result.eResource.errors
-    Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
-    var benchmark = result.benchmark as BenchmarkDimacs
-    var file = benchmark.dimacses.get(0);
-    var start = System.currentTimeMillis();
-    var res = Solver.CryptoMinisat5_6_8(file)
-    var end = System.currentTimeMillis();
-    var time = end - start;
-    if (res){
-	System.out.println(file + ",cryptominisat,5.6.8,SAT," + time);
-    }else{
-        System.out.println(file + ",cryptominisat,5.6.8,UNSAT," + time);
     }
 }
 
@@ -2423,7 +2400,30 @@ def void loadModel103() {
 def void loadModel104() {
     val result = parseHelper.parse('''
     solver cryptominisat
-    benchmarkDIMACS "samplingfm/Benchmarks/17.sk_3_45.cnf"
+    benchmarkDIMACS "samplingfm/Benchmarks/32.sk_4_38.cnf"
+    ''')
+    Assertions.assertNotNull(result)
+    val errors = result.eResource.errors
+    Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
+    var benchmark = result.benchmark as BenchmarkDimacs
+    var file = benchmark.dimacses.get(0);
+    var start = System.currentTimeMillis();
+    var res = Solver.CryptoMinisat5_6_8(file)
+    var end = System.currentTimeMillis();
+    var time = end - start;
+    if (res){
+	System.out.println(file + ",cryptominisat,5.6.8,SAT," + time);
+    }else{
+        System.out.println(file + ",cryptominisat,5.6.8,UNSAT," + time);
+    }
+}
+
+
+@Test
+def void loadModel105() {
+    val result = parseHelper.parse('''
+    solver cryptominisat
+    benchmarkDIMACS "samplingfm/Benchmarks/32.sk_4_38.cnf"
     ''')
     Assertions.assertNotNull(result)
     val errors = result.eResource.errors
@@ -2443,10 +2443,10 @@ def void loadModel104() {
 
 
 @Test
-def void loadModel105() {
+def void loadModel106() {
     val result = parseHelper.parse('''
     solver sat4j-java
-    benchmarkDIMACS "samplingfm/Benchmarks/70.sk_3_40.cnf"
+    benchmarkDIMACS "samplingfm/Benchmarks/109.sk_4_36.cnf"
     ''')
     Assertions.assertNotNull(result)
     val errors = result.eResource.errors
@@ -2466,10 +2466,10 @@ def void loadModel105() {
 
 
 @Test
-def void loadModel106() {
+def void loadModel107() {
     val result = parseHelper.parse('''
     solver sat4j-maven
-    benchmarkDIMACS "samplingfm/Benchmarks/70.sk_3_40.cnf"
+    benchmarkDIMACS "samplingfm/Benchmarks/109.sk_4_36.cnf"
     ''')
     Assertions.assertNotNull(result)
     val errors = result.eResource.errors
@@ -2489,10 +2489,10 @@ def void loadModel106() {
 
 
 @Test
-def void loadModel107() {
+def void loadModel108() {
     val result = parseHelper.parse('''
     solver sat4j-jar
-    benchmarkDIMACS "samplingfm/Benchmarks/70.sk_3_40.cnf"
+    benchmarkDIMACS "samplingfm/Benchmarks/109.sk_4_36.cnf"
     ''')
     Assertions.assertNotNull(result)
     val errors = result.eResource.errors
@@ -2507,29 +2507,6 @@ def void loadModel107() {
 	System.out.println(file + ",sat4j-jar,2.3.1,SAT," + time);
     }else{
         System.out.println(file + ",sat4j-jar,2.3.1,UNSAT," + time);
-    }
-}
-
-
-@Test
-def void loadModel108() {
-    val result = parseHelper.parse('''
-    solver cryptominisat
-    benchmarkDIMACS "samplingfm/Benchmarks/70.sk_3_40.cnf"
-    ''')
-    Assertions.assertNotNull(result)
-    val errors = result.eResource.errors
-    Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
-    var benchmark = result.benchmark as BenchmarkDimacs
-    var file = benchmark.dimacses.get(0);
-    var start = System.currentTimeMillis();
-    var res = Solver.CryptoMinisat5_6_8(file)
-    var end = System.currentTimeMillis();
-    var time = end - start;
-    if (res){
-	System.out.println(file + ",cryptominisat,5.6.8,SAT," + time);
-    }else{
-        System.out.println(file + ",cryptominisat,5.6.8,UNSAT," + time);
     }
 }
 
@@ -2538,6 +2515,604 @@ def void loadModel108() {
 def void loadModel109() {
     val result = parseHelper.parse('''
     solver cryptominisat
+    benchmarkDIMACS "samplingfm/Benchmarks/109.sk_4_36.cnf"
+    ''')
+    Assertions.assertNotNull(result)
+    val errors = result.eResource.errors
+    Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
+    var benchmark = result.benchmark as BenchmarkDimacs
+    var file = benchmark.dimacses.get(0);
+    var start = System.currentTimeMillis();
+    var res = Solver.CryptoMinisat5_6_8(file)
+    var end = System.currentTimeMillis();
+    var time = end - start;
+    if (res){
+	System.out.println(file + ",cryptominisat,5.6.8,SAT," + time);
+    }else{
+        System.out.println(file + ",cryptominisat,5.6.8,UNSAT," + time);
+    }
+}
+
+
+@Test
+def void loadModel110() {
+    val result = parseHelper.parse('''
+    solver cryptominisat
+    benchmarkDIMACS "samplingfm/Benchmarks/109.sk_4_36.cnf"
+    ''')
+    Assertions.assertNotNull(result)
+    val errors = result.eResource.errors
+    Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
+    var benchmark = result.benchmark as BenchmarkDimacs
+    var file = benchmark.dimacses.get(0);
+    var start = System.currentTimeMillis();
+    var res = Solver.CryptoMinisat5_6_7(file)
+    var end = System.currentTimeMillis();
+    var time = end - start;
+    if (res){
+	System.out.println(file + ",cryptominisat,5.6.7,SAT," + time);
+    }else{
+        System.out.println(file + ",cryptominisat,5.6.7,UNSAT," + time);
+    }
+}
+
+
+@Test
+def void loadModel111() {
+    val result = parseHelper.parse('''
+    solver sat4j-java
+    benchmarkDIMACS "samplingfm/Benchmarks/NotificationServiceImpl2.sk_10_36.cnf"
+    ''')
+    Assertions.assertNotNull(result)
+    val errors = result.eResource.errors
+    Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
+    var benchmark = result.benchmark as BenchmarkDimacs
+    var file = benchmark.dimacses.get(0);
+    var start = System.currentTimeMillis();
+    var res = Solver.Sat4JLibrarySolver(file)
+    var end = System.currentTimeMillis();
+    var time = end - start;
+    if (res){
+	System.out.println(file + ",sat4j-java,2.3.1,SAT," + time);
+    }else{
+        System.out.println(file + ",sat4j-java,2.3.1,UNSAT," + time);
+    }
+}
+
+
+@Test
+def void loadModel112() {
+    val result = parseHelper.parse('''
+    solver sat4j-maven
+    benchmarkDIMACS "samplingfm/Benchmarks/NotificationServiceImpl2.sk_10_36.cnf"
+    ''')
+    Assertions.assertNotNull(result)
+    val errors = result.eResource.errors
+    Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
+    var benchmark = result.benchmark as BenchmarkDimacs
+    var file = benchmark.dimacses.get(0);
+    var start = System.currentTimeMillis();
+    var res = Solver.MavenSolving(file)
+    var end = System.currentTimeMillis();
+    var time = end - start;
+    if (res){
+	System.out.println(file + ",sat4j-maven,2.3.1,SAT," + time);
+    }else{
+        System.out.println(file + ",sat4j-maven,2.3.1,UNSAT," + time);
+    }
+}
+
+
+@Test
+def void loadModel113() {
+    val result = parseHelper.parse('''
+    solver sat4j-jar
+    benchmarkDIMACS "samplingfm/Benchmarks/NotificationServiceImpl2.sk_10_36.cnf"
+    ''')
+    Assertions.assertNotNull(result)
+    val errors = result.eResource.errors
+    Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
+    var benchmark = result.benchmark as BenchmarkDimacs
+    var file = benchmark.dimacses.get(0);
+    var start = System.currentTimeMillis();
+    var res = Solver.JarSolving(file)
+    var end = System.currentTimeMillis();
+    var time = end - start;
+    if (res){
+	System.out.println(file + ",sat4j-jar,2.3.1,SAT," + time);
+    }else{
+        System.out.println(file + ",sat4j-jar,2.3.1,UNSAT," + time);
+    }
+}
+
+
+@Test
+def void loadModel114() {
+    val result = parseHelper.parse('''
+    solver cryptominisat
+    benchmarkDIMACS "samplingfm/Benchmarks/NotificationServiceImpl2.sk_10_36.cnf"
+    ''')
+    Assertions.assertNotNull(result)
+    val errors = result.eResource.errors
+    Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
+    var benchmark = result.benchmark as BenchmarkDimacs
+    var file = benchmark.dimacses.get(0);
+    var start = System.currentTimeMillis();
+    var res = Solver.CryptoMinisat5_6_8(file)
+    var end = System.currentTimeMillis();
+    var time = end - start;
+    if (res){
+	System.out.println(file + ",cryptominisat,5.6.8,SAT," + time);
+    }else{
+        System.out.println(file + ",cryptominisat,5.6.8,UNSAT," + time);
+    }
+}
+
+
+@Test
+def void loadModel115() {
+    val result = parseHelper.parse('''
+    solver cryptominisat
+    benchmarkDIMACS "samplingfm/Benchmarks/NotificationServiceImpl2.sk_10_36.cnf"
+    ''')
+    Assertions.assertNotNull(result)
+    val errors = result.eResource.errors
+    Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
+    var benchmark = result.benchmark as BenchmarkDimacs
+    var file = benchmark.dimacses.get(0);
+    var start = System.currentTimeMillis();
+    var res = Solver.CryptoMinisat5_6_7(file)
+    var end = System.currentTimeMillis();
+    var time = end - start;
+    if (res){
+	System.out.println(file + ",cryptominisat,5.6.7,SAT," + time);
+    }else{
+        System.out.println(file + ",cryptominisat,5.6.7,UNSAT," + time);
+    }
+}
+
+
+@Test
+def void loadModel116() {
+    val result = parseHelper.parse('''
+    solver sat4j-java
+    benchmarkDIMACS "samplingfm/Benchmarks/51.sk_4_38.cnf"
+    ''')
+    Assertions.assertNotNull(result)
+    val errors = result.eResource.errors
+    Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
+    var benchmark = result.benchmark as BenchmarkDimacs
+    var file = benchmark.dimacses.get(0);
+    var start = System.currentTimeMillis();
+    var res = Solver.Sat4JLibrarySolver(file)
+    var end = System.currentTimeMillis();
+    var time = end - start;
+    if (res){
+	System.out.println(file + ",sat4j-java,2.3.1,SAT," + time);
+    }else{
+        System.out.println(file + ",sat4j-java,2.3.1,UNSAT," + time);
+    }
+}
+
+
+@Test
+def void loadModel117() {
+    val result = parseHelper.parse('''
+    solver sat4j-maven
+    benchmarkDIMACS "samplingfm/Benchmarks/51.sk_4_38.cnf"
+    ''')
+    Assertions.assertNotNull(result)
+    val errors = result.eResource.errors
+    Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
+    var benchmark = result.benchmark as BenchmarkDimacs
+    var file = benchmark.dimacses.get(0);
+    var start = System.currentTimeMillis();
+    var res = Solver.MavenSolving(file)
+    var end = System.currentTimeMillis();
+    var time = end - start;
+    if (res){
+	System.out.println(file + ",sat4j-maven,2.3.1,SAT," + time);
+    }else{
+        System.out.println(file + ",sat4j-maven,2.3.1,UNSAT," + time);
+    }
+}
+
+
+@Test
+def void loadModel118() {
+    val result = parseHelper.parse('''
+    solver sat4j-jar
+    benchmarkDIMACS "samplingfm/Benchmarks/51.sk_4_38.cnf"
+    ''')
+    Assertions.assertNotNull(result)
+    val errors = result.eResource.errors
+    Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
+    var benchmark = result.benchmark as BenchmarkDimacs
+    var file = benchmark.dimacses.get(0);
+    var start = System.currentTimeMillis();
+    var res = Solver.JarSolving(file)
+    var end = System.currentTimeMillis();
+    var time = end - start;
+    if (res){
+	System.out.println(file + ",sat4j-jar,2.3.1,SAT," + time);
+    }else{
+        System.out.println(file + ",sat4j-jar,2.3.1,UNSAT," + time);
+    }
+}
+
+
+@Test
+def void loadModel119() {
+    val result = parseHelper.parse('''
+    solver cryptominisat
+    benchmarkDIMACS "samplingfm/Benchmarks/51.sk_4_38.cnf"
+    ''')
+    Assertions.assertNotNull(result)
+    val errors = result.eResource.errors
+    Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
+    var benchmark = result.benchmark as BenchmarkDimacs
+    var file = benchmark.dimacses.get(0);
+    var start = System.currentTimeMillis();
+    var res = Solver.CryptoMinisat5_6_8(file)
+    var end = System.currentTimeMillis();
+    var time = end - start;
+    if (res){
+	System.out.println(file + ",cryptominisat,5.6.8,SAT," + time);
+    }else{
+        System.out.println(file + ",cryptominisat,5.6.8,UNSAT," + time);
+    }
+}
+
+
+@Test
+def void loadModel120() {
+    val result = parseHelper.parse('''
+    solver cryptominisat
+    benchmarkDIMACS "samplingfm/Benchmarks/51.sk_4_38.cnf"
+    ''')
+    Assertions.assertNotNull(result)
+    val errors = result.eResource.errors
+    Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
+    var benchmark = result.benchmark as BenchmarkDimacs
+    var file = benchmark.dimacses.get(0);
+    var start = System.currentTimeMillis();
+    var res = Solver.CryptoMinisat5_6_7(file)
+    var end = System.currentTimeMillis();
+    var time = end - start;
+    if (res){
+	System.out.println(file + ",cryptominisat,5.6.7,SAT," + time);
+    }else{
+        System.out.println(file + ",cryptominisat,5.6.7,UNSAT," + time);
+    }
+}
+
+
+@Test
+def void loadModel121() {
+    val result = parseHelper.parse('''
+    solver sat4j-java
+    benchmarkDIMACS "samplingfm/Benchmarks/ProcessBean.sk_8_64.cnf"
+    ''')
+    Assertions.assertNotNull(result)
+    val errors = result.eResource.errors
+    Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
+    var benchmark = result.benchmark as BenchmarkDimacs
+    var file = benchmark.dimacses.get(0);
+    var start = System.currentTimeMillis();
+    var res = Solver.Sat4JLibrarySolver(file)
+    var end = System.currentTimeMillis();
+    var time = end - start;
+    if (res){
+	System.out.println(file + ",sat4j-java,2.3.1,SAT," + time);
+    }else{
+        System.out.println(file + ",sat4j-java,2.3.1,UNSAT," + time);
+    }
+}
+
+
+@Test
+def void loadModel122() {
+    val result = parseHelper.parse('''
+    solver sat4j-maven
+    benchmarkDIMACS "samplingfm/Benchmarks/ProcessBean.sk_8_64.cnf"
+    ''')
+    Assertions.assertNotNull(result)
+    val errors = result.eResource.errors
+    Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
+    var benchmark = result.benchmark as BenchmarkDimacs
+    var file = benchmark.dimacses.get(0);
+    var start = System.currentTimeMillis();
+    var res = Solver.MavenSolving(file)
+    var end = System.currentTimeMillis();
+    var time = end - start;
+    if (res){
+	System.out.println(file + ",sat4j-maven,2.3.1,SAT," + time);
+    }else{
+        System.out.println(file + ",sat4j-maven,2.3.1,UNSAT," + time);
+    }
+}
+
+
+@Test
+def void loadModel123() {
+    val result = parseHelper.parse('''
+    solver sat4j-jar
+    benchmarkDIMACS "samplingfm/Benchmarks/ProcessBean.sk_8_64.cnf"
+    ''')
+    Assertions.assertNotNull(result)
+    val errors = result.eResource.errors
+    Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
+    var benchmark = result.benchmark as BenchmarkDimacs
+    var file = benchmark.dimacses.get(0);
+    var start = System.currentTimeMillis();
+    var res = Solver.JarSolving(file)
+    var end = System.currentTimeMillis();
+    var time = end - start;
+    if (res){
+	System.out.println(file + ",sat4j-jar,2.3.1,SAT," + time);
+    }else{
+        System.out.println(file + ",sat4j-jar,2.3.1,UNSAT," + time);
+    }
+}
+
+
+@Test
+def void loadModel124() {
+    val result = parseHelper.parse('''
+    solver cryptominisat
+    benchmarkDIMACS "samplingfm/Benchmarks/ProcessBean.sk_8_64.cnf"
+    ''')
+    Assertions.assertNotNull(result)
+    val errors = result.eResource.errors
+    Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
+    var benchmark = result.benchmark as BenchmarkDimacs
+    var file = benchmark.dimacses.get(0);
+    var start = System.currentTimeMillis();
+    var res = Solver.CryptoMinisat5_6_8(file)
+    var end = System.currentTimeMillis();
+    var time = end - start;
+    if (res){
+	System.out.println(file + ",cryptominisat,5.6.8,SAT," + time);
+    }else{
+        System.out.println(file + ",cryptominisat,5.6.8,UNSAT," + time);
+    }
+}
+
+
+@Test
+def void loadModel125() {
+    val result = parseHelper.parse('''
+    solver cryptominisat
+    benchmarkDIMACS "samplingfm/Benchmarks/ProcessBean.sk_8_64.cnf"
+    ''')
+    Assertions.assertNotNull(result)
+    val errors = result.eResource.errors
+    Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
+    var benchmark = result.benchmark as BenchmarkDimacs
+    var file = benchmark.dimacses.get(0);
+    var start = System.currentTimeMillis();
+    var res = Solver.CryptoMinisat5_6_7(file)
+    var end = System.currentTimeMillis();
+    var time = end - start;
+    if (res){
+	System.out.println(file + ",cryptominisat,5.6.7,SAT," + time);
+    }else{
+        System.out.println(file + ",cryptominisat,5.6.7,UNSAT," + time);
+    }
+}
+
+
+@Test
+def void loadModel126() {
+    val result = parseHelper.parse('''
+    solver sat4j-java
+    benchmarkDIMACS "samplingfm/Benchmarks/71.sk_3_65.cnf"
+    ''')
+    Assertions.assertNotNull(result)
+    val errors = result.eResource.errors
+    Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
+    var benchmark = result.benchmark as BenchmarkDimacs
+    var file = benchmark.dimacses.get(0);
+    var start = System.currentTimeMillis();
+    var res = Solver.Sat4JLibrarySolver(file)
+    var end = System.currentTimeMillis();
+    var time = end - start;
+    if (res){
+	System.out.println(file + ",sat4j-java,2.3.1,SAT," + time);
+    }else{
+        System.out.println(file + ",sat4j-java,2.3.1,UNSAT," + time);
+    }
+}
+
+
+@Test
+def void loadModel127() {
+    val result = parseHelper.parse('''
+    solver sat4j-maven
+    benchmarkDIMACS "samplingfm/Benchmarks/71.sk_3_65.cnf"
+    ''')
+    Assertions.assertNotNull(result)
+    val errors = result.eResource.errors
+    Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
+    var benchmark = result.benchmark as BenchmarkDimacs
+    var file = benchmark.dimacses.get(0);
+    var start = System.currentTimeMillis();
+    var res = Solver.MavenSolving(file)
+    var end = System.currentTimeMillis();
+    var time = end - start;
+    if (res){
+	System.out.println(file + ",sat4j-maven,2.3.1,SAT," + time);
+    }else{
+        System.out.println(file + ",sat4j-maven,2.3.1,UNSAT," + time);
+    }
+}
+
+
+@Test
+def void loadModel128() {
+    val result = parseHelper.parse('''
+    solver sat4j-jar
+    benchmarkDIMACS "samplingfm/Benchmarks/71.sk_3_65.cnf"
+    ''')
+    Assertions.assertNotNull(result)
+    val errors = result.eResource.errors
+    Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
+    var benchmark = result.benchmark as BenchmarkDimacs
+    var file = benchmark.dimacses.get(0);
+    var start = System.currentTimeMillis();
+    var res = Solver.JarSolving(file)
+    var end = System.currentTimeMillis();
+    var time = end - start;
+    if (res){
+	System.out.println(file + ",sat4j-jar,2.3.1,SAT," + time);
+    }else{
+        System.out.println(file + ",sat4j-jar,2.3.1,UNSAT," + time);
+    }
+}
+
+
+@Test
+def void loadModel129() {
+    val result = parseHelper.parse('''
+    solver cryptominisat
+    benchmarkDIMACS "samplingfm/Benchmarks/71.sk_3_65.cnf"
+    ''')
+    Assertions.assertNotNull(result)
+    val errors = result.eResource.errors
+    Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
+    var benchmark = result.benchmark as BenchmarkDimacs
+    var file = benchmark.dimacses.get(0);
+    var start = System.currentTimeMillis();
+    var res = Solver.CryptoMinisat5_6_8(file)
+    var end = System.currentTimeMillis();
+    var time = end - start;
+    if (res){
+	System.out.println(file + ",cryptominisat,5.6.8,SAT," + time);
+    }else{
+        System.out.println(file + ",cryptominisat,5.6.8,UNSAT," + time);
+    }
+}
+
+
+@Test
+def void loadModel130() {
+    val result = parseHelper.parse('''
+    solver cryptominisat
+    benchmarkDIMACS "samplingfm/Benchmarks/71.sk_3_65.cnf"
+    ''')
+    Assertions.assertNotNull(result)
+    val errors = result.eResource.errors
+    Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
+    var benchmark = result.benchmark as BenchmarkDimacs
+    var file = benchmark.dimacses.get(0);
+    var start = System.currentTimeMillis();
+    var res = Solver.CryptoMinisat5_6_7(file)
+    var end = System.currentTimeMillis();
+    var time = end - start;
+    if (res){
+	System.out.println(file + ",cryptominisat,5.6.7,SAT," + time);
+    }else{
+        System.out.println(file + ",cryptominisat,5.6.7,UNSAT," + time);
+    }
+}
+
+
+@Test
+def void loadModel131() {
+    val result = parseHelper.parse('''
+    solver sat4j-java
+    benchmarkDIMACS "samplingfm/Benchmarks/70.sk_3_40.cnf"
+    ''')
+    Assertions.assertNotNull(result)
+    val errors = result.eResource.errors
+    Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
+    var benchmark = result.benchmark as BenchmarkDimacs
+    var file = benchmark.dimacses.get(0);
+    var start = System.currentTimeMillis();
+    var res = Solver.Sat4JLibrarySolver(file)
+    var end = System.currentTimeMillis();
+    var time = end - start;
+    if (res){
+	System.out.println(file + ",sat4j-java,2.3.1,SAT," + time);
+    }else{
+        System.out.println(file + ",sat4j-java,2.3.1,UNSAT," + time);
+    }
+}
+
+
+@Test
+def void loadModel132() {
+    val result = parseHelper.parse('''
+    solver sat4j-maven
+    benchmarkDIMACS "samplingfm/Benchmarks/70.sk_3_40.cnf"
+    ''')
+    Assertions.assertNotNull(result)
+    val errors = result.eResource.errors
+    Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
+    var benchmark = result.benchmark as BenchmarkDimacs
+    var file = benchmark.dimacses.get(0);
+    var start = System.currentTimeMillis();
+    var res = Solver.MavenSolving(file)
+    var end = System.currentTimeMillis();
+    var time = end - start;
+    if (res){
+	System.out.println(file + ",sat4j-maven,2.3.1,SAT," + time);
+    }else{
+        System.out.println(file + ",sat4j-maven,2.3.1,UNSAT," + time);
+    }
+}
+
+
+@Test
+def void loadModel133() {
+    val result = parseHelper.parse('''
+    solver sat4j-jar
+    benchmarkDIMACS "samplingfm/Benchmarks/70.sk_3_40.cnf"
+    ''')
+    Assertions.assertNotNull(result)
+    val errors = result.eResource.errors
+    Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
+    var benchmark = result.benchmark as BenchmarkDimacs
+    var file = benchmark.dimacses.get(0);
+    var start = System.currentTimeMillis();
+    var res = Solver.JarSolving(file)
+    var end = System.currentTimeMillis();
+    var time = end - start;
+    if (res){
+	System.out.println(file + ",sat4j-jar,2.3.1,SAT," + time);
+    }else{
+        System.out.println(file + ",sat4j-jar,2.3.1,UNSAT," + time);
+    }
+}
+
+
+@Test
+def void loadModel134() {
+    val result = parseHelper.parse('''
+    solver cryptominisat
+    benchmarkDIMACS "samplingfm/Benchmarks/70.sk_3_40.cnf"
+    ''')
+    Assertions.assertNotNull(result)
+    val errors = result.eResource.errors
+    Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
+    var benchmark = result.benchmark as BenchmarkDimacs
+    var file = benchmark.dimacses.get(0);
+    var start = System.currentTimeMillis();
+    var res = Solver.CryptoMinisat5_6_8(file)
+    var end = System.currentTimeMillis();
+    var time = end - start;
+    if (res){
+	System.out.println(file + ",cryptominisat,5.6.8,SAT," + time);
+    }else{
+        System.out.println(file + ",cryptominisat,5.6.8,UNSAT," + time);
+    }
+}
+
+
+@Test
+def void loadModel135() {
+    val result = parseHelper.parse('''
+    solver cryptominisat
     benchmarkDIMACS "samplingfm/Benchmarks/70.sk_3_40.cnf"
     ''')
     Assertions.assertNotNull(result)
@@ -2558,607 +3133,9 @@ def void loadModel109() {
 
 
 @Test
-def void loadModel110() {
-    val result = parseHelper.parse('''
-    solver sat4j-java
-    benchmarkDIMACS "samplingfm/Benchmarks/ConcreteRoleAffectationService.sk_119_273.cnf"
-    ''')
-    Assertions.assertNotNull(result)
-    val errors = result.eResource.errors
-    Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
-    var benchmark = result.benchmark as BenchmarkDimacs
-    var file = benchmark.dimacses.get(0);
-    var start = System.currentTimeMillis();
-    var res = Solver.Sat4JLibrarySolver(file)
-    var end = System.currentTimeMillis();
-    var time = end - start;
-    if (res){
-	System.out.println(file + ",sat4j-java,2.3.1,SAT," + time);
-    }else{
-        System.out.println(file + ",sat4j-java,2.3.1,UNSAT," + time);
-    }
-}
-
-
-@Test
-def void loadModel111() {
-    val result = parseHelper.parse('''
-    solver sat4j-maven
-    benchmarkDIMACS "samplingfm/Benchmarks/ConcreteRoleAffectationService.sk_119_273.cnf"
-    ''')
-    Assertions.assertNotNull(result)
-    val errors = result.eResource.errors
-    Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
-    var benchmark = result.benchmark as BenchmarkDimacs
-    var file = benchmark.dimacses.get(0);
-    var start = System.currentTimeMillis();
-    var res = Solver.MavenSolving(file)
-    var end = System.currentTimeMillis();
-    var time = end - start;
-    if (res){
-	System.out.println(file + ",sat4j-maven,2.3.1,SAT," + time);
-    }else{
-        System.out.println(file + ",sat4j-maven,2.3.1,UNSAT," + time);
-    }
-}
-
-
-@Test
-def void loadModel112() {
-    val result = parseHelper.parse('''
-    solver sat4j-jar
-    benchmarkDIMACS "samplingfm/Benchmarks/ConcreteRoleAffectationService.sk_119_273.cnf"
-    ''')
-    Assertions.assertNotNull(result)
-    val errors = result.eResource.errors
-    Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
-    var benchmark = result.benchmark as BenchmarkDimacs
-    var file = benchmark.dimacses.get(0);
-    var start = System.currentTimeMillis();
-    var res = Solver.JarSolving(file)
-    var end = System.currentTimeMillis();
-    var time = end - start;
-    if (res){
-	System.out.println(file + ",sat4j-jar,2.3.1,SAT," + time);
-    }else{
-        System.out.println(file + ",sat4j-jar,2.3.1,UNSAT," + time);
-    }
-}
-
-
-@Test
-def void loadModel113() {
-    val result = parseHelper.parse('''
-    solver cryptominisat
-    benchmarkDIMACS "samplingfm/Benchmarks/ConcreteRoleAffectationService.sk_119_273.cnf"
-    ''')
-    Assertions.assertNotNull(result)
-    val errors = result.eResource.errors
-    Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
-    var benchmark = result.benchmark as BenchmarkDimacs
-    var file = benchmark.dimacses.get(0);
-    var start = System.currentTimeMillis();
-    var res = Solver.CryptoMinisat5_6_8(file)
-    var end = System.currentTimeMillis();
-    var time = end - start;
-    if (res){
-	System.out.println(file + ",cryptominisat,5.6.8,SAT," + time);
-    }else{
-        System.out.println(file + ",cryptominisat,5.6.8,UNSAT," + time);
-    }
-}
-
-
-@Test
-def void loadModel114() {
-    val result = parseHelper.parse('''
-    solver cryptominisat
-    benchmarkDIMACS "samplingfm/Benchmarks/ConcreteRoleAffectationService.sk_119_273.cnf"
-    ''')
-    Assertions.assertNotNull(result)
-    val errors = result.eResource.errors
-    Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
-    var benchmark = result.benchmark as BenchmarkDimacs
-    var file = benchmark.dimacses.get(0);
-    var start = System.currentTimeMillis();
-    var res = Solver.CryptoMinisat5_6_7(file)
-    var end = System.currentTimeMillis();
-    var time = end - start;
-    if (res){
-	System.out.println(file + ",cryptominisat,5.6.7,SAT," + time);
-    }else{
-        System.out.println(file + ",cryptominisat,5.6.7,UNSAT," + time);
-    }
-}
-
-
-@Test
-def void loadModel115() {
-    val result = parseHelper.parse('''
-    solver sat4j-java
-    benchmarkDIMACS "samplingfm/Benchmarks/54.sk_12_97.cnf"
-    ''')
-    Assertions.assertNotNull(result)
-    val errors = result.eResource.errors
-    Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
-    var benchmark = result.benchmark as BenchmarkDimacs
-    var file = benchmark.dimacses.get(0);
-    var start = System.currentTimeMillis();
-    var res = Solver.Sat4JLibrarySolver(file)
-    var end = System.currentTimeMillis();
-    var time = end - start;
-    if (res){
-	System.out.println(file + ",sat4j-java,2.3.1,SAT," + time);
-    }else{
-        System.out.println(file + ",sat4j-java,2.3.1,UNSAT," + time);
-    }
-}
-
-
-@Test
-def void loadModel116() {
-    val result = parseHelper.parse('''
-    solver sat4j-maven
-    benchmarkDIMACS "samplingfm/Benchmarks/54.sk_12_97.cnf"
-    ''')
-    Assertions.assertNotNull(result)
-    val errors = result.eResource.errors
-    Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
-    var benchmark = result.benchmark as BenchmarkDimacs
-    var file = benchmark.dimacses.get(0);
-    var start = System.currentTimeMillis();
-    var res = Solver.MavenSolving(file)
-    var end = System.currentTimeMillis();
-    var time = end - start;
-    if (res){
-	System.out.println(file + ",sat4j-maven,2.3.1,SAT," + time);
-    }else{
-        System.out.println(file + ",sat4j-maven,2.3.1,UNSAT," + time);
-    }
-}
-
-
-@Test
-def void loadModel117() {
-    val result = parseHelper.parse('''
-    solver sat4j-jar
-    benchmarkDIMACS "samplingfm/Benchmarks/54.sk_12_97.cnf"
-    ''')
-    Assertions.assertNotNull(result)
-    val errors = result.eResource.errors
-    Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
-    var benchmark = result.benchmark as BenchmarkDimacs
-    var file = benchmark.dimacses.get(0);
-    var start = System.currentTimeMillis();
-    var res = Solver.JarSolving(file)
-    var end = System.currentTimeMillis();
-    var time = end - start;
-    if (res){
-	System.out.println(file + ",sat4j-jar,2.3.1,SAT," + time);
-    }else{
-        System.out.println(file + ",sat4j-jar,2.3.1,UNSAT," + time);
-    }
-}
-
-
-@Test
-def void loadModel118() {
-    val result = parseHelper.parse('''
-    solver cryptominisat
-    benchmarkDIMACS "samplingfm/Benchmarks/54.sk_12_97.cnf"
-    ''')
-    Assertions.assertNotNull(result)
-    val errors = result.eResource.errors
-    Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
-    var benchmark = result.benchmark as BenchmarkDimacs
-    var file = benchmark.dimacses.get(0);
-    var start = System.currentTimeMillis();
-    var res = Solver.CryptoMinisat5_6_8(file)
-    var end = System.currentTimeMillis();
-    var time = end - start;
-    if (res){
-	System.out.println(file + ",cryptominisat,5.6.8,SAT," + time);
-    }else{
-        System.out.println(file + ",cryptominisat,5.6.8,UNSAT," + time);
-    }
-}
-
-
-@Test
-def void loadModel119() {
-    val result = parseHelper.parse('''
-    solver cryptominisat
-    benchmarkDIMACS "samplingfm/Benchmarks/54.sk_12_97.cnf"
-    ''')
-    Assertions.assertNotNull(result)
-    val errors = result.eResource.errors
-    Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
-    var benchmark = result.benchmark as BenchmarkDimacs
-    var file = benchmark.dimacses.get(0);
-    var start = System.currentTimeMillis();
-    var res = Solver.CryptoMinisat5_6_7(file)
-    var end = System.currentTimeMillis();
-    var time = end - start;
-    if (res){
-	System.out.println(file + ",cryptominisat,5.6.7,SAT," + time);
-    }else{
-        System.out.println(file + ",cryptominisat,5.6.7,UNSAT," + time);
-    }
-}
-
-
-@Test
-def void loadModel120() {
-    val result = parseHelper.parse('''
-    solver sat4j-java
-    benchmarkDIMACS "samplingfm/Benchmarks/lss.sk_6_7.cnf"
-    ''')
-    Assertions.assertNotNull(result)
-    val errors = result.eResource.errors
-    Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
-    var benchmark = result.benchmark as BenchmarkDimacs
-    var file = benchmark.dimacses.get(0);
-    var start = System.currentTimeMillis();
-    var res = Solver.Sat4JLibrarySolver(file)
-    var end = System.currentTimeMillis();
-    var time = end - start;
-    if (res){
-	System.out.println(file + ",sat4j-java,2.3.1,SAT," + time);
-    }else{
-        System.out.println(file + ",sat4j-java,2.3.1,UNSAT," + time);
-    }
-}
-
-
-@Test
-def void loadModel121() {
-    val result = parseHelper.parse('''
-    solver sat4j-maven
-    benchmarkDIMACS "samplingfm/Benchmarks/lss.sk_6_7.cnf"
-    ''')
-    Assertions.assertNotNull(result)
-    val errors = result.eResource.errors
-    Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
-    var benchmark = result.benchmark as BenchmarkDimacs
-    var file = benchmark.dimacses.get(0);
-    var start = System.currentTimeMillis();
-    var res = Solver.MavenSolving(file)
-    var end = System.currentTimeMillis();
-    var time = end - start;
-    if (res){
-	System.out.println(file + ",sat4j-maven,2.3.1,SAT," + time);
-    }else{
-        System.out.println(file + ",sat4j-maven,2.3.1,UNSAT," + time);
-    }
-}
-
-
-@Test
-def void loadModel122() {
-    val result = parseHelper.parse('''
-    solver sat4j-jar
-    benchmarkDIMACS "samplingfm/Benchmarks/lss.sk_6_7.cnf"
-    ''')
-    Assertions.assertNotNull(result)
-    val errors = result.eResource.errors
-    Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
-    var benchmark = result.benchmark as BenchmarkDimacs
-    var file = benchmark.dimacses.get(0);
-    var start = System.currentTimeMillis();
-    var res = Solver.JarSolving(file)
-    var end = System.currentTimeMillis();
-    var time = end - start;
-    if (res){
-	System.out.println(file + ",sat4j-jar,2.3.1,SAT," + time);
-    }else{
-        System.out.println(file + ",sat4j-jar,2.3.1,UNSAT," + time);
-    }
-}
-
-
-@Test
-def void loadModel123() {
-    val result = parseHelper.parse('''
-    solver cryptominisat
-    benchmarkDIMACS "samplingfm/Benchmarks/lss.sk_6_7.cnf"
-    ''')
-    Assertions.assertNotNull(result)
-    val errors = result.eResource.errors
-    Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
-    var benchmark = result.benchmark as BenchmarkDimacs
-    var file = benchmark.dimacses.get(0);
-    var start = System.currentTimeMillis();
-    var res = Solver.CryptoMinisat5_6_8(file)
-    var end = System.currentTimeMillis();
-    var time = end - start;
-    if (res){
-	System.out.println(file + ",cryptominisat,5.6.8,SAT," + time);
-    }else{
-        System.out.println(file + ",cryptominisat,5.6.8,UNSAT," + time);
-    }
-}
-
-
-@Test
-def void loadModel124() {
-    val result = parseHelper.parse('''
-    solver cryptominisat
-    benchmarkDIMACS "samplingfm/Benchmarks/lss.sk_6_7.cnf"
-    ''')
-    Assertions.assertNotNull(result)
-    val errors = result.eResource.errors
-    Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
-    var benchmark = result.benchmark as BenchmarkDimacs
-    var file = benchmark.dimacses.get(0);
-    var start = System.currentTimeMillis();
-    var res = Solver.CryptoMinisat5_6_7(file)
-    var end = System.currentTimeMillis();
-    var time = end - start;
-    if (res){
-	System.out.println(file + ",cryptominisat,5.6.7,SAT," + time);
-    }else{
-        System.out.println(file + ",cryptominisat,5.6.7,UNSAT," + time);
-    }
-}
-
-
-@Test
-def void loadModel125() {
-    val result = parseHelper.parse('''
-    solver sat4j-java
-    benchmarkDIMACS "samplingfm/Benchmarks/84.sk_4_77.cnf"
-    ''')
-    Assertions.assertNotNull(result)
-    val errors = result.eResource.errors
-    Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
-    var benchmark = result.benchmark as BenchmarkDimacs
-    var file = benchmark.dimacses.get(0);
-    var start = System.currentTimeMillis();
-    var res = Solver.Sat4JLibrarySolver(file)
-    var end = System.currentTimeMillis();
-    var time = end - start;
-    if (res){
-	System.out.println(file + ",sat4j-java,2.3.1,SAT," + time);
-    }else{
-        System.out.println(file + ",sat4j-java,2.3.1,UNSAT," + time);
-    }
-}
-
-
-@Test
-def void loadModel126() {
-    val result = parseHelper.parse('''
-    solver sat4j-maven
-    benchmarkDIMACS "samplingfm/Benchmarks/84.sk_4_77.cnf"
-    ''')
-    Assertions.assertNotNull(result)
-    val errors = result.eResource.errors
-    Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
-    var benchmark = result.benchmark as BenchmarkDimacs
-    var file = benchmark.dimacses.get(0);
-    var start = System.currentTimeMillis();
-    var res = Solver.MavenSolving(file)
-    var end = System.currentTimeMillis();
-    var time = end - start;
-    if (res){
-	System.out.println(file + ",sat4j-maven,2.3.1,SAT," + time);
-    }else{
-        System.out.println(file + ",sat4j-maven,2.3.1,UNSAT," + time);
-    }
-}
-
-
-@Test
-def void loadModel127() {
-    val result = parseHelper.parse('''
-    solver sat4j-jar
-    benchmarkDIMACS "samplingfm/Benchmarks/84.sk_4_77.cnf"
-    ''')
-    Assertions.assertNotNull(result)
-    val errors = result.eResource.errors
-    Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
-    var benchmark = result.benchmark as BenchmarkDimacs
-    var file = benchmark.dimacses.get(0);
-    var start = System.currentTimeMillis();
-    var res = Solver.JarSolving(file)
-    var end = System.currentTimeMillis();
-    var time = end - start;
-    if (res){
-	System.out.println(file + ",sat4j-jar,2.3.1,SAT," + time);
-    }else{
-        System.out.println(file + ",sat4j-jar,2.3.1,UNSAT," + time);
-    }
-}
-
-
-@Test
-def void loadModel128() {
-    val result = parseHelper.parse('''
-    solver cryptominisat
-    benchmarkDIMACS "samplingfm/Benchmarks/84.sk_4_77.cnf"
-    ''')
-    Assertions.assertNotNull(result)
-    val errors = result.eResource.errors
-    Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
-    var benchmark = result.benchmark as BenchmarkDimacs
-    var file = benchmark.dimacses.get(0);
-    var start = System.currentTimeMillis();
-    var res = Solver.CryptoMinisat5_6_8(file)
-    var end = System.currentTimeMillis();
-    var time = end - start;
-    if (res){
-	System.out.println(file + ",cryptominisat,5.6.8,SAT," + time);
-    }else{
-        System.out.println(file + ",cryptominisat,5.6.8,UNSAT," + time);
-    }
-}
-
-
-@Test
-def void loadModel129() {
-    val result = parseHelper.parse('''
-    solver cryptominisat
-    benchmarkDIMACS "samplingfm/Benchmarks/84.sk_4_77.cnf"
-    ''')
-    Assertions.assertNotNull(result)
-    val errors = result.eResource.errors
-    Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
-    var benchmark = result.benchmark as BenchmarkDimacs
-    var file = benchmark.dimacses.get(0);
-    var start = System.currentTimeMillis();
-    var res = Solver.CryptoMinisat5_6_7(file)
-    var end = System.currentTimeMillis();
-    var time = end - start;
-    if (res){
-	System.out.println(file + ",cryptominisat,5.6.7,SAT," + time);
-    }else{
-        System.out.println(file + ",cryptominisat,5.6.7,UNSAT," + time);
-    }
-}
-
-
-@Test
-def void loadModel130() {
-    val result = parseHelper.parse('''
-    solver sat4j-java
-    benchmarkDIMACS "samplingfm/Benchmarks/80.sk_2_48.cnf"
-    ''')
-    Assertions.assertNotNull(result)
-    val errors = result.eResource.errors
-    Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
-    var benchmark = result.benchmark as BenchmarkDimacs
-    var file = benchmark.dimacses.get(0);
-    var start = System.currentTimeMillis();
-    var res = Solver.Sat4JLibrarySolver(file)
-    var end = System.currentTimeMillis();
-    var time = end - start;
-    if (res){
-	System.out.println(file + ",sat4j-java,2.3.1,SAT," + time);
-    }else{
-        System.out.println(file + ",sat4j-java,2.3.1,UNSAT," + time);
-    }
-}
-
-
-@Test
-def void loadModel131() {
-    val result = parseHelper.parse('''
-    solver sat4j-maven
-    benchmarkDIMACS "samplingfm/Benchmarks/80.sk_2_48.cnf"
-    ''')
-    Assertions.assertNotNull(result)
-    val errors = result.eResource.errors
-    Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
-    var benchmark = result.benchmark as BenchmarkDimacs
-    var file = benchmark.dimacses.get(0);
-    var start = System.currentTimeMillis();
-    var res = Solver.MavenSolving(file)
-    var end = System.currentTimeMillis();
-    var time = end - start;
-    if (res){
-	System.out.println(file + ",sat4j-maven,2.3.1,SAT," + time);
-    }else{
-        System.out.println(file + ",sat4j-maven,2.3.1,UNSAT," + time);
-    }
-}
-
-
-@Test
-def void loadModel132() {
-    val result = parseHelper.parse('''
-    solver sat4j-jar
-    benchmarkDIMACS "samplingfm/Benchmarks/80.sk_2_48.cnf"
-    ''')
-    Assertions.assertNotNull(result)
-    val errors = result.eResource.errors
-    Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
-    var benchmark = result.benchmark as BenchmarkDimacs
-    var file = benchmark.dimacses.get(0);
-    var start = System.currentTimeMillis();
-    var res = Solver.JarSolving(file)
-    var end = System.currentTimeMillis();
-    var time = end - start;
-    if (res){
-	System.out.println(file + ",sat4j-jar,2.3.1,SAT," + time);
-    }else{
-        System.out.println(file + ",sat4j-jar,2.3.1,UNSAT," + time);
-    }
-}
-
-
-@Test
-def void loadModel133() {
-    val result = parseHelper.parse('''
-    solver cryptominisat
-    benchmarkDIMACS "samplingfm/Benchmarks/80.sk_2_48.cnf"
-    ''')
-    Assertions.assertNotNull(result)
-    val errors = result.eResource.errors
-    Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
-    var benchmark = result.benchmark as BenchmarkDimacs
-    var file = benchmark.dimacses.get(0);
-    var start = System.currentTimeMillis();
-    var res = Solver.CryptoMinisat5_6_8(file)
-    var end = System.currentTimeMillis();
-    var time = end - start;
-    if (res){
-	System.out.println(file + ",cryptominisat,5.6.8,SAT," + time);
-    }else{
-        System.out.println(file + ",cryptominisat,5.6.8,UNSAT," + time);
-    }
-}
-
-
-@Test
-def void loadModel134() {
-    val result = parseHelper.parse('''
-    solver cryptominisat
-    benchmarkDIMACS "samplingfm/Benchmarks/80.sk_2_48.cnf"
-    ''')
-    Assertions.assertNotNull(result)
-    val errors = result.eResource.errors
-    Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
-    var benchmark = result.benchmark as BenchmarkDimacs
-    var file = benchmark.dimacses.get(0);
-    var start = System.currentTimeMillis();
-    var res = Solver.CryptoMinisat5_6_7(file)
-    var end = System.currentTimeMillis();
-    var time = end - start;
-    if (res){
-	System.out.println(file + ",cryptominisat,5.6.7,SAT," + time);
-    }else{
-        System.out.println(file + ",cryptominisat,5.6.7,UNSAT," + time);
-    }
-}
-
-
-@Test
-def void loadModel135() {
-    val result = parseHelper.parse('''
-    solver sat4j-java
-    benchmarkDIMACS "samplingfm/Benchmarks/56.sk_6_38.cnf"
-    ''')
-    Assertions.assertNotNull(result)
-    val errors = result.eResource.errors
-    Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
-    var benchmark = result.benchmark as BenchmarkDimacs
-    var file = benchmark.dimacses.get(0);
-    var start = System.currentTimeMillis();
-    var res = Solver.Sat4JLibrarySolver(file)
-    var end = System.currentTimeMillis();
-    var time = end - start;
-    if (res){
-	System.out.println(file + ",sat4j-java,2.3.1,SAT," + time);
-    }else{
-        System.out.println(file + ",sat4j-java,2.3.1,UNSAT," + time);
-    }
-}
-
-
-@Test
 def void loadModel136() {
     val result = parseHelper.parse('''
-    solver sat4j-maven
+    solver sat4j-java
     benchmarkDIMACS "samplingfm/Benchmarks/56.sk_6_38.cnf"
     ''')
     Assertions.assertNotNull(result)
@@ -3167,13 +3144,13 @@ def void loadModel136() {
     var benchmark = result.benchmark as BenchmarkDimacs
     var file = benchmark.dimacses.get(0);
     var start = System.currentTimeMillis();
-    var res = Solver.MavenSolving(file)
+    var res = Solver.Sat4JLibrarySolver(file)
     var end = System.currentTimeMillis();
     var time = end - start;
     if (res){
-	System.out.println(file + ",sat4j-maven,2.3.1,SAT," + time);
+	System.out.println(file + ",sat4j-java,2.3.1,SAT," + time);
     }else{
-        System.out.println(file + ",sat4j-maven,2.3.1,UNSAT," + time);
+        System.out.println(file + ",sat4j-java,2.3.1,UNSAT," + time);
     }
 }
 
@@ -3181,6 +3158,29 @@ def void loadModel136() {
 @Test
 def void loadModel137() {
     val result = parseHelper.parse('''
+    solver sat4j-maven
+    benchmarkDIMACS "samplingfm/Benchmarks/56.sk_6_38.cnf"
+    ''')
+    Assertions.assertNotNull(result)
+    val errors = result.eResource.errors
+    Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
+    var benchmark = result.benchmark as BenchmarkDimacs
+    var file = benchmark.dimacses.get(0);
+    var start = System.currentTimeMillis();
+    var res = Solver.MavenSolving(file)
+    var end = System.currentTimeMillis();
+    var time = end - start;
+    if (res){
+	System.out.println(file + ",sat4j-maven,2.3.1,SAT," + time);
+    }else{
+        System.out.println(file + ",sat4j-maven,2.3.1,UNSAT," + time);
+    }
+}
+
+
+@Test
+def void loadModel138() {
+    val result = parseHelper.parse('''
     solver sat4j-jar
     benchmarkDIMACS "samplingfm/Benchmarks/56.sk_6_38.cnf"
     ''')
@@ -3197,29 +3197,6 @@ def void loadModel137() {
 	System.out.println(file + ",sat4j-jar,2.3.1,SAT," + time);
     }else{
         System.out.println(file + ",sat4j-jar,2.3.1,UNSAT," + time);
-    }
-}
-
-
-@Test
-def void loadModel138() {
-    val result = parseHelper.parse('''
-    solver cryptominisat
-    benchmarkDIMACS "samplingfm/Benchmarks/56.sk_6_38.cnf"
-    ''')
-    Assertions.assertNotNull(result)
-    val errors = result.eResource.errors
-    Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
-    var benchmark = result.benchmark as BenchmarkDimacs
-    var file = benchmark.dimacses.get(0);
-    var start = System.currentTimeMillis();
-    var res = Solver.CryptoMinisat5_6_8(file)
-    var end = System.currentTimeMillis();
-    var time = end - start;
-    if (res){
-	System.out.println(file + ",cryptominisat,5.6.8,SAT," + time);
-    }else{
-        System.out.println(file + ",cryptominisat,5.6.8,UNSAT," + time);
     }
 }
 
@@ -3236,6 +3213,29 @@ def void loadModel139() {
     var benchmark = result.benchmark as BenchmarkDimacs
     var file = benchmark.dimacses.get(0);
     var start = System.currentTimeMillis();
+    var res = Solver.CryptoMinisat5_6_8(file)
+    var end = System.currentTimeMillis();
+    var time = end - start;
+    if (res){
+	System.out.println(file + ",cryptominisat,5.6.8,SAT," + time);
+    }else{
+        System.out.println(file + ",cryptominisat,5.6.8,UNSAT," + time);
+    }
+}
+
+
+@Test
+def void loadModel140() {
+    val result = parseHelper.parse('''
+    solver cryptominisat
+    benchmarkDIMACS "samplingfm/Benchmarks/56.sk_6_38.cnf"
+    ''')
+    Assertions.assertNotNull(result)
+    val errors = result.eResource.errors
+    Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
+    var benchmark = result.benchmark as BenchmarkDimacs
+    var file = benchmark.dimacses.get(0);
+    var start = System.currentTimeMillis();
     var res = Solver.CryptoMinisat5_6_7(file)
     var end = System.currentTimeMillis();
     var time = end - start;
@@ -3248,10 +3248,10 @@ def void loadModel139() {
 
 
 @Test
-def void loadModel140() {
+def void loadModel141() {
     val result = parseHelper.parse('''
     solver sat4j-java
-    benchmarkDIMACS "samplingfm/Benchmarks/51.sk_4_38.cnf"
+    benchmarkDIMACS "samplingfm/Benchmarks/80.sk_2_48.cnf"
     ''')
     Assertions.assertNotNull(result)
     val errors = result.eResource.errors
@@ -3271,10 +3271,10 @@ def void loadModel140() {
 
 
 @Test
-def void loadModel141() {
+def void loadModel142() {
     val result = parseHelper.parse('''
     solver sat4j-maven
-    benchmarkDIMACS "samplingfm/Benchmarks/51.sk_4_38.cnf"
+    benchmarkDIMACS "samplingfm/Benchmarks/80.sk_2_48.cnf"
     ''')
     Assertions.assertNotNull(result)
     val errors = result.eResource.errors
@@ -3294,10 +3294,10 @@ def void loadModel141() {
 
 
 @Test
-def void loadModel142() {
+def void loadModel143() {
     val result = parseHelper.parse('''
     solver sat4j-jar
-    benchmarkDIMACS "samplingfm/Benchmarks/51.sk_4_38.cnf"
+    benchmarkDIMACS "samplingfm/Benchmarks/80.sk_2_48.cnf"
     ''')
     Assertions.assertNotNull(result)
     val errors = result.eResource.errors
@@ -3312,29 +3312,6 @@ def void loadModel142() {
 	System.out.println(file + ",sat4j-jar,2.3.1,SAT," + time);
     }else{
         System.out.println(file + ",sat4j-jar,2.3.1,UNSAT," + time);
-    }
-}
-
-
-@Test
-def void loadModel143() {
-    val result = parseHelper.parse('''
-    solver cryptominisat
-    benchmarkDIMACS "samplingfm/Benchmarks/51.sk_4_38.cnf"
-    ''')
-    Assertions.assertNotNull(result)
-    val errors = result.eResource.errors
-    Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
-    var benchmark = result.benchmark as BenchmarkDimacs
-    var file = benchmark.dimacses.get(0);
-    var start = System.currentTimeMillis();
-    var res = Solver.CryptoMinisat5_6_8(file)
-    var end = System.currentTimeMillis();
-    var time = end - start;
-    if (res){
-	System.out.println(file + ",cryptominisat,5.6.8,SAT," + time);
-    }else{
-        System.out.println(file + ",cryptominisat,5.6.8,UNSAT," + time);
     }
 }
 
@@ -3343,7 +3320,30 @@ def void loadModel143() {
 def void loadModel144() {
     val result = parseHelper.parse('''
     solver cryptominisat
-    benchmarkDIMACS "samplingfm/Benchmarks/51.sk_4_38.cnf"
+    benchmarkDIMACS "samplingfm/Benchmarks/80.sk_2_48.cnf"
+    ''')
+    Assertions.assertNotNull(result)
+    val errors = result.eResource.errors
+    Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
+    var benchmark = result.benchmark as BenchmarkDimacs
+    var file = benchmark.dimacses.get(0);
+    var start = System.currentTimeMillis();
+    var res = Solver.CryptoMinisat5_6_8(file)
+    var end = System.currentTimeMillis();
+    var time = end - start;
+    if (res){
+	System.out.println(file + ",cryptominisat,5.6.8,SAT," + time);
+    }else{
+        System.out.println(file + ",cryptominisat,5.6.8,UNSAT," + time);
+    }
+}
+
+
+@Test
+def void loadModel145() {
+    val result = parseHelper.parse('''
+    solver cryptominisat
+    benchmarkDIMACS "samplingfm/Benchmarks/80.sk_2_48.cnf"
     ''')
     Assertions.assertNotNull(result)
     val errors = result.eResource.errors
@@ -3363,10 +3363,10 @@ def void loadModel144() {
 
 
 @Test
-def void loadModel145() {
+def void loadModel146() {
     val result = parseHelper.parse('''
     solver sat4j-java
-    benchmarkDIMACS "samplingfm/Benchmarks/tutorial2.sk_3_4.cnf"
+    benchmarkDIMACS "samplingfm/Benchmarks/79.sk_4_40.cnf"
     ''')
     Assertions.assertNotNull(result)
     val errors = result.eResource.errors
@@ -3386,10 +3386,10 @@ def void loadModel145() {
 
 
 @Test
-def void loadModel146() {
+def void loadModel147() {
     val result = parseHelper.parse('''
     solver sat4j-maven
-    benchmarkDIMACS "samplingfm/Benchmarks/tutorial2.sk_3_4.cnf"
+    benchmarkDIMACS "samplingfm/Benchmarks/79.sk_4_40.cnf"
     ''')
     Assertions.assertNotNull(result)
     val errors = result.eResource.errors
@@ -3409,10 +3409,10 @@ def void loadModel146() {
 
 
 @Test
-def void loadModel147() {
+def void loadModel148() {
     val result = parseHelper.parse('''
     solver sat4j-jar
-    benchmarkDIMACS "samplingfm/Benchmarks/tutorial2.sk_3_4.cnf"
+    benchmarkDIMACS "samplingfm/Benchmarks/79.sk_4_40.cnf"
     ''')
     Assertions.assertNotNull(result)
     val errors = result.eResource.errors
@@ -3427,29 +3427,6 @@ def void loadModel147() {
 	System.out.println(file + ",sat4j-jar,2.3.1,SAT," + time);
     }else{
         System.out.println(file + ",sat4j-jar,2.3.1,UNSAT," + time);
-    }
-}
-
-
-@Test
-def void loadModel148() {
-    val result = parseHelper.parse('''
-    solver cryptominisat
-    benchmarkDIMACS "samplingfm/Benchmarks/tutorial2.sk_3_4.cnf"
-    ''')
-    Assertions.assertNotNull(result)
-    val errors = result.eResource.errors
-    Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
-    var benchmark = result.benchmark as BenchmarkDimacs
-    var file = benchmark.dimacses.get(0);
-    var start = System.currentTimeMillis();
-    var res = Solver.CryptoMinisat5_6_8(file)
-    var end = System.currentTimeMillis();
-    var time = end - start;
-    if (res){
-	System.out.println(file + ",cryptominisat,5.6.8,SAT," + time);
-    }else{
-        System.out.println(file + ",cryptominisat,5.6.8,UNSAT," + time);
     }
 }
 
@@ -3458,7 +3435,30 @@ def void loadModel148() {
 def void loadModel149() {
     val result = parseHelper.parse('''
     solver cryptominisat
-    benchmarkDIMACS "samplingfm/Benchmarks/tutorial2.sk_3_4.cnf"
+    benchmarkDIMACS "samplingfm/Benchmarks/79.sk_4_40.cnf"
+    ''')
+    Assertions.assertNotNull(result)
+    val errors = result.eResource.errors
+    Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
+    var benchmark = result.benchmark as BenchmarkDimacs
+    var file = benchmark.dimacses.get(0);
+    var start = System.currentTimeMillis();
+    var res = Solver.CryptoMinisat5_6_8(file)
+    var end = System.currentTimeMillis();
+    var time = end - start;
+    if (res){
+	System.out.println(file + ",cryptominisat,5.6.8,SAT," + time);
+    }else{
+        System.out.println(file + ",cryptominisat,5.6.8,UNSAT," + time);
+    }
+}
+
+
+@Test
+def void loadModel150() {
+    val result = parseHelper.parse('''
+    solver cryptominisat
+    benchmarkDIMACS "samplingfm/Benchmarks/79.sk_4_40.cnf"
     ''')
     Assertions.assertNotNull(result)
     val errors = result.eResource.errors
@@ -3478,10 +3478,10 @@ def void loadModel149() {
 
 
 @Test
-def void loadModel150() {
+def void loadModel151() {
     val result = parseHelper.parse('''
     solver sat4j-java
-    benchmarkDIMACS "samplingfm/Benchmarks/isolateRightmost.sk_7_481.cnf"
+    benchmarkDIMACS "samplingfm/Benchmarks/57.sk_4_64.cnf"
     ''')
     Assertions.assertNotNull(result)
     val errors = result.eResource.errors
@@ -3501,10 +3501,10 @@ def void loadModel150() {
 
 
 @Test
-def void loadModel151() {
+def void loadModel152() {
     val result = parseHelper.parse('''
     solver sat4j-maven
-    benchmarkDIMACS "samplingfm/Benchmarks/isolateRightmost.sk_7_481.cnf"
+    benchmarkDIMACS "samplingfm/Benchmarks/57.sk_4_64.cnf"
     ''')
     Assertions.assertNotNull(result)
     val errors = result.eResource.errors
@@ -3524,10 +3524,10 @@ def void loadModel151() {
 
 
 @Test
-def void loadModel152() {
+def void loadModel153() {
     val result = parseHelper.parse('''
     solver sat4j-jar
-    benchmarkDIMACS "samplingfm/Benchmarks/isolateRightmost.sk_7_481.cnf"
+    benchmarkDIMACS "samplingfm/Benchmarks/57.sk_4_64.cnf"
     ''')
     Assertions.assertNotNull(result)
     val errors = result.eResource.errors
@@ -3542,29 +3542,6 @@ def void loadModel152() {
 	System.out.println(file + ",sat4j-jar,2.3.1,SAT," + time);
     }else{
         System.out.println(file + ",sat4j-jar,2.3.1,UNSAT," + time);
-    }
-}
-
-
-@Test
-def void loadModel153() {
-    val result = parseHelper.parse('''
-    solver cryptominisat
-    benchmarkDIMACS "samplingfm/Benchmarks/isolateRightmost.sk_7_481.cnf"
-    ''')
-    Assertions.assertNotNull(result)
-    val errors = result.eResource.errors
-    Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
-    var benchmark = result.benchmark as BenchmarkDimacs
-    var file = benchmark.dimacses.get(0);
-    var start = System.currentTimeMillis();
-    var res = Solver.CryptoMinisat5_6_8(file)
-    var end = System.currentTimeMillis();
-    var time = end - start;
-    if (res){
-	System.out.println(file + ",cryptominisat,5.6.8,SAT," + time);
-    }else{
-        System.out.println(file + ",cryptominisat,5.6.8,UNSAT," + time);
     }
 }
 
@@ -3573,6 +3550,1294 @@ def void loadModel153() {
 def void loadModel154() {
     val result = parseHelper.parse('''
     solver cryptominisat
+    benchmarkDIMACS "samplingfm/Benchmarks/57.sk_4_64.cnf"
+    ''')
+    Assertions.assertNotNull(result)
+    val errors = result.eResource.errors
+    Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
+    var benchmark = result.benchmark as BenchmarkDimacs
+    var file = benchmark.dimacses.get(0);
+    var start = System.currentTimeMillis();
+    var res = Solver.CryptoMinisat5_6_8(file)
+    var end = System.currentTimeMillis();
+    var time = end - start;
+    if (res){
+	System.out.println(file + ",cryptominisat,5.6.8,SAT," + time);
+    }else{
+        System.out.println(file + ",cryptominisat,5.6.8,UNSAT," + time);
+    }
+}
+
+
+@Test
+def void loadModel155() {
+    val result = parseHelper.parse('''
+    solver cryptominisat
+    benchmarkDIMACS "samplingfm/Benchmarks/57.sk_4_64.cnf"
+    ''')
+    Assertions.assertNotNull(result)
+    val errors = result.eResource.errors
+    Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
+    var benchmark = result.benchmark as BenchmarkDimacs
+    var file = benchmark.dimacses.get(0);
+    var start = System.currentTimeMillis();
+    var res = Solver.CryptoMinisat5_6_7(file)
+    var end = System.currentTimeMillis();
+    var time = end - start;
+    if (res){
+	System.out.println(file + ",cryptominisat,5.6.7,SAT," + time);
+    }else{
+        System.out.println(file + ",cryptominisat,5.6.7,UNSAT," + time);
+    }
+}
+
+
+@Test
+def void loadModel156() {
+    val result = parseHelper.parse('''
+    solver sat4j-java
+    benchmarkDIMACS "samplingfm/Benchmarks/19.sk_3_48.cnf"
+    ''')
+    Assertions.assertNotNull(result)
+    val errors = result.eResource.errors
+    Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
+    var benchmark = result.benchmark as BenchmarkDimacs
+    var file = benchmark.dimacses.get(0);
+    var start = System.currentTimeMillis();
+    var res = Solver.Sat4JLibrarySolver(file)
+    var end = System.currentTimeMillis();
+    var time = end - start;
+    if (res){
+	System.out.println(file + ",sat4j-java,2.3.1,SAT," + time);
+    }else{
+        System.out.println(file + ",sat4j-java,2.3.1,UNSAT," + time);
+    }
+}
+
+
+@Test
+def void loadModel157() {
+    val result = parseHelper.parse('''
+    solver sat4j-maven
+    benchmarkDIMACS "samplingfm/Benchmarks/19.sk_3_48.cnf"
+    ''')
+    Assertions.assertNotNull(result)
+    val errors = result.eResource.errors
+    Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
+    var benchmark = result.benchmark as BenchmarkDimacs
+    var file = benchmark.dimacses.get(0);
+    var start = System.currentTimeMillis();
+    var res = Solver.MavenSolving(file)
+    var end = System.currentTimeMillis();
+    var time = end - start;
+    if (res){
+	System.out.println(file + ",sat4j-maven,2.3.1,SAT," + time);
+    }else{
+        System.out.println(file + ",sat4j-maven,2.3.1,UNSAT," + time);
+    }
+}
+
+
+@Test
+def void loadModel158() {
+    val result = parseHelper.parse('''
+    solver sat4j-jar
+    benchmarkDIMACS "samplingfm/Benchmarks/19.sk_3_48.cnf"
+    ''')
+    Assertions.assertNotNull(result)
+    val errors = result.eResource.errors
+    Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
+    var benchmark = result.benchmark as BenchmarkDimacs
+    var file = benchmark.dimacses.get(0);
+    var start = System.currentTimeMillis();
+    var res = Solver.JarSolving(file)
+    var end = System.currentTimeMillis();
+    var time = end - start;
+    if (res){
+	System.out.println(file + ",sat4j-jar,2.3.1,SAT," + time);
+    }else{
+        System.out.println(file + ",sat4j-jar,2.3.1,UNSAT," + time);
+    }
+}
+
+
+@Test
+def void loadModel159() {
+    val result = parseHelper.parse('''
+    solver cryptominisat
+    benchmarkDIMACS "samplingfm/Benchmarks/19.sk_3_48.cnf"
+    ''')
+    Assertions.assertNotNull(result)
+    val errors = result.eResource.errors
+    Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
+    var benchmark = result.benchmark as BenchmarkDimacs
+    var file = benchmark.dimacses.get(0);
+    var start = System.currentTimeMillis();
+    var res = Solver.CryptoMinisat5_6_8(file)
+    var end = System.currentTimeMillis();
+    var time = end - start;
+    if (res){
+	System.out.println(file + ",cryptominisat,5.6.8,SAT," + time);
+    }else{
+        System.out.println(file + ",cryptominisat,5.6.8,UNSAT," + time);
+    }
+}
+
+
+@Test
+def void loadModel160() {
+    val result = parseHelper.parse('''
+    solver cryptominisat
+    benchmarkDIMACS "samplingfm/Benchmarks/19.sk_3_48.cnf"
+    ''')
+    Assertions.assertNotNull(result)
+    val errors = result.eResource.errors
+    Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
+    var benchmark = result.benchmark as BenchmarkDimacs
+    var file = benchmark.dimacses.get(0);
+    var start = System.currentTimeMillis();
+    var res = Solver.CryptoMinisat5_6_7(file)
+    var end = System.currentTimeMillis();
+    var time = end - start;
+    if (res){
+	System.out.println(file + ",cryptominisat,5.6.7,SAT," + time);
+    }else{
+        System.out.println(file + ",cryptominisat,5.6.7,UNSAT," + time);
+    }
+}
+
+
+@Test
+def void loadModel161() {
+    val result = parseHelper.parse('''
+    solver sat4j-java
+    benchmarkDIMACS "samplingfm/Benchmarks/63.sk_3_64.cnf"
+    ''')
+    Assertions.assertNotNull(result)
+    val errors = result.eResource.errors
+    Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
+    var benchmark = result.benchmark as BenchmarkDimacs
+    var file = benchmark.dimacses.get(0);
+    var start = System.currentTimeMillis();
+    var res = Solver.Sat4JLibrarySolver(file)
+    var end = System.currentTimeMillis();
+    var time = end - start;
+    if (res){
+	System.out.println(file + ",sat4j-java,2.3.1,SAT," + time);
+    }else{
+        System.out.println(file + ",sat4j-java,2.3.1,UNSAT," + time);
+    }
+}
+
+
+@Test
+def void loadModel162() {
+    val result = parseHelper.parse('''
+    solver sat4j-maven
+    benchmarkDIMACS "samplingfm/Benchmarks/63.sk_3_64.cnf"
+    ''')
+    Assertions.assertNotNull(result)
+    val errors = result.eResource.errors
+    Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
+    var benchmark = result.benchmark as BenchmarkDimacs
+    var file = benchmark.dimacses.get(0);
+    var start = System.currentTimeMillis();
+    var res = Solver.MavenSolving(file)
+    var end = System.currentTimeMillis();
+    var time = end - start;
+    if (res){
+	System.out.println(file + ",sat4j-maven,2.3.1,SAT," + time);
+    }else{
+        System.out.println(file + ",sat4j-maven,2.3.1,UNSAT," + time);
+    }
+}
+
+
+@Test
+def void loadModel163() {
+    val result = parseHelper.parse('''
+    solver sat4j-jar
+    benchmarkDIMACS "samplingfm/Benchmarks/63.sk_3_64.cnf"
+    ''')
+    Assertions.assertNotNull(result)
+    val errors = result.eResource.errors
+    Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
+    var benchmark = result.benchmark as BenchmarkDimacs
+    var file = benchmark.dimacses.get(0);
+    var start = System.currentTimeMillis();
+    var res = Solver.JarSolving(file)
+    var end = System.currentTimeMillis();
+    var time = end - start;
+    if (res){
+	System.out.println(file + ",sat4j-jar,2.3.1,SAT," + time);
+    }else{
+        System.out.println(file + ",sat4j-jar,2.3.1,UNSAT," + time);
+    }
+}
+
+
+@Test
+def void loadModel164() {
+    val result = parseHelper.parse('''
+    solver cryptominisat
+    benchmarkDIMACS "samplingfm/Benchmarks/63.sk_3_64.cnf"
+    ''')
+    Assertions.assertNotNull(result)
+    val errors = result.eResource.errors
+    Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
+    var benchmark = result.benchmark as BenchmarkDimacs
+    var file = benchmark.dimacses.get(0);
+    var start = System.currentTimeMillis();
+    var res = Solver.CryptoMinisat5_6_8(file)
+    var end = System.currentTimeMillis();
+    var time = end - start;
+    if (res){
+	System.out.println(file + ",cryptominisat,5.6.8,SAT," + time);
+    }else{
+        System.out.println(file + ",cryptominisat,5.6.8,UNSAT," + time);
+    }
+}
+
+
+@Test
+def void loadModel165() {
+    val result = parseHelper.parse('''
+    solver cryptominisat
+    benchmarkDIMACS "samplingfm/Benchmarks/63.sk_3_64.cnf"
+    ''')
+    Assertions.assertNotNull(result)
+    val errors = result.eResource.errors
+    Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
+    var benchmark = result.benchmark as BenchmarkDimacs
+    var file = benchmark.dimacses.get(0);
+    var start = System.currentTimeMillis();
+    var res = Solver.CryptoMinisat5_6_7(file)
+    var end = System.currentTimeMillis();
+    var time = end - start;
+    if (res){
+	System.out.println(file + ",cryptominisat,5.6.7,SAT," + time);
+    }else{
+        System.out.println(file + ",cryptominisat,5.6.7,UNSAT," + time);
+    }
+}
+
+
+@Test
+def void loadModel166() {
+    val result = parseHelper.parse('''
+    solver sat4j-java
+    benchmarkDIMACS "samplingfm/Benchmarks/7.sk_4_50.cnf"
+    ''')
+    Assertions.assertNotNull(result)
+    val errors = result.eResource.errors
+    Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
+    var benchmark = result.benchmark as BenchmarkDimacs
+    var file = benchmark.dimacses.get(0);
+    var start = System.currentTimeMillis();
+    var res = Solver.Sat4JLibrarySolver(file)
+    var end = System.currentTimeMillis();
+    var time = end - start;
+    if (res){
+	System.out.println(file + ",sat4j-java,2.3.1,SAT," + time);
+    }else{
+        System.out.println(file + ",sat4j-java,2.3.1,UNSAT," + time);
+    }
+}
+
+
+@Test
+def void loadModel167() {
+    val result = parseHelper.parse('''
+    solver sat4j-maven
+    benchmarkDIMACS "samplingfm/Benchmarks/7.sk_4_50.cnf"
+    ''')
+    Assertions.assertNotNull(result)
+    val errors = result.eResource.errors
+    Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
+    var benchmark = result.benchmark as BenchmarkDimacs
+    var file = benchmark.dimacses.get(0);
+    var start = System.currentTimeMillis();
+    var res = Solver.MavenSolving(file)
+    var end = System.currentTimeMillis();
+    var time = end - start;
+    if (res){
+	System.out.println(file + ",sat4j-maven,2.3.1,SAT," + time);
+    }else{
+        System.out.println(file + ",sat4j-maven,2.3.1,UNSAT," + time);
+    }
+}
+
+
+@Test
+def void loadModel168() {
+    val result = parseHelper.parse('''
+    solver sat4j-jar
+    benchmarkDIMACS "samplingfm/Benchmarks/7.sk_4_50.cnf"
+    ''')
+    Assertions.assertNotNull(result)
+    val errors = result.eResource.errors
+    Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
+    var benchmark = result.benchmark as BenchmarkDimacs
+    var file = benchmark.dimacses.get(0);
+    var start = System.currentTimeMillis();
+    var res = Solver.JarSolving(file)
+    var end = System.currentTimeMillis();
+    var time = end - start;
+    if (res){
+	System.out.println(file + ",sat4j-jar,2.3.1,SAT," + time);
+    }else{
+        System.out.println(file + ",sat4j-jar,2.3.1,UNSAT," + time);
+    }
+}
+
+
+@Test
+def void loadModel169() {
+    val result = parseHelper.parse('''
+    solver cryptominisat
+    benchmarkDIMACS "samplingfm/Benchmarks/7.sk_4_50.cnf"
+    ''')
+    Assertions.assertNotNull(result)
+    val errors = result.eResource.errors
+    Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
+    var benchmark = result.benchmark as BenchmarkDimacs
+    var file = benchmark.dimacses.get(0);
+    var start = System.currentTimeMillis();
+    var res = Solver.CryptoMinisat5_6_8(file)
+    var end = System.currentTimeMillis();
+    var time = end - start;
+    if (res){
+	System.out.println(file + ",cryptominisat,5.6.8,SAT," + time);
+    }else{
+        System.out.println(file + ",cryptominisat,5.6.8,UNSAT," + time);
+    }
+}
+
+
+@Test
+def void loadModel170() {
+    val result = parseHelper.parse('''
+    solver cryptominisat
+    benchmarkDIMACS "samplingfm/Benchmarks/7.sk_4_50.cnf"
+    ''')
+    Assertions.assertNotNull(result)
+    val errors = result.eResource.errors
+    Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
+    var benchmark = result.benchmark as BenchmarkDimacs
+    var file = benchmark.dimacses.get(0);
+    var start = System.currentTimeMillis();
+    var res = Solver.CryptoMinisat5_6_7(file)
+    var end = System.currentTimeMillis();
+    var time = end - start;
+    if (res){
+	System.out.println(file + ",cryptominisat,5.6.7,SAT," + time);
+    }else{
+        System.out.println(file + ",cryptominisat,5.6.7,UNSAT," + time);
+    }
+}
+
+
+@Test
+def void loadModel171() {
+    val result = parseHelper.parse('''
+    solver sat4j-java
+    benchmarkDIMACS "samplingfm/Benchmarks/77.sk_3_44.cnf"
+    ''')
+    Assertions.assertNotNull(result)
+    val errors = result.eResource.errors
+    Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
+    var benchmark = result.benchmark as BenchmarkDimacs
+    var file = benchmark.dimacses.get(0);
+    var start = System.currentTimeMillis();
+    var res = Solver.Sat4JLibrarySolver(file)
+    var end = System.currentTimeMillis();
+    var time = end - start;
+    if (res){
+	System.out.println(file + ",sat4j-java,2.3.1,SAT," + time);
+    }else{
+        System.out.println(file + ",sat4j-java,2.3.1,UNSAT," + time);
+    }
+}
+
+
+@Test
+def void loadModel172() {
+    val result = parseHelper.parse('''
+    solver sat4j-maven
+    benchmarkDIMACS "samplingfm/Benchmarks/77.sk_3_44.cnf"
+    ''')
+    Assertions.assertNotNull(result)
+    val errors = result.eResource.errors
+    Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
+    var benchmark = result.benchmark as BenchmarkDimacs
+    var file = benchmark.dimacses.get(0);
+    var start = System.currentTimeMillis();
+    var res = Solver.MavenSolving(file)
+    var end = System.currentTimeMillis();
+    var time = end - start;
+    if (res){
+	System.out.println(file + ",sat4j-maven,2.3.1,SAT," + time);
+    }else{
+        System.out.println(file + ",sat4j-maven,2.3.1,UNSAT," + time);
+    }
+}
+
+
+@Test
+def void loadModel173() {
+    val result = parseHelper.parse('''
+    solver sat4j-jar
+    benchmarkDIMACS "samplingfm/Benchmarks/77.sk_3_44.cnf"
+    ''')
+    Assertions.assertNotNull(result)
+    val errors = result.eResource.errors
+    Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
+    var benchmark = result.benchmark as BenchmarkDimacs
+    var file = benchmark.dimacses.get(0);
+    var start = System.currentTimeMillis();
+    var res = Solver.JarSolving(file)
+    var end = System.currentTimeMillis();
+    var time = end - start;
+    if (res){
+	System.out.println(file + ",sat4j-jar,2.3.1,SAT," + time);
+    }else{
+        System.out.println(file + ",sat4j-jar,2.3.1,UNSAT," + time);
+    }
+}
+
+
+@Test
+def void loadModel174() {
+    val result = parseHelper.parse('''
+    solver cryptominisat
+    benchmarkDIMACS "samplingfm/Benchmarks/77.sk_3_44.cnf"
+    ''')
+    Assertions.assertNotNull(result)
+    val errors = result.eResource.errors
+    Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
+    var benchmark = result.benchmark as BenchmarkDimacs
+    var file = benchmark.dimacses.get(0);
+    var start = System.currentTimeMillis();
+    var res = Solver.CryptoMinisat5_6_8(file)
+    var end = System.currentTimeMillis();
+    var time = end - start;
+    if (res){
+	System.out.println(file + ",cryptominisat,5.6.8,SAT," + time);
+    }else{
+        System.out.println(file + ",cryptominisat,5.6.8,UNSAT," + time);
+    }
+}
+
+
+@Test
+def void loadModel175() {
+    val result = parseHelper.parse('''
+    solver cryptominisat
+    benchmarkDIMACS "samplingfm/Benchmarks/77.sk_3_44.cnf"
+    ''')
+    Assertions.assertNotNull(result)
+    val errors = result.eResource.errors
+    Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
+    var benchmark = result.benchmark as BenchmarkDimacs
+    var file = benchmark.dimacses.get(0);
+    var start = System.currentTimeMillis();
+    var res = Solver.CryptoMinisat5_6_7(file)
+    var end = System.currentTimeMillis();
+    var time = end - start;
+    if (res){
+	System.out.println(file + ",cryptominisat,5.6.7,SAT," + time);
+    }else{
+        System.out.println(file + ",cryptominisat,5.6.7,UNSAT," + time);
+    }
+}
+
+
+@Test
+def void loadModel176() {
+    val result = parseHelper.parse('''
+    solver sat4j-java
+    benchmarkDIMACS "samplingfm/Benchmarks/LoginService.sk_20_34.cnf"
+    ''')
+    Assertions.assertNotNull(result)
+    val errors = result.eResource.errors
+    Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
+    var benchmark = result.benchmark as BenchmarkDimacs
+    var file = benchmark.dimacses.get(0);
+    var start = System.currentTimeMillis();
+    var res = Solver.Sat4JLibrarySolver(file)
+    var end = System.currentTimeMillis();
+    var time = end - start;
+    if (res){
+	System.out.println(file + ",sat4j-java,2.3.1,SAT," + time);
+    }else{
+        System.out.println(file + ",sat4j-java,2.3.1,UNSAT," + time);
+    }
+}
+
+
+@Test
+def void loadModel177() {
+    val result = parseHelper.parse('''
+    solver sat4j-maven
+    benchmarkDIMACS "samplingfm/Benchmarks/LoginService.sk_20_34.cnf"
+    ''')
+    Assertions.assertNotNull(result)
+    val errors = result.eResource.errors
+    Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
+    var benchmark = result.benchmark as BenchmarkDimacs
+    var file = benchmark.dimacses.get(0);
+    var start = System.currentTimeMillis();
+    var res = Solver.MavenSolving(file)
+    var end = System.currentTimeMillis();
+    var time = end - start;
+    if (res){
+	System.out.println(file + ",sat4j-maven,2.3.1,SAT," + time);
+    }else{
+        System.out.println(file + ",sat4j-maven,2.3.1,UNSAT," + time);
+    }
+}
+
+
+@Test
+def void loadModel178() {
+    val result = parseHelper.parse('''
+    solver sat4j-jar
+    benchmarkDIMACS "samplingfm/Benchmarks/LoginService.sk_20_34.cnf"
+    ''')
+    Assertions.assertNotNull(result)
+    val errors = result.eResource.errors
+    Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
+    var benchmark = result.benchmark as BenchmarkDimacs
+    var file = benchmark.dimacses.get(0);
+    var start = System.currentTimeMillis();
+    var res = Solver.JarSolving(file)
+    var end = System.currentTimeMillis();
+    var time = end - start;
+    if (res){
+	System.out.println(file + ",sat4j-jar,2.3.1,SAT," + time);
+    }else{
+        System.out.println(file + ",sat4j-jar,2.3.1,UNSAT," + time);
+    }
+}
+
+
+@Test
+def void loadModel179() {
+    val result = parseHelper.parse('''
+    solver cryptominisat
+    benchmarkDIMACS "samplingfm/Benchmarks/LoginService.sk_20_34.cnf"
+    ''')
+    Assertions.assertNotNull(result)
+    val errors = result.eResource.errors
+    Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
+    var benchmark = result.benchmark as BenchmarkDimacs
+    var file = benchmark.dimacses.get(0);
+    var start = System.currentTimeMillis();
+    var res = Solver.CryptoMinisat5_6_8(file)
+    var end = System.currentTimeMillis();
+    var time = end - start;
+    if (res){
+	System.out.println(file + ",cryptominisat,5.6.8,SAT," + time);
+    }else{
+        System.out.println(file + ",cryptominisat,5.6.8,UNSAT," + time);
+    }
+}
+
+
+@Test
+def void loadModel180() {
+    val result = parseHelper.parse('''
+    solver cryptominisat
+    benchmarkDIMACS "samplingfm/Benchmarks/LoginService.sk_20_34.cnf"
+    ''')
+    Assertions.assertNotNull(result)
+    val errors = result.eResource.errors
+    Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
+    var benchmark = result.benchmark as BenchmarkDimacs
+    var file = benchmark.dimacses.get(0);
+    var start = System.currentTimeMillis();
+    var res = Solver.CryptoMinisat5_6_7(file)
+    var end = System.currentTimeMillis();
+    var time = end - start;
+    if (res){
+	System.out.println(file + ",cryptominisat,5.6.7,SAT," + time);
+    }else{
+        System.out.println(file + ",cryptominisat,5.6.7,UNSAT," + time);
+    }
+}
+
+
+@Test
+def void loadModel181() {
+    val result = parseHelper.parse('''
+    solver sat4j-java
+    benchmarkDIMACS "samplingfm/Benchmarks/17.sk_3_45.cnf"
+    ''')
+    Assertions.assertNotNull(result)
+    val errors = result.eResource.errors
+    Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
+    var benchmark = result.benchmark as BenchmarkDimacs
+    var file = benchmark.dimacses.get(0);
+    var start = System.currentTimeMillis();
+    var res = Solver.Sat4JLibrarySolver(file)
+    var end = System.currentTimeMillis();
+    var time = end - start;
+    if (res){
+	System.out.println(file + ",sat4j-java,2.3.1,SAT," + time);
+    }else{
+        System.out.println(file + ",sat4j-java,2.3.1,UNSAT," + time);
+    }
+}
+
+
+@Test
+def void loadModel182() {
+    val result = parseHelper.parse('''
+    solver sat4j-maven
+    benchmarkDIMACS "samplingfm/Benchmarks/17.sk_3_45.cnf"
+    ''')
+    Assertions.assertNotNull(result)
+    val errors = result.eResource.errors
+    Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
+    var benchmark = result.benchmark as BenchmarkDimacs
+    var file = benchmark.dimacses.get(0);
+    var start = System.currentTimeMillis();
+    var res = Solver.MavenSolving(file)
+    var end = System.currentTimeMillis();
+    var time = end - start;
+    if (res){
+	System.out.println(file + ",sat4j-maven,2.3.1,SAT," + time);
+    }else{
+        System.out.println(file + ",sat4j-maven,2.3.1,UNSAT," + time);
+    }
+}
+
+
+@Test
+def void loadModel183() {
+    val result = parseHelper.parse('''
+    solver sat4j-jar
+    benchmarkDIMACS "samplingfm/Benchmarks/17.sk_3_45.cnf"
+    ''')
+    Assertions.assertNotNull(result)
+    val errors = result.eResource.errors
+    Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
+    var benchmark = result.benchmark as BenchmarkDimacs
+    var file = benchmark.dimacses.get(0);
+    var start = System.currentTimeMillis();
+    var res = Solver.JarSolving(file)
+    var end = System.currentTimeMillis();
+    var time = end - start;
+    if (res){
+	System.out.println(file + ",sat4j-jar,2.3.1,SAT," + time);
+    }else{
+        System.out.println(file + ",sat4j-jar,2.3.1,UNSAT," + time);
+    }
+}
+
+
+@Test
+def void loadModel184() {
+    val result = parseHelper.parse('''
+    solver cryptominisat
+    benchmarkDIMACS "samplingfm/Benchmarks/17.sk_3_45.cnf"
+    ''')
+    Assertions.assertNotNull(result)
+    val errors = result.eResource.errors
+    Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
+    var benchmark = result.benchmark as BenchmarkDimacs
+    var file = benchmark.dimacses.get(0);
+    var start = System.currentTimeMillis();
+    var res = Solver.CryptoMinisat5_6_8(file)
+    var end = System.currentTimeMillis();
+    var time = end - start;
+    if (res){
+	System.out.println(file + ",cryptominisat,5.6.8,SAT," + time);
+    }else{
+        System.out.println(file + ",cryptominisat,5.6.8,UNSAT," + time);
+    }
+}
+
+
+@Test
+def void loadModel185() {
+    val result = parseHelper.parse('''
+    solver cryptominisat
+    benchmarkDIMACS "samplingfm/Benchmarks/17.sk_3_45.cnf"
+    ''')
+    Assertions.assertNotNull(result)
+    val errors = result.eResource.errors
+    Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
+    var benchmark = result.benchmark as BenchmarkDimacs
+    var file = benchmark.dimacses.get(0);
+    var start = System.currentTimeMillis();
+    var res = Solver.CryptoMinisat5_6_7(file)
+    var end = System.currentTimeMillis();
+    var time = end - start;
+    if (res){
+	System.out.println(file + ",cryptominisat,5.6.7,SAT," + time);
+    }else{
+        System.out.println(file + ",cryptominisat,5.6.7,UNSAT," + time);
+    }
+}
+
+
+@Test
+def void loadModel186() {
+    val result = parseHelper.parse('''
+    solver sat4j-java
+    benchmarkDIMACS "samplingfm/Benchmarks/36.sk_3_77.cnf"
+    ''')
+    Assertions.assertNotNull(result)
+    val errors = result.eResource.errors
+    Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
+    var benchmark = result.benchmark as BenchmarkDimacs
+    var file = benchmark.dimacses.get(0);
+    var start = System.currentTimeMillis();
+    var res = Solver.Sat4JLibrarySolver(file)
+    var end = System.currentTimeMillis();
+    var time = end - start;
+    if (res){
+	System.out.println(file + ",sat4j-java,2.3.1,SAT," + time);
+    }else{
+        System.out.println(file + ",sat4j-java,2.3.1,UNSAT," + time);
+    }
+}
+
+
+@Test
+def void loadModel187() {
+    val result = parseHelper.parse('''
+    solver sat4j-maven
+    benchmarkDIMACS "samplingfm/Benchmarks/36.sk_3_77.cnf"
+    ''')
+    Assertions.assertNotNull(result)
+    val errors = result.eResource.errors
+    Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
+    var benchmark = result.benchmark as BenchmarkDimacs
+    var file = benchmark.dimacses.get(0);
+    var start = System.currentTimeMillis();
+    var res = Solver.MavenSolving(file)
+    var end = System.currentTimeMillis();
+    var time = end - start;
+    if (res){
+	System.out.println(file + ",sat4j-maven,2.3.1,SAT," + time);
+    }else{
+        System.out.println(file + ",sat4j-maven,2.3.1,UNSAT," + time);
+    }
+}
+
+
+@Test
+def void loadModel188() {
+    val result = parseHelper.parse('''
+    solver sat4j-jar
+    benchmarkDIMACS "samplingfm/Benchmarks/36.sk_3_77.cnf"
+    ''')
+    Assertions.assertNotNull(result)
+    val errors = result.eResource.errors
+    Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
+    var benchmark = result.benchmark as BenchmarkDimacs
+    var file = benchmark.dimacses.get(0);
+    var start = System.currentTimeMillis();
+    var res = Solver.JarSolving(file)
+    var end = System.currentTimeMillis();
+    var time = end - start;
+    if (res){
+	System.out.println(file + ",sat4j-jar,2.3.1,SAT," + time);
+    }else{
+        System.out.println(file + ",sat4j-jar,2.3.1,UNSAT," + time);
+    }
+}
+
+
+@Test
+def void loadModel189() {
+    val result = parseHelper.parse('''
+    solver cryptominisat
+    benchmarkDIMACS "samplingfm/Benchmarks/36.sk_3_77.cnf"
+    ''')
+    Assertions.assertNotNull(result)
+    val errors = result.eResource.errors
+    Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
+    var benchmark = result.benchmark as BenchmarkDimacs
+    var file = benchmark.dimacses.get(0);
+    var start = System.currentTimeMillis();
+    var res = Solver.CryptoMinisat5_6_8(file)
+    var end = System.currentTimeMillis();
+    var time = end - start;
+    if (res){
+	System.out.println(file + ",cryptominisat,5.6.8,SAT," + time);
+    }else{
+        System.out.println(file + ",cryptominisat,5.6.8,UNSAT," + time);
+    }
+}
+
+
+@Test
+def void loadModel190() {
+    val result = parseHelper.parse('''
+    solver cryptominisat
+    benchmarkDIMACS "samplingfm/Benchmarks/36.sk_3_77.cnf"
+    ''')
+    Assertions.assertNotNull(result)
+    val errors = result.eResource.errors
+    Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
+    var benchmark = result.benchmark as BenchmarkDimacs
+    var file = benchmark.dimacses.get(0);
+    var start = System.currentTimeMillis();
+    var res = Solver.CryptoMinisat5_6_7(file)
+    var end = System.currentTimeMillis();
+    var time = end - start;
+    if (res){
+	System.out.println(file + ",cryptominisat,5.6.7,SAT," + time);
+    }else{
+        System.out.println(file + ",cryptominisat,5.6.7,UNSAT," + time);
+    }
+}
+
+
+@Test
+def void loadModel191() {
+    val result = parseHelper.parse('''
+    solver sat4j-java
+    benchmarkDIMACS "samplingfm/Benchmarks/doublyLinkedList.sk_8_37.cnf"
+    ''')
+    Assertions.assertNotNull(result)
+    val errors = result.eResource.errors
+    Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
+    var benchmark = result.benchmark as BenchmarkDimacs
+    var file = benchmark.dimacses.get(0);
+    var start = System.currentTimeMillis();
+    var res = Solver.Sat4JLibrarySolver(file)
+    var end = System.currentTimeMillis();
+    var time = end - start;
+    if (res){
+	System.out.println(file + ",sat4j-java,2.3.1,SAT," + time);
+    }else{
+        System.out.println(file + ",sat4j-java,2.3.1,UNSAT," + time);
+    }
+}
+
+
+@Test
+def void loadModel192() {
+    val result = parseHelper.parse('''
+    solver sat4j-maven
+    benchmarkDIMACS "samplingfm/Benchmarks/doublyLinkedList.sk_8_37.cnf"
+    ''')
+    Assertions.assertNotNull(result)
+    val errors = result.eResource.errors
+    Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
+    var benchmark = result.benchmark as BenchmarkDimacs
+    var file = benchmark.dimacses.get(0);
+    var start = System.currentTimeMillis();
+    var res = Solver.MavenSolving(file)
+    var end = System.currentTimeMillis();
+    var time = end - start;
+    if (res){
+	System.out.println(file + ",sat4j-maven,2.3.1,SAT," + time);
+    }else{
+        System.out.println(file + ",sat4j-maven,2.3.1,UNSAT," + time);
+    }
+}
+
+
+@Test
+def void loadModel193() {
+    val result = parseHelper.parse('''
+    solver sat4j-jar
+    benchmarkDIMACS "samplingfm/Benchmarks/doublyLinkedList.sk_8_37.cnf"
+    ''')
+    Assertions.assertNotNull(result)
+    val errors = result.eResource.errors
+    Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
+    var benchmark = result.benchmark as BenchmarkDimacs
+    var file = benchmark.dimacses.get(0);
+    var start = System.currentTimeMillis();
+    var res = Solver.JarSolving(file)
+    var end = System.currentTimeMillis();
+    var time = end - start;
+    if (res){
+	System.out.println(file + ",sat4j-jar,2.3.1,SAT," + time);
+    }else{
+        System.out.println(file + ",sat4j-jar,2.3.1,UNSAT," + time);
+    }
+}
+
+
+@Test
+def void loadModel194() {
+    val result = parseHelper.parse('''
+    solver cryptominisat
+    benchmarkDIMACS "samplingfm/Benchmarks/doublyLinkedList.sk_8_37.cnf"
+    ''')
+    Assertions.assertNotNull(result)
+    val errors = result.eResource.errors
+    Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
+    var benchmark = result.benchmark as BenchmarkDimacs
+    var file = benchmark.dimacses.get(0);
+    var start = System.currentTimeMillis();
+    var res = Solver.CryptoMinisat5_6_8(file)
+    var end = System.currentTimeMillis();
+    var time = end - start;
+    if (res){
+	System.out.println(file + ",cryptominisat,5.6.8,SAT," + time);
+    }else{
+        System.out.println(file + ",cryptominisat,5.6.8,UNSAT," + time);
+    }
+}
+
+
+@Test
+def void loadModel195() {
+    val result = parseHelper.parse('''
+    solver cryptominisat
+    benchmarkDIMACS "samplingfm/Benchmarks/doublyLinkedList.sk_8_37.cnf"
+    ''')
+    Assertions.assertNotNull(result)
+    val errors = result.eResource.errors
+    Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
+    var benchmark = result.benchmark as BenchmarkDimacs
+    var file = benchmark.dimacses.get(0);
+    var start = System.currentTimeMillis();
+    var res = Solver.CryptoMinisat5_6_7(file)
+    var end = System.currentTimeMillis();
+    var time = end - start;
+    if (res){
+	System.out.println(file + ",cryptominisat,5.6.7,SAT," + time);
+    }else{
+        System.out.println(file + ",cryptominisat,5.6.7,UNSAT," + time);
+    }
+}
+
+
+@Test
+def void loadModel196() {
+    val result = parseHelper.parse('''
+    solver sat4j-java
+    benchmarkDIMACS "samplingfm/Benchmarks/29.sk_3_45.cnf"
+    ''')
+    Assertions.assertNotNull(result)
+    val errors = result.eResource.errors
+    Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
+    var benchmark = result.benchmark as BenchmarkDimacs
+    var file = benchmark.dimacses.get(0);
+    var start = System.currentTimeMillis();
+    var res = Solver.Sat4JLibrarySolver(file)
+    var end = System.currentTimeMillis();
+    var time = end - start;
+    if (res){
+	System.out.println(file + ",sat4j-java,2.3.1,SAT," + time);
+    }else{
+        System.out.println(file + ",sat4j-java,2.3.1,UNSAT," + time);
+    }
+}
+
+
+@Test
+def void loadModel197() {
+    val result = parseHelper.parse('''
+    solver sat4j-maven
+    benchmarkDIMACS "samplingfm/Benchmarks/29.sk_3_45.cnf"
+    ''')
+    Assertions.assertNotNull(result)
+    val errors = result.eResource.errors
+    Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
+    var benchmark = result.benchmark as BenchmarkDimacs
+    var file = benchmark.dimacses.get(0);
+    var start = System.currentTimeMillis();
+    var res = Solver.MavenSolving(file)
+    var end = System.currentTimeMillis();
+    var time = end - start;
+    if (res){
+	System.out.println(file + ",sat4j-maven,2.3.1,SAT," + time);
+    }else{
+        System.out.println(file + ",sat4j-maven,2.3.1,UNSAT," + time);
+    }
+}
+
+
+@Test
+def void loadModel198() {
+    val result = parseHelper.parse('''
+    solver sat4j-jar
+    benchmarkDIMACS "samplingfm/Benchmarks/29.sk_3_45.cnf"
+    ''')
+    Assertions.assertNotNull(result)
+    val errors = result.eResource.errors
+    Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
+    var benchmark = result.benchmark as BenchmarkDimacs
+    var file = benchmark.dimacses.get(0);
+    var start = System.currentTimeMillis();
+    var res = Solver.JarSolving(file)
+    var end = System.currentTimeMillis();
+    var time = end - start;
+    if (res){
+	System.out.println(file + ",sat4j-jar,2.3.1,SAT," + time);
+    }else{
+        System.out.println(file + ",sat4j-jar,2.3.1,UNSAT," + time);
+    }
+}
+
+
+@Test
+def void loadModel199() {
+    val result = parseHelper.parse('''
+    solver cryptominisat
+    benchmarkDIMACS "samplingfm/Benchmarks/29.sk_3_45.cnf"
+    ''')
+    Assertions.assertNotNull(result)
+    val errors = result.eResource.errors
+    Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
+    var benchmark = result.benchmark as BenchmarkDimacs
+    var file = benchmark.dimacses.get(0);
+    var start = System.currentTimeMillis();
+    var res = Solver.CryptoMinisat5_6_8(file)
+    var end = System.currentTimeMillis();
+    var time = end - start;
+    if (res){
+	System.out.println(file + ",cryptominisat,5.6.8,SAT," + time);
+    }else{
+        System.out.println(file + ",cryptominisat,5.6.8,UNSAT," + time);
+    }
+}
+
+
+@Test
+def void loadModel200() {
+    val result = parseHelper.parse('''
+    solver cryptominisat
+    benchmarkDIMACS "samplingfm/Benchmarks/29.sk_3_45.cnf"
+    ''')
+    Assertions.assertNotNull(result)
+    val errors = result.eResource.errors
+    Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
+    var benchmark = result.benchmark as BenchmarkDimacs
+    var file = benchmark.dimacses.get(0);
+    var start = System.currentTimeMillis();
+    var res = Solver.CryptoMinisat5_6_7(file)
+    var end = System.currentTimeMillis();
+    var time = end - start;
+    if (res){
+	System.out.println(file + ",cryptominisat,5.6.7,SAT," + time);
+    }else{
+        System.out.println(file + ",cryptominisat,5.6.7,UNSAT," + time);
+    }
+}
+
+
+@Test
+def void loadModel201() {
+    val result = parseHelper.parse('''
+    solver sat4j-java
+    benchmarkDIMACS "samplingfm/Benchmarks/107.sk_3_90.cnf"
+    ''')
+    Assertions.assertNotNull(result)
+    val errors = result.eResource.errors
+    Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
+    var benchmark = result.benchmark as BenchmarkDimacs
+    var file = benchmark.dimacses.get(0);
+    var start = System.currentTimeMillis();
+    var res = Solver.Sat4JLibrarySolver(file)
+    var end = System.currentTimeMillis();
+    var time = end - start;
+    if (res){
+	System.out.println(file + ",sat4j-java,2.3.1,SAT," + time);
+    }else{
+        System.out.println(file + ",sat4j-java,2.3.1,UNSAT," + time);
+    }
+}
+
+
+@Test
+def void loadModel202() {
+    val result = parseHelper.parse('''
+    solver sat4j-maven
+    benchmarkDIMACS "samplingfm/Benchmarks/107.sk_3_90.cnf"
+    ''')
+    Assertions.assertNotNull(result)
+    val errors = result.eResource.errors
+    Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
+    var benchmark = result.benchmark as BenchmarkDimacs
+    var file = benchmark.dimacses.get(0);
+    var start = System.currentTimeMillis();
+    var res = Solver.MavenSolving(file)
+    var end = System.currentTimeMillis();
+    var time = end - start;
+    if (res){
+	System.out.println(file + ",sat4j-maven,2.3.1,SAT," + time);
+    }else{
+        System.out.println(file + ",sat4j-maven,2.3.1,UNSAT," + time);
+    }
+}
+
+
+@Test
+def void loadModel203() {
+    val result = parseHelper.parse('''
+    solver sat4j-jar
+    benchmarkDIMACS "samplingfm/Benchmarks/107.sk_3_90.cnf"
+    ''')
+    Assertions.assertNotNull(result)
+    val errors = result.eResource.errors
+    Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
+    var benchmark = result.benchmark as BenchmarkDimacs
+    var file = benchmark.dimacses.get(0);
+    var start = System.currentTimeMillis();
+    var res = Solver.JarSolving(file)
+    var end = System.currentTimeMillis();
+    var time = end - start;
+    if (res){
+	System.out.println(file + ",sat4j-jar,2.3.1,SAT," + time);
+    }else{
+        System.out.println(file + ",sat4j-jar,2.3.1,UNSAT," + time);
+    }
+}
+
+
+@Test
+def void loadModel204() {
+    val result = parseHelper.parse('''
+    solver cryptominisat
+    benchmarkDIMACS "samplingfm/Benchmarks/107.sk_3_90.cnf"
+    ''')
+    Assertions.assertNotNull(result)
+    val errors = result.eResource.errors
+    Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
+    var benchmark = result.benchmark as BenchmarkDimacs
+    var file = benchmark.dimacses.get(0);
+    var start = System.currentTimeMillis();
+    var res = Solver.CryptoMinisat5_6_8(file)
+    var end = System.currentTimeMillis();
+    var time = end - start;
+    if (res){
+	System.out.println(file + ",cryptominisat,5.6.8,SAT," + time);
+    }else{
+        System.out.println(file + ",cryptominisat,5.6.8,UNSAT," + time);
+    }
+}
+
+
+@Test
+def void loadModel205() {
+    val result = parseHelper.parse('''
+    solver cryptominisat
+    benchmarkDIMACS "samplingfm/Benchmarks/107.sk_3_90.cnf"
+    ''')
+    Assertions.assertNotNull(result)
+    val errors = result.eResource.errors
+    Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
+    var benchmark = result.benchmark as BenchmarkDimacs
+    var file = benchmark.dimacses.get(0);
+    var start = System.currentTimeMillis();
+    var res = Solver.CryptoMinisat5_6_7(file)
+    var end = System.currentTimeMillis();
+    var time = end - start;
+    if (res){
+	System.out.println(file + ",cryptominisat,5.6.7,SAT," + time);
+    }else{
+        System.out.println(file + ",cryptominisat,5.6.7,UNSAT," + time);
+    }
+}
+
+
+@Test
+def void loadModel206() {
+    val result = parseHelper.parse('''
+    solver sat4j-java
+    benchmarkDIMACS "samplingfm/Benchmarks/isolateRightmost.sk_7_481.cnf"
+    ''')
+    Assertions.assertNotNull(result)
+    val errors = result.eResource.errors
+    Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
+    var benchmark = result.benchmark as BenchmarkDimacs
+    var file = benchmark.dimacses.get(0);
+    var start = System.currentTimeMillis();
+    var res = Solver.Sat4JLibrarySolver(file)
+    var end = System.currentTimeMillis();
+    var time = end - start;
+    if (res){
+	System.out.println(file + ",sat4j-java,2.3.1,SAT," + time);
+    }else{
+        System.out.println(file + ",sat4j-java,2.3.1,UNSAT," + time);
+    }
+}
+
+
+@Test
+def void loadModel207() {
+    val result = parseHelper.parse('''
+    solver sat4j-maven
+    benchmarkDIMACS "samplingfm/Benchmarks/isolateRightmost.sk_7_481.cnf"
+    ''')
+    Assertions.assertNotNull(result)
+    val errors = result.eResource.errors
+    Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
+    var benchmark = result.benchmark as BenchmarkDimacs
+    var file = benchmark.dimacses.get(0);
+    var start = System.currentTimeMillis();
+    var res = Solver.MavenSolving(file)
+    var end = System.currentTimeMillis();
+    var time = end - start;
+    if (res){
+	System.out.println(file + ",sat4j-maven,2.3.1,SAT," + time);
+    }else{
+        System.out.println(file + ",sat4j-maven,2.3.1,UNSAT," + time);
+    }
+}
+
+
+@Test
+def void loadModel208() {
+    val result = parseHelper.parse('''
+    solver sat4j-jar
+    benchmarkDIMACS "samplingfm/Benchmarks/isolateRightmost.sk_7_481.cnf"
+    ''')
+    Assertions.assertNotNull(result)
+    val errors = result.eResource.errors
+    Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
+    var benchmark = result.benchmark as BenchmarkDimacs
+    var file = benchmark.dimacses.get(0);
+    var start = System.currentTimeMillis();
+    var res = Solver.JarSolving(file)
+    var end = System.currentTimeMillis();
+    var time = end - start;
+    if (res){
+	System.out.println(file + ",sat4j-jar,2.3.1,SAT," + time);
+    }else{
+        System.out.println(file + ",sat4j-jar,2.3.1,UNSAT," + time);
+    }
+}
+
+
+@Test
+def void loadModel209() {
+    val result = parseHelper.parse('''
+    solver cryptominisat
+    benchmarkDIMACS "samplingfm/Benchmarks/isolateRightmost.sk_7_481.cnf"
+    ''')
+    Assertions.assertNotNull(result)
+    val errors = result.eResource.errors
+    Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
+    var benchmark = result.benchmark as BenchmarkDimacs
+    var file = benchmark.dimacses.get(0);
+    var start = System.currentTimeMillis();
+    var res = Solver.CryptoMinisat5_6_8(file)
+    var end = System.currentTimeMillis();
+    var time = end - start;
+    if (res){
+	System.out.println(file + ",cryptominisat,5.6.8,SAT," + time);
+    }else{
+        System.out.println(file + ",cryptominisat,5.6.8,UNSAT," + time);
+    }
+}
+
+
+@Test
+def void loadModel210() {
+    val result = parseHelper.parse('''
+    solver cryptominisat
     benchmarkDIMACS "samplingfm/Benchmarks/isolateRightmost.sk_7_481.cnf"
     ''')
     Assertions.assertNotNull(result)
@@ -3593,1298 +4858,10 @@ def void loadModel154() {
 
 
 @Test
-def void loadModel155() {
-    val result = parseHelper.parse('''
-    solver sat4j-java
-    benchmarkDIMACS "samplingfm/Benchmarks/ConcreteActivityService.sk_13_28.cnf"
-    ''')
-    Assertions.assertNotNull(result)
-    val errors = result.eResource.errors
-    Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
-    var benchmark = result.benchmark as BenchmarkDimacs
-    var file = benchmark.dimacses.get(0);
-    var start = System.currentTimeMillis();
-    var res = Solver.Sat4JLibrarySolver(file)
-    var end = System.currentTimeMillis();
-    var time = end - start;
-    if (res){
-	System.out.println(file + ",sat4j-java,2.3.1,SAT," + time);
-    }else{
-        System.out.println(file + ",sat4j-java,2.3.1,UNSAT," + time);
-    }
-}
-
-
-@Test
-def void loadModel156() {
-    val result = parseHelper.parse('''
-    solver sat4j-maven
-    benchmarkDIMACS "samplingfm/Benchmarks/ConcreteActivityService.sk_13_28.cnf"
-    ''')
-    Assertions.assertNotNull(result)
-    val errors = result.eResource.errors
-    Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
-    var benchmark = result.benchmark as BenchmarkDimacs
-    var file = benchmark.dimacses.get(0);
-    var start = System.currentTimeMillis();
-    var res = Solver.MavenSolving(file)
-    var end = System.currentTimeMillis();
-    var time = end - start;
-    if (res){
-	System.out.println(file + ",sat4j-maven,2.3.1,SAT," + time);
-    }else{
-        System.out.println(file + ",sat4j-maven,2.3.1,UNSAT," + time);
-    }
-}
-
-
-@Test
-def void loadModel157() {
-    val result = parseHelper.parse('''
-    solver sat4j-jar
-    benchmarkDIMACS "samplingfm/Benchmarks/ConcreteActivityService.sk_13_28.cnf"
-    ''')
-    Assertions.assertNotNull(result)
-    val errors = result.eResource.errors
-    Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
-    var benchmark = result.benchmark as BenchmarkDimacs
-    var file = benchmark.dimacses.get(0);
-    var start = System.currentTimeMillis();
-    var res = Solver.JarSolving(file)
-    var end = System.currentTimeMillis();
-    var time = end - start;
-    if (res){
-	System.out.println(file + ",sat4j-jar,2.3.1,SAT," + time);
-    }else{
-        System.out.println(file + ",sat4j-jar,2.3.1,UNSAT," + time);
-    }
-}
-
-
-@Test
-def void loadModel158() {
-    val result = parseHelper.parse('''
-    solver cryptominisat
-    benchmarkDIMACS "samplingfm/Benchmarks/ConcreteActivityService.sk_13_28.cnf"
-    ''')
-    Assertions.assertNotNull(result)
-    val errors = result.eResource.errors
-    Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
-    var benchmark = result.benchmark as BenchmarkDimacs
-    var file = benchmark.dimacses.get(0);
-    var start = System.currentTimeMillis();
-    var res = Solver.CryptoMinisat5_6_8(file)
-    var end = System.currentTimeMillis();
-    var time = end - start;
-    if (res){
-	System.out.println(file + ",cryptominisat,5.6.8,SAT," + time);
-    }else{
-        System.out.println(file + ",cryptominisat,5.6.8,UNSAT," + time);
-    }
-}
-
-
-@Test
-def void loadModel159() {
-    val result = parseHelper.parse('''
-    solver cryptominisat
-    benchmarkDIMACS "samplingfm/Benchmarks/ConcreteActivityService.sk_13_28.cnf"
-    ''')
-    Assertions.assertNotNull(result)
-    val errors = result.eResource.errors
-    Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
-    var benchmark = result.benchmark as BenchmarkDimacs
-    var file = benchmark.dimacses.get(0);
-    var start = System.currentTimeMillis();
-    var res = Solver.CryptoMinisat5_6_7(file)
-    var end = System.currentTimeMillis();
-    var time = end - start;
-    if (res){
-	System.out.println(file + ",cryptominisat,5.6.7,SAT," + time);
-    }else{
-        System.out.println(file + ",cryptominisat,5.6.7,UNSAT," + time);
-    }
-}
-
-
-@Test
-def void loadModel160() {
-    val result = parseHelper.parse('''
-    solver sat4j-java
-    benchmarkDIMACS "samplingfm/Benchmarks/35.sk_3_52.cnf"
-    ''')
-    Assertions.assertNotNull(result)
-    val errors = result.eResource.errors
-    Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
-    var benchmark = result.benchmark as BenchmarkDimacs
-    var file = benchmark.dimacses.get(0);
-    var start = System.currentTimeMillis();
-    var res = Solver.Sat4JLibrarySolver(file)
-    var end = System.currentTimeMillis();
-    var time = end - start;
-    if (res){
-	System.out.println(file + ",sat4j-java,2.3.1,SAT," + time);
-    }else{
-        System.out.println(file + ",sat4j-java,2.3.1,UNSAT," + time);
-    }
-}
-
-
-@Test
-def void loadModel161() {
-    val result = parseHelper.parse('''
-    solver sat4j-maven
-    benchmarkDIMACS "samplingfm/Benchmarks/35.sk_3_52.cnf"
-    ''')
-    Assertions.assertNotNull(result)
-    val errors = result.eResource.errors
-    Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
-    var benchmark = result.benchmark as BenchmarkDimacs
-    var file = benchmark.dimacses.get(0);
-    var start = System.currentTimeMillis();
-    var res = Solver.MavenSolving(file)
-    var end = System.currentTimeMillis();
-    var time = end - start;
-    if (res){
-	System.out.println(file + ",sat4j-maven,2.3.1,SAT," + time);
-    }else{
-        System.out.println(file + ",sat4j-maven,2.3.1,UNSAT," + time);
-    }
-}
-
-
-@Test
-def void loadModel162() {
-    val result = parseHelper.parse('''
-    solver sat4j-jar
-    benchmarkDIMACS "samplingfm/Benchmarks/35.sk_3_52.cnf"
-    ''')
-    Assertions.assertNotNull(result)
-    val errors = result.eResource.errors
-    Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
-    var benchmark = result.benchmark as BenchmarkDimacs
-    var file = benchmark.dimacses.get(0);
-    var start = System.currentTimeMillis();
-    var res = Solver.JarSolving(file)
-    var end = System.currentTimeMillis();
-    var time = end - start;
-    if (res){
-	System.out.println(file + ",sat4j-jar,2.3.1,SAT," + time);
-    }else{
-        System.out.println(file + ",sat4j-jar,2.3.1,UNSAT," + time);
-    }
-}
-
-
-@Test
-def void loadModel163() {
-    val result = parseHelper.parse('''
-    solver cryptominisat
-    benchmarkDIMACS "samplingfm/Benchmarks/35.sk_3_52.cnf"
-    ''')
-    Assertions.assertNotNull(result)
-    val errors = result.eResource.errors
-    Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
-    var benchmark = result.benchmark as BenchmarkDimacs
-    var file = benchmark.dimacses.get(0);
-    var start = System.currentTimeMillis();
-    var res = Solver.CryptoMinisat5_6_8(file)
-    var end = System.currentTimeMillis();
-    var time = end - start;
-    if (res){
-	System.out.println(file + ",cryptominisat,5.6.8,SAT," + time);
-    }else{
-        System.out.println(file + ",cryptominisat,5.6.8,UNSAT," + time);
-    }
-}
-
-
-@Test
-def void loadModel164() {
-    val result = parseHelper.parse('''
-    solver cryptominisat
-    benchmarkDIMACS "samplingfm/Benchmarks/35.sk_3_52.cnf"
-    ''')
-    Assertions.assertNotNull(result)
-    val errors = result.eResource.errors
-    Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
-    var benchmark = result.benchmark as BenchmarkDimacs
-    var file = benchmark.dimacses.get(0);
-    var start = System.currentTimeMillis();
-    var res = Solver.CryptoMinisat5_6_7(file)
-    var end = System.currentTimeMillis();
-    var time = end - start;
-    if (res){
-	System.out.println(file + ",cryptominisat,5.6.7,SAT," + time);
-    }else{
-        System.out.println(file + ",cryptominisat,5.6.7,UNSAT," + time);
-    }
-}
-
-
-@Test
-def void loadModel165() {
-    val result = parseHelper.parse('''
-    solver sat4j-java
-    benchmarkDIMACS "samplingfm/Benchmarks/compress.sk_17_291.cnf"
-    ''')
-    Assertions.assertNotNull(result)
-    val errors = result.eResource.errors
-    Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
-    var benchmark = result.benchmark as BenchmarkDimacs
-    var file = benchmark.dimacses.get(0);
-    var start = System.currentTimeMillis();
-    var res = Solver.Sat4JLibrarySolver(file)
-    var end = System.currentTimeMillis();
-    var time = end - start;
-    if (res){
-	System.out.println(file + ",sat4j-java,2.3.1,SAT," + time);
-    }else{
-        System.out.println(file + ",sat4j-java,2.3.1,UNSAT," + time);
-    }
-}
-
-
-@Test
-def void loadModel166() {
-    val result = parseHelper.parse('''
-    solver sat4j-maven
-    benchmarkDIMACS "samplingfm/Benchmarks/compress.sk_17_291.cnf"
-    ''')
-    Assertions.assertNotNull(result)
-    val errors = result.eResource.errors
-    Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
-    var benchmark = result.benchmark as BenchmarkDimacs
-    var file = benchmark.dimacses.get(0);
-    var start = System.currentTimeMillis();
-    var res = Solver.MavenSolving(file)
-    var end = System.currentTimeMillis();
-    var time = end - start;
-    if (res){
-	System.out.println(file + ",sat4j-maven,2.3.1,SAT," + time);
-    }else{
-        System.out.println(file + ",sat4j-maven,2.3.1,UNSAT," + time);
-    }
-}
-
-
-@Test
-def void loadModel167() {
-    val result = parseHelper.parse('''
-    solver sat4j-jar
-    benchmarkDIMACS "samplingfm/Benchmarks/compress.sk_17_291.cnf"
-    ''')
-    Assertions.assertNotNull(result)
-    val errors = result.eResource.errors
-    Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
-    var benchmark = result.benchmark as BenchmarkDimacs
-    var file = benchmark.dimacses.get(0);
-    var start = System.currentTimeMillis();
-    var res = Solver.JarSolving(file)
-    var end = System.currentTimeMillis();
-    var time = end - start;
-    if (res){
-	System.out.println(file + ",sat4j-jar,2.3.1,SAT," + time);
-    }else{
-        System.out.println(file + ",sat4j-jar,2.3.1,UNSAT," + time);
-    }
-}
-
-
-@Test
-def void loadModel168() {
-    val result = parseHelper.parse('''
-    solver cryptominisat
-    benchmarkDIMACS "samplingfm/Benchmarks/compress.sk_17_291.cnf"
-    ''')
-    Assertions.assertNotNull(result)
-    val errors = result.eResource.errors
-    Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
-    var benchmark = result.benchmark as BenchmarkDimacs
-    var file = benchmark.dimacses.get(0);
-    var start = System.currentTimeMillis();
-    var res = Solver.CryptoMinisat5_6_8(file)
-    var end = System.currentTimeMillis();
-    var time = end - start;
-    if (res){
-	System.out.println(file + ",cryptominisat,5.6.8,SAT," + time);
-    }else{
-        System.out.println(file + ",cryptominisat,5.6.8,UNSAT," + time);
-    }
-}
-
-
-@Test
-def void loadModel169() {
-    val result = parseHelper.parse('''
-    solver cryptominisat
-    benchmarkDIMACS "samplingfm/Benchmarks/compress.sk_17_291.cnf"
-    ''')
-    Assertions.assertNotNull(result)
-    val errors = result.eResource.errors
-    Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
-    var benchmark = result.benchmark as BenchmarkDimacs
-    var file = benchmark.dimacses.get(0);
-    var start = System.currentTimeMillis();
-    var res = Solver.CryptoMinisat5_6_7(file)
-    var end = System.currentTimeMillis();
-    var time = end - start;
-    if (res){
-	System.out.println(file + ",cryptominisat,5.6.7,SAT," + time);
-    }else{
-        System.out.println(file + ",cryptominisat,5.6.7,UNSAT," + time);
-    }
-}
-
-
-@Test
-def void loadModel170() {
-    val result = parseHelper.parse('''
-    solver sat4j-java
-    benchmarkDIMACS "samplingfm/Benchmarks/20.sk_1_51.cnf"
-    ''')
-    Assertions.assertNotNull(result)
-    val errors = result.eResource.errors
-    Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
-    var benchmark = result.benchmark as BenchmarkDimacs
-    var file = benchmark.dimacses.get(0);
-    var start = System.currentTimeMillis();
-    var res = Solver.Sat4JLibrarySolver(file)
-    var end = System.currentTimeMillis();
-    var time = end - start;
-    if (res){
-	System.out.println(file + ",sat4j-java,2.3.1,SAT," + time);
-    }else{
-        System.out.println(file + ",sat4j-java,2.3.1,UNSAT," + time);
-    }
-}
-
-
-@Test
-def void loadModel171() {
-    val result = parseHelper.parse('''
-    solver sat4j-maven
-    benchmarkDIMACS "samplingfm/Benchmarks/20.sk_1_51.cnf"
-    ''')
-    Assertions.assertNotNull(result)
-    val errors = result.eResource.errors
-    Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
-    var benchmark = result.benchmark as BenchmarkDimacs
-    var file = benchmark.dimacses.get(0);
-    var start = System.currentTimeMillis();
-    var res = Solver.MavenSolving(file)
-    var end = System.currentTimeMillis();
-    var time = end - start;
-    if (res){
-	System.out.println(file + ",sat4j-maven,2.3.1,SAT," + time);
-    }else{
-        System.out.println(file + ",sat4j-maven,2.3.1,UNSAT," + time);
-    }
-}
-
-
-@Test
-def void loadModel172() {
-    val result = parseHelper.parse('''
-    solver sat4j-jar
-    benchmarkDIMACS "samplingfm/Benchmarks/20.sk_1_51.cnf"
-    ''')
-    Assertions.assertNotNull(result)
-    val errors = result.eResource.errors
-    Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
-    var benchmark = result.benchmark as BenchmarkDimacs
-    var file = benchmark.dimacses.get(0);
-    var start = System.currentTimeMillis();
-    var res = Solver.JarSolving(file)
-    var end = System.currentTimeMillis();
-    var time = end - start;
-    if (res){
-	System.out.println(file + ",sat4j-jar,2.3.1,SAT," + time);
-    }else{
-        System.out.println(file + ",sat4j-jar,2.3.1,UNSAT," + time);
-    }
-}
-
-
-@Test
-def void loadModel173() {
-    val result = parseHelper.parse('''
-    solver cryptominisat
-    benchmarkDIMACS "samplingfm/Benchmarks/20.sk_1_51.cnf"
-    ''')
-    Assertions.assertNotNull(result)
-    val errors = result.eResource.errors
-    Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
-    var benchmark = result.benchmark as BenchmarkDimacs
-    var file = benchmark.dimacses.get(0);
-    var start = System.currentTimeMillis();
-    var res = Solver.CryptoMinisat5_6_8(file)
-    var end = System.currentTimeMillis();
-    var time = end - start;
-    if (res){
-	System.out.println(file + ",cryptominisat,5.6.8,SAT," + time);
-    }else{
-        System.out.println(file + ",cryptominisat,5.6.8,UNSAT," + time);
-    }
-}
-
-
-@Test
-def void loadModel174() {
-    val result = parseHelper.parse('''
-    solver cryptominisat
-    benchmarkDIMACS "samplingfm/Benchmarks/20.sk_1_51.cnf"
-    ''')
-    Assertions.assertNotNull(result)
-    val errors = result.eResource.errors
-    Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
-    var benchmark = result.benchmark as BenchmarkDimacs
-    var file = benchmark.dimacses.get(0);
-    var start = System.currentTimeMillis();
-    var res = Solver.CryptoMinisat5_6_7(file)
-    var end = System.currentTimeMillis();
-    var time = end - start;
-    if (res){
-	System.out.println(file + ",cryptominisat,5.6.7,SAT," + time);
-    }else{
-        System.out.println(file + ",cryptominisat,5.6.7,UNSAT," + time);
-    }
-}
-
-
-@Test
-def void loadModel175() {
-    val result = parseHelper.parse('''
-    solver sat4j-java
-    benchmarkDIMACS "samplingfm/Benchmarks/ActivityService2.sk_10_27.cnf"
-    ''')
-    Assertions.assertNotNull(result)
-    val errors = result.eResource.errors
-    Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
-    var benchmark = result.benchmark as BenchmarkDimacs
-    var file = benchmark.dimacses.get(0);
-    var start = System.currentTimeMillis();
-    var res = Solver.Sat4JLibrarySolver(file)
-    var end = System.currentTimeMillis();
-    var time = end - start;
-    if (res){
-	System.out.println(file + ",sat4j-java,2.3.1,SAT," + time);
-    }else{
-        System.out.println(file + ",sat4j-java,2.3.1,UNSAT," + time);
-    }
-}
-
-
-@Test
-def void loadModel176() {
-    val result = parseHelper.parse('''
-    solver sat4j-maven
-    benchmarkDIMACS "samplingfm/Benchmarks/ActivityService2.sk_10_27.cnf"
-    ''')
-    Assertions.assertNotNull(result)
-    val errors = result.eResource.errors
-    Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
-    var benchmark = result.benchmark as BenchmarkDimacs
-    var file = benchmark.dimacses.get(0);
-    var start = System.currentTimeMillis();
-    var res = Solver.MavenSolving(file)
-    var end = System.currentTimeMillis();
-    var time = end - start;
-    if (res){
-	System.out.println(file + ",sat4j-maven,2.3.1,SAT," + time);
-    }else{
-        System.out.println(file + ",sat4j-maven,2.3.1,UNSAT," + time);
-    }
-}
-
-
-@Test
-def void loadModel177() {
-    val result = parseHelper.parse('''
-    solver sat4j-jar
-    benchmarkDIMACS "samplingfm/Benchmarks/ActivityService2.sk_10_27.cnf"
-    ''')
-    Assertions.assertNotNull(result)
-    val errors = result.eResource.errors
-    Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
-    var benchmark = result.benchmark as BenchmarkDimacs
-    var file = benchmark.dimacses.get(0);
-    var start = System.currentTimeMillis();
-    var res = Solver.JarSolving(file)
-    var end = System.currentTimeMillis();
-    var time = end - start;
-    if (res){
-	System.out.println(file + ",sat4j-jar,2.3.1,SAT," + time);
-    }else{
-        System.out.println(file + ",sat4j-jar,2.3.1,UNSAT," + time);
-    }
-}
-
-
-@Test
-def void loadModel178() {
-    val result = parseHelper.parse('''
-    solver cryptominisat
-    benchmarkDIMACS "samplingfm/Benchmarks/ActivityService2.sk_10_27.cnf"
-    ''')
-    Assertions.assertNotNull(result)
-    val errors = result.eResource.errors
-    Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
-    var benchmark = result.benchmark as BenchmarkDimacs
-    var file = benchmark.dimacses.get(0);
-    var start = System.currentTimeMillis();
-    var res = Solver.CryptoMinisat5_6_8(file)
-    var end = System.currentTimeMillis();
-    var time = end - start;
-    if (res){
-	System.out.println(file + ",cryptominisat,5.6.8,SAT," + time);
-    }else{
-        System.out.println(file + ",cryptominisat,5.6.8,UNSAT," + time);
-    }
-}
-
-
-@Test
-def void loadModel179() {
-    val result = parseHelper.parse('''
-    solver cryptominisat
-    benchmarkDIMACS "samplingfm/Benchmarks/ActivityService2.sk_10_27.cnf"
-    ''')
-    Assertions.assertNotNull(result)
-    val errors = result.eResource.errors
-    Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
-    var benchmark = result.benchmark as BenchmarkDimacs
-    var file = benchmark.dimacses.get(0);
-    var start = System.currentTimeMillis();
-    var res = Solver.CryptoMinisat5_6_7(file)
-    var end = System.currentTimeMillis();
-    var time = end - start;
-    if (res){
-	System.out.println(file + ",cryptominisat,5.6.7,SAT," + time);
-    }else{
-        System.out.println(file + ",cryptominisat,5.6.7,UNSAT," + time);
-    }
-}
-
-
-@Test
-def void loadModel180() {
-    val result = parseHelper.parse('''
-    solver sat4j-java
-    benchmarkDIMACS "samplingfm/Benchmarks/parity.sk_11_11.cnf"
-    ''')
-    Assertions.assertNotNull(result)
-    val errors = result.eResource.errors
-    Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
-    var benchmark = result.benchmark as BenchmarkDimacs
-    var file = benchmark.dimacses.get(0);
-    var start = System.currentTimeMillis();
-    var res = Solver.Sat4JLibrarySolver(file)
-    var end = System.currentTimeMillis();
-    var time = end - start;
-    if (res){
-	System.out.println(file + ",sat4j-java,2.3.1,SAT," + time);
-    }else{
-        System.out.println(file + ",sat4j-java,2.3.1,UNSAT," + time);
-    }
-}
-
-
-@Test
-def void loadModel181() {
-    val result = parseHelper.parse('''
-    solver sat4j-maven
-    benchmarkDIMACS "samplingfm/Benchmarks/parity.sk_11_11.cnf"
-    ''')
-    Assertions.assertNotNull(result)
-    val errors = result.eResource.errors
-    Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
-    var benchmark = result.benchmark as BenchmarkDimacs
-    var file = benchmark.dimacses.get(0);
-    var start = System.currentTimeMillis();
-    var res = Solver.MavenSolving(file)
-    var end = System.currentTimeMillis();
-    var time = end - start;
-    if (res){
-	System.out.println(file + ",sat4j-maven,2.3.1,SAT," + time);
-    }else{
-        System.out.println(file + ",sat4j-maven,2.3.1,UNSAT," + time);
-    }
-}
-
-
-@Test
-def void loadModel182() {
-    val result = parseHelper.parse('''
-    solver sat4j-jar
-    benchmarkDIMACS "samplingfm/Benchmarks/parity.sk_11_11.cnf"
-    ''')
-    Assertions.assertNotNull(result)
-    val errors = result.eResource.errors
-    Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
-    var benchmark = result.benchmark as BenchmarkDimacs
-    var file = benchmark.dimacses.get(0);
-    var start = System.currentTimeMillis();
-    var res = Solver.JarSolving(file)
-    var end = System.currentTimeMillis();
-    var time = end - start;
-    if (res){
-	System.out.println(file + ",sat4j-jar,2.3.1,SAT," + time);
-    }else{
-        System.out.println(file + ",sat4j-jar,2.3.1,UNSAT," + time);
-    }
-}
-
-
-@Test
-def void loadModel183() {
-    val result = parseHelper.parse('''
-    solver cryptominisat
-    benchmarkDIMACS "samplingfm/Benchmarks/parity.sk_11_11.cnf"
-    ''')
-    Assertions.assertNotNull(result)
-    val errors = result.eResource.errors
-    Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
-    var benchmark = result.benchmark as BenchmarkDimacs
-    var file = benchmark.dimacses.get(0);
-    var start = System.currentTimeMillis();
-    var res = Solver.CryptoMinisat5_6_8(file)
-    var end = System.currentTimeMillis();
-    var time = end - start;
-    if (res){
-	System.out.println(file + ",cryptominisat,5.6.8,SAT," + time);
-    }else{
-        System.out.println(file + ",cryptominisat,5.6.8,UNSAT," + time);
-    }
-}
-
-
-@Test
-def void loadModel184() {
-    val result = parseHelper.parse('''
-    solver cryptominisat
-    benchmarkDIMACS "samplingfm/Benchmarks/parity.sk_11_11.cnf"
-    ''')
-    Assertions.assertNotNull(result)
-    val errors = result.eResource.errors
-    Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
-    var benchmark = result.benchmark as BenchmarkDimacs
-    var file = benchmark.dimacses.get(0);
-    var start = System.currentTimeMillis();
-    var res = Solver.CryptoMinisat5_6_7(file)
-    var end = System.currentTimeMillis();
-    var time = end - start;
-    if (res){
-	System.out.println(file + ",cryptominisat,5.6.7,SAT," + time);
-    }else{
-        System.out.println(file + ",cryptominisat,5.6.7,UNSAT," + time);
-    }
-}
-
-
-@Test
-def void loadModel185() {
-    val result = parseHelper.parse('''
-    solver sat4j-java
-    benchmarkDIMACS "samplingfm/Benchmarks/log2.sk_72_391.cnf"
-    ''')
-    Assertions.assertNotNull(result)
-    val errors = result.eResource.errors
-    Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
-    var benchmark = result.benchmark as BenchmarkDimacs
-    var file = benchmark.dimacses.get(0);
-    var start = System.currentTimeMillis();
-    var res = Solver.Sat4JLibrarySolver(file)
-    var end = System.currentTimeMillis();
-    var time = end - start;
-    if (res){
-	System.out.println(file + ",sat4j-java,2.3.1,SAT," + time);
-    }else{
-        System.out.println(file + ",sat4j-java,2.3.1,UNSAT," + time);
-    }
-}
-
-
-@Test
-def void loadModel186() {
-    val result = parseHelper.parse('''
-    solver sat4j-maven
-    benchmarkDIMACS "samplingfm/Benchmarks/log2.sk_72_391.cnf"
-    ''')
-    Assertions.assertNotNull(result)
-    val errors = result.eResource.errors
-    Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
-    var benchmark = result.benchmark as BenchmarkDimacs
-    var file = benchmark.dimacses.get(0);
-    var start = System.currentTimeMillis();
-    var res = Solver.MavenSolving(file)
-    var end = System.currentTimeMillis();
-    var time = end - start;
-    if (res){
-	System.out.println(file + ",sat4j-maven,2.3.1,SAT," + time);
-    }else{
-        System.out.println(file + ",sat4j-maven,2.3.1,UNSAT," + time);
-    }
-}
-
-
-@Test
-def void loadModel187() {
-    val result = parseHelper.parse('''
-    solver sat4j-jar
-    benchmarkDIMACS "samplingfm/Benchmarks/log2.sk_72_391.cnf"
-    ''')
-    Assertions.assertNotNull(result)
-    val errors = result.eResource.errors
-    Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
-    var benchmark = result.benchmark as BenchmarkDimacs
-    var file = benchmark.dimacses.get(0);
-    var start = System.currentTimeMillis();
-    var res = Solver.JarSolving(file)
-    var end = System.currentTimeMillis();
-    var time = end - start;
-    if (res){
-	System.out.println(file + ",sat4j-jar,2.3.1,SAT," + time);
-    }else{
-        System.out.println(file + ",sat4j-jar,2.3.1,UNSAT," + time);
-    }
-}
-
-
-@Test
-def void loadModel188() {
-    val result = parseHelper.parse('''
-    solver cryptominisat
-    benchmarkDIMACS "samplingfm/Benchmarks/log2.sk_72_391.cnf"
-    ''')
-    Assertions.assertNotNull(result)
-    val errors = result.eResource.errors
-    Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
-    var benchmark = result.benchmark as BenchmarkDimacs
-    var file = benchmark.dimacses.get(0);
-    var start = System.currentTimeMillis();
-    var res = Solver.CryptoMinisat5_6_8(file)
-    var end = System.currentTimeMillis();
-    var time = end - start;
-    if (res){
-	System.out.println(file + ",cryptominisat,5.6.8,SAT," + time);
-    }else{
-        System.out.println(file + ",cryptominisat,5.6.8,UNSAT," + time);
-    }
-}
-
-
-@Test
-def void loadModel189() {
-    val result = parseHelper.parse('''
-    solver cryptominisat
-    benchmarkDIMACS "samplingfm/Benchmarks/log2.sk_72_391.cnf"
-    ''')
-    Assertions.assertNotNull(result)
-    val errors = result.eResource.errors
-    Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
-    var benchmark = result.benchmark as BenchmarkDimacs
-    var file = benchmark.dimacses.get(0);
-    var start = System.currentTimeMillis();
-    var res = Solver.CryptoMinisat5_6_7(file)
-    var end = System.currentTimeMillis();
-    var time = end - start;
-    if (res){
-	System.out.println(file + ",cryptominisat,5.6.7,SAT," + time);
-    }else{
-        System.out.println(file + ",cryptominisat,5.6.7,UNSAT," + time);
-    }
-}
-
-
-@Test
-def void loadModel190() {
-    val result = parseHelper.parse('''
-    solver sat4j-java
-    benchmarkDIMACS "samplingfm/Benchmarks/111.sk_2_36.cnf"
-    ''')
-    Assertions.assertNotNull(result)
-    val errors = result.eResource.errors
-    Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
-    var benchmark = result.benchmark as BenchmarkDimacs
-    var file = benchmark.dimacses.get(0);
-    var start = System.currentTimeMillis();
-    var res = Solver.Sat4JLibrarySolver(file)
-    var end = System.currentTimeMillis();
-    var time = end - start;
-    if (res){
-	System.out.println(file + ",sat4j-java,2.3.1,SAT," + time);
-    }else{
-        System.out.println(file + ",sat4j-java,2.3.1,UNSAT," + time);
-    }
-}
-
-
-@Test
-def void loadModel191() {
-    val result = parseHelper.parse('''
-    solver sat4j-maven
-    benchmarkDIMACS "samplingfm/Benchmarks/111.sk_2_36.cnf"
-    ''')
-    Assertions.assertNotNull(result)
-    val errors = result.eResource.errors
-    Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
-    var benchmark = result.benchmark as BenchmarkDimacs
-    var file = benchmark.dimacses.get(0);
-    var start = System.currentTimeMillis();
-    var res = Solver.MavenSolving(file)
-    var end = System.currentTimeMillis();
-    var time = end - start;
-    if (res){
-	System.out.println(file + ",sat4j-maven,2.3.1,SAT," + time);
-    }else{
-        System.out.println(file + ",sat4j-maven,2.3.1,UNSAT," + time);
-    }
-}
-
-
-@Test
-def void loadModel192() {
-    val result = parseHelper.parse('''
-    solver sat4j-jar
-    benchmarkDIMACS "samplingfm/Benchmarks/111.sk_2_36.cnf"
-    ''')
-    Assertions.assertNotNull(result)
-    val errors = result.eResource.errors
-    Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
-    var benchmark = result.benchmark as BenchmarkDimacs
-    var file = benchmark.dimacses.get(0);
-    var start = System.currentTimeMillis();
-    var res = Solver.JarSolving(file)
-    var end = System.currentTimeMillis();
-    var time = end - start;
-    if (res){
-	System.out.println(file + ",sat4j-jar,2.3.1,SAT," + time);
-    }else{
-        System.out.println(file + ",sat4j-jar,2.3.1,UNSAT," + time);
-    }
-}
-
-
-@Test
-def void loadModel193() {
-    val result = parseHelper.parse('''
-    solver cryptominisat
-    benchmarkDIMACS "samplingfm/Benchmarks/111.sk_2_36.cnf"
-    ''')
-    Assertions.assertNotNull(result)
-    val errors = result.eResource.errors
-    Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
-    var benchmark = result.benchmark as BenchmarkDimacs
-    var file = benchmark.dimacses.get(0);
-    var start = System.currentTimeMillis();
-    var res = Solver.CryptoMinisat5_6_8(file)
-    var end = System.currentTimeMillis();
-    var time = end - start;
-    if (res){
-	System.out.println(file + ",cryptominisat,5.6.8,SAT," + time);
-    }else{
-        System.out.println(file + ",cryptominisat,5.6.8,UNSAT," + time);
-    }
-}
-
-
-@Test
-def void loadModel194() {
-    val result = parseHelper.parse('''
-    solver cryptominisat
-    benchmarkDIMACS "samplingfm/Benchmarks/111.sk_2_36.cnf"
-    ''')
-    Assertions.assertNotNull(result)
-    val errors = result.eResource.errors
-    Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
-    var benchmark = result.benchmark as BenchmarkDimacs
-    var file = benchmark.dimacses.get(0);
-    var start = System.currentTimeMillis();
-    var res = Solver.CryptoMinisat5_6_7(file)
-    var end = System.currentTimeMillis();
-    var time = end - start;
-    if (res){
-	System.out.println(file + ",cryptominisat,5.6.7,SAT," + time);
-    }else{
-        System.out.println(file + ",cryptominisat,5.6.7,UNSAT," + time);
-    }
-}
-
-
-@Test
-def void loadModel195() {
-    val result = parseHelper.parse('''
-    solver sat4j-java
-    benchmarkDIMACS "samplingfm/Benchmarks/30.sk_5_76.cnf"
-    ''')
-    Assertions.assertNotNull(result)
-    val errors = result.eResource.errors
-    Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
-    var benchmark = result.benchmark as BenchmarkDimacs
-    var file = benchmark.dimacses.get(0);
-    var start = System.currentTimeMillis();
-    var res = Solver.Sat4JLibrarySolver(file)
-    var end = System.currentTimeMillis();
-    var time = end - start;
-    if (res){
-	System.out.println(file + ",sat4j-java,2.3.1,SAT," + time);
-    }else{
-        System.out.println(file + ",sat4j-java,2.3.1,UNSAT," + time);
-    }
-}
-
-
-@Test
-def void loadModel196() {
-    val result = parseHelper.parse('''
-    solver sat4j-maven
-    benchmarkDIMACS "samplingfm/Benchmarks/30.sk_5_76.cnf"
-    ''')
-    Assertions.assertNotNull(result)
-    val errors = result.eResource.errors
-    Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
-    var benchmark = result.benchmark as BenchmarkDimacs
-    var file = benchmark.dimacses.get(0);
-    var start = System.currentTimeMillis();
-    var res = Solver.MavenSolving(file)
-    var end = System.currentTimeMillis();
-    var time = end - start;
-    if (res){
-	System.out.println(file + ",sat4j-maven,2.3.1,SAT," + time);
-    }else{
-        System.out.println(file + ",sat4j-maven,2.3.1,UNSAT," + time);
-    }
-}
-
-
-@Test
-def void loadModel197() {
-    val result = parseHelper.parse('''
-    solver sat4j-jar
-    benchmarkDIMACS "samplingfm/Benchmarks/30.sk_5_76.cnf"
-    ''')
-    Assertions.assertNotNull(result)
-    val errors = result.eResource.errors
-    Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
-    var benchmark = result.benchmark as BenchmarkDimacs
-    var file = benchmark.dimacses.get(0);
-    var start = System.currentTimeMillis();
-    var res = Solver.JarSolving(file)
-    var end = System.currentTimeMillis();
-    var time = end - start;
-    if (res){
-	System.out.println(file + ",sat4j-jar,2.3.1,SAT," + time);
-    }else{
-        System.out.println(file + ",sat4j-jar,2.3.1,UNSAT," + time);
-    }
-}
-
-
-@Test
-def void loadModel198() {
-    val result = parseHelper.parse('''
-    solver cryptominisat
-    benchmarkDIMACS "samplingfm/Benchmarks/30.sk_5_76.cnf"
-    ''')
-    Assertions.assertNotNull(result)
-    val errors = result.eResource.errors
-    Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
-    var benchmark = result.benchmark as BenchmarkDimacs
-    var file = benchmark.dimacses.get(0);
-    var start = System.currentTimeMillis();
-    var res = Solver.CryptoMinisat5_6_8(file)
-    var end = System.currentTimeMillis();
-    var time = end - start;
-    if (res){
-	System.out.println(file + ",cryptominisat,5.6.8,SAT," + time);
-    }else{
-        System.out.println(file + ",cryptominisat,5.6.8,UNSAT," + time);
-    }
-}
-
-
-@Test
-def void loadModel199() {
-    val result = parseHelper.parse('''
-    solver cryptominisat
-    benchmarkDIMACS "samplingfm/Benchmarks/30.sk_5_76.cnf"
-    ''')
-    Assertions.assertNotNull(result)
-    val errors = result.eResource.errors
-    Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
-    var benchmark = result.benchmark as BenchmarkDimacs
-    var file = benchmark.dimacses.get(0);
-    var start = System.currentTimeMillis();
-    var res = Solver.CryptoMinisat5_6_7(file)
-    var end = System.currentTimeMillis();
-    var time = end - start;
-    if (res){
-	System.out.println(file + ",cryptominisat,5.6.7,SAT," + time);
-    }else{
-        System.out.println(file + ",cryptominisat,5.6.7,UNSAT," + time);
-    }
-}
-
-
-@Test
-def void loadModel200() {
-    val result = parseHelper.parse('''
-    solver sat4j-java
-    benchmarkDIMACS "samplingfm/Benchmarks/10.sk_1_46.cnf"
-    ''')
-    Assertions.assertNotNull(result)
-    val errors = result.eResource.errors
-    Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
-    var benchmark = result.benchmark as BenchmarkDimacs
-    var file = benchmark.dimacses.get(0);
-    var start = System.currentTimeMillis();
-    var res = Solver.Sat4JLibrarySolver(file)
-    var end = System.currentTimeMillis();
-    var time = end - start;
-    if (res){
-	System.out.println(file + ",sat4j-java,2.3.1,SAT," + time);
-    }else{
-        System.out.println(file + ",sat4j-java,2.3.1,UNSAT," + time);
-    }
-}
-
-
-@Test
-def void loadModel201() {
-    val result = parseHelper.parse('''
-    solver sat4j-maven
-    benchmarkDIMACS "samplingfm/Benchmarks/10.sk_1_46.cnf"
-    ''')
-    Assertions.assertNotNull(result)
-    val errors = result.eResource.errors
-    Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
-    var benchmark = result.benchmark as BenchmarkDimacs
-    var file = benchmark.dimacses.get(0);
-    var start = System.currentTimeMillis();
-    var res = Solver.MavenSolving(file)
-    var end = System.currentTimeMillis();
-    var time = end - start;
-    if (res){
-	System.out.println(file + ",sat4j-maven,2.3.1,SAT," + time);
-    }else{
-        System.out.println(file + ",sat4j-maven,2.3.1,UNSAT," + time);
-    }
-}
-
-
-@Test
-def void loadModel202() {
-    val result = parseHelper.parse('''
-    solver sat4j-jar
-    benchmarkDIMACS "samplingfm/Benchmarks/10.sk_1_46.cnf"
-    ''')
-    Assertions.assertNotNull(result)
-    val errors = result.eResource.errors
-    Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
-    var benchmark = result.benchmark as BenchmarkDimacs
-    var file = benchmark.dimacses.get(0);
-    var start = System.currentTimeMillis();
-    var res = Solver.JarSolving(file)
-    var end = System.currentTimeMillis();
-    var time = end - start;
-    if (res){
-	System.out.println(file + ",sat4j-jar,2.3.1,SAT," + time);
-    }else{
-        System.out.println(file + ",sat4j-jar,2.3.1,UNSAT," + time);
-    }
-}
-
-
-@Test
-def void loadModel203() {
-    val result = parseHelper.parse('''
-    solver cryptominisat
-    benchmarkDIMACS "samplingfm/Benchmarks/10.sk_1_46.cnf"
-    ''')
-    Assertions.assertNotNull(result)
-    val errors = result.eResource.errors
-    Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
-    var benchmark = result.benchmark as BenchmarkDimacs
-    var file = benchmark.dimacses.get(0);
-    var start = System.currentTimeMillis();
-    var res = Solver.CryptoMinisat5_6_8(file)
-    var end = System.currentTimeMillis();
-    var time = end - start;
-    if (res){
-	System.out.println(file + ",cryptominisat,5.6.8,SAT," + time);
-    }else{
-        System.out.println(file + ",cryptominisat,5.6.8,UNSAT," + time);
-    }
-}
-
-
-@Test
-def void loadModel204() {
-    val result = parseHelper.parse('''
-    solver cryptominisat
-    benchmarkDIMACS "samplingfm/Benchmarks/10.sk_1_46.cnf"
-    ''')
-    Assertions.assertNotNull(result)
-    val errors = result.eResource.errors
-    Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
-    var benchmark = result.benchmark as BenchmarkDimacs
-    var file = benchmark.dimacses.get(0);
-    var start = System.currentTimeMillis();
-    var res = Solver.CryptoMinisat5_6_7(file)
-    var end = System.currentTimeMillis();
-    var time = end - start;
-    if (res){
-	System.out.println(file + ",cryptominisat,5.6.7,SAT," + time);
-    }else{
-        System.out.println(file + ",cryptominisat,5.6.7,UNSAT," + time);
-    }
-}
-
-
-@Test
-def void loadModel205() {
-    val result = parseHelper.parse('''
-    solver sat4j-java
-    benchmarkDIMACS "samplingfm/Benchmarks/xpose.sk_6_134.cnf"
-    ''')
-    Assertions.assertNotNull(result)
-    val errors = result.eResource.errors
-    Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
-    var benchmark = result.benchmark as BenchmarkDimacs
-    var file = benchmark.dimacses.get(0);
-    var start = System.currentTimeMillis();
-    var res = Solver.Sat4JLibrarySolver(file)
-    var end = System.currentTimeMillis();
-    var time = end - start;
-    if (res){
-	System.out.println(file + ",sat4j-java,2.3.1,SAT," + time);
-    }else{
-        System.out.println(file + ",sat4j-java,2.3.1,UNSAT," + time);
-    }
-}
-
-
-@Test
-def void loadModel206() {
-    val result = parseHelper.parse('''
-    solver sat4j-maven
-    benchmarkDIMACS "samplingfm/Benchmarks/xpose.sk_6_134.cnf"
-    ''')
-    Assertions.assertNotNull(result)
-    val errors = result.eResource.errors
-    Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
-    var benchmark = result.benchmark as BenchmarkDimacs
-    var file = benchmark.dimacses.get(0);
-    var start = System.currentTimeMillis();
-    var res = Solver.MavenSolving(file)
-    var end = System.currentTimeMillis();
-    var time = end - start;
-    if (res){
-	System.out.println(file + ",sat4j-maven,2.3.1,SAT," + time);
-    }else{
-        System.out.println(file + ",sat4j-maven,2.3.1,UNSAT," + time);
-    }
-}
-
-
-@Test
-def void loadModel207() {
-    val result = parseHelper.parse('''
-    solver sat4j-jar
-    benchmarkDIMACS "samplingfm/Benchmarks/xpose.sk_6_134.cnf"
-    ''')
-    Assertions.assertNotNull(result)
-    val errors = result.eResource.errors
-    Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
-    var benchmark = result.benchmark as BenchmarkDimacs
-    var file = benchmark.dimacses.get(0);
-    var start = System.currentTimeMillis();
-    var res = Solver.JarSolving(file)
-    var end = System.currentTimeMillis();
-    var time = end - start;
-    if (res){
-	System.out.println(file + ",sat4j-jar,2.3.1,SAT," + time);
-    }else{
-        System.out.println(file + ",sat4j-jar,2.3.1,UNSAT," + time);
-    }
-}
-
-
-@Test
-def void loadModel208() {
-    val result = parseHelper.parse('''
-    solver cryptominisat
-    benchmarkDIMACS "samplingfm/Benchmarks/xpose.sk_6_134.cnf"
-    ''')
-    Assertions.assertNotNull(result)
-    val errors = result.eResource.errors
-    Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
-    var benchmark = result.benchmark as BenchmarkDimacs
-    var file = benchmark.dimacses.get(0);
-    var start = System.currentTimeMillis();
-    var res = Solver.CryptoMinisat5_6_8(file)
-    var end = System.currentTimeMillis();
-    var time = end - start;
-    if (res){
-	System.out.println(file + ",cryptominisat,5.6.8,SAT," + time);
-    }else{
-        System.out.println(file + ",cryptominisat,5.6.8,UNSAT," + time);
-    }
-}
-
-
-@Test
-def void loadModel209() {
-    val result = parseHelper.parse('''
-    solver cryptominisat
-    benchmarkDIMACS "samplingfm/Benchmarks/xpose.sk_6_134.cnf"
-    ''')
-    Assertions.assertNotNull(result)
-    val errors = result.eResource.errors
-    Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
-    var benchmark = result.benchmark as BenchmarkDimacs
-    var file = benchmark.dimacses.get(0);
-    var start = System.currentTimeMillis();
-    var res = Solver.CryptoMinisat5_6_7(file)
-    var end = System.currentTimeMillis();
-    var time = end - start;
-    if (res){
-	System.out.println(file + ",cryptominisat,5.6.7,SAT," + time);
-    }else{
-        System.out.println(file + ",cryptominisat,5.6.7,UNSAT," + time);
-    }
-}
-
-
-@Test
-def void loadModel210() {
-    val result = parseHelper.parse('''
-    solver sat4j-java
-    benchmarkDIMACS "samplingfm/Benchmarks/107.sk_3_90.cnf"
-    ''')
-    Assertions.assertNotNull(result)
-    val errors = result.eResource.errors
-    Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
-    var benchmark = result.benchmark as BenchmarkDimacs
-    var file = benchmark.dimacses.get(0);
-    var start = System.currentTimeMillis();
-    var res = Solver.Sat4JLibrarySolver(file)
-    var end = System.currentTimeMillis();
-    var time = end - start;
-    if (res){
-	System.out.println(file + ",sat4j-java,2.3.1,SAT," + time);
-    }else{
-        System.out.println(file + ",sat4j-java,2.3.1,UNSAT," + time);
-    }
-}
-
-
-@Test
 def void loadModel211() {
     val result = parseHelper.parse('''
-    solver sat4j-maven
-    benchmarkDIMACS "samplingfm/Benchmarks/107.sk_3_90.cnf"
+    solver sat4j-java
+    benchmarkDIMACS "samplingfm/Benchmarks/81.sk_5_51.cnf"
     ''')
     Assertions.assertNotNull(result)
     val errors = result.eResource.errors
@@ -4892,13 +4869,13 @@ def void loadModel211() {
     var benchmark = result.benchmark as BenchmarkDimacs
     var file = benchmark.dimacses.get(0);
     var start = System.currentTimeMillis();
-    var res = Solver.MavenSolving(file)
+    var res = Solver.Sat4JLibrarySolver(file)
     var end = System.currentTimeMillis();
     var time = end - start;
     if (res){
-	System.out.println(file + ",sat4j-maven,2.3.1,SAT," + time);
+	System.out.println(file + ",sat4j-java,2.3.1,SAT," + time);
     }else{
-        System.out.println(file + ",sat4j-maven,2.3.1,UNSAT," + time);
+        System.out.println(file + ",sat4j-java,2.3.1,UNSAT," + time);
     }
 }
 
@@ -4906,8 +4883,31 @@ def void loadModel211() {
 @Test
 def void loadModel212() {
     val result = parseHelper.parse('''
+    solver sat4j-maven
+    benchmarkDIMACS "samplingfm/Benchmarks/81.sk_5_51.cnf"
+    ''')
+    Assertions.assertNotNull(result)
+    val errors = result.eResource.errors
+    Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
+    var benchmark = result.benchmark as BenchmarkDimacs
+    var file = benchmark.dimacses.get(0);
+    var start = System.currentTimeMillis();
+    var res = Solver.MavenSolving(file)
+    var end = System.currentTimeMillis();
+    var time = end - start;
+    if (res){
+	System.out.println(file + ",sat4j-maven,2.3.1,SAT," + time);
+    }else{
+        System.out.println(file + ",sat4j-maven,2.3.1,UNSAT," + time);
+    }
+}
+
+
+@Test
+def void loadModel213() {
+    val result = parseHelper.parse('''
     solver sat4j-jar
-    benchmarkDIMACS "samplingfm/Benchmarks/107.sk_3_90.cnf"
+    benchmarkDIMACS "samplingfm/Benchmarks/81.sk_5_51.cnf"
     ''')
     Assertions.assertNotNull(result)
     val errors = result.eResource.errors
@@ -4922,29 +4922,6 @@ def void loadModel212() {
 	System.out.println(file + ",sat4j-jar,2.3.1,SAT," + time);
     }else{
         System.out.println(file + ",sat4j-jar,2.3.1,UNSAT," + time);
-    }
-}
-
-
-@Test
-def void loadModel213() {
-    val result = parseHelper.parse('''
-    solver cryptominisat
-    benchmarkDIMACS "samplingfm/Benchmarks/107.sk_3_90.cnf"
-    ''')
-    Assertions.assertNotNull(result)
-    val errors = result.eResource.errors
-    Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
-    var benchmark = result.benchmark as BenchmarkDimacs
-    var file = benchmark.dimacses.get(0);
-    var start = System.currentTimeMillis();
-    var res = Solver.CryptoMinisat5_6_8(file)
-    var end = System.currentTimeMillis();
-    var time = end - start;
-    if (res){
-	System.out.println(file + ",cryptominisat,5.6.8,SAT," + time);
-    }else{
-        System.out.println(file + ",cryptominisat,5.6.8,UNSAT," + time);
     }
 }
 
@@ -4953,7 +4930,30 @@ def void loadModel213() {
 def void loadModel214() {
     val result = parseHelper.parse('''
     solver cryptominisat
-    benchmarkDIMACS "samplingfm/Benchmarks/107.sk_3_90.cnf"
+    benchmarkDIMACS "samplingfm/Benchmarks/81.sk_5_51.cnf"
+    ''')
+    Assertions.assertNotNull(result)
+    val errors = result.eResource.errors
+    Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
+    var benchmark = result.benchmark as BenchmarkDimacs
+    var file = benchmark.dimacses.get(0);
+    var start = System.currentTimeMillis();
+    var res = Solver.CryptoMinisat5_6_8(file)
+    var end = System.currentTimeMillis();
+    var time = end - start;
+    if (res){
+	System.out.println(file + ",cryptominisat,5.6.8,SAT," + time);
+    }else{
+        System.out.println(file + ",cryptominisat,5.6.8,UNSAT," + time);
+    }
+}
+
+
+@Test
+def void loadModel215() {
+    val result = parseHelper.parse('''
+    solver cryptominisat
+    benchmarkDIMACS "samplingfm/Benchmarks/81.sk_5_51.cnf"
     ''')
     Assertions.assertNotNull(result)
     val errors = result.eResource.errors
@@ -4973,7 +4973,7 @@ def void loadModel214() {
 
 
 @Test
-def void loadModel215() {
+def void loadModel216() {
     val result = parseHelper.parse('''
     solver sat4j-java
     benchmarkDIMACS "samplingfm/Benchmarks/LoginService2.sk_23_36.cnf"
@@ -4996,7 +4996,7 @@ def void loadModel215() {
 
 
 @Test
-def void loadModel216() {
+def void loadModel217() {
     val result = parseHelper.parse('''
     solver sat4j-maven
     benchmarkDIMACS "samplingfm/Benchmarks/LoginService2.sk_23_36.cnf"
@@ -5019,7 +5019,7 @@ def void loadModel216() {
 
 
 @Test
-def void loadModel217() {
+def void loadModel218() {
     val result = parseHelper.parse('''
     solver sat4j-jar
     benchmarkDIMACS "samplingfm/Benchmarks/LoginService2.sk_23_36.cnf"
@@ -5037,29 +5037,6 @@ def void loadModel217() {
 	System.out.println(file + ",sat4j-jar,2.3.1,SAT," + time);
     }else{
         System.out.println(file + ",sat4j-jar,2.3.1,UNSAT," + time);
-    }
-}
-
-
-@Test
-def void loadModel218() {
-    val result = parseHelper.parse('''
-    solver cryptominisat
-    benchmarkDIMACS "samplingfm/Benchmarks/LoginService2.sk_23_36.cnf"
-    ''')
-    Assertions.assertNotNull(result)
-    val errors = result.eResource.errors
-    Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
-    var benchmark = result.benchmark as BenchmarkDimacs
-    var file = benchmark.dimacses.get(0);
-    var start = System.currentTimeMillis();
-    var res = Solver.CryptoMinisat5_6_8(file)
-    var end = System.currentTimeMillis();
-    var time = end - start;
-    if (res){
-	System.out.println(file + ",cryptominisat,5.6.8,SAT," + time);
-    }else{
-        System.out.println(file + ",cryptominisat,5.6.8,UNSAT," + time);
     }
 }
 
@@ -5076,6 +5053,29 @@ def void loadModel219() {
     var benchmark = result.benchmark as BenchmarkDimacs
     var file = benchmark.dimacses.get(0);
     var start = System.currentTimeMillis();
+    var res = Solver.CryptoMinisat5_6_8(file)
+    var end = System.currentTimeMillis();
+    var time = end - start;
+    if (res){
+	System.out.println(file + ",cryptominisat,5.6.8,SAT," + time);
+    }else{
+        System.out.println(file + ",cryptominisat,5.6.8,UNSAT," + time);
+    }
+}
+
+
+@Test
+def void loadModel220() {
+    val result = parseHelper.parse('''
+    solver cryptominisat
+    benchmarkDIMACS "samplingfm/Benchmarks/LoginService2.sk_23_36.cnf"
+    ''')
+    Assertions.assertNotNull(result)
+    val errors = result.eResource.errors
+    Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
+    var benchmark = result.benchmark as BenchmarkDimacs
+    var file = benchmark.dimacses.get(0);
+    var start = System.currentTimeMillis();
     var res = Solver.CryptoMinisat5_6_7(file)
     var end = System.currentTimeMillis();
     var time = end - start;
@@ -5088,10 +5088,10 @@ def void loadModel219() {
 
 
 @Test
-def void loadModel220() {
+def void loadModel221() {
     val result = parseHelper.parse('''
     solver sat4j-java
-    benchmarkDIMACS "samplingfm/Benchmarks/110.sk_3_88.cnf"
+    benchmarkDIMACS "samplingfm/Benchmarks/Pollard.sk_1_10.cnf"
     ''')
     Assertions.assertNotNull(result)
     val errors = result.eResource.errors
@@ -5111,10 +5111,10 @@ def void loadModel220() {
 
 
 @Test
-def void loadModel221() {
+def void loadModel222() {
     val result = parseHelper.parse('''
     solver sat4j-maven
-    benchmarkDIMACS "samplingfm/Benchmarks/110.sk_3_88.cnf"
+    benchmarkDIMACS "samplingfm/Benchmarks/Pollard.sk_1_10.cnf"
     ''')
     Assertions.assertNotNull(result)
     val errors = result.eResource.errors
@@ -5134,10 +5134,10 @@ def void loadModel221() {
 
 
 @Test
-def void loadModel222() {
+def void loadModel223() {
     val result = parseHelper.parse('''
     solver sat4j-jar
-    benchmarkDIMACS "samplingfm/Benchmarks/110.sk_3_88.cnf"
+    benchmarkDIMACS "samplingfm/Benchmarks/Pollard.sk_1_10.cnf"
     ''')
     Assertions.assertNotNull(result)
     val errors = result.eResource.errors
@@ -5152,29 +5152,6 @@ def void loadModel222() {
 	System.out.println(file + ",sat4j-jar,2.3.1,SAT," + time);
     }else{
         System.out.println(file + ",sat4j-jar,2.3.1,UNSAT," + time);
-    }
-}
-
-
-@Test
-def void loadModel223() {
-    val result = parseHelper.parse('''
-    solver cryptominisat
-    benchmarkDIMACS "samplingfm/Benchmarks/110.sk_3_88.cnf"
-    ''')
-    Assertions.assertNotNull(result)
-    val errors = result.eResource.errors
-    Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
-    var benchmark = result.benchmark as BenchmarkDimacs
-    var file = benchmark.dimacses.get(0);
-    var start = System.currentTimeMillis();
-    var res = Solver.CryptoMinisat5_6_8(file)
-    var end = System.currentTimeMillis();
-    var time = end - start;
-    if (res){
-	System.out.println(file + ",cryptominisat,5.6.8,SAT," + time);
-    }else{
-        System.out.println(file + ",cryptominisat,5.6.8,UNSAT," + time);
     }
 }
 
@@ -5183,6 +5160,604 @@ def void loadModel223() {
 def void loadModel224() {
     val result = parseHelper.parse('''
     solver cryptominisat
+    benchmarkDIMACS "samplingfm/Benchmarks/Pollard.sk_1_10.cnf"
+    ''')
+    Assertions.assertNotNull(result)
+    val errors = result.eResource.errors
+    Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
+    var benchmark = result.benchmark as BenchmarkDimacs
+    var file = benchmark.dimacses.get(0);
+    var start = System.currentTimeMillis();
+    var res = Solver.CryptoMinisat5_6_8(file)
+    var end = System.currentTimeMillis();
+    var time = end - start;
+    if (res){
+	System.out.println(file + ",cryptominisat,5.6.8,SAT," + time);
+    }else{
+        System.out.println(file + ",cryptominisat,5.6.8,UNSAT," + time);
+    }
+}
+
+
+@Test
+def void loadModel225() {
+    val result = parseHelper.parse('''
+    solver cryptominisat
+    benchmarkDIMACS "samplingfm/Benchmarks/Pollard.sk_1_10.cnf"
+    ''')
+    Assertions.assertNotNull(result)
+    val errors = result.eResource.errors
+    Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
+    var benchmark = result.benchmark as BenchmarkDimacs
+    var file = benchmark.dimacses.get(0);
+    var start = System.currentTimeMillis();
+    var res = Solver.CryptoMinisat5_6_7(file)
+    var end = System.currentTimeMillis();
+    var time = end - start;
+    if (res){
+	System.out.println(file + ",cryptominisat,5.6.7,SAT," + time);
+    }else{
+        System.out.println(file + ",cryptominisat,5.6.7,UNSAT," + time);
+    }
+}
+
+
+@Test
+def void loadModel226() {
+    val result = parseHelper.parse('''
+    solver sat4j-java
+    benchmarkDIMACS "samplingfm/Benchmarks/parity.sk_11_11.cnf"
+    ''')
+    Assertions.assertNotNull(result)
+    val errors = result.eResource.errors
+    Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
+    var benchmark = result.benchmark as BenchmarkDimacs
+    var file = benchmark.dimacses.get(0);
+    var start = System.currentTimeMillis();
+    var res = Solver.Sat4JLibrarySolver(file)
+    var end = System.currentTimeMillis();
+    var time = end - start;
+    if (res){
+	System.out.println(file + ",sat4j-java,2.3.1,SAT," + time);
+    }else{
+        System.out.println(file + ",sat4j-java,2.3.1,UNSAT," + time);
+    }
+}
+
+
+@Test
+def void loadModel227() {
+    val result = parseHelper.parse('''
+    solver sat4j-maven
+    benchmarkDIMACS "samplingfm/Benchmarks/parity.sk_11_11.cnf"
+    ''')
+    Assertions.assertNotNull(result)
+    val errors = result.eResource.errors
+    Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
+    var benchmark = result.benchmark as BenchmarkDimacs
+    var file = benchmark.dimacses.get(0);
+    var start = System.currentTimeMillis();
+    var res = Solver.MavenSolving(file)
+    var end = System.currentTimeMillis();
+    var time = end - start;
+    if (res){
+	System.out.println(file + ",sat4j-maven,2.3.1,SAT," + time);
+    }else{
+        System.out.println(file + ",sat4j-maven,2.3.1,UNSAT," + time);
+    }
+}
+
+
+@Test
+def void loadModel228() {
+    val result = parseHelper.parse('''
+    solver sat4j-jar
+    benchmarkDIMACS "samplingfm/Benchmarks/parity.sk_11_11.cnf"
+    ''')
+    Assertions.assertNotNull(result)
+    val errors = result.eResource.errors
+    Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
+    var benchmark = result.benchmark as BenchmarkDimacs
+    var file = benchmark.dimacses.get(0);
+    var start = System.currentTimeMillis();
+    var res = Solver.JarSolving(file)
+    var end = System.currentTimeMillis();
+    var time = end - start;
+    if (res){
+	System.out.println(file + ",sat4j-jar,2.3.1,SAT," + time);
+    }else{
+        System.out.println(file + ",sat4j-jar,2.3.1,UNSAT," + time);
+    }
+}
+
+
+@Test
+def void loadModel229() {
+    val result = parseHelper.parse('''
+    solver cryptominisat
+    benchmarkDIMACS "samplingfm/Benchmarks/parity.sk_11_11.cnf"
+    ''')
+    Assertions.assertNotNull(result)
+    val errors = result.eResource.errors
+    Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
+    var benchmark = result.benchmark as BenchmarkDimacs
+    var file = benchmark.dimacses.get(0);
+    var start = System.currentTimeMillis();
+    var res = Solver.CryptoMinisat5_6_8(file)
+    var end = System.currentTimeMillis();
+    var time = end - start;
+    if (res){
+	System.out.println(file + ",cryptominisat,5.6.8,SAT," + time);
+    }else{
+        System.out.println(file + ",cryptominisat,5.6.8,UNSAT," + time);
+    }
+}
+
+
+@Test
+def void loadModel230() {
+    val result = parseHelper.parse('''
+    solver cryptominisat
+    benchmarkDIMACS "samplingfm/Benchmarks/parity.sk_11_11.cnf"
+    ''')
+    Assertions.assertNotNull(result)
+    val errors = result.eResource.errors
+    Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
+    var benchmark = result.benchmark as BenchmarkDimacs
+    var file = benchmark.dimacses.get(0);
+    var start = System.currentTimeMillis();
+    var res = Solver.CryptoMinisat5_6_7(file)
+    var end = System.currentTimeMillis();
+    var time = end - start;
+    if (res){
+	System.out.println(file + ",cryptominisat,5.6.7,SAT," + time);
+    }else{
+        System.out.println(file + ",cryptominisat,5.6.7,UNSAT," + time);
+    }
+}
+
+
+@Test
+def void loadModel231() {
+    val result = parseHelper.parse('''
+    solver sat4j-java
+    benchmarkDIMACS "samplingfm/Benchmarks/sort.sk_8_52.cnf"
+    ''')
+    Assertions.assertNotNull(result)
+    val errors = result.eResource.errors
+    Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
+    var benchmark = result.benchmark as BenchmarkDimacs
+    var file = benchmark.dimacses.get(0);
+    var start = System.currentTimeMillis();
+    var res = Solver.Sat4JLibrarySolver(file)
+    var end = System.currentTimeMillis();
+    var time = end - start;
+    if (res){
+	System.out.println(file + ",sat4j-java,2.3.1,SAT," + time);
+    }else{
+        System.out.println(file + ",sat4j-java,2.3.1,UNSAT," + time);
+    }
+}
+
+
+@Test
+def void loadModel232() {
+    val result = parseHelper.parse('''
+    solver sat4j-maven
+    benchmarkDIMACS "samplingfm/Benchmarks/sort.sk_8_52.cnf"
+    ''')
+    Assertions.assertNotNull(result)
+    val errors = result.eResource.errors
+    Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
+    var benchmark = result.benchmark as BenchmarkDimacs
+    var file = benchmark.dimacses.get(0);
+    var start = System.currentTimeMillis();
+    var res = Solver.MavenSolving(file)
+    var end = System.currentTimeMillis();
+    var time = end - start;
+    if (res){
+	System.out.println(file + ",sat4j-maven,2.3.1,SAT," + time);
+    }else{
+        System.out.println(file + ",sat4j-maven,2.3.1,UNSAT," + time);
+    }
+}
+
+
+@Test
+def void loadModel233() {
+    val result = parseHelper.parse('''
+    solver sat4j-jar
+    benchmarkDIMACS "samplingfm/Benchmarks/sort.sk_8_52.cnf"
+    ''')
+    Assertions.assertNotNull(result)
+    val errors = result.eResource.errors
+    Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
+    var benchmark = result.benchmark as BenchmarkDimacs
+    var file = benchmark.dimacses.get(0);
+    var start = System.currentTimeMillis();
+    var res = Solver.JarSolving(file)
+    var end = System.currentTimeMillis();
+    var time = end - start;
+    if (res){
+	System.out.println(file + ",sat4j-jar,2.3.1,SAT," + time);
+    }else{
+        System.out.println(file + ",sat4j-jar,2.3.1,UNSAT," + time);
+    }
+}
+
+
+@Test
+def void loadModel234() {
+    val result = parseHelper.parse('''
+    solver cryptominisat
+    benchmarkDIMACS "samplingfm/Benchmarks/sort.sk_8_52.cnf"
+    ''')
+    Assertions.assertNotNull(result)
+    val errors = result.eResource.errors
+    Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
+    var benchmark = result.benchmark as BenchmarkDimacs
+    var file = benchmark.dimacses.get(0);
+    var start = System.currentTimeMillis();
+    var res = Solver.CryptoMinisat5_6_8(file)
+    var end = System.currentTimeMillis();
+    var time = end - start;
+    if (res){
+	System.out.println(file + ",cryptominisat,5.6.8,SAT," + time);
+    }else{
+        System.out.println(file + ",cryptominisat,5.6.8,UNSAT," + time);
+    }
+}
+
+
+@Test
+def void loadModel235() {
+    val result = parseHelper.parse('''
+    solver cryptominisat
+    benchmarkDIMACS "samplingfm/Benchmarks/sort.sk_8_52.cnf"
+    ''')
+    Assertions.assertNotNull(result)
+    val errors = result.eResource.errors
+    Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
+    var benchmark = result.benchmark as BenchmarkDimacs
+    var file = benchmark.dimacses.get(0);
+    var start = System.currentTimeMillis();
+    var res = Solver.CryptoMinisat5_6_7(file)
+    var end = System.currentTimeMillis();
+    var time = end - start;
+    if (res){
+	System.out.println(file + ",cryptominisat,5.6.7,SAT," + time);
+    }else{
+        System.out.println(file + ",cryptominisat,5.6.7,UNSAT," + time);
+    }
+}
+
+
+@Test
+def void loadModel236() {
+    val result = parseHelper.parse('''
+    solver sat4j-java
+    benchmarkDIMACS "samplingfm/Benchmarks/20.sk_1_51.cnf"
+    ''')
+    Assertions.assertNotNull(result)
+    val errors = result.eResource.errors
+    Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
+    var benchmark = result.benchmark as BenchmarkDimacs
+    var file = benchmark.dimacses.get(0);
+    var start = System.currentTimeMillis();
+    var res = Solver.Sat4JLibrarySolver(file)
+    var end = System.currentTimeMillis();
+    var time = end - start;
+    if (res){
+	System.out.println(file + ",sat4j-java,2.3.1,SAT," + time);
+    }else{
+        System.out.println(file + ",sat4j-java,2.3.1,UNSAT," + time);
+    }
+}
+
+
+@Test
+def void loadModel237() {
+    val result = parseHelper.parse('''
+    solver sat4j-maven
+    benchmarkDIMACS "samplingfm/Benchmarks/20.sk_1_51.cnf"
+    ''')
+    Assertions.assertNotNull(result)
+    val errors = result.eResource.errors
+    Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
+    var benchmark = result.benchmark as BenchmarkDimacs
+    var file = benchmark.dimacses.get(0);
+    var start = System.currentTimeMillis();
+    var res = Solver.MavenSolving(file)
+    var end = System.currentTimeMillis();
+    var time = end - start;
+    if (res){
+	System.out.println(file + ",sat4j-maven,2.3.1,SAT," + time);
+    }else{
+        System.out.println(file + ",sat4j-maven,2.3.1,UNSAT," + time);
+    }
+}
+
+
+@Test
+def void loadModel238() {
+    val result = parseHelper.parse('''
+    solver sat4j-jar
+    benchmarkDIMACS "samplingfm/Benchmarks/20.sk_1_51.cnf"
+    ''')
+    Assertions.assertNotNull(result)
+    val errors = result.eResource.errors
+    Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
+    var benchmark = result.benchmark as BenchmarkDimacs
+    var file = benchmark.dimacses.get(0);
+    var start = System.currentTimeMillis();
+    var res = Solver.JarSolving(file)
+    var end = System.currentTimeMillis();
+    var time = end - start;
+    if (res){
+	System.out.println(file + ",sat4j-jar,2.3.1,SAT," + time);
+    }else{
+        System.out.println(file + ",sat4j-jar,2.3.1,UNSAT," + time);
+    }
+}
+
+
+@Test
+def void loadModel239() {
+    val result = parseHelper.parse('''
+    solver cryptominisat
+    benchmarkDIMACS "samplingfm/Benchmarks/20.sk_1_51.cnf"
+    ''')
+    Assertions.assertNotNull(result)
+    val errors = result.eResource.errors
+    Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
+    var benchmark = result.benchmark as BenchmarkDimacs
+    var file = benchmark.dimacses.get(0);
+    var start = System.currentTimeMillis();
+    var res = Solver.CryptoMinisat5_6_8(file)
+    var end = System.currentTimeMillis();
+    var time = end - start;
+    if (res){
+	System.out.println(file + ",cryptominisat,5.6.8,SAT," + time);
+    }else{
+        System.out.println(file + ",cryptominisat,5.6.8,UNSAT," + time);
+    }
+}
+
+
+@Test
+def void loadModel240() {
+    val result = parseHelper.parse('''
+    solver cryptominisat
+    benchmarkDIMACS "samplingfm/Benchmarks/20.sk_1_51.cnf"
+    ''')
+    Assertions.assertNotNull(result)
+    val errors = result.eResource.errors
+    Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
+    var benchmark = result.benchmark as BenchmarkDimacs
+    var file = benchmark.dimacses.get(0);
+    var start = System.currentTimeMillis();
+    var res = Solver.CryptoMinisat5_6_7(file)
+    var end = System.currentTimeMillis();
+    var time = end - start;
+    if (res){
+	System.out.println(file + ",cryptominisat,5.6.7,SAT," + time);
+    }else{
+        System.out.println(file + ",cryptominisat,5.6.7,UNSAT," + time);
+    }
+}
+
+
+@Test
+def void loadModel241() {
+    val result = parseHelper.parse('''
+    solver sat4j-java
+    benchmarkDIMACS "samplingfm/Benchmarks/enqueueSeqSK.sk_10_42.cnf"
+    ''')
+    Assertions.assertNotNull(result)
+    val errors = result.eResource.errors
+    Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
+    var benchmark = result.benchmark as BenchmarkDimacs
+    var file = benchmark.dimacses.get(0);
+    var start = System.currentTimeMillis();
+    var res = Solver.Sat4JLibrarySolver(file)
+    var end = System.currentTimeMillis();
+    var time = end - start;
+    if (res){
+	System.out.println(file + ",sat4j-java,2.3.1,SAT," + time);
+    }else{
+        System.out.println(file + ",sat4j-java,2.3.1,UNSAT," + time);
+    }
+}
+
+
+@Test
+def void loadModel242() {
+    val result = parseHelper.parse('''
+    solver sat4j-maven
+    benchmarkDIMACS "samplingfm/Benchmarks/enqueueSeqSK.sk_10_42.cnf"
+    ''')
+    Assertions.assertNotNull(result)
+    val errors = result.eResource.errors
+    Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
+    var benchmark = result.benchmark as BenchmarkDimacs
+    var file = benchmark.dimacses.get(0);
+    var start = System.currentTimeMillis();
+    var res = Solver.MavenSolving(file)
+    var end = System.currentTimeMillis();
+    var time = end - start;
+    if (res){
+	System.out.println(file + ",sat4j-maven,2.3.1,SAT," + time);
+    }else{
+        System.out.println(file + ",sat4j-maven,2.3.1,UNSAT," + time);
+    }
+}
+
+
+@Test
+def void loadModel243() {
+    val result = parseHelper.parse('''
+    solver sat4j-jar
+    benchmarkDIMACS "samplingfm/Benchmarks/enqueueSeqSK.sk_10_42.cnf"
+    ''')
+    Assertions.assertNotNull(result)
+    val errors = result.eResource.errors
+    Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
+    var benchmark = result.benchmark as BenchmarkDimacs
+    var file = benchmark.dimacses.get(0);
+    var start = System.currentTimeMillis();
+    var res = Solver.JarSolving(file)
+    var end = System.currentTimeMillis();
+    var time = end - start;
+    if (res){
+	System.out.println(file + ",sat4j-jar,2.3.1,SAT," + time);
+    }else{
+        System.out.println(file + ",sat4j-jar,2.3.1,UNSAT," + time);
+    }
+}
+
+
+@Test
+def void loadModel244() {
+    val result = parseHelper.parse('''
+    solver cryptominisat
+    benchmarkDIMACS "samplingfm/Benchmarks/enqueueSeqSK.sk_10_42.cnf"
+    ''')
+    Assertions.assertNotNull(result)
+    val errors = result.eResource.errors
+    Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
+    var benchmark = result.benchmark as BenchmarkDimacs
+    var file = benchmark.dimacses.get(0);
+    var start = System.currentTimeMillis();
+    var res = Solver.CryptoMinisat5_6_8(file)
+    var end = System.currentTimeMillis();
+    var time = end - start;
+    if (res){
+	System.out.println(file + ",cryptominisat,5.6.8,SAT," + time);
+    }else{
+        System.out.println(file + ",cryptominisat,5.6.8,UNSAT," + time);
+    }
+}
+
+
+@Test
+def void loadModel245() {
+    val result = parseHelper.parse('''
+    solver cryptominisat
+    benchmarkDIMACS "samplingfm/Benchmarks/enqueueSeqSK.sk_10_42.cnf"
+    ''')
+    Assertions.assertNotNull(result)
+    val errors = result.eResource.errors
+    Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
+    var benchmark = result.benchmark as BenchmarkDimacs
+    var file = benchmark.dimacses.get(0);
+    var start = System.currentTimeMillis();
+    var res = Solver.CryptoMinisat5_6_7(file)
+    var end = System.currentTimeMillis();
+    var time = end - start;
+    if (res){
+	System.out.println(file + ",cryptominisat,5.6.7,SAT," + time);
+    }else{
+        System.out.println(file + ",cryptominisat,5.6.7,UNSAT," + time);
+    }
+}
+
+
+@Test
+def void loadModel246() {
+    val result = parseHelper.parse('''
+    solver sat4j-java
+    benchmarkDIMACS "samplingfm/Benchmarks/110.sk_3_88.cnf"
+    ''')
+    Assertions.assertNotNull(result)
+    val errors = result.eResource.errors
+    Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
+    var benchmark = result.benchmark as BenchmarkDimacs
+    var file = benchmark.dimacses.get(0);
+    var start = System.currentTimeMillis();
+    var res = Solver.Sat4JLibrarySolver(file)
+    var end = System.currentTimeMillis();
+    var time = end - start;
+    if (res){
+	System.out.println(file + ",sat4j-java,2.3.1,SAT," + time);
+    }else{
+        System.out.println(file + ",sat4j-java,2.3.1,UNSAT," + time);
+    }
+}
+
+
+@Test
+def void loadModel247() {
+    val result = parseHelper.parse('''
+    solver sat4j-maven
+    benchmarkDIMACS "samplingfm/Benchmarks/110.sk_3_88.cnf"
+    ''')
+    Assertions.assertNotNull(result)
+    val errors = result.eResource.errors
+    Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
+    var benchmark = result.benchmark as BenchmarkDimacs
+    var file = benchmark.dimacses.get(0);
+    var start = System.currentTimeMillis();
+    var res = Solver.MavenSolving(file)
+    var end = System.currentTimeMillis();
+    var time = end - start;
+    if (res){
+	System.out.println(file + ",sat4j-maven,2.3.1,SAT," + time);
+    }else{
+        System.out.println(file + ",sat4j-maven,2.3.1,UNSAT," + time);
+    }
+}
+
+
+@Test
+def void loadModel248() {
+    val result = parseHelper.parse('''
+    solver sat4j-jar
+    benchmarkDIMACS "samplingfm/Benchmarks/110.sk_3_88.cnf"
+    ''')
+    Assertions.assertNotNull(result)
+    val errors = result.eResource.errors
+    Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
+    var benchmark = result.benchmark as BenchmarkDimacs
+    var file = benchmark.dimacses.get(0);
+    var start = System.currentTimeMillis();
+    var res = Solver.JarSolving(file)
+    var end = System.currentTimeMillis();
+    var time = end - start;
+    if (res){
+	System.out.println(file + ",sat4j-jar,2.3.1,SAT," + time);
+    }else{
+        System.out.println(file + ",sat4j-jar,2.3.1,UNSAT," + time);
+    }
+}
+
+
+@Test
+def void loadModel249() {
+    val result = parseHelper.parse('''
+    solver cryptominisat
+    benchmarkDIMACS "samplingfm/Benchmarks/110.sk_3_88.cnf"
+    ''')
+    Assertions.assertNotNull(result)
+    val errors = result.eResource.errors
+    Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
+    var benchmark = result.benchmark as BenchmarkDimacs
+    var file = benchmark.dimacses.get(0);
+    var start = System.currentTimeMillis();
+    var res = Solver.CryptoMinisat5_6_8(file)
+    var end = System.currentTimeMillis();
+    var time = end - start;
+    if (res){
+	System.out.println(file + ",cryptominisat,5.6.8,SAT," + time);
+    }else{
+        System.out.println(file + ",cryptominisat,5.6.8,UNSAT," + time);
+    }
+}
+
+
+@Test
+def void loadModel250() {
+    val result = parseHelper.parse('''
+    solver cryptominisat
     benchmarkDIMACS "samplingfm/Benchmarks/110.sk_3_88.cnf"
     ''')
     Assertions.assertNotNull(result)
@@ -5203,608 +5778,10 @@ def void loadModel224() {
 
 
 @Test
-def void loadModel225() {
-    val result = parseHelper.parse('''
-    solver sat4j-java
-    benchmarkDIMACS "samplingfm/Benchmarks/polynomial.sk_7_25.cnf"
-    ''')
-    Assertions.assertNotNull(result)
-    val errors = result.eResource.errors
-    Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
-    var benchmark = result.benchmark as BenchmarkDimacs
-    var file = benchmark.dimacses.get(0);
-    var start = System.currentTimeMillis();
-    var res = Solver.Sat4JLibrarySolver(file)
-    var end = System.currentTimeMillis();
-    var time = end - start;
-    if (res){
-	System.out.println(file + ",sat4j-java,2.3.1,SAT," + time);
-    }else{
-        System.out.println(file + ",sat4j-java,2.3.1,UNSAT," + time);
-    }
-}
-
-
-@Test
-def void loadModel226() {
-    val result = parseHelper.parse('''
-    solver sat4j-maven
-    benchmarkDIMACS "samplingfm/Benchmarks/polynomial.sk_7_25.cnf"
-    ''')
-    Assertions.assertNotNull(result)
-    val errors = result.eResource.errors
-    Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
-    var benchmark = result.benchmark as BenchmarkDimacs
-    var file = benchmark.dimacses.get(0);
-    var start = System.currentTimeMillis();
-    var res = Solver.MavenSolving(file)
-    var end = System.currentTimeMillis();
-    var time = end - start;
-    if (res){
-	System.out.println(file + ",sat4j-maven,2.3.1,SAT," + time);
-    }else{
-        System.out.println(file + ",sat4j-maven,2.3.1,UNSAT," + time);
-    }
-}
-
-
-@Test
-def void loadModel227() {
-    val result = parseHelper.parse('''
-    solver sat4j-jar
-    benchmarkDIMACS "samplingfm/Benchmarks/polynomial.sk_7_25.cnf"
-    ''')
-    Assertions.assertNotNull(result)
-    val errors = result.eResource.errors
-    Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
-    var benchmark = result.benchmark as BenchmarkDimacs
-    var file = benchmark.dimacses.get(0);
-    var start = System.currentTimeMillis();
-    var res = Solver.JarSolving(file)
-    var end = System.currentTimeMillis();
-    var time = end - start;
-    if (res){
-	System.out.println(file + ",sat4j-jar,2.3.1,SAT," + time);
-    }else{
-        System.out.println(file + ",sat4j-jar,2.3.1,UNSAT," + time);
-    }
-}
-
-
-@Test
-def void loadModel228() {
-    val result = parseHelper.parse('''
-    solver cryptominisat
-    benchmarkDIMACS "samplingfm/Benchmarks/polynomial.sk_7_25.cnf"
-    ''')
-    Assertions.assertNotNull(result)
-    val errors = result.eResource.errors
-    Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
-    var benchmark = result.benchmark as BenchmarkDimacs
-    var file = benchmark.dimacses.get(0);
-    var start = System.currentTimeMillis();
-    var res = Solver.CryptoMinisat5_6_8(file)
-    var end = System.currentTimeMillis();
-    var time = end - start;
-    if (res){
-	System.out.println(file + ",cryptominisat,5.6.8,SAT," + time);
-    }else{
-        System.out.println(file + ",cryptominisat,5.6.8,UNSAT," + time);
-    }
-}
-
-
-@Test
-def void loadModel229() {
-    val result = parseHelper.parse('''
-    solver cryptominisat
-    benchmarkDIMACS "samplingfm/Benchmarks/polynomial.sk_7_25.cnf"
-    ''')
-    Assertions.assertNotNull(result)
-    val errors = result.eResource.errors
-    Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
-    var benchmark = result.benchmark as BenchmarkDimacs
-    var file = benchmark.dimacses.get(0);
-    var start = System.currentTimeMillis();
-    var res = Solver.CryptoMinisat5_6_7(file)
-    var end = System.currentTimeMillis();
-    var time = end - start;
-    if (res){
-	System.out.println(file + ",cryptominisat,5.6.7,SAT," + time);
-    }else{
-        System.out.println(file + ",cryptominisat,5.6.7,UNSAT," + time);
-    }
-}
-
-
-@Test
-def void loadModel230() {
-    val result = parseHelper.parse('''
-    solver sat4j-java
-    benchmarkDIMACS "samplingfm/Benchmarks/partition.sk_22_155.cnf"
-    ''')
-    Assertions.assertNotNull(result)
-    val errors = result.eResource.errors
-    Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
-    var benchmark = result.benchmark as BenchmarkDimacs
-    var file = benchmark.dimacses.get(0);
-    var start = System.currentTimeMillis();
-    var res = Solver.Sat4JLibrarySolver(file)
-    var end = System.currentTimeMillis();
-    var time = end - start;
-    if (res){
-	System.out.println(file + ",sat4j-java,2.3.1,SAT," + time);
-    }else{
-        System.out.println(file + ",sat4j-java,2.3.1,UNSAT," + time);
-    }
-}
-
-
-@Test
-def void loadModel231() {
-    val result = parseHelper.parse('''
-    solver sat4j-maven
-    benchmarkDIMACS "samplingfm/Benchmarks/partition.sk_22_155.cnf"
-    ''')
-    Assertions.assertNotNull(result)
-    val errors = result.eResource.errors
-    Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
-    var benchmark = result.benchmark as BenchmarkDimacs
-    var file = benchmark.dimacses.get(0);
-    var start = System.currentTimeMillis();
-    var res = Solver.MavenSolving(file)
-    var end = System.currentTimeMillis();
-    var time = end - start;
-    if (res){
-	System.out.println(file + ",sat4j-maven,2.3.1,SAT," + time);
-    }else{
-        System.out.println(file + ",sat4j-maven,2.3.1,UNSAT," + time);
-    }
-}
-
-
-@Test
-def void loadModel232() {
-    val result = parseHelper.parse('''
-    solver sat4j-jar
-    benchmarkDIMACS "samplingfm/Benchmarks/partition.sk_22_155.cnf"
-    ''')
-    Assertions.assertNotNull(result)
-    val errors = result.eResource.errors
-    Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
-    var benchmark = result.benchmark as BenchmarkDimacs
-    var file = benchmark.dimacses.get(0);
-    var start = System.currentTimeMillis();
-    var res = Solver.JarSolving(file)
-    var end = System.currentTimeMillis();
-    var time = end - start;
-    if (res){
-	System.out.println(file + ",sat4j-jar,2.3.1,SAT," + time);
-    }else{
-        System.out.println(file + ",sat4j-jar,2.3.1,UNSAT," + time);
-    }
-}
-
-
-@Test
-def void loadModel233() {
-    val result = parseHelper.parse('''
-    solver cryptominisat
-    benchmarkDIMACS "samplingfm/Benchmarks/partition.sk_22_155.cnf"
-    ''')
-    Assertions.assertNotNull(result)
-    val errors = result.eResource.errors
-    Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
-    var benchmark = result.benchmark as BenchmarkDimacs
-    var file = benchmark.dimacses.get(0);
-    var start = System.currentTimeMillis();
-    var res = Solver.CryptoMinisat5_6_8(file)
-    var end = System.currentTimeMillis();
-    var time = end - start;
-    if (res){
-	System.out.println(file + ",cryptominisat,5.6.8,SAT," + time);
-    }else{
-        System.out.println(file + ",cryptominisat,5.6.8,UNSAT," + time);
-    }
-}
-
-
-@Test
-def void loadModel234() {
-    val result = parseHelper.parse('''
-    solver cryptominisat
-    benchmarkDIMACS "samplingfm/Benchmarks/partition.sk_22_155.cnf"
-    ''')
-    Assertions.assertNotNull(result)
-    val errors = result.eResource.errors
-    Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
-    var benchmark = result.benchmark as BenchmarkDimacs
-    var file = benchmark.dimacses.get(0);
-    var start = System.currentTimeMillis();
-    var res = Solver.CryptoMinisat5_6_7(file)
-    var end = System.currentTimeMillis();
-    var time = end - start;
-    if (res){
-	System.out.println(file + ",cryptominisat,5.6.7,SAT," + time);
-    }else{
-        System.out.println(file + ",cryptominisat,5.6.7,UNSAT," + time);
-    }
-}
-
-
-@Test
-def void loadModel235() {
-    val result = parseHelper.parse('''
-    solver sat4j-java
-    benchmarkDIMACS "samplingfm/Benchmarks/logcount.sk_16_86.cnf"
-    ''')
-    Assertions.assertNotNull(result)
-    val errors = result.eResource.errors
-    Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
-    var benchmark = result.benchmark as BenchmarkDimacs
-    var file = benchmark.dimacses.get(0);
-    var start = System.currentTimeMillis();
-    var res = Solver.Sat4JLibrarySolver(file)
-    var end = System.currentTimeMillis();
-    var time = end - start;
-    if (res){
-	System.out.println(file + ",sat4j-java,2.3.1,SAT," + time);
-    }else{
-        System.out.println(file + ",sat4j-java,2.3.1,UNSAT," + time);
-    }
-}
-
-
-@Test
-def void loadModel236() {
-    val result = parseHelper.parse('''
-    solver sat4j-maven
-    benchmarkDIMACS "samplingfm/Benchmarks/logcount.sk_16_86.cnf"
-    ''')
-    Assertions.assertNotNull(result)
-    val errors = result.eResource.errors
-    Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
-    var benchmark = result.benchmark as BenchmarkDimacs
-    var file = benchmark.dimacses.get(0);
-    var start = System.currentTimeMillis();
-    var res = Solver.MavenSolving(file)
-    var end = System.currentTimeMillis();
-    var time = end - start;
-    if (res){
-	System.out.println(file + ",sat4j-maven,2.3.1,SAT," + time);
-    }else{
-        System.out.println(file + ",sat4j-maven,2.3.1,UNSAT," + time);
-    }
-}
-
-
-@Test
-def void loadModel237() {
-    val result = parseHelper.parse('''
-    solver sat4j-jar
-    benchmarkDIMACS "samplingfm/Benchmarks/logcount.sk_16_86.cnf"
-    ''')
-    Assertions.assertNotNull(result)
-    val errors = result.eResource.errors
-    Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
-    var benchmark = result.benchmark as BenchmarkDimacs
-    var file = benchmark.dimacses.get(0);
-    var start = System.currentTimeMillis();
-    var res = Solver.JarSolving(file)
-    var end = System.currentTimeMillis();
-    var time = end - start;
-    if (res){
-	System.out.println(file + ",sat4j-jar,2.3.1,SAT," + time);
-    }else{
-        System.out.println(file + ",sat4j-jar,2.3.1,UNSAT," + time);
-    }
-}
-
-
-@Test
-def void loadModel238() {
-    val result = parseHelper.parse('''
-    solver cryptominisat
-    benchmarkDIMACS "samplingfm/Benchmarks/logcount.sk_16_86.cnf"
-    ''')
-    Assertions.assertNotNull(result)
-    val errors = result.eResource.errors
-    Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
-    var benchmark = result.benchmark as BenchmarkDimacs
-    var file = benchmark.dimacses.get(0);
-    var start = System.currentTimeMillis();
-    var res = Solver.CryptoMinisat5_6_8(file)
-    var end = System.currentTimeMillis();
-    var time = end - start;
-    if (res){
-	System.out.println(file + ",cryptominisat,5.6.8,SAT," + time);
-    }else{
-        System.out.println(file + ",cryptominisat,5.6.8,UNSAT," + time);
-    }
-}
-
-
-@Test
-def void loadModel239() {
-    val result = parseHelper.parse('''
-    solver cryptominisat
-    benchmarkDIMACS "samplingfm/Benchmarks/logcount.sk_16_86.cnf"
-    ''')
-    Assertions.assertNotNull(result)
-    val errors = result.eResource.errors
-    Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
-    var benchmark = result.benchmark as BenchmarkDimacs
-    var file = benchmark.dimacses.get(0);
-    var start = System.currentTimeMillis();
-    var res = Solver.CryptoMinisat5_6_7(file)
-    var end = System.currentTimeMillis();
-    var time = end - start;
-    if (res){
-	System.out.println(file + ",cryptominisat,5.6.7,SAT," + time);
-    }else{
-        System.out.println(file + ",cryptominisat,5.6.7,UNSAT," + time);
-    }
-}
-
-
-@Test
-def void loadModel240() {
-    val result = parseHelper.parse('''
-    solver sat4j-java
-    benchmarkDIMACS "samplingfm/Benchmarks/sort.sk_8_52.cnf"
-    ''')
-    Assertions.assertNotNull(result)
-    val errors = result.eResource.errors
-    Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
-    var benchmark = result.benchmark as BenchmarkDimacs
-    var file = benchmark.dimacses.get(0);
-    var start = System.currentTimeMillis();
-    var res = Solver.Sat4JLibrarySolver(file)
-    var end = System.currentTimeMillis();
-    var time = end - start;
-    if (res){
-	System.out.println(file + ",sat4j-java,2.3.1,SAT," + time);
-    }else{
-        System.out.println(file + ",sat4j-java,2.3.1,UNSAT," + time);
-    }
-}
-
-
-@Test
-def void loadModel241() {
-    val result = parseHelper.parse('''
-    solver sat4j-maven
-    benchmarkDIMACS "samplingfm/Benchmarks/sort.sk_8_52.cnf"
-    ''')
-    Assertions.assertNotNull(result)
-    val errors = result.eResource.errors
-    Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
-    var benchmark = result.benchmark as BenchmarkDimacs
-    var file = benchmark.dimacses.get(0);
-    var start = System.currentTimeMillis();
-    var res = Solver.MavenSolving(file)
-    var end = System.currentTimeMillis();
-    var time = end - start;
-    if (res){
-	System.out.println(file + ",sat4j-maven,2.3.1,SAT," + time);
-    }else{
-        System.out.println(file + ",sat4j-maven,2.3.1,UNSAT," + time);
-    }
-}
-
-
-@Test
-def void loadModel242() {
-    val result = parseHelper.parse('''
-    solver sat4j-jar
-    benchmarkDIMACS "samplingfm/Benchmarks/sort.sk_8_52.cnf"
-    ''')
-    Assertions.assertNotNull(result)
-    val errors = result.eResource.errors
-    Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
-    var benchmark = result.benchmark as BenchmarkDimacs
-    var file = benchmark.dimacses.get(0);
-    var start = System.currentTimeMillis();
-    var res = Solver.JarSolving(file)
-    var end = System.currentTimeMillis();
-    var time = end - start;
-    if (res){
-	System.out.println(file + ",sat4j-jar,2.3.1,SAT," + time);
-    }else{
-        System.out.println(file + ",sat4j-jar,2.3.1,UNSAT," + time);
-    }
-}
-
-
-@Test
-def void loadModel243() {
-    val result = parseHelper.parse('''
-    solver cryptominisat
-    benchmarkDIMACS "samplingfm/Benchmarks/sort.sk_8_52.cnf"
-    ''')
-    Assertions.assertNotNull(result)
-    val errors = result.eResource.errors
-    Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
-    var benchmark = result.benchmark as BenchmarkDimacs
-    var file = benchmark.dimacses.get(0);
-    var start = System.currentTimeMillis();
-    var res = Solver.CryptoMinisat5_6_8(file)
-    var end = System.currentTimeMillis();
-    var time = end - start;
-    if (res){
-	System.out.println(file + ",cryptominisat,5.6.8,SAT," + time);
-    }else{
-        System.out.println(file + ",cryptominisat,5.6.8,UNSAT," + time);
-    }
-}
-
-
-@Test
-def void loadModel244() {
-    val result = parseHelper.parse('''
-    solver cryptominisat
-    benchmarkDIMACS "samplingfm/Benchmarks/sort.sk_8_52.cnf"
-    ''')
-    Assertions.assertNotNull(result)
-    val errors = result.eResource.errors
-    Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
-    var benchmark = result.benchmark as BenchmarkDimacs
-    var file = benchmark.dimacses.get(0);
-    var start = System.currentTimeMillis();
-    var res = Solver.CryptoMinisat5_6_7(file)
-    var end = System.currentTimeMillis();
-    var time = end - start;
-    if (res){
-	System.out.println(file + ",cryptominisat,5.6.7,SAT," + time);
-    }else{
-        System.out.println(file + ",cryptominisat,5.6.7,UNSAT," + time);
-    }
-}
-
-
-@Test
-def void loadModel245() {
-    val result = parseHelper.parse('''
-    solver sat4j-java
-    benchmarkDIMACS "samplingfm/Benchmarks/53.sk_4_32.cnf"
-    ''')
-    Assertions.assertNotNull(result)
-    val errors = result.eResource.errors
-    Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
-    var benchmark = result.benchmark as BenchmarkDimacs
-    var file = benchmark.dimacses.get(0);
-    var start = System.currentTimeMillis();
-    var res = Solver.Sat4JLibrarySolver(file)
-    var end = System.currentTimeMillis();
-    var time = end - start;
-    if (res){
-	System.out.println(file + ",sat4j-java,2.3.1,SAT," + time);
-    }else{
-        System.out.println(file + ",sat4j-java,2.3.1,UNSAT," + time);
-    }
-}
-
-
-@Test
-def void loadModel246() {
-    val result = parseHelper.parse('''
-    solver sat4j-maven
-    benchmarkDIMACS "samplingfm/Benchmarks/53.sk_4_32.cnf"
-    ''')
-    Assertions.assertNotNull(result)
-    val errors = result.eResource.errors
-    Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
-    var benchmark = result.benchmark as BenchmarkDimacs
-    var file = benchmark.dimacses.get(0);
-    var start = System.currentTimeMillis();
-    var res = Solver.MavenSolving(file)
-    var end = System.currentTimeMillis();
-    var time = end - start;
-    if (res){
-	System.out.println(file + ",sat4j-maven,2.3.1,SAT," + time);
-    }else{
-        System.out.println(file + ",sat4j-maven,2.3.1,UNSAT," + time);
-    }
-}
-
-
-@Test
-def void loadModel247() {
-    val result = parseHelper.parse('''
-    solver sat4j-jar
-    benchmarkDIMACS "samplingfm/Benchmarks/53.sk_4_32.cnf"
-    ''')
-    Assertions.assertNotNull(result)
-    val errors = result.eResource.errors
-    Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
-    var benchmark = result.benchmark as BenchmarkDimacs
-    var file = benchmark.dimacses.get(0);
-    var start = System.currentTimeMillis();
-    var res = Solver.JarSolving(file)
-    var end = System.currentTimeMillis();
-    var time = end - start;
-    if (res){
-	System.out.println(file + ",sat4j-jar,2.3.1,SAT," + time);
-    }else{
-        System.out.println(file + ",sat4j-jar,2.3.1,UNSAT," + time);
-    }
-}
-
-
-@Test
-def void loadModel248() {
-    val result = parseHelper.parse('''
-    solver cryptominisat
-    benchmarkDIMACS "samplingfm/Benchmarks/53.sk_4_32.cnf"
-    ''')
-    Assertions.assertNotNull(result)
-    val errors = result.eResource.errors
-    Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
-    var benchmark = result.benchmark as BenchmarkDimacs
-    var file = benchmark.dimacses.get(0);
-    var start = System.currentTimeMillis();
-    var res = Solver.CryptoMinisat5_6_8(file)
-    var end = System.currentTimeMillis();
-    var time = end - start;
-    if (res){
-	System.out.println(file + ",cryptominisat,5.6.8,SAT," + time);
-    }else{
-        System.out.println(file + ",cryptominisat,5.6.8,UNSAT," + time);
-    }
-}
-
-
-@Test
-def void loadModel249() {
-    val result = parseHelper.parse('''
-    solver cryptominisat
-    benchmarkDIMACS "samplingfm/Benchmarks/53.sk_4_32.cnf"
-    ''')
-    Assertions.assertNotNull(result)
-    val errors = result.eResource.errors
-    Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
-    var benchmark = result.benchmark as BenchmarkDimacs
-    var file = benchmark.dimacses.get(0);
-    var start = System.currentTimeMillis();
-    var res = Solver.CryptoMinisat5_6_7(file)
-    var end = System.currentTimeMillis();
-    var time = end - start;
-    if (res){
-	System.out.println(file + ",cryptominisat,5.6.7,SAT," + time);
-    }else{
-        System.out.println(file + ",cryptominisat,5.6.7,UNSAT," + time);
-    }
-}
-
-
-@Test
-def void loadModel250() {
-    val result = parseHelper.parse('''
-    solver sat4j-java
-    benchmarkDIMACS "samplingfm/Benchmarks/IssueServiceImpl.sk_8_30.cnf"
-    ''')
-    Assertions.assertNotNull(result)
-    val errors = result.eResource.errors
-    Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
-    var benchmark = result.benchmark as BenchmarkDimacs
-    var file = benchmark.dimacses.get(0);
-    var start = System.currentTimeMillis();
-    var res = Solver.Sat4JLibrarySolver(file)
-    var end = System.currentTimeMillis();
-    var time = end - start;
-    if (res){
-	System.out.println(file + ",sat4j-java,2.3.1,SAT," + time);
-    }else{
-        System.out.println(file + ",sat4j-java,2.3.1,UNSAT," + time);
-    }
-}
-
-
-@Test
 def void loadModel251() {
     val result = parseHelper.parse('''
-    solver sat4j-maven
-    benchmarkDIMACS "samplingfm/Benchmarks/IssueServiceImpl.sk_8_30.cnf"
+    solver sat4j-java
+    benchmarkDIMACS "samplingfm/Benchmarks/84.sk_4_77.cnf"
     ''')
     Assertions.assertNotNull(result)
     val errors = result.eResource.errors
@@ -5812,13 +5789,13 @@ def void loadModel251() {
     var benchmark = result.benchmark as BenchmarkDimacs
     var file = benchmark.dimacses.get(0);
     var start = System.currentTimeMillis();
-    var res = Solver.MavenSolving(file)
+    var res = Solver.Sat4JLibrarySolver(file)
     var end = System.currentTimeMillis();
     var time = end - start;
     if (res){
-	System.out.println(file + ",sat4j-maven,2.3.1,SAT," + time);
+	System.out.println(file + ",sat4j-java,2.3.1,SAT," + time);
     }else{
-        System.out.println(file + ",sat4j-maven,2.3.1,UNSAT," + time);
+        System.out.println(file + ",sat4j-java,2.3.1,UNSAT," + time);
     }
 }
 
@@ -5826,8 +5803,31 @@ def void loadModel251() {
 @Test
 def void loadModel252() {
     val result = parseHelper.parse('''
+    solver sat4j-maven
+    benchmarkDIMACS "samplingfm/Benchmarks/84.sk_4_77.cnf"
+    ''')
+    Assertions.assertNotNull(result)
+    val errors = result.eResource.errors
+    Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
+    var benchmark = result.benchmark as BenchmarkDimacs
+    var file = benchmark.dimacses.get(0);
+    var start = System.currentTimeMillis();
+    var res = Solver.MavenSolving(file)
+    var end = System.currentTimeMillis();
+    var time = end - start;
+    if (res){
+	System.out.println(file + ",sat4j-maven,2.3.1,SAT," + time);
+    }else{
+        System.out.println(file + ",sat4j-maven,2.3.1,UNSAT," + time);
+    }
+}
+
+
+@Test
+def void loadModel253() {
+    val result = parseHelper.parse('''
     solver sat4j-jar
-    benchmarkDIMACS "samplingfm/Benchmarks/IssueServiceImpl.sk_8_30.cnf"
+    benchmarkDIMACS "samplingfm/Benchmarks/84.sk_4_77.cnf"
     ''')
     Assertions.assertNotNull(result)
     val errors = result.eResource.errors
@@ -5842,29 +5842,6 @@ def void loadModel252() {
 	System.out.println(file + ",sat4j-jar,2.3.1,SAT," + time);
     }else{
         System.out.println(file + ",sat4j-jar,2.3.1,UNSAT," + time);
-    }
-}
-
-
-@Test
-def void loadModel253() {
-    val result = parseHelper.parse('''
-    solver cryptominisat
-    benchmarkDIMACS "samplingfm/Benchmarks/IssueServiceImpl.sk_8_30.cnf"
-    ''')
-    Assertions.assertNotNull(result)
-    val errors = result.eResource.errors
-    Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
-    var benchmark = result.benchmark as BenchmarkDimacs
-    var file = benchmark.dimacses.get(0);
-    var start = System.currentTimeMillis();
-    var res = Solver.CryptoMinisat5_6_8(file)
-    var end = System.currentTimeMillis();
-    var time = end - start;
-    if (res){
-	System.out.println(file + ",cryptominisat,5.6.8,SAT," + time);
-    }else{
-        System.out.println(file + ",cryptominisat,5.6.8,UNSAT," + time);
     }
 }
 
@@ -5873,7 +5850,30 @@ def void loadModel253() {
 def void loadModel254() {
     val result = parseHelper.parse('''
     solver cryptominisat
-    benchmarkDIMACS "samplingfm/Benchmarks/IssueServiceImpl.sk_8_30.cnf"
+    benchmarkDIMACS "samplingfm/Benchmarks/84.sk_4_77.cnf"
+    ''')
+    Assertions.assertNotNull(result)
+    val errors = result.eResource.errors
+    Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
+    var benchmark = result.benchmark as BenchmarkDimacs
+    var file = benchmark.dimacses.get(0);
+    var start = System.currentTimeMillis();
+    var res = Solver.CryptoMinisat5_6_8(file)
+    var end = System.currentTimeMillis();
+    var time = end - start;
+    if (res){
+	System.out.println(file + ",cryptominisat,5.6.8,SAT," + time);
+    }else{
+        System.out.println(file + ",cryptominisat,5.6.8,UNSAT," + time);
+    }
+}
+
+
+@Test
+def void loadModel255() {
+    val result = parseHelper.parse('''
+    solver cryptominisat
+    benchmarkDIMACS "samplingfm/Benchmarks/84.sk_4_77.cnf"
     ''')
     Assertions.assertNotNull(result)
     val errors = result.eResource.errors
@@ -5893,10 +5893,10 @@ def void loadModel254() {
 
 
 @Test
-def void loadModel255() {
+def void loadModel256() {
     val result = parseHelper.parse('''
     solver sat4j-java
-    benchmarkDIMACS "samplingfm/Benchmarks/PhaseService.sk_14_27.cnf"
+    benchmarkDIMACS "samplingfm/Benchmarks/logcount.sk_16_86.cnf"
     ''')
     Assertions.assertNotNull(result)
     val errors = result.eResource.errors
@@ -5916,10 +5916,10 @@ def void loadModel255() {
 
 
 @Test
-def void loadModel256() {
+def void loadModel257() {
     val result = parseHelper.parse('''
     solver sat4j-maven
-    benchmarkDIMACS "samplingfm/Benchmarks/PhaseService.sk_14_27.cnf"
+    benchmarkDIMACS "samplingfm/Benchmarks/logcount.sk_16_86.cnf"
     ''')
     Assertions.assertNotNull(result)
     val errors = result.eResource.errors
@@ -5939,10 +5939,10 @@ def void loadModel256() {
 
 
 @Test
-def void loadModel257() {
+def void loadModel258() {
     val result = parseHelper.parse('''
     solver sat4j-jar
-    benchmarkDIMACS "samplingfm/Benchmarks/PhaseService.sk_14_27.cnf"
+    benchmarkDIMACS "samplingfm/Benchmarks/logcount.sk_16_86.cnf"
     ''')
     Assertions.assertNotNull(result)
     val errors = result.eResource.errors
@@ -5957,29 +5957,6 @@ def void loadModel257() {
 	System.out.println(file + ",sat4j-jar,2.3.1,SAT," + time);
     }else{
         System.out.println(file + ",sat4j-jar,2.3.1,UNSAT," + time);
-    }
-}
-
-
-@Test
-def void loadModel258() {
-    val result = parseHelper.parse('''
-    solver cryptominisat
-    benchmarkDIMACS "samplingfm/Benchmarks/PhaseService.sk_14_27.cnf"
-    ''')
-    Assertions.assertNotNull(result)
-    val errors = result.eResource.errors
-    Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
-    var benchmark = result.benchmark as BenchmarkDimacs
-    var file = benchmark.dimacses.get(0);
-    var start = System.currentTimeMillis();
-    var res = Solver.CryptoMinisat5_6_8(file)
-    var end = System.currentTimeMillis();
-    var time = end - start;
-    if (res){
-	System.out.println(file + ",cryptominisat,5.6.8,SAT," + time);
-    }else{
-        System.out.println(file + ",cryptominisat,5.6.8,UNSAT," + time);
     }
 }
 
@@ -5988,7 +5965,30 @@ def void loadModel258() {
 def void loadModel259() {
     val result = parseHelper.parse('''
     solver cryptominisat
-    benchmarkDIMACS "samplingfm/Benchmarks/PhaseService.sk_14_27.cnf"
+    benchmarkDIMACS "samplingfm/Benchmarks/logcount.sk_16_86.cnf"
+    ''')
+    Assertions.assertNotNull(result)
+    val errors = result.eResource.errors
+    Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
+    var benchmark = result.benchmark as BenchmarkDimacs
+    var file = benchmark.dimacses.get(0);
+    var start = System.currentTimeMillis();
+    var res = Solver.CryptoMinisat5_6_8(file)
+    var end = System.currentTimeMillis();
+    var time = end - start;
+    if (res){
+	System.out.println(file + ",cryptominisat,5.6.8,SAT," + time);
+    }else{
+        System.out.println(file + ",cryptominisat,5.6.8,UNSAT," + time);
+    }
+}
+
+
+@Test
+def void loadModel260() {
+    val result = parseHelper.parse('''
+    solver cryptominisat
+    benchmarkDIMACS "samplingfm/Benchmarks/logcount.sk_16_86.cnf"
     ''')
     Assertions.assertNotNull(result)
     val errors = result.eResource.errors
@@ -6008,10 +6008,10 @@ def void loadModel259() {
 
 
 @Test
-def void loadModel260() {
+def void loadModel261() {
     val result = parseHelper.parse('''
     solver sat4j-java
-    benchmarkDIMACS "samplingfm/Benchmarks/77.sk_3_44.cnf"
+    benchmarkDIMACS "samplingfm/Benchmarks/54.sk_12_97.cnf"
     ''')
     Assertions.assertNotNull(result)
     val errors = result.eResource.errors
@@ -6031,10 +6031,10 @@ def void loadModel260() {
 
 
 @Test
-def void loadModel261() {
+def void loadModel262() {
     val result = parseHelper.parse('''
     solver sat4j-maven
-    benchmarkDIMACS "samplingfm/Benchmarks/77.sk_3_44.cnf"
+    benchmarkDIMACS "samplingfm/Benchmarks/54.sk_12_97.cnf"
     ''')
     Assertions.assertNotNull(result)
     val errors = result.eResource.errors
@@ -6054,10 +6054,10 @@ def void loadModel261() {
 
 
 @Test
-def void loadModel262() {
+def void loadModel263() {
     val result = parseHelper.parse('''
     solver sat4j-jar
-    benchmarkDIMACS "samplingfm/Benchmarks/77.sk_3_44.cnf"
+    benchmarkDIMACS "samplingfm/Benchmarks/54.sk_12_97.cnf"
     ''')
     Assertions.assertNotNull(result)
     val errors = result.eResource.errors
@@ -6072,29 +6072,6 @@ def void loadModel262() {
 	System.out.println(file + ",sat4j-jar,2.3.1,SAT," + time);
     }else{
         System.out.println(file + ",sat4j-jar,2.3.1,UNSAT," + time);
-    }
-}
-
-
-@Test
-def void loadModel263() {
-    val result = parseHelper.parse('''
-    solver cryptominisat
-    benchmarkDIMACS "samplingfm/Benchmarks/77.sk_3_44.cnf"
-    ''')
-    Assertions.assertNotNull(result)
-    val errors = result.eResource.errors
-    Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
-    var benchmark = result.benchmark as BenchmarkDimacs
-    var file = benchmark.dimacses.get(0);
-    var start = System.currentTimeMillis();
-    var res = Solver.CryptoMinisat5_6_8(file)
-    var end = System.currentTimeMillis();
-    var time = end - start;
-    if (res){
-	System.out.println(file + ",cryptominisat,5.6.8,SAT," + time);
-    }else{
-        System.out.println(file + ",cryptominisat,5.6.8,UNSAT," + time);
     }
 }
 
@@ -6103,7 +6080,30 @@ def void loadModel263() {
 def void loadModel264() {
     val result = parseHelper.parse('''
     solver cryptominisat
-    benchmarkDIMACS "samplingfm/Benchmarks/77.sk_3_44.cnf"
+    benchmarkDIMACS "samplingfm/Benchmarks/54.sk_12_97.cnf"
+    ''')
+    Assertions.assertNotNull(result)
+    val errors = result.eResource.errors
+    Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
+    var benchmark = result.benchmark as BenchmarkDimacs
+    var file = benchmark.dimacses.get(0);
+    var start = System.currentTimeMillis();
+    var res = Solver.CryptoMinisat5_6_8(file)
+    var end = System.currentTimeMillis();
+    var time = end - start;
+    if (res){
+	System.out.println(file + ",cryptominisat,5.6.8,SAT," + time);
+    }else{
+        System.out.println(file + ",cryptominisat,5.6.8,UNSAT," + time);
+    }
+}
+
+
+@Test
+def void loadModel265() {
+    val result = parseHelper.parse('''
+    solver cryptominisat
+    benchmarkDIMACS "samplingfm/Benchmarks/54.sk_12_97.cnf"
     ''')
     Assertions.assertNotNull(result)
     val errors = result.eResource.errors
@@ -6123,10 +6123,10 @@ def void loadModel264() {
 
 
 @Test
-def void loadModel265() {
+def void loadModel266() {
     val result = parseHelper.parse('''
     solver sat4j-java
-    benchmarkDIMACS "samplingfm/Benchmarks/GuidanceService2.sk_2_27.cnf"
+    benchmarkDIMACS "samplingfm/Benchmarks/tutorial2.sk_3_4.cnf"
     ''')
     Assertions.assertNotNull(result)
     val errors = result.eResource.errors
@@ -6146,10 +6146,10 @@ def void loadModel265() {
 
 
 @Test
-def void loadModel266() {
+def void loadModel267() {
     val result = parseHelper.parse('''
     solver sat4j-maven
-    benchmarkDIMACS "samplingfm/Benchmarks/GuidanceService2.sk_2_27.cnf"
+    benchmarkDIMACS "samplingfm/Benchmarks/tutorial2.sk_3_4.cnf"
     ''')
     Assertions.assertNotNull(result)
     val errors = result.eResource.errors
@@ -6169,10 +6169,10 @@ def void loadModel266() {
 
 
 @Test
-def void loadModel267() {
+def void loadModel268() {
     val result = parseHelper.parse('''
     solver sat4j-jar
-    benchmarkDIMACS "samplingfm/Benchmarks/GuidanceService2.sk_2_27.cnf"
+    benchmarkDIMACS "samplingfm/Benchmarks/tutorial2.sk_3_4.cnf"
     ''')
     Assertions.assertNotNull(result)
     val errors = result.eResource.errors
@@ -6187,29 +6187,6 @@ def void loadModel267() {
 	System.out.println(file + ",sat4j-jar,2.3.1,SAT," + time);
     }else{
         System.out.println(file + ",sat4j-jar,2.3.1,UNSAT," + time);
-    }
-}
-
-
-@Test
-def void loadModel268() {
-    val result = parseHelper.parse('''
-    solver cryptominisat
-    benchmarkDIMACS "samplingfm/Benchmarks/GuidanceService2.sk_2_27.cnf"
-    ''')
-    Assertions.assertNotNull(result)
-    val errors = result.eResource.errors
-    Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
-    var benchmark = result.benchmark as BenchmarkDimacs
-    var file = benchmark.dimacses.get(0);
-    var start = System.currentTimeMillis();
-    var res = Solver.CryptoMinisat5_6_8(file)
-    var end = System.currentTimeMillis();
-    var time = end - start;
-    if (res){
-	System.out.println(file + ",cryptominisat,5.6.8,SAT," + time);
-    }else{
-        System.out.println(file + ",cryptominisat,5.6.8,UNSAT," + time);
     }
 }
 
@@ -6218,7 +6195,30 @@ def void loadModel268() {
 def void loadModel269() {
     val result = parseHelper.parse('''
     solver cryptominisat
-    benchmarkDIMACS "samplingfm/Benchmarks/GuidanceService2.sk_2_27.cnf"
+    benchmarkDIMACS "samplingfm/Benchmarks/tutorial2.sk_3_4.cnf"
+    ''')
+    Assertions.assertNotNull(result)
+    val errors = result.eResource.errors
+    Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
+    var benchmark = result.benchmark as BenchmarkDimacs
+    var file = benchmark.dimacses.get(0);
+    var start = System.currentTimeMillis();
+    var res = Solver.CryptoMinisat5_6_8(file)
+    var end = System.currentTimeMillis();
+    var time = end - start;
+    if (res){
+	System.out.println(file + ",cryptominisat,5.6.8,SAT," + time);
+    }else{
+        System.out.println(file + ",cryptominisat,5.6.8,UNSAT," + time);
+    }
+}
+
+
+@Test
+def void loadModel270() {
+    val result = parseHelper.parse('''
+    solver cryptominisat
+    benchmarkDIMACS "samplingfm/Benchmarks/tutorial2.sk_3_4.cnf"
     ''')
     Assertions.assertNotNull(result)
     val errors = result.eResource.errors
@@ -6238,10 +6238,10 @@ def void loadModel269() {
 
 
 @Test
-def void loadModel270() {
+def void loadModel271() {
     val result = parseHelper.parse('''
     solver sat4j-java
-    benchmarkDIMACS "samplingfm/Benchmarks/UserServiceImpl.sk_8_32.cnf"
+    benchmarkDIMACS "samplingfm/Benchmarks/karatsuba.sk_7_41.cnf"
     ''')
     Assertions.assertNotNull(result)
     val errors = result.eResource.errors
@@ -6261,10 +6261,10 @@ def void loadModel270() {
 
 
 @Test
-def void loadModel271() {
+def void loadModel272() {
     val result = parseHelper.parse('''
     solver sat4j-maven
-    benchmarkDIMACS "samplingfm/Benchmarks/UserServiceImpl.sk_8_32.cnf"
+    benchmarkDIMACS "samplingfm/Benchmarks/karatsuba.sk_7_41.cnf"
     ''')
     Assertions.assertNotNull(result)
     val errors = result.eResource.errors
@@ -6284,10 +6284,10 @@ def void loadModel271() {
 
 
 @Test
-def void loadModel272() {
+def void loadModel273() {
     val result = parseHelper.parse('''
     solver sat4j-jar
-    benchmarkDIMACS "samplingfm/Benchmarks/UserServiceImpl.sk_8_32.cnf"
+    benchmarkDIMACS "samplingfm/Benchmarks/karatsuba.sk_7_41.cnf"
     ''')
     Assertions.assertNotNull(result)
     val errors = result.eResource.errors
@@ -6302,29 +6302,6 @@ def void loadModel272() {
 	System.out.println(file + ",sat4j-jar,2.3.1,SAT," + time);
     }else{
         System.out.println(file + ",sat4j-jar,2.3.1,UNSAT," + time);
-    }
-}
-
-
-@Test
-def void loadModel273() {
-    val result = parseHelper.parse('''
-    solver cryptominisat
-    benchmarkDIMACS "samplingfm/Benchmarks/UserServiceImpl.sk_8_32.cnf"
-    ''')
-    Assertions.assertNotNull(result)
-    val errors = result.eResource.errors
-    Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
-    var benchmark = result.benchmark as BenchmarkDimacs
-    var file = benchmark.dimacses.get(0);
-    var start = System.currentTimeMillis();
-    var res = Solver.CryptoMinisat5_6_8(file)
-    var end = System.currentTimeMillis();
-    var time = end - start;
-    if (res){
-	System.out.println(file + ",cryptominisat,5.6.8,SAT," + time);
-    }else{
-        System.out.println(file + ",cryptominisat,5.6.8,UNSAT," + time);
     }
 }
 
@@ -6333,7 +6310,30 @@ def void loadModel273() {
 def void loadModel274() {
     val result = parseHelper.parse('''
     solver cryptominisat
-    benchmarkDIMACS "samplingfm/Benchmarks/UserServiceImpl.sk_8_32.cnf"
+    benchmarkDIMACS "samplingfm/Benchmarks/karatsuba.sk_7_41.cnf"
+    ''')
+    Assertions.assertNotNull(result)
+    val errors = result.eResource.errors
+    Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
+    var benchmark = result.benchmark as BenchmarkDimacs
+    var file = benchmark.dimacses.get(0);
+    var start = System.currentTimeMillis();
+    var res = Solver.CryptoMinisat5_6_8(file)
+    var end = System.currentTimeMillis();
+    var time = end - start;
+    if (res){
+	System.out.println(file + ",cryptominisat,5.6.8,SAT," + time);
+    }else{
+        System.out.println(file + ",cryptominisat,5.6.8,UNSAT," + time);
+    }
+}
+
+
+@Test
+def void loadModel275() {
+    val result = parseHelper.parse('''
+    solver cryptominisat
+    benchmarkDIMACS "samplingfm/Benchmarks/karatsuba.sk_7_41.cnf"
     ''')
     Assertions.assertNotNull(result)
     val errors = result.eResource.errors
@@ -6353,10 +6353,10 @@ def void loadModel274() {
 
 
 @Test
-def void loadModel275() {
+def void loadModel276() {
     val result = parseHelper.parse('''
     solver sat4j-java
-    benchmarkDIMACS "samplingfm/Benchmarks/tutorial1.sk_1_1.cnf"
+    benchmarkDIMACS "samplingfm/Benchmarks/signedAvg.sk_8_1020.cnf"
     ''')
     Assertions.assertNotNull(result)
     val errors = result.eResource.errors
@@ -6376,10 +6376,10 @@ def void loadModel275() {
 
 
 @Test
-def void loadModel276() {
+def void loadModel277() {
     val result = parseHelper.parse('''
     solver sat4j-maven
-    benchmarkDIMACS "samplingfm/Benchmarks/tutorial1.sk_1_1.cnf"
+    benchmarkDIMACS "samplingfm/Benchmarks/signedAvg.sk_8_1020.cnf"
     ''')
     Assertions.assertNotNull(result)
     val errors = result.eResource.errors
@@ -6399,10 +6399,10 @@ def void loadModel276() {
 
 
 @Test
-def void loadModel277() {
+def void loadModel278() {
     val result = parseHelper.parse('''
     solver sat4j-jar
-    benchmarkDIMACS "samplingfm/Benchmarks/tutorial1.sk_1_1.cnf"
+    benchmarkDIMACS "samplingfm/Benchmarks/signedAvg.sk_8_1020.cnf"
     ''')
     Assertions.assertNotNull(result)
     val errors = result.eResource.errors
@@ -6417,29 +6417,6 @@ def void loadModel277() {
 	System.out.println(file + ",sat4j-jar,2.3.1,SAT," + time);
     }else{
         System.out.println(file + ",sat4j-jar,2.3.1,UNSAT," + time);
-    }
-}
-
-
-@Test
-def void loadModel278() {
-    val result = parseHelper.parse('''
-    solver cryptominisat
-    benchmarkDIMACS "samplingfm/Benchmarks/tutorial1.sk_1_1.cnf"
-    ''')
-    Assertions.assertNotNull(result)
-    val errors = result.eResource.errors
-    Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
-    var benchmark = result.benchmark as BenchmarkDimacs
-    var file = benchmark.dimacses.get(0);
-    var start = System.currentTimeMillis();
-    var res = Solver.CryptoMinisat5_6_8(file)
-    var end = System.currentTimeMillis();
-    var time = end - start;
-    if (res){
-	System.out.println(file + ",cryptominisat,5.6.8,SAT," + time);
-    }else{
-        System.out.println(file + ",cryptominisat,5.6.8,UNSAT," + time);
     }
 }
 
@@ -6448,7 +6425,30 @@ def void loadModel278() {
 def void loadModel279() {
     val result = parseHelper.parse('''
     solver cryptominisat
-    benchmarkDIMACS "samplingfm/Benchmarks/tutorial1.sk_1_1.cnf"
+    benchmarkDIMACS "samplingfm/Benchmarks/signedAvg.sk_8_1020.cnf"
+    ''')
+    Assertions.assertNotNull(result)
+    val errors = result.eResource.errors
+    Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
+    var benchmark = result.benchmark as BenchmarkDimacs
+    var file = benchmark.dimacses.get(0);
+    var start = System.currentTimeMillis();
+    var res = Solver.CryptoMinisat5_6_8(file)
+    var end = System.currentTimeMillis();
+    var time = end - start;
+    if (res){
+	System.out.println(file + ",cryptominisat,5.6.8,SAT," + time);
+    }else{
+        System.out.println(file + ",cryptominisat,5.6.8,UNSAT," + time);
+    }
+}
+
+
+@Test
+def void loadModel280() {
+    val result = parseHelper.parse('''
+    solver cryptominisat
+    benchmarkDIMACS "samplingfm/Benchmarks/signedAvg.sk_8_1020.cnf"
     ''')
     Assertions.assertNotNull(result)
     val errors = result.eResource.errors
@@ -6468,10 +6468,10 @@ def void loadModel279() {
 
 
 @Test
-def void loadModel280() {
+def void loadModel281() {
     val result = parseHelper.parse('''
     solver sat4j-java
-    benchmarkDIMACS "samplingfm/Benchmarks/79.sk_4_40.cnf"
+    benchmarkDIMACS "samplingfm/Benchmarks/30.sk_5_76.cnf"
     ''')
     Assertions.assertNotNull(result)
     val errors = result.eResource.errors
@@ -6491,10 +6491,10 @@ def void loadModel280() {
 
 
 @Test
-def void loadModel281() {
+def void loadModel282() {
     val result = parseHelper.parse('''
     solver sat4j-maven
-    benchmarkDIMACS "samplingfm/Benchmarks/79.sk_4_40.cnf"
+    benchmarkDIMACS "samplingfm/Benchmarks/30.sk_5_76.cnf"
     ''')
     Assertions.assertNotNull(result)
     val errors = result.eResource.errors
@@ -6514,10 +6514,10 @@ def void loadModel281() {
 
 
 @Test
-def void loadModel282() {
+def void loadModel283() {
     val result = parseHelper.parse('''
     solver sat4j-jar
-    benchmarkDIMACS "samplingfm/Benchmarks/79.sk_4_40.cnf"
+    benchmarkDIMACS "samplingfm/Benchmarks/30.sk_5_76.cnf"
     ''')
     Assertions.assertNotNull(result)
     val errors = result.eResource.errors
@@ -6532,29 +6532,6 @@ def void loadModel282() {
 	System.out.println(file + ",sat4j-jar,2.3.1,SAT," + time);
     }else{
         System.out.println(file + ",sat4j-jar,2.3.1,UNSAT," + time);
-    }
-}
-
-
-@Test
-def void loadModel283() {
-    val result = parseHelper.parse('''
-    solver cryptominisat
-    benchmarkDIMACS "samplingfm/Benchmarks/79.sk_4_40.cnf"
-    ''')
-    Assertions.assertNotNull(result)
-    val errors = result.eResource.errors
-    Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
-    var benchmark = result.benchmark as BenchmarkDimacs
-    var file = benchmark.dimacses.get(0);
-    var start = System.currentTimeMillis();
-    var res = Solver.CryptoMinisat5_6_8(file)
-    var end = System.currentTimeMillis();
-    var time = end - start;
-    if (res){
-	System.out.println(file + ",cryptominisat,5.6.8,SAT," + time);
-    }else{
-        System.out.println(file + ",cryptominisat,5.6.8,UNSAT," + time);
     }
 }
 
@@ -6563,7 +6540,30 @@ def void loadModel283() {
 def void loadModel284() {
     val result = parseHelper.parse('''
     solver cryptominisat
-    benchmarkDIMACS "samplingfm/Benchmarks/79.sk_4_40.cnf"
+    benchmarkDIMACS "samplingfm/Benchmarks/30.sk_5_76.cnf"
+    ''')
+    Assertions.assertNotNull(result)
+    val errors = result.eResource.errors
+    Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
+    var benchmark = result.benchmark as BenchmarkDimacs
+    var file = benchmark.dimacses.get(0);
+    var start = System.currentTimeMillis();
+    var res = Solver.CryptoMinisat5_6_8(file)
+    var end = System.currentTimeMillis();
+    var time = end - start;
+    if (res){
+	System.out.println(file + ",cryptominisat,5.6.8,SAT," + time);
+    }else{
+        System.out.println(file + ",cryptominisat,5.6.8,UNSAT," + time);
+    }
+}
+
+
+@Test
+def void loadModel285() {
+    val result = parseHelper.parse('''
+    solver cryptominisat
+    benchmarkDIMACS "samplingfm/Benchmarks/30.sk_5_76.cnf"
     ''')
     Assertions.assertNotNull(result)
     val errors = result.eResource.errors
@@ -6583,10 +6583,10 @@ def void loadModel284() {
 
 
 @Test
-def void loadModel285() {
+def void loadModel286() {
     val result = parseHelper.parse('''
     solver sat4j-java
-    benchmarkDIMACS "samplingfm/Benchmarks/LoginService.sk_20_34.cnf"
+    benchmarkDIMACS "samplingfm/Benchmarks/SetTest.sk_9_21.cnf"
     ''')
     Assertions.assertNotNull(result)
     val errors = result.eResource.errors
@@ -6606,10 +6606,10 @@ def void loadModel285() {
 
 
 @Test
-def void loadModel286() {
+def void loadModel287() {
     val result = parseHelper.parse('''
     solver sat4j-maven
-    benchmarkDIMACS "samplingfm/Benchmarks/LoginService.sk_20_34.cnf"
+    benchmarkDIMACS "samplingfm/Benchmarks/SetTest.sk_9_21.cnf"
     ''')
     Assertions.assertNotNull(result)
     val errors = result.eResource.errors
@@ -6629,10 +6629,10 @@ def void loadModel286() {
 
 
 @Test
-def void loadModel287() {
+def void loadModel288() {
     val result = parseHelper.parse('''
     solver sat4j-jar
-    benchmarkDIMACS "samplingfm/Benchmarks/LoginService.sk_20_34.cnf"
+    benchmarkDIMACS "samplingfm/Benchmarks/SetTest.sk_9_21.cnf"
     ''')
     Assertions.assertNotNull(result)
     val errors = result.eResource.errors
@@ -6647,29 +6647,6 @@ def void loadModel287() {
 	System.out.println(file + ",sat4j-jar,2.3.1,SAT," + time);
     }else{
         System.out.println(file + ",sat4j-jar,2.3.1,UNSAT," + time);
-    }
-}
-
-
-@Test
-def void loadModel288() {
-    val result = parseHelper.parse('''
-    solver cryptominisat
-    benchmarkDIMACS "samplingfm/Benchmarks/LoginService.sk_20_34.cnf"
-    ''')
-    Assertions.assertNotNull(result)
-    val errors = result.eResource.errors
-    Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
-    var benchmark = result.benchmark as BenchmarkDimacs
-    var file = benchmark.dimacses.get(0);
-    var start = System.currentTimeMillis();
-    var res = Solver.CryptoMinisat5_6_8(file)
-    var end = System.currentTimeMillis();
-    var time = end - start;
-    if (res){
-	System.out.println(file + ",cryptominisat,5.6.8,SAT," + time);
-    }else{
-        System.out.println(file + ",cryptominisat,5.6.8,UNSAT," + time);
     }
 }
 
@@ -6678,7 +6655,30 @@ def void loadModel288() {
 def void loadModel289() {
     val result = parseHelper.parse('''
     solver cryptominisat
-    benchmarkDIMACS "samplingfm/Benchmarks/LoginService.sk_20_34.cnf"
+    benchmarkDIMACS "samplingfm/Benchmarks/SetTest.sk_9_21.cnf"
+    ''')
+    Assertions.assertNotNull(result)
+    val errors = result.eResource.errors
+    Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
+    var benchmark = result.benchmark as BenchmarkDimacs
+    var file = benchmark.dimacses.get(0);
+    var start = System.currentTimeMillis();
+    var res = Solver.CryptoMinisat5_6_8(file)
+    var end = System.currentTimeMillis();
+    var time = end - start;
+    if (res){
+	System.out.println(file + ",cryptominisat,5.6.8,SAT," + time);
+    }else{
+        System.out.println(file + ",cryptominisat,5.6.8,UNSAT," + time);
+    }
+}
+
+
+@Test
+def void loadModel290() {
+    val result = parseHelper.parse('''
+    solver cryptominisat
+    benchmarkDIMACS "samplingfm/Benchmarks/SetTest.sk_9_21.cnf"
     ''')
     Assertions.assertNotNull(result)
     val errors = result.eResource.errors
@@ -6698,10 +6698,10 @@ def void loadModel289() {
 
 
 @Test
-def void loadModel290() {
+def void loadModel291() {
     val result = parseHelper.parse('''
     solver sat4j-java
-    benchmarkDIMACS "samplingfm/Benchmarks/SetTest.sk_9_21.cnf"
+    benchmarkDIMACS "samplingfm/Benchmarks/compress.sk_17_291.cnf"
     ''')
     Assertions.assertNotNull(result)
     val errors = result.eResource.errors
@@ -6721,10 +6721,10 @@ def void loadModel290() {
 
 
 @Test
-def void loadModel291() {
+def void loadModel292() {
     val result = parseHelper.parse('''
     solver sat4j-maven
-    benchmarkDIMACS "samplingfm/Benchmarks/SetTest.sk_9_21.cnf"
+    benchmarkDIMACS "samplingfm/Benchmarks/compress.sk_17_291.cnf"
     ''')
     Assertions.assertNotNull(result)
     val errors = result.eResource.errors
@@ -6744,10 +6744,10 @@ def void loadModel291() {
 
 
 @Test
-def void loadModel292() {
+def void loadModel293() {
     val result = parseHelper.parse('''
     solver sat4j-jar
-    benchmarkDIMACS "samplingfm/Benchmarks/SetTest.sk_9_21.cnf"
+    benchmarkDIMACS "samplingfm/Benchmarks/compress.sk_17_291.cnf"
     ''')
     Assertions.assertNotNull(result)
     val errors = result.eResource.errors
@@ -6762,29 +6762,6 @@ def void loadModel292() {
 	System.out.println(file + ",sat4j-jar,2.3.1,SAT," + time);
     }else{
         System.out.println(file + ",sat4j-jar,2.3.1,UNSAT," + time);
-    }
-}
-
-
-@Test
-def void loadModel293() {
-    val result = parseHelper.parse('''
-    solver cryptominisat
-    benchmarkDIMACS "samplingfm/Benchmarks/SetTest.sk_9_21.cnf"
-    ''')
-    Assertions.assertNotNull(result)
-    val errors = result.eResource.errors
-    Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
-    var benchmark = result.benchmark as BenchmarkDimacs
-    var file = benchmark.dimacses.get(0);
-    var start = System.currentTimeMillis();
-    var res = Solver.CryptoMinisat5_6_8(file)
-    var end = System.currentTimeMillis();
-    var time = end - start;
-    if (res){
-	System.out.println(file + ",cryptominisat,5.6.8,SAT," + time);
-    }else{
-        System.out.println(file + ",cryptominisat,5.6.8,UNSAT," + time);
     }
 }
 
@@ -6793,7 +6770,30 @@ def void loadModel293() {
 def void loadModel294() {
     val result = parseHelper.parse('''
     solver cryptominisat
-    benchmarkDIMACS "samplingfm/Benchmarks/SetTest.sk_9_21.cnf"
+    benchmarkDIMACS "samplingfm/Benchmarks/compress.sk_17_291.cnf"
+    ''')
+    Assertions.assertNotNull(result)
+    val errors = result.eResource.errors
+    Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
+    var benchmark = result.benchmark as BenchmarkDimacs
+    var file = benchmark.dimacses.get(0);
+    var start = System.currentTimeMillis();
+    var res = Solver.CryptoMinisat5_6_8(file)
+    var end = System.currentTimeMillis();
+    var time = end - start;
+    if (res){
+	System.out.println(file + ",cryptominisat,5.6.8,SAT," + time);
+    }else{
+        System.out.println(file + ",cryptominisat,5.6.8,UNSAT," + time);
+    }
+}
+
+
+@Test
+def void loadModel295() {
+    val result = parseHelper.parse('''
+    solver cryptominisat
+    benchmarkDIMACS "samplingfm/Benchmarks/compress.sk_17_291.cnf"
     ''')
     Assertions.assertNotNull(result)
     val errors = result.eResource.errors
@@ -6813,10 +6813,10 @@ def void loadModel294() {
 
 
 @Test
-def void loadModel295() {
+def void loadModel296() {
     val result = parseHelper.parse('''
     solver sat4j-java
-    benchmarkDIMACS "samplingfm/Benchmarks/109.sk_4_36.cnf"
+    benchmarkDIMACS "samplingfm/Benchmarks/xpose.sk_6_134.cnf"
     ''')
     Assertions.assertNotNull(result)
     val errors = result.eResource.errors
@@ -6836,10 +6836,10 @@ def void loadModel295() {
 
 
 @Test
-def void loadModel296() {
+def void loadModel297() {
     val result = parseHelper.parse('''
     solver sat4j-maven
-    benchmarkDIMACS "samplingfm/Benchmarks/109.sk_4_36.cnf"
+    benchmarkDIMACS "samplingfm/Benchmarks/xpose.sk_6_134.cnf"
     ''')
     Assertions.assertNotNull(result)
     val errors = result.eResource.errors
@@ -6859,10 +6859,10 @@ def void loadModel296() {
 
 
 @Test
-def void loadModel297() {
+def void loadModel298() {
     val result = parseHelper.parse('''
     solver sat4j-jar
-    benchmarkDIMACS "samplingfm/Benchmarks/109.sk_4_36.cnf"
+    benchmarkDIMACS "samplingfm/Benchmarks/xpose.sk_6_134.cnf"
     ''')
     Assertions.assertNotNull(result)
     val errors = result.eResource.errors
@@ -6877,29 +6877,6 @@ def void loadModel297() {
 	System.out.println(file + ",sat4j-jar,2.3.1,SAT," + time);
     }else{
         System.out.println(file + ",sat4j-jar,2.3.1,UNSAT," + time);
-    }
-}
-
-
-@Test
-def void loadModel298() {
-    val result = parseHelper.parse('''
-    solver cryptominisat
-    benchmarkDIMACS "samplingfm/Benchmarks/109.sk_4_36.cnf"
-    ''')
-    Assertions.assertNotNull(result)
-    val errors = result.eResource.errors
-    Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
-    var benchmark = result.benchmark as BenchmarkDimacs
-    var file = benchmark.dimacses.get(0);
-    var start = System.currentTimeMillis();
-    var res = Solver.CryptoMinisat5_6_8(file)
-    var end = System.currentTimeMillis();
-    var time = end - start;
-    if (res){
-	System.out.println(file + ",cryptominisat,5.6.8,SAT," + time);
-    }else{
-        System.out.println(file + ",cryptominisat,5.6.8,UNSAT," + time);
     }
 }
 
@@ -6908,7 +6885,30 @@ def void loadModel298() {
 def void loadModel299() {
     val result = parseHelper.parse('''
     solver cryptominisat
-    benchmarkDIMACS "samplingfm/Benchmarks/109.sk_4_36.cnf"
+    benchmarkDIMACS "samplingfm/Benchmarks/xpose.sk_6_134.cnf"
+    ''')
+    Assertions.assertNotNull(result)
+    val errors = result.eResource.errors
+    Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
+    var benchmark = result.benchmark as BenchmarkDimacs
+    var file = benchmark.dimacses.get(0);
+    var start = System.currentTimeMillis();
+    var res = Solver.CryptoMinisat5_6_8(file)
+    var end = System.currentTimeMillis();
+    var time = end - start;
+    if (res){
+	System.out.println(file + ",cryptominisat,5.6.8,SAT," + time);
+    }else{
+        System.out.println(file + ",cryptominisat,5.6.8,UNSAT," + time);
+    }
+}
+
+
+@Test
+def void loadModel300() {
+    val result = parseHelper.parse('''
+    solver cryptominisat
+    benchmarkDIMACS "samplingfm/Benchmarks/xpose.sk_6_134.cnf"
     ''')
     Assertions.assertNotNull(result)
     val errors = result.eResource.errors
@@ -6928,10 +6928,10 @@ def void loadModel299() {
 
 
 @Test
-def void loadModel300() {
+def void loadModel301() {
     val result = parseHelper.parse('''
     solver sat4j-java
-    benchmarkDIMACS "samplingfm/Benchmarks/doublyLinkedList.sk_8_37.cnf"
+    benchmarkDIMACS "samplingfm/Benchmarks/listReverse.sk_11_43.cnf"
     ''')
     Assertions.assertNotNull(result)
     val errors = result.eResource.errors
@@ -6951,10 +6951,10 @@ def void loadModel300() {
 
 
 @Test
-def void loadModel301() {
+def void loadModel302() {
     val result = parseHelper.parse('''
     solver sat4j-maven
-    benchmarkDIMACS "samplingfm/Benchmarks/doublyLinkedList.sk_8_37.cnf"
+    benchmarkDIMACS "samplingfm/Benchmarks/listReverse.sk_11_43.cnf"
     ''')
     Assertions.assertNotNull(result)
     val errors = result.eResource.errors
@@ -6974,10 +6974,10 @@ def void loadModel301() {
 
 
 @Test
-def void loadModel302() {
+def void loadModel303() {
     val result = parseHelper.parse('''
     solver sat4j-jar
-    benchmarkDIMACS "samplingfm/Benchmarks/doublyLinkedList.sk_8_37.cnf"
+    benchmarkDIMACS "samplingfm/Benchmarks/listReverse.sk_11_43.cnf"
     ''')
     Assertions.assertNotNull(result)
     val errors = result.eResource.errors
@@ -6992,29 +6992,6 @@ def void loadModel302() {
 	System.out.println(file + ",sat4j-jar,2.3.1,SAT," + time);
     }else{
         System.out.println(file + ",sat4j-jar,2.3.1,UNSAT," + time);
-    }
-}
-
-
-@Test
-def void loadModel303() {
-    val result = parseHelper.parse('''
-    solver cryptominisat
-    benchmarkDIMACS "samplingfm/Benchmarks/doublyLinkedList.sk_8_37.cnf"
-    ''')
-    Assertions.assertNotNull(result)
-    val errors = result.eResource.errors
-    Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
-    var benchmark = result.benchmark as BenchmarkDimacs
-    var file = benchmark.dimacses.get(0);
-    var start = System.currentTimeMillis();
-    var res = Solver.CryptoMinisat5_6_8(file)
-    var end = System.currentTimeMillis();
-    var time = end - start;
-    if (res){
-	System.out.println(file + ",cryptominisat,5.6.8,SAT," + time);
-    }else{
-        System.out.println(file + ",cryptominisat,5.6.8,UNSAT," + time);
     }
 }
 
@@ -7023,7 +7000,30 @@ def void loadModel303() {
 def void loadModel304() {
     val result = parseHelper.parse('''
     solver cryptominisat
-    benchmarkDIMACS "samplingfm/Benchmarks/doublyLinkedList.sk_8_37.cnf"
+    benchmarkDIMACS "samplingfm/Benchmarks/listReverse.sk_11_43.cnf"
+    ''')
+    Assertions.assertNotNull(result)
+    val errors = result.eResource.errors
+    Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
+    var benchmark = result.benchmark as BenchmarkDimacs
+    var file = benchmark.dimacses.get(0);
+    var start = System.currentTimeMillis();
+    var res = Solver.CryptoMinisat5_6_8(file)
+    var end = System.currentTimeMillis();
+    var time = end - start;
+    if (res){
+	System.out.println(file + ",cryptominisat,5.6.8,SAT," + time);
+    }else{
+        System.out.println(file + ",cryptominisat,5.6.8,UNSAT," + time);
+    }
+}
+
+
+@Test
+def void loadModel305() {
+    val result = parseHelper.parse('''
+    solver cryptominisat
+    benchmarkDIMACS "samplingfm/Benchmarks/listReverse.sk_11_43.cnf"
     ''')
     Assertions.assertNotNull(result)
     val errors = result.eResource.errors
@@ -7043,10 +7043,10 @@ def void loadModel304() {
 
 
 @Test
-def void loadModel305() {
+def void loadModel306() {
     val result = parseHelper.parse('''
     solver sat4j-java
-    benchmarkDIMACS "samplingfm/Benchmarks/55.sk_3_46.cnf"
+    benchmarkDIMACS "samplingfm/Benchmarks/lss.sk_6_7.cnf"
     ''')
     Assertions.assertNotNull(result)
     val errors = result.eResource.errors
@@ -7066,10 +7066,10 @@ def void loadModel305() {
 
 
 @Test
-def void loadModel306() {
+def void loadModel307() {
     val result = parseHelper.parse('''
     solver sat4j-maven
-    benchmarkDIMACS "samplingfm/Benchmarks/55.sk_3_46.cnf"
+    benchmarkDIMACS "samplingfm/Benchmarks/lss.sk_6_7.cnf"
     ''')
     Assertions.assertNotNull(result)
     val errors = result.eResource.errors
@@ -7089,10 +7089,10 @@ def void loadModel306() {
 
 
 @Test
-def void loadModel307() {
+def void loadModel308() {
     val result = parseHelper.parse('''
     solver sat4j-jar
-    benchmarkDIMACS "samplingfm/Benchmarks/55.sk_3_46.cnf"
+    benchmarkDIMACS "samplingfm/Benchmarks/lss.sk_6_7.cnf"
     ''')
     Assertions.assertNotNull(result)
     val errors = result.eResource.errors
@@ -7107,29 +7107,6 @@ def void loadModel307() {
 	System.out.println(file + ",sat4j-jar,2.3.1,SAT," + time);
     }else{
         System.out.println(file + ",sat4j-jar,2.3.1,UNSAT," + time);
-    }
-}
-
-
-@Test
-def void loadModel308() {
-    val result = parseHelper.parse('''
-    solver cryptominisat
-    benchmarkDIMACS "samplingfm/Benchmarks/55.sk_3_46.cnf"
-    ''')
-    Assertions.assertNotNull(result)
-    val errors = result.eResource.errors
-    Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
-    var benchmark = result.benchmark as BenchmarkDimacs
-    var file = benchmark.dimacses.get(0);
-    var start = System.currentTimeMillis();
-    var res = Solver.CryptoMinisat5_6_8(file)
-    var end = System.currentTimeMillis();
-    var time = end - start;
-    if (res){
-	System.out.println(file + ",cryptominisat,5.6.8,SAT," + time);
-    }else{
-        System.out.println(file + ",cryptominisat,5.6.8,UNSAT," + time);
     }
 }
 
@@ -7138,7 +7115,30 @@ def void loadModel308() {
 def void loadModel309() {
     val result = parseHelper.parse('''
     solver cryptominisat
-    benchmarkDIMACS "samplingfm/Benchmarks/55.sk_3_46.cnf"
+    benchmarkDIMACS "samplingfm/Benchmarks/lss.sk_6_7.cnf"
+    ''')
+    Assertions.assertNotNull(result)
+    val errors = result.eResource.errors
+    Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
+    var benchmark = result.benchmark as BenchmarkDimacs
+    var file = benchmark.dimacses.get(0);
+    var start = System.currentTimeMillis();
+    var res = Solver.CryptoMinisat5_6_8(file)
+    var end = System.currentTimeMillis();
+    var time = end - start;
+    if (res){
+	System.out.println(file + ",cryptominisat,5.6.8,SAT," + time);
+    }else{
+        System.out.println(file + ",cryptominisat,5.6.8,UNSAT," + time);
+    }
+}
+
+
+@Test
+def void loadModel310() {
+    val result = parseHelper.parse('''
+    solver cryptominisat
+    benchmarkDIMACS "samplingfm/Benchmarks/lss.sk_6_7.cnf"
     ''')
     Assertions.assertNotNull(result)
     val errors = result.eResource.errors
@@ -7158,10 +7158,10 @@ def void loadModel309() {
 
 
 @Test
-def void loadModel310() {
+def void loadModel311() {
     val result = parseHelper.parse('''
     solver sat4j-java
-    benchmarkDIMACS "samplingfm/Benchmarks/IterationService.sk_12_27.cnf"
+    benchmarkDIMACS "samplingfm/Benchmarks/reverse.sk_11_258.cnf"
     ''')
     Assertions.assertNotNull(result)
     val errors = result.eResource.errors
@@ -7181,10 +7181,10 @@ def void loadModel310() {
 
 
 @Test
-def void loadModel311() {
+def void loadModel312() {
     val result = parseHelper.parse('''
     solver sat4j-maven
-    benchmarkDIMACS "samplingfm/Benchmarks/IterationService.sk_12_27.cnf"
+    benchmarkDIMACS "samplingfm/Benchmarks/reverse.sk_11_258.cnf"
     ''')
     Assertions.assertNotNull(result)
     val errors = result.eResource.errors
@@ -7204,10 +7204,10 @@ def void loadModel311() {
 
 
 @Test
-def void loadModel312() {
+def void loadModel313() {
     val result = parseHelper.parse('''
     solver sat4j-jar
-    benchmarkDIMACS "samplingfm/Benchmarks/IterationService.sk_12_27.cnf"
+    benchmarkDIMACS "samplingfm/Benchmarks/reverse.sk_11_258.cnf"
     ''')
     Assertions.assertNotNull(result)
     val errors = result.eResource.errors
@@ -7222,29 +7222,6 @@ def void loadModel312() {
 	System.out.println(file + ",sat4j-jar,2.3.1,SAT," + time);
     }else{
         System.out.println(file + ",sat4j-jar,2.3.1,UNSAT," + time);
-    }
-}
-
-
-@Test
-def void loadModel313() {
-    val result = parseHelper.parse('''
-    solver cryptominisat
-    benchmarkDIMACS "samplingfm/Benchmarks/IterationService.sk_12_27.cnf"
-    ''')
-    Assertions.assertNotNull(result)
-    val errors = result.eResource.errors
-    Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
-    var benchmark = result.benchmark as BenchmarkDimacs
-    var file = benchmark.dimacses.get(0);
-    var start = System.currentTimeMillis();
-    var res = Solver.CryptoMinisat5_6_8(file)
-    var end = System.currentTimeMillis();
-    var time = end - start;
-    if (res){
-	System.out.println(file + ",cryptominisat,5.6.8,SAT," + time);
-    }else{
-        System.out.println(file + ",cryptominisat,5.6.8,UNSAT," + time);
     }
 }
 
@@ -7253,7 +7230,30 @@ def void loadModel313() {
 def void loadModel314() {
     val result = parseHelper.parse('''
     solver cryptominisat
-    benchmarkDIMACS "samplingfm/Benchmarks/IterationService.sk_12_27.cnf"
+    benchmarkDIMACS "samplingfm/Benchmarks/reverse.sk_11_258.cnf"
+    ''')
+    Assertions.assertNotNull(result)
+    val errors = result.eResource.errors
+    Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
+    var benchmark = result.benchmark as BenchmarkDimacs
+    var file = benchmark.dimacses.get(0);
+    var start = System.currentTimeMillis();
+    var res = Solver.CryptoMinisat5_6_8(file)
+    var end = System.currentTimeMillis();
+    var time = end - start;
+    if (res){
+	System.out.println(file + ",cryptominisat,5.6.8,SAT," + time);
+    }else{
+        System.out.println(file + ",cryptominisat,5.6.8,UNSAT," + time);
+    }
+}
+
+
+@Test
+def void loadModel315() {
+    val result = parseHelper.parse('''
+    solver cryptominisat
+    benchmarkDIMACS "samplingfm/Benchmarks/reverse.sk_11_258.cnf"
     ''')
     Assertions.assertNotNull(result)
     val errors = result.eResource.errors
@@ -7273,10 +7273,10 @@ def void loadModel314() {
 
 
 @Test
-def void loadModel315() {
+def void loadModel316() {
     val result = parseHelper.parse('''
     solver sat4j-java
-    benchmarkDIMACS "samplingfm/Benchmarks/32.sk_4_38.cnf"
+    benchmarkDIMACS "samplingfm/Benchmarks/jburnim_morton.sk_13_530.cnf"
     ''')
     Assertions.assertNotNull(result)
     val errors = result.eResource.errors
@@ -7296,10 +7296,10 @@ def void loadModel315() {
 
 
 @Test
-def void loadModel316() {
+def void loadModel317() {
     val result = parseHelper.parse('''
     solver sat4j-maven
-    benchmarkDIMACS "samplingfm/Benchmarks/32.sk_4_38.cnf"
+    benchmarkDIMACS "samplingfm/Benchmarks/jburnim_morton.sk_13_530.cnf"
     ''')
     Assertions.assertNotNull(result)
     val errors = result.eResource.errors
@@ -7319,10 +7319,10 @@ def void loadModel316() {
 
 
 @Test
-def void loadModel317() {
+def void loadModel318() {
     val result = parseHelper.parse('''
     solver sat4j-jar
-    benchmarkDIMACS "samplingfm/Benchmarks/32.sk_4_38.cnf"
+    benchmarkDIMACS "samplingfm/Benchmarks/jburnim_morton.sk_13_530.cnf"
     ''')
     Assertions.assertNotNull(result)
     val errors = result.eResource.errors
@@ -7337,29 +7337,6 @@ def void loadModel317() {
 	System.out.println(file + ",sat4j-jar,2.3.1,SAT," + time);
     }else{
         System.out.println(file + ",sat4j-jar,2.3.1,UNSAT," + time);
-    }
-}
-
-
-@Test
-def void loadModel318() {
-    val result = parseHelper.parse('''
-    solver cryptominisat
-    benchmarkDIMACS "samplingfm/Benchmarks/32.sk_4_38.cnf"
-    ''')
-    Assertions.assertNotNull(result)
-    val errors = result.eResource.errors
-    Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
-    var benchmark = result.benchmark as BenchmarkDimacs
-    var file = benchmark.dimacses.get(0);
-    var start = System.currentTimeMillis();
-    var res = Solver.CryptoMinisat5_6_8(file)
-    var end = System.currentTimeMillis();
-    var time = end - start;
-    if (res){
-	System.out.println(file + ",cryptominisat,5.6.8,SAT," + time);
-    }else{
-        System.out.println(file + ",cryptominisat,5.6.8,UNSAT," + time);
     }
 }
 
@@ -7368,7 +7345,30 @@ def void loadModel318() {
 def void loadModel319() {
     val result = parseHelper.parse('''
     solver cryptominisat
-    benchmarkDIMACS "samplingfm/Benchmarks/32.sk_4_38.cnf"
+    benchmarkDIMACS "samplingfm/Benchmarks/jburnim_morton.sk_13_530.cnf"
+    ''')
+    Assertions.assertNotNull(result)
+    val errors = result.eResource.errors
+    Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
+    var benchmark = result.benchmark as BenchmarkDimacs
+    var file = benchmark.dimacses.get(0);
+    var start = System.currentTimeMillis();
+    var res = Solver.CryptoMinisat5_6_8(file)
+    var end = System.currentTimeMillis();
+    var time = end - start;
+    if (res){
+	System.out.println(file + ",cryptominisat,5.6.8,SAT," + time);
+    }else{
+        System.out.println(file + ",cryptominisat,5.6.8,UNSAT," + time);
+    }
+}
+
+
+@Test
+def void loadModel320() {
+    val result = parseHelper.parse('''
+    solver cryptominisat
+    benchmarkDIMACS "samplingfm/Benchmarks/jburnim_morton.sk_13_530.cnf"
     ''')
     Assertions.assertNotNull(result)
     val errors = result.eResource.errors
@@ -7388,10 +7388,10 @@ def void loadModel319() {
 
 
 @Test
-def void loadModel320() {
+def void loadModel321() {
     val result = parseHelper.parse('''
     solver sat4j-java
-    benchmarkDIMACS "samplingfm/Benchmarks/tutorial3.sk_4_31.cnf"
+    benchmarkDIMACS "samplingfm/Benchmarks/log2.sk_72_391.cnf"
     ''')
     Assertions.assertNotNull(result)
     val errors = result.eResource.errors
@@ -7411,10 +7411,10 @@ def void loadModel320() {
 
 
 @Test
-def void loadModel321() {
+def void loadModel322() {
     val result = parseHelper.parse('''
     solver sat4j-maven
-    benchmarkDIMACS "samplingfm/Benchmarks/tutorial3.sk_4_31.cnf"
+    benchmarkDIMACS "samplingfm/Benchmarks/log2.sk_72_391.cnf"
     ''')
     Assertions.assertNotNull(result)
     val errors = result.eResource.errors
@@ -7434,10 +7434,10 @@ def void loadModel321() {
 
 
 @Test
-def void loadModel322() {
+def void loadModel323() {
     val result = parseHelper.parse('''
     solver sat4j-jar
-    benchmarkDIMACS "samplingfm/Benchmarks/tutorial3.sk_4_31.cnf"
+    benchmarkDIMACS "samplingfm/Benchmarks/log2.sk_72_391.cnf"
     ''')
     Assertions.assertNotNull(result)
     val errors = result.eResource.errors
@@ -7452,29 +7452,6 @@ def void loadModel322() {
 	System.out.println(file + ",sat4j-jar,2.3.1,SAT," + time);
     }else{
         System.out.println(file + ",sat4j-jar,2.3.1,UNSAT," + time);
-    }
-}
-
-
-@Test
-def void loadModel323() {
-    val result = parseHelper.parse('''
-    solver cryptominisat
-    benchmarkDIMACS "samplingfm/Benchmarks/tutorial3.sk_4_31.cnf"
-    ''')
-    Assertions.assertNotNull(result)
-    val errors = result.eResource.errors
-    Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
-    var benchmark = result.benchmark as BenchmarkDimacs
-    var file = benchmark.dimacses.get(0);
-    var start = System.currentTimeMillis();
-    var res = Solver.CryptoMinisat5_6_8(file)
-    var end = System.currentTimeMillis();
-    var time = end - start;
-    if (res){
-	System.out.println(file + ",cryptominisat,5.6.8,SAT," + time);
-    }else{
-        System.out.println(file + ",cryptominisat,5.6.8,UNSAT," + time);
     }
 }
 
@@ -7483,7 +7460,30 @@ def void loadModel323() {
 def void loadModel324() {
     val result = parseHelper.parse('''
     solver cryptominisat
-    benchmarkDIMACS "samplingfm/Benchmarks/tutorial3.sk_4_31.cnf"
+    benchmarkDIMACS "samplingfm/Benchmarks/log2.sk_72_391.cnf"
+    ''')
+    Assertions.assertNotNull(result)
+    val errors = result.eResource.errors
+    Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
+    var benchmark = result.benchmark as BenchmarkDimacs
+    var file = benchmark.dimacses.get(0);
+    var start = System.currentTimeMillis();
+    var res = Solver.CryptoMinisat5_6_8(file)
+    var end = System.currentTimeMillis();
+    var time = end - start;
+    if (res){
+	System.out.println(file + ",cryptominisat,5.6.8,SAT," + time);
+    }else{
+        System.out.println(file + ",cryptominisat,5.6.8,UNSAT," + time);
+    }
+}
+
+
+@Test
+def void loadModel325() {
+    val result = parseHelper.parse('''
+    solver cryptominisat
+    benchmarkDIMACS "samplingfm/Benchmarks/log2.sk_72_391.cnf"
     ''')
     Assertions.assertNotNull(result)
     val errors = result.eResource.errors
@@ -7503,10 +7503,10 @@ def void loadModel324() {
 
 
 @Test
-def void loadModel325() {
+def void loadModel326() {
     val result = parseHelper.parse('''
     solver sat4j-java
-    benchmarkDIMACS "samplingfm/Benchmarks/GuidanceService.sk_4_27.cnf"
+    benchmarkDIMACS "samplingfm/Benchmarks/partition.sk_22_155.cnf"
     ''')
     Assertions.assertNotNull(result)
     val errors = result.eResource.errors
@@ -7526,10 +7526,10 @@ def void loadModel325() {
 
 
 @Test
-def void loadModel326() {
+def void loadModel327() {
     val result = parseHelper.parse('''
     solver sat4j-maven
-    benchmarkDIMACS "samplingfm/Benchmarks/GuidanceService.sk_4_27.cnf"
+    benchmarkDIMACS "samplingfm/Benchmarks/partition.sk_22_155.cnf"
     ''')
     Assertions.assertNotNull(result)
     val errors = result.eResource.errors
@@ -7549,10 +7549,10 @@ def void loadModel326() {
 
 
 @Test
-def void loadModel327() {
+def void loadModel328() {
     val result = parseHelper.parse('''
     solver sat4j-jar
-    benchmarkDIMACS "samplingfm/Benchmarks/GuidanceService.sk_4_27.cnf"
+    benchmarkDIMACS "samplingfm/Benchmarks/partition.sk_22_155.cnf"
     ''')
     Assertions.assertNotNull(result)
     val errors = result.eResource.errors
@@ -7567,29 +7567,6 @@ def void loadModel327() {
 	System.out.println(file + ",sat4j-jar,2.3.1,SAT," + time);
     }else{
         System.out.println(file + ",sat4j-jar,2.3.1,UNSAT," + time);
-    }
-}
-
-
-@Test
-def void loadModel328() {
-    val result = parseHelper.parse('''
-    solver cryptominisat
-    benchmarkDIMACS "samplingfm/Benchmarks/GuidanceService.sk_4_27.cnf"
-    ''')
-    Assertions.assertNotNull(result)
-    val errors = result.eResource.errors
-    Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
-    var benchmark = result.benchmark as BenchmarkDimacs
-    var file = benchmark.dimacses.get(0);
-    var start = System.currentTimeMillis();
-    var res = Solver.CryptoMinisat5_6_8(file)
-    var end = System.currentTimeMillis();
-    var time = end - start;
-    if (res){
-	System.out.println(file + ",cryptominisat,5.6.8,SAT," + time);
-    }else{
-        System.out.println(file + ",cryptominisat,5.6.8,UNSAT," + time);
     }
 }
 
@@ -7598,7 +7575,30 @@ def void loadModel328() {
 def void loadModel329() {
     val result = parseHelper.parse('''
     solver cryptominisat
-    benchmarkDIMACS "samplingfm/Benchmarks/GuidanceService.sk_4_27.cnf"
+    benchmarkDIMACS "samplingfm/Benchmarks/partition.sk_22_155.cnf"
+    ''')
+    Assertions.assertNotNull(result)
+    val errors = result.eResource.errors
+    Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
+    var benchmark = result.benchmark as BenchmarkDimacs
+    var file = benchmark.dimacses.get(0);
+    var start = System.currentTimeMillis();
+    var res = Solver.CryptoMinisat5_6_8(file)
+    var end = System.currentTimeMillis();
+    var time = end - start;
+    if (res){
+	System.out.println(file + ",cryptominisat,5.6.8,SAT," + time);
+    }else{
+        System.out.println(file + ",cryptominisat,5.6.8,UNSAT," + time);
+    }
+}
+
+
+@Test
+def void loadModel330() {
+    val result = parseHelper.parse('''
+    solver cryptominisat
+    benchmarkDIMACS "samplingfm/Benchmarks/partition.sk_22_155.cnf"
     ''')
     Assertions.assertNotNull(result)
     val errors = result.eResource.errors
@@ -7618,10 +7618,10 @@ def void loadModel329() {
 
 
 @Test
-def void loadModel330() {
+def void loadModel331() {
     val result = parseHelper.parse('''
     solver sat4j-java
-    benchmarkDIMACS "samplingfm/Benchmarks/tableBasedAddition.sk_240_1024.cnf"
+    benchmarkDIMACS "samplingfm/Benchmarks/ConcreteRoleAffectationService.sk_119_273.cnf"
     ''')
     Assertions.assertNotNull(result)
     val errors = result.eResource.errors
@@ -7641,10 +7641,10 @@ def void loadModel330() {
 
 
 @Test
-def void loadModel331() {
+def void loadModel332() {
     val result = parseHelper.parse('''
     solver sat4j-maven
-    benchmarkDIMACS "samplingfm/Benchmarks/tableBasedAddition.sk_240_1024.cnf"
+    benchmarkDIMACS "samplingfm/Benchmarks/ConcreteRoleAffectationService.sk_119_273.cnf"
     ''')
     Assertions.assertNotNull(result)
     val errors = result.eResource.errors
@@ -7664,10 +7664,10 @@ def void loadModel331() {
 
 
 @Test
-def void loadModel332() {
+def void loadModel333() {
     val result = parseHelper.parse('''
     solver sat4j-jar
-    benchmarkDIMACS "samplingfm/Benchmarks/tableBasedAddition.sk_240_1024.cnf"
+    benchmarkDIMACS "samplingfm/Benchmarks/ConcreteRoleAffectationService.sk_119_273.cnf"
     ''')
     Assertions.assertNotNull(result)
     val errors = result.eResource.errors
@@ -7682,29 +7682,6 @@ def void loadModel332() {
 	System.out.println(file + ",sat4j-jar,2.3.1,SAT," + time);
     }else{
         System.out.println(file + ",sat4j-jar,2.3.1,UNSAT," + time);
-    }
-}
-
-
-@Test
-def void loadModel333() {
-    val result = parseHelper.parse('''
-    solver cryptominisat
-    benchmarkDIMACS "samplingfm/Benchmarks/tableBasedAddition.sk_240_1024.cnf"
-    ''')
-    Assertions.assertNotNull(result)
-    val errors = result.eResource.errors
-    Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
-    var benchmark = result.benchmark as BenchmarkDimacs
-    var file = benchmark.dimacses.get(0);
-    var start = System.currentTimeMillis();
-    var res = Solver.CryptoMinisat5_6_8(file)
-    var end = System.currentTimeMillis();
-    var time = end - start;
-    if (res){
-	System.out.println(file + ",cryptominisat,5.6.8,SAT," + time);
-    }else{
-        System.out.println(file + ",cryptominisat,5.6.8,UNSAT," + time);
     }
 }
 
@@ -7713,7 +7690,30 @@ def void loadModel333() {
 def void loadModel334() {
     val result = parseHelper.parse('''
     solver cryptominisat
-    benchmarkDIMACS "samplingfm/Benchmarks/tableBasedAddition.sk_240_1024.cnf"
+    benchmarkDIMACS "samplingfm/Benchmarks/ConcreteRoleAffectationService.sk_119_273.cnf"
+    ''')
+    Assertions.assertNotNull(result)
+    val errors = result.eResource.errors
+    Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
+    var benchmark = result.benchmark as BenchmarkDimacs
+    var file = benchmark.dimacses.get(0);
+    var start = System.currentTimeMillis();
+    var res = Solver.CryptoMinisat5_6_8(file)
+    var end = System.currentTimeMillis();
+    var time = end - start;
+    if (res){
+	System.out.println(file + ",cryptominisat,5.6.8,SAT," + time);
+    }else{
+        System.out.println(file + ",cryptominisat,5.6.8,UNSAT," + time);
+    }
+}
+
+
+@Test
+def void loadModel335() {
+    val result = parseHelper.parse('''
+    solver cryptominisat
+    benchmarkDIMACS "samplingfm/Benchmarks/ConcreteRoleAffectationService.sk_119_273.cnf"
     ''')
     Assertions.assertNotNull(result)
     val errors = result.eResource.errors
@@ -7733,10 +7733,10 @@ def void loadModel334() {
 
 
 @Test
-def void loadModel335() {
+def void loadModel336() {
     val result = parseHelper.parse('''
     solver sat4j-java
-    benchmarkDIMACS "samplingfm/Benchmarks/registerlesSwap.sk_3_10.cnf"
+    benchmarkDIMACS "samplingfm/Benchmarks/diagStencil.sk_35_36.cnf"
     ''')
     Assertions.assertNotNull(result)
     val errors = result.eResource.errors
@@ -7756,10 +7756,10 @@ def void loadModel335() {
 
 
 @Test
-def void loadModel336() {
+def void loadModel337() {
     val result = parseHelper.parse('''
     solver sat4j-maven
-    benchmarkDIMACS "samplingfm/Benchmarks/registerlesSwap.sk_3_10.cnf"
+    benchmarkDIMACS "samplingfm/Benchmarks/diagStencil.sk_35_36.cnf"
     ''')
     Assertions.assertNotNull(result)
     val errors = result.eResource.errors
@@ -7779,10 +7779,10 @@ def void loadModel336() {
 
 
 @Test
-def void loadModel337() {
+def void loadModel338() {
     val result = parseHelper.parse('''
     solver sat4j-jar
-    benchmarkDIMACS "samplingfm/Benchmarks/registerlesSwap.sk_3_10.cnf"
+    benchmarkDIMACS "samplingfm/Benchmarks/diagStencil.sk_35_36.cnf"
     ''')
     Assertions.assertNotNull(result)
     val errors = result.eResource.errors
@@ -7797,29 +7797,6 @@ def void loadModel337() {
 	System.out.println(file + ",sat4j-jar,2.3.1,SAT," + time);
     }else{
         System.out.println(file + ",sat4j-jar,2.3.1,UNSAT," + time);
-    }
-}
-
-
-@Test
-def void loadModel338() {
-    val result = parseHelper.parse('''
-    solver cryptominisat
-    benchmarkDIMACS "samplingfm/Benchmarks/registerlesSwap.sk_3_10.cnf"
-    ''')
-    Assertions.assertNotNull(result)
-    val errors = result.eResource.errors
-    Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
-    var benchmark = result.benchmark as BenchmarkDimacs
-    var file = benchmark.dimacses.get(0);
-    var start = System.currentTimeMillis();
-    var res = Solver.CryptoMinisat5_6_8(file)
-    var end = System.currentTimeMillis();
-    var time = end - start;
-    if (res){
-	System.out.println(file + ",cryptominisat,5.6.8,SAT," + time);
-    }else{
-        System.out.println(file + ",cryptominisat,5.6.8,UNSAT," + time);
     }
 }
 
@@ -7828,7 +7805,30 @@ def void loadModel338() {
 def void loadModel339() {
     val result = parseHelper.parse('''
     solver cryptominisat
-    benchmarkDIMACS "samplingfm/Benchmarks/registerlesSwap.sk_3_10.cnf"
+    benchmarkDIMACS "samplingfm/Benchmarks/diagStencil.sk_35_36.cnf"
+    ''')
+    Assertions.assertNotNull(result)
+    val errors = result.eResource.errors
+    Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
+    var benchmark = result.benchmark as BenchmarkDimacs
+    var file = benchmark.dimacses.get(0);
+    var start = System.currentTimeMillis();
+    var res = Solver.CryptoMinisat5_6_8(file)
+    var end = System.currentTimeMillis();
+    var time = end - start;
+    if (res){
+	System.out.println(file + ",cryptominisat,5.6.8,SAT," + time);
+    }else{
+        System.out.println(file + ",cryptominisat,5.6.8,UNSAT," + time);
+    }
+}
+
+
+@Test
+def void loadModel340() {
+    val result = parseHelper.parse('''
+    solver cryptominisat
+    benchmarkDIMACS "samplingfm/Benchmarks/diagStencil.sk_35_36.cnf"
     ''')
     Assertions.assertNotNull(result)
     val errors = result.eResource.errors
@@ -7848,10 +7848,10 @@ def void loadModel339() {
 
 
 @Test
-def void loadModel340() {
+def void loadModel341() {
     val result = parseHelper.parse('''
     solver sat4j-java
-    benchmarkDIMACS "samplingfm/Benchmarks/63.sk_3_64.cnf"
+    benchmarkDIMACS "samplingfm/Benchmarks/diagStencilClean.sk_41_36.cnf"
     ''')
     Assertions.assertNotNull(result)
     val errors = result.eResource.errors
@@ -7871,10 +7871,10 @@ def void loadModel340() {
 
 
 @Test
-def void loadModel341() {
+def void loadModel342() {
     val result = parseHelper.parse('''
     solver sat4j-maven
-    benchmarkDIMACS "samplingfm/Benchmarks/63.sk_3_64.cnf"
+    benchmarkDIMACS "samplingfm/Benchmarks/diagStencilClean.sk_41_36.cnf"
     ''')
     Assertions.assertNotNull(result)
     val errors = result.eResource.errors
@@ -7894,10 +7894,10 @@ def void loadModel341() {
 
 
 @Test
-def void loadModel342() {
+def void loadModel343() {
     val result = parseHelper.parse('''
     solver sat4j-jar
-    benchmarkDIMACS "samplingfm/Benchmarks/63.sk_3_64.cnf"
+    benchmarkDIMACS "samplingfm/Benchmarks/diagStencilClean.sk_41_36.cnf"
     ''')
     Assertions.assertNotNull(result)
     val errors = result.eResource.errors
@@ -7912,29 +7912,6 @@ def void loadModel342() {
 	System.out.println(file + ",sat4j-jar,2.3.1,SAT," + time);
     }else{
         System.out.println(file + ",sat4j-jar,2.3.1,UNSAT," + time);
-    }
-}
-
-
-@Test
-def void loadModel343() {
-    val result = parseHelper.parse('''
-    solver cryptominisat
-    benchmarkDIMACS "samplingfm/Benchmarks/63.sk_3_64.cnf"
-    ''')
-    Assertions.assertNotNull(result)
-    val errors = result.eResource.errors
-    Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
-    var benchmark = result.benchmark as BenchmarkDimacs
-    var file = benchmark.dimacses.get(0);
-    var start = System.currentTimeMillis();
-    var res = Solver.CryptoMinisat5_6_8(file)
-    var end = System.currentTimeMillis();
-    var time = end - start;
-    if (res){
-	System.out.println(file + ",cryptominisat,5.6.8,SAT," + time);
-    }else{
-        System.out.println(file + ",cryptominisat,5.6.8,UNSAT," + time);
     }
 }
 
@@ -7943,99 +7920,7 @@ def void loadModel343() {
 def void loadModel344() {
     val result = parseHelper.parse('''
     solver cryptominisat
-    benchmarkDIMACS "samplingfm/Benchmarks/63.sk_3_64.cnf"
-    ''')
-    Assertions.assertNotNull(result)
-    val errors = result.eResource.errors
-    Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
-    var benchmark = result.benchmark as BenchmarkDimacs
-    var file = benchmark.dimacses.get(0);
-    var start = System.currentTimeMillis();
-    var res = Solver.CryptoMinisat5_6_7(file)
-    var end = System.currentTimeMillis();
-    var time = end - start;
-    if (res){
-	System.out.println(file + ",cryptominisat,5.6.7,SAT," + time);
-    }else{
-        System.out.println(file + ",cryptominisat,5.6.7,UNSAT," + time);
-    }
-}
-
-
-@Test
-def void loadModel345() {
-    val result = parseHelper.parse('''
-    solver sat4j-java
-    benchmarkDIMACS "samplingfm/Benchmarks/signedAvg.sk_8_1020.cnf"
-    ''')
-    Assertions.assertNotNull(result)
-    val errors = result.eResource.errors
-    Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
-    var benchmark = result.benchmark as BenchmarkDimacs
-    var file = benchmark.dimacses.get(0);
-    var start = System.currentTimeMillis();
-    var res = Solver.Sat4JLibrarySolver(file)
-    var end = System.currentTimeMillis();
-    var time = end - start;
-    if (res){
-	System.out.println(file + ",sat4j-java,2.3.1,SAT," + time);
-    }else{
-        System.out.println(file + ",sat4j-java,2.3.1,UNSAT," + time);
-    }
-}
-
-
-@Test
-def void loadModel346() {
-    val result = parseHelper.parse('''
-    solver sat4j-maven
-    benchmarkDIMACS "samplingfm/Benchmarks/signedAvg.sk_8_1020.cnf"
-    ''')
-    Assertions.assertNotNull(result)
-    val errors = result.eResource.errors
-    Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
-    var benchmark = result.benchmark as BenchmarkDimacs
-    var file = benchmark.dimacses.get(0);
-    var start = System.currentTimeMillis();
-    var res = Solver.MavenSolving(file)
-    var end = System.currentTimeMillis();
-    var time = end - start;
-    if (res){
-	System.out.println(file + ",sat4j-maven,2.3.1,SAT," + time);
-    }else{
-        System.out.println(file + ",sat4j-maven,2.3.1,UNSAT," + time);
-    }
-}
-
-
-@Test
-def void loadModel347() {
-    val result = parseHelper.parse('''
-    solver sat4j-jar
-    benchmarkDIMACS "samplingfm/Benchmarks/signedAvg.sk_8_1020.cnf"
-    ''')
-    Assertions.assertNotNull(result)
-    val errors = result.eResource.errors
-    Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
-    var benchmark = result.benchmark as BenchmarkDimacs
-    var file = benchmark.dimacses.get(0);
-    var start = System.currentTimeMillis();
-    var res = Solver.JarSolving(file)
-    var end = System.currentTimeMillis();
-    var time = end - start;
-    if (res){
-	System.out.println(file + ",sat4j-jar,2.3.1,SAT," + time);
-    }else{
-        System.out.println(file + ",sat4j-jar,2.3.1,UNSAT," + time);
-    }
-}
-
-
-@Test
-def void loadModel348() {
-    val result = parseHelper.parse('''
-    solver cryptominisat
-    benchmarkDIMACS "samplingfm/Benchmarks/signedAvg.sk_8_1020.cnf"
+    benchmarkDIMACS "samplingfm/Benchmarks/diagStencilClean.sk_41_36.cnf"
     ''')
     Assertions.assertNotNull(result)
     val errors = result.eResource.errors
@@ -8055,10 +7940,125 @@ def void loadModel348() {
 
 
 @Test
+def void loadModel345() {
+    val result = parseHelper.parse('''
+    solver cryptominisat
+    benchmarkDIMACS "samplingfm/Benchmarks/diagStencilClean.sk_41_36.cnf"
+    ''')
+    Assertions.assertNotNull(result)
+    val errors = result.eResource.errors
+    Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
+    var benchmark = result.benchmark as BenchmarkDimacs
+    var file = benchmark.dimacses.get(0);
+    var start = System.currentTimeMillis();
+    var res = Solver.CryptoMinisat5_6_7(file)
+    var end = System.currentTimeMillis();
+    var time = end - start;
+    if (res){
+	System.out.println(file + ",cryptominisat,5.6.7,SAT," + time);
+    }else{
+        System.out.println(file + ",cryptominisat,5.6.7,UNSAT," + time);
+    }
+}
+
+
+@Test
+def void loadModel346() {
+    val result = parseHelper.parse('''
+    solver sat4j-java
+    benchmarkDIMACS "samplingfm/Benchmarks/tutorial3.sk_4_31.cnf"
+    ''')
+    Assertions.assertNotNull(result)
+    val errors = result.eResource.errors
+    Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
+    var benchmark = result.benchmark as BenchmarkDimacs
+    var file = benchmark.dimacses.get(0);
+    var start = System.currentTimeMillis();
+    var res = Solver.Sat4JLibrarySolver(file)
+    var end = System.currentTimeMillis();
+    var time = end - start;
+    if (res){
+	System.out.println(file + ",sat4j-java,2.3.1,SAT," + time);
+    }else{
+        System.out.println(file + ",sat4j-java,2.3.1,UNSAT," + time);
+    }
+}
+
+
+@Test
+def void loadModel347() {
+    val result = parseHelper.parse('''
+    solver sat4j-maven
+    benchmarkDIMACS "samplingfm/Benchmarks/tutorial3.sk_4_31.cnf"
+    ''')
+    Assertions.assertNotNull(result)
+    val errors = result.eResource.errors
+    Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
+    var benchmark = result.benchmark as BenchmarkDimacs
+    var file = benchmark.dimacses.get(0);
+    var start = System.currentTimeMillis();
+    var res = Solver.MavenSolving(file)
+    var end = System.currentTimeMillis();
+    var time = end - start;
+    if (res){
+	System.out.println(file + ",sat4j-maven,2.3.1,SAT," + time);
+    }else{
+        System.out.println(file + ",sat4j-maven,2.3.1,UNSAT," + time);
+    }
+}
+
+
+@Test
+def void loadModel348() {
+    val result = parseHelper.parse('''
+    solver sat4j-jar
+    benchmarkDIMACS "samplingfm/Benchmarks/tutorial3.sk_4_31.cnf"
+    ''')
+    Assertions.assertNotNull(result)
+    val errors = result.eResource.errors
+    Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
+    var benchmark = result.benchmark as BenchmarkDimacs
+    var file = benchmark.dimacses.get(0);
+    var start = System.currentTimeMillis();
+    var res = Solver.JarSolving(file)
+    var end = System.currentTimeMillis();
+    var time = end - start;
+    if (res){
+	System.out.println(file + ",sat4j-jar,2.3.1,SAT," + time);
+    }else{
+        System.out.println(file + ",sat4j-jar,2.3.1,UNSAT," + time);
+    }
+}
+
+
+@Test
 def void loadModel349() {
     val result = parseHelper.parse('''
     solver cryptominisat
-    benchmarkDIMACS "samplingfm/Benchmarks/signedAvg.sk_8_1020.cnf"
+    benchmarkDIMACS "samplingfm/Benchmarks/tutorial3.sk_4_31.cnf"
+    ''')
+    Assertions.assertNotNull(result)
+    val errors = result.eResource.errors
+    Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
+    var benchmark = result.benchmark as BenchmarkDimacs
+    var file = benchmark.dimacses.get(0);
+    var start = System.currentTimeMillis();
+    var res = Solver.CryptoMinisat5_6_8(file)
+    var end = System.currentTimeMillis();
+    var time = end - start;
+    if (res){
+	System.out.println(file + ",cryptominisat,5.6.8,SAT," + time);
+    }else{
+        System.out.println(file + ",cryptominisat,5.6.8,UNSAT," + time);
+    }
+}
+
+
+@Test
+def void loadModel350() {
+    val result = parseHelper.parse('''
+    solver cryptominisat
+    benchmarkDIMACS "samplingfm/Benchmarks/tutorial3.sk_4_31.cnf"
     ''')
     Assertions.assertNotNull(result)
     val errors = result.eResource.errors
