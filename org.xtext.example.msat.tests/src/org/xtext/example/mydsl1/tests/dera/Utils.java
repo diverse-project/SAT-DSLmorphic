@@ -26,11 +26,15 @@ public class Utils {
 		try {
 			Runtime rt = Runtime.getRuntime();
 			String[] cmd1 = {"/bin/sh", "-c", cmd + " | grep \"" + res +"\""};
-			Process proc = rt.exec(cmd);
+			Process proc = rt.exec(cmd1);
 			proc.waitFor();
 			BufferedReader b = new BufferedReader(new InputStreamReader (proc.getInputStream()));
 			String line = "";
-			return b.readLine() != null;
+			boolean bool = false;
+			if (b.readLine() != null)
+				bool= true;
+			b.close();
+			return bool;
 		}catch(Exception ex) {
 			return false;
 		}
