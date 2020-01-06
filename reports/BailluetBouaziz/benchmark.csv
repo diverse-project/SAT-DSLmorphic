@@ -1,0 +1,283 @@
+Benchmark,Solver,Parameter,Sat?,Time
+Benchmarks/107.sk_3_90.cnf,sat4j-java,,SAT,171421581
+Benchmarks/107.sk_3_90.cnf,sat4j-jar,,SAT,294133355
+Benchmarks/107.sk_3_90.cnf,minisat,rnd-freq 0.2,SAT,22672352
+Benchmarks/107.sk_3_90.cnf,minisat,rnd-freq 0.5,SAT,12521537
+Benchmarks/107.sk_3_90.cnf,minisat,rnd-freq 1.0,SAT,10830582
+Benchmarks/107.sk_3_90.cnf,cryptominisat,,SAT,13958444
+Benchmarks/109.sk_4_36.cnf,sat4j-java,,SAT,45856955
+Benchmarks/109.sk_4_36.cnf,sat4j-jar,,SAT,313403772
+Benchmarks/109.sk_4_36.cnf,minisat,rnd-freq 0.2,SAT,31348111
+Benchmarks/109.sk_4_36.cnf,minisat,rnd-freq 0.5,SAT,19568725
+Benchmarks/109.sk_4_36.cnf,minisat,rnd-freq 1.0,SAT,20216307
+Benchmarks/109.sk_4_36.cnf,cryptominisat,,SAT,11043942
+Benchmarks/10.sk_1_46.cnf,sat4j-java,,SAT,8392984
+Benchmarks/10.sk_1_46.cnf,sat4j-jar,,SAT,184634800
+Benchmarks/10.sk_1_46.cnf,minisat,rnd-freq 0.2,SAT,6785059
+Benchmarks/10.sk_1_46.cnf,minisat,rnd-freq 0.5,SAT,4671244
+Benchmarks/10.sk_1_46.cnf,minisat,rnd-freq 1.0,SAT,3569499
+Benchmarks/10.sk_1_46.cnf,cryptominisat,,SAT,7479113
+Benchmarks/110.sk_3_88.cnf,sat4j-java,,SAT,158651689
+Benchmarks/110.sk_3_88.cnf,sat4j-jar,,SAT,426598087
+Benchmarks/110.sk_3_88.cnf,minisat,rnd-freq 0.2,SAT,91601302
+Benchmarks/110.sk_3_88.cnf,minisat,rnd-freq 0.5,SAT,66489915
+Benchmarks/110.sk_3_88.cnf,minisat,rnd-freq 1.0,SAT,65140516
+Benchmarks/110.sk_3_88.cnf,cryptominisat,,SAT,34672484
+Benchmarks/111.sk_2_36.cnf,sat4j-java,,SAT,8508169
+Benchmarks/111.sk_2_36.cnf,sat4j-jar,,SAT,178296315
+Benchmarks/111.sk_2_36.cnf,minisat,rnd-freq 0.2,SAT,12953409
+Benchmarks/111.sk_2_36.cnf,minisat,rnd-freq 0.5,SAT,8802678
+Benchmarks/111.sk_2_36.cnf,minisat,rnd-freq 1.0,SAT,7870808
+Benchmarks/111.sk_2_36.cnf,cryptominisat,,SAT,6392520
+Benchmarks/17.sk_3_45.cnf,sat4j-java,,SAT,46289515
+Benchmarks/17.sk_3_45.cnf,sat4j-jar,,SAT,351317261
+Benchmarks/17.sk_3_45.cnf,minisat,rnd-freq 0.2,SAT,48371321
+Benchmarks/17.sk_3_45.cnf,minisat,rnd-freq 0.5,SAT,35609250
+Benchmarks/17.sk_3_45.cnf,minisat,rnd-freq 1.0,SAT,36963714
+Benchmarks/17.sk_3_45.cnf,cryptominisat,,SAT,20546604
+Benchmarks/19.sk_3_48.cnf,sat4j-java,,SAT,27167132
+Benchmarks/19.sk_3_48.cnf,sat4j-jar,,SAT,360752690
+Benchmarks/19.sk_3_48.cnf,minisat,rnd-freq 0.2,SAT,52433386
+Benchmarks/19.sk_3_48.cnf,minisat,rnd-freq 0.5,SAT,41188568
+Benchmarks/19.sk_3_48.cnf,minisat,rnd-freq 1.0,SAT,42877451
+Benchmarks/19.sk_3_48.cnf,cryptominisat,,SAT,16904063
+Benchmarks/20.sk_1_51.cnf,sat4j-java,,SAT,47671518
+Benchmarks/20.sk_1_51.cnf,sat4j-jar,,SAT,336859342
+Benchmarks/20.sk_1_51.cnf,minisat,rnd-freq 0.2,SAT,120846005
+Benchmarks/20.sk_1_51.cnf,minisat,rnd-freq 0.5,SAT,78330903
+Benchmarks/20.sk_1_51.cnf,minisat,rnd-freq 1.0,SAT,62791926
+Benchmarks/20.sk_1_51.cnf,cryptominisat,,SAT,27791651
+Benchmarks/27.sk_3_32.cnf,sat4j-java,,SAT,3557126
+Benchmarks/27.sk_3_32.cnf,sat4j-jar,,SAT,152047210
+Benchmarks/27.sk_3_32.cnf,minisat,rnd-freq 0.2,SAT,6448516
+Benchmarks/27.sk_3_32.cnf,minisat,rnd-freq 0.5,SAT,4601860
+Benchmarks/27.sk_3_32.cnf,minisat,rnd-freq 1.0,SAT,4997343
+Benchmarks/27.sk_3_32.cnf,cryptominisat,,SAT,5492373
+Benchmarks/29.sk_3_45.cnf,sat4j-java,,SAT,30754556
+Benchmarks/29.sk_3_45.cnf,sat4j-jar,,SAT,512560681
+Benchmarks/29.sk_3_45.cnf,minisat,rnd-freq 0.2,SAT,95148215
+Benchmarks/29.sk_3_45.cnf,minisat,rnd-freq 0.5,SAT,50399059
+Benchmarks/29.sk_3_45.cnf,minisat,rnd-freq 1.0,SAT,48090836
+Benchmarks/29.sk_3_45.cnf,cryptominisat,,SAT,19738491
+Benchmarks/30.sk_5_76.cnf,sat4j-java,,SAT,95801442
+Benchmarks/30.sk_5_76.cnf,sat4j-jar,,SAT,707030253
+Benchmarks/30.sk_5_76.cnf,minisat,rnd-freq 0.2,SAT,209050495
+Benchmarks/30.sk_5_76.cnf,minisat,rnd-freq 0.5,SAT,172652000
+Benchmarks/30.sk_5_76.cnf,minisat,rnd-freq 1.0,SAT,168992301
+Benchmarks/30.sk_5_76.cnf,cryptominisat,,SAT,62401122
+Benchmarks/32.sk_4_38.cnf,sat4j-java,,SAT,5928935
+Benchmarks/32.sk_4_38.cnf,sat4j-jar,,SAT,201003068
+Benchmarks/32.sk_4_38.cnf,minisat,rnd-freq 0.2,SAT,13198846
+Benchmarks/32.sk_4_38.cnf,minisat,rnd-freq 0.5,SAT,7370912
+Benchmarks/32.sk_4_38.cnf,minisat,rnd-freq 1.0,SAT,6302085
+Benchmarks/32.sk_4_38.cnf,cryptominisat,,SAT,8692177
+Benchmarks/35.sk_3_52.cnf,sat4j-java,,SAT,4765604
+Benchmarks/35.sk_3_52.cnf,sat4j-jar,,SAT,190048636
+Benchmarks/35.sk_3_52.cnf,minisat,rnd-freq 0.2,SAT,20128950
+Benchmarks/35.sk_3_52.cnf,minisat,rnd-freq 0.5,SAT,7591555
+Benchmarks/35.sk_3_52.cnf,minisat,rnd-freq 1.0,SAT,5303011
+Benchmarks/35.sk_3_52.cnf,cryptominisat,,SAT,9346097
+Benchmarks/36.sk_3_77.cnf,sat4j-java,,UNSAT,8897794
+Benchmarks/36.sk_3_77.cnf,sat4j-jar,,UNSAT,255135189
+Benchmarks/36.sk_3_77.cnf,minisat,rnd-freq 0.2,UNSAT,17727015
+Benchmarks/36.sk_3_77.cnf,minisat,rnd-freq 0.5,UNSAT,10710974
+Benchmarks/36.sk_3_77.cnf,minisat,rnd-freq 1.0,UNSAT,15405756
+Benchmarks/36.sk_3_77.cnf,cryptominisat,,UNSAT,12720811
+Benchmarks/51.sk_4_38.cnf,sat4j-java,,SAT,9837544
+Benchmarks/51.sk_4_38.cnf,sat4j-jar,,SAT,215645991
+Benchmarks/51.sk_4_38.cnf,minisat,rnd-freq 0.2,SAT,18526978
+Benchmarks/51.sk_4_38.cnf,minisat,rnd-freq 0.5,SAT,11085565
+Benchmarks/51.sk_4_38.cnf,minisat,rnd-freq 1.0,SAT,12120867
+Benchmarks/51.sk_4_38.cnf,cryptominisat,,SAT,9056771
+Benchmarks/53.sk_4_32.cnf,sat4j-java,,SAT,7075074
+Benchmarks/53.sk_4_32.cnf,sat4j-jar,,SAT,182512652
+Benchmarks/53.sk_4_32.cnf,minisat,rnd-freq 0.2,SAT,12577670
+Benchmarks/53.sk_4_32.cnf,minisat,rnd-freq 0.5,SAT,8231811
+Benchmarks/53.sk_4_32.cnf,minisat,rnd-freq 1.0,SAT,7454486
+Benchmarks/53.sk_4_32.cnf,cryptominisat,,SAT,9353684
+Benchmarks/54.sk_12_97.cnf,sat4j-java,,SAT,77641406
+Benchmarks/54.sk_12_97.cnf,sat4j-jar,,SAT,537790896
+Benchmarks/54.sk_12_97.cnf,minisat,rnd-freq 0.2,SAT,170512023
+Benchmarks/54.sk_12_97.cnf,minisat,rnd-freq 0.5,SAT,129585246
+Benchmarks/54.sk_12_97.cnf,minisat,rnd-freq 1.0,SAT,138937003
+Benchmarks/54.sk_12_97.cnf,cryptominisat,,SAT,40341891
+Benchmarks/55.sk_3_46.cnf,sat4j-java,,SAT,5620872
+Benchmarks/55.sk_3_46.cnf,sat4j-jar,,SAT,219954938
+Benchmarks/55.sk_3_46.cnf,minisat,rnd-freq 0.2,SAT,11436947
+Benchmarks/55.sk_3_46.cnf,minisat,rnd-freq 0.5,SAT,7501139
+Benchmarks/55.sk_3_46.cnf,minisat,rnd-freq 1.0,SAT,7091571
+Benchmarks/55.sk_3_46.cnf,cryptominisat,,SAT,12578818
+Benchmarks/56.sk_6_38.cnf,sat4j-java,,SAT,8224268
+Benchmarks/56.sk_6_38.cnf,sat4j-jar,,SAT,219647557
+Benchmarks/56.sk_6_38.cnf,minisat,rnd-freq 0.2,SAT,19952808
+Benchmarks/56.sk_6_38.cnf,minisat,rnd-freq 0.5,SAT,11869096
+Benchmarks/56.sk_6_38.cnf,minisat,rnd-freq 1.0,SAT,12481880
+Benchmarks/56.sk_6_38.cnf,cryptominisat,,SAT,9855834
+Benchmarks/57.sk_4_64.cnf,sat4j-java,,SAT,16283597
+Benchmarks/57.sk_4_64.cnf,sat4j-jar,,SAT,266519864
+Benchmarks/57.sk_4_64.cnf,minisat,rnd-freq 0.2,SAT,24076143
+Benchmarks/57.sk_4_64.cnf,minisat,rnd-freq 0.5,SAT,16364285
+Benchmarks/57.sk_4_64.cnf,minisat,rnd-freq 1.0,SAT,14159118
+Benchmarks/57.sk_4_64.cnf,cryptominisat,,SAT,13251316
+Benchmarks/63.sk_3_64.cnf,sat4j-java,,SAT,16347950
+Benchmarks/63.sk_3_64.cnf,sat4j-jar,,SAT,281368329
+Benchmarks/63.sk_3_64.cnf,minisat,rnd-freq 0.2,SAT,43330966
+Benchmarks/63.sk_3_64.cnf,minisat,rnd-freq 0.5,SAT,32116320
+Benchmarks/63.sk_3_64.cnf,minisat,rnd-freq 1.0,SAT,31656190
+Benchmarks/63.sk_3_64.cnf,cryptominisat,,SAT,13972292
+Benchmarks/70.sk_3_40.cnf,sat4j-java,,SAT,16796159
+Benchmarks/70.sk_3_40.cnf,sat4j-jar,,SAT,261308365
+Benchmarks/70.sk_3_40.cnf,minisat,rnd-freq 0.2,SAT,32959553
+Benchmarks/70.sk_3_40.cnf,minisat,rnd-freq 0.5,SAT,23199540
+Benchmarks/70.sk_3_40.cnf,minisat,rnd-freq 1.0,SAT,22575535
+Benchmarks/70.sk_3_40.cnf,cryptominisat,,SAT,11128412
+Benchmarks/71.sk_3_65.cnf,sat4j-java,,SAT,26924294
+Benchmarks/71.sk_3_65.cnf,sat4j-jar,,SAT,285168934
+Benchmarks/71.sk_3_65.cnf,minisat,rnd-freq 0.2,SAT,31759873
+Benchmarks/71.sk_3_65.cnf,minisat,rnd-freq 0.5,SAT,27085280
+Benchmarks/71.sk_3_65.cnf,minisat,rnd-freq 1.0,SAT,27921474
+Benchmarks/71.sk_3_65.cnf,cryptominisat,,SAT,11271452
+Benchmarks/77.sk_3_44.cnf,sat4j-java,,SAT,18169386
+Benchmarks/77.sk_3_44.cnf,sat4j-jar,,SAT,306370129
+Benchmarks/77.sk_3_44.cnf,minisat,rnd-freq 0.2,SAT,51118465
+Benchmarks/77.sk_3_44.cnf,minisat,rnd-freq 0.5,SAT,40780233
+Benchmarks/77.sk_3_44.cnf,minisat,rnd-freq 1.0,SAT,32228571
+Benchmarks/77.sk_3_44.cnf,cryptominisat,,SAT,19109986
+Benchmarks/79.sk_4_40.cnf,sat4j-java,,UNSAT,1307629
+Benchmarks/79.sk_4_40.cnf,sat4j-jar,,UNSAT,200393812
+Benchmarks/79.sk_4_40.cnf,minisat,rnd-freq 0.2,UNSAT,4255148
+Benchmarks/79.sk_4_40.cnf,minisat,rnd-freq 0.5,UNSAT,4440823
+Benchmarks/79.sk_4_40.cnf,minisat,rnd-freq 1.0,UNSAT,4534025
+Benchmarks/79.sk_4_40.cnf,cryptominisat,,UNSAT,8647708
+Benchmarks/7.sk_4_50.cnf,sat4j-java,,SAT,17702942
+Benchmarks/7.sk_4_50.cnf,sat4j-jar,,SAT,306435487
+Benchmarks/7.sk_4_50.cnf,minisat,rnd-freq 0.2,SAT,49326818
+Benchmarks/7.sk_4_50.cnf,minisat,rnd-freq 0.5,SAT,37634800
+Benchmarks/7.sk_4_50.cnf,minisat,rnd-freq 1.0,SAT,35700491
+Benchmarks/7.sk_4_50.cnf,cryptominisat,,SAT,15104993
+Benchmarks/80.sk_2_48.cnf,sat4j-java,,SAT,13718651
+Benchmarks/80.sk_2_48.cnf,sat4j-jar,,SAT,264260361
+Benchmarks/80.sk_2_48.cnf,minisat,rnd-freq 0.2,SAT,45045646
+Benchmarks/80.sk_2_48.cnf,minisat,rnd-freq 0.5,SAT,31235306
+Benchmarks/80.sk_2_48.cnf,minisat,rnd-freq 1.0,SAT,33288107
+Benchmarks/80.sk_2_48.cnf,cryptominisat,,SAT,11699001
+Benchmarks/81.sk_5_51.cnf,sat4j-java,,SAT,29791701
+Benchmarks/81.sk_5_51.cnf,sat4j-jar,,SAT,342357169
+Benchmarks/81.sk_5_51.cnf,minisat,rnd-freq 0.2,SAT,70383345
+Benchmarks/81.sk_5_51.cnf,minisat,rnd-freq 0.5,SAT,56404999
+Benchmarks/81.sk_5_51.cnf,minisat,rnd-freq 1.0,SAT,66721861
+Benchmarks/81.sk_5_51.cnf,cryptominisat,,SAT,39079395
+Benchmarks/84.sk_4_77.cnf,sat4j-java,,SAT,44277831
+Benchmarks/84.sk_4_77.cnf,sat4j-jar,,SAT,476199399
+Benchmarks/84.sk_4_77.cnf,minisat,rnd-freq 0.2,SAT,42534885
+Benchmarks/84.sk_4_77.cnf,minisat,rnd-freq 0.5,SAT,25799474
+Benchmarks/84.sk_4_77.cnf,minisat,rnd-freq 1.0,SAT,25663307
+Benchmarks/84.sk_4_77.cnf,cryptominisat,,SAT,38255627
+Benchmarks/ActivityService2.sk_10_27.cnf,sat4j-java,,SAT,14809311
+Benchmarks/ActivityService2.sk_10_27.cnf,sat4j-jar,,SAT,244614710
+Benchmarks/ActivityService2.sk_10_27.cnf,minisat,rnd-freq 0.2,SAT,20542904
+Benchmarks/ActivityService2.sk_10_27.cnf,minisat,rnd-freq 0.5,SAT,16010740
+Benchmarks/ActivityService2.sk_10_27.cnf,minisat,rnd-freq 1.0,SAT,14985661
+Benchmarks/ActivityService2.sk_10_27.cnf,cryptominisat,,SAT,8077886
+Benchmarks/ActivityService.sk_11_27.cnf,sat4j-java,,SAT,5835216
+Benchmarks/ActivityService.sk_11_27.cnf,sat4j-jar,,SAT,193401399
+Benchmarks/ActivityService.sk_11_27.cnf,minisat,rnd-freq 0.2,SAT,17559272
+Benchmarks/ActivityService.sk_11_27.cnf,minisat,rnd-freq 0.5,SAT,13346937
+Benchmarks/ActivityService.sk_11_27.cnf,minisat,rnd-freq 1.0,SAT,11937769
+Benchmarks/ActivityService.sk_11_27.cnf,cryptominisat,,SAT,9236794
+Benchmarks/compress.sk_17_291.cnf,sat4j-java,,SAT,7855896415
+Benchmarks/compress.sk_17_291.cnf,sat4j-jar,,SAT,6815197852
+Benchmarks/compress.sk_17_291.cnf,minisat,rnd-freq 0.2,SAT,583316057
+Benchmarks/compress.sk_17_291.cnf,minisat,rnd-freq 0.5,SAT,600520449
+Benchmarks/compress.sk_17_291.cnf,minisat,rnd-freq 1.0,SAT,16497713014
+Benchmarks/compress.sk_17_291.cnf,cryptominisat,,SAT,1173997037
+Benchmarks/ConcreteActivityService.sk_13_28.cnf,sat4j-java,,SAT,11667642
+Benchmarks/ConcreteActivityService.sk_13_28.cnf,sat4j-jar,,SAT,236525463
+Benchmarks/ConcreteActivityService.sk_13_28.cnf,minisat,rnd-freq 0.2,SAT,26038129
+Benchmarks/ConcreteActivityService.sk_13_28.cnf,minisat,rnd-freq 0.5,SAT,20781396
+Benchmarks/ConcreteActivityService.sk_13_28.cnf,minisat,rnd-freq 1.0,SAT,20778825
+Benchmarks/ConcreteActivityService.sk_13_28.cnf,cryptominisat,,SAT,10100062
+Benchmarks/ConcreteRoleAffectationService.sk_119_273.cnf,sat4j-java,,SAT,42115112579
+Benchmarks/ConcreteRoleAffectationService.sk_119_273.cnf,sat4j-jar,,SAT,46144162725
+Benchmarks/ConcreteRoleAffectationService.sk_119_273.cnf,minisat,rnd-freq 0.2,SAT,4927078010
+Benchmarks/ConcreteRoleAffectationService.sk_119_273.cnf,minisat,rnd-freq 0.5,SAT,5072756506
+Benchmarks/ConcreteRoleAffectationService.sk_119_273.cnf,minisat,rnd-freq 1.0,SAT,5641993082
+Benchmarks/ConcreteRoleAffectationService.sk_119_273.cnf,cryptominisat,,SAT,2606345791
+Benchmarks/diagStencilClean.sk_41_36.cnf,sat4j-java,,SAT,1055391135914
+Benchmarks/diagStencilClean.sk_41_36.cnf,sat4j-jar,,SAT,1053646316302
+Benchmarks/diagStencilClean.sk_41_36.cnf,minisat,rnd-freq 0.2,SAT,76423627419
+Benchmarks/diagStencilClean.sk_41_36.cnf,minisat,rnd-freq 0.5,SAT,97084949031
+Benchmarks/diagStencilClean.sk_41_36.cnf,minisat,rnd-freq 1.0,SAT,1100981879714
+Benchmarks/diagStencilClean.sk_41_36.cnf,cryptominisat,,SAT,160779823767
+Benchmarks/diagStencil.sk_35_36.cnf,sat4j-java,,SAT,428702471023
+Benchmarks/diagStencil.sk_35_36.cnf,sat4j-jar,,SAT,444709954639
+Benchmarks/diagStencil.sk_35_36.cnf,minisat,rnd-freq 0.2,SAT,40962288505
+Benchmarks/diagStencil.sk_35_36.cnf,minisat,rnd-freq 0.5,SAT,57946402030
+Benchmarks/diagStencil.sk_35_36.cnf,minisat,rnd-freq 1.0,SAT,438456778372
+Benchmarks/diagStencil.sk_35_36.cnf,cryptominisat,,SAT,140087383521
+Benchmarks/doublyLinkedList.sk_8_37.cnf,sat4j-java,,SAT,221908060
+Benchmarks/doublyLinkedList.sk_8_37.cnf,sat4j-jar,,SAT,543911962
+Benchmarks/doublyLinkedList.sk_8_37.cnf,minisat,rnd-freq 0.2,SAT,65007655
+Benchmarks/doublyLinkedList.sk_8_37.cnf,minisat,rnd-freq 0.5,SAT,50873862
+Benchmarks/doublyLinkedList.sk_8_37.cnf,minisat,rnd-freq 1.0,SAT,46946341
+Benchmarks/doublyLinkedList.sk_8_37.cnf,cryptominisat,,SAT,29930454
+Benchmarks/enqueueSeqSK.sk_10_42.cnf,sat4j-java,,SAT,171767656
+Benchmarks/enqueueSeqSK.sk_10_42.cnf,sat4j-jar,,SAT,663790364
+Benchmarks/enqueueSeqSK.sk_10_42.cnf,minisat,rnd-freq 0.2,SAT,151975768
+Benchmarks/enqueueSeqSK.sk_10_42.cnf,minisat,rnd-freq 0.5,SAT,137053239
+Benchmarks/enqueueSeqSK.sk_10_42.cnf,minisat,rnd-freq 1.0,SAT,1790425730
+Benchmarks/enqueueSeqSK.sk_10_42.cnf,cryptominisat,,SAT,157349865
+Benchmarks/GuidanceService2.sk_2_27.cnf,sat4j-java,,SAT,176297908
+Benchmarks/GuidanceService2.sk_2_27.cnf,sat4j-jar,,SAT,168251604
+Benchmarks/GuidanceService2.sk_2_27.cnf,minisat,rnd-freq 0.2,SAT,5327974
+Benchmarks/GuidanceService2.sk_2_27.cnf,minisat,rnd-freq 0.5,SAT,4345889
+Benchmarks/GuidanceService2.sk_2_27.cnf,minisat,rnd-freq 1.0,SAT,4254561
+Benchmarks/GuidanceService2.sk_2_27.cnf,cryptominisat,,SAT,5775583
+Benchmarks/GuidanceService.sk_4_27.cnf,sat4j-java,,SAT,4816031
+Benchmarks/GuidanceService.sk_4_27.cnf,sat4j-jar,,SAT,179211992
+Benchmarks/GuidanceService.sk_4_27.cnf,minisat,rnd-freq 0.2,SAT,11454086
+Benchmarks/GuidanceService.sk_4_27.cnf,minisat,rnd-freq 0.5,SAT,8203570
+Benchmarks/GuidanceService.sk_4_27.cnf,minisat,rnd-freq 1.0,SAT,9055434
+Benchmarks/GuidanceService.sk_4_27.cnf,cryptominisat,,SAT,7080746
+Benchmarks/isolateRightmost.sk_7_481.cnf,sat4j-java,,SAT,56273635
+Benchmarks/isolateRightmost.sk_7_481.cnf,sat4j-jar,,SAT,538787028
+Benchmarks/isolateRightmost.sk_7_481.cnf,minisat,rnd-freq 0.2,SAT,84295660
+Benchmarks/isolateRightmost.sk_7_481.cnf,minisat,rnd-freq 0.5,SAT,66899910
+Benchmarks/isolateRightmost.sk_7_481.cnf,minisat,rnd-freq 1.0,SAT,274032692
+Benchmarks/isolateRightmost.sk_7_481.cnf,cryptominisat,,SAT,31745170
+Benchmarks/IssueServiceImpl.sk_8_30.cnf,sat4j-java,,SAT,6672516
+Benchmarks/IssueServiceImpl.sk_8_30.cnf,sat4j-jar,,SAT,190411833
+Benchmarks/IssueServiceImpl.sk_8_30.cnf,minisat,rnd-freq 0.2,SAT,14109975
+Benchmarks/IssueServiceImpl.sk_8_30.cnf,minisat,rnd-freq 0.5,SAT,9226941
+Benchmarks/IssueServiceImpl.sk_8_30.cnf,minisat,rnd-freq 1.0,SAT,9251062
+Benchmarks/IssueServiceImpl.sk_8_30.cnf,cryptominisat,,SAT,7205887
+Benchmarks/IterationService.sk_12_27.cnf,sat4j-java,,SAT,6144445
+Benchmarks/IterationService.sk_12_27.cnf,sat4j-jar,,SAT,193971571
+Benchmarks/IterationService.sk_12_27.cnf,minisat,rnd-freq 0.2,SAT,28451071
+Benchmarks/IterationService.sk_12_27.cnf,minisat,rnd-freq 0.5,SAT,14474330
+Benchmarks/IterationService.sk_12_27.cnf,minisat,rnd-freq 1.0,SAT,15466155
+Benchmarks/IterationService.sk_12_27.cnf,cryptominisat,,SAT,7744160
+Benchmarks/jburnim_morton.sk_13_530.cnf,sat4j-java,,SAT,4307385039
+Benchmarks/jburnim_morton.sk_13_530.cnf,sat4j-jar,,SAT,5316855488
+Benchmarks/jburnim_morton.sk_13_530.cnf,minisat,rnd-freq 0.2,SAT,892872553
+Benchmarks/jburnim_morton.sk_13_530.cnf,minisat,rnd-freq 0.5,SAT,1001264375
+Benchmarks/jburnim_morton.sk_13_530.cnf,minisat,rnd-freq 1.0,SAT,908729768
+Benchmarks/jburnim_morton.sk_13_530.cnf,cryptominisat,,SAT,3337811571
+Benchmarks/karatsuba.sk_7_41.cnf,sat4j-java,,SAT,3522352219
+Benchmarks/karatsuba.sk_7_41.cnf,sat4j-jar,,SAT,4361710239
+Benchmarks/karatsuba.sk_7_41.cnf,minisat,rnd-freq 0.2,SAT,4094677798
+Benchmarks/karatsuba.sk_7_41.cnf,minisat,rnd-freq 0.5,SAT,1004927389
+Benchmarks/karatsuba.sk_7_41.cnf,minisat,rnd-freq 1.0,SAT,57275543170
+Benchmarks/karatsuba.sk_7_41.cnf,cryptominisat,,SAT,1039525995
+Benchmarks/listReverse.sk_11_43.cnf,sat4j-java,,TIMEOUT,3600092454097
+Benchmarks/listReverse.sk_11_43.cnf,sat4j-jar,,TIMEOUT,3601085344719
+Benchmarks/listReverse.sk_11_43.cnf,minisat,rnd-freq 0.2,SAT,314610298497
+Benchmarks/listReverse.sk_11_43.cnf,minisat,rnd-freq 0.5,SAT,2250986529609
+Benchmarks/listReverse.sk_11_43.cnf,minisat,rnd-freq 1.0,TIMEOUT,3605099267974
+Benchmarks/listReverse.sk_11_43.cnf,cryptominisat,,SAT,616421455684
+Benchmarks/log2.sk_72_391.cnf,sat4j-java,,SAT,35044624980
+Benchmarks/log2.sk_72_391.cnf,sat4j-jar,,SAT,34579457432
+Benchmarks/log2.sk_72_391.cnf,minisat,rnd-freq 0.2,SAT,4215544582
+Benchmarks/log2.sk_72_391.cnf,minisat,rnd-freq 0.5,SAT,10088311951
+Benchmarks/log2.sk_72_391.cnf,minisat,rnd-freq 1.0,SAT,126874938052
+Benchmarks/log2.sk_72_391.cnf,cryptominisat,,SAT,3028566822

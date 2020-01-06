@@ -12,6 +12,11 @@ import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.^extension.ExtendWith
 import org.xtext.example.mydsl1.mSat.SATMorphic
 import org.xtext.example.mydsl1.tests.MSatInjectorProvider
+import org.xtext.example.mydsl1.mSat.Expression
+import java.util.HashMap
+import java.nio.file.Files
+import java.nio.file.Paths
+import java.io.BufferedReader
 
 @ExtendWith(InjectionExtension)
 @InjectWith(MSatInjectorProvider)
