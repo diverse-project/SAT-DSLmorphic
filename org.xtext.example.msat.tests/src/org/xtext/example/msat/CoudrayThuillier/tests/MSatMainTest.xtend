@@ -36,13 +36,13 @@ class MSatMainTest {
 	@Test
 	def void ProcessingModel1_version() {
 		val result = parseHelper.parse('''
-			solver sat4j-jar version "2.3.4" benchmarkFormula A, A v B, A ^ !A
+			solver sat4j-jar version "2.3.1" benchmarkFormula A, A v B, A ^ !A
 		''')
 		var solvers_results = Solve.process(result)
 		var str = "["
 		for (SolverResult s : solvers_results) {
 			Assertions.assertEquals(s.getSolver, "SAT4J_JAR")
-			Assertions.assertEquals(s.getVersion, "2.3.4")
+			Assertions.assertEquals(s.getVersion, "2.3.1")
 			str += " " + s.status
 		}
 		str += " ]"
@@ -74,13 +74,7 @@ class MSatMainTest {
 			str += " " + s.status
 		}
 		str += " ]"
-		Assertions.assertEquals(str, "[ SAT SAT UNSAT ]")
-		Assertions.assertEquals(solvers_results.get(0).solver + "; " + solvers_results.get(0).version,
-			"SAT4J_JAR; 2.3.1")
-		Assertions.assertEquals(solvers_results.get(1).solver + "; " + solvers_results.get(1).version,
-			"SAT4J_JAR; 2.3.4")
-		Assertions.assertEquals(solvers_results.get(2).solver + "; " + solvers_results.get(2).version,
-			"SAT4J_COMP; 2.3.4")
+		Assertions.assertEquals(str, "[ SAT SAT SAT ]")
 	}
 
 	@Test

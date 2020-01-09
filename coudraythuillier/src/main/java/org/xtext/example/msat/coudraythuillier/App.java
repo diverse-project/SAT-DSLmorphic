@@ -13,7 +13,7 @@ import org.sat4j.specs.TimeoutException;
 
 public class App 
 {
-	static String dimacs_path = "/home/kerian/Documents/M1-SIF/DSL/SAT-DSLmorphic/org.xtext.example.msat.tests/Benchmark/xpose.sk_6_134.cnf";
+	static String dimacs_path = "/home/kerian/Documents/M1-SIF/DSL/SAT-DSLmorphic/org.xtext.example.msat.tests/temp.dimacs";
 	
     public static void main(String[] args)
     {
